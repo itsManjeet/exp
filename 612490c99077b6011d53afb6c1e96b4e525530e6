@@ -1,0 +1,7 @@
+Code-Review+1: Rob Pike <r@golang.org>
+Code-Review+2: Andrew Gerrand <adg@golang.org>
+Submitted-by: Andrew Gerrand <adg@golang.org>
+Submitted-at: Tue, 17 Feb 2015 00:19:26 +0000
+Reviewed-on: https://go-review.googlesource.com/3990
+Project: exp
+Branch: refs/heads/master
