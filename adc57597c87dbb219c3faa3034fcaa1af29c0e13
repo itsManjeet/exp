@@ -1,0 +1,6 @@
+Code-Review+2: Minux Ma <minux@golang.org>
+Submitted-by: Andrew Gerrand <adg@golang.org>
+Submitted-at: Fri, 20 Feb 2015 05:00:47 +0000
+Reviewed-on: https://go-review.googlesource.com/5412
+Project: exp
+Branch: refs/heads/master
