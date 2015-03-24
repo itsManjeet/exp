@@ -1,0 +1,6 @@
+Code-Review+2: Rob Pike <r@golang.org>
+Submitted-by: Marcel van Lohuizen <mpvl@golang.org>
+Submitted-at: Tue, 24 Mar 2015 14:06:09 +0000
+Reviewed-on: https://go-review.googlesource.com/7990
+Project: exp
+Branch: refs/heads/master
