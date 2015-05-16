@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8dc2ad55_1bec5c08",
+        "filename": "rand/modulo_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 8015
+      },
+      "writtenOn": "2015-05-16T03:11:46Z",
+      "side": 1,
+      "message": "s/Uint64/Uint64n/",
+      "range": {
+        "startLine": 5,
+        "startChar": 47,
+        "endLine": 5,
+        "endChar": 53
+      },
+      "revId": "16a2fdc03dc5abdfc9e9426c56ae37af04595a5f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8dc2ad55_9b194cb1",
+        "filename": "rand/modulo_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 8015
+      },
+      "writtenOn": "2015-05-16T03:11:46Z",
+      "side": 1,
+      "message": "I think switching these variable names around makes more sense:\n\nvar src modSource\nrng :\u003d New(\u0026src)",
+      "range": {
+        "startLine": 39,
+        "startChar": 1,
+        "endLine": 39,
+        "endChar": 4
+      },
+      "revId": "16a2fdc03dc5abdfc9e9426c56ae37af04595a5f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
