@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ddfa2f3_491ae5ff",
+        "filename": "shiny/shiny.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2015-07-23T10:13:11Z",
+      "side": 1,
+      "message": "i don\u0027t believe this is what it does. it\u0027s one layer below what i would call a GUI.\n\nPackage shiny provides interfaces for portable two-dimensional graphics and event handling.",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 76
+      },
+      "revId": "d9eda94851a92424d4d87f962c224292f345dd37",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ddfa2f3_e91e39f1",
+        "filename": "shiny/shiny.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2015-07-23T10:13:11Z",
+      "side": 1,
+      "message": "you should provide a paragraph overviewing the basic design.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 2
+      },
+      "revId": "d9eda94851a92424d4d87f962c224292f345dd37",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ddfa2f3_091cddf6",
+        "filename": "shiny/shiny.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2015-07-23T10:13:11Z",
+      "side": 1,
+      "message": "why not draw.Over? why do you need this?",
+      "range": {
+        "startLine": 125,
+        "startChar": 7,
+        "endLine": 125,
+        "endChar": 8
+      },
+      "revId": "d9eda94851a92424d4d87f962c224292f345dd37",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
