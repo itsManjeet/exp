@@ -65,6 +65,24 @@
     },
     {
       "key": {
+        "uuid": "8dcab237_2ebe871f",
+        "filename": "shiny/shiny.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 9165
+      },
+      "writtenOn": "2015-07-23T17:40:36Z",
+      "side": 1,
+      "message": "Maybe worth clarifying whether or not is allowed/expected for Textures and Buffers from a Window to be used in another Window (from the same implementation).",
+      "parentUuid": "8dcab237_8e3f7b3f",
+      "revId": "d9eda94851a92424d4d87f962c224292f345dd37",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8dcab237_2e1a07ff",
         "filename": "shiny/shiny.go",
         "patchSetId": 1
