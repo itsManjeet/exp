@@ -48,6 +48,23 @@
     },
     {
       "key": {
+        "uuid": "8dcab237_8e3f7b3f",
+        "filename": "shiny/shiny.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 9165
+      },
+      "writtenOn": "2015-07-23T16:55:19Z",
+      "side": 1,
+      "message": "Should functions that take Buffer and Texture return error when the passed buffer is not compatible?",
+      "revId": "d9eda94851a92424d4d87f962c224292f345dd37",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8dcab237_2e1a07ff",
         "filename": "shiny/shiny.go",
         "patchSetId": 1
@@ -76,6 +93,41 @@
       "writtenOn": "2015-07-23T16:16:42Z",
       "side": 1,
       "message": "Is this motivated by X11 in some way? Because I don\u0027t understand tying these events to a window in terms of the underlying graphics systems on modern machines.\n\nA Texture represents a piece of graphics memory. Operations like Scale or Transform are done on or between pieces of graphics memory, so I would expect these to be methods on a texture.\n\nBesides the fact this doesn\u0027t fit with the way the underlying systems work, this is conceptually limiting. I would like to be able to upload a Buffer into a Texture, do transformations on it and then Download it. (The GPU has a couple of orders of magnitude on CPU implementations of Scale and Transform.) Forcing it onto the screen is limiting.",
+      "revId": "d9eda94851a92424d4d87f962c224292f345dd37",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8dcab237_ae3cb74a",
+        "filename": "shiny/shiny.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 9165
+      },
+      "writtenOn": "2015-07-23T16:55:19Z",
+      "side": 1,
+      "message": "My understanding is this is not limited to X11. At least on OpenGL those operations happen in a context (in this case a Window), i.e. you usually don\u0027t mutate a texture first and then render, but you render using the texture as input to the operations to render.",
+      "parentUuid": "8dcab237_0e15cbcd",
+      "revId": "d9eda94851a92424d4d87f962c224292f345dd37",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8dcab237_6edecf8e",
+        "filename": "shiny/shiny.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 9165
+      },
+      "writtenOn": "2015-07-23T16:55:19Z",
+      "side": 1,
+      "message": "Would be worth to make Copy and Scale functions that use this one? Interface implementation internally could decide the most efficient way to do it based on the src2dst parameter.",
       "revId": "d9eda94851a92424d4d87f962c224292f345dd37",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
