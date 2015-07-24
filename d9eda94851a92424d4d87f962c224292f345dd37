@@ -48,6 +48,52 @@
     },
     {
       "key": {
+        "uuid": "8d92b264_0bb33d39",
+        "filename": "shiny/shiny.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 6010
+      },
+      "writtenOn": "2015-07-24T01:15:39Z",
+      "side": 1,
+      "message": "What happens if you don\u0027t read this, or read it too slowly?\n\nGeneral thoughts:\n\nHaving built a couple of systems using channels for events like this I\u0027m not *entirely* sure that a channel is the right delivery mechanism. It *seems* to be right, and of course it makes it trivial to select on events from several different sources, but things become awkward when building GUI elements on top of it - for example, a widget might want to read a sequence of events from an event channel but only if the first event actually hits the widget. With a channel, you can\u0027t do that because you can\u0027t \"unread\" an event, so the final destination will miss out on the initial mouse-down event.\n\nBut perhaps that\u0027s something that should be left to a higher layer.\n\nFWIW I\u0027m wondering about something along the general lines of:\n\n    type Event interface {\n        Timestamp() time.Time\n    }\n\n    type Window interface {\n        // Events returns a source of events from the window.\n        // The EventSource must be closed when finished with.\n        // Only one EventSource from a given window\n        // may be in used at any one time.\n        Events() EventSource\n\n        // Send delivers an event to the window.\n        Send(Event)\n\n        // etc\n    }\n\n    // EventSource represents a source of UI events\n    // such as key presses and mouse clicks.\n    type EventSource interface {\n        // ReadEvent waits for the\n        // next event and then\n        // returns it.\n        ReadEvent() Event\n\n        // UnreadEvent puts the given event\n        // back in the event queue ready to be\n        // read again.\n        UnreadEvent(Event)\n\n        // Close closes the EventSource and causes\n        // a  blocked ReadEvent to unblock.\n        Close()\n    }\n\nEventSource might work better as a static type\n(EventQueue?) and of course you\u0027d want utility functions for turning an EventSource into a channel (not hard). I\u0027m not sure of the best way to abort a ReadEvent (for example on timeout).\n\nIt has been a few years since I thought about this - unfortunately I remember my conclusions much better than I remember my original reasons for thinking this might be a good idea :) I think it may have had to do with trying to come up with a decent design for higher-level event transformations (for example, some UI element might want to see \"long-click\" events), which proved hard to do with an event channel as the \"universal currency\" of events.",
+      "range": {
+        "startLine": 27,
+        "startChar": 4,
+        "endLine": 27,
+        "endChar": 71
+      },
+      "revId": "d9eda94851a92424d4d87f962c224292f345dd37",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0db242f6_f7cd00a9",
+        "filename": "shiny/shiny.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 6010
+      },
+      "writtenOn": "2015-07-24T01:15:39Z",
+      "side": 1,
+      "message": "Perhaps consider doing type Event interface{} or even having some common method defined on events (e.g. timestamp), so that the set of likely expected types is clear in code.",
+      "range": {
+        "startLine": 31,
+        "startChar": 17,
+        "endLine": 31,
+        "endChar": 26
+      },
+      "revId": "d9eda94851a92424d4d87f962c224292f345dd37",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8dcab237_8e3f7b3f",
         "filename": "shiny/shiny.go",
         "patchSetId": 1
