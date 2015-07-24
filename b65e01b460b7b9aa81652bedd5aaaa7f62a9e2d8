@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "cd882a39_cd51495f",
+        "filename": "shiny/screen/screen.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2015-07-24T05:52:45Z",
+      "side": 1,
+      "message": "then say it\u0027s undefined\n\nThe behavior of the Texture after Release is undefined.",
+      "parentUuid": "cd882a39_0d64313d",
+      "range": {
+        "startLine": 69,
+        "startChar": 10,
+        "endLine": 69,
+        "endChar": 15
+      },
+      "revId": "b65e01b460b7b9aa81652bedd5aaaa7f62a9e2d8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd882a39_cda309f7",
         "filename": "shiny/screen/screen.go",
         "patchSetId": 3
