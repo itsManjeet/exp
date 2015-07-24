@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cd882a39_ad5dddfd",
+        "filename": "shiny/shiny.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-24T05:20:24Z",
+      "side": 1,
+      "message": "Done, after s/event handling/input events/. Actually handling the events is up to \"package main\".",
+      "parentUuid": "0ddfa2f3_491ae5ff",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 76
+      },
+      "revId": "d9eda94851a92424d4d87f962c224292f345dd37",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ddfa2f3_e91e39f1",
         "filename": "shiny/shiny.go",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-07-23T10:13:11Z",
       "side": 1,
       "message": "you should provide a paragraph overviewing the basic design.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 2
+      },
+      "revId": "d9eda94851a92424d4d87f962c224292f345dd37",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd882a39_cd6a298d",
+        "filename": "shiny/shiny.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-24T05:20:24Z",
+      "side": 1,
+      "message": "I think that will be easier when I add the \"how to make a Window\" in the next CL.",
+      "parentUuid": "0ddfa2f3_e91e39f1",
       "range": {
         "startLine": 7,
         "startChar": 0,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "cd882a39_0d5431d3",
+        "filename": "shiny/shiny.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-24T05:20:24Z",
+      "side": 1,
+      "message": "I don\u0027t think it\u0027s a problem if you don\u0027t read this or read it too slowly. For example, see the pump function in https://go.googlesource.com/mobile/+/master/app/app.go.\n\nAlso, I haven\u0027t shown the code yet, but while the low-level package (the \u0027window\u0027-related package) has a channel of events, the high-level package (the \u0027widget\u0027-related package) will not. Like you say, I think it\u0027s easy to over-use channels and goroutines there. But I\u0027ll also take a proof by existence counter-argument. As I said elsewhere, there\u0027s more than one possible approach here.\n\nAs for a channel versus some other type, I want a channel because you can select on it (and other things, like timers).\n\nAs for unreading events that aren\u0027t meant for where they end up, I would expect that you could sort that out at the sender end instead of the receiver end, but it\u0027s hard to say in the abstract. If we come across a concrete problem, we can address it then, including making API changes if necessary, and/or introducing some sort of buffered, peekable, unread-able, yet-still-select-able channel abstraction. But until then, a chan interface{} is a simple way to get started.",
+      "parentUuid": "8d92b264_0bb33d39",
+      "range": {
+        "startLine": 27,
+        "startChar": 4,
+        "endLine": 27,
+        "endChar": 71
+      },
+      "revId": "d9eda94851a92424d4d87f962c224292f345dd37",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0db242f6_f7cd00a9",
         "filename": "shiny/shiny.go",
         "patchSetId": 1
@@ -82,6 +154,30 @@
       "writtenOn": "2015-07-24T01:15:39Z",
       "side": 1,
       "message": "Perhaps consider doing type Event interface{} or even having some common method defined on events (e.g. timestamp), so that the set of likely expected types is clear in code.",
+      "range": {
+        "startLine": 31,
+        "startChar": 17,
+        "endLine": 31,
+        "endChar": 26
+      },
+      "revId": "d9eda94851a92424d4d87f962c224292f345dd37",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd882a39_2d59ed0b",
+        "filename": "shiny/shiny.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-24T05:20:24Z",
+      "side": 1,
+      "message": "How https://go.googlesource.com/mobile/+/master/app/app.go currently works is that there are dedicated packages for well-known event types, so that it\u0027s \"package key\" and \"package paint\" and \"key.Event\" and \"paint.Event\". We\u0027re doing the same here for now. If we need something more complicated, if we need a type Event interface{ something }, then we can change it later. Again, this is all experimental and exploratory.",
+      "parentUuid": "0db242f6_f7cd00a9",
       "range": {
         "startLine": 31,
         "startChar": 17,
@@ -129,6 +225,42 @@
     },
     {
       "key": {
+        "uuid": "cd882a39_4d4e3943",
+        "filename": "shiny/shiny.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-24T05:20:24Z",
+      "side": 1,
+      "message": "I tried returning an error, and it seemed awkward. Instead, it seems workable to return a dummy and send an error on the event channel.",
+      "parentUuid": "8dcab237_8e3f7b3f",
+      "revId": "d9eda94851a92424d4d87f962c224292f345dd37",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd882a39_6d53f5e9",
+        "filename": "shiny/shiny.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-24T05:20:24Z",
+      "side": 1,
+      "message": "Yeah, buffers and textures are probably driver- or screen-specific instead of window-specific. Done.",
+      "parentUuid": "8dcab237_2ebe871f",
+      "revId": "d9eda94851a92424d4d87f962c224292f345dd37",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8dcab237_2e1a07ff",
         "filename": "shiny/shiny.go",
         "patchSetId": 1
@@ -140,6 +272,24 @@
       "writtenOn": "2015-07-23T16:16:42Z",
       "side": 1,
       "message": "This is a convenience method, no? (You can Upload a buffer into a texture, and then Copy it onto the window.)\n\nAs such, how about making it a package function. By default it does the long path through an ephemeral texture, but it can look to see if the given window value implements a method like this, and use it as a fast path.\n\n(My motivation here is the Window type has a lot of methods, and I\u0027d like to shrink it if possible.)",
+      "revId": "d9eda94851a92424d4d87f962c224292f345dd37",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd882a39_2dc80d1d",
+        "filename": "shiny/shiny.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-24T05:20:24Z",
+      "side": 1,
+      "message": "It is in one sense a convenience method, but it does avoid having to allocate a temporary texture. The UploadedEvent you get back would also be different.\n\nI can extract an Uploader interface, to reduce some copy/paste. I\u0027ll do that, and add a TODO to think about making Texture implement Drawer.",
+      "parentUuid": "8dcab237_2e1a07ff",
       "revId": "d9eda94851a92424d4d87f962c224292f345dd37",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -181,6 +331,24 @@
     },
     {
       "key": {
+        "uuid": "cd882a39_8dd661bf",
+        "filename": "shiny/shiny.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-24T05:20:24Z",
+      "side": 1,
+      "message": "Drawing involves a destination (a Window) and a source (a Texture).\n\nThis is similar to Uploading involving a destination (a Window or a Texture) and a source (a Buffer).\n\nBecause there are multiple destination types, it seemed easier to have Upload be a method on the destination instead of the source.\n\nFor consistency, Copy / Scale / Transform are methods on the dst (Window) not the src (Texture).\n\nDestinations don\u0027t include Textures yet, but I\u0027m not ruling it out. I\u0027m also not ruling out Download as the mirror operation for Upload. I didn\u0027t need either of those for my demo, but I\u0027ll add TODOs to think about them.",
+      "parentUuid": "8dcab237_0e15cbcd",
+      "revId": "d9eda94851a92424d4d87f962c224292f345dd37",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8dcab237_6edecf8e",
         "filename": "shiny/shiny.go",
         "patchSetId": 1
@@ -198,6 +366,24 @@
     },
     {
       "key": {
+        "uuid": "cd882a39_add31dce",
+        "filename": "shiny/shiny.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-24T05:20:24Z",
+      "side": 1,
+      "message": "That\u0027ll probably work, and it does simplify the Window interface. Let me see how it looks...",
+      "parentUuid": "8dcab237_6edecf8e",
+      "revId": "d9eda94851a92424d4d87f962c224292f345dd37",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8dcab237_6e6c8f7e",
         "filename": "shiny/shiny.go",
         "patchSetId": 1
@@ -209,6 +395,24 @@
       "writtenOn": "2015-07-23T16:16:42Z",
       "side": 1,
       "message": "Is this event running on the same paint queue as Upload, Copy, Scale, and Transform? Is it safe to write:\n\nw.Upload(..., buf, ...)\nbuf.Relase()\nw.EndPaint()\n\n?",
+      "revId": "d9eda94851a92424d4d87f962c224292f345dd37",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd882a39_4d48f904",
+        "filename": "shiny/shiny.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-24T05:20:24Z",
+      "side": 1,
+      "message": "That should be safe. Release means no longer used from the point of view of the app code (\"package main\" code). Driver implementations can keep buffers alive for longer if necessary.\n\nTangentially, I wouldn\u0027t call this an event. I think of events as information flowing in one way, from the library (\"package screen\") to the app (\"package main\"). A Release call goes in the other direction.",
+      "parentUuid": "8dcab237_6e6c8f7e",
       "revId": "d9eda94851a92424d4d87f962c224292f345dd37",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -250,6 +454,30 @@
       "side": 1,
       "message": "Nigel may have other reasons, but would it be image/draw.Over or x/image/draw.Over?",
       "parentUuid": "0ddfa2f3_091cddf6",
+      "range": {
+        "startLine": 125,
+        "startChar": 7,
+        "endLine": 125,
+        "endChar": 8
+      },
+      "revId": "d9eda94851a92424d4d87f962c224292f345dd37",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd882a39_cd84e9ae",
+        "filename": "shiny/shiny.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-24T05:20:24Z",
+      "side": 1,
+      "message": "Added:\n\n// These OpXxx constants are provided so that users of this package don\u0027t have\n// to explicitly import \"image/draw\".",
+      "parentUuid": "8dcab237_ee1b9ffe",
       "range": {
         "startLine": 125,
         "startChar": 7,
