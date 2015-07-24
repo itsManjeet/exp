@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cd710a1d_4587ea64",
+        "filename": "shiny/screen/screen.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-07-24T21:57:35Z",
+      "side": 1,
+      "message": "So do I have the right idea here with the intended use of this package?\n\n\tfunc main() {\n\t\tw :\u003d shiny.NewWindow(...)\n\t\tb :\u003d w.NewBuffer(...)\n\t\tr :\u003d b.RGBA()\n\t\tdraw.Draw(r, ...)\n\t\tw.Show()\n\t\tfor ee :\u003d range w.Events() {\n\t\t\tswitch e :\u003d ee.(type) {\n\t\t\t// close button pressed\n\t\t\tcase shiny.CloseEvent:\n\t\t\t\tw.Hide()\n\t\t\t\tw.Send(shiny.StopEvents{})\n\t\t\t// window needs redrawing\n\t\t\tcase shiny.DrawEvent:\n\t\t\t\tw.Upload(e.RedrawRect.Min, b, e.RedrawRect)\n\t\t\t// previous call finished\n\t\t\tcase shiny.UploadedEvent:\n\t\t\t\tw.EndPaint()\n\t\t\t}\n\t\t}\n\t}\n\n@ roger peppe:\n\nThe implementation of UnreadEvent() would need to be careful to save the system state in a meaningful way. For instance, on Windows, calling BeginPaint() in WM_PAINT clears the invalidation rect, so you\u0027ll need to re-add that to the window (with InvalidateRect()) before you can push it back. Assuming Windows will even let you, that is... :) Also would you be able to unread arbitrary events, or just the most recent event?",
+      "revId": "e4db9e62643bf46bfec4ec32eb67e8a3e29b9cb9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd710a1d_057df2dc",
+        "filename": "shiny/screen/screen.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-07-24T21:57:35Z",
+      "side": 1,
+      "message": "Another problem I should have said back on GitHub is that Windows expects pixel bytes in ARGB order, not RGBA order; even if we\u0027re not drawing alpha (I personally don\u0027t know how to do variable-alpha Windows on Windows yet) we\u0027ll still need to rotate bytes around in every Upload(). I don\u0027t know how X11, Wayland, Mir, etc. deals with this. (OS X lets you choose where A goes, or at least Cocoa does, so an Upload() can simply upload the RGBA slice directly.)\n\nThat being said, why does Buffer need to be an interface the way it\u0027s defined? It seems like every implementation will have to be an image.RGBA since, if I am reading the documentation correctly, you modify a Buffer\u0027s pixels by drawing onto the result of RGBA(). So why not just use image.RGBA directly?\n\nIf you want a Buffer to be an OS-defined bitmap object (HBITMAP on Windows) you\u0027ll need to change the definition. Perhaps something like\n\n\ttype Buffer interface {\n\t\tRelease()\n\t\tModifyPixels() *image.RGBA\n\t\tEndModifyPixels()\n\t}\n\nBut I\u0027ll leave that to you, because I don\u0027t know what design you want.",
+      "revId": "e4db9e62643bf46bfec4ec32eb67e8a3e29b9cb9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd710a1d_e5a0d6ec",
+        "filename": "shiny/screen/screen.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-07-24T21:57:35Z",
+      "side": 1,
+      "message": "When is an Upload() legal? Only in response to a \"DrawEvent\"? Or at any time? The former is the preferred drawing mode on Windows (WM_PAINT) and OS X (when Cocoa calls your NSView\u0027s drawRect: method). I know some programs do the latter (Chrome is a great example of one that does the latter on Window, which surprises lots of people on Stack Overflow who try to make a screenshot of it and see an all-black-pixels picture instead); I personally wouldn\u0027t know how to do it. But it would affect the design and implementation of the EndPaint() method.\n\nI can tell that what you\u0027re doing now is similar to how X pixbufs work, at least. That makes sense to me. I would just need to read up on Chrome-style drawing to see what the equivalent would be for other OSs.",
+      "revId": "e4db9e62643bf46bfec4ec32eb67e8a3e29b9cb9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd710a1d_2582ee55",
+        "filename": "shiny/screen/screen.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-07-24T21:57:35Z",
+      "side": 1,
+      "message": "Should \"scaler\" be called \"interpolation\" instead?\n\nNearest neighbor should probably have value 0 so that a zero DrawOptions.Interpolation does no modification of pixel data; but that\u0027s just my personal preference. I don\u0027t know how this will interfere with DrawOptions.Alpha\u0027s design.",
+      "revId": "e4db9e62643bf46bfec4ec32eb67e8a3e29b9cb9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
