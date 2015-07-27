@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "cd882a39_bc5d0dfe",
+        "filename": "shiny/screen/screen.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-27T01:22:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd882a39_10228aaa",
+      "range": {
+        "startLine": 9,
+        "startChar": 14,
+        "endLine": 9,
+        "endChar": 17
+      },
+      "revId": "27f3fadc4da845aa32e06fb4f5e7202efeb2646d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd882a39_302786bb",
         "filename": "shiny/screen/screen.go",
         "patchSetId": 1
@@ -36,6 +60,30 @@
       "writtenOn": "2015-07-24T09:58:47Z",
       "side": 1,
       "message": "s/via/by/",
+      "range": {
+        "startLine": 12,
+        "startChar": 75,
+        "endLine": 12,
+        "endChar": 78
+      },
+      "revId": "27f3fadc4da845aa32e06fb4f5e7202efeb2646d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd882a39_dc6ad98c",
+        "filename": "shiny/screen/screen.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-27T01:22:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd882a39_302786bb",
       "range": {
         "startLine": 12,
         "startChar": 75,
