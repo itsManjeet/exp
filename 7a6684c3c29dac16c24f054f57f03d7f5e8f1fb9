@@ -74,6 +74,24 @@
       "revId": "7a6684c3c29dac16c24f054f57f03d7f5e8f1fb9",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "edab2e9c_feae61ee",
+        "filename": "shiny/driver/x11driver/x11driver.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 5810
+      },
+      "writtenOn": "2015-07-27T12:41:07Z",
+      "side": 1,
+      "message": "that being said, retErr (the named return variable) isn\u0027t modified anywhere in the current \u0027main\u0027 method.\n\none probably wants to remove it (at line 37), rename retErr into err at line 43 and \"un-shadow\" \u0027err\u0027 at lines 48, 51 and 61.\n\nor, assign the shadowed \u0027err\u0027 from line 48, 51 and 61 to \u0027retErr\u0027 and return?",
+      "parentUuid": "edab2e9c_9efe3ddd",
+      "revId": "7a6684c3c29dac16c24f054f57f03d7f5e8f1fb9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
