@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "cd882a39_5c4ee942",
+        "filename": "shiny/screen/screen.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-27T01:37:30Z",
+      "side": 1,
+      "message": "@andlabs\nYeah, the big picture is more or less correct, although the details will differ. I\u0027ll keep updating the example programs in the upcoming CLs.",
+      "parentUuid": "cd710a1d_4587ea64",
+      "revId": "e4db9e62643bf46bfec4ec32eb67e8a3e29b9cb9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd710a1d_057df2dc",
         "filename": "shiny/screen/screen.go",
         "patchSetId": 6
@@ -30,6 +48,24 @@
       "writtenOn": "2015-07-24T21:57:35Z",
       "side": 1,
       "message": "Another problem I should have said back on GitHub is that Windows expects pixel bytes in ARGB order, not RGBA order; even if we\u0027re not drawing alpha (I personally don\u0027t know how to do variable-alpha Windows on Windows yet) we\u0027ll still need to rotate bytes around in every Upload(). I don\u0027t know how X11, Wayland, Mir, etc. deals with this. (OS X lets you choose where A goes, or at least Cocoa does, so an Upload() can simply upload the RGBA slice directly.)\n\nThat being said, why does Buffer need to be an interface the way it\u0027s defined? It seems like every implementation will have to be an image.RGBA since, if I am reading the documentation correctly, you modify a Buffer\u0027s pixels by drawing onto the result of RGBA(). So why not just use image.RGBA directly?\n\nIf you want a Buffer to be an OS-defined bitmap object (HBITMAP on Windows) you\u0027ll need to change the definition. Perhaps something like\n\n\ttype Buffer interface {\n\t\tRelease()\n\t\tModifyPixels() *image.RGBA\n\t\tEndModifyPixels()\n\t}\n\nBut I\u0027ll leave that to you, because I don\u0027t know what design you want.",
+      "revId": "e4db9e62643bf46bfec4ec32eb67e8a3e29b9cb9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd882a39_7c53a5e9",
+        "filename": "shiny/screen/screen.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-27T01:37:30Z",
+      "side": 1,
+      "message": "Yes, X11 also wants a different order (BGRA instead of RGBA). The driver will do the swizzling on Upload. A Buffer is conceptually very similar to the result of image.NewRGBA, but it can also be backed by shared memory.",
+      "parentUuid": "cd710a1d_057df2dc",
       "revId": "e4db9e62643bf46bfec4ec32eb67e8a3e29b9cb9",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "cd882a39_9c477122",
+        "filename": "shiny/screen/screen.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-27T01:37:30Z",
+      "side": 1,
+      "message": "Good question, and it might depend on how it\u0027d work on Windows. For X11 and OpenGL, I believe you can upload at any time.",
+      "parentUuid": "cd710a1d_e5a0d6ec",
+      "revId": "e4db9e62643bf46bfec4ec32eb67e8a3e29b9cb9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd710a1d_2582ee55",
         "filename": "shiny/screen/screen.go",
         "patchSetId": 6
@@ -64,6 +118,24 @@
       "writtenOn": "2015-07-24T21:57:35Z",
       "side": 1,
       "message": "Should \"scaler\" be called \"interpolation\" instead?\n\nNearest neighbor should probably have value 0 so that a zero DrawOptions.Interpolation does no modification of pixel data; but that\u0027s just my personal preference. I don\u0027t know how this will interfere with DrawOptions.Alpha\u0027s design.",
+      "revId": "e4db9e62643bf46bfec4ec32eb67e8a3e29b9cb9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd882a39_bc442d1e",
+        "filename": "shiny/screen/screen.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-27T01:37:30Z",
+      "side": 1,
+      "message": "Yeah, interpolator is probably a better name. I\u0027ll keep that in mind when I do the TODO.",
+      "parentUuid": "cd710a1d_2582ee55",
       "revId": "e4db9e62643bf46bfec4ec32eb67e8a3e29b9cb9",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
