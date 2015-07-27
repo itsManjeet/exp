@@ -56,6 +56,24 @@
       "revId": "7a6684c3c29dac16c24f054f57f03d7f5e8f1fb9",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "edab2e9c_9efe3ddd",
+        "filename": "shiny/driver/x11driver/x11driver.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 5810
+      },
+      "writtenOn": "2015-07-27T12:32:16Z",
+      "side": 1,
+      "message": "the defer closes over the retErr variable and is called when \u0027main\u0027 returns.\nat that point, retErr may very well be non-nil if something bad happened.",
+      "parentUuid": "cd710a1d_88a81710",
+      "revId": "7a6684c3c29dac16c24f054f57f03d7f5e8f1fb9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
