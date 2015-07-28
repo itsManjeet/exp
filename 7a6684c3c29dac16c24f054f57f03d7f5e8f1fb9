@@ -60,6 +60,24 @@
     },
     {
       "key": {
+        "uuid": "cd9caada_4d8219a1",
+        "filename": "shiny/driver/x11driver/screen.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-07-28T17:54:04Z",
+      "side": 1,
+      "message": "Every platform has that distinction. While I personally think it would look better to build your UI offscreen and then show the window, I\u0027m willing to defer that discussion until the package is more fully developed. (Having Show and Hide methods for later would also be good here, but we can deal with that later as well.)",
+      "parentUuid": "2db8e63c_50fc6ca9",
+      "revId": "7a6684c3c29dac16c24f054f57f03d7f5e8f1fb9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd710a1d_88a81710",
         "filename": "shiny/driver/x11driver/x11driver.go",
         "patchSetId": 1
@@ -125,6 +143,24 @@
       "side": 1,
       "message": "@andlabs, see http://play.golang.org/p/ina8SrLAsZ\n\n@sbinet, I prefer to call the return value retErr, so that I don\u0027t have to worry about having more than one err shadow any other err.",
       "parentUuid": "edab2e9c_feae61ee",
+      "revId": "7a6684c3c29dac16c24f054f57f03d7f5e8f1fb9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cd9caada_0d781137",
+        "filename": "shiny/driver/x11driver/x11driver.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-07-28T17:54:04Z",
+      "side": 1,
+      "message": "Neat! You learn something new every day, I guess :)",
+      "parentUuid": "2db8e63c_902c14cf",
       "revId": "7a6684c3c29dac16c24f054f57f03d7f5e8f1fb9",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
