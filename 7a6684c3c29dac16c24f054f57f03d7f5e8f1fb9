@@ -78,6 +78,24 @@
     },
     {
       "key": {
+        "uuid": "2db8e63c_f95d8b77",
+        "filename": "shiny/driver/x11driver/screen.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-29T01:13:03Z",
+      "side": 1,
+      "message": "Building the UI offscreen might make sense if you use a heavyweight HWND or X11 Window per widget, but I think the argument is weaker with GTK+3 style client-side widgets, and you can\u0027t do layout until you know the size of your top-level window, and you don\u0027t know that until you map it and let the window manager size it (e.g. on mobile you can\u0027t say \"give me a window whose size is exactly 800x600).\n\nI\u0027m also not convinced that we need Show and Hide methods. I think those are responsibilities for the OS or window manager.",
+      "parentUuid": "cd9caada_4d8219a1",
+      "revId": "7a6684c3c29dac16c24f054f57f03d7f5e8f1fb9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd710a1d_88a81710",
         "filename": "shiny/driver/x11driver/x11driver.go",
         "patchSetId": 1
