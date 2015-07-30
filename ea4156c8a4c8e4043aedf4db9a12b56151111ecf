@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6a8484cc_42dab25e",
+        "filename": "shiny/driver/gldriver/buffer.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-07-30T21:40:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a5ce834_a7c5ea32",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a5ce834_c7e1feba",
         "filename": "shiny/driver/gldriver/cocoa.go",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2015-07-30T20:34:24Z",
       "side": 1,
       "message": "Any reason this is arch specific?",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a8484cc_02ecaaff",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-07-30T21:40:20Z",
+      "side": 1,
+      "message": "darwin/{386,amd64} is OS X.\ndarwin/{arm,arm64} is iOS.\n\nThis code is OS-X-specific.",
+      "parentUuid": "0a5ce834_c7e1feba",
       "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "6a8484cc_a2e85eec",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-07-30T21:40:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a5ce834_e7d522b6",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a5ce834_c797be1b",
         "filename": "shiny/driver/gldriver/cocoa.go",
         "patchSetId": 2
@@ -64,6 +118,24 @@
       "writtenOn": "2015-07-30T20:34:24Z",
       "side": 1,
       "message": "theScreen \u003d \u0026screenImpl{\n\twindows: make(map[uintptr]*windowImpl),\n}\n\nand delete that below.",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a8484cc_c2e56215",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-07-30T21:40:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a5ce834_c797be1b",
       "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "6a8484cc_6200163f",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-07-30T21:40:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a5ce834_47718e86",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a5ce834_27333ab1",
         "filename": "shiny/driver/gldriver/cocoa.go",
         "patchSetId": 2
@@ -98,6 +188,24 @@
       "writtenOn": "2015-07-30T20:34:24Z",
       "side": 1,
       "message": "Strictly speaking, does this call need to be on the UI thread?",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea979400_3ec1c977",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-07-30T21:40:20Z",
+      "side": 1,
+      "message": "Fixed inside stopDriver.",
+      "parentUuid": "0a5ce834_27333ab1",
       "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "2a8e0cf0_40daae5e",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-07-30T21:40:20Z",
+      "side": 1,
+      "message": "It is, but CVDisplayLinkStop(displayLink) is called from windowWillClose, so drawgl will never be called on a dead window.\n\nHowever, windowWillClose needs to actually remove the dead window from the map. Added a TODO.",
+      "parentUuid": "0a5ce834_27cc5a2f",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a5ce834_a7696a99",
         "filename": "shiny/driver/gldriver/cocoa.go",
         "patchSetId": 2
@@ -132,6 +258,24 @@
       "writtenOn": "2015-07-30T20:34:24Z",
       "side": 1,
       "message": "I\u0027d add a blank line after this, so that the lock/unlock section is clearly marked.",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a91480d_df1c5ba2",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-07-30T21:40:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a5ce834_a7696a99",
       "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "0a91480d_9f4c9395",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-07-30T21:40:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a5ce834_67b49271",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a5ce834_a75ccac6",
         "filename": "shiny/driver/gldriver/cocoa.go",
         "patchSetId": 2
@@ -166,6 +328,24 @@
       "writtenOn": "2015-07-30T20:34:24Z",
       "side": 1,
       "message": "s/1//",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a87c0d1_01f10ad3",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-07-30T21:40:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a5ce834_a75ccac6",
       "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -189,6 +369,24 @@
     },
     {
       "key": {
+        "uuid": "0a6a28d9_57b26c36",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-07-30T21:40:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a5ce834_074ef60f",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a5ce834_87c2e626",
         "filename": "shiny/driver/gldriver/cocoa.h",
         "patchSetId": 2
@@ -200,6 +398,24 @@
       "writtenOn": "2015-07-30T20:34:24Z",
       "side": 1,
       "message": "s/run/start/ to mirror \"stop\" on the next line?",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a8484cc_e2ee66fa",
+        "filename": "shiny/driver/gldriver/cocoa.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-07-30T21:40:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a5ce834_87c2e626",
       "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -223,6 +439,24 @@
     },
     {
       "key": {
+        "uuid": "0a6a28d9_77b77025",
+        "filename": "shiny/driver/gldriver/cocoa.m",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-07-30T21:40:20Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "0a5ce834_e7e402cd",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a5ce834_e7488233",
         "filename": "shiny/driver/gldriver/cocoa.m",
         "patchSetId": 2
@@ -234,6 +468,24 @@
       "writtenOn": "2015-07-30T20:34:24Z",
       "side": 1,
       "message": "Double blank line.",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a6a28d9_17bcf404",
+        "filename": "shiny/driver/gldriver/cocoa.m",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-07-30T21:40:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a5ce834_e7488233",
       "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -257,6 +509,24 @@
     },
     {
       "key": {
+        "uuid": "0a6a28d9_d7c51c84",
+        "filename": "shiny/driver/gldriver/screen.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-07-30T21:40:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a5ce834_07add66e",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a5ce834_27a8da5e",
         "filename": "shiny/driver/gldriver/screen.go",
         "patchSetId": 2
@@ -268,6 +538,24 @@
       "writtenOn": "2015-07-30T20:34:24Z",
       "side": 1,
       "message": "rgba: image.NewRGBA(image.Rectangle{Max: size}),",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a6a28d9_f7c2a079",
+        "filename": "shiny/driver/gldriver/screen.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-07-30T21:40:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a5ce834_27a8da5e",
       "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -291,6 +579,24 @@
     },
     {
       "key": {
+        "uuid": "0a6a28d9_57db4c64",
+        "filename": "shiny/driver/gldriver/screen.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-07-30T21:40:20Z",
+      "side": 1,
+      "message": "I know, I deliberately made it different for variety. The TODO will take care of it.",
+      "parentUuid": "0a5ce834_0786f6f0",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a5ce834_a7bbaaa9",
         "filename": "shiny/driver/gldriver/texture.go",
         "patchSetId": 2
@@ -308,6 +614,24 @@
     },
     {
       "key": {
+        "uuid": "0a6a28d9_17d5d42e",
+        "filename": "shiny/driver/gldriver/texture.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-07-30T21:40:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a5ce834_a7bbaaa9",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a5ce834_2781fad8",
         "filename": "shiny/driver/gldriver/window.go",
         "patchSetId": 2
@@ -319,6 +643,30 @@
       "writtenOn": "2015-07-30T20:34:24Z",
       "side": 1,
       "message": "I\u0027d swap the order of eventsIn and eventsOut.",
+      "range": {
+        "startLine": 24,
+        "startChar": 1,
+        "endLine": 24,
+        "endChar": 10
+      },
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a6a28d9_37da585e",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-07-30T21:40:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a5ce834_2781fad8",
       "range": {
         "startLine": 24,
         "startChar": 1,
@@ -354,6 +702,30 @@
     },
     {
       "key": {
+        "uuid": "0a6a28d9_d7ee7cfa",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-07-30T21:40:20Z",
+      "side": 1,
+      "message": "A close(w.eventsIn) in Release might do most of the work.",
+      "parentUuid": "0a5ce834_c7fb3e3a",
+      "range": {
+        "startLine": 90,
+        "startChar": 5,
+        "endLine": 90,
+        "endChar": 6
+      },
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a5ce834_e7fe422c",
         "filename": "shiny/driver/gldriver/window.go",
         "patchSetId": 2
@@ -365,6 +737,24 @@
       "writtenOn": "2015-07-30T20:34:24Z",
       "side": 1,
       "message": "Tangential, and not for this CL, but at the bottom of https://go-review.googlesource.com/#/c/12568/, somebody suggested s/EndPaint/Flush/ in the interface (e.g. in package screen and in package app).\n\nOTOH, we might want to add a BeginPaint method. It\u0027d be nice if, on desktop at least, a on-screen but otherwise visually unchanging window was taking 0% CPU, but IIUC the current GL model is that we make you clear and re-draw everything, 60 times a second, even if the net effect would be a no-op.\n\n(Just more thinking out loud).",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a6a28d9_f7eb80e7",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-07-30T21:40:20Z",
+      "side": 1,
+      "message": "I\u0027m not planning on doing a clear. There is the awkward matter of the double buffer, you want to get them in sync in the steady state (still thinking how to do that), but otherwise there\u0027s no need to redraw everything each time. The underlying frame buffer is stable, so it should be possible to just not do anything during a no-op paint cycle.\n\nWe probably should have a way to turn off the timer just to stop annoying people but without the paint it\u0027s very cheap, one send every 16ms.\n\nFlush would be an unfortunate name for EndPaint. The GL concept of Flush is very different (it does not mean actually put anything on the screen).",
+      "parentUuid": "0a5ce834_e7fe422c",
       "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
