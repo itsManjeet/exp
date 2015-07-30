@@ -1,0 +1,373 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a5ce834_a7c5ea32",
+        "filename": "shiny/driver/gldriver/buffer.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-30T20:34:24Z",
+      "side": 1,
+      "message": "Release will be a no-op. You could just say:\nfunc (b *bufferImpl) Release() {}",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a5ce834_c7e1feba",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-30T20:34:24Z",
+      "side": 1,
+      "message": "Any reason this is arch specific?",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a5ce834_e7d522b6",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-30T20:34:24Z",
+      "side": 1,
+      "message": "Is it easier if you s/uint64/C.uint64_t/?",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a5ce834_c797be1b",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-30T20:34:24Z",
+      "side": 1,
+      "message": "theScreen \u003d \u0026screenImpl{\n\twindows: make(map[uintptr]*windowImpl),\n}\n\nand delete that below.",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a5ce834_47718e86",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-30T20:34:24Z",
+      "side": 1,
+      "message": "s/(retErr error)/error/",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a5ce834_27333ab1",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-30T20:34:24Z",
+      "side": 1,
+      "message": "Strictly speaking, does this call need to be on the UI thread?",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a5ce834_27cc5a2f",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-30T20:34:24Z",
+      "side": 1,
+      "message": "Is it possible to close windows? If so, could w be nil?",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a5ce834_a7696a99",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-30T20:34:24Z",
+      "side": 1,
+      "message": "I\u0027d add a blank line after this, so that the lock/unlock section is clearly marked.",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a5ce834_67b49271",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-30T20:34:24Z",
+      "side": 1,
+      "message": "s/loop/drawLoop/ ??",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a5ce834_a75ccac6",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-30T20:34:24Z",
+      "side": 1,
+      "message": "s/1//",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a5ce834_074ef60f",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-30T20:34:24Z",
+      "side": 1,
+      "message": "I\u0027d add a blank line after this, so that the lock/unlock section is clearly marked.",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a5ce834_87c2e626",
+        "filename": "shiny/driver/gldriver/cocoa.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-30T20:34:24Z",
+      "side": 1,
+      "message": "s/run/start/ to mirror \"stop\" on the next line?",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a5ce834_e7e402cd",
+        "filename": "shiny/driver/gldriver/cocoa.m",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-30T20:34:24Z",
+      "side": 1,
+      "message": "Ditto.",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a5ce834_e7488233",
+        "filename": "shiny/driver/gldriver/cocoa.m",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-30T20:34:24Z",
+      "side": 1,
+      "message": "Double blank line.",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a5ce834_07add66e",
+        "filename": "shiny/driver/gldriver/screen.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-30T20:34:24Z",
+      "side": 1,
+      "message": "return \u0026bufferImpl{\n  etc,\n}, nil",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a5ce834_27a8da5e",
+        "filename": "shiny/driver/gldriver/screen.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-30T20:34:24Z",
+      "side": 1,
+      "message": "rgba: image.NewRGBA(image.Rectangle{Max: size}),",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a5ce834_0786f6f0",
+        "filename": "shiny/driver/gldriver/screen.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-30T20:34:24Z",
+      "side": 1,
+      "message": "FWIW, the X11 driver said 1024, 768.",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a5ce834_a7bbaaa9",
+        "filename": "shiny/driver/gldriver/texture.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-30T20:34:24Z",
+      "side": 1,
+      "message": "You\u0027ll need to sync to pick up the Sender arg.",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a5ce834_2781fad8",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-30T20:34:24Z",
+      "side": 1,
+      "message": "I\u0027d swap the order of eventsIn and eventsOut.",
+      "range": {
+        "startLine": 24,
+        "startChar": 1,
+        "endLine": 24,
+        "endChar": 10
+      },
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a5ce834_c7fb3e3a",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-30T20:34:24Z",
+      "side": 1,
+      "message": "This might have been OK for x/mobile/app, where there\u0027s one app-level pump, but for a per-window pump, it\u0027d be nice to clean up all of a window\u0027s resources, including its pumping goroutine.\n\n(No action required by you, just thinking out loud a TODO for me.)",
+      "range": {
+        "startLine": 90,
+        "startChar": 5,
+        "endLine": 90,
+        "endChar": 6
+      },
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a5ce834_e7fe422c",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-30T20:34:24Z",
+      "side": 1,
+      "message": "Tangential, and not for this CL, but at the bottom of https://go-review.googlesource.com/#/c/12568/, somebody suggested s/EndPaint/Flush/ in the interface (e.g. in package screen and in package app).\n\nOTOH, we might want to add a BeginPaint method. It\u0027d be nice if, on desktop at least, a on-screen but otherwise visually unchanging window was taking 0% CPU, but IIUC the current GL model is that we make you clear and re-draw everything, 60 times a second, even if the net effect would be a no-op.\n\n(Just more thinking out loud).",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
