@@ -107,6 +107,23 @@
     },
     {
       "key": {
+        "uuid": "ad72168f_1aa93d13",
+        "filename": "shiny/screen/screen.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 5300
+      },
+      "writtenOn": "2015-07-30T08:22:48Z",
+      "side": 1,
+      "message": "I know it\u0027s bikesheddy, but I\u0027m curious why this isn\u0027t just called Flush? Seeing as that\u0027s what the documentation explains it to be, and thats the word that is commonly used to describe this sort of thing.",
+      "revId": "e4db9e62643bf46bfec4ec32eb67e8a3e29b9cb9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd710a1d_2582ee55",
         "filename": "shiny/screen/screen.go",
         "patchSetId": 6
