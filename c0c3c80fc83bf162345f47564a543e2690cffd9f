@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aaa83c5c_642eeac7",
+        "filename": "shiny/driver/internal/swizzle/swizzle_amd64.s",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-07-31T12:01:31Z",
+      "side": 1,
+      "message": "Correct me if I\u0027m wrong, but I suspect all the speedup from this assembly comes from the PSHUFB, and there\u0027s no significant value in having the length check and 4-byte cleanup implemented in assembly.\n\nIn which case, how about moving this core piece into an unexported function, bgra16, and having a common Go implementation of BGRA pass in the part of the slice for which len(p)%16\u003d0.\n\nThat gives you overall less assembly, which is nice (there will be arm/arm64 variants of this, no doubt), but I have a performance motivation: the AVX2 instructions include VPSHUFB, which operates over 32-byte registers.\n\nHaving a Go harness for calling this function would let us one day use a CPUID parser to decide if we have AVX2, and call into a bgra32 implementation.",
+      "revId": "c0c3c80fc83bf162345f47564a543e2690cffd9f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
