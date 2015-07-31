@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "0a5ce834_ed1ce1a1",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-31T00:49:18Z",
+      "side": 1,
+      "message": "Huh. It\u0027s not impossible to imagine an arm64 MacBook in the future, but I suppose we\u0027ll cross that bridge when we get to it.",
+      "parentUuid": "6a8484cc_02ecaaff",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a5ce834_e7d522b6",
         "filename": "shiny/driver/gldriver/cocoa.go",
         "patchSetId": 2
@@ -591,6 +609,24 @@
       "side": 1,
       "message": "I know, I deliberately made it different for variety. The TODO will take care of it.",
       "parentUuid": "0a5ce834_0786f6f0",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a5ce834_0d2295a8",
+        "filename": "shiny/driver/gldriver/screen.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-31T00:49:18Z",
+      "side": 1,
+      "message": "I\u0027m not sure if the TODO will take care of it. The opts can be nil, which means to use the default width x height, and it\u0027d be weird if that default is different for Mac and Linux desktops.",
+      "parentUuid": "0a6a28d9_57db4c64",
       "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
