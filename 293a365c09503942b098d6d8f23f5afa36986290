@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "aaa83c5c_8416867e",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-07-31T14:03:42Z",
+      "side": 1,
+      "message": "I would expect them to have different GL contexts. But I\u0027ve added a TODO to confirm that.",
+      "parentUuid": "0a5ce834_ad170953",
+      "revId": "293a365c09503942b098d6d8f23f5afa36986290",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a5ce834_4d288d88",
         "filename": "shiny/driver/gldriver/cocoa.go",
         "patchSetId": 3
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "aaa83c5c_a413828d",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-07-31T14:03:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a5ce834_4d288d88",
+      "revId": "293a365c09503942b098d6d8f23f5afa36986290",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a5ce834_6d8d913d",
         "filename": "shiny/driver/gldriver/cocoa.m",
         "patchSetId": 3
@@ -47,6 +83,24 @@
       "writtenOn": "2015-07-31T00:49:18Z",
       "side": 1,
       "message": "Add \"void\" inside the parens? Or drop it below for stopDriver and in cocoa.h?",
+      "revId": "293a365c09503942b098d6d8f23f5afa36986290",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aaa83c5c_44564e37",
+        "filename": "shiny/driver/gldriver/cocoa.m",
+        "patchSetId": 3
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-07-31T14:03:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a5ce834_6d8d913d",
       "revId": "293a365c09503942b098d6d8f23f5afa36986290",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
