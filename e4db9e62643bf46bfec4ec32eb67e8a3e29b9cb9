@@ -124,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "0a5ce834_2d81d9d8",
+        "filename": "shiny/screen/screen.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-31T01:04:06Z",
+      "side": 1,
+      "message": "I\u0027m not sure if Flush is the right name for it. In the OpenGL world, this method doesn\u0027t just flush, it also does a swapBuffers. On the other hand, an OpenGL flush by itself doesn\u0027t necessarily affect on-screen pixels.",
+      "parentUuid": "ad72168f_1aa93d13",
+      "revId": "e4db9e62643bf46bfec4ec32eb67e8a3e29b9cb9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cd710a1d_2582ee55",
         "filename": "shiny/screen/screen.go",
         "patchSetId": 6
