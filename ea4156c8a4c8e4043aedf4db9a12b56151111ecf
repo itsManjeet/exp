@@ -90,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "aaa83c5c_e4197aaf",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-07-31T14:03:42Z",
+      "side": 1,
+      "message": "Worse: to use the iOS emulator we need to compile a version of darwin/amd64 with different clang settings. (In fact there\u0027s an ios tag for some crypto flags, which I\u0027ve added to this.)\n\nEarly on Minux was opposed to introducing GOOS\u003dios, so I\u0027ve been working with this. As time passes, I\u0027m more and more tempted to introduce GOOS\u003dios. If an arm64 macbook comes out, you\u0027ll probably see such a CL from me.",
+      "parentUuid": "0a5ce834_ed1ce1a1",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0a5ce834_e7d522b6",
         "filename": "shiny/driver/gldriver/cocoa.go",
         "patchSetId": 2
