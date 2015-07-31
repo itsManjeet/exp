@@ -794,6 +794,24 @@
       "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a5ce834_0dadf56e",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-07-31T00:59:48Z",
+      "side": 1,
+      "message": "But apps have to clear, don\u0027t they? x/mobile/example/basic/main.go\u0027s onPaint starts with a gl.Clear call.\n\nYou could argue that apps could detect when no state has changed, and return early in their onPaints. But, with the current API, there\u0027s no distinction between getting a paint.Event because your previously-hidden window was just exposed, and getting a regular paint.Event that could be a no-op if your window is already on-screen and not obscured.",
+      "parentUuid": "0a6a28d9_f7eb80e7",
+      "revId": "ea4156c8a4c8e4043aedf4db9a12b56151111ecf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
