@@ -116,13 +116,17 @@ func setGeom(id uintptr, ppp float32, widthPx, heightPx int) {
 	w := theScreen.windows[id]
 	theScreen.mu.Unlock()
 
-	w.eventsIn <- config.Event{
+	cfg := config.Event{
 		WidthPx:     widthPx,
 		HeightPx:    heightPx,
 		WidthPt:     geom.Pt(float32(widthPx) / ppp),
 		HeightPt:    geom.Pt(float32(heightPx) / ppp),
 		PixelsPerPt: ppp,
 	}
+	w.mu.Lock()
+	w.cfg = cfg
+	w.mu.Unlock()
+	w.eventsIn <- cfg
 }
 
 //export eventMouseDown

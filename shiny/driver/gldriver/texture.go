@@ -5,20 +5,66 @@
 package gldriver
 
 import (
+	"encoding/binary"
 	"image"
 
 	"golang.org/x/exp/shiny/screen"
+	"golang.org/x/mobile/gl"
 )
 
 type textureImpl struct {
+	id   gl.Texture
 	size image.Point
 }
 
 func (t *textureImpl) Release() {
-	// TODO
+	gl.DeleteTexture(t.id)
+	t.id = gl.Texture{}
 }
 
 func (t *textureImpl) Size() image.Point { return t.size }
 
 func (t *textureImpl) Upload(dp image.Point, src screen.Buffer, sr image.Rectangle, sender screen.Sender) {
+	gl.BindTexture(gl.TEXTURE_2D, t.id)
+	m := src.RGBA().SubImage(sr).(*image.RGBA)
+	b := m.Bounds()
+	// TODO check m bounds smaller than t.size
+	gl.TexSubImage2D(gl.TEXTURE_2D, 0, 0, 0, b.Dx(), b.Dy(), gl.RGBA, gl.UNSIGNED_BYTE, m.Pix)
 }
+
+var quadXYCoords = f32Bytes(binary.LittleEndian,
+	-1, +1, // top left
+	+1, +1, // top right
+	-1, -1, // bottom left
+	+1, -1, // bottom right
+)
+
+var quadUVCoords = f32Bytes(binary.LittleEndian,
+	0, 0, // top left
+	1, 0, // top right
+	0, 1, // bottom left
+	1, 1, // bottom right
+)
+
+const vertexShaderSrc = `#version 100
+uniform mat3 mvp;
+uniform mat3 uvp;
+attribute vec3 pos;
+attribute vec2 inUV;
+varying vec2 UV;
+void main() {
+	vec3 p = pos;
+	p.z = 1.0;
+	gl_Position = vec4(mvp * p, 1);
+	UV = (uvp * vec3(inUV, 1)).xy;
+}
+`
+
+const fragmentShaderSrc = `#version 100
+precision mediump float;
+varying vec2 UV;
+uniform sampler2D sample;
+void main() {
+	gl_FragColor = texture2D(sample, UV);
+}
+`
