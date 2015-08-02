@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad72168f_28feb32d",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-02T10:45:35Z",
+      "side": 1,
+      "message": "Even if windows w0 and w1 have different GL contexts c0 and c1, this doesn\u0027t look right.\n\ndrawLoop gets called once per window, but this makeCurrentContext call happens once per window, not once per w.draw receive. That means that whichever context is makeCurrentContext\u0027ed last wins forever, and e.g. if it was c1, then c0 will never become \u0027the current context\u0027 again. So why bother having multiple contexts?\n\nAs I said, I think that the real solution is to have one drawLoop goroutine overall, not one drawLoop goroutine per window.",
+      "revId": "cabcb38b5cf911aaa962e92fc10e0284a12ea86b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
