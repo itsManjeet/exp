@@ -22,6 +22,273 @@
       "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad72168f_68eeeb2a",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-03T05:17:20Z",
+      "side": 1,
+      "message": "I like to add blank lines around any Lock/Unlock block.",
+      "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad72168f_088c9786",
+        "filename": "shiny/driver/gldriver/screen.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-03T05:17:20Z",
+      "side": 1,
+      "message": "Should this state be global state, instead of \u0027mutable\u0027 per-screen state, that is initialized somewhere near Main calling main, instead of being called lazily inside NewTexture?",
+      "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad72168f_c8045f8b",
+        "filename": "shiny/driver/gldriver/screen.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-03T05:17:20Z",
+      "side": 1,
+      "message": "This needs to hold s.mu.",
+      "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad72168f_e8867b67",
+        "filename": "shiny/driver/gldriver/texture.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-03T05:17:20Z",
+      "side": 1,
+      "message": "Add:\n// TODO: adjust if dp is outside dst bounds, or sr is outside src bounds.",
+      "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad72168f_08ff37db",
+        "filename": "shiny/driver/gldriver/texture.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-03T05:17:20Z",
+      "side": 1,
+      "message": "Add\n// TODO: send a screen.UploadedEvent.",
+      "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad72168f_c881bf52",
+        "filename": "shiny/driver/gldriver/util.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-03T05:17:20Z",
+      "side": 1,
+      "message": "Can we come up with a better name than util.go? Should this code just go into gldriver.go?",
+      "range": {
+        "startLine": 1,
+        "startChar": 18,
+        "endLine": 1,
+        "endChar": 21
+      },
+      "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad72168f_48f12f0a",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-03T05:17:20Z",
+      "side": 1,
+      "message": "Redundant comment is redundant.",
+      "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad72168f_88a187f1",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-03T05:17:20Z",
+      "side": 1,
+      "message": "Add:\n// TODO: adjust if dp is outside dst bounds, or sr is outside src bounds.",
+      "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad72168f_88eb4718",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-03T05:17:20Z",
+      "side": 1,
+      "message": "Don\u0027t panic. Call w.Send(err) or w.Send(fmt.Errorf(\"gldriver: etc\", err)) instead.",
+      "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad72168f_e8b83b35",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-03T05:17:20Z",
+      "side": 1,
+      "message": "s/Over/Src/",
+      "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad72168f_a8ae43ed",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-03T05:17:20Z",
+      "side": 1,
+      "message": "I like to add blank lines around any Lock/Unlock block.",
+      "range": {
+        "startLine": 125,
+        "startChar": 10,
+        "endLine": 125,
+        "endChar": 12
+      },
+      "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad72168f_48c04f91",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-03T05:17:20Z",
+      "side": 1,
+      "message": "Is it worth defining\nrx, ry :\u003d tx / wx, ty / wy",
+      "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad72168f_28c313a0",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-03T05:17:20Z",
+      "side": 1,
+      "message": "Is this true?? Shiny doesn\u0027t call gl.Viewport.",
+      "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad72168f_a8956399",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-03T05:17:20Z",
+      "side": 1,
+      "message": "I don\u0027t understand this sentence. Why does the texture occupy the entire window? Is the window (0,0)-(wx,wy) or (-1,+1)-(+1,-1)?? If the former, then don\u0027t you only touch the upper-left part? If the latter, then don\u0027t you only touch from the center out to one corner?",
+      "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad72168f_68a42b00",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-03T05:17:20Z",
+      "side": 1,
+      "message": "And now we\u0027re (0,0)-(1,1) and not (-1,+1)-(+1,-1)??",
+      "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
