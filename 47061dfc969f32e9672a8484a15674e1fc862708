@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0a0b0862_754f603d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-08-03T22:37:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad72168f_c80fffbc",
+      "range": {
+        "startLine": 9,
+        "startChar": 40,
+        "endLine": 9,
+        "endChar": 46
+      },
+      "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad72168f_68eeeb2a",
         "filename": "shiny/driver/gldriver/cocoa.go",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2015-08-03T05:17:20Z",
       "side": 1,
       "message": "I like to add blank lines around any Lock/Unlock block.",
+      "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a61b821_5c007173",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-08-03T22:37:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad72168f_68eeeb2a",
       "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "ea6cf416_8b60fd01",
+        "filename": "shiny/driver/gldriver/screen.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-08-03T22:37:08Z",
+      "side": 1,
+      "message": "I started trying to do in main, but we don\u0027t have a functional GL context from Cocoa until a window is created.\n\nOnce there is a single draw loop (which will be started by the first window, slated for a later CL), then we will have a main-like place to do this initialization. I\u0027m not sure if it will look better there than initialized lazily, but it\u0027s worth a try.",
+      "parentUuid": "ad72168f_088c9786",
+      "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad72168f_c8045f8b",
         "filename": "shiny/driver/gldriver/screen.go",
         "patchSetId": 1
@@ -70,6 +130,24 @@
       "writtenOn": "2015-08-03T05:17:20Z",
       "side": 1,
       "message": "This needs to hold s.mu.",
+      "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4a5c2064_dfa113f1",
+        "filename": "shiny/driver/gldriver/screen.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-08-03T22:37:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad72168f_c8045f8b",
       "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -93,6 +171,24 @@
     },
     {
       "key": {
+        "uuid": "aa667c34_7d1d6b6d",
+        "filename": "shiny/driver/gldriver/texture.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-08-03T22:37:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad72168f_e8867b67",
+      "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad72168f_08ff37db",
         "filename": "shiny/driver/gldriver/texture.go",
         "patchSetId": 1
@@ -104,6 +200,24 @@
       "writtenOn": "2015-08-03T05:17:20Z",
       "side": 1,
       "message": "Add\n// TODO: send a screen.UploadedEvent.",
+      "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca673030_7b70d752",
+        "filename": "shiny/driver/gldriver/texture.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-08-03T22:37:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad72168f_08ff37db",
       "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -133,6 +247,30 @@
     },
     {
       "key": {
+        "uuid": "8a61b821_5cbd1120",
+        "filename": "shiny/driver/gldriver/util.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-08-03T22:37:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad72168f_c881bf52",
+      "range": {
+        "startLine": 1,
+        "startChar": 18,
+        "endLine": 1,
+        "endChar": 21
+      },
+      "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad72168f_48f12f0a",
         "filename": "shiny/driver/gldriver/window.go",
         "patchSetId": 1
@@ -144,6 +282,24 @@
       "writtenOn": "2015-08-03T05:17:20Z",
       "side": 1,
       "message": "Redundant comment is redundant.",
+      "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea6cf416_cb6955eb",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-08-03T22:37:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad72168f_48f12f0a",
       "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -167,6 +323,24 @@
     },
     {
       "key": {
+        "uuid": "0a0b0862_b5d548b7",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-08-03T22:37:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad72168f_88a187f1",
+      "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad72168f_88eb4718",
         "filename": "shiny/driver/gldriver/window.go",
         "patchSetId": 1
@@ -184,6 +358,24 @@
     },
     {
       "key": {
+        "uuid": "0a0b0862_55ea1c68",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-08-03T22:37:08Z",
+      "side": 1,
+      "message": "Hmm. I don\u0027t know, panic seems appropriate here. An error from NewTexture means things are pretty messed up. I\u0027d much rather get a stack trace than process an error on the event loop that throws away all context.",
+      "parentUuid": "ad72168f_88eb4718",
+      "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad72168f_e8b83b35",
         "filename": "shiny/driver/gldriver/window.go",
         "patchSetId": 1
@@ -195,6 +387,24 @@
       "writtenOn": "2015-08-03T05:17:20Z",
       "side": 1,
       "message": "s/Over/Src/",
+      "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a24e8f1_47754e41",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-08-03T22:37:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad72168f_e8b83b35",
       "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -224,6 +434,30 @@
     },
     {
       "key": {
+        "uuid": "aa667c34_9db847c0",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-08-03T22:37:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad72168f_a8ae43ed",
+      "range": {
+        "startLine": 125,
+        "startChar": 10,
+        "endLine": 125,
+        "endChar": 12
+      },
+      "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad72168f_48c04f91",
         "filename": "shiny/driver/gldriver/window.go",
         "patchSetId": 1
@@ -235,6 +469,24 @@
       "writtenOn": "2015-08-03T05:17:20Z",
       "side": 1,
       "message": "Is it worth defining\nrx, ry :\u003d tx / wx, ty / wy",
+      "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aa667c34_7da8cb5f",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-08-03T22:37:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad72168f_48c04f91",
       "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -258,6 +510,24 @@
     },
     {
       "key": {
+        "uuid": "ca673030_9b5fb3bb",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-08-03T22:37:08Z",
+      "side": 1,
+      "message": "NSOpenGLView calls glViewport (and on resize).",
+      "parentUuid": "ad72168f_28c313a0",
+      "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad72168f_a8956399",
         "filename": "shiny/driver/gldriver/window.go",
         "patchSetId": 1
@@ -275,6 +545,24 @@
     },
     {
       "key": {
+        "uuid": "0a0b0862_35103810",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-08-03T22:37:08Z",
+      "side": 1,
+      "message": "Because glViewport has been called, drawing a texture on (-1,+1)-(+1,-1) in GL\u0027s coordinate space fills the pixels (0,0)-(wx,wy).",
+      "parentUuid": "ad72168f_a8956399",
+      "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad72168f_68a42b00",
         "filename": "shiny/driver/gldriver/window.go",
         "patchSetId": 1
@@ -286,6 +574,24 @@
       "writtenOn": "2015-08-03T05:17:20Z",
       "side": 1,
       "message": "And now we\u0027re (0,0)-(1,1) and not (-1,+1)-(+1,-1)??",
+      "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a536c56_4100883e",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-08-03T22:37:08Z",
+      "side": 1,
+      "message": "Yes, this is GL-texture space, not GL\u0027s triangle space.",
+      "parentUuid": "ad72168f_68a42b00",
       "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
