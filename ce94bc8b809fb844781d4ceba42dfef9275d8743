@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2a536c56_dbcc87ad",
+        "filename": "shiny/driver/x11driver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-08-03T10:50:05Z",
+      "side": 1,
+      "message": "Is your plan here an image.Draw Transformer?",
+      "revId": "ce94bc8b809fb844781d4ceba42dfef9275d8743",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
