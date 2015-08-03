@@ -11,6 +11,9 @@ import (
 	"unsafe"
 
 	"github.com/BurntSushi/xgb/shm"
+	"github.com/BurntSushi/xgb/xproto"
+
+	"golang.org/x/exp/shiny/screen"
 )
 
 type bufferImpl struct {
@@ -105,4 +108,33 @@ func (b *bufferImpl) cleanUp() {
 	if err := shmClose(b.addr); err != nil {
 		log.Printf("x11driver: shmClose: %v", err)
 	}
+}
+
+func upload(s *screenImpl, u screen.Uploader, xd xproto.Drawable, xg xproto.Gcontext, depth uint8,
+	dp image.Point, src *bufferImpl, sr image.Rectangle, sender screen.Sender) {
+
+	src.preUpload()
+
+	// TODO: adjust if dp is outside dst bounds, or sr is outside src bounds.
+	dr := sr.Sub(sr.Min).Add(dp)
+
+	cookie := shm.PutImage(
+		s.xc, xd, xg,
+		uint16(src.size.X), uint16(src.size.Y), // TotalWidth, TotalHeight,
+		uint16(sr.Min.X), uint16(sr.Min.Y), // SrcX, SrcY,
+		uint16(dr.Dx()), uint16(dr.Dy()), // SrcWidth, SrcHeight,
+		int16(dr.Min.X), int16(dr.Min.Y), // DstX, DstY,
+		depth, xproto.ImageFormatZPixmap,
+		1, src.xs, 0, // 1 means send a completion event, 0 means a zero offset.
+	)
+
+	s.mu.Lock()
+	s.uploads[cookie.Sequence] = completion{
+		sender: sender,
+		event: screen.UploadedEvent{
+			Buffer:   src,
+			Uploader: u,
+		},
+	}
+	s.mu.Unlock()
 }

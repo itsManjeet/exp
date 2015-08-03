@@ -18,6 +18,7 @@ import (
 
 	"golang.org/x/exp/shiny/driver"
 	"golang.org/x/exp/shiny/screen"
+	"golang.org/x/image/math/f64"
 )
 
 func main() {
@@ -28,7 +29,8 @@ func main() {
 		}
 		defer w.Release()
 
-		b, err := s.NewBuffer(image.Point{256, 256})
+		size := image.Point{256, 256}
+		b, err := s.NewBuffer(size)
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -36,9 +38,27 @@ func main() {
 		fill(b.RGBA())
 		w.Upload(image.Point{}, b, b.RGBA().Bounds(), w)
 
+		t, err := s.NewTexture(size)
+		if err != nil {
+			log.Fatal(err)
+		}
+		defer t.Release()
+		t.Upload(image.Point{}, b, b.RGBA().Bounds(), w)
+
+		w.Draw(f64.Aff3{
+			1, 0, 100,
+			0, 1, 200,
+		}, t, image.Rectangle{Max: size}, screen.Over, nil)
+
 		for e := range w.Events() {
-			// TODO: be more interesting.
-			fmt.Println(e)
+			switch e := e.(type) {
+			default:
+				// TODO: be more interesting.
+				fmt.Printf("got event %#v\n", e)
+
+			case error:
+				log.Print(e)
+			}
 		}
 	})
 }
