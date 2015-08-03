@@ -16,6 +16,24 @@
       "revId": "cabcb38b5cf911aaa962e92fc10e0284a12ea86b",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a536c56_f87991ea",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-08-03T10:12:22Z",
+      "side": 1,
+      "message": "Agreed, will do so in a followup CL.",
+      "parentUuid": "ad72168f_28feb32d",
+      "revId": "cabcb38b5cf911aaa962e92fc10e0284a12ea86b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
