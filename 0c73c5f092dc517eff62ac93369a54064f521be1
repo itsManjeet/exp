@@ -16,6 +16,24 @@
       "revId": "0c73c5f092dc517eff62ac93369a54064f521be1",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a536c56_d84f6db6",
+        "filename": "shiny/example/basic/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-08-03T10:31:56Z",
+      "side": 1,
+      "message": "Done. (left-over debugging)",
+      "parentUuid": "ad72168f_486e8f23",
+      "revId": "0c73c5f092dc517eff62ac93369a54064f521be1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
