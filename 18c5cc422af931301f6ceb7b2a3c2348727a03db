@@ -1,0 +1,152 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad72168f_0e665f1b",
+        "filename": "shiny/driver/gldriver/gldriver.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-04T05:33:29Z",
+      "side": 1,
+      "message": "s/%s/program compile: %s/ ??",
+      "revId": "18c5cc422af931301f6ceb7b2a3c2348727a03db",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad72168f_ee604302",
+        "filename": "shiny/driver/gldriver/gldriver.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-04T05:33:29Z",
+      "side": 1,
+      "message": "s/load/compile/",
+      "range": {
+        "startLine": 150,
+        "startChar": 8,
+        "endLine": 150,
+        "endChar": 9
+      },
+      "revId": "18c5cc422af931301f6ceb7b2a3c2348727a03db",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad72168f_2e6b1be5",
+        "filename": "shiny/driver/gldriver/texture.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-04T05:33:29Z",
+      "side": 1,
+      "message": "Should UV be uv, and similarly below?",
+      "revId": "18c5cc422af931301f6ceb7b2a3c2348727a03db",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad72168f_2e1cfb9f",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-04T05:33:29Z",
+      "side": 1,
+      "message": "I still think this needs more words about all of the various coordinate spaces. What\u0027s there now will confuse me again when I look at it 3 months from now. How about something like:\n\nSetting w.s.texture.mvp to a unit affine transform results in mapping the 2-unit square (-1,+1)-(+1,-1) given by quadXYCoords in texture.go to the same coordinates in framebuffer space. Thus, it results in the whole texture ((tx, ty) in texture space) occupying the whole window ((wx, wy) in window space).\n\nIt may be worth replacing \"framebuffer space\" with \"vertex shader space\", here and above.",
+      "revId": "18c5cc422af931301f6ceb7b2a3c2348727a03db",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad72168f_8efc2fab",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-04T05:33:29Z",
+      "side": 1,
+      "message": "I\u0027d change the second 1 to +1, for symmetry.",
+      "revId": "18c5cc422af931301f6ceb7b2a3c2348727a03db",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad72168f_ae272be9",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-04T05:33:29Z",
+      "side": 1,
+      "message": "Similarly, I\u0027d say -1+rx and +1-ry here.",
+      "revId": "18c5cc422af931301f6ceb7b2a3c2348727a03db",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad72168f_0e273fe8",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-04T05:33:29Z",
+      "side": 1,
+      "message": "Add above this:\n\nOpenGL\u0027s fragment shaders\u0027 UV coordinates run from (0,0)-(1,1), unlike vertex shaders\u0027 XY coordinates running from (-1,+1)-(+1,-1).",
+      "range": {
+        "startLine": 181,
+        "startChar": 20,
+        "endLine": 181,
+        "endChar": 21
+      },
+      "revId": "18c5cc422af931301f6ceb7b2a3c2348727a03db",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad72168f_ee2123d5",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-04T05:33:29Z",
+      "side": 1,
+      "message": "It looks odd to use f32 for uvp and f64 for mvp, above. It seems like you might as well use f64 everywhere and ditch the float32\u0027s above (and delete the writeAffine32 function, and rename writeAffine64 to writeAff3??).",
+      "revId": "18c5cc422af931301f6ceb7b2a3c2348727a03db",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
