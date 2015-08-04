@@ -376,6 +376,24 @@
     },
     {
       "key": {
+        "uuid": "ad72168f_ce05474e",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-04T05:33:29Z",
+      "side": 1,
+      "message": "I\u0027m not convinced that a panic is appropriate. os.Create doesn\u0027t panic if the disk is full. I\u0027d guess that NewTexture could similarly fail if there wasn\u0027t enough something, whether memory or if there was a simple (GPU-dependent) upper bound on the number of textures.",
+      "parentUuid": "0a0b0862_55ea1c68",
+      "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad72168f_e8b83b35",
         "filename": "shiny/driver/gldriver/window.go",
         "patchSetId": 1
@@ -522,6 +540,24 @@
       "side": 1,
       "message": "NSOpenGLView calls glViewport (and on resize).",
       "parentUuid": "ad72168f_28c313a0",
+      "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad72168f_c368c014",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-04T05:33:29Z",
+      "side": 1,
+      "message": "Welll, that\u0027s Cocoa-specific, but this is package gldriver, not cocoadriver.\n\nI suppose we can leave it as is, and I\u0027ll fix it if necessary when I do an x11 gldriver implementation.",
+      "parentUuid": "ca673030_9b5fb3bb",
       "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
