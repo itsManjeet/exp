@@ -16,6 +16,24 @@
       "revId": "ce94bc8b809fb844781d4ceba42dfef9275d8743",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ad72168f_0320f855",
+        "filename": "shiny/driver/x11driver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-04T00:47:21Z",
+      "side": 1,
+      "message": "The X11 Render extension lets you specify a transform. It\u0027s mostly just a question of aligning their matrix model and our matrix model (e.g. source to dest vs dest to source, how their matrix transform interacts with the separately specified dstx and dsty params to render.Composite).",
+      "parentUuid": "2a536c56_dbcc87ad",
+      "revId": "ce94bc8b809fb844781d4ceba42dfef9275d8743",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
