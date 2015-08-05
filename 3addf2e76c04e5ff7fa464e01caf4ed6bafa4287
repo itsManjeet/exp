@@ -16,6 +16,24 @@
       "revId": "3addf2e76c04e5ff7fa464e01caf4ed6bafa4287",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0a8f887d_6fec1101",
+        "filename": "shiny/driver/x11driver/screen.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-05T23:54:22Z",
+      "side": 1,
+      "message": "It\u0027s not really needed for configure events, but I figured I\u0027d fix it while I\u0027m here. It\u0027s needed for the ICCCM WM_TAKE_FOCUS protocol: https://tronche.com/gui/x/icccm/sec-4.html#s-4.1.7\n\nI added a description to the CL.",
+      "parentUuid": "cadad034_89865c68",
+      "revId": "3addf2e76c04e5ff7fa464e01caf4ed6bafa4287",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
