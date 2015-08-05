@@ -394,6 +394,24 @@
     },
     {
       "key": {
+        "uuid": "aa14bc88_96d76aee",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-08-05T01:36:41Z",
+      "side": 1,
+      "message": "I\u0027ve convinced myself the answer here is the TODO a few lines up. We can pin a texture to the window for uploading purposes when it is created, where we can provide a nice error message.\n\nIt\u0027s a bit of work, because the texture will ideally be some fixed size smaller than the window requiring a loop, so I\u0027ll leave it for a later CL.",
+      "parentUuid": "ad72168f_ce05474e",
+      "revId": "47061dfc969f32e9672a8484a15674e1fc862708",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ad72168f_e8b83b35",
         "filename": "shiny/driver/gldriver/window.go",
         "patchSetId": 1
