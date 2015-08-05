@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8d6d52b6_bca92598",
+        "filename": "shiny/driver/x11driver/buffer.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2015-08-05T05:01:26Z",
+      "side": 1,
+      "message": "quite a blob. i\u0027d break this down but if you prefer this style, fine",
+      "range": {
+        "startLine": 145,
+        "startChar": 8,
+        "endLine": 145,
+        "endChar": 22
+      },
+      "revId": "26a0dcefd429fb1293564c9ad0b1264fb5e07fba",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
