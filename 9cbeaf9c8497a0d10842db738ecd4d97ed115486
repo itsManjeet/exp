@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8a6d38b6_d3097469",
+        "filename": "shiny/driver/gldriver/cocoa.m",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-08-06T23:20:50Z",
+      "side": 1,
+      "message": "Is there a difference between this and [view convertPoint:[theEvent locationInWindow] fromView:nil]? Does Apple suggest doing this new one now? (For my own reference.)",
+      "revId": "9cbeaf9c8497a0d10842db738ecd4d97ed115486",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
