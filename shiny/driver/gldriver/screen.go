@@ -20,6 +20,10 @@ import (
 )
 
 type screenImpl struct {
+	windowCreated chan *windowImpl
+	draw          chan *windowImpl
+	drawDone      chan struct{}
+
 	mu      sync.Mutex
 	windows map[uintptr]*windowImpl
 	texture struct {
@@ -84,15 +88,15 @@ func (s *screenImpl) NewWindow(opts *screen.NewWindowOptions) (screen.Window, er
 	// TODO: look at opts.
 	const width, height = 1024, 768
 
-	id := C.newWindow(width, height)
+	var glctx C.uintptr_t
+	id := C.newWindow(width, height, &glctx)
 	w := &windowImpl{
 		s:         s,
 		id:        uintptr(id),
+		glctx:     uintptr(glctx),
 		eventsIn:  make(chan interface{}),
 		eventsOut: make(chan interface{}),
 		endPaint:  make(chan paint.Event, 1),
-		draw:      make(chan struct{}),
-		drawDone:  make(chan struct{}),
 	}
 
 	s.mu.Lock()
@@ -100,7 +104,13 @@ func (s *screenImpl) NewWindow(opts *screen.NewWindowOptions) (screen.Window, er
 	s.mu.Unlock()
 
 	go w.pump()
-	go w.drawLoop(uintptr(C.showWindow(id)))
+
+	C.showWindow(id)
+
+	select {
+	case theScreen.windowCreated <- w:
+	default:
+	}
 
 	return w, nil
 }

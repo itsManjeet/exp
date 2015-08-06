@@ -45,7 +45,10 @@ func init() {
 
 var (
 	theScreen = &screenImpl{
-		windows: make(map[uintptr]*windowImpl),
+		windowCreated: make(chan *windowImpl),
+		draw:          make(chan *windowImpl),
+		drawDone:      make(chan struct{}),
+		windows:       make(map[uintptr]*windowImpl),
 	}
 	mainCallback func(screen.Screen)
 )
@@ -62,6 +65,7 @@ func main(f func(screen.Screen)) error {
 
 //export driverStarted
 func driverStarted() {
+	go drawLoop()
 	go func() {
 		mainCallback(theScreen)
 		C.stopDriver()
@@ -74,8 +78,8 @@ func drawgl(id uintptr) {
 	w := theScreen.windows[id]
 	theScreen.mu.Unlock()
 
-	w.draw <- struct{}{}
-	<-w.drawDone
+	theScreen.draw <- w
+	<-theScreen.drawDone
 }
 
 // drawLoop is the primary drawing loop.
@@ -88,27 +92,19 @@ func drawgl(id uintptr) {
 // source of draw events is the CVDisplayLink timer, which is tied to
 // the display vsync. Secondary draw events come from [NSView drawRect:]
 // when the window is resized.
-func (w *windowImpl) drawLoop(ctx uintptr) {
+func drawLoop() {
 	runtime.LockOSThread()
-	// TODO(crawshaw): there are several problematic issues around having
-	// a draw loop per window, but resolving them requires some thought.
-	// Firstly, nothing should race on gl.DoWork, so only one person can
-	// do that at a time. Secondly, which GL ctx we use matters. A ctx
-	// carries window-specific state (for example, the current glViewport
-	// value), so we only want to run GL commands on the right context
-	// between a <-w.draw and a <-w.drawDone. Thirdly, some GL functions
-	// can be legitimately called outside of a window draw cycle, for
-	// example, gl.CreateTexture. It doesn't matter which GL ctx we use
-	// for that, but we have to use a valid one. So if a window gets
-	// closed, it's important we swap the default ctx. More work needed.
-	C.makeCurrentContext(C.uintptr_t(ctx))
+
+	w := <-theScreen.windowCreated
+	C.makeCurrentContext(C.uintptr_t(w.glctx))
 
 	// TODO(crawshaw): exit this goroutine on Release.
 	for {
 		select {
 		case <-gl.WorkAvailable:
 			gl.DoWork()
-		case <-w.draw:
+		case w := <-theScreen.draw:
+			C.makeCurrentContext(C.uintptr_t(w.glctx))
 			w.eventsIn <- paint.Event{}
 		loop:
 			for {
@@ -120,7 +116,7 @@ func (w *windowImpl) drawLoop(ctx uintptr) {
 					break loop
 				}
 			}
-			w.drawDone <- struct{}{}
+			theScreen.drawDone <- struct{}{}
 		}
 	}
 }

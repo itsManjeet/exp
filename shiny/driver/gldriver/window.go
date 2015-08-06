@@ -21,8 +21,9 @@ import (
 )
 
 type windowImpl struct {
-	s  *screenImpl
-	id uintptr // *C.ScreenGLView
+	s     *screenImpl
+	id    uintptr // *C.ScreenGLView
+	glctx uintptr // *C.NSOpenGLContext
 
 	eventsIn  chan interface{}
 	eventsOut chan interface{}

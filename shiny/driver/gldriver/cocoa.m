@@ -178,7 +178,7 @@ uint64 threadID() {
 }
 @end
 
-uintptr_t newWindow(int width, int height) {
+uintptr_t newWindow(int width, int height, uintptr_t *glctx) {
 	id menuBar = [[NSMenu new] autorelease];
 	id menuItem = [[NSMenuItem new] autorelease];
 	[menuBar addItem:menuItem];
@@ -228,18 +228,16 @@ uintptr_t newWindow(int width, int height) {
 
 	window.nextResponder = [[[WindowResponder alloc] init] autorelease];
 
+	*glctx = (uintptr_t)[view openGLContext];
 	return (uintptr_t)view;
 }
 
-uintptr_t showWindow(uintptr_t viewID) {
+void showWindow(uintptr_t viewID) {
 	ScreenGLView* view = (ScreenGLView*)viewID;
-	__block uintptr_t ret = 0;
 	dispatch_barrier_sync(dispatch_get_main_queue(), ^{
 		[view.window makeKeyAndOrderFront:view.window];
 		CVDisplayLinkStart(view->displayLink);
-		ret = (uintptr_t)[view openGLContext];
 	});
-	return ret;
 }
 
 void startDriver() {
