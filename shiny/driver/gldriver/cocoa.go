@@ -24,6 +24,7 @@ import (
 	"golang.org/x/exp/shiny/screen"
 	"golang.org/x/mobile/event/config"
 	"golang.org/x/mobile/event/lifecycle"
+	"golang.org/x/mobile/event/mouse"
 	"golang.org/x/mobile/event/paint"
 	"golang.org/x/mobile/geom"
 	"golang.org/x/mobile/gl"
@@ -146,14 +147,50 @@ func setGeom(id uintptr, ppp float32, widthPx, heightPx int) {
 	w.eventsIn <- cfg
 }
 
-//export eventMouseDown
-func eventMouseDown(id uintptr, x, y float32) { log.Printf("eventMouseDown") } // TODO
+func sendWindowEvent(id uintptr, e interface{}) {
+	theScreen.mu.Lock()
+	w := theScreen.windows[id]
+	theScreen.mu.Unlock()
+	w.eventsIn <- e
+}
 
-//export eventMouseDragged
-func eventMouseDragged(id uintptr, x, y float32) { log.Printf("eventMouseDragged") } // TODO
+func cocoaMouseType(ty int) (mouse.Button, mouse.Direction) {
+	switch ty {
+	case C.NSLeftMouseDown:
+		return mouse.ButtonLeft, mouse.DirPress
+	case C.NSLeftMouseUp:
+		return mouse.ButtonLeft, mouse.DirRelease
+	case C.NSLeftMouseDragged:
+		return mouse.ButtonLeft, mouse.DirNone
+	case C.NSRightMouseDown:
+		return mouse.ButtonRight, mouse.DirPress
+	case C.NSRightMouseUp:
+		return mouse.ButtonRight, mouse.DirRelease
+	case C.NSRightMouseDragged:
+		return mouse.ButtonRight, mouse.DirNone
+	case C.NSOtherMouseDown:
+		return mouse.ButtonMiddle, mouse.DirPress
+	case C.NSOtherMouseUp:
+		return mouse.ButtonMiddle, mouse.DirRelease
+	case C.NSOtherMouseDragged:
+		return mouse.ButtonMiddle, mouse.DirNone
+	default:
+		log.Printf("Unknown cocoa mouse event type: %d", ty)
+		return mouse.ButtonNone, mouse.DirNone
+	}
+}
 
-//export eventMouseEnd
-func eventMouseEnd(id uintptr, x, y float32) { log.Printf("eventMouseEnd") } // TODO
+//export mouseEvent
+func mouseEvent(id uintptr, x, y float32, ty int) {
+	b, dir := cocoaMouseType(ty)
+	sendWindowEvent(id, mouse.Event{
+		X:         x,
+		Y:         y,
+		Button:    b,
+		Direction: dir,
+		// TODO Modifiers
+	})
+}
 
 func sendLifecycle(to lifecycle.Stage) {
 	log.Printf("sendLifecycle: %v", to) // TODO
