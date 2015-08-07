@@ -165,19 +165,17 @@ func cocoaMouseDir(ty int) mouse.Direction {
 	}
 }
 
-func cocoaMouseButton(ty, button int) mouse.Button {
-	switch ty {
-	case C.NSLeftMouseDown, C.NSLeftMouseUp, C.NSLeftMouseDragged:
+func cocoaMouseButton(button int) mouse.Button {
+	switch button {
+	case 0:
 		return mouse.ButtonLeft
-	case C.NSRightMouseDown, C.NSRightMouseUp, C.NSRightMouseDragged:
+	case 1:
 		return mouse.ButtonRight
-	case C.NSOtherMouseDown, C.NSOtherMouseUp, C.NSOtherMouseDragged:
-		if button == 2 {
-			return mouse.ButtonMiddle
-		}
+	case 2:
+		return mouse.ButtonMiddle
+	default:
+		return mouse.ButtonNone
 	}
-	log.Printf("Unknown cocoa mouse button: ty=%d, button=%d", ty, button)
-	return mouse.ButtonNone
 }
 
 //export mouseEvent
@@ -185,7 +183,7 @@ func mouseEvent(id uintptr, x, y float32, ty, button int) {
 	sendWindowEvent(id, mouse.Event{
 		X:         x,
 		Y:         y,
-		Button:    cocoaMouseButton(ty, button),
+		Button:    cocoaMouseButton(button),
 		Direction: cocoaMouseDir(ty),
 		// TODO Modifiers
 	})
