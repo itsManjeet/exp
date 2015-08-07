@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "8a6d38b6_93553c2b",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-08-07T01:23:04Z",
+      "side": 1,
+      "message": "As such, this will treat all extra mouse buttons like the middle mouse button. (Apple\u0027s Mighty Mouse has a fourth button, for instance.) I don\u0027t know if this is what the X11 driver does, but I\u0027m not sure if it\u0027s desired behavior.",
+      "revId": "9cbeaf9c8497a0d10842db738ecd4d97ed115486",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8a6d38b6_d3097469",
         "filename": "shiny/driver/gldriver/cocoa.m",
         "patchSetId": 1
@@ -47,6 +64,24 @@
       "writtenOn": "2015-08-07T01:01:02Z",
       "side": 1,
       "message": "Is there also a middleMouseDown Cocoa thing??",
+      "revId": "9cbeaf9c8497a0d10842db738ecd4d97ed115486",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8a6d38b6_5317247b",
+        "filename": "shiny/driver/gldriver/cocoa.m",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-08-07T01:23:04Z",
+      "side": 1,
+      "message": "Actually yes there is: otherMouseDown/Up/Dragged:. The name implies it handles more than just the middle button; the mouse button is stored in the event parameter, namely [theEvent buttonNumber]. If I recall correctly, button number 2 is the middle mouse button (this part isn\u0027t well documented).",
+      "parentUuid": "ca3810b3_2d508d2b",
       "revId": "9cbeaf9c8497a0d10842db738ecd4d97ed115486",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
