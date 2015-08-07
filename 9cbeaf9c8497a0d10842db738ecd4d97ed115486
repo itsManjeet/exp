@@ -157,6 +157,24 @@
       "revId": "9cbeaf9c8497a0d10842db738ecd4d97ed115486",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e7298f86_2e1ae775",
+        "filename": "shiny/driver/gldriver/cocoa.m",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-08-07T13:24:11Z",
+      "side": 1,
+      "message": "In my package ui, I take the button number and add 1 to it to get a 1-based button number, then swap buttons 2 and 3 to make 2 the middle and 3 the right. I\u0027m assuming [event buttonNumber] is supposed to return 0 for the left mouse button and 1 for the right mouse button, and it worked fine for me on \u003c\u003d 10.9. Did they change things in 10.10? Or does the right mouse button really work properly? I can\u0027t check right now.",
+      "parentUuid": "e7298f86_ce4c839a",
+      "revId": "9cbeaf9c8497a0d10842db738ecd4d97ed115486",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
