@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e7298f86_ae493788",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-08-07T09:55:04Z",
+      "side": 1,
+      "message": "Coming soon.",
+      "parentUuid": "ca3810b3_0d53d13a",
+      "revId": "9cbeaf9c8497a0d10842db738ecd4d97ed115486",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8a6d38b6_93553c2b",
         "filename": "shiny/driver/gldriver/cocoa.go",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "e7298f86_8e467b74",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-08-07T09:55:04Z",
+      "side": 1,
+      "message": "Done. Thanks.",
+      "parentUuid": "8a6d38b6_93553c2b",
+      "revId": "9cbeaf9c8497a0d10842db738ecd4d97ed115486",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8a6d38b6_d3097469",
         "filename": "shiny/driver/gldriver/cocoa.m",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2015-08-06T23:20:50Z",
       "side": 1,
       "message": "Is there a difference between this and [view convertPoint:[theEvent locationInWindow] fromView:nil]? Does Apple suggest doing this new one now? (For my own reference.)",
+      "revId": "9cbeaf9c8497a0d10842db738ecd4d97ed115486",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e7298f86_0e3babf5",
+        "filename": "shiny/driver/gldriver/cocoa.m",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-08-07T09:55:04Z",
+      "side": 1,
+      "message": "I believe it is the same. I prefer this slightly because the convert family of methods has grown and I still can\u0027t work out what convertPoint:[to|from]Base is all about.",
+      "parentUuid": "8a6d38b6_d3097469",
       "revId": "9cbeaf9c8497a0d10842db738ecd4d97ed115486",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -82,6 +136,24 @@
       "side": 1,
       "message": "Actually yes there is: otherMouseDown/Up/Dragged:. The name implies it handles more than just the middle button; the mouse button is stored in the event parameter, namely [theEvent buttonNumber]. If I recall correctly, button number 2 is the middle mouse button (this part isn\u0027t well documented).",
       "parentUuid": "ca3810b3_2d508d2b",
+      "revId": "9cbeaf9c8497a0d10842db738ecd4d97ed115486",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e7298f86_ce4c839a",
+        "filename": "shiny/driver/gldriver/cocoa.m",
+        "patchSetId": 1
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-08-07T09:55:04Z",
+      "side": 1,
+      "message": "Thanks, that clears up one point I had. Code modified to I believe handle middle mouse buttons, but I\u0027ll need to double check this afternoon when I\u0027m near such a button.\n\nBTW, the docs suggest buttonNumber works for left/right events. It doesn\u0027t seem to.",
+      "parentUuid": "8a6d38b6_5317247b",
       "revId": "9cbeaf9c8497a0d10842db738ecd4d97ed115486",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
