@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca3810b3_cdad49a1",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-07T01:06:35Z",
+      "side": 1,
+      "message": "s/255/65535/",
+      "range": {
+        "startLine": 148,
+        "startChar": 13,
+        "endLine": 148,
+        "endChar": 16
+      },
+      "revId": "39ecc104204c7833e89c766feacf2efff3c49776",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ca3810b3_edb20502",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-07T01:06:35Z",
+      "side": 1,
+      "message": "Maybe s/vertexAff/vertexAff3/ ?",
+      "revId": "39ecc104204c7833e89c766feacf2efff3c49776",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
