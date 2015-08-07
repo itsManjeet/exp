@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ca3810b3_f0ef3ea5",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-07T12:43:01Z",
+      "side": 1,
+      "message": "If you want, you could make these one-liner functions now, similar to x11driver/window.go.",
+      "revId": "13289fa8dc124bd92c24dcc6269c97432519dcba",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
