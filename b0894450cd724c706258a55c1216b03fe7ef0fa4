@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "27080763_90c13479",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-08T00:29:10Z",
+      "side": 1,
+      "message": "BTW, should you s/int/int32/? In general, with cgo, explicit sizes are probably better.",
+      "range": {
+        "startLine": 182,
+        "startChar": 53,
+        "endLine": 182,
+        "endChar": 56
+      },
+      "revId": "b0894450cd724c706258a55c1216b03fe7ef0fa4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
