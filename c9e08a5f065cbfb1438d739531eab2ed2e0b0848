@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "27f007dc_13258e5c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2015-08-10T11:55:39Z",
+      "side": 1,
+      "message": "Please write a proper commit message. \"new package\" is not a commit message. What is the package for, what does it do now, what will it do later?",
+      "revId": "c9e08a5f065cbfb1438d739531eab2ed2e0b0848",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
