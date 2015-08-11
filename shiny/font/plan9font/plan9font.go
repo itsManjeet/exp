@@ -2,12 +2,14 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-// Package plan9font implements font faces for the Plan 9 font file format.
+// Package plan9font implements font faces for the Plan 9 font and subfont file
+// formats. These formats are described at
+// http://plan9.bell-labs.com/magic/man2html/6/font
 package plan9font
 
-// TODO: have a face use an *image.Alpha instead of plan9Image implementing the
-// image.Image interface? The image/draw code has a fast path for *image.Alpha
-// masks.
+// TODO: have a subface use an *image.Alpha instead of plan9Image implementing
+// the image.Image interface? The image/draw code has a fast path for
+// *image.Alpha masks.
 
 import (
 	"bytes"
@@ -16,6 +18,8 @@ import (
 	"image"
 	"image/color"
 	"io"
+	"io/ioutil"
+	"strconv"
 	"strings"
 
 	"golang.org/x/exp/shiny/font"
@@ -49,8 +53,8 @@ func parseFontchars(p []byte) []fontchar {
 	return fc
 }
 
-// face implements font.Face.
-type face struct {
+// subface implements font.Face for a Plan 9 subfont.
+type subface struct {
 	firstRune rune        // First rune in the subfont.
 	n         int         // Number of characters in the subfont.
 	height    int         // Inter-line spacing.
@@ -59,10 +63,10 @@ type face struct {
 	img       *plan9Image // Image holding the glyphs.
 }
 
-func (f *face) Close() error                   { return nil }
-func (f *face) Kern(r0, r1 rune) fixed.Int26_6 { return 0 }
+func (f *subface) Close() error                   { return nil }
+func (f *subface) Kern(r0, r1 rune) fixed.Int26_6 { return 0 }
 
-func (f *face) Glyph(dot fixed.Point26_6, r rune) (
+func (f *subface) Glyph(dot fixed.Point26_6, r rune) (
 	newDot fixed.Point26_6, dr image.Rectangle, mask image.Image, maskp image.Point, ok bool) {
 
 	r -= f.firstRune
@@ -91,9 +95,112 @@ func (f *face) Glyph(dot fixed.Point26_6, r rune) (
 	return newDot, dr, f.img, image.Point{int(i.x), int(i.top)}, true
 }
 
+// element maps a single rune range [lo, hi] to a *subface. Both ends of the
+// range are inclusive.
+type element struct {
+	lo, hi  rune
+	subface *subface
+}
+
+// face implements font.Face for a Plan 9 font.
+//
+// It maps multiple rune ranges to *subface values. Rune ranges may overlap;
+// the first match wins.
+type face struct {
+	height   int
+	ascent   int
+	elements []element
+}
+
+func (f *face) Close() error                   { return nil }
+func (f *face) Kern(r0, r1 rune) fixed.Int26_6 { return 0 }
+
+func (f *face) Glyph(dot fixed.Point26_6, r rune) (
+	newDot fixed.Point26_6, dr image.Rectangle, mask image.Image, maskp image.Point, ok bool) {
+
+	// TODO: height/ascent adjustment, so that subfonts' baselines align.
+
+	// We have to do linear, not binary search. plan9port's
+	// lucsans/unicode.8.font says:
+	//	0x2591  0x2593  ../luc/Altshades.7.0
+	//	0x2500  0x25ee  ../luc/FormBlock.7.0
+	// and the rune ranges overlap.
+	for _, e := range f.elements {
+		if e.lo <= r && r <= e.hi {
+			return e.subface.Glyph(dot, r)
+		}
+	}
+	return fixed.Point26_6{}, image.Rectangle{}, nil, image.Point{}, false
+}
+
+// TODO: let openFunc mmap the file instead of returning an io.ReadCloser?
+
 // ParseFont parses a Plan 9 font file.
-func ParseFont(data []byte, openFunc func(name string) (io.ReadCloser, error)) (*font.MultiFace, error) {
-	panic("TODO")
+func ParseFont(data []byte, openFunc func(name string) (io.ReadCloser, error)) (font.Face, error) {
+	f := &face{}
+	// TODO: don't use strconv, to avoid the conversions from []byte to string?
+	for first := true; len(data) > 0; first = false {
+		i := bytes.IndexByte(data, '\n')
+		if i < 0 {
+			return nil, errors.New("plan9font: invalid font: missing new line character")
+		}
+		row := string(data[:i])
+		data = data[i+1:]
+		if first {
+			if _, err := fmt.Sscanf(row, "%d\t%d", &f.height, &f.ascent); err != nil {
+				return nil, fmt.Errorf("plan9font: invalid font: invalid header %q", row)
+			}
+			continue
+		}
+		lo, s, ok := nextInt32(row)
+		if !ok {
+			return nil, fmt.Errorf("plan9font: invalid font: invalid row %q", row)
+		}
+		hi, s, ok := nextInt32(s)
+		if !ok {
+			return nil, fmt.Errorf("plan9font: invalid font: invalid row %q", row)
+		}
+		offset, s, _ := nextInt32(s)
+
+		data, err := readAll(s, openFunc)
+		if err != nil {
+			return nil, fmt.Errorf("plan9font: couldn't load subfont %q: %v", s, err)
+		}
+		sub, err := ParseSubfont(data, lo-offset)
+		if err != nil {
+			return nil, fmt.Errorf("plan9font: couldn't load subfont %q: %v", s, err)
+		}
+		f.elements = append(f.elements, element{
+			lo:      lo,
+			hi:      hi,
+			subface: sub.(*subface),
+		})
+	}
+	return f, nil
+}
+
+func nextInt32(s string) (ret int32, remaining string, ok bool) {
+	i := 0
+	for ; i < len(s) && s[i] > ' '; i++ {
+	}
+	n, err := strconv.ParseInt(s[:i], 0, 32)
+	if err != nil {
+		return 0, s, false
+	}
+	for ; i < len(s) && s[i] <= ' '; i++ {
+	}
+	return int32(n), s[i:], true
+}
+
+func readAll(name string, openFunc func(name string) (io.ReadCloser, error)) ([]byte, error) {
+	r, err := openFunc(name)
+	if err != nil {
+		// TODO: add an implicit ".0" suffix to name??
+		// Or is plan9port's "luc/latin1B.10.font" simply broken?
+		return nil, err
+	}
+	defer r.Close()
+	return ioutil.ReadAll(r)
 }
 
 // ParseSubfont parses a Plan 9 subfont file.
@@ -116,7 +223,7 @@ func ParseSubfont(data []byte, firstRune rune) (font.Face, error) {
 	if len(data) != 6*(n+1) {
 		return nil, errors.New("plan9font: invalid subfont: data length mismatch")
 	}
-	return &face{
+	return &subface{
 		firstRune: firstRune,
 		n:         n,
 		height:    height,
