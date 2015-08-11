@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "670f5fb2_ca174304",
+        "filename": "shiny/example/font/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2015-08-11T04:45:41Z",
+      "side": 1,
+      "message": "it\u0027s not a basic example of fonts. it\u0027s a basic example of the use of fonts.",
+      "range": {
+        "startLine": 10,
+        "startChar": 3,
+        "endLine": 10,
+        "endChar": 7
+      },
+      "revId": "cb01a89be670bae0d7a1f3bacd85aa39ecbbc49d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "670f5fb2_aa1c0f29",
+        "filename": "shiny/font/font.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2015-08-11T04:45:41Z",
+      "side": 1,
+      "message": "explain. that is, why is this the design choice? i can see some reasons but want to know what yours are.",
+      "range": {
+        "startLine": 30,
+        "startChar": 13,
+        "endLine": 30,
+        "endChar": 16
+      },
+      "revId": "cb01a89be670bae0d7a1f3bacd85aa39ecbbc49d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
