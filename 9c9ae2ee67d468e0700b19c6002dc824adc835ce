@@ -1,0 +1,297 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "27f007dc_137a2edd",
+        "filename": "shiny/example/font/main.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2015-08-11T01:54:14Z",
+      "side": 1,
+      "message": "s/explicitly //",
+      "range": {
+        "startLine": 8,
+        "startChar": 54,
+        "endLine": 8,
+        "endChar": 56
+      },
+      "revId": "9c9ae2ee67d468e0700b19c6002dc824adc835ce",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "670f5fb2_4ad233cb",
+        "filename": "shiny/example/font/main.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2015-08-11T01:54:14Z",
+      "side": 1,
+      "message": "i haven\u0027t seen this style so much for commands. i\u0027d just say\n\nFont provides a basic example of font handling.",
+      "range": {
+        "startLine": 10,
+        "startChar": 3,
+        "endLine": 10,
+        "endChar": 10
+      },
+      "revId": "9c9ae2ee67d468e0700b19c6002dc824adc835ce",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4785fb57_31dd1000",
+        "filename": "shiny/font/font.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2015-08-11T01:54:14Z",
+      "side": 1,
+      "message": "explain",
+      "range": {
+        "startLine": 30,
+        "startChar": 13,
+        "endLine": 30,
+        "endChar": 16
+      },
+      "revId": "9c9ae2ee67d468e0700b19c6002dc824adc835ce",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27f007dc_93929eaa",
+        "filename": "shiny/font/plan9font/plan9font.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2015-08-11T01:54:14Z",
+      "side": 1,
+      "message": "the others are all sized, and this one isn\u0027t. looks odd and wastes space. also it should be unsigned. uint16 is probably ok, uint32 certainly is (the file format requires it to fit in 16, i believe). uint32 would make this structure 64 bits long, perfectly.",
+      "range": {
+        "startLine": 29,
+        "startChar": 8,
+        "endLine": 29,
+        "endChar": 11
+      },
+      "revId": "9c9ae2ee67d468e0700b19c6002dc824adc835ce",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4785fb57_f1f6a884",
+        "filename": "shiny/font/plan9font/plan9font.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2015-08-11T01:54:14Z",
+      "side": 1,
+      "message": "actually it\u0027s zeroth rather than first.",
+      "range": {
+        "startLine": 53,
+        "startChar": 26,
+        "endLine": 53,
+        "endChar": 31
+      },
+      "revId": "9c9ae2ee67d468e0700b19c6002dc824adc835ce",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27f007dc_73a85ad9",
+        "filename": "shiny/font/plan9font/plan9font.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2015-08-11T01:54:14Z",
+      "side": 1,
+      "message": "ParseSubfont",
+      "range": {
+        "startLine": 98,
+        "startChar": 3,
+        "endLine": 98,
+        "endChar": 12
+      },
+      "revId": "9c9ae2ee67d468e0700b19c6002dc824adc835ce",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "078f837d_ef880102",
+        "filename": "shiny/font/plan9font/plan9font.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2015-08-11T01:54:14Z",
+      "side": 1,
+      "message": "same message twice. i would discriminate for debugging.\nfirst one: plan9font: data too short\nsecond: plan9font: data length mismatch\nor some such",
+      "range": {
+        "startLine": 116,
+        "startChar": 17,
+        "endLine": 116,
+        "endChar": 18
+      },
+      "revId": "9c9ae2ee67d468e0700b19c6002dc824adc835ce",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "670f5fb2_6ad5f7b0",
+        "filename": "shiny/font/plan9font/plan9font.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2015-08-11T01:54:14Z",
+      "side": 1,
+      "message": "s/unsupported/unrecognized/ ?",
+      "range": {
+        "startLine": 186,
+        "startChar": 42,
+        "endLine": 186,
+        "endChar": 53
+      },
+      "revId": "9c9ae2ee67d468e0700b19c6002dc824adc835ce",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "07f303eb_2f6dc9a6",
+        "filename": "shiny/font/plan9font/plan9font.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2015-08-11T01:54:14Z",
+      "side": 1,
+      "message": "s/invalid image/\u0026: header too short/",
+      "range": {
+        "startLine": 192,
+        "startChar": 42,
+        "endLine": 192,
+        "endChar": 49
+      },
+      "revId": "9c9ae2ee67d468e0700b19c6002dc824adc835ce",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4785fb57_51e694d5",
+        "filename": "shiny/font/plan9font/plan9font.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2015-08-11T01:54:14Z",
+      "side": 1,
+      "message": ": bad header",
+      "range": {
+        "startLine": 207,
+        "startChar": 41,
+        "endLine": 207,
+        "endChar": 42
+      },
+      "revId": "9c9ae2ee67d468e0700b19c6002dc824adc835ce",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4785fb57_71e398c4",
+        "filename": "shiny/font/plan9font/plan9font.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2015-08-11T01:54:14Z",
+      "side": 1,
+      "message": ": data mismatch\nsomething like that.",
+      "range": {
+        "startLine": 238,
+        "startChar": 32,
+        "endLine": 238,
+        "endChar": 41
+      },
+      "revId": "9c9ae2ee67d468e0700b19c6002dc824adc835ce",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "27f007dc_337d32d5",
+        "filename": "shiny/font/plan9font/plan9font.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2015-08-11T01:54:14Z",
+      "side": 1,
+      "message": "these two bytes specify ...",
+      "range": {
+        "startLine": 264,
+        "startChar": 64,
+        "endLine": 264,
+        "endChar": 66
+      },
+      "revId": "9c9ae2ee67d468e0700b19c6002dc824adc835ce",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e730af80_56d514b0",
+        "filename": "shiny/font/plan9font/plan9font.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2015-08-11T01:54:14Z",
+      "side": 1,
+      "message": "again, much duplication. here it\u0027s basically bad format. i\u0027d declare global unexported errors and use them",
+      "revId": "9c9ae2ee67d468e0700b19c6002dc824adc835ce",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
