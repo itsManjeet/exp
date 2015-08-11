@@ -55,8 +55,71 @@ type Face interface {
 	// TODO: Ligatures? Shaping?
 }
 
-type MultiFace struct {
-	// TODO.
+// TODO: let a MultiFace open and close its constituent faces lazily? Or can we
+// assume that you can always mmap a font file, and let the OS handle paging?
+
+// MultiFaceElement maps a single rune range [Lo, Hi] to a Face.
+type MultiFaceElement struct {
+	// Lo and Hi are the low and high rune bounds. Both are inclusive.
+	Lo, Hi rune
+	// Face is the Face to use for runes in the MultiFaceElement's range.
+	Face Face
+
+	// TODO: height/ascent adjustment, so that subfonts' baselines align. This
+	// requires the Font interface to have a Metrics method.
+	//
+	// TODO: do any other font metrics need mentioning here?
+}
+
+// MultiFace maps multiple rune ranges to Faces. Rune ranges may overlap; the
+// first match wins.
+type MultiFace []MultiFaceElement
+
+// Close implements the Face interface.
+func (m MultiFace) Close() (retErr error) {
+	for _, e := range m {
+		if err := e.Face.Close(); retErr == nil {
+			retErr = err
+		}
+	}
+	return retErr
+}
+
+// Glyph implements the Face interface.
+func (m MultiFace) Glyph(dot fixed.Point26_6, r rune) (
+	newDot fixed.Point26_6, dr image.Rectangle, mask image.Image, maskp image.Point, ok bool) {
+
+	// TODO: height/ascent adjustment, so that subfonts' baselines align.
+	if e := m.find(r); e != nil {
+		return e.Face.Glyph(dot, r)
+	}
+	return fixed.Point26_6{}, image.Rectangle{}, nil, image.Point{}, false
+}
+
+// Kern implements the Face interface.
+func (m MultiFace) Kern(r0, r1 rune) fixed.Int26_6 {
+	e0 := m.find(r0)
+	e1 := m.find(r1)
+	if e0 == e1 && e0 != nil {
+		return e0.Face.Kern(r0, r1)
+	}
+	return 0
+}
+
+// find returns the first MultiFaceElement that contains r, or nil if there is
+// no such element.
+func (m MultiFace) find(r rune) *MultiFaceElement {
+	// We have to do linear, not binary search. plan9port's
+	// lucsans/unicode.8.font says:
+	//	0x2591  0x2593  ../luc/Altshades.7.0
+	//	0x2500  0x25ee  ../luc/FormBlock.7.0
+	// and the rune ranges overlap.
+	for i, e := range m {
+		if e.Lo <= r && r <= e.Hi {
+			return &m[i]
+		}
+	}
+	return nil
 }
 
 // TODO: Drawer.Layout or Drawer.Measure methods to measure text without

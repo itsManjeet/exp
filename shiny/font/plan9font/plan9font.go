@@ -2,7 +2,9 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-// Package plan9font implements font faces for the Plan 9 font file format.
+// Package plan9font implements font faces for the Plan 9 font and subfont file
+// formats. These formats are described at
+// http://plan9.bell-labs.com/magic/man2html/6/font
 package plan9font
 
 // TODO: have a face use an *image.Alpha instead of plan9Image implementing the
@@ -16,6 +18,8 @@ import (
 	"image"
 	"image/color"
 	"io"
+	"io/ioutil"
+	"strconv"
 	"strings"
 
 	"golang.org/x/exp/shiny/font"
@@ -91,9 +95,75 @@ func (f *face) Glyph(dot fixed.Point26_6, r rune) (
 	return newDot, dr, f.img, image.Point{int(i.x), int(i.top)}, true
 }
 
+// TODO: let openFunc mmap the file instead of returning an io.ReadCloser?
+
 // ParseFont parses a Plan 9 font file.
-func ParseFont(data []byte, openFunc func(name string) (io.ReadCloser, error)) (*font.MultiFace, error) {
-	panic("TODO")
+func ParseFont(data []byte, openFunc func(name string) (io.ReadCloser, error)) (m font.MultiFace, retErr error) {
+	var height, ascent int
+	// TODO: don't use strconv, to avoid the conversions from []byte to string?
+	for first := true; len(data) > 0; first = false {
+		i := bytes.IndexByte(data, '\n')
+		if i < 0 {
+			return nil, errors.New("plan9font: invalid font: missing new line character")
+		}
+		row := string(data[:i])
+		data = data[i+1:]
+		if first {
+			if _, err := fmt.Sscanf(row, "%d\t%d", &height, &ascent); err != nil {
+				return nil, fmt.Errorf("plan9font: invalid font: invalid header %q", row)
+			}
+			continue
+		}
+		lo, s, ok := nextInt32(row)
+		if !ok {
+			return nil, fmt.Errorf("plan9font: invalid font: invalid row %q", row)
+		}
+		hi, s, ok := nextInt32(s)
+		if !ok {
+			return nil, fmt.Errorf("plan9font: invalid font: invalid row %q", row)
+		}
+		offset, s, _ := nextInt32(s)
+
+		data, err := readAll(s, openFunc)
+		if err != nil {
+			return nil, fmt.Errorf("plan9font: couldn't load subfont %q: %v", s, err)
+		}
+		face, err := ParseSubfont(data, lo-offset)
+		if err != nil {
+			return nil, fmt.Errorf("plan9font: couldn't load subfont %q: %v", s, err)
+		}
+		m = append(m, font.MultiFaceElement{
+			Lo:   lo,
+			Hi:   hi,
+			Face: face,
+		})
+	}
+	// TODO: set m's height and ascent.
+	return m, nil
+}
+
+func nextInt32(s string) (ret int32, remaining string, ok bool) {
+	i := 0
+	for ; i < len(s) && s[i] > ' '; i++ {
+	}
+	n, err := strconv.ParseInt(s[:i], 0, 32)
+	if err != nil {
+		return 0, s, false
+	}
+	for ; i < len(s) && s[i] <= ' '; i++ {
+	}
+	return int32(n), s[i:], true
+}
+
+func readAll(name string, openFunc func(name string) (io.ReadCloser, error)) ([]byte, error) {
+	r, err := openFunc(name)
+	if err != nil {
+		// TODO: add an implicit ".0" suffix to name??
+		// Or is plan9port's "luc/latin1B.10.font" simply broken?
+		return nil, err
+	}
+	defer r.Close()
+	return ioutil.ReadAll(r)
 }
 
 // ParseSubfont parses a Plan 9 subfont file.
