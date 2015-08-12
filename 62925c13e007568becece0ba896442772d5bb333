@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64bbdda0_6a42376a",
+        "filename": "shiny/font/font.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 5761
+      },
+      "writtenOn": "2015-08-12T15:53:52Z",
+      "side": 1,
+      "message": "Making Glyph a render-specific method means that this interface will need additional methods to provide glyph metrics. I worry that it will get quite large. What about encapsulating Glyphs in a type and returning that type here. I am thinking about something like:\n\n// A Glyph allows access to glyph-specific metrics and rendering.\ntype Glyph interface {\n\tAdvance() fixed.Int26_6\n\tHeight() fixed.Int26_6\n\tWidth() fixed.Int26_6\n\t// At returns the rendering of the glyph at the sub-pixel destination dot.\n\t// The user can get the new dot by doing dot+g.Advance().\n\tAt(dot fixed.Point26_6) (dr image.Rectangle, mask image.Image, maskp image.Point)\n}\n\ntype Face interface {\n\t…\n\n\t// Glyph returns the Glyph in this face corresponding to the rune r, or nil if the face has no such glyph.\n\tGlyph(r rune) Glyph\n\n\t// Kern returns …\n\t// If the two Glyphs are not from the same Face, Kern returns 0.\n\t// (Kern could use glyph.index [see below], for example, to more quickly locate kerning info.)\n\tKern(g0, g1 Glyph) fixed.Int26_6\n}\n\n// Now in truetype.go\n\npackage truetype\n\ntype glyph strurct {\n\tadv, height, width fixed.Int26_6\n\tindex truetype.Index // For example\n\tfont Face // Perhaps\n}",
+      "range": {
+        "startLine": 46,
+        "startChar": 36,
+        "endLine": 47,
+        "endChar": 91
+      },
+      "revId": "62925c13e007568becece0ba896442772d5bb333",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
