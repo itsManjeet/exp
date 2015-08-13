@@ -140,6 +140,24 @@
       "revId": "b5cfe7157730a17e1780172cbeb9ab4e19e010c9",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64bbdda0_ed3161f2",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-08-13T23:45:35Z",
+      "side": 1,
+      "message": "LGTM.",
+      "parentUuid": "64bbdda0_ed1ba1a3",
+      "revId": "b5cfe7157730a17e1780172cbeb9ab4e19e010c9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
