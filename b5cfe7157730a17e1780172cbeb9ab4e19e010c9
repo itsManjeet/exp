@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "64bbdda0_edc08175",
+        "filename": "shiny/driver/windriver/errors.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-08-13T20:09:59Z",
+      "side": 1,
+      "message": "That\u0027s a C++ thing, but I\u0027ve seen the implementation (it\u0027s in comdef.h; I looked at one that shipped with some version of the Windows DDK) and it just funnels down to FormatMessage(). It\u0027s a TODO because I haven\u0027t figured out how to safely get this into a UTF-8 string yet. I could either keep it as a UTF-16 string and use unsafe and reflect to shove that into a Go slice, or convert it to a UTF-8 string on the C side and risk malloc() failing.",
+      "parentUuid": "64bbdda0_8a544b4e",
+      "revId": "b5cfe7157730a17e1780172cbeb9ab4e19e010c9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64bbdda0_4db0ad2a",
         "filename": "shiny/driver/windriver/utilwindow.c",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "64bbdda0_4dd98d68",
+        "filename": "shiny/driver/windriver/utilwindow.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-08-13T20:09:59Z",
+      "side": 1,
+      "message": "I\u0027m not sure what the preferred C syntax rules for Go project source is; I can look around and figure out. I\u0027ll do that in the next patch set, I suppose.",
+      "parentUuid": "64bbdda0_4db0ad2a",
+      "revId": "b5cfe7157730a17e1780172cbeb9ab4e19e010c9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64bbdda0_6db57119",
         "filename": "shiny/driver/windriver/window.go",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2015-08-13T19:56:57Z",
       "side": 1,
       "message": "This function is called by users via the NewWindow method on the Screen interface.\n\nEven though you are passing screen.Screen to a function that you are locking to a thread, there is nothing stopping the user from passing the Screen object to another goroutine and using it there. (As long as they are obeying the implicit contract not to use it concurrently.)\n\nAs such, this could be called from any OS thread, which won\u0027t end well.\n\nI think what you want to do is create a new goroutine for each window, lock that goroutine to an os thread, then create the win32 window, and keep that goroutine around to handle window messages. That is, put something here like:\n\nw :\u003d \u0026window{\n  ...\n}\ngo func() {\n    runtime.LockOSThread()\n    .. .:\u003d C.createWindow(\u0026hwnd)\n    for ... incoming win32 window message {\n        // send it on to the event pump\n    }\n}()\n\nreturn w",
+      "revId": "b5cfe7157730a17e1780172cbeb9ab4e19e010c9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64bbdda0_6dded153",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-08-13T20:09:59Z",
+      "side": 1,
+      "message": "That\u0027s one way to do things, I suppose. But I think something got lost in communication, so I\u0027ll update doc.go to say the following:\n\nThe code in C.createWindow() is just a SendMessage() call to the utility window. The goroutine that the utility window is created on is locked to an OS thread, so all callers of NewWindow() definitely *will* be on another thread. However, SendMessage() will switch back to the locked OS thread to dispatch the message, because the utility window belongs to a different thread. The net effect of all this is that all windows will be on a single OS thread.",
+      "parentUuid": "64bbdda0_6db57119",
       "revId": "b5cfe7157730a17e1780172cbeb9ab4e19e010c9",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
