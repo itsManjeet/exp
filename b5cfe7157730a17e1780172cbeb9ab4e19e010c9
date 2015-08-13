@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64bbdda0_8a544b4e",
+        "filename": "shiny/driver/windriver/errors.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-08-13T19:56:57Z",
+      "side": 1,
+      "message": "Is it possible to use _com_error to turn this into a string?\n\nhttps://msdn.microsoft.com/en-us/library/0ye3k36s(v\u003dvs.80).aspx",
+      "revId": "b5cfe7157730a17e1780172cbeb9ab4e19e010c9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64bbdda0_4db0ad2a",
+        "filename": "shiny/driver/windriver/utilwindow.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-08-13T19:56:57Z",
+      "side": 1,
+      "message": "I think you\u0027ll find a general preference around here for using braces around single-statement conditions.",
+      "revId": "b5cfe7157730a17e1780172cbeb9ab4e19e010c9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64bbdda0_6db57119",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-08-13T19:56:57Z",
+      "side": 1,
+      "message": "This function is called by users via the NewWindow method on the Screen interface.\n\nEven though you are passing screen.Screen to a function that you are locking to a thread, there is nothing stopping the user from passing the Screen object to another goroutine and using it there. (As long as they are obeying the implicit contract not to use it concurrently.)\n\nAs such, this could be called from any OS thread, which won\u0027t end well.\n\nI think what you want to do is create a new goroutine for each window, lock that goroutine to an os thread, then create the win32 window, and keep that goroutine around to handle window messages. That is, put something here like:\n\nw :\u003d \u0026window{\n  ...\n}\ngo func() {\n    runtime.LockOSThread()\n    .. .:\u003d C.createWindow(\u0026hwnd)\n    for ... incoming win32 window message {\n        // send it on to the event pump\n    }\n}()\n\nreturn w",
+      "revId": "b5cfe7157730a17e1780172cbeb9ab4e19e010c9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
