@@ -22,6 +22,30 @@
       "revId": "62925c13e007568becece0ba896442772d5bb333",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24dc85fc_f62b7831",
+        "filename": "shiny/font/font.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-14T12:50:04Z",
+      "side": 1,
+      "message": "Having Glyph-the-method return a Glyph-the-interface will probably mean that every call to Glyph-the-method will allocate. I\u0027d like to be able to render a paragraph of text without any allocations, in the steady state.\n\nYou might be able to re-use some backing storage, but then it gets tricky when you have to keep multiple Glyph-the-interface values around for e.g. kerning.",
+      "parentUuid": "64bbdda0_6a42376a",
+      "range": {
+        "startLine": 46,
+        "startChar": 36,
+        "endLine": 47,
+        "endChar": 91
+      },
+      "revId": "62925c13e007568becece0ba896442772d5bb333",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
