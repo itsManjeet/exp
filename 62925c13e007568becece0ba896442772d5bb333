@@ -46,6 +46,30 @@
       "revId": "62925c13e007568becece0ba896442772d5bb333",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0456a145_775110e0",
+        "filename": "shiny/font/font.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 5761
+      },
+      "writtenOn": "2015-08-14T13:11:54Z",
+      "side": 1,
+      "message": "Probably true, but one of my concerns is that this interface will tightly couple glyph layout with glyph drawing. Given a fixed-width text area, you need to compute which glyphs fit on a line. Additionally, you don\u0027t want to render lines of text that are unchanged. One approach is to first layout the glyphs into lines, and then separately render the lines. This way, it\u0027s easy to check which lines are unchanged after the layout. Unchanged lines needn\u0027t be rendered, you can simply use their previously cached texture. However, if the way to layout glyphs is to call this method and test whether newDot goes beyond the text area width, then you lose the benefit of caching the rendering, because you must render in order to compute the lines in the first place.\n\nI have an implementation of the two step, layout-then-render, approach here: https://github.com/eaburns/T/tree/gui/gui. It\u0027s just an experiment, so it may not be very pretty, but maybe it\u0027s of interest. You can try it out by building the program in the \u0027play\u0027 directory.\n\nBy the way, if the Glyph interface doesn\u0027t escape, need it still allocate?",
+      "parentUuid": "24dc85fc_f62b7831",
+      "range": {
+        "startLine": 46,
+        "startChar": 36,
+        "endLine": 47,
+        "endChar": 91
+      },
+      "revId": "62925c13e007568becece0ba896442772d5bb333",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
