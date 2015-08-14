@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "24dc85fc_93447e20",
+        "filename": "shiny/driver/windriver/doc.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2015-08-14T00:20:50Z",
+      "side": 1,
+      "message": "I did something similar for a program of mine - used SendMessage to send work to one single thread. But I have used\n\ntype call struct {\n        trap uintptr\n        args []uintptr\n        r1   uintptr\n        r2   uintptr\n        err  syscall.Errno\n}\n\nas SendMessage parameter instead. This allows me to \"call\" *any* windows syscall on the window thread. I have used variation of $GOROOT/src/syscall/mksyscall_windows.go program to do all dirty work, so adding new \"syscalls that call on other thread\" was not more difficult then what we currently do in syscall.\n\nI think this should make your code more readable / manageable.\n\nIt might be inefficient for a general case. I don\u0027t know.",
+      "revId": "37960633defd296105a41086d231a3f2efa84167",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
