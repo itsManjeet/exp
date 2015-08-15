@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4dac934_5d025b18",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-15T23:53:24Z",
+      "side": 1,
+      "message": "For future reference, you don\u0027t need to describe the patch set differences in the commit message. You can put them in the code review, instead of the commit, but it usually suffices to just say \"Done\" to each reviewer comment in the code review.",
+      "range": {
+        "startLine": 18,
+        "startChar": 10,
+        "endLine": 18,
+        "endChar": 11
+      },
+      "revId": "a2565c808cc4da9718c6a2702643672ec0259383",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
