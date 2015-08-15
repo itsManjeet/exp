@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0456a145_fab985b0",
+        "filename": "shiny/driver/windriver/doc.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-08-15T15:42:19Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "c4dac934_fd15e770",
+      "revId": "37960633defd296105a41086d231a3f2efa84167",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24dc85fc_93447e20",
         "filename": "shiny/driver/windriver/doc.go",
         "patchSetId": 3
@@ -53,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "0456a145_dab641c0",
+        "filename": "shiny/driver/windriver/doc.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-08-15T15:42:19Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "c4dac934_1d54532a",
+      "revId": "37960633defd296105a41086d231a3f2efa84167",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4dac934_5d5edb49",
         "filename": "shiny/driver/windriver/errors.go",
         "patchSetId": 3
@@ -64,6 +100,24 @@
       "writtenOn": "2015-08-15T07:33:59Z",
       "side": 1,
       "message": "I think the usual style is to put the C import above the other imports. For example, see gldriver/{cocoa,screen}.go.\n\nDitto in the other files.",
+      "revId": "37960633defd296105a41086d231a3f2efa84167",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0456a145_3a85bde9",
+        "filename": "shiny/driver/windriver/errors.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-08-15T15:42:19Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "c4dac934_5d5edb49",
       "revId": "37960633defd296105a41086d231a3f2efa84167",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -93,6 +147,30 @@
     },
     {
       "key": {
+        "uuid": "0456a145_1a8a79f7",
+        "filename": "shiny/driver/windriver/utilwindow.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-08-15T15:42:19Z",
+      "side": 1,
+      "message": "Done. Window handles are pointers, so the zero value is NULL.",
+      "parentUuid": "c4dac934_7d63970e",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 19
+      },
+      "revId": "37960633defd296105a41086d231a3f2efa84167",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4dac934_3d42ef68",
         "filename": "shiny/driver/windriver/window.c",
         "patchSetId": 3
@@ -104,6 +182,24 @@
       "writtenOn": "2015-08-15T07:33:59Z",
       "side": 1,
       "message": "Adding { and } for a 1-liner if block body seems consistent with the rest of this file.",
+      "revId": "37960633defd296105a41086d231a3f2efa84167",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0456a145_7a7f3559",
+        "filename": "shiny/driver/windriver/window.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-08-15T15:42:19Z",
+      "side": 1,
+      "message": "That was an oversight. Done.",
+      "parentUuid": "c4dac934_3d42ef68",
       "revId": "37960633defd296105a41086d231a3f2efa84167",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -127,6 +223,24 @@
     },
     {
       "key": {
+        "uuid": "0456a145_5a84f1e9",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-08-15T15:42:19Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "c4dac934_fd6ec7f0",
+      "revId": "37960633defd296105a41086d231a3f2efa84167",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4dac934_1d3d33ea",
         "filename": "shiny/driver/windriver/window.go",
         "patchSetId": 3
@@ -138,6 +252,24 @@
       "writtenOn": "2015-08-15T07:33:59Z",
       "side": 1,
       "message": "You can make these 3-liner functions into 1-liners, a la {gl,x11}driver/window.go.\n\nfunc (w *windowImpl) Events() \u003c-chan interface{} { return w.pump.Events() }\nfunc (w *windowImpl) Send(event interface{})     { w.pump.Send(event) }",
+      "revId": "37960633defd296105a41086d231a3f2efa84167",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0456a145_ba98ad4a",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-08-15T15:42:19Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "c4dac934_1d3d33ea",
       "revId": "37960633defd296105a41086d231a3f2efa84167",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -161,6 +293,24 @@
     },
     {
       "key": {
+        "uuid": "0456a145_9a95e914",
+        "filename": "shiny/driver/windriver/windriver.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-08-15T15:42:19Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "c4dac934_dd710bd2",
+      "revId": "37960633defd296105a41086d231a3f2efa84167",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4dac934_9d678319",
         "filename": "shiny/driver/windriver/windriver.h",
         "patchSetId": 3
@@ -172,6 +322,30 @@
       "writtenOn": "2015-08-15T07:33:59Z",
       "side": 1,
       "message": "Should you s/thish/thisH/? I don\u0027t really know Windows naming style, though.",
+      "range": {
+        "startLine": 26,
+        "startChar": 8,
+        "endLine": 26,
+        "endChar": 21
+      },
+      "revId": "37960633defd296105a41086d231a3f2efa84167",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0456a145_fa922528",
+        "filename": "shiny/driver/windriver/windriver.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-08-15T15:42:19Z",
+      "side": 1,
+      "message": "Good question; I\u0027m not sure either. If there are existing examples elsewhere I can follow those...",
+      "parentUuid": "c4dac934_9d678319",
       "range": {
         "startLine": 26,
         "startChar": 8,
