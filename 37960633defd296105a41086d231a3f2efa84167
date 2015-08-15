@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "c4dac934_fd15e770",
+        "filename": "shiny/driver/windriver/doc.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-15T07:33:59Z",
+      "side": 1,
+      "message": "I\u0027d drop the (). In Go comments, unlike C++ comments, \"foo\" usually refers to the function, and \"foo()\" refers to the result of calling that function with no arguments.\n\nDitto below (e.g. SendMessageW).",
+      "revId": "37960633defd296105a41086d231a3f2efa84167",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "24dc85fc_93447e20",
         "filename": "shiny/driver/windriver/doc.go",
         "patchSetId": 3
@@ -13,6 +30,154 @@
       "writtenOn": "2015-08-14T00:20:50Z",
       "side": 1,
       "message": "I did something similar for a program of mine - used SendMessage to send work to one single thread. But I have used\n\ntype call struct {\n        trap uintptr\n        args []uintptr\n        r1   uintptr\n        r2   uintptr\n        err  syscall.Errno\n}\n\nas SendMessage parameter instead. This allows me to \"call\" *any* windows syscall on the window thread. I have used variation of $GOROOT/src/syscall/mksyscall_windows.go program to do all dirty work, so adding new \"syscalls that call on other thread\" was not more difficult then what we currently do in syscall.\n\nI think this should make your code more readable / manageable.\n\nIt might be inefficient for a general case. I don\u0027t know.",
+      "revId": "37960633defd296105a41086d231a3f2efa84167",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4dac934_1d54532a",
+        "filename": "shiny/driver/windriver/doc.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-15T07:33:59Z",
+      "side": 1,
+      "message": "Typo in \"return\".",
+      "revId": "37960633defd296105a41086d231a3f2efa84167",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4dac934_5d5edb49",
+        "filename": "shiny/driver/windriver/errors.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-15T07:33:59Z",
+      "side": 1,
+      "message": "I think the usual style is to put the C import above the other imports. For example, see gldriver/{cocoa,screen}.go.\n\nDitto in the other files.",
+      "revId": "37960633defd296105a41086d231a3f2efa84167",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4dac934_7d63970e",
+        "filename": "shiny/driver/windriver/utilwindow.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-15T07:33:59Z",
+      "side": 1,
+      "message": "Should you say\nHWND utilityWindow \u003d 0;\n\nI can\u0027t remember.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 19
+      },
+      "revId": "37960633defd296105a41086d231a3f2efa84167",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4dac934_3d42ef68",
+        "filename": "shiny/driver/windriver/window.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-15T07:33:59Z",
+      "side": 1,
+      "message": "Adding { and } for a 1-liner if block body seems consistent with the rest of this file.",
+      "revId": "37960633defd296105a41086d231a3f2efa84167",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4dac934_fd6ec7f0",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-15T07:33:59Z",
+      "side": 1,
+      "message": "Also call w.pump.Release.",
+      "revId": "37960633defd296105a41086d231a3f2efa84167",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4dac934_1d3d33ea",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-15T07:33:59Z",
+      "side": 1,
+      "message": "You can make these 3-liner functions into 1-liners, a la {gl,x11}driver/window.go.\n\nfunc (w *windowImpl) Events() \u003c-chan interface{} { return w.pump.Events() }\nfunc (w *windowImpl) Send(event interface{})     { w.pump.Send(event) }",
+      "revId": "37960633defd296105a41086d231a3f2efa84167",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4dac934_dd710bd2",
+        "filename": "shiny/driver/windriver/windriver.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-15T07:33:59Z",
+      "side": 1,
+      "message": "Ditto re the (), and I\u0027d s/this/This/",
+      "revId": "37960633defd296105a41086d231a3f2efa84167",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4dac934_9d678319",
+        "filename": "shiny/driver/windriver/windriver.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-15T07:33:59Z",
+      "side": 1,
+      "message": "Should you s/thish/thisH/? I don\u0027t really know Windows naming style, though.",
+      "range": {
+        "startLine": 26,
+        "startChar": 8,
+        "endLine": 26,
+        "endChar": 21
+      },
       "revId": "37960633defd296105a41086d231a3f2efa84167",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
