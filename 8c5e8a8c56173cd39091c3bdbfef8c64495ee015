@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4dac934_1dc0d3f7",
+        "filename": "shiny/example/font/main.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2015-08-17T03:39:56Z",
+      "side": 1,
+      "message": "you only need one flag if you use the canonical suffix .font for the plan 9 font file names. this also avoids the issue of setting both flags, a situation unchecked below.",
+      "range": {
+        "startLine": 31,
+        "startChar": 1,
+        "endLine": 31,
+        "endChar": 9
+      },
+      "revId": "8c5e8a8c56173cd39091c3bdbfef8c64495ee015",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4dac934_5dca5b17",
+        "filename": "shiny/font/plan9font/plan9font.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2015-08-17T03:39:56Z",
+      "side": 1,
+      "message": "bad name; it\u0027s barely better than \"array\". i\u0027d use  runeRange",
+      "range": {
+        "startLine": 98,
+        "startChar": 3,
+        "endLine": 98,
+        "endChar": 10
+      },
+      "revId": "8c5e8a8c56173cd39091c3bdbfef8c64495ee015",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4dac934_9dd303cf",
+        "filename": "shiny/font/plan9font/plan9font.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2015-08-17T03:39:56Z",
+      "side": 1,
+      "message": "explain the arguments, they are not intuitive.",
+      "range": {
+        "startLine": 136,
+        "startChar": 3,
+        "endLine": 136,
+        "endChar": 12
+      },
+      "revId": "8c5e8a8c56173cd39091c3bdbfef8c64495ee015",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4dac934_7dcf1726",
+        "filename": "shiny/font/plan9font/plan9font.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2015-08-17T03:39:56Z",
+      "side": 1,
+      "message": "why not\nvar f face\nand return \u0026f, nil?\n\ni suppose i am in the minority now but i continue to dislike this construction.",
+      "range": {
+        "startLine": 138,
+        "startChar": 7,
+        "endLine": 138,
+        "endChar": 11
+      },
+      "revId": "8c5e8a8c56173cd39091c3bdbfef8c64495ee015",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4dac934_bdd0bfc2",
+        "filename": "shiny/font/plan9font/plan9font.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2015-08-17T03:39:56Z",
+      "side": 1,
+      "message": "\"no final newline\"?",
+      "range": {
+        "startLine": 143,
+        "startChar": 52,
+        "endLine": 143,
+        "endChar": 59
+      },
+      "revId": "8c5e8a8c56173cd39091c3bdbfef8c64495ee015",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4dac934_dddd8bd9",
+        "filename": "shiny/font/plan9font/plan9font.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2015-08-17T03:39:56Z",
+      "side": 1,
+      "message": "sanity check?",
+      "range": {
+        "startLine": 156,
+        "startChar": 15,
+        "endLine": 156,
+        "endChar": 21
+      },
+      "revId": "8c5e8a8c56173cd39091c3bdbfef8c64495ee015",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4dac934_fdda47de",
+        "filename": "shiny/font/plan9font/plan9font.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2015-08-17T03:39:56Z",
+      "side": 1,
+      "message": "this is fine but why not read them lazily, as intended? in my usual font i doubt the full subfont set gets loaded very often. programs start slower if you read them all first.",
+      "range": {
+        "startLine": 177,
+        "startChar": 4,
+        "endLine": 177,
+        "endChar": 12
+      },
+      "revId": "8c5e8a8c56173cd39091c3bdbfef8c64495ee015",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
