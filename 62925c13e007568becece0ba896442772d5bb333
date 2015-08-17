@@ -70,6 +70,30 @@
       "revId": "62925c13e007568becece0ba896442772d5bb333",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4dac934_7d7d5756",
+        "filename": "shiny/font/font.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-17T02:09:12Z",
+      "side": 1,
+      "message": "Measuring glyphs without generating the mask images will be a separate method, so that glyph layout and glyph drawing are not tightly coupled. It\u0027s the \"TODO: per-font and per-glyph Metrics\".\n\nAs for your experimental code, it imports \"github.com/eaburns/T/font\" but I can\u0027t seem to find that package.\n\nAs for allocation, if you return a Glyph-the-interface, then the return value escapes Glyph-the-method. See also http://research.swtch.com/interfaces",
+      "parentUuid": "0456a145_775110e0",
+      "range": {
+        "startLine": 46,
+        "startChar": 36,
+        "endLine": 47,
+        "endChar": 91
+      },
+      "revId": "62925c13e007568becece0ba896442772d5bb333",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
