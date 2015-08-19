@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0456a145_e00c38f7",
+        "filename": "shiny/driver/x11driver/key.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-08-19T17:27:10Z",
+      "side": 1,
+      "message": "What is the RHS meta key generating on your computer, xkMenu or xkSuperR?",
+      "revId": "2852653fbdea4464f2ccc7e495893339c8aca653",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0456a145_a0f9a042",
+        "filename": "shiny/example/basic/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-08-19T17:27:10Z",
+      "side": 1,
+      "message": "I also ran into the frustration of runes printing as numbers. Does key.Event need a String method?",
+      "revId": "2852653fbdea4464f2ccc7e495893339c8aca653",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
