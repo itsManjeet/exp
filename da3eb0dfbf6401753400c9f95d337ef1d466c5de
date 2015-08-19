@@ -16,6 +16,24 @@
       "revId": "da3eb0dfbf6401753400c9f95d337ef1d466c5de",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0456a145_a0952014",
+        "filename": "shiny/driver/windriver/other.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-08-19T14:13:12Z",
+      "side": 1,
+      "message": "Will there be enough shared driver machinery to justify a driverutil package? It would be nice to keep driver details as far away from the screen docs as possible.\n\n(At some point a lot of the cocoa code should split out from the gldriver package, and maybe a bunch of the windriver code too, which could be used by the gldriver package to implement a GL-on-win32 backend. But I\u0027m not sure where those packages should go.)",
+      "parentUuid": "c4dac934_634776f8",
+      "revId": "da3eb0dfbf6401753400c9f95d337ef1d466c5de",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
