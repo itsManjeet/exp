@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4dac934_634776f8",
+        "filename": "shiny/driver/windriver/other.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-19T03:38:53Z",
+      "side": 1,
+      "message": "I\u0027ll factor out a common screen.Stub type in a follow-up CL.",
+      "revId": "da3eb0dfbf6401753400c9f95d337ef1d466c5de",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
