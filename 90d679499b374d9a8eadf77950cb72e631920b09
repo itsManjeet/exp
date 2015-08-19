@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4dac934_660ce47a",
+        "filename": "shiny/font/font.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2015-08-19T08:00:57Z",
+      "side": 1,
+      "message": "what does different mean here?\ndon\u0027t you just mean\nNot all fonts support hinting.\n?",
+      "range": {
+        "startLine": 114,
+        "startChar": 25,
+        "endLine": 114,
+        "endChar": 34
+      },
+      "revId": "90d679499b374d9a8eadf77950cb72e631920b09",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4dac934_8611f091",
+        "filename": "shiny/font/font.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2015-08-19T08:00:57Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 125,
+        "startChar": 11,
+        "endLine": 125,
+        "endChar": 16
+      },
+      "revId": "90d679499b374d9a8eadf77950cb72e631920b09",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4dac934_a6f50cc1",
+        "filename": "shiny/font/font.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2015-08-19T08:00:57Z",
+      "side": 1,
+      "message": "ditto, or maybe\nNot all fonts support styles other than normal.\nand similarly for stretch.",
+      "range": {
+        "startLine": 142,
+        "startChar": 25,
+        "endLine": 142,
+        "endChar": 34
+      },
+      "revId": "90d679499b374d9a8eadf77950cb72e631920b09",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4dac934_c6f218d6",
+        "filename": "shiny/font/font.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2015-08-19T08:00:57Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 153,
+        "startChar": 10,
+        "endLine": 153,
+        "endChar": 11
+      },
+      "revId": "90d679499b374d9a8eadf77950cb72e631920b09",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
