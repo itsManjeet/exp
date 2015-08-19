@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0456a145_602028a2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-08-19T06:47:47Z",
+      "side": 1,
+      "message": "Done. Perhaps this should be noted in package key\u0027s documentation as well?",
+      "parentUuid": "c4dac934_e36b8690",
+      "revId": "222a2ac88322122809faec26beae00afe17f451f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4dac934_03695298",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2015-08-19T01:10:18Z",
       "side": 1,
       "message": "Huh, that\u0027s news to me. I suppose picking the Y direction is the best answer, since that\u0027s what you\u0027d use to e.g. scale a 12 pt font.\n\nA meta-comment is that questions like these probably belong in the code review rather than in the commit message, which records what was done. It\u0027s fine for you to add comments to your own code review.",
+      "revId": "222a2ac88322122809faec26beae00afe17f451f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0456a145_4021a4a7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-08-19T06:47:47Z",
+      "side": 1,
+      "message": "Noted, thanks. As for the DPI, note the GetDeviceCaps documentation: https://msdn.microsoft.com/en-us/library/windows/desktop/dd144877%28v\u003dvs.85%29.aspx namely LOGPIXELSX and LOGPIXELSY.",
+      "parentUuid": "c4dac934_03695298",
       "revId": "222a2ac88322122809faec26beae00afe17f451f",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -59,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "0456a145_202630c1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-08-19T06:47:47Z",
+      "side": 1,
+      "message": "Yes, for the most part: without CS_OWNDC (which isn\u0027t recommended - http://blogs.msdn.com/b/oldnewthing/archive/2006/06/01/612970.aspx) the DC can change between paint cycles, and each paint cycle is wrapped in BeginPaint and EndPaint calls that require an extra PAINTSTRUCT structure to be passed in. Again, I\u0027ll see what I can do either in the next CL or the one after that (depending on how I approach moving away from cgo).",
+      "parentUuid": "c4dac934_435c3af9",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 4
+      },
+      "revId": "222a2ac88322122809faec26beae00afe17f451f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0456a145_7dca8f17",
         "filename": "/COMMIT_MSG",
         "patchSetId": 2
@@ -70,6 +130,24 @@
       "writtenOn": "2015-08-18T14:06:30Z",
       "side": 1,
       "message": "The Code is a USB HID code. It is intended to be a platform-independent way to map key position. Almost always, a USB HID code corresponds to the \"obvious\" key on a US keyboard. Take a look at convVirtualKeyCode in app/darwin_amd64.go (and convAndroidKeyCode in cl/13678).\n\nThe Rune should be a unicode rune adjusted from the keyboard code by the operating system. It may be entirely different than the code, depending on what key map the user has loaded.",
+      "revId": "222a2ac88322122809faec26beae00afe17f451f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0456a145_801bbc77",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-08-19T06:47:47Z",
+      "side": 1,
+      "message": "Noted, thanks. I\u0027ll also follow the just-submitted CL for x11driver as well.",
+      "parentUuid": "0456a145_7dca8f17",
       "revId": "222a2ac88322122809faec26beae00afe17f451f",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -99,6 +177,30 @@
     },
     {
       "key": {
+        "uuid": "0456a145_c03494e5",
+        "filename": "shiny/driver/windriver/window.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-08-19T06:47:47Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "c4dac934_a3617eb6",
+      "range": {
+        "startLine": 6,
+        "startChar": 23,
+        "endLine": 6,
+        "endChar": 24
+      },
+      "revId": "222a2ac88322122809faec26beae00afe17f451f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4dac934_0390721e",
         "filename": "shiny/driver/windriver/window.go",
         "patchSetId": 2
@@ -116,6 +218,24 @@
     },
     {
       "key": {
+        "uuid": "0456a145_e012785f",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-08-19T06:47:47Z",
+      "side": 1,
+      "message": "Done for both.",
+      "parentUuid": "c4dac934_0390721e",
+      "revId": "222a2ac88322122809faec26beae00afe17f451f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4dac934_43735a8e",
         "filename": "shiny/driver/windriver/window.go",
         "patchSetId": 2
@@ -127,6 +247,24 @@
       "writtenOn": "2015-08-19T01:10:18Z",
       "side": 1,
       "message": "Add a full stop to complete the sentence.\n\nAlso, in Go commentary, unlike C/C++, \"foo\" usually refers to the function, and \"foo()\" refers to the result of calling that function with no arguments.",
+      "revId": "222a2ac88322122809faec26beae00afe17f451f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0456a145_60078827",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-08-19T06:47:47Z",
+      "side": 1,
+      "message": "Done for both. I remember you saying that about () the first time; it\u0027s a force of habit I\u0027ll need to break for this.",
+      "parentUuid": "c4dac934_43735a8e",
       "revId": "222a2ac88322122809faec26beae00afe17f451f",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -156,6 +294,30 @@
     },
     {
       "key": {
+        "uuid": "0456a145_c00bf42e",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-08-19T06:47:47Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "c4dac934_63785668",
+      "range": {
+        "startLine": 147,
+        "startChar": 32,
+        "endLine": 147,
+        "endChar": 37
+      },
+      "revId": "222a2ac88322122809faec26beae00afe17f451f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4dac934_837d6259",
         "filename": "shiny/driver/windriver/window.go",
         "patchSetId": 2
@@ -173,6 +335,24 @@
     },
     {
       "key": {
+        "uuid": "0456a145_a0088033",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-08-19T06:47:47Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "c4dac934_837d6259",
+      "revId": "222a2ac88322122809faec26beae00afe17f451f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0456a145_bd4a672a",
         "filename": "shiny/driver/windriver/window.go",
         "patchSetId": 2
@@ -184,6 +364,24 @@
       "writtenOn": "2015-08-18T13:57:09Z",
       "side": 1,
       "message": "I believe so, yes.",
+      "revId": "222a2ac88322122809faec26beae00afe17f451f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0456a145_00168c55",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-08-19T06:47:47Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "0456a145_bd4a672a",
       "revId": "222a2ac88322122809faec26beae00afe17f451f",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
