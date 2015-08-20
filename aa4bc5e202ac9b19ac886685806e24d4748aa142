@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c4dac934_86e9f02e",
+        "filename": "shiny/driver/windriver/syscall_windows.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-20T01:51:03Z",
+      "side": 1,
+      "message": "I\u0027m not sure if it matters, but I\u0027d put this above the package clause.\n\n----\n// Copyright etc\n\n//go:generate etc\n\npackage etc\n----",
+      "range": {
+        "startLine": 9,
+        "startChar": 2,
+        "endLine": 9,
+        "endChar": 4
+      },
+      "revId": "aa4bc5e202ac9b19ac886685806e24d4748aa142",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4dac934_4608c89e",
+        "filename": "shiny/driver/windriver/syscall_windows.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-20T01:51:03Z",
+      "side": 1,
+      "message": "We usually don\u0027t export names unless we have to: s/Point/point/ and ditto for Msg.",
+      "range": {
+        "startLine": 11,
+        "startChar": 5,
+        "endLine": 11,
+        "endChar": 10
+      },
+      "revId": "aa4bc5e202ac9b19ac886685806e24d4748aa142",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4dac934_8602d07c",
+        "filename": "shiny/driver/windriver/syscall_windows.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-20T01:51:03Z",
+      "side": 1,
+      "message": "The Go naming convention is s/MsgFilterMin/msgFilterMin/ and ditto for Max, but I don\u0027t know if Windows naming conventions trump that.",
+      "revId": "aa4bc5e202ac9b19ac886685806e24d4748aa142",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c4dac934_66fdc4df",
+        "filename": "shiny/driver/windriver/syscall_windows.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-20T01:51:03Z",
+      "side": 1,
+      "message": "Ditto s/Dis/dis/ if you can.\n\nIf you can\u0027t, it\u0027d still be nice to not clutter up the exported API of this package. Is it feasible to put this stuff somewhere under driver/internal?\n\nThat might require changing lines in this package like\nvar m Msg\nto\nvar m winsyscall.Msg",
+      "revId": "aa4bc5e202ac9b19ac886685806e24d4748aa142",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
