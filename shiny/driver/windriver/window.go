@@ -10,6 +10,7 @@ package windriver
 import "C"
 
 import (
+	"fmt"
 	"image"
 	"image/color"
 	"image/draw"
@@ -33,6 +34,17 @@ var (
 type window struct {
 	hwnd C.HWND
 	pump pump.Pump
+
+	// When in a paint cycle, paintRequests will be non-nil.
+	// During this time, the message pump is blocked while
+	// we handle incoming paint requests on paintRequests.
+	// Once EndPaint is called, we return to the message pump.
+	// This ensures that all painting happens in direct response
+	// to a WM_PAINT. The consequence is that you can't draw
+	// outside a paint.Event.
+	paintRequests     chan interface{}
+	paintRequestsLock sync.Mutex
+	// TODO(andlabs): what should be the initial state of the canvas on a paint.Event?
 }
 
 func newWindow(opts *screen.NewWindowOptions) (screen.Window, error) {
@@ -52,6 +64,16 @@ func newWindow(opts *screen.NewWindowOptions) (screen.Window, error) {
 	windows[hwnd] = w
 	windowsLock.Unlock()
 
+	// Send a fake size event.
+	// Windows won't generate the WM_WINDOWPOSCHANGED
+	// we trigger a resize on for the initial size, so we have to do
+	// it ourselves. The example/basic program assumes it will
+	// receive a size.Event for the initial window size that isn't 0x0.
+	var r C.RECT
+	// TODO(andlabs) error check
+	C.GetClientRect(w.hwnd, &r)
+	sendSizeEvent(w.hwnd, &r)
+
 	return w, nil
 }
 
@@ -68,6 +90,8 @@ func (w *window) Release() {
 	C.destroyWindow(w.hwnd)
 	w.hwnd = nil
 	w.pump.Release()
+
+	// TODO(andlabs): what happens if we're still painting?
 }
 
 func (w *window) Events() <-chan interface{} { return w.pump.Events() }
@@ -77,8 +101,46 @@ func (w *window) Upload(dp image.Point, src screen.Buffer, sr image.Rectangle, s
 	// TODO
 }
 
+type fillRequest struct {
+	r     C.RECT
+	color C.COLORREF
+	op    C.BYTE
+}
+
 func (w *window) Fill(dr image.Rectangle, src color.Color, op draw.Op) {
-	// TODO
+	rect := C.RECT{
+		left:   C.LONG(dr.Min.X),
+		top:    C.LONG(dr.Min.Y),
+		right:  C.LONG(dr.Max.X),
+		bottom: C.LONG(dr.Max.Y),
+	}
+	r, g, b, a := src.RGBA()
+	r >>= 8
+	g >>= 8
+	b >>= 8
+	a >>= 8
+	color := (a << 24) | (r << 16) | (g << 8) | b
+	var dop C.BYTE
+	if op == draw.Src {
+		dop = 1
+	}
+
+	w.paintRequestsLock.Lock()
+	request := &fillRequest{
+		r:     rect,
+		color: C.COLORREF(color),
+		op:    dop,
+	}
+	// Precondition: Window.Fill must not be called outside of
+	// handling a paint event.
+	// TODO: decide whether or not this should be a no-op or
+	// programming mistake, and if a mistake, whether to log
+	// or panic. (As it stands the code will panic.)
+	if w.paintRequests == nil {
+		panic("Window.Fill called without a paint.Event")
+	}
+	w.paintRequests <- request
+	w.paintRequestsLock.Unlock()
 }
 
 func (w *window) Draw(src2dst f64.Aff3, src screen.Texture, sr image.Rectangle, op draw.Op, opts *screen.DrawOptions) {
@@ -86,7 +148,34 @@ func (w *window) Draw(src2dst f64.Aff3, src screen.Texture, sr image.Rectangle, 
 }
 
 func (w *window) EndPaint(p paint.Event) {
-	// TODO
+	w.paintRequestsLock.Lock()
+	close(w.paintRequests)
+	w.paintRequestsLock.Unlock()
+}
+
+//export handlePaint
+func handlePaint(hwnd C.HWND, dc C.HDC) {
+	windowsLock.Lock()
+	w := windows[hwnd]
+	windowsLock.Unlock()
+
+	w.paintRequestsLock.Lock()
+	w.paintRequests = make(chan interface{})
+	w.paintRequestsLock.Unlock()
+
+	w.Send(paint.Event{}) // TODO(andlabs): fill struct field
+	for rr := range w.paintRequests {
+		switch r := rr.(type) {
+		case *fillRequest:
+			C.fill(dc, r.r, r.color, r.op)
+		default:
+			panic(fmt.Errorf("unknown paint request type %T in window.handlePaint", r))
+		}
+	}
+
+	w.paintRequestsLock.Lock()
+	w.paintRequests = nil
+	w.paintRequestsLock.Unlock()
 }
 
 //export sendSizeEvent

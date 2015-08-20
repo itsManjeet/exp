@@ -23,6 +23,7 @@
 #define NTDDI_VERSION 0x05010000	/* according to Microsoft's sdkddkver.h */
 #include <windows.h>
 #include <windowsx.h>
+#include <stdint.h>
 
 // see http://blogs.msdn.com/b/oldnewthing/archive/2004/10/25/247180.aspx
 // this will work on MinGW too
@@ -57,5 +58,8 @@ extern HRESULT createWindow(HWND *);
 extern LRESULT utilCreateWindow(HWND *);
 extern HRESULT destroyWindow(HWND);
 extern LRESULT utilDestroyWindow(HWND);
+
+// draw.c
+extern void fill(HDC, RECT, COLORREF, BYTE);
 
 #endif
