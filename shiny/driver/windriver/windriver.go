@@ -10,7 +10,6 @@ package windriver
 import "C"
 
 import (
-	"image"
 	"runtime"
 
 	"golang.org/x/exp/shiny/screen"
@@ -27,7 +26,7 @@ import (
 // returns.
 func Main(f func(screen.Screen)) {
 	if err := main(f); err != nil {
-		f(errScreen{err})
+		f(errscreen.Stub(err))
 	}
 }
 
@@ -58,21 +57,4 @@ func main(f func(screen.Screen)) (retErr error) {
 
 	C.mainMessagePump()
 	return nil
-}
-
-// errScreen is a screen.Screen.
-type errScreen struct {
-	err error
-}
-
-func (e errScreen) NewBuffer(size image.Point) (screen.Buffer, error) {
-	return nil, e.err
-}
-
-func (e errScreen) NewTexture(size image.Point) (screen.Texture, error) {
-	return nil, e.err
-}
-
-func (e errScreen) NewWindow(opts *screen.NewWindowOptions) (screen.Window, error) {
-	return nil, e.err
 }
