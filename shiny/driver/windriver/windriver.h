@@ -23,11 +23,17 @@
 #define NTDDI_VERSION 0x05010000	/* according to Microsoft's sdkddkver.h */
 #include <windows.h>
 #include <windowsx.h>
+#include <stdint.h>
 
 // see http://blogs.msdn.com/b/oldnewthing/archive/2004/10/25/247180.aspx
 // this will work on MinGW too
 EXTERN_C IMAGE_DOS_HEADER __ImageBase;
 #define thishInstance ((HINSTANCE) (&__ImageBase))
+
+// The dialog manager (IsDialogMessage) sends several messages
+// in the WM_USER area to whatever window you ask it to manage.
+// Let's avoid colliding, just to be safe.
+#define firstClassMessage (WM_USER + 0x40)
 
 // messages sent to the utility window to do the various functions of the package on the UI thread
 // we start at WM_USER + 0x40 to make room for the DM_* messages
@@ -35,11 +41,21 @@ enum {
 	// wParam - 0
 	// lParam - pointer to store HWND in
 	// return - error LRESULT
-	msgCreateWindow = WM_USER + 0x40,
+	msgCreateWindow = firstClassMessage,
 	// wParam - hwnd
 	// lParam - 0
 	// return - error LRESULT
 	msgDestroyWindow,
+};
+
+// screen.Window private messages.
+// TODO elaborate
+enum {
+	// for both of these:
+	// wParam - COLORREF
+	// lParam - pointer to RECT
+	msgFillSrc = WM_USER + 0x20,
+	msgFillOver,
 };
 
 // windriver.c
@@ -57,5 +73,10 @@ extern HRESULT createWindow(HWND *);
 extern LRESULT utilCreateWindow(HWND *);
 extern HRESULT destroyWindow(HWND);
 extern LRESULT utilDestroyWindow(HWND);
+extern void sendFill(HWND, UINT, RECT *, COLORREF);
+
+// draw.c
+extern void fillSrc(HDC, RECT *, COLORREF);
+extern void fillOver(HDC, RECT *, COLORREF);
 
 #endif
