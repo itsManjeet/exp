@@ -10,10 +10,17 @@
 static LRESULT CALLBACK windowWndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam) {
 	WINDOWPOS *wp = (WINDOWPOS *) lParam;
 	RECT r;
+	HDC dc;
+	PAINTSTRUCT ps;
 
 	switch (uMsg) {
 	case WM_PAINT:
-		// TODO
+		dc = BeginPaint(hwnd, &ps);
+		if (dc == NULL) {
+			/* TODO(andlabs) */
+		}
+		handlePaint(hwnd, dc);
+		EndPaint(hwnd, &ps);
 		break;
 	case WM_WINDOWPOSCHANGED:
 		if ((wp->flags & SWP_NOSIZE) != 0) {
@@ -85,7 +92,7 @@ LRESULT utilCreateWindow(HWND *phwnd) {
 	}
 	// TODO(andlabs): use proper nCmdShow
 	ShowWindow(*phwnd, SW_SHOWDEFAULT);
-	// TODO(andlabs): UpdateWindow()?
+	// TODO(andlabs): call UpdateWindow()
 	return lS_OK;
 }
 

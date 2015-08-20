@@ -4,6 +4,7 @@
 
 package windriver
 
+// #cgo LDFLAGS: -lgdi32 -lmsimg32
 // #include "windriver.h"
 import "C"
 
