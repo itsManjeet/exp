@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "64091ddd_3a2f0142",
+        "filename": "shiny/driver/windriver/doc.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2015-08-21T05:21:24Z",
+      "side": 1,
+      "message": "I just updated github.com/alexbrainman/gowingui with my latest code. If you\u0027re interested in how I did it.",
+      "parentUuid": "24dc85fc_93447e20",
+      "revId": "37960633defd296105a41086d231a3f2efa84167",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4dac934_1d54532a",
         "filename": "shiny/driver/windriver/doc.go",
         "patchSetId": 3
