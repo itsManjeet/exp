@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64091ddd_5a691598",
+        "filename": "shiny/driver/gldriver/cocoa.m",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-21T03:07:31Z",
+      "side": 1,
+      "message": "Delete.",
+      "revId": "bce1073b2ba670e3b9fe3a754643c41de4a932d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
