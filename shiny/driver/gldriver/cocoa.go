@@ -52,6 +52,10 @@ func showWindow(id uintptr) uintptr {
 	return uintptr(C.doShowWindow(C.uintptr_t(id)))
 }
 
+func closeWindow(id uintptr) {
+	C.doCloseWindow(C.uintptr_t(id))
+}
+
 var (
 	theScreen = &screenImpl{
 		windows: make(map[uintptr]*windowImpl),
@@ -82,6 +86,9 @@ func drawgl(id uintptr) {
 	theScreen.mu.Lock()
 	w := theScreen.windows[id]
 	theScreen.mu.Unlock()
+	if w == nil {
+		return // closing window
+	}
 
 	w.draw <- struct{}{}
 	<-w.drawDone
@@ -139,6 +146,9 @@ func setGeom(id uintptr, ppp float32, widthPx, heightPx int) {
 	theScreen.mu.Lock()
 	w := theScreen.windows[id]
 	theScreen.mu.Unlock()
+	if w == nil {
+		return // closing window
+	}
 
 	sz := size.Event{
 		WidthPx:     widthPx,
@@ -155,10 +165,22 @@ func setGeom(id uintptr, ppp float32, widthPx, heightPx int) {
 	w.Send(sz)
 }
 
+//export windowClosing
+func windowClosing(id uintptr) {
+	theScreen.mu.Lock()
+	w := theScreen.windows[id]
+	delete(theScreen.windows, id)
+	theScreen.mu.Unlock()
+	w.releaseCleanup()
+}
+
 func sendWindowEvent(id uintptr, e interface{}) {
 	theScreen.mu.Lock()
 	w := theScreen.windows[id]
 	theScreen.mu.Unlock()
+	if w == nil {
+		return // closing window
+	}
 	w.Send(e)
 }
 

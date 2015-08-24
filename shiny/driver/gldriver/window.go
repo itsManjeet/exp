@@ -33,7 +33,10 @@ type windowImpl struct {
 }
 
 func (w *windowImpl) Release() {
-	// TODO.
+	closeWindow(w.id)
+}
+
+func (w *windowImpl) releaseCleanup() {
 	w.pump.Release()
 }
 
