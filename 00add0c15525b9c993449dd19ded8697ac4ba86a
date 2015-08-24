@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64091ddd_80ba1aa3",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-24T22:56:56Z",
+      "side": 1,
+      "message": "Please also update other.go.",
+      "revId": "00add0c15525b9c993449dd19ded8697ac4ba86a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_40b002c7",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-24T22:56:56Z",
+      "side": 1,
+      "message": "I\u0027d move the blank line to be before this if check instead of after, as I like to emphasize any mutex lock/unlock blocks.\n\nDitto below.",
+      "range": {
+        "startLine": 89,
+        "startChar": 3,
+        "endLine": 89,
+        "endChar": 4
+      },
+      "revId": "00add0c15525b9c993449dd19ded8697ac4ba86a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_20ad0e6f",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-24T22:56:56Z",
+      "side": 1,
+      "message": "Will this race if the app (programatically via Window.Release) and the OS (via clicking on the red button) both try to close the window?\n\nOr what happens if the user hits the red button, which triggers this, which causes the app\u0027s main loop to return, which triggers a \"defer w.Release()\". Is that double-close problematic?",
+      "revId": "00add0c15525b9c993449dd19ded8697ac4ba86a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_a0891e05",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-24T22:56:56Z",
+      "side": 1,
+      "message": "Can you say why this can\u0027t be done in windowImpl.Release?",
+      "revId": "00add0c15525b9c993449dd19ded8697ac4ba86a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
