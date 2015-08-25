@@ -110,7 +110,33 @@ uint64 threadID() {
 - (void)mouseEventNS:(NSEvent *)theEvent {
 	double scale = [[NSScreen mainScreen] backingScaleFactor];
 	NSPoint p = [theEvent locationInWindow];
-	mouseEvent((GoUintptr)self, p.x * scale, p.y * scale, theEvent.type, theEvent.buttonNumber);
+	double rx = p.x * scale;
+
+	// Flip the origin from bottom-left to top-left.
+	//
+	// Both h and p are measured in Cocoa pixels, which are an integral
+	// fraction of physical pixels, so we multipliy by backingScaleFactor.
+	//
+	// Consider a screen with 4 physical pixels and backingScaleFactor 2.
+	//
+	//    h     = 2
+	//    scale = 2
+	//
+	//          ------ y=0              - ry=0
+	//          |    |  ↓               |  ↓
+	//     1.5  |    |                  -
+	//      ↑   |    |                  |
+	//    p.y=1 ------ y=1   *scale =>  - ry=2
+	//          |    |  ↓               |
+	//          |    | 1.5              - ry=3
+	//      ↑   |    |                  |
+	//    p.y=0 ------                  -
+	//
+	// Note that we have to subtract one frrom h.
+	double h = self.frame.size.height;
+	double y = h - 1 - py;
+	double ry = y * scale;
+	mouseEvent((GoUintptr)self, rx, ry, theEvent.type, theEvent.buttonNumber);
 }
 
 - (void)mouseDown:(NSEvent *)theEvent         { [self mouseEventNS:theEvent]; }
