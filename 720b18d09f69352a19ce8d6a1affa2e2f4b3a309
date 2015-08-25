@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "44e3394a_aadd7356",
+        "filename": "shiny/driver/gldriver/cocoa.m",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 9230
+      },
+      "writtenOn": "2015-08-25T23:24:49Z",
+      "side": 1,
+      "message": "This should probably be \u0027(h - 1 - p.y)\u0027.",
+      "range": {
+        "startLine": 114,
+        "startChar": 42,
+        "endLine": 114,
+        "endChar": 51
+      },
+      "revId": "720b18d09f69352a19ce8d6a1affa2e2f4b3a309",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
