@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "a47f9520_c5994b4f",
+        "filename": "mmap/mmap_linux_amd64.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5065
+      },
+      "writtenOn": "2015-08-26T21:17:55Z",
+      "side": 1,
+      "message": "add At accessor, for accessing a single byte without a slice buffer?",
+      "revId": "ea3a9f4950f72334a4e9b47b189181965daf5dde",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e4026d8c_ef5691da",
         "filename": "mmap/mmap_linux_amd64.go",
         "patchSetId": 2
@@ -13,6 +30,23 @@
       "writtenOn": "2015-08-26T15:50:33Z",
       "side": 1,
       "message": "Please use syscall.Mmap. It\u0027s there to avoid needing to write code this low-level.",
+      "revId": "ea3a9f4950f72334a4e9b47b189181965daf5dde",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a47f9520_856ca3aa",
+        "filename": "mmap/mmap_linux_amd64.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 5065
+      },
+      "writtenOn": "2015-08-26T21:17:55Z",
+      "side": 1,
+      "message": "I was going to suggest making mu a RWMutex, but you could even just not use the mutex here at all, and document that calling Read and Close concurrently are not supported. Worst case they crash, referencing unmapped memory. But unlike just documenting the rules in the unsafe way you\u0027d earlier discussed, this case of not following the rules only leads to them crashing, not poisoning unrelated parts of the program and runtime.",
       "revId": "ea3a9f4950f72334a4e9b47b189181965daf5dde",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -48,6 +82,24 @@
       "side": 1,
       "message": "Partly because I\u0027m being defensive if this ever becomes mmap_linux.go instead of mmap_linux_amd64.go, and partly because I needed a constant as part of the array type in the\na :\u003d (*[maxSize]byte)(etc)\nline below.\n\nI suppose we could make it a constant equal to maxint, whether 32- or 64-bit, but this seemed simple.",
       "parentUuid": "64091ddd_4e2f9340",
+      "revId": "ea3a9f4950f72334a4e9b47b189181965daf5dde",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a47f9520_45855be7",
+        "filename": "mmap/mmap_linux_amd64.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 5065
+      },
+      "writtenOn": "2015-08-26T21:17:55Z",
+      "side": 1,
+      "message": "Just make the reflect.SliceHeader yourself, then you don\u0027t need any [N]byte type at all, and maxSize goes away.",
+      "parentUuid": "64091ddd_ee4b0700",
       "revId": "ea3a9f4950f72334a4e9b47b189181965daf5dde",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
