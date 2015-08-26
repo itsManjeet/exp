@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64091ddd_638a70a3",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-26T02:14:21Z",
+      "side": 1,
+      "message": "It might be easier if C.BYTE was a draw.Op. (See below).",
+      "revId": "aa4e3c1a3c454beb4af6bbb5e2ad2cc4851fe106",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_c307fca7",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-26T02:14:21Z",
+      "side": 1,
+      "message": "Here, I\u0027d switch on r.op in Go code instead of C code, if they essentially take different paths:\n\ncase *fillRequest:\n  if r.op \u003d\u003d draw.Src {\n    C.fillSrc(etc)\n  } else {\n    C.fillOver(etc)\n  }",
+      "revId": "aa4e3c1a3c454beb4af6bbb5e2ad2cc4851fe106",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_4393ecdf",
+        "filename": "shiny/driver/windriver/windraw.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-26T02:14:21Z",
+      "side": 1,
+      "message": "Huh, https://msdn.microsoft.com/en-us/library/5s2dwfx1(v\u003dvs.110).aspx seemed like you could use semi-transparent brushes. Did that not work?\n\nMaybe leave it as a TODO for now?",
+      "revId": "aa4e3c1a3c454beb4af6bbb5e2ad2cc4851fe106",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_838d04bc",
+        "filename": "shiny/driver/windriver/windraw.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-26T02:14:21Z",
+      "side": 1,
+      "message": "Well, you don\u0027t need a pixels variable any more.\n*((uint32_t *) ppvBits) \u003d color;\nshould work.",
+      "revId": "aa4e3c1a3c454beb4af6bbb5e2ad2cc4851fe106",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_a30c88cb",
+        "filename": "shiny/driver/windriver/windraw.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-26T02:14:21Z",
+      "side": 1,
+      "message": "After you split off fillSrc and fillOver, I\u0027d inline the blend function here.",
+      "revId": "aa4e3c1a3c454beb4af6bbb5e2ad2cc4851fe106",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
