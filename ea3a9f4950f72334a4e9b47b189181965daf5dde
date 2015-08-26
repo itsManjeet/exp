@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64091ddd_4e2f9340",
+        "filename": "mmap/mmap_linux_amd64.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 6480
+      },
+      "writtenOn": "2015-08-26T07:15:32Z",
+      "side": 1,
+      "message": "Why make this limit?",
+      "revId": "ea3a9f4950f72334a4e9b47b189181965daf5dde",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
