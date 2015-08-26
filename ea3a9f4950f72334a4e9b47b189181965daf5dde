@@ -16,6 +16,24 @@
       "revId": "ea3a9f4950f72334a4e9b47b189181965daf5dde",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_ee4b0700",
+        "filename": "mmap/mmap_linux_amd64.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-26T07:49:18Z",
+      "side": 1,
+      "message": "Partly because I\u0027m being defensive if this ever becomes mmap_linux.go instead of mmap_linux_amd64.go, and partly because I needed a constant as part of the array type in the\na :\u003d (*[maxSize]byte)(etc)\nline below.\n\nI suppose we could make it a constant equal to maxint, whether 32- or 64-bit, but this seemed simple.",
+      "parentUuid": "64091ddd_4e2f9340",
+      "revId": "ea3a9f4950f72334a4e9b47b189181965daf5dde",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
