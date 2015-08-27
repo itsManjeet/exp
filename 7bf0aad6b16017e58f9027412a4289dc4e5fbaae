@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64091ddd_a9ed8984",
+        "filename": "shiny/driver/windriver/window.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-27T04:41:51Z",
+      "side": 1,
+      "message": "s/Src/Over/",
+      "revId": "7bf0aad6b16017e58f9027412a4289dc4e5fbaae",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_c911dd14",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-27T04:41:51Z",
+      "side": 1,
+      "message": "Yeah, not for this CL, but maybe this needs to become a SendMessage too.",
+      "revId": "7bf0aad6b16017e58f9027412a4289dc4e5fbaae",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_89f7e54c",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-27T04:41:51Z",
+      "side": 1,
+      "message": "Be carefill with \u0026rect, as you\u0027re passing a Go pointer to C code, and you\u0027re not ensuring that \u0026rect won\u0027t be garbage collected before C.fillSrc or whatever actually runs.\n\nInstead, I think C.sendFill has to take a C.RECT, not a *C.RECT, and the C code has to be responsible for malloc\u0027ing a *RECT (so it can fit inside lParam), and free\u0027ing it when it\u0027s no longer required, or whatever the Windows equivalent of malloc/free is.",
+      "revId": "7bf0aad6b16017e58f9027412a4289dc4e5fbaae",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_e9e781a0",
+        "filename": "shiny/driver/windriver/windriver.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-27T04:41:51Z",
+      "side": 1,
+      "message": "The magic 0x20 number could do with a comment.\n\nBut why aren\u0027t these part of the msgCreateWindow etc enum above?",
+      "revId": "7bf0aad6b16017e58f9027412a4289dc4e5fbaae",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_09e3d598",
+        "filename": "shiny/driver/windriver/windriver.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-27T04:41:51Z",
+      "side": 1,
+      "message": "windraw.c",
+      "revId": "7bf0aad6b16017e58f9027412a4289dc4e5fbaae",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
