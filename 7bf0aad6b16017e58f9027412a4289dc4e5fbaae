@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e4026d8c_1a7a4d94",
+        "filename": "shiny/driver/windriver/window.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-08-27T05:04:34Z",
+      "side": 1,
+      "message": "Oops. Fixed.",
+      "parentUuid": "64091ddd_a9ed8984",
+      "revId": "7bf0aad6b16017e58f9027412a4289dc4e5fbaae",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64091ddd_c911dd14",
         "filename": "shiny/driver/windriver/window.go",
         "patchSetId": 5
@@ -53,6 +71,24 @@
     },
     {
       "key": {
+        "uuid": "e4026d8c_dafcb57e",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-08-27T05:04:34Z",
+      "side": 1,
+      "message": "Thanks for catching that; another mistake on my part. No need for a malloc; the SendMessage call won\u0027t return until the message has been handled, so the RECT parameter will stay alive and we can simply use the pointer to that. Other than that, fixed.",
+      "parentUuid": "64091ddd_89f7e54c",
+      "revId": "7bf0aad6b16017e58f9027412a4289dc4e5fbaae",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64091ddd_e9e781a0",
         "filename": "shiny/driver/windriver/windriver.h",
         "patchSetId": 5
@@ -70,6 +106,24 @@
     },
     {
       "key": {
+        "uuid": "e4026d8c_3a2f4990",
+        "filename": "shiny/driver/windriver/windriver.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-08-27T05:04:34Z",
+      "side": 1,
+      "message": "Out of convention, because the utility window/Screen window class is different from the Window window class. The separation of concerns isn\u0027t perfect yet (msgDeleteWindow), but we could probably merge the lists if there are few enough messages.",
+      "parentUuid": "64091ddd_e9e781a0",
+      "revId": "7bf0aad6b16017e58f9027412a4289dc4e5fbaae",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64091ddd_09e3d598",
         "filename": "shiny/driver/windriver/windriver.h",
         "patchSetId": 5
@@ -81,6 +135,24 @@
       "writtenOn": "2015-08-27T04:41:51Z",
       "side": 1,
       "message": "windraw.c",
+      "revId": "7bf0aad6b16017e58f9027412a4289dc4e5fbaae",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4026d8c_7a35c1dd",
+        "filename": "shiny/driver/windriver/windriver.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-08-27T05:04:34Z",
+      "side": 1,
+      "message": "Fixed.",
+      "parentUuid": "64091ddd_09e3d598",
       "revId": "7bf0aad6b16017e58f9027412a4289dc4e5fbaae",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
