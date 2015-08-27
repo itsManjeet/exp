@@ -38,17 +38,22 @@ func main(f func(screen.Screen)) (retErr error) {
 	// to the thread that created the respective window.
 	runtime.LockOSThread()
 
-	hr := C.initUtilityWindow()
-	if hr != C.S_OK {
-		return winerror("failed to create utility window", hr)
+	err := initCommon()
+	if err != nil {
+		return err
+	}
+
+	err = initScreenWindow()
+	if err != nil {
+		return err
 	}
 	defer func() {
 		// TODO(andlabs): log an error if this fails?
-		C.DestroyWindow(C.utilityWindow)
+		destroyWindow(screenhwnd)
 		// TODO(andlabs): unregister window class
 	}()
 
-	hr = C.initWindowClass()
+	hr := C.initWindowClass()
 	if hr != C.S_OK {
 		return winerror("failed to create Window window class", hr)
 	}
