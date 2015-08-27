@@ -38,17 +38,22 @@ func main(f func(screen.Screen)) (retErr error) {
 	// to the thread that created the respective window.
 	runtime.LockOSThread()
 
-	hr := C.initUtilityWindow()
-	if hr != C.S_OK {
-		return winerror("failed to create utility window", hr)
+	err := initCommon()
+	if err != nil {
+		return err
+	}
+
+	err = initScreenWindow()
+	if err != nil {
+		return err
 	}
 	defer func() {
 		// TODO(andlabs): log an error if this fails?
-		C.DestroyWindow(C.utilityWindow)
+		_DestroyWindow(screenhwnd)
 		// TODO(andlabs): unregister window class
 	}()
 
-	hr = C.initWindowClass()
+	hr := C.initWindowClass()
 	if hr != C.S_OK {
 		return winerror("failed to create Window window class", hr)
 	}
@@ -62,15 +67,16 @@ func main(f func(screen.Screen)) (retErr error) {
 }
 
 func mainMessagePump() {
-	var m msg
+	var m _MSG
 	for {
-		// This GetMessage cannot fail: http://blogs.msdn.com/b/oldnewthing/archive/2013/03/22/10404367.aspx
-		// TODO(andlabs): besides, what should we do if a future Windows change makes it fail for some other reason? we can't return an error because it's too late to stop the main function
-		_, err := getMessage(&m, 0, 0, 0)
+		done, err := _GetMessage(&m, 0, 0, 0)
 		if err != nil {
+			// TODO
+		}
+		if done == 0 { // WM_QUIT
 			return
 		}
-		translateMessage(&m)
-		dispatchMessage(&m)
+		_TranslateMessage(&m)
+		_DispatchMessage(&m)
 	}
 }
