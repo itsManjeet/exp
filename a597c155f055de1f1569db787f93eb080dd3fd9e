@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64091ddd_09d475e7",
+        "filename": "shiny/driver/windriver/windraw.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-27T02:02:19Z",
+      "side": 1,
+      "message": "If you\u0027re going to upload a new patchset, you could fix the comment indentation.\n\nFWIW, the \"// negative height to force top-down drawing\" end-of-line comment above seems to have quite a large gap between the \";\" and the \"//\", but I don\u0027t know what the prevalent C style is for Windows code.",
+      "revId": "a597c155f055de1f1569db787f93eb080dd3fd9e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
