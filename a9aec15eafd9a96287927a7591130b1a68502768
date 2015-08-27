@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64091ddd_69489181",
+        "filename": "shiny/driver/gldriver/cocoa.m",
+        "patchSetId": 5
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-27T00:01:31Z",
+      "side": 1,
+      "message": "I found \"integral fraction\" a confusing phrase.",
+      "revId": "a9aec15eafd9a96287927a7591130b1a68502768",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_294e998f",
+        "filename": "shiny/driver/gldriver/cocoa.m",
+        "patchSetId": 5
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-27T00:01:31Z",
+      "side": 1,
+      "message": "Typo in \"multiply\".",
+      "revId": "a9aec15eafd9a96287927a7591130b1a68502768",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_09b0f5f7",
+        "filename": "shiny/driver/gldriver/cocoa.m",
+        "patchSetId": 5
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-27T00:01:31Z",
+      "side": 1,
+      "message": "I\u0027m still confused, even after this ASCII art. To repeat my earlier question: if somebody clicked on the highest row of physical pixels, is p.y 1.5 or 2.0?\n\nIf it\u0027s 1.5, then the formula below ends up with:\nh \u003d 2\ny \u003d 2 - 1 - 1.5 \u003d -0.5\nry \u003d -0.5 * 2 \u003d -1\n\nIf it\u0027s 2.0, then it ends with:\nh \u003d 2\ny \u003d 2 - 1 - 2.0 \u003d -1\nry \u003d -1 * 2 \u003d -2\n\nNeither of these are ry \u003d 0, which is what I\u0027d expect for clicking on the highest row of pixels.",
+      "revId": "a9aec15eafd9a96287927a7591130b1a68502768",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_894b657e",
+        "filename": "shiny/driver/gldriver/cocoa.m",
+        "patchSetId": 5
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-27T00:01:31Z",
+      "side": 1,
+      "message": "Typo in \"frrom\".",
+      "revId": "a9aec15eafd9a96287927a7591130b1a68502768",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
