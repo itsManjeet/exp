@@ -530,6 +530,23 @@
     },
     {
       "key": {
+        "uuid": "44e3394a_75c51031",
+        "filename": "shiny/example/goban/xy.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 5810
+      },
+      "writtenOn": "2015-08-28T06:18:36Z",
+      "side": 1,
+      "message": "s/rectangle (sic)/bounding box/\n(or just box) ?",
+      "revId": "4b054626e344db60876ab3b6f693bd2433a0fb0a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64091ddd_f48c788a",
         "filename": "shiny/example/goban/xy.go",
         "patchSetId": 1
