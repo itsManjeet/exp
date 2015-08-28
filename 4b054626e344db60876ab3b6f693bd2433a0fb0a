@@ -1069,6 +1069,24 @@
     },
     {
       "key": {
+        "uuid": "64091ddd_6fded1fc",
+        "filename": "shiny/example/goban/xy.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2015-08-28T06:49:26Z",
+      "side": 1,
+      "message": "stet.",
+      "parentUuid": "44e3394a_75c51031",
+      "revId": "4b054626e344db60876ab3b6f693bd2433a0fb0a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64091ddd_f48c788a",
         "filename": "shiny/example/goban/xy.go",
         "patchSetId": 1
