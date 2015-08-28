@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e4026d8c_55809603",
+        "filename": "shiny/driver/windriver/screen.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-08-28T15:10:17Z",
+      "side": 1,
+      "message": "Yeah, I am thinking of how to do this properly (hence the TODO earlier in the file). That struct thing is what I am concluding too...\n\nI\u0027ll have this in Patch Set 3.",
+      "parentUuid": "64091ddd_74b18877",
+      "revId": "669b55ce9294d9a3bd19dde5e7c674b7b955016d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64091ddd_d4633490",
         "filename": "shiny/driver/windriver/syscall_windows.go",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2015-08-28T01:55:14Z",
       "side": 1,
       "message": "I would\n\ns/LpfnWndProc/WndProc/\n\notherwise these funny prefixes make code reading hard. Note that Microsoft capitalize it differently.",
+      "revId": "669b55ce9294d9a3bd19dde5e7c674b7b955016d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4026d8c_5509b635",
+        "filename": "shiny/driver/windriver/syscall_windows.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-08-28T15:10:17Z",
+      "side": 1,
+      "message": "I\u0027m not sure if I agree with this specific change; keeping the names as is allows someone to more easily compare to MSDN or code in other languages? It\u0027s weak justification either way; I don\u0027t see anything less readable about HIcon (Handle to an Icon)...",
+      "parentUuid": "64091ddd_d4633490",
       "revId": "669b55ce9294d9a3bd19dde5e7c674b7b955016d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -138,6 +174,24 @@
     },
     {
       "key": {
+        "uuid": "e4026d8c_750cb247",
+        "filename": "shiny/driver/windriver/syscall_windows.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-08-28T15:10:17Z",
+      "side": 1,
+      "message": "Done. Also did it to the struct names.",
+      "parentUuid": "64091ddd_14e3ec98",
+      "revId": "669b55ce9294d9a3bd19dde5e7c674b7b955016d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64091ddd_540604da",
         "filename": "shiny/driver/windriver/syscall_windows.go",
         "patchSetId": 1
@@ -149,6 +203,24 @@
       "writtenOn": "2015-08-28T01:55:14Z",
       "side": 1,
       "message": "I have it as\n\nxCW_USEDEFAULT \u003d 0x80000000 - 0x100000000\n\nAnd it is a const.",
+      "revId": "669b55ce9294d9a3bd19dde5e7c674b7b955016d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4026d8c_b5010a15",
+        "filename": "shiny/driver/windriver/syscall_windows.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-08-28T15:10:17Z",
+      "side": 1,
+      "message": "Oooh, neat! I didn\u0027t think of this. Thanks!",
+      "parentUuid": "64091ddd_540604da",
       "revId": "669b55ce9294d9a3bd19dde5e7c674b7b955016d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -172,6 +244,24 @@
     },
     {
       "key": {
+        "uuid": "e4026d8c_95060e29",
+        "filename": "shiny/driver/windriver/syscall_windows.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-08-28T15:10:17Z",
+      "side": 1,
+      "message": "Used the former, since that one is more obviously using 2\u0027s complement. Thanks.",
+      "parentUuid": "64091ddd_b4168008",
+      "revId": "669b55ce9294d9a3bd19dde5e7c674b7b955016d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64091ddd_54fd642c",
         "filename": "shiny/driver/windriver/syscall_windows.go",
         "patchSetId": 1
@@ -183,6 +273,24 @@
       "writtenOn": "2015-08-28T01:55:14Z",
       "side": 1,
       "message": "https://msdn.microsoft.com/en-us/library/windows/desktop/aa383751(v\u003dvs.85).aspx has them all.",
+      "revId": "669b55ce9294d9a3bd19dde5e7c674b7b955016d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4026d8c_357d1a8c",
+        "filename": "shiny/driver/windriver/syscall_windows.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-08-28T15:10:17Z",
+      "side": 1,
+      "message": "Yes, that is the reference I am using :) The notes are just to avoid repeatedly looking at the page for the same types.",
+      "parentUuid": "64091ddd_54fd642c",
       "revId": "669b55ce9294d9a3bd19dde5e7c674b7b955016d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -206,6 +314,24 @@
     },
     {
       "key": {
+        "uuid": "e4026d8c_d5fc867e",
+        "filename": "shiny/driver/windriver/syscall_windows.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-08-28T15:10:17Z",
+      "side": 1,
+      "message": "Done. Thanks for the tip.",
+      "parentUuid": "64091ddd_34fa7036",
+      "revId": "669b55ce9294d9a3bd19dde5e7c674b7b955016d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64091ddd_94f7fc4c",
         "filename": "shiny/driver/windriver/syscall_windows.go",
         "patchSetId": 1
@@ -217,6 +343,24 @@
       "writtenOn": "2015-08-28T01:55:14Z",
       "side": 1,
       "message": "s/resource uintptr/cursorname *uint16/",
+      "revId": "669b55ce9294d9a3bd19dde5e7c674b7b955016d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e4026d8c_157a1e94",
+        "filename": "shiny/driver/windriver/syscall_windows.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-08-28T15:10:17Z",
+      "side": 1,
+      "message": "Will we ever need to load icons and cursors from filenames? If not, keeping it as a uintptr will make the IDI_APPLICATION and IDC_CURSOR loads easier; otherwise we\u0027ll need to do something like\n\n    const _IDI_APPLICATION \u003d (*uint16)(unsafe.Pointer(uintptr(32512)))\n\nto imitate MAKEINTRESOURCE (assuming pointer constants are even allowed in Go; otherwise this would have to be a variable). Renamed the parameters, though.",
+      "parentUuid": "64091ddd_94f7fc4c",
       "revId": "669b55ce9294d9a3bd19dde5e7c674b7b955016d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
