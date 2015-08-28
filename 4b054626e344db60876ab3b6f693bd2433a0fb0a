@@ -1,0 +1,549 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64091ddd_9426dc41",
+        "filename": "shiny/example/goban/asset/resize.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-28T03:42:36Z",
+      "side": 1,
+      "message": "Please make this explicit, instead of using this assert-like helper.\n\nYes, I know that it\u0027s a little throw-away program, but living under golang.org/x means that a lot of people will look to this as exemplary Go code, and I\u0027d rather have an example that demonstrates good error handling.",
+      "revId": "4b054626e344db60876ab3b6f693bd2433a0fb0a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_74234833",
+        "filename": "shiny/example/goban/asset/resize.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-28T03:42:36Z",
+      "side": 1,
+      "message": "This could be\nname :\u003d \"../\" + s",
+      "range": {
+        "startLine": 39,
+        "startChar": 9,
+        "endLine": 39,
+        "endChar": 12
+      },
+      "revId": "4b054626e344db60876ab3b6f693bd2433a0fb0a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_743ce846",
+        "filename": "shiny/example/goban/asset/resize.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-28T03:42:36Z",
+      "side": 1,
+      "message": "You don\u0027t need this part if you expect the next draw.Draw call to completely overwrite all of the final image.",
+      "revId": "4b054626e344db60876ab3b6f693bd2433a0fb0a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_14e48c55",
+        "filename": "shiny/example/goban/asset/resize.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-28T03:42:36Z",
+      "side": 1,
+      "message": "FWIW, you don\u0027t need this two-step resize-and-then-draw, since you can resize directly onto your final image. It\u0027d be something like:\n\nfinal :\u003d image.NewGray(image.Rect(0, 0, 256, 256))\nsr :\u003d image.Rect(*m, *m, 256-*m, 256-*m)\ndraw.ApproxBiLinear.Scale.Draw(final, final.bounds(), src, sr, draw.Src, nil)\npng.Encode(out, final)\n\nWhere the m flag means something slightly different from your n flag: m would be in the range [0, 128], where your n \u003e\u003d 256.\n\nIf you do that, I\u0027d also rename final to dst.",
+      "revId": "4b054626e344db60876ab3b6f693bd2433a0fb0a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_d4d974a3",
+        "filename": "shiny/example/goban/asset/resize.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-28T03:42:36Z",
+      "side": 1,
+      "message": "s/png/jpeg/ ?? If so, you may want to use a higher JPEG quality setting than the default. http://golang.org/pkg/image/jpeg/#Options and http://golang.org/pkg/image/jpeg/#pkg-constants",
+      "range": {
+        "startLine": 48,
+        "startChar": 5,
+        "endLine": 48,
+        "endChar": 11
+      },
+      "revId": "4b054626e344db60876ab3b6f693bd2433a0fb0a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_d4305475",
+        "filename": "shiny/example/goban/asset/resize.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-28T03:42:36Z",
+      "side": 1,
+      "message": "I\u0027d also check the error returned here.",
+      "revId": "4b054626e344db60876ab3b6f693bd2433a0fb0a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_94ca5cb1",
+        "filename": "shiny/example/goban/board.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-28T03:42:36Z",
+      "side": 1,
+      "message": "FWIW, there\u0027s an image.ZP global defined in the image package.",
+      "revId": "4b054626e344db60876ab3b6f693bd2433a0fb0a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_b4b0404b",
+        "filename": "shiny/example/goban/board.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-28T03:42:36Z",
+      "side": 1,
+      "message": "Unused method? Ditto for isWhite?",
+      "revId": "4b054626e344db60876ab3b6f693bd2433a0fb0a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_94d89c99",
+        "filename": "shiny/example/goban/board.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-28T03:42:36Z",
+      "side": 1,
+      "message": "This is probably a personal style debate, but I generally avoid embedding unless you need to pick up the method set. It seems simpler to me to avoid all of the subtleties of embedding and just use a regular \"dims Dims\" field.",
+      "revId": "4b054626e344db60876ab3b6f693bd2433a0fb0a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_74d5085f",
+        "filename": "shiny/example/goban/board.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-28T03:42:36Z",
+      "side": 1,
+      "message": "FYI there\u0027s a golang.org/x/mobile/asset package that should also work on mobile with things like .apk files, but we can deal with that in a follow-up CL.",
+      "range": {
+        "startLine": 90,
+        "startChar": 16,
+        "endLine": 90,
+        "endChar": 20
+      },
+      "revId": "4b054626e344db60876ab3b6f693bd2433a0fb0a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_b407a08f",
+        "filename": "shiny/example/goban/board.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-28T03:42:36Z",
+      "side": 1,
+      "message": "Maybe s/select/new/?",
+      "revId": "4b054626e344db60876ab3b6f693bd2433a0fb0a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_74eea82a",
+        "filename": "shiny/example/goban/board.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-28T03:42:36Z",
+      "side": 1,
+      "message": "s/Src/src/\n\nbut I think it makes more sense if you call it \"dst\".",
+      "revId": "4b054626e344db60876ab3b6f693bd2433a0fb0a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_d4ab34df",
+        "filename": "shiny/example/goban/board.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-28T03:42:36Z",
+      "side": 1,
+      "message": "This is easier to read, but if you want, you could go straight to the Pix field (and e.g. each SetAlpha call does a bounds check that isn\u0027t necessary here, and I\u0027m not sure if it\u0027s inlined). The math is really simple for this *image.Alpha, since there\u0027s one byte per pixel, and you know that the bounds minimum is (0, 0):\n\nmask.Pix[y*mask.Stride + x] \u003d 255\n\nDitto below, obviously.",
+      "revId": "4b054626e344db60876ab3b6f693bd2433a0fb0a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_f401187b",
+        "filename": "shiny/example/goban/board.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-28T03:42:36Z",
+      "side": 1,
+      "message": "You could delete the else branch. image.NewAlpha returns an all-zero pix slice.",
+      "revId": "4b054626e344db60876ab3b6f693bd2433a0fb0a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_54f724ff",
+        "filename": "shiny/example/goban/board.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-28T03:42:36Z",
+      "side": 1,
+      "message": "s/Mask/mask/",
+      "revId": "4b054626e344db60876ab3b6f693bd2433a0fb0a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_94f1bc0b",
+        "filename": "shiny/example/goban/board.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-28T03:42:36Z",
+      "side": 1,
+      "message": "Alternatively:\nred, _, _, _ :\u003d stone.At(x, y).RGBA()\nand below, change\ncolor.Alpha{255 - yy}\nto\ncolor.Alpha{255 - uint8(red\u003e\u003e8)}",
+      "revId": "4b054626e344db60876ab3b6f693bd2433a0fb0a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_34f430f9",
+        "filename": "shiny/example/goban/board.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-28T03:42:36Z",
+      "side": 1,
+      "message": "You could do this if check before you call stone.At to calculate yy.\n\nfor x :\u003d 0; x \u003c size; x++ {\n\tx2 :\u003d size/2 - x\n\tx2 *\u003d x2\n\tif x2+y2 \u003c\u003d stoneRad2 {\n\t\tMask.SetAlpha(x, y, color.Alpha{255})\n\t\tcontinue\n\t}\n\tetc\n}",
+      "revId": "4b054626e344db60876ab3b6f693bd2433a0fb0a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_14b64c45",
+        "filename": "shiny/example/goban/board.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-28T03:42:36Z",
+      "side": 1,
+      "message": "It\u0027s a minor thing, but I\u0027d avoid calling the piece method twice:\n\nij :\u003d IJ(i, j)\nif p :\u003d b.piece(ij); !p.isBlank() {\n\tb.drawPiece(m, ij, p)\n}\n\nand \"p !\u003d nil\" seems just as clear to me as \"!p.isBlank()\".",
+      "revId": "4b054626e344db60876ab3b6f693bd2433a0fb0a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_34bd501d",
+        "filename": "shiny/example/goban/board.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-28T03:42:36Z",
+      "side": 1,
+      "message": "You could make b.putPiece(ij, nil) work.",
+      "revId": "4b054626e344db60876ab3b6f693bd2433a0fb0a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_74c7c8aa",
+        "filename": "shiny/example/goban/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-28T03:42:36Z",
+      "side": 1,
+      "message": "winSize :\u003d r.Size()",
+      "revId": "4b054626e344db60876ab3b6f693bd2433a0fb0a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_d494d49c",
+        "filename": "shiny/example/goban/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-28T03:42:36Z",
+      "side": 1,
+      "message": "Delete.",
+      "revId": "4b054626e344db60876ab3b6f693bd2433a0fb0a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_b49960d3",
+        "filename": "shiny/example/goban/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-28T03:42:36Z",
+      "side": 1,
+      "message": "Delete, and the next two lines too, including the render call.",
+      "revId": "4b054626e344db60876ab3b6f693bd2433a0fb0a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_f493d8ae",
+        "filename": "shiny/example/goban/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-28T03:42:36Z",
+      "side": 1,
+      "message": "This is a gldriver bug that will be fixed by https://go-review.googlesource.com/#/c/13917/ right?",
+      "revId": "4b054626e344db60876ab3b6f693bd2433a0fb0a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_54a9e4da",
+        "filename": "shiny/example/goban/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-28T03:42:36Z",
+      "side": 1,
+      "message": "Delete these two prints.",
+      "revId": "4b054626e344db60876ab3b6f693bd2433a0fb0a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_34a6f00c",
+        "filename": "shiny/example/goban/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-28T03:42:36Z",
+      "side": 1,
+      "message": "I\u0027d delete this too. There\u0027s no need to re-render the board for every key press and release. If you want the keys to do something in the future, we can add that in the future.",
+      "revId": "4b054626e344db60876ab3b6f693bd2433a0fb0a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_94a37cfb",
+        "filename": "shiny/example/goban/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-28T03:42:36Z",
+      "side": 1,
+      "message": "Uncomment.",
+      "revId": "4b054626e344db60876ab3b6f693bd2433a0fb0a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_b4820057",
+        "filename": "shiny/example/goban/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-28T03:42:36Z",
+      "side": 1,
+      "message": "wBounds :\u003d sz.Bounds()\nor just inline that into the next line.",
+      "revId": "4b054626e344db60876ab3b6f693bd2433a0fb0a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_74a068ee",
+        "filename": "shiny/example/goban/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-28T03:42:36Z",
+      "side": 1,
+      "message": "Delete.",
+      "revId": "4b054626e344db60876ab3b6f693bd2433a0fb0a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_d47df4da",
+        "filename": "shiny/example/goban/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-28T03:42:36Z",
+      "side": 1,
+      "message": "Delete.",
+      "revId": "4b054626e344db60876ab3b6f693bd2433a0fb0a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_14880c75",
+        "filename": "shiny/example/goban/xy.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-28T03:42:36Z",
+      "side": 1,
+      "message": "I like to put file-level comments below the package clause, so that they\u0027re less likely to be confused for a package doc comment:\n\n----\n// Copyright etc\n\n// +build etc\n\npackage main\n\n// An XY represents a pixel in the board image. Y is downwards.\n\nimport (\n----\n\nOr move that comment about XY to be a doc comment for \"type XY\".",
+      "revId": "4b054626e344db60876ab3b6f693bd2433a0fb0a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_f48c788a",
+        "filename": "shiny/example/goban/xy.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-08-28T03:42:36Z",
+      "side": 1,
+      "message": "Typo \"throug\".",
+      "revId": "4b054626e344db60876ab3b6f693bd2433a0fb0a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
