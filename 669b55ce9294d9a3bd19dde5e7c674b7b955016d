@@ -1,0 +1,225 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "64091ddd_74b18877",
+        "filename": "shiny/driver/windriver/screen.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2015-08-28T01:55:14Z",
+      "side": 1,
+      "message": "Maybe I am wrong, but I don\u0027t think you can do this. Is err stored on heap? Even if on heap, gc can release it any time since there is no access to it once this function ends. Perhaps you should pass pointer to small struct here and have error as one of struct fields.",
+      "revId": "669b55ce9294d9a3bd19dde5e7c674b7b955016d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_d4633490",
+        "filename": "shiny/driver/windriver/syscall_windows.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2015-08-28T01:55:14Z",
+      "side": 1,
+      "message": "I would\n\ns/LpfnWndProc/WndProc/\n\notherwise these funny prefixes make code reading hard. Note that Microsoft capitalize it differently.",
+      "revId": "669b55ce9294d9a3bd19dde5e7c674b7b955016d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_b468406c",
+        "filename": "shiny/driver/windriver/syscall_windows.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2015-08-28T01:55:14Z",
+      "side": 1,
+      "message": "ClassExtra",
+      "revId": "669b55ce9294d9a3bd19dde5e7c674b7b955016d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_146e4c76",
+        "filename": "shiny/driver/windriver/syscall_windows.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2015-08-28T01:55:14Z",
+      "side": 1,
+      "message": "WndExtra",
+      "revId": "669b55ce9294d9a3bd19dde5e7c674b7b955016d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_f472b857",
+        "filename": "shiny/driver/windriver/syscall_windows.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2015-08-28T01:55:14Z",
+      "side": 1,
+      "message": "Instance (and others)",
+      "revId": "669b55ce9294d9a3bd19dde5e7c674b7b955016d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_5478c435",
+        "filename": "shiny/driver/windriver/syscall_windows.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2015-08-28T01:55:14Z",
+      "side": 1,
+      "message": "MenuName",
+      "revId": "669b55ce9294d9a3bd19dde5e7c674b7b955016d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_3475503e",
+        "filename": "shiny/driver/windriver/syscall_windows.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2015-08-28T01:55:14Z",
+      "side": 1,
+      "message": "ClassName",
+      "revId": "669b55ce9294d9a3bd19dde5e7c674b7b955016d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_14e3ec98",
+        "filename": "shiny/driver/windriver/syscall_windows.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2015-08-28T01:55:14Z",
+      "side": 1,
+      "message": "I suggest\n\ns/xWM_USER/_WM_USER/\n\neverywhere. I think all Windows names look more familiar that way.\n\nI would even use _ to prefix syscalls - _GetMessage not getMessage.",
+      "revId": "669b55ce9294d9a3bd19dde5e7c674b7b955016d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_540604da",
+        "filename": "shiny/driver/windriver/syscall_windows.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2015-08-28T01:55:14Z",
+      "side": 1,
+      "message": "I have it as\n\nxCW_USEDEFAULT \u003d 0x80000000 - 0x100000000\n\nAnd it is a const.",
+      "revId": "669b55ce9294d9a3bd19dde5e7c674b7b955016d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_b4168008",
+        "filename": "shiny/driver/windriver/syscall_windows.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2015-08-28T01:55:14Z",
+      "side": 1,
+      "message": "I think you can also do\n\nxHWND_MESSAGE \u003d syscall.Handle(^uintptr(2)) // -3\n\nor\n\nxHWND_MESSAGE \u003d ^syscall.Handle(0) - 3 + 1\n\nand then you can make them const. But what you did is fine too.",
+      "revId": "669b55ce9294d9a3bd19dde5e7c674b7b955016d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_54fd642c",
+        "filename": "shiny/driver/windriver/syscall_windows.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2015-08-28T01:55:14Z",
+      "side": 1,
+      "message": "https://msdn.microsoft.com/en-us/library/windows/desktop/aa383751(v\u003dvs.85).aspx has them all.",
+      "revId": "669b55ce9294d9a3bd19dde5e7c674b7b955016d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_34fa7036",
+        "filename": "shiny/driver/windriver/syscall_windows.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2015-08-28T01:55:14Z",
+      "side": 1,
+      "message": "s/[failretval\u003d\u003d0]//\n\nmksyscall_windows.go assumes 0 is error by default.\n\nSame all other calls.",
+      "revId": "669b55ce9294d9a3bd19dde5e7c674b7b955016d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "64091ddd_94f7fc4c",
+        "filename": "shiny/driver/windriver/syscall_windows.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2015-08-28T01:55:14Z",
+      "side": 1,
+      "message": "s/resource uintptr/cursorname *uint16/",
+      "revId": "669b55ce9294d9a3bd19dde5e7c674b7b955016d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
