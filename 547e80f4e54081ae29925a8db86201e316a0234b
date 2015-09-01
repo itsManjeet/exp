@@ -34,6 +34,24 @@
       "revId": "547e80f4e54081ae29925a8db86201e316a0234b",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84ae1264_c68c822d",
+        "filename": "shiny/driver/windriver/screen.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2015-09-01T23:56:13Z",
+      "side": 1,
+      "message": "I am not bikesheding variable names here, you can name it how you like. I am just saying that `screenHWND is the handle to the \"Screen window\".` is misleading, you should say `screenHWND is the Windows handle for invisible utility window that ...` or similar.",
+      "parentUuid": "647bdead_7543e8dd",
+      "revId": "547e80f4e54081ae29925a8db86201e316a0234b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
