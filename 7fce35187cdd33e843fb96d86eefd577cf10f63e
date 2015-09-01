@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4405fafc_7f99ab6f",
+        "filename": "shiny/font/font.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 5045
+      },
+      "writtenOn": "2015-09-01T05:12:11Z",
+      "side": 1,
+      "message": "Consider adding a TODO with a date to remove this and delete the package as a whole.",
+      "revId": "7fce35187cdd33e843fb96d86eefd577cf10f63e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
