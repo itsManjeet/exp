@@ -16,6 +16,58 @@
       "revId": "3ac521d2da8cb8ada3a76bd5b9f2cbfd7a57323f",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8497f201_8d022d48",
+        "filename": "mmap/mmap_linux.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 5065
+      },
+      "writtenOn": "2015-09-01T20:30:34Z",
+      "side": 1,
+      "message": "Or mmap.Handle. Or mmap.Map.",
+      "parentUuid": "647bdead_35a8107b",
+      "revId": "3ac521d2da8cb8ada3a76bd5b9f2cbfd7a57323f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8497f201_edf091cd",
+        "filename": "mmap/mmap_linux.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 5065
+      },
+      "writtenOn": "2015-09-01T20:30:34Z",
+      "side": 1,
+      "message": "or At. maybe \"to call Close and reading methods concurrently\".",
+      "revId": "3ac521d2da8cb8ada3a76bd5b9f2cbfd7a57323f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8497f201_2d07595a",
+        "filename": "mmap/mmap_linux.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5065
+      },
+      "writtenOn": "2015-09-01T20:30:34Z",
+      "side": 1,
+      "message": "this is always nil from line 39. save it to a local variable first",
+      "revId": "3ac521d2da8cb8ada3a76bd5b9f2cbfd7a57323f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
