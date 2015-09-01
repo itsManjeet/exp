@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "647bdead_35a8107b",
+        "filename": "mmap/mmap_linux.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-09-01T14:07:51Z",
+      "side": 1,
+      "message": "You\u0027ve called this mmap.Reader, but it doesn\u0027t implement io.Reader. It implements io.ReaderAt. Maybe it should be called mmap.ReaderAt?",
+      "revId": "3ac521d2da8cb8ada3a76bd5b9f2cbfd7a57323f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
