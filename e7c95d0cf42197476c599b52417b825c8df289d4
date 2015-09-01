@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "647bdead_55b58cb6",
+        "filename": "shiny/driver/windriver/common.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-09-01T16:19:59Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "4405fafc_7cb0995f",
+      "revId": "e7c95d0cf42197476c599b52417b825c8df289d4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4405fafc_bcc621cf",
         "filename": "shiny/driver/windriver/screen.go",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2015-09-01T01:55:01Z",
       "side": 1,
       "message": "Personally, I would s/screenhwnd/screenHWND/, but other programmers might differ here, and I am not a Windows programmer. See also https://github.com/golang/go/wiki/CodeReviewComments#initialisms\n\nAlso, https://github.com/golang/go/wiki/CodeReviewComments#comment-sentences says that \"Comments should begin with the name of the thing being described\", so:\n\n// screenHWND is the HWND of the Screen window, which encapsulates etc.\n// etc.\nvar screenHWND syscall.Handle",
+      "revId": "e7c95d0cf42197476c599b52417b825c8df289d4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "647bdead_75ba08aa",
+        "filename": "shiny/driver/windriver/screen.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-09-01T16:19:59Z",
+      "side": 1,
+      "message": "Done and done.\n\nI believe Windows convention would actually say \"hwndScreen\", but I don\u0027t know if we should be following their convention as strongly as our convention.",
+      "parentUuid": "4405fafc_bcc621cf",
       "revId": "e7c95d0cf42197476c599b52417b825c8df289d4",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "647bdead_15bf1499",
+        "filename": "shiny/driver/windriver/screen.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-09-01T16:19:59Z",
+      "side": 1,
+      "message": "Done, though I wound up passing opts in the struct as well. It shouldn\u0027t make too much of a difference.",
+      "parentUuid": "4405fafc_9cc365bf",
+      "revId": "e7c95d0cf42197476c599b52417b825c8df289d4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4405fafc_5cb5dd4d",
         "filename": "shiny/driver/windriver/windriver.go",
         "patchSetId": 2
@@ -64,6 +118,30 @@
       "writtenOn": "2015-09-01T01:55:01Z",
       "side": 1,
       "message": "I\u0027d now roll this into the next line:\nif err :\u003d initCommon(); err !\u003d nil {\n  etc\n}\n\nDitto for initScreenWindow.",
+      "range": {
+        "startLine": 41,
+        "startChar": 7,
+        "endLine": 41,
+        "endChar": 8
+      },
+      "revId": "e7c95d0cf42197476c599b52417b825c8df289d4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "647bdead_d5a8bc5c",
+        "filename": "shiny/driver/windriver/windriver.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-09-01T16:19:59Z",
+      "side": 1,
+      "message": "Done. Also did it for initWindowClass; that will be changed from HRESULTs to Go errors in the next CL anyway.\n\nThinking aloud: I don\u0027t think we\u0027re going to need to deal with HRESULT at all in this package in the end, so the next commit will also drop that commentary from doc.go.",
+      "parentUuid": "4405fafc_5cb5dd4d",
       "range": {
         "startLine": 41,
         "startChar": 7,
