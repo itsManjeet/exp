@@ -16,6 +16,24 @@
       "revId": "547e80f4e54081ae29925a8db86201e316a0234b",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "647bdead_7543e8dd",
+        "filename": "shiny/driver/windriver/screen.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-09-01T23:42:45Z",
+      "side": 1,
+      "message": "It is a hidden utility window, but its sole function is to do the work of the screen.Screen interface, hence the name. I\u0027m not sure if screen.Screen is a good name for the interface, for the same reason you don\u0027t think screenHWND is a good name for that utility window, but I\u0027m sure Nigel chose the name for a reason...",
+      "parentUuid": "84ae1264_a665c628",
+      "revId": "547e80f4e54081ae29925a8db86201e316a0234b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
