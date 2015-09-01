@@ -7,9 +7,9 @@
 //
 // Other packages provide font face implementations. For example, a truetype
 // package would provide one based on .ttf font files.
+//
+// Deprecated: use "golang.org/x/image/font" instead.
 package font
-
-// TODO: move this from golang.org/x/exp to golang.org/x/image ??
 
 import (
 	"image"
@@ -18,6 +18,10 @@ import (
 
 	"golang.org/x/image/math/fixed"
 )
+
+func init() {
+	println(`"golang.org/x/exp/shiny/font" is deprecated. Use "golang.org/x/image/font" instead.`)
+}
 
 // TODO: who is responsible for caches (glyph images, glyph indices, kerns)?
 // The Drawer or the Face?
