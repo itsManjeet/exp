@@ -52,6 +52,24 @@
       "revId": "547e80f4e54081ae29925a8db86201e316a0234b",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "647bdead_f5d5b857",
+        "filename": "shiny/driver/windriver/screen.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 9190
+      },
+      "writtenOn": "2015-09-02T00:09:00Z",
+      "side": 1,
+      "message": "Ah, I see what you mean. I\u0027ll take care of it alongside a rewrite of doc.go once the C code is gone, since the documentation will need a rewrite then.",
+      "parentUuid": "84ae1264_c68c822d",
+      "revId": "547e80f4e54081ae29925a8db86201e316a0234b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
