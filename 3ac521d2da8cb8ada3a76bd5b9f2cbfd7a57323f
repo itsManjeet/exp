@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "84ae1264_e971511f",
+        "filename": "mmap/mmap_linux.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-09-03T04:08:51Z",
+      "side": 1,
+      "message": "Gone with ReaderAt.",
+      "parentUuid": "8497f201_8d022d48",
+      "revId": "3ac521d2da8cb8ada3a76bd5b9f2cbfd7a57323f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8497f201_edf091cd",
         "filename": "mmap/mmap_linux.go",
         "patchSetId": 3
@@ -54,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "84ae1264_c9749512",
+        "filename": "mmap/mmap_linux.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-09-03T04:08:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8497f201_edf091cd",
+      "revId": "3ac521d2da8cb8ada3a76bd5b9f2cbfd7a57323f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8497f201_2d07595a",
         "filename": "mmap/mmap_linux.go",
         "patchSetId": 3
@@ -65,6 +101,24 @@
       "writtenOn": "2015-09-01T20:30:34Z",
       "side": 1,
       "message": "this is always nil from line 39. save it to a local variable first",
+      "revId": "3ac521d2da8cb8ada3a76bd5b9f2cbfd7a57323f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84ae1264_2990c97f",
+        "filename": "mmap/mmap_linux.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-09-03T04:08:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8497f201_2d07595a",
       "revId": "3ac521d2da8cb8ada3a76bd5b9f2cbfd7a57323f",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
