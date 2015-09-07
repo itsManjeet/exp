@@ -1,0 +1,6 @@
+Code-Review+2: David Symonds <dsymonds@golang.org>
+Submitted-by: Nigel Tao <nigeltao@golang.org>
+Submitted-at: Mon, 07 Sep 2015 00:20:27 +0000
+Reviewed-on: https://go-review.googlesource.com/14303
+Project: exp
+Branch: refs/heads/master
