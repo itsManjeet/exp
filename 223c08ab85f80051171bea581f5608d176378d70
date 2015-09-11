@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "845e12ce_c9809534",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-09-11T04:48:02Z",
+      "side": 1,
+      "message": "Why can\u0027t C.PVOID be C.HDC?",
+      "revId": "223c08ab85f80051171bea581f5608d176378d70",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "845e12ce_898a9d50",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-09-11T04:48:02Z",
+      "side": 1,
+      "message": "If you want, you could write this as:\n\n, err \u003d _RegisterClass(\u0026_WNDCLASS{\n\tLpszClassName: wcname,\n\tetc,\n})\nreturn err",
+      "revId": "223c08ab85f80051171bea581f5608d176378d70",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "845e12ce_a98f595f",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-09-11T04:48:02Z",
+      "side": 1,
+      "message": "return h, nil",
+      "revId": "223c08ab85f80051171bea581f5608d176378d70",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
