@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "845e12ce_8ccf0b91",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2015-09-11T05:42:27Z",
+      "side": 1,
+      "message": "Perhaps I didn\u0027t understand your question, but dc variable is of syscall.Handle type, not C.PVOID. I can convert syscall.Handle into C.PVOID, but not into C.HDC:\n\nc:\\dev\\src\\golang.org\\x\\exp\\shiny\\driver\\windriver\\window.go:255: cannot convert dc (type syscall.Handle) to type C.HDC\n\nso I had to change C.fillSrc to accept C.PVOID instead of C.HDC. It is all moot, because it is going away anyway.",
+      "parentUuid": "845e12ce_c9809534",
+      "revId": "223c08ab85f80051171bea581f5608d176378d70",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "845e12ce_898a9d50",
         "filename": "shiny/driver/windriver/window.go",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "845e12ce_ccd50325",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2015-09-11T05:42:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "845e12ce_898a9d50",
+      "revId": "223c08ab85f80051171bea581f5608d176378d70",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "845e12ce_a98f595f",
         "filename": "shiny/driver/windriver/window.go",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2015-09-11T04:48:02Z",
       "side": 1,
       "message": "return h, nil",
+      "revId": "223c08ab85f80051171bea581f5608d176378d70",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "845e12ce_ecb31f22",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2015-09-11T05:42:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "845e12ce_a98f595f",
       "revId": "223c08ab85f80051171bea581f5608d176378d70",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
