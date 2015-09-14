@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "84ca92dc_69cd419c",
+        "filename": "shiny/driver/gldriver/cocoa.m",
+        "patchSetId": 5
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-09-14T19:05:10Z",
+      "side": 1,
+      "message": "It\u0027s not even true, the fractions can be anything on OS X. (They are only integers on iOS.) Done.",
+      "parentUuid": "64091ddd_69489181",
+      "revId": "a9aec15eafd9a96287927a7591130b1a68502768",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64091ddd_294e998f",
         "filename": "shiny/driver/gldriver/cocoa.m",
         "patchSetId": 5
@@ -30,6 +48,24 @@
       "writtenOn": "2015-08-27T00:01:31Z",
       "side": 1,
       "message": "Typo in \"multiply\".",
+      "revId": "a9aec15eafd9a96287927a7591130b1a68502768",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84ca92dc_49ca0586",
+        "filename": "shiny/driver/gldriver/cocoa.m",
+        "patchSetId": 5
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-09-14T19:05:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64091ddd_294e998f",
       "revId": "a9aec15eafd9a96287927a7591130b1a68502768",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "84ca92dc_09e76d1a",
+        "filename": "shiny/driver/gldriver/cocoa.m",
+        "patchSetId": 5
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-09-14T19:05:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64091ddd_09b0f5f7",
+      "revId": "a9aec15eafd9a96287927a7591130b1a68502768",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "64091ddd_894b657e",
         "filename": "shiny/driver/gldriver/cocoa.m",
         "patchSetId": 5
@@ -64,6 +118,24 @@
       "writtenOn": "2015-08-27T00:01:31Z",
       "side": 1,
       "message": "Typo in \"frrom\".",
+      "revId": "a9aec15eafd9a96287927a7591130b1a68502768",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "84ca92dc_a9d57925",
+        "filename": "shiny/driver/gldriver/cocoa.m",
+        "patchSetId": 5
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-09-14T19:05:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64091ddd_894b657e",
       "revId": "a9aec15eafd9a96287927a7591130b1a68502768",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
