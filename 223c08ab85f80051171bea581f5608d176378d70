@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "c9f10352_8098966c",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-09-14T00:52:59Z",
+      "side": 1,
+      "message": "OK, IANA Windows gopher, but it still looked weird how, in windraw.c, it was:\n\nstatic void blend(HDC dc, etc) {\n  etc\n}\n\nvoid fillOver(PVOID dc, etc) {\n  etc\n  blend(dc, etc);\n  etc\n}\n\nThe C code seemed happy with implicitly converting a PVOID to an HDC, so it wasn\u0027t clear to me why the Go code couldn\u0027t do likewise earlier.\n\nBut as you say, it\u0027s all moot.",
+      "parentUuid": "845e12ce_8ccf0b91",
+      "revId": "223c08ab85f80051171bea581f5608d176378d70",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "845e12ce_898a9d50",
         "filename": "shiny/driver/windriver/window.go",
         "patchSetId": 1
