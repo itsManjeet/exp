@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6971f71a_e5f8d642",
+        "filename": "shiny/driver/gldriver/x11.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-09-18T11:43:30Z",
+      "side": 1,
+      "message": "EGL provides an error value (of sorts) and a function to turn it into a string. It may be worth adding a function to print the error.",
+      "revId": "81cb0a2e4044b801cdc9513c70303f191139d652",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
