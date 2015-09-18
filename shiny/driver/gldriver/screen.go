@@ -14,6 +14,10 @@ import (
 	"golang.org/x/mobile/gl"
 )
 
+var theScreen = &screenImpl{
+	windows: make(map[uintptr]*windowImpl),
+}
+
 type screenImpl struct {
 	mu      sync.Mutex
 	windows map[uintptr]*windowImpl
@@ -86,10 +90,12 @@ func (s *screenImpl) NewWindow(opts *screen.NewWindowOptions) (screen.Window, er
 	// TODO: look at opts.
 	const width, height = 1024, 768
 
+	// TODO: merge the newWindow, showWindow (and drawLoop?) functions.
 	id := newWindow(width, height)
 	w := &windowImpl{
 		s:        s,
 		id:       id,
+		ctx:      showWindow(id),
 		pump:     pump.Make(),
 		endPaint: make(chan paint.Event, 1),
 		draw:     make(chan struct{}),
@@ -100,7 +106,7 @@ func (s *screenImpl) NewWindow(opts *screen.NewWindowOptions) (screen.Window, er
 	s.windows[id] = w
 	s.mu.Unlock()
 
-	go drawLoop(w, showWindow(id))
+	go drawLoop(w)
 
 	return w, nil
 }
