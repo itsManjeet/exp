@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a90befa7_8d9965b7",
+        "filename": "shiny/driver/gldriver/screen.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-09-21T23:05:16Z",
+      "side": 1,
+      "message": "You might as well delete this TODO then.",
+      "revId": "213f8eceec488775306069d698c5e2ca3292458a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
