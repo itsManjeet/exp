@@ -127,11 +127,15 @@ func drawLoop(w *windowImpl) {
 	// the single dedicated draw loop have a single dedicated channel?
 	C.makeCurrentContext(C.uintptr_t(w.ctx))
 
+	var worker gl.Worker
+	w.glctx, worker = gl.NewContext()
+	workAvailable := worker.WorkAvailable()
+
 	// TODO(crawshaw): exit this goroutine on Release.
 	for {
 		select {
-		case <-gl.WorkAvailable:
-			gl.DoWork()
+		case <-workAvailable:
+			worker.DoWork()
 		case <-w.draw:
 			// TODO(crawshaw): don't send a paint.Event unconditionally. Only
 			// send one if the window actually needs redrawing.
@@ -139,8 +143,8 @@ func drawLoop(w *windowImpl) {
 		loop:
 			for {
 				select {
-				case <-gl.WorkAvailable:
-					gl.DoWork()
+				case <-workAvailable:
+					worker.DoWork()
 				case <-w.publish:
 					C.CGLFlushDrawable(C.CGLGetCurrentContext())
 					break loop
