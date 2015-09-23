@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c9d0238b_e81e539d",
+        "filename": "shiny/example/tile/main.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-09-23T04:36:57Z",
+      "side": 1,
+      "message": "Ah, there\u0027s a bug in the gldriver. It doesn\u0027t like the \"go\" here, as it makes multiple Window.Draw calls concurrently.\n\nSee https://go-review.googlesource.com/#/c/14861/ for the fix.",
+      "revId": "fb403ed5bb53732726ce7895e2beb314a50cc8e3",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
