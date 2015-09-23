@@ -16,6 +16,24 @@
       "revId": "460e940c62f4f1e3ee2c4a43eedfc28fe2a0f534",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c9d0238b_28198bb4",
+        "filename": "shiny/driver/gldriver/screen.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-09-23T04:49:45Z",
+      "side": 1,
+      "message": "Maybe, or we might be able to add a \"glMu sync.Mutex\" field to windowImpl in this package instead. We\u0027ll see how it looks when we (i.e. you) implement per-window GL contexts.",
+      "parentUuid": "29253f43_5653d2ad",
+      "revId": "460e940c62f4f1e3ee2c4a43eedfc28fe2a0f534",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
