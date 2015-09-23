@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c985838b_00bd46ec",
+        "filename": "shiny/driver/gldriver/x11.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-09-23T05:19:24Z",
+      "side": 1,
+      "message": "TODO: lifecycle event?",
+      "revId": "a6dd7acbcd6cc21982b8b292c9772efb9dfe97cc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
