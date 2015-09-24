@@ -16,6 +16,24 @@
       "revId": "3027a73e08fbf1b5e213b9c0face9837e8416522",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6e3e5dee_7d09f76d",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-09-24T02:08:18Z",
+      "side": 1,
+      "message": "Done. Using glMu here, and I\u0027ll look at making it per-window in a follow-up CL.",
+      "parentUuid": "8e80f1c5_362578ed",
+      "revId": "3027a73e08fbf1b5e213b9c0face9837e8416522",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
