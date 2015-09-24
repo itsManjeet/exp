@@ -1,0 +1,7 @@
+Code-Review+1: Aaron Jacobs <jacobsa@google.com>
+Code-Review+2: Nigel Tao <nigeltao@golang.org>
+Submitted-by: Nigel Tao <nigeltao@golang.org>
+Submitted-at: Thu, 24 Sep 2015 03:47:21 +0000
+Reviewed-on: https://go-review.googlesource.com/14931
+Project: exp
+Branch: refs/heads/master
