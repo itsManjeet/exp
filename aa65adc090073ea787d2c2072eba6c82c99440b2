@@ -2,6 +2,69 @@
   "comments": [
     {
       "key": {
+        "uuid": "8e80f1c5_360b3830",
+        "filename": "shiny/driver/internal/swizzle/swizzle_amd64.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 6475
+      },
+      "writtenOn": "2015-09-24T03:12:52Z",
+      "side": 1,
+      "message": "Maybe: s/haveBGRA16/useBGRA16",
+      "range": {
+        "startLine": 12,
+        "startChar": 4,
+        "endLine": 12,
+        "endChar": 14
+      },
+      "revId": "aa65adc090073ea787d2c2072eba6c82c99440b2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e80f1c5_d61f6466",
+        "filename": "shiny/driver/internal/swizzle/swizzle_amd64.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 6475
+      },
+      "writtenOn": "2015-09-24T03:12:52Z",
+      "side": 1,
+      "message": "Ditto",
+      "range": {
+        "startLine": 14,
+        "startChar": 6,
+        "endLine": 14,
+        "endChar": 15
+      },
+      "revId": "aa65adc090073ea787d2c2072eba6c82c99440b2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e80f1c5_b616684e",
+        "filename": "shiny/driver/internal/swizzle/swizzle_amd64.s",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 6475
+      },
+      "writtenOn": "2015-09-24T03:12:52Z",
+      "side": 1,
+      "message": "This and the following instruction could be more simply \"MOVQ $1, AX\"",
+      "revId": "aa65adc090073ea787d2c2072eba6c82c99440b2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e80f1c5_16063c27",
         "filename": "shiny/driver/internal/swizzle/swizzle_amd64.s",
         "patchSetId": 1
@@ -13,6 +76,41 @@
       "writtenOn": "2015-09-24T03:06:52Z",
       "side": 1,
       "message": "https://en.wikipedia.org/wiki/CPUID says that SSSE3 (with three \u0027S\u0027s) is bit 9 of CX, after executing CPUID with AX\u003d1.\n\nSee haveSSE42 in https://go.googlesource.com/go/+/master/src/hash/crc32/crc32_amd64.s for a similar function.",
+      "revId": "aa65adc090073ea787d2c2072eba6c82c99440b2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e80f1c5_56b7d4be",
+        "filename": "shiny/driver/internal/swizzle/swizzle_amd64.s",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 6475
+      },
+      "writtenOn": "2015-09-24T03:12:52Z",
+      "side": 1,
+      "message": "FWIW, the canonical place for this is Table 3-19 (\"Feature Information Returned in the ECX Register\") of \"Intel® 64 and IA-32 Architectures Software Developer’s Manual\", Volume 2.\n\nWorth saving a copy of the PDF:\n    http://www.intel.com.au/content/www/au/en/processors/architectures-software-developer-manuals.html",
+      "parentUuid": "8e80f1c5_16063c27",
+      "revId": "aa65adc090073ea787d2c2072eba6c82c99440b2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e80f1c5_9619ec82",
+        "filename": "shiny/driver/internal/swizzle/swizzle_amd64.s",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 6475
+      },
+      "writtenOn": "2015-09-24T03:12:52Z",
+      "side": 1,
+      "message": "This and the following instruction could just be \"JNZ done\", here and above.",
       "revId": "aa65adc090073ea787d2c2072eba6c82c99440b2",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
