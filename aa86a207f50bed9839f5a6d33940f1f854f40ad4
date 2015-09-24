@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e80f1c5_76bc50a2",
+        "filename": "shiny/driver/gldriver/screen.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-09-24T03:20:08Z",
+      "side": 1,
+      "message": "Delete this line; use :\u003d below.",
+      "revId": "aa86a207f50bed9839f5a6d33940f1f854f40ad4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e80f1c5_d6aa0455",
+        "filename": "shiny/driver/gldriver/screen.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-09-24T03:20:08Z",
+      "side": 1,
+      "message": "Be careful of taking w.mu here. The rest of this method does a number of glctx calls, for which progress relies on a goroutine elsewhere selecting on WorkAvailable and calling DoWork. If that other goroutine is e.g. processing X11 events in the processEvents function, it might be processing a resize event, that will want to take w.mu to write to its sz field: deadlock.\n\nInstead, I think that we need separate per-Window mutexes for GL related things and for other things.",
+      "revId": "aa86a207f50bed9839f5a6d33940f1f854f40ad4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
