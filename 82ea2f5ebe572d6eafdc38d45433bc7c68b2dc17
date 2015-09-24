@@ -1,0 +1,6 @@
+Code-Review+2: Nigel Tao <nigeltao@golang.org>
+Submitted-by: David Crawshaw <crawshaw@golang.org>
+Submitted-at: Thu, 24 Sep 2015 02:08:28 +0000
+Reviewed-on: https://go-review.googlesource.com/14910
+Project: exp
+Branch: refs/heads/master
