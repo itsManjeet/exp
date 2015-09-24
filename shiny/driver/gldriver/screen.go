@@ -14,17 +14,6 @@ import (
 	"golang.org/x/mobile/gl"
 )
 
-// glMu is a mutex that enforces the atomicity of methods like Texture.Upload
-// or Window.Draw that are conceptually one operation but are implemented by
-// multiple OpenGL calls. OpenGL is a stateful API, so interleaving OpenGL
-// calls from separate higher-level operations causes inconsistencies.
-//
-// glMu does not need to be held when accessing gl.WorkAvailable or gl.DoWork.
-//
-// TODO: is this affected by changing the x/mobile/gl package from an
-// (implicit) global context to a per-window context?
-var glMu sync.Mutex
-
 var theScreen = &screenImpl{
 	windows: make(map[uintptr]*windowImpl),
 }
@@ -59,9 +48,6 @@ func (s *screenImpl) NewBuffer(size image.Point) (retBuf screen.Buffer, retErr e
 }
 
 func (s *screenImpl) NewTexture(size image.Point) (screen.Texture, error) {
-	glMu.Lock()
-	defer glMu.Unlock()
-
 	// TODO: can we compile these programs eagerly instead of lazily?
 
 	// Find a GL context for this texture.
@@ -69,10 +55,22 @@ func (s *screenImpl) NewTexture(size image.Point) (screen.Texture, error) {
 	// across contexts. But this needs a review of the spec to make
 	// sure it's correct, and some testing would be nice.
 	var glctx gl.Context
-	for _, w := range s.windows {
-		glctx = w.glctx
+	var w *windowImpl
+
+	s.mu.Lock()
+	for _, window := range s.windows {
+		w = window
 		break
 	}
+	s.mu.Unlock()
+
+	if w == nil {
+		return nil, fmt.Errorf("gldriver: no window available")
+	}
+
+	w.mu.Lock()
+	defer w.mu.Unlock()
+	glctx = w.glctx
 	if glctx == nil {
 		return nil, fmt.Errorf("gldriver: no GL context available")
 	}
@@ -95,9 +93,9 @@ func (s *screenImpl) NewTexture(size image.Point) (screen.Texture, error) {
 	}
 
 	t := &textureImpl{
-		glctx: glctx,
-		id:    glctx.CreateTexture(),
-		size:  size,
+		w:    w,
+		id:   glctx.CreateTexture(),
+		size: size,
 	}
 
 	glctx.BindTexture(gl.TEXTURE_2D, t.id)

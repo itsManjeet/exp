@@ -30,16 +30,15 @@ type windowImpl struct {
 	//	- For X11, it's an EGLSurface.
 	ctx uintptr
 
-	glctx gl.Context
-
 	pump    pump.Pump
 	publish chan struct{}
 
 	draw     chan struct{}
 	drawDone chan struct{}
 
-	mu sync.Mutex
-	sz size.Event
+	mu    sync.Mutex
+	sz    size.Event
+	glctx gl.Context
 }
 
 func (w *windowImpl) Release() {
@@ -85,8 +84,8 @@ func (w *windowImpl) Upload(dp image.Point, src screen.Buffer, sr image.Rectangl
 }
 
 func (w *windowImpl) Fill(dr image.Rectangle, src color.Color, op draw.Op) {
-	glMu.Lock()
-	defer glMu.Unlock()
+	w.mu.Lock()
+	defer w.mu.Unlock()
 
 	if !w.glctx.IsProgram(w.s.fill.program) {
 		p, err := compileProgram(w.glctx, fillVertexSrc, fillFragmentSrc)
@@ -134,8 +133,8 @@ func (w *windowImpl) Fill(dr image.Rectangle, src color.Color, op draw.Op) {
 }
 
 func (w *windowImpl) Draw(src2dst f64.Aff3, src screen.Texture, sr image.Rectangle, op draw.Op, opts *screen.DrawOptions) {
-	glMu.Lock()
-	defer glMu.Unlock()
+	w.mu.Lock()
+	defer w.mu.Unlock()
 
 	w.glctx.UseProgram(w.s.texture.program)
 
@@ -220,10 +219,10 @@ func (w *windowImpl) Draw(src2dst f64.Aff3, src screen.Texture, sr image.Rectang
 //
 // In vertex shader space, the window ranges from (-1, +1) to (+1, -1), which
 // is a 2-unit by 2-unit square. The Y-axis points upwards.
+//
+// mvp must only be called while holding windowImpl.mu.
 func (w *windowImpl) mvp(tlx, tly, trx, try, blx, bly float64) f64.Aff3 {
-	w.mu.Lock()
 	sz := w.sz
-	w.mu.Unlock()
 
 	// Convert from pixel coords to vertex shader coords.
 	invHalfWidth := +2 / float64(sz.WidthPx)
@@ -253,9 +252,9 @@ func (w *windowImpl) Publish() screen.PublishResult {
 	//
 	// This enforces that the final receive (for this paint cycle) on
 	// gl.WorkAvailable happens before the send on publish.
-	glMu.Lock()
+	w.mu.Lock()
 	w.glctx.Flush()
-	glMu.Unlock()
+	w.mu.Unlock()
 
 	w.publish <- struct{}{}
 	// TODO(crawshaw): wait for an ack before returning.

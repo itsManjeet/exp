@@ -65,6 +65,10 @@ func closeWindow(id uintptr) {
 }
 
 func drawLoop(w *windowImpl) {
+	s.mu.Lock()
+	w.glctx = glctx
+	s.mu.Unlock()
+
 	glcontextc <- w.ctx
 	go func() {
 		for range w.publish {
@@ -77,6 +81,15 @@ var (
 	glcontextc = make(chan uintptr)
 	publishc   = make(chan *windowImpl)
 	uic        = make(chan uiClosure)
+
+	// TODO: don't assume that there is only one window, and hence only
+	// one (global) GL context.
+	//
+	// TODO: should we be able to make a shiny.Texture before having a
+	// shiny.Window's GL context? Should something like gl.IsProgram be a
+	// method instead of a function, and have each shiny.Window have its own
+	// gl.Context?
+	glctx gl.Context
 )
 
 // uiClosure is a closure to be run on C's UI thread.
@@ -103,22 +116,14 @@ func main(f func(screen.Screen)) error {
 	// cases below select on Go channels.
 	heartbeat := time.NewTicker(time.Second / 60)
 
-	// glWorkAvailable is set to gl.WorkAvailable after we have a GL context.
-	// TODO: should we be able to make a shiny.Texture before having a
-	// shiny.Window's GL context? Should something like gl.IsProgram be a
-	// method instead of a function, and have each shiny.Window have its own
-	// gl.Context?
-	var glWorkAvailable <-chan struct{}
+	var worker gl.Worker
+	var workAvailable <-chan struct{}
 
 	for {
 		select {
 		case <-closec:
 			return nil
 		case ctx := <-glcontextc:
-			glWorkAvailable = gl.WorkAvailable
-			// TODO: don't assume that there is only one window, and hence only
-			// one (global) GL context.
-			//
 			// TODO: do we need to synchronize with seeing a size event for
 			// this window's context before or after calling makeCurrent?
 			// Otherwise, are we racing with the gl.Viewport call? I've
@@ -126,14 +131,24 @@ func main(f func(screen.Screen)) error {
 			// the window width and height to something other than that
 			// requested by XCreateWindow, but it's not easily reproducible.
 			C.makeCurrent(C.uintptr_t(ctx))
+
+			theScreen.mu.Lock()
+			glctx, worker = gl.NewContext()
+			workAvailable = worker.WorkAvailable()
+			for _, w := range theScreen.windows {
+				w.mu.Lock()
+				w.glctx = glctx
+				w.mu.Unlock()
+			}
+			theScreen.mu.Unlock()
 		case w := <-publishc:
 			C.swapBuffers(C.uintptr_t(w.ctx))
 		case req := <-uic:
 			req.retc <- req.f()
 		case <-heartbeat.C:
 			C.processEvents()
-		case <-glWorkAvailable:
-			gl.DoWork()
+		case <-workAvailable:
+			worker.DoWork()
 		}
 	}
 }
@@ -186,9 +201,9 @@ func onResize(id uintptr, width, height int32) {
 	// channel, in the same goroutine as other GL calls in the app's 'business
 	// logic'?
 	go func() {
-		glMu.Lock()
-		gl.Viewport(0, 0, int(width), int(height))
-		glMu.Unlock()
+		w.mu.Lock()
+		w.glctx.Viewport(0, 0, int(width), int(height))
+		w.mu.Unlock()
 	}()
 
 	sz := size.Event{
