@@ -127,11 +127,11 @@ func drawLoop(w *windowImpl) {
 	// the single dedicated draw loop have a single dedicated channel?
 	C.makeCurrentContext(C.uintptr_t(w.ctx))
 
-	glMu.Lock()
+	w.glctxMu.Lock()
 	var worker gl.Worker
 	w.glctx, worker = gl.NewContext()
 	workAvailable := worker.WorkAvailable()
-	glMu.Unlock()
+	w.glctxMu.Unlock()
 
 	// TODO(crawshaw): exit this goroutine on Release.
 	for {
@@ -175,9 +175,9 @@ func setGeom(id uintptr, ppp float32, widthPx, heightPx int) {
 		PixelsPerPt: ppp,
 	}
 
-	w.mu.Lock()
+	w.szMu.Lock()
 	w.sz = sz
-	w.mu.Unlock()
+	w.szMu.Unlock()
 
 	w.Send(sz)
 }
