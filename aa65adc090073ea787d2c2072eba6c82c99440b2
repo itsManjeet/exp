@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8e80f1c5_56def4f8",
+        "filename": "shiny/driver/internal/swizzle/swizzle_amd64.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-09-24T03:31:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e80f1c5_360b3830",
+      "range": {
+        "startLine": 12,
+        "startChar": 4,
+        "endLine": 12,
+        "endChar": 14
+      },
+      "revId": "aa65adc090073ea787d2c2072eba6c82c99440b2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e80f1c5_d61f6466",
         "filename": "shiny/driver/internal/swizzle/swizzle_amd64.go",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "8e80f1c5_b6b188c4",
+        "filename": "shiny/driver/internal/swizzle/swizzle_amd64.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-09-24T03:31:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e80f1c5_d61f6466",
+      "range": {
+        "startLine": 14,
+        "startChar": 6,
+        "endLine": 14,
+        "endChar": 15
+      },
+      "revId": "aa65adc090073ea787d2c2072eba6c82c99440b2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e80f1c5_b616684e",
         "filename": "shiny/driver/internal/swizzle/swizzle_amd64.s",
         "patchSetId": 1
@@ -59,6 +107,24 @@
       "writtenOn": "2015-09-24T03:12:52Z",
       "side": 1,
       "message": "This and the following instruction could be more simply \"MOVQ $1, AX\"",
+      "revId": "aa65adc090073ea787d2c2072eba6c82c99440b2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e80f1c5_36dd78f8",
+        "filename": "shiny/driver/internal/swizzle/swizzle_amd64.s",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-09-24T03:31:49Z",
+      "side": 1,
+      "message": "Done, although FWIW I was mimicking the stdlib\u0027s https://go.googlesource.com/go/+/master/src/hash/crc32/crc32_amd64.s",
+      "parentUuid": "8e80f1c5_b616684e",
       "revId": "aa65adc090073ea787d2c2072eba6c82c99440b2",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -100,6 +166,24 @@
     },
     {
       "key": {
+        "uuid": "8e80f1c5_76e3f0c3",
+        "filename": "shiny/driver/internal/swizzle/swizzle_amd64.s",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-09-24T03:31:49Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "8e80f1c5_56b7d4be",
+      "revId": "aa65adc090073ea787d2c2072eba6c82c99440b2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8e80f1c5_9619ec82",
         "filename": "shiny/driver/internal/swizzle/swizzle_amd64.s",
         "patchSetId": 1
@@ -111,6 +195,24 @@
       "writtenOn": "2015-09-24T03:12:52Z",
       "side": 1,
       "message": "This and the following instruction could just be \"JNZ done\", here and above.",
+      "revId": "aa65adc090073ea787d2c2072eba6c82c99440b2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8e80f1c5_16d87c07",
+        "filename": "shiny/driver/internal/swizzle/swizzle_amd64.s",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-09-24T03:31:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e80f1c5_9619ec82",
       "revId": "aa65adc090073ea787d2c2072eba6c82c99440b2",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
