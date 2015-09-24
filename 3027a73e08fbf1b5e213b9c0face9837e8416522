@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8e80f1c5_362578ed",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-09-24T00:53:27Z",
+      "side": 1,
+      "message": "Technically, per the memory model, I think you need some sort of synchronization (e.g. mutex, channel op) between writing w.glctx in this goroutine and reading w.glctx in the other goroutines.\n\nThere already is a global glMu mutex, and we probably want to turn that into a per-window one anyway, right? I\u0027ll leave it up to you whether you want to do that in this CL or a follow-up.",
+      "revId": "3027a73e08fbf1b5e213b9c0face9837e8416522",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
