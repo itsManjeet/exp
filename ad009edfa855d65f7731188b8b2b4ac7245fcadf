@@ -16,6 +16,24 @@
       "revId": "ad009edfa855d65f7731188b8b2b4ac7245fcadf",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ae4055d4_bfbb17f8",
+        "filename": "shiny/driver/gldriver/gldriver.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-09-24T16:16:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e80f1c5_563a74b0",
+      "revId": "ad009edfa855d65f7731188b8b2b4ac7245fcadf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
