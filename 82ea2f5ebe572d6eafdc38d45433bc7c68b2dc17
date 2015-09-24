@@ -16,6 +16,24 @@
       "revId": "82ea2f5ebe572d6eafdc38d45433bc7c68b2dc17",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ce2029e1_28ad8bc1",
+        "filename": "shiny/driver/gldriver/screen.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-09-24T04:13:49Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "8e80f1c5_f6a7008a",
+      "revId": "82ea2f5ebe572d6eafdc38d45433bc7c68b2dc17",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
