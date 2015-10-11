@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aac5aa25_6eb00f66",
+        "filename": "shiny/driver/x11driver/texture.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-10-11T10:52:32Z",
+      "side": 1,
+      "message": "s/square/rectangle/",
+      "revId": "1ed6bc6c689a176d927c19d97e2d639aef95827a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
