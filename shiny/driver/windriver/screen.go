@@ -7,7 +7,6 @@
 package windriver
 
 import (
-	"fmt"
 	"image"
 	"syscall"
 	"unsafe"
@@ -38,11 +37,13 @@ func newScreenImpl() screen.Screen {
 }
 
 func (*screenimpl) NewBuffer(size image.Point) (screen.Buffer, error) {
-	return nil, fmt.Errorf("TODO")
+	return &bufferImpl{
+		image.NewRGBA(image.Rectangle{Max: size}),
+	}, nil
 }
 
 func (*screenimpl) NewTexture(size image.Point) (screen.Texture, error) {
-	return nil, fmt.Errorf("TODO")
+	return &textureImpl{}, nil
 }
 
 type newWindowParams struct {
