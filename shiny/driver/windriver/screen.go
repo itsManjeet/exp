@@ -29,6 +29,7 @@ const (
 	msgCreateWindow = _WM_USER + iota
 	msgFillSrc
 	msgFillOver
+	msgUpload
 )
 
 type screenimpl struct{}
