@@ -26,7 +26,7 @@ var (
 	procGetClientRect      = moduser32.NewProc("GetClientRect")
 	procGetDC              = moduser32.NewProc("GetDC")
 	procReleaseDC          = moduser32.NewProc("ReleaseDC")
-	procDeleteDC           = moduser32.NewProc("DeleteDC")
+	procDeleteDC           = modgdi32.NewProc("DeleteDC")
 	procCreateDIBSection   = modgdi32.NewProc("CreateDIBSection")
 	procCreateCompatibleDC = modgdi32.NewProc("CreateCompatibleDC")
 	procSelectObject       = modgdi32.NewProc("SelectObject")

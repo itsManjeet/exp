@@ -7,6 +7,7 @@
 package windriver
 
 import (
+	"image"
 	"syscall"
 	"unsafe"
 )
@@ -62,7 +63,49 @@ func blend(dc syscall.Handle, bitmap syscall.Handle, dr *_RECT, sdx int32, sdy i
 	return _DeleteDC(compatibleDC)
 }
 
-// TODO(andlabs): Upload
+func upload(dc syscall.Handle, rgba *image.RGBA, tdx int32, tdy int32) error {
+	dx, dy := int32(rgba.Rect.Max.X-rgba.Rect.Min.X), int32(rgba.Rect.Max.Y-rgba.Rect.Min.Y)
+	rect := _RECT{
+		Left:   0,
+		Top:    0,
+		Right:  dx,
+		Bottom: dy,
+	}
+	bitmap, bitvalues, err := mkbitmap(dc, &rect)
+	if err != nil {
+		return err
+	}
+	defer _DeleteObject(bitmap)
+
+	// Convert bitmap to Windows DIB format
+	buf := uintptr(unsafe.Pointer(bitvalues))
+	write := func(b byte) {
+		*(*byte)(unsafe.Pointer(buf)) = b
+		buf++
+	}
+	for y := 0; y < int(dy); y++ {
+		for x := 0; x < int(dx); x++ {
+			pix := rgba.Pix[rgba.PixOffset(x, y):]
+			r, g, b, a := pix[0], pix[1], pix[2], pix[3]
+			// 0xaaRRGGBB
+			// see: https://msdn.microsoft.com/en-us/library/windows/desktop/dd183376%28v=vs.85%29.aspx
+			// alpha: http://stackoverflow.com/a/1343551/98528
+			// BUT: x86/x64 is little-endian, so reverse...
+			write(b)
+			write(g)
+			write(r)
+			write(a)
+		}
+	}
+
+	tr := _RECT{
+		Left:   tdx,
+		Top:    tdy,
+		Right:  tdx + dx,
+		Bottom: tdy + dy,
+	}
+	return blend(dc, bitmap, &tr, dx, dy)
+}
 
 func fillSrc(dc syscall.Handle, r *_RECT, color _COLORREF) error {
 	// COLORREF is 0x00BBGGRR; color is 0xAARRGGBB

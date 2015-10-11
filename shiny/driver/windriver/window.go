@@ -86,7 +86,27 @@ func (w *window) Events() <-chan interface{} { return w.pump.Events() }
 func (w *window) Send(event interface{})     { w.pump.Send(event) }
 
 func (w *window) Upload(dp image.Point, src screen.Buffer, sr image.Rectangle, sender screen.Sender) {
-	// TODO
+	params := uploadParams{dp: dp, src: src, sr: sr}
+	_SendMessage(w.hwnd, msgUpload, uintptr(unsafe.Pointer(&params)), 0)
+	// TODO sender.Send(...)
+}
+
+type uploadParams struct {
+	dp  image.Point
+	src screen.Buffer
+	sr  image.Rectangle
+}
+
+func (u *uploadParams) Upload(hwnd syscall.Handle) error {
+	dc, err := _GetDC(hwnd)
+	if err != nil {
+		return err
+	}
+	defer _ReleaseDC(hwnd, dc)
+
+	rgba := u.src.RGBA().SubImage(u.sr).(*image.RGBA)
+	tdx, tdy := int32(u.dp.X), int32(u.dp.Y)
+	return upload(dc, rgba, tdx, tdy)
 }
 
 func (w *window) Fill(dr image.Rectangle, src color.Color, op draw.Op) {
@@ -260,6 +280,14 @@ func windowWndProc(hwnd syscall.Handle, uMsg uint32, wParam uintptr, lParam uint
 		// TODO handle errors
 		fillOver(dc, r, _COLORREF(wParam))
 		_ReleaseDC(hwnd, dc)
+	case msgUpload:
+		// TODO error checks
+		params := (*uploadParams)(unsafe.Pointer(wParam))
+		err := params.Upload(hwnd)
+		if err != nil {
+			// TODO handle errors
+			break
+		}
 	}
 	return _DefWindowProc(hwnd, uMsg, wParam, lParam)
 }

@@ -196,7 +196,7 @@ func _HIWORD(l uintptr) uint16 {
 //sys	_GetClientRect(hwnd syscall.Handle, rect *_RECT) (err error) = user32.GetClientRect
 //sys	_GetDC(hwnd syscall.Handle) (dc syscall.Handle, err error) = user32.GetDC
 //sys	_ReleaseDC(hwnd syscall.Handle, dc syscall.Handle) (err error) = user32.ReleaseDC
-//sys	_DeleteDC(dc syscall.Handle) (err error) = user32.DeleteDC
+//sys	_DeleteDC(dc syscall.Handle) (err error) = gdi32.DeleteDC
 //sys	_CreateDIBSection(dc syscall.Handle, bmi *_BITMAPINFO, usage uint32, bits **byte, section syscall.Handle, offset uint32) (bitmap syscall.Handle, err error) = gdi32.CreateDIBSection
 //sys	_CreateCompatibleDC(dc syscall.Handle) (newdc syscall.Handle, err error) = gdi32.CreateCompatibleDC
 //sys	_SelectObject(dc syscall.Handle, gdiobj syscall.Handle) (newobj syscall.Handle, err error) = gdi32.SelectObject
