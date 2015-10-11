@@ -29,6 +29,10 @@ import (
 var (
 	windows     = map[syscall.Handle]*windowImpl{}
 	windowsLock sync.Mutex
+
+	uploads     = map[uintptr]upload{}
+	uploadID    uintptr
+	uploadsLock sync.Mutex
 )
 
 type windowImpl struct {
@@ -86,7 +90,64 @@ func (w *windowImpl) Events() <-chan interface{} { return w.pump.Events() }
 func (w *windowImpl) Send(event interface{})     { w.pump.Send(event) }
 
 func (w *windowImpl) Upload(dp image.Point, src screen.Buffer, sr image.Rectangle, sender screen.Sender) {
-	// TODO
+	// Protect struct contents from being GCed
+	uploadsLock.Lock()
+	uploadID++
+	id := uploadID
+	uploads[id] = upload{
+		dp:  dp,
+		src: src.(*bufferImpl),
+		sr:  sr,
+
+		sender:   sender,
+		uploader: w,
+	}
+	uploadsLock.Unlock()
+
+	_SendMessage(w.hwnd, msgUpload, id, 0)
+}
+
+type upload struct {
+	dp  image.Point
+	src *bufferImpl
+	sr  image.Rectangle
+
+	sender   screen.Sender
+	uploader screen.Uploader
+}
+
+func handleUpload(hwnd syscall.Handle, id uintptr) error {
+	uploadsLock.Lock()
+	u := uploads[id]
+	delete(uploads, id)
+	uploadsLock.Unlock()
+
+	dc, err := _GetDC(hwnd)
+	if err != nil {
+		return err
+	}
+	defer _ReleaseDC(hwnd, dc)
+
+	u.src.preUpload(u.sender != nil)
+
+	// TODO: adjust if dp is outside dst bounds, or sr is outside src bounds.
+	sr := _RECT{
+		Left:   int32(u.sr.Min.X),
+		Top:    int32(u.sr.Min.Y),
+		Right:  int32(u.sr.Max.X),
+		Bottom: int32(u.sr.Max.Y),
+	}
+	err = blit(dc, _POINT{int32(u.dp.X), int32(u.dp.Y)}, u.src.hbitmap, &sr)
+	go func() {
+		u.src.postUpload()
+		if u.sender != nil {
+			u.sender.Send(screen.UploadedEvent{
+				Buffer:   u.src,
+				Uploader: u.uploader,
+			})
+		}
+	}()
+	return err
 }
 
 func (w *windowImpl) Fill(dr image.Rectangle, src color.Color, op draw.Op) {
@@ -260,6 +321,12 @@ func windowWndProc(hwnd syscall.Handle, uMsg uint32, wParam uintptr, lParam uint
 		// TODO handle errors
 		fillOver(dc, r, _COLORREF(wParam))
 		_ReleaseDC(hwnd, dc)
+	case msgUpload:
+		err := handleUpload(hwnd, wParam)
+		if err != nil {
+			// TODO handle errors
+			break
+		}
 	}
 	return _DefWindowProc(hwnd, uMsg, wParam, lParam)
 }
