@@ -11,10 +11,7 @@ import (
 	"unsafe"
 )
 
-func mkbitmap(dc syscall.Handle, r *_RECT) (syscall.Handle, *byte, error) {
-	dx := r.Right - r.Left
-	dy := r.Bottom - r.Top
-
+func mkbitmap(dx, dy int32) (syscall.Handle, *byte, error) {
 	var bi _BITMAPINFO
 	bi.Header.Size = uint32(unsafe.Sizeof(bi.Header))
 	bi.Header.Width = dx
@@ -25,7 +22,7 @@ func mkbitmap(dc syscall.Handle, r *_RECT) (syscall.Handle, *byte, error) {
 	bi.Header.SizeImage = uint32(dx * dy * 4)
 
 	var ppvBits *byte
-	bitmap, err := _CreateDIBSection(dc, &bi, _DIB_RGB_COLORS, &ppvBits, 0, 0)
+	bitmap, err := _CreateDIBSection(0, &bi, _DIB_RGB_COLORS, &ppvBits, 0, 0)
 	if err != nil {
 		return 0, nil, err
 	}
@@ -62,7 +59,31 @@ func blend(dc syscall.Handle, bitmap syscall.Handle, dr *_RECT, sdx int32, sdy i
 	return _DeleteDC(compatibleDC)
 }
 
-// TODO(andlabs): Upload
+func blit(dc syscall.Handle, tdx, tdy int32, bitmap syscall.Handle, sr *_RECT) error {
+	compatibleDC, err := _CreateCompatibleDC(dc)
+	if err != nil {
+		return err
+	}
+	prevBitmap, err := _SelectObject(compatibleDC, bitmap)
+	if err != nil {
+		return err
+	}
+
+	dx, dy := sr.Right-sr.Left, sr.Bottom-sr.Top
+	_, err = _BitBlt(dc, tdx, tdy, dx, dy, compatibleDC, sr.Left, sr.Top, _SRCCOPY)
+	if err != nil {
+		_SelectObject(compatibleDC, prevBitmap)
+		_DeleteDC(compatibleDC)
+		return err
+	}
+
+	_, err = _SelectObject(compatibleDC, prevBitmap)
+	if err != nil {
+		_DeleteDC(compatibleDC)
+		return err
+	}
+	return _DeleteDC(compatibleDC)
+}
 
 func fillSrc(dc syscall.Handle, r *_RECT, color _COLORREF) error {
 	// COLORREF is 0x00BBGGRR; color is 0xAARRGGBB
@@ -83,13 +104,7 @@ func fillOver(dc syscall.Handle, r *_RECT, color _COLORREF) error {
 	// COLORONCOLOR mode) to fill the output rectangle. Testing
 	// this shows that the result appears to be the same as if we had
 	// used a MxN bitmap instead.
-	oneByOne := _RECT{
-		Left:   0,
-		Top:    0,
-		Right:  1,
-		Bottom: 1,
-	}
-	bitmap, bitvalues, err := mkbitmap(dc, &oneByOne)
+	bitmap, bitvalues, err := mkbitmap(1, 1)
 	if err != nil {
 		return err
 	}

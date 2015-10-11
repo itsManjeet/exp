@@ -7,6 +7,7 @@
 package windriver
 
 import (
+	"fmt"
 	"image"
 	"syscall"
 	"unsafe"
@@ -28,6 +29,7 @@ const (
 	msgCreateWindow = _WM_USER + iota
 	msgFillSrc
 	msgFillOver
+	msgUpload
 )
 
 type screenImpl struct{}
@@ -37,8 +39,31 @@ func newScreenImpl() screen.Screen {
 }
 
 func (*screenImpl) NewBuffer(size image.Point) (screen.Buffer, error) {
+	const (
+		maxInt32  = 0x7fffffff
+		maxBufLen = maxInt32 // min(uint32, int), and consistent on x86/x64
+	)
+	if size.X < 0 || size.X > maxInt32 || size.Y < 0 || size.Y > maxInt32 || int64(size.X)*int64(size.Y)*4 > maxBufLen {
+		return nil, fmt.Errorf("windriver: invalid buffer size %v", size)
+	}
+	dx, dy := int32(size.X), int32(size.Y)
+
+	hbitmap, bitvalues, err := mkbitmap(dx, dy)
+	if err != nil {
+		return nil, err
+	}
+	bufLen := 4 * size.X * size.Y
+	array := (*[maxBufLen]byte)(unsafe.Pointer(bitvalues))
+	buf := (*array)[:bufLen:bufLen]
 	return &bufferImpl{
-		image.NewRGBA(image.Rectangle{Max: size}),
+		hbitmap: hbitmap,
+		buf:     buf,
+		rgba: image.RGBA{
+			Pix:    buf,
+			Stride: 4 * size.X,
+			Rect:   image.Rectangle{Max: size},
+		},
+		reusable: true,
 	}, nil
 }
 
