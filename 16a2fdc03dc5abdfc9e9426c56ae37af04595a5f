@@ -71,6 +71,29 @@
     },
     {
       "key": {
+        "uuid": "aac5aa25_7148f242",
+        "filename": "rand/rand.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 6480
+      },
+      "writtenOn": "2015-10-12T22:27:28Z",
+      "side": 1,
+      "message": "Should this be 64?",
+      "range": {
+        "startLine": 17,
+        "startChar": 50,
+        "endLine": 17,
+        "endChar": 52
+      },
+      "revId": "16a2fdc03dc5abdfc9e9426c56ae37af04595a5f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4dc1956b_ba135191",
         "filename": "rand/rand.go",
         "patchSetId": 2
