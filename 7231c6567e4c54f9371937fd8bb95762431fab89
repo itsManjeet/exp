@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7f1ff654_18c9a987",
+        "filename": "shiny/driver/x11driver/texture.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-10-12T15:12:12Z",
+      "side": 1,
+      "message": "I\u0027ll rebase cl/15451 after this CL to do this.",
+      "revId": "7231c6567e4c54f9371937fd8bb95762431fab89",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f30ba11_42a372d6",
+        "filename": "shiny/driver/x11driver/texture.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-10-12T15:12:12Z",
+      "side": 1,
+      "message": "How? As part of the simple rectangle copy I understand, but an arbitrary affine transform could draw anywhere on the screen.",
+      "revId": "7231c6567e4c54f9371937fd8bb95762431fab89",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
