@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aac5aa25_f4ddb03d",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-10-13T09:56:13Z",
+      "side": 1,
+      "message": "It doesn\u0027t seem that hard to do this in this CL.",
+      "revId": "a2f2c1d43f06f9b0a6ff20feace62790975008d7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aac5aa25_54cda492",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-10-13T09:56:13Z",
+      "side": 1,
+      "message": "We usually don\u0027t export method names unless we have to: s/Upload/upload/",
+      "revId": "a2f2c1d43f06f9b0a6ff20feace62790975008d7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aac5aa25_d4b75412",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-10-13T09:56:13Z",
+      "side": 1,
+      "message": "Add a TODO above this, the same as in the x11driver:\n\n// TODO: adjust if dp is outside dst bounds, or sr is outside src bounds.",
+      "revId": "a2f2c1d43f06f9b0a6ff20feace62790975008d7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aac5aa25_74d22034",
+        "filename": "shiny/driver/windriver/windraw.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-10-13T09:56:13Z",
+      "side": 1,
+      "message": "dx, dy :\u003d int32(rgba.Rect.Dx()), etc",
+      "revId": "a2f2c1d43f06f9b0a6ff20feace62790975008d7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aac5aa25_34cc9894",
+        "filename": "shiny/driver/windriver/windraw.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-10-13T09:56:13Z",
+      "side": 1,
+      "message": "You shouldn\u0027t need to allocate a new bitmap for every upload. Instead, swizzle the pixels in-place. Look for the swizzle.BGRA call in the x11driver.",
+      "revId": "a2f2c1d43f06f9b0a6ff20feace62790975008d7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aac5aa25_d4e0b4fe",
+        "filename": "shiny/driver/windriver/windraw.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-10-13T09:56:13Z",
+      "side": 1,
+      "message": "Ugh. It\u0027ll probably be relatively expensive to call a closure for every byte.",
+      "revId": "a2f2c1d43f06f9b0a6ff20feace62790975008d7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aac5aa25_54f604c5",
+        "filename": "shiny/driver/windriver/windraw.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-10-13T09:56:13Z",
+      "side": 1,
+      "message": "I\u0027m not sure why you need to call blend. Upload is effectively the Src operator, not Over.",
+      "revId": "a2f2c1d43f06f9b0a6ff20feace62790975008d7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
