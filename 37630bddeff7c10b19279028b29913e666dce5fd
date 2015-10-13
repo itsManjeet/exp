@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6a149288_2ae73bcb",
+        "filename": "shiny/driver/windriver/buffer.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 10525
+      },
+      "writtenOn": "2015-10-13T20:19:13Z",
+      "side": 1,
+      "message": "Done (bufferImpl \u0026 textureImpl).\n\nShould I then rename the others (window \u0026 screenimpl) too in this CL?",
+      "parentUuid": "aac5aa25_d4e994e0",
+      "revId": "37630bddeff7c10b19279028b29913e666dce5fd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aac5aa25_14007c49",
         "filename": "shiny/driver/windriver/buffer.go",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "6a149288_0aecffa9",
+        "filename": "shiny/driver/windriver/buffer.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 10525
+      },
+      "writtenOn": "2015-10-13T20:19:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aac5aa25_14007c49",
+      "revId": "37630bddeff7c10b19279028b29913e666dce5fd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aac5aa25_f4e61010",
         "filename": "shiny/driver/windriver/screen.go",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2015-10-13T10:04:49Z",
       "side": 1,
       "message": "I\u0027d inline the newBuffer function here, and delete it from buffer.go. That\u0027s what x11driver does.",
+      "revId": "37630bddeff7c10b19279028b29913e666dce5fd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9cfbd833_9e8ebd2a",
+        "filename": "shiny/driver/windriver/screen.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 10525
+      },
+      "writtenOn": "2015-10-13T20:19:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aac5aa25_f4e61010",
       "revId": "37630bddeff7c10b19279028b29913e666dce5fd",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
