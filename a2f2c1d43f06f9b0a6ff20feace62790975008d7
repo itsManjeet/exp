@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6a149288_ead403cb",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 10525
+      },
+      "writtenOn": "2015-10-14T23:11:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aac5aa25_f4ddb03d",
+      "revId": "a2f2c1d43f06f9b0a6ff20feace62790975008d7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aac5aa25_54cda492",
         "filename": "shiny/driver/windriver/window.go",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2015-10-13T09:56:13Z",
       "side": 1,
       "message": "We usually don\u0027t export method names unless we have to: s/Upload/upload/",
+      "revId": "a2f2c1d43f06f9b0a6ff20feace62790975008d7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a149288_cad147d9",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 10525
+      },
+      "writtenOn": "2015-10-14T23:11:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aac5aa25_54cda492",
       "revId": "a2f2c1d43f06f9b0a6ff20feace62790975008d7",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "ff8686d4_419cf2a9",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 10525
+      },
+      "writtenOn": "2015-10-14T23:11:50Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "aac5aa25_d4b75412",
+      "revId": "a2f2c1d43f06f9b0a6ff20feace62790975008d7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aac5aa25_74d22034",
         "filename": "shiny/driver/windriver/windraw.go",
         "patchSetId": 2
@@ -64,6 +118,24 @@
       "writtenOn": "2015-10-13T09:56:13Z",
       "side": 1,
       "message": "dx, dy :\u003d int32(rgba.Rect.Dx()), etc",
+      "revId": "a2f2c1d43f06f9b0a6ff20feace62790975008d7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a149288_2a88dbf2",
+        "filename": "shiny/driver/windriver/windraw.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 10525
+      },
+      "writtenOn": "2015-10-14T23:11:50Z",
+      "side": 1,
+      "message": "N/A now.",
+      "parentUuid": "aac5aa25_74d22034",
       "revId": "a2f2c1d43f06f9b0a6ff20feace62790975008d7",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "6a149288_aa9b2b39",
+        "filename": "shiny/driver/windriver/windraw.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 10525
+      },
+      "writtenOn": "2015-10-14T23:11:50Z",
+      "side": 1,
+      "message": "Done.\n\nI\u0027ve ported sizable chunks of the x11driver code as a result. Should it get modularized somehow and extracted to pkg internal?",
+      "parentUuid": "aac5aa25_34cc9894",
+      "revId": "a2f2c1d43f06f9b0a6ff20feace62790975008d7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aac5aa25_d4e0b4fe",
         "filename": "shiny/driver/windriver/windraw.go",
         "patchSetId": 2
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "791f1655_d5b1bc19",
+        "filename": "shiny/driver/windriver/windraw.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 10525
+      },
+      "writtenOn": "2015-10-14T23:11:50Z",
+      "side": 1,
+      "message": "N/A now.",
+      "parentUuid": "aac5aa25_d4e0b4fe",
+      "revId": "a2f2c1d43f06f9b0a6ff20feace62790975008d7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aac5aa25_54f604c5",
         "filename": "shiny/driver/windriver/windraw.go",
         "patchSetId": 2
@@ -115,6 +223,24 @@
       "writtenOn": "2015-10-13T09:56:13Z",
       "side": 1,
       "message": "I\u0027m not sure why you need to call blend. Upload is effectively the Src operator, not Over.",
+      "revId": "a2f2c1d43f06f9b0a6ff20feace62790975008d7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "791f1655_b5be40e8",
+        "filename": "shiny/driver/windriver/windraw.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 10525
+      },
+      "writtenOn": "2015-10-14T23:11:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aac5aa25_54f604c5",
       "revId": "a2f2c1d43f06f9b0a6ff20feace62790975008d7",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
