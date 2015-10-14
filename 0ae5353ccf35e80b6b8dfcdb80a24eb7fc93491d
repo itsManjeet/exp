@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "791f1655_75c8a888",
+        "filename": "shiny/driver/windriver/screen.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 10525
+      },
+      "writtenOn": "2015-10-14T23:14:51Z",
+      "side": 1,
+      "message": "To tell the truth, I feel uneasy having the body of this function in \u0027screen.go\u0027, given that it is 100% related to bufferImpl implementation. For me its place is with other bufferImpl code.",
+      "revId": "0ae5353ccf35e80b6b8dfcdb80a24eb7fc93491d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
