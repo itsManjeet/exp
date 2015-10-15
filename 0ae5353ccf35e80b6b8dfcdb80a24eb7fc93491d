@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "aac5aa25_f7e4d299",
+        "filename": "shiny/driver/windriver/buffer.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-10-15T00:16:34Z",
+      "side": 1,
+      "message": "The x11driver says \"return b.size\" as the rgba\u0027s fields are exported. Even though clients aren\u0027t supposed to modify those fields, it seems safer if you return a private copy.",
+      "revId": "0ae5353ccf35e80b6b8dfcdb80a24eb7fc93491d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aac5aa25_97f1ce56",
+        "filename": "shiny/driver/windriver/buffer.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-10-15T00:16:34Z",
+      "side": 1,
+      "message": "FWIW, the typical Go names (e.g. GOARCH) for these architectures are 386 and amd64.",
+      "revId": "0ae5353ccf35e80b6b8dfcdb80a24eb7fc93491d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "791f1655_75c8a888",
         "filename": "shiny/driver/windriver/screen.go",
         "patchSetId": 3
@@ -13,6 +47,125 @@
       "writtenOn": "2015-10-14T23:14:51Z",
       "side": 1,
       "message": "To tell the truth, I feel uneasy having the body of this function in \u0027screen.go\u0027, given that it is 100% related to bufferImpl implementation. For me its place is with other bufferImpl code.",
+      "revId": "0ae5353ccf35e80b6b8dfcdb80a24eb7fc93491d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aac5aa25_57d4c6a6",
+        "filename": "shiny/driver/windriver/screen.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-10-15T00:16:34Z",
+      "side": 1,
+      "message": "maxInt32 isn\u0027t min(uint32, int) for 64-bit ints.",
+      "revId": "0ae5353ccf35e80b6b8dfcdb80a24eb7fc93491d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aac5aa25_77d9c2db",
+        "filename": "shiny/driver/windriver/screen.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-10-15T00:16:34Z",
+      "side": 1,
+      "message": "I\u0027d just inline these into the next line.",
+      "revId": "0ae5353ccf35e80b6b8dfcdb80a24eb7fc93491d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aac5aa25_57fda624",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-10-15T00:16:34Z",
+      "side": 1,
+      "message": "It\u0027s probably easier if this lock and its related fields are global rather than per-window, since we\u0027ll eventually also want to be able to upload to a texture instead of a window.",
+      "revId": "0ae5353ccf35e80b6b8dfcdb80a24eb7fc93491d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aac5aa25_17de3ec5",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-10-15T00:16:34Z",
+      "side": 1,
+      "message": "I\u0027d just inline these into a couple of lines below.",
+      "revId": "0ae5353ccf35e80b6b8dfcdb80a24eb7fc93491d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aac5aa25_d7e7569c",
+        "filename": "shiny/driver/windriver/windraw.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-10-15T00:16:34Z",
+      "side": 1,
+      "message": "What does the \"t\" in \"tdx\" stand for?",
+      "revId": "0ae5353ccf35e80b6b8dfcdb80a24eb7fc93491d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aac5aa25_770222de",
+        "filename": "shiny/driver/windriver/windraw.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-10-15T00:16:34Z",
+      "side": 1,
+      "message": "Technically, I think you need a\n_DeleteDC(compatibleDC)\nabove this line.",
+      "revId": "0ae5353ccf35e80b6b8dfcdb80a24eb7fc93491d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "aac5aa25_37e33a94",
+        "filename": "shiny/driver/windriver/windraw.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-10-15T00:16:34Z",
+      "side": 1,
+      "message": "_, bbErr :\u003d _BitBlt(etc)\n_, soErr :\u003d _SelectObject(etc)\nddcErr :\u003d _DeleteDC(etc)\nif bbErr !\u003d nil {\n\treturn bbErr\n}\nif soErr !\u003d nil {\n\treturn soErr\n}\nreturn ddcErr",
       "revId": "0ae5353ccf35e80b6b8dfcdb80a24eb7fc93491d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
