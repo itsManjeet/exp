@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "797b96ad_b57e6067",
+        "filename": "shiny/driver/windriver/buffer.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 10525
+      },
+      "writtenOn": "2015-10-15T19:48:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aac5aa25_f7e4d299",
+      "revId": "0ae5353ccf35e80b6b8dfcdb80a24eb7fc93491d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aac5aa25_97f1ce56",
         "filename": "shiny/driver/windriver/buffer.go",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2015-10-15T00:16:34Z",
       "side": 1,
       "message": "FWIW, the typical Go names (e.g. GOARCH) for these architectures are 386 and amd64.",
+      "revId": "0ae5353ccf35e80b6b8dfcdb80a24eb7fc93491d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f9d4e6d4_116e4cc0",
+        "filename": "shiny/driver/windriver/buffer.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 10525
+      },
+      "writtenOn": "2015-10-15T19:48:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aac5aa25_97f1ce56",
       "revId": "0ae5353ccf35e80b6b8dfcdb80a24eb7fc93491d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -88,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "39483ea0_5b2b63b6",
+        "filename": "shiny/driver/windriver/screen.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 10525
+      },
+      "writtenOn": "2015-10-15T19:48:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aac5aa25_57d4c6a6",
+      "revId": "0ae5353ccf35e80b6b8dfcdb80a24eb7fc93491d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aac5aa25_77d9c2db",
         "filename": "shiny/driver/windriver/screen.go",
         "patchSetId": 3
@@ -99,6 +153,24 @@
       "writtenOn": "2015-10-15T00:16:34Z",
       "side": 1,
       "message": "I\u0027d just inline these into the next line.",
+      "revId": "0ae5353ccf35e80b6b8dfcdb80a24eb7fc93491d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39483ea0_bb3f07ef",
+        "filename": "shiny/driver/windriver/screen.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 10525
+      },
+      "writtenOn": "2015-10-15T19:48:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aac5aa25_77d9c2db",
       "revId": "0ae5353ccf35e80b6b8dfcdb80a24eb7fc93491d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -122,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "39483ea0_5ba6c3b6",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 10525
+      },
+      "writtenOn": "2015-10-15T19:48:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aac5aa25_57fda624",
+      "revId": "0ae5353ccf35e80b6b8dfcdb80a24eb7fc93491d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aac5aa25_17de3ec5",
         "filename": "shiny/driver/windriver/window.go",
         "patchSetId": 3
@@ -133,6 +223,24 @@
       "writtenOn": "2015-10-15T00:16:34Z",
       "side": 1,
       "message": "I\u0027d just inline these into a couple of lines below.",
+      "revId": "0ae5353ccf35e80b6b8dfcdb80a24eb7fc93491d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d90ac213_38a8e9f9",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 10525
+      },
+      "writtenOn": "2015-10-15T19:48:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aac5aa25_17de3ec5",
       "revId": "0ae5353ccf35e80b6b8dfcdb80a24eb7fc93491d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -192,6 +300,24 @@
     },
     {
       "key": {
+        "uuid": "39483ea0_1b9c3b69",
+        "filename": "shiny/driver/windriver/windraw.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 10525
+      },
+      "writtenOn": "2015-10-15T19:48:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aac5aa25_d7e7569c",
+      "revId": "0ae5353ccf35e80b6b8dfcdb80a24eb7fc93491d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aac5aa25_770222de",
         "filename": "shiny/driver/windriver/windraw.go",
         "patchSetId": 3
@@ -209,6 +335,24 @@
     },
     {
       "key": {
+        "uuid": "39483ea0_fb398f09",
+        "filename": "shiny/driver/windriver/windraw.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 10525
+      },
+      "writtenOn": "2015-10-15T19:48:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aac5aa25_770222de",
+      "revId": "0ae5353ccf35e80b6b8dfcdb80a24eb7fc93491d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aac5aa25_37e33a94",
         "filename": "shiny/driver/windriver/windraw.go",
         "patchSetId": 3
@@ -220,6 +364,24 @@
       "writtenOn": "2015-10-15T00:16:34Z",
       "side": 1,
       "message": "_, bbErr :\u003d _BitBlt(etc)\n_, soErr :\u003d _SelectObject(etc)\nddcErr :\u003d _DeleteDC(etc)\nif bbErr !\u003d nil {\n\treturn bbErr\n}\nif soErr !\u003d nil {\n\treturn soErr\n}\nreturn ddcErr",
+      "revId": "0ae5353ccf35e80b6b8dfcdb80a24eb7fc93491d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "39483ea0_db365317",
+        "filename": "shiny/driver/windriver/windraw.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 10525
+      },
+      "writtenOn": "2015-10-15T19:48:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aac5aa25_37e33a94",
       "revId": "0ae5353ccf35e80b6b8dfcdb80a24eb7fc93491d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
