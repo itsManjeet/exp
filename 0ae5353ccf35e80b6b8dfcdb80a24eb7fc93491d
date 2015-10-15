@@ -70,6 +70,24 @@
     },
     {
       "key": {
+        "uuid": "791f1655_f5db984d",
+        "filename": "shiny/driver/windriver/screen.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 10525
+      },
+      "writtenOn": "2015-10-15T01:22:36Z",
+      "side": 1,
+      "message": "Should I drop the comment? Or expand it to explain more precisely in full sentence(s)?",
+      "parentUuid": "aac5aa25_57d4c6a6",
+      "revId": "0ae5353ccf35e80b6b8dfcdb80a24eb7fc93491d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aac5aa25_77d9c2db",
         "filename": "shiny/driver/windriver/screen.go",
         "patchSetId": 3
@@ -132,6 +150,24 @@
       "writtenOn": "2015-10-15T00:16:34Z",
       "side": 1,
       "message": "What does the \"t\" in \"tdx\" stand for?",
+      "revId": "0ae5353ccf35e80b6b8dfcdb80a24eb7fc93491d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "791f1655_15c73477",
+        "filename": "shiny/driver/windriver/windraw.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 10525
+      },
+      "writtenOn": "2015-10-15T01:22:36Z",
+      "side": 1,
+      "message": "\"target\". I\u0027m torn how to name it (ddx,ddy?), given that dx,dy can have much too many meanings. Also, existing code seems very inconsistent w.r.t. \"x\", \"dx\", \"w\", etc, both here and in x11driver...",
+      "parentUuid": "aac5aa25_d7e7569c",
       "revId": "0ae5353ccf35e80b6b8dfcdb80a24eb7fc93491d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
