@@ -174,6 +174,24 @@
     },
     {
       "key": {
+        "uuid": "791f1655_b5d5201a",
+        "filename": "shiny/driver/windriver/windraw.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 10525
+      },
+      "writtenOn": "2015-10-15T01:43:01Z",
+      "side": 1,
+      "message": "I\u0027m now also considering \"dstx\" (arguably least confusing, though adding one more standard on top of the current situation), or removing the issue by bunching tdx+tdy into a struct.",
+      "parentUuid": "791f1655_15c73477",
+      "revId": "0ae5353ccf35e80b6b8dfcdb80a24eb7fc93491d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aac5aa25_770222de",
         "filename": "shiny/driver/windriver/windraw.go",
         "patchSetId": 3
