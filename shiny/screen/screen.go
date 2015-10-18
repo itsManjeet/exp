@@ -143,7 +143,8 @@ type PublishResult struct {
 
 // NewWindowOptions are optional arguments to NewWindow.
 type NewWindowOptions struct {
-	// TODO: size, fullscreen, title, icon, cursorHidden?
+	Width, Height int32
+	// TODO: fullscreen, title, icon, cursorHidden?
 }
 
 // Sender is something you can send events to.
