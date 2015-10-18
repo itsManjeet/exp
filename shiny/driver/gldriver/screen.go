@@ -108,8 +108,10 @@ func (s *screenImpl) NewTexture(size image.Point) (screen.Texture, error) {
 }
 
 func (s *screenImpl) NewWindow(opts *screen.NewWindowOptions) (screen.Window, error) {
-	// TODO: look at opts.
-	const width, height = 1024, 768
+	width, height := 1024, 768
+	if opts != nil {
+		width, height = opts.Width, opts.Height
+	}
 
 	id := newWindow(width, height)
 	w := &windowImpl{
