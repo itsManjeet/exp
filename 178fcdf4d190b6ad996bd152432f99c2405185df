@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b940aed4_bf6d57bb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 10525
+      },
+      "writtenOn": "2015-10-19T21:22:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7942b6df_dd186b19",
+      "revId": "178fcdf4d190b6ad996bd152432f99c2405185df",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7942b6df_bdcb1faa",
         "filename": "shiny/driver/windriver/buffer.go",
         "patchSetId": 4
@@ -30,6 +48,24 @@
       "writtenOn": "2015-10-18T23:47:48Z",
       "side": 1,
       "message": "It\u0027s not obvious to me why a is lower case and R, G and B are upper case. Is this a Windows convention?\n\nI also looked at these two links, but I don\u0027t really see why they\u0027re relevant. AFAICT, neither of them discuss RGBA vs BGRA byte order. The swizzling here doesn\u0027t deal directly with a BITMAPINFOHEADER struct, or CreateDIBSection.\n\nIf anything, these links probably belong in the NewBuffer method instead of the preUpload method, but I\u0027d just delete the comments here, and not add them anywhere else.",
+      "revId": "178fcdf4d190b6ad996bd152432f99c2405185df",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "595172a7_bca241e8",
+        "filename": "shiny/driver/windriver/buffer.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 10525
+      },
+      "writtenOn": "2015-10-19T21:22:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7942b6df_bdcb1faa",
       "revId": "178fcdf4d190b6ad996bd152432f99c2405185df",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "b940aed4_1f5d6308",
+        "filename": "shiny/driver/windriver/screen.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 10525
+      },
+      "writtenOn": "2015-10-19T21:22:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7942b6df_9dc663a1",
+      "revId": "178fcdf4d190b6ad996bd152432f99c2405185df",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7942b6df_9d22e341",
         "filename": "shiny/driver/windriver/screen.go",
         "patchSetId": 4
@@ -64,6 +118,24 @@
       "writtenOn": "2015-10-18T23:47:48Z",
       "side": 1,
       "message": "Well, Windows isn\u0027t restricted to just 386 and amd64. I\u0027d say 32-bit and 64-bit.\n\nAlso, s/just using/we just use/ and s/for now//",
+      "revId": "178fcdf4d190b6ad996bd152432f99c2405185df",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "595172a7_5cb8dd16",
+        "filename": "shiny/driver/windriver/screen.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 10525
+      },
+      "writtenOn": "2015-10-19T21:22:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7942b6df_9d22e341",
       "revId": "178fcdf4d190b6ad996bd152432f99c2405185df",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "39f75ee3_a398bab5",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 10525
+      },
+      "writtenOn": "2015-10-19T21:22:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7942b6df_ddbceb18",
+      "revId": "178fcdf4d190b6ad996bd152432f99c2405185df",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7942b6df_9d39836f",
         "filename": "shiny/driver/windriver/window.go",
         "patchSetId": 4
@@ -98,6 +188,24 @@
       "writtenOn": "2015-10-18T23:47:48Z",
       "side": 1,
       "message": "Well, it\u0027s not just about GC, it\u0027s also necessary to squeeze the five-odd arguments into _SendMessage\u0027s two.\n\nBut really, I\u0027d just delete the comment.",
+      "revId": "178fcdf4d190b6ad996bd152432f99c2405185df",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "595172a7_1cb25535",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 10525
+      },
+      "writtenOn": "2015-10-19T21:22:36Z",
+      "side": 1,
+      "message": "If it was only about squeezing them, the normal (i.e. C, but WinAPI is C) way of doing this is to pass a pointer (\"void* userdata\") -- see e.g. _WM_WINDOWPOSCHANGED in this file, or screenImpl.NewWindow. I too started this way, but:\n\n1. handleUpload starts a goroutine, so it needs u.src \u0026 u.uploader pinned longer than the synchronous call of handleUpload itself; this I could maybe work around by passing them as goroutine args or as closure over additional local vars in handleUpload;\n\n2. but also as far as I understand, pinning objects via a global map is more \"future-proof\" from the GC point of view. Although here I can sure be incorrect, given that the rules on this are not easy to understand.\n\nSo, for me, GC is the only reason why I added the uploads map. But if you\u0027re not convinced, I can sure delete the comment. Or I can drop the map and implement the solution described in 1. above.",
+      "parentUuid": "7942b6df_9d39836f",
       "revId": "178fcdf4d190b6ad996bd152432f99c2405185df",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "595172a7_3caf11d0",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 10525
+      },
+      "writtenOn": "2015-10-19T21:22:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7942b6df_5d2d3b2f",
+      "revId": "178fcdf4d190b6ad996bd152432f99c2405185df",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7942b6df_7d2a771a",
         "filename": "shiny/driver/windriver/window.go",
         "patchSetId": 4
@@ -138,6 +264,24 @@
     },
     {
       "key": {
+        "uuid": "595172a7_dc8e2d75",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 10525
+      },
+      "writtenOn": "2015-10-19T21:22:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7942b6df_7d2a771a",
+      "revId": "178fcdf4d190b6ad996bd152432f99c2405185df",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7942b6df_1d37b37d",
         "filename": "shiny/driver/windriver/window.go",
         "patchSetId": 4
@@ -149,6 +293,24 @@
       "writtenOn": "2015-10-18T23:47:48Z",
       "side": 1,
       "message": "I\u0027d roll this into the next line:\n\nerr \u003d blit(dc, _POINT{int32(u.dp.X), int32(u.dp.Y)}, u.src.hbitmap, \u0026_RECT{\n\tLeft:   int32(u.sr.Min.X),\n\tTop:    int32(u.sr.Min.Y),\n\tRight:  int32(u.sr.Max.X),\n\tBottom: int32(u.sr.Max.Y),\n})",
+      "revId": "178fcdf4d190b6ad996bd152432f99c2405185df",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "59fc12c5_24ef3271",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 10525
+      },
+      "writtenOn": "2015-10-19T21:22:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7942b6df_1d37b37d",
       "revId": "178fcdf4d190b6ad996bd152432f99c2405185df",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
