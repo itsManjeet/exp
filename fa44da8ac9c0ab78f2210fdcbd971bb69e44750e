@@ -1,0 +1,7 @@
+Code-Review+1: Sebastien Binet <seb.binet@gmail.com>
+Code-Review+2: David Crawshaw <crawshaw@golang.org>
+Submitted-by: David Crawshaw <crawshaw@golang.org>
+Submitted-at: Wed, 04 Nov 2015 19:48:31 +0000
+Reviewed-on: https://go-review.googlesource.com/16552
+Project: exp
+Branch: refs/heads/master
