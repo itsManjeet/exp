@@ -10,7 +10,7 @@ package gldriver
 
 /*
 #cgo CFLAGS: -x objective-c
-#cgo LDFLAGS: -framework Cocoa -framework OpenGL -framework QuartzCore
+#cgo LDFLAGS: -framework Cocoa -framework OpenGL
 #import <Carbon/Carbon.h> // for HIToolbox/Events.h
 #import <Cocoa/Cocoa.h>
 #include <pthread.h>
@@ -99,8 +99,11 @@ func drawgl(id uintptr) {
 	if w == nil {
 		return // closing window
 	}
-	w.draw <- struct{}{}
-	<-w.drawDone
+	switch w.lifecycleStage {
+	case lifecycle.StageFocused, lifecycle.StageVisible:
+		w.Send(paint.Event{})
+		<-w.drawDone
+	}
 }
 
 // drawLoop is the primary drawing loop.
@@ -124,21 +127,21 @@ func drawLoop(w *windowImpl) {
 		select {
 		case <-workAvailable:
 			w.worker.DoWork()
-		case <-w.draw:
-			// TODO(crawshaw): don't send a paint.Event unconditionally. Only
-			// send one if the window actually needs redrawing.
-			w.Send(paint.Event{})
+		case <-w.publish:
 		loop:
 			for {
 				select {
 				case <-workAvailable:
 					w.worker.DoWork()
-				case <-w.publish:
-					C.CGLFlushDrawable(C.CGLGetCurrentContext())
+				default:
 					break loop
 				}
 			}
-			w.drawDone <- struct{}{}
+			C.CGLFlushDrawable(C.CGLGetCurrentContext())
+			select {
+			case w.drawDone <- struct{}{}:
+			default:
+			}
 		}
 	}
 }
