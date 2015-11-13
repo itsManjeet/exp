@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9b0be317_acab9bda",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 5190
+      },
+      "writtenOn": "2015-11-13T17:28:50Z",
+      "side": 1,
+      "message": "Need theScreen.mu.Unlock, or use defer?\n\nIs it necessary to lock throughout the loop?\nIn sendLifecycle, modification around \u0027w\u0027 is done without lock. So, I assume it may be safe to do the same here, but I may be wrong.",
+      "revId": "39da5b88491827a71c30b43d5c088553eebc1243",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
