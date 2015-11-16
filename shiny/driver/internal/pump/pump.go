@@ -44,7 +44,7 @@ func (p *Pump) Send(event interface{}) {
 }
 
 // Release stops the event pump. Pending events may or may not be delivered on
-// the event channel. Calling Release will not close the event channel.
+// the event channel.
 func (p *Pump) Release() {
 	close(p.release)
 }
@@ -75,6 +75,7 @@ func (p *Pump) run() {
 			buf[j&mask] = e
 			j++
 		case <-p.release:
+			close(p.out)
 			return
 		}
 	}
