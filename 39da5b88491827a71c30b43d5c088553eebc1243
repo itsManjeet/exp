@@ -16,6 +16,24 @@
       "revId": "39da5b88491827a71c30b43d5c088553eebc1243",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b0be317_0ce84710",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-11-16T09:43:35Z",
+      "side": 1,
+      "message": "Done. (The first point.)\n\nThe reason I\u0027m holing the lock for this entire function: so the user doesn\u0027t call Release, deleting from the windows map, while we are processing this event.\n\nAnyway, the lock is cheap and not worth optimizing, as Send is dropping events onto an unbounded buffer.",
+      "parentUuid": "9b0be317_acab9bda",
+      "revId": "39da5b88491827a71c30b43d5c088553eebc1243",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
