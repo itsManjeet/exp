@@ -16,6 +16,24 @@
       "revId": "6a570ed545316ee51dc4c764ffcec6e0445f3f36",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9b0be317_9feeb471",
+        "filename": "shiny/example/goban/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-11-18T15:48:25Z",
+      "side": 1,
+      "message": "On what setup are you seeing that? Everything I\u0027ve tried gets an initial paint.Event sent by the system on window creation.\n\n(At some point we should nail down the semantics of the initial paint.Event. We probably want to assure that we send it directly after the relevant lifecycle event.)",
+      "parentUuid": "7bf54f3c_f4271e91",
+      "revId": "6a570ed545316ee51dc4c764ffcec6e0445f3f36",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
