@@ -9,7 +9,7 @@ import (
 	"image"
 	"sync"
 
-	"golang.org/x/exp/shiny/driver/internal/pump"
+	"golang.org/x/exp/shiny/driver/internal/queue"
 	"golang.org/x/exp/shiny/screen"
 	"golang.org/x/mobile/gl"
 )
@@ -122,7 +122,7 @@ func (s *screenImpl) NewWindow(opts *screen.NewWindowOptions) (screen.Window, er
 	w := &windowImpl{
 		s:        s,
 		id:       id,
-		pump:     pump.Make(),
+		events:   queue.Make(),
 		publish:  make(chan struct{}, 1),
 		drawDone: make(chan struct{}),
 	}

@@ -15,9 +15,10 @@ import (
 	"github.com/BurntSushi/xgb/shm"
 	"github.com/BurntSushi/xgb/xproto"
 
-	"golang.org/x/exp/shiny/driver/internal/pump"
+	"golang.org/x/exp/shiny/driver/internal/queue"
 	"golang.org/x/exp/shiny/screen"
 	"golang.org/x/mobile/event/key"
+	"golang.org/x/mobile/event/lifecycle"
 	"golang.org/x/mobile/event/mouse"
 )
 
@@ -107,7 +108,14 @@ func (s *screenImpl) run() {
 			}
 			switch xproto.Atom(ev.Data.Data32[0]) {
 			case s.atomWMDeleteWindow:
-				// TODO.
+				if w := s.findWindow(ev.Window); w != nil {
+					w.events.Release(lifecycle.Event{
+						// TODO: From
+						To: lifecycle.StageDead,
+					})
+				} else {
+					noWindowFound = true
+				}
 			case s.atomWMTakeFocus:
 				xproto.SetInputFocus(s.xc, xproto.InputFocusParent, ev.Window, xproto.Timestamp(ev.Data.Data32[1]))
 			}
@@ -344,7 +352,7 @@ func (s *screenImpl) NewWindow(opts *screen.NewWindowOptions) (screen.Window, er
 		xw:      xw,
 		xg:      xg,
 		xp:      xp,
-		pump:    pump.Make(),
+		events:  queue.Make(),
 		xevents: make(chan xgb.Event),
 	}
 

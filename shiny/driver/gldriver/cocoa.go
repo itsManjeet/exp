@@ -172,7 +172,6 @@ func setGeom(id uintptr, ppp float32, widthPx, heightPx int) {
 
 //export windowClosing
 func windowClosing(id uintptr) {
-	sendLifecycle(id, lifecycle.StageDead)
 	theScreen.mu.Lock()
 	w := theScreen.windows[id]
 	delete(theScreen.windows, id)

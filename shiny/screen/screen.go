@@ -114,14 +114,30 @@ type Texture interface {
 
 // Window is a top-level, double-buffered GUI window.
 type Window interface {
-	// Release closes the window and its event channel.
+	// Release closes the window.
+	//
+	// Pending window events may be dropped, but the screen driver will
+	// send a final lifecycle.StageDead event.
 	Release()
 
-	// Events returns the window's event channel, which carries key, mouse,
-	// paint and other events.
+	// NextEvent returns the next event for this window.
 	//
-	// TODO: define and describe these events.
-	Events() <-chan interface{}
+	// Window events include the types
+	//
+	//     lifecycle.Event
+	//     mouse.Event
+	//     paint.Event
+	//     size.Event
+	//     touch.Event
+	//     screen.UploadedEvent
+	//
+	// from the golang.org/x/mobile/event packages. Other packages may
+	// define and send events to the window using the Send method.
+	//
+	// The final event sent to a window is lifecycle.StageDead. After
+	// NextEvent returns a lifecycle.StageDead, any subsequent calls
+	// will panic.
+	NextEvent() interface{}
 
 	Sender
 

@@ -10,7 +10,7 @@ import (
 	"image/draw"
 	"sync"
 
-	"golang.org/x/exp/shiny/driver/internal/pump"
+	"golang.org/x/exp/shiny/driver/internal/queue"
 	"golang.org/x/exp/shiny/screen"
 	"golang.org/x/image/math/f64"
 	"golang.org/x/mobile/event/lifecycle"
@@ -33,7 +33,7 @@ type windowImpl struct {
 
 	lifecycleStage lifecycle.Stage // current stage
 
-	pump    pump.Pump
+	events  queue.Events
 	publish chan struct{}
 
 	drawDone chan struct{}
@@ -61,6 +61,8 @@ func (w *windowImpl) Release() {
 	// the NSWindow method performClose, which emulates the red button
 	// being clicked.
 	//
+	// For Cocoa:
+	//
 	// If these two approaches race, experiments suggest it is resolved
 	// by performClose (which is called serially on the main thread).
 	// If that stops being true, there is a check in windowWillClose
@@ -69,11 +71,14 @@ func (w *windowImpl) Release() {
 }
 
 func (w *windowImpl) releaseCleanup() {
-	w.pump.Release()
+	w.events.Release(lifecycle.Event{
+		From: w.lifecycleStage,
+		To:   lifecycle.StageDead,
+	})
 }
 
-func (w *windowImpl) Events() <-chan interface{} { return w.pump.Events() }
-func (w *windowImpl) Send(event interface{})     { w.pump.Send(event) }
+func (w *windowImpl) NextEvent() interface{} { return w.events.NextEvent() }
+func (w *windowImpl) Send(event interface{}) { w.events.Send(event) }
 
 func (w *windowImpl) Upload(dp image.Point, src screen.Buffer, sr image.Rectangle, sender screen.Sender) {
 	// TODO: adjust if dp is outside dst bounds, or sr is outside src bounds.
