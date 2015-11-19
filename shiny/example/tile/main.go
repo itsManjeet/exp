@@ -49,8 +49,8 @@ func main() {
 			origin       image.Point
 			sz           size.Event
 		)
-		for e := range w.Events() {
-			switch e := e.(type) {
+		for {
+			switch e := w.NextEvent().(type) {
 			case key.Event:
 				if e.Code == key.CodeEscape {
 					return

@@ -15,7 +15,7 @@ import (
 	"github.com/BurntSushi/xgb/shm"
 	"github.com/BurntSushi/xgb/xproto"
 
-	"golang.org/x/exp/shiny/driver/internal/pump"
+	"golang.org/x/exp/shiny/driver/internal/queue"
 	"golang.org/x/exp/shiny/screen"
 	"golang.org/x/mobile/event/key"
 	"golang.org/x/mobile/event/mouse"
@@ -344,7 +344,7 @@ func (s *screenImpl) NewWindow(opts *screen.NewWindowOptions) (screen.Window, er
 		xw:      xw,
 		xg:      xg,
 		xp:      xp,
-		pump:    pump.Make(),
+		events:  queue.Make(),
 		xevents: make(chan xgb.Event),
 	}
 

@@ -16,11 +16,12 @@ import (
 	"github.com/BurntSushi/xgb/render"
 	"github.com/BurntSushi/xgb/xproto"
 
-	"golang.org/x/exp/shiny/driver/internal/pump"
+	"golang.org/x/exp/shiny/driver/internal/queue"
 	"golang.org/x/exp/shiny/driver/internal/x11key"
 	"golang.org/x/exp/shiny/screen"
 	"golang.org/x/image/math/f64"
 	"golang.org/x/mobile/event/key"
+	"golang.org/x/mobile/event/lifecycle"
 	"golang.org/x/mobile/event/mouse"
 	"golang.org/x/mobile/event/paint"
 	"golang.org/x/mobile/event/size"
@@ -34,7 +35,7 @@ type windowImpl struct {
 	xg xproto.Gcontext
 	xp render.Picture
 
-	pump    pump.Pump
+	events  queue.Events
 	xevents chan xgb.Event
 
 	// This next group of variables are mutable, but are only modified in the
@@ -45,8 +46,8 @@ type windowImpl struct {
 	released bool
 }
 
-func (w *windowImpl) Events() <-chan interface{} { return w.pump.Events() }
-func (w *windowImpl) Send(event interface{})     { w.pump.Send(event) }
+func (w *windowImpl) NextEvent() interface{} { return w.events.NextEvent() }
+func (w *windowImpl) Send(event interface{}) { w.events.Send(event) }
 
 func (w *windowImpl) Release() {
 	w.mu.Lock()
@@ -60,7 +61,7 @@ func (w *windowImpl) Release() {
 	render.FreePicture(w.s.xc, w.xp)
 	xproto.FreeGC(w.s.xc, w.xg)
 	xproto.DestroyWindow(w.s.xc, w.xw)
-	w.pump.Release()
+	w.events.Release(lifecycle.StageDead)
 }
 
 func (w *windowImpl) Upload(dp image.Point, src screen.Buffer, sr image.Rectangle, sender screen.Sender) {

@@ -50,8 +50,8 @@ func main() {
 			}
 		}()
 
-		for e := range w.Events() {
-			switch e := e.(type) {
+		for {
+			switch e := w.NextEvent().(type) {
 			case mouse.Event:
 				if e.Direction == mouse.DirRelease && e.Button != 0 {
 					board.click(b.RGBA(), int(e.X), int(e.Y), int(e.Button))

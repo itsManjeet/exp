@@ -22,6 +22,7 @@ import (
 	"golang.org/x/exp/shiny/screen"
 	"golang.org/x/image/math/f64"
 	"golang.org/x/mobile/event/key"
+	"golang.org/x/mobile/event/lifecycle"
 	"golang.org/x/mobile/event/paint"
 	"golang.org/x/mobile/event/size"
 )
@@ -55,10 +56,16 @@ func main() {
 		t.Upload(image.Point{}, b, b.Bounds(), w)
 
 		var sz size.Event
-		for e := range w.Events() {
-			switch e := e.(type) {
+		for {
+			switch e := w.NextEvent().(type) {
 			default:
 				// TODO: be more interesting.
+				fmt.Printf("got %#v\n", e)
+
+			case lifecycle.Event:
+				if e.To == lifecycle.StageDead {
+					return
+				}
 				fmt.Printf("got %#v\n", e)
 
 			case key.Event:
