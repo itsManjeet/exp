@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7bf54f3c_cbb7d8a1",
+        "filename": "shiny/example/goban/main.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-11-19T11:31:30Z",
+      "side": 0,
+      "message": "You still need to explicitly handle a screen.UploadedEvent, since successive mouse events can call board.click which can call render which touches the buffer b\u0027s contents.\n\nA buffer\u0027s contents should not be accessed while it is uploading -- after w.Upload is called and before the matching screen.UploadedEvent is seen. Otherwise, you may see corrupt pixels, on drivers that need to swizzle such as windriver and x11driver.",
+      "revId": "cc3419d713239c0a3c74ee43638527b95022ce31",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
