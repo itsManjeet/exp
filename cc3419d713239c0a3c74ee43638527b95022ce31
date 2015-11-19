@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7bf54f3c_4bcce83a",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-11-19T11:22:26Z",
+      "side": 1,
+      "message": "This is perfectly OK, but FWIW, I would have written it as:\nif w.lifecycleStage \u003e\u003d lifecycle.StageVisible\nsince the lifecycle values are ordered values.\n\nDitto in x/mobile, not that it\u0027s worth fixing now that both CLs have been submitted.",
+      "revId": "cc3419d713239c0a3c74ee43638527b95022ce31",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
