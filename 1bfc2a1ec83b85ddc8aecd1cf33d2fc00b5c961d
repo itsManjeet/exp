@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ba54fc6_dfdcbb98",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-11-23T09:18:22Z",
+      "side": 1,
+      "message": "It seems the wrong way round for a Release call to trigger a lifecycle.StageDead event. Instead, the flow I imagine is:\n\n1. user clicks on the \"x\" to close the window.\n2. the OS / window system sends an OS / WS specific message.\n3. the Shiny driver recognizes this, just like it recognizes other window lifecycle changes such as gaining or losing visibility, and sends a lifecycle.StageDead to the app code (\"package main\").\n4. the app code breaks out of the loop, via a \"return\".\n5. a \"defer w.Release()\" fires.",
+      "revId": "1bfc2a1ec83b85ddc8aecd1cf33d2fc00b5c961d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ba54fc6_9fe63367",
+        "filename": "shiny/driver/x11driver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-11-23T09:18:22Z",
+      "side": 1,
+      "message": "Ditto.",
+      "revId": "1bfc2a1ec83b85ddc8aecd1cf33d2fc00b5c961d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ba54fc6_5f842b79",
+        "filename": "shiny/example/goban/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-11-23T09:18:22Z",
+      "side": 1,
+      "message": "You probably want to catch lifecycle events here (and specifically lifecycle.StageDead) too.",
+      "revId": "1bfc2a1ec83b85ddc8aecd1cf33d2fc00b5c961d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ba54fc6_1f7ea345",
+        "filename": "shiny/example/tile/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-11-23T09:18:22Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 53,
+        "startChar": 15,
+        "endLine": 53,
+        "endChar": 16
+      },
+      "revId": "1bfc2a1ec83b85ddc8aecd1cf33d2fc00b5c961d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
