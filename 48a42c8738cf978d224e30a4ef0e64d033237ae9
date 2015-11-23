@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ba54fc6_df771b6f",
+        "filename": "shiny/driver/internal/queue/queue.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-11-23T09:09:22Z",
+      "side": 1,
+      "message": "s/shiny/queue/\n\nStrictly speaking, also, this package isn\u0027t necessarily coupled to a \"window\".",
+      "revId": "48a42c8738cf978d224e30a4ef0e64d033237ae9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ba54fc6_bf6c57a0",
+        "filename": "shiny/driver/internal/queue/queue.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-11-23T09:09:22Z",
+      "side": 1,
+      "message": "I\u0027m surprised that this takes an argument.\n\nAlso, I\u0027m not sure if you need an explicit Release. The pump package needs one to shut down the goroutine, but here, if the same (app) goroutine will be calling NextEvent and Release, you can just let everything be GC\u0027ed, no?",
+      "revId": "48a42c8738cf978d224e30a4ef0e64d033237ae9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
