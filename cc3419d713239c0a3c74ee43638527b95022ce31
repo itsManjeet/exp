@@ -16,6 +16,24 @@
       "revId": "cc3419d713239c0a3c74ee43638527b95022ce31",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb0f7f76_8933dd37",
+        "filename": "shiny/example/goban/main.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-11-24T19:19:14Z",
+      "side": 0,
+      "message": "I put this off over my (long) weekend because I thought I was missing your point, but I still don\u0027t get it.\n\nThere\u0027s one call to w.Upload in this program, on line 67. The very next line is a call to w.Publish, which blocks until the pending upload is complete. The buffer b cannot be accessed between these two calls.\n\nIt seems to me that it is completely reasonable to treat w.Publish returning as a signal that the buffer is now safe to reuse.\n\nMore generally: I don\u0027t want to see this event loop turn into a callback mess. A nice thing about programming in Go is the straight-line blocking code. In that spirit, I would like to suggest we get rid of UploadedEvent and make w.Upload a blocking call. Users who want concurrency can run w.Upload in a different goroutine.",
+      "parentUuid": "7bf54f3c_cbb7d8a1",
+      "revId": "cc3419d713239c0a3c74ee43638527b95022ce31",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
