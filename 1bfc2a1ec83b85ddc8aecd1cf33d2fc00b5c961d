@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "fb0f7f76_89363d8f",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-11-25T12:49:24Z",
+      "side": 1,
+      "message": "This code supports that exact flow.\n\n1. user clicks \"x\", which calls cocoa\u0027s windowWillClose.\n2. windowWillClose calls windowClosing, which calls releaseCleanup\n3. releaeCleanup sends lifecycle.StageDead\n4. app code breaks out of the loop.\n5. a \"defer w.Release()\" fires, which calls performClose which is now a no-op because the window has already closed.\n\n(There were however two other bugs to do with StageDead fixed in the current patchset.)\n\nFor completeness, there is also an alternate flow here, described above:\n\n1. The program wants to close a window. It calls w.Release().\n2. Cocoa is informed, and eventually sends a lifecycle.StageDead, which hopefully is ignored by the program who should have given up on events when it decided to close the window.\n\nI think it\u0027s only the x11driver that has the problem you describe, which I fixed.",
+      "parentUuid": "7ba54fc6_dfdcbb98",
+      "revId": "1bfc2a1ec83b85ddc8aecd1cf33d2fc00b5c961d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ba54fc6_9fe63367",
         "filename": "shiny/driver/x11driver/window.go",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2015-11-23T09:18:22Z",
       "side": 1,
       "message": "Ditto.",
+      "revId": "1bfc2a1ec83b85ddc8aecd1cf33d2fc00b5c961d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb0f7f76_e94371ef",
+        "filename": "shiny/driver/x11driver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-11-25T12:49:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ba54fc6_9fe63367",
       "revId": "1bfc2a1ec83b85ddc8aecd1cf33d2fc00b5c961d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "fb0f7f76_c94035e6",
+        "filename": "shiny/example/goban/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-11-25T12:49:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ba54fc6_5f842b79",
+      "revId": "1bfc2a1ec83b85ddc8aecd1cf33d2fc00b5c961d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ba54fc6_1f7ea345",
         "filename": "shiny/example/tile/main.go",
         "patchSetId": 1
@@ -64,6 +118,30 @@
       "writtenOn": "2015-11-23T09:18:22Z",
       "side": 1,
       "message": "Ditto.",
+      "range": {
+        "startLine": 53,
+        "startChar": 15,
+        "endLine": 53,
+        "endChar": 16
+      },
+      "revId": "1bfc2a1ec83b85ddc8aecd1cf33d2fc00b5c961d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb0f7f76_294f4914",
+        "filename": "shiny/example/tile/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-11-25T12:49:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ba54fc6_1f7ea345",
       "range": {
         "startLine": 53,
         "startChar": 15,
