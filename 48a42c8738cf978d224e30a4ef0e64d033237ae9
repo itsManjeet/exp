@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "fb0f7f76_09540da7",
+        "filename": "shiny/driver/internal/queue/queue.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-11-25T12:49:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ba54fc6_df771b6f",
+      "revId": "48a42c8738cf978d224e30a4ef0e64d033237ae9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ba54fc6_bf6c57a0",
         "filename": "shiny/driver/internal/queue/queue.go",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2015-11-23T09:09:22Z",
       "side": 1,
       "message": "I\u0027m surprised that this takes an argument.\n\nAlso, I\u0027m not sure if you need an explicit Release. The pump package needs one to shut down the goroutine, but here, if the same (app) goroutine will be calling NextEvent and Release, you can just let everything be GC\u0027ed, no?",
+      "revId": "48a42c8738cf978d224e30a4ef0e64d033237ae9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb0f7f76_6949410b",
+        "filename": "shiny/driver/internal/queue/queue.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-11-25T12:49:31Z",
+      "side": 1,
+      "message": "My goal is to avoid bookkeeping in the paint logic.\n\nIf the program is a few paint cycles behind a window close event, and the user clicks \"x\" and we deliver lifecycle.StageDead normally, then the user will continue to process paint.Event messages and call Publish. So we would need to track deadness and ignore those calls.\n\nThis way the most we need is for Publish to share a mutex with the code that calls w.events.Release (so we can ignore a simultaneous Publish and \"x\" press). No other bookkeeping is necessary.\n\nPerhaps Release is the wrong name?",
+      "parentUuid": "7ba54fc6_bf6c57a0",
       "revId": "48a42c8738cf978d224e30a4ef0e64d033237ae9",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
