@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "7ba54fc6_13d69ce9",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-11-27T01:01:16Z",
+      "side": 1,
+      "message": "Ah, I might have been thrown off because the method name here says \"release\".\n\nIn any case, I\u0027m still not totally convinced that this (and especially the matching golang.org/cl/17054) feels right. I\u0027d like to do some thinking and experimentation myself, not just about this but also about accruing multiple pending paint.Events (which you mention in cl/17054), but I don\u0027t have the time to do that in the immediate term.",
+      "parentUuid": "fb0f7f76_89363d8f",
+      "revId": "1bfc2a1ec83b85ddc8aecd1cf33d2fc00b5c961d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ba54fc6_9fe63367",
         "filename": "shiny/driver/x11driver/window.go",
         "patchSetId": 1
