@@ -34,6 +34,24 @@
       "revId": "cc3419d713239c0a3c74ee43638527b95022ce31",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7ba54fc6_b36ff002",
+        "filename": "shiny/example/goban/main.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-11-27T00:43:00Z",
+      "side": 0,
+      "message": "There are two image formats: RGBA and BGRA. RGBA is used by Go\u0027s stdlib, on the X11 client (the app). BGRA is used by the X11 server. When a buffer is re-used, conversion between those two formats (aka swizzling) happens twice: once on upload (RGBA -\u003e BGRA) and once when the upload is ack\u0027ed by the X11 server (BGRA -\u003e RGBA, on receiving an X11 shm.CompletionEvent).\n\n(There is some atomic ref-counting involved, in the case of multiple uploads of the one buffer, but we can ignore that detail for this exposition).\n\nThe w.Upload call does the first swizzle. The w.Publish call is not involved in the second swizzle. Even though the BGRA buffer\u0027s contents is \u0027used\u0027 by the X11 server and pushed to the screen, by time the w.Publish call returns, we have still not done the second swizzle.\n\nThere is therefore a race, between the next mouse.Event (which triggers a main.render call which can touch the buffer) and the next screen.UploadedEvent (which this main code now ignores).\n\nIf the mouse.Event \u0027wins\u0027 the race and goes first, the main.render code will be touching the buffer assuming that its contents are in RGBA order, when in fact it is in BGRA order: corruption. Later, the driver sees the shm.CompletionEvent and swizzles back to RGBA, but the damage has already been done. The current frame on the screen might look OK, but the next one will not.\n\nOne could try to be clever, and have the driver swizzle on Publish as well as on seeing shm.CompletionEvents, but the code and the docs become more complicated: you have to track which buffers you\u0027re waiting for when Publishing, shm.CompletionEvents triggering swizzling now becomes conditional on further state, there\u0027s differences between uploading to a Texture and to a Window since you can\u0027t Publish a Texture, there\u0027s subtleties if you\u0027re uploading a buffer multiple times in the one Publish call, perhaps to both Textures and Windows. It\u0027s far from obvious that trying to be clever is worth it.\n\nIn contrast, the current model is simple: if you\u0027re re-using a Buffer, then you have to wait for the uploads to complete before you re-use it. Every Upload call generates a matching screen.UploadedEvent, provided that you passed a non-nil screen.Sender to Upload.\n\nFor a relatively simple GUI app like goban, which only ever has one Buffer (and no Textures) that represents the entire window\u0027s contents, you could imagine a helper simplegui package of some sort that abstracted over the primitives that the screen package gives you, and that Upload + Publish + wait for UploadedEvent becomes a single blocking call, but that belongs in a separate package above package screen, not in package screen per se.",
+      "parentUuid": "fb0f7f76_8933dd37",
+      "revId": "cc3419d713239c0a3c74ee43638527b95022ce31",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
