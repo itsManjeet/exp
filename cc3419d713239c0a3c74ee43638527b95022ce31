@@ -52,6 +52,24 @@
       "revId": "cc3419d713239c0a3c74ee43638527b95022ce31",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fb0f7f76_b7643028",
+        "filename": "shiny/example/goban/main.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-11-30T19:16:16Z",
+      "side": 0,
+      "message": "Thanks, I missed some of the subtlety of the X11 driver on my previous reading. To recast my last suggestion:\n\nHow about having w.Upload block until the shm.CompletionEvent is returned by X11 and the second BGRA -\u003e RGBA swizzle is complete?\n\nPrograms that want concurrency can call w.Upload from another goroutine.",
+      "parentUuid": "7ba54fc6_b36ff002",
+      "revId": "cc3419d713239c0a3c74ee43638527b95022ce31",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
