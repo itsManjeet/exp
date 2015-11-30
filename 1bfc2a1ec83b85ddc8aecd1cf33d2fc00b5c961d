@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "fb0f7f76_57e5fcca",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-11-30T19:44:15Z",
+      "side": 1,
+      "message": "Sure, I\u0027m not in a rush on this. For when you\u0027re thinking about this, a note on how I got here:\n\nThe most interesting part of a NextEvent method to me is being able to align the state of other methods on the Window with the current event the user\u0027s program is handling.\n\nThere is a way to do this with the current interface and a more complex implementation. It turned out to be complex enough that I decided to propose a NextEvent method instead, but for completion:\n\ntype windowImpl struct {\n        pump pump.Pump\n\n        events chan interface{}\n        state     chan interface{}\n}\n\nfunc createWindow() Window {\n        w :\u003d \u0026windowImpl{\n                pump: ... // infinite buffer\n\n                // unbuffered channels\n                events: make(chan interface{}),\n                state: make(chan interface{}),\n        }\n        go w.maintainState()\n}\n\nfunc (w *windowImpl) Events() \u003c-chan interface{} {\n        return w.events\n}\n\nfunc (w *windowImpl) SomeState() interface{} {\n        return \u003c-w.state\n}\n\nfunc (w *windowImpl) maintainState() {\n        var state interface{}\nLoop1:\n        for {\n                var next interface{}\n                select {\n                case next, _ \u003d \u003c-w.pump.Out:\n                case w.state \u003c- state:\n                        continue\n                }\n\n                for {\n                        select {\n                        case w.events \u003c- next:\n                                state \u003d updateState(next)\n                                continue Loop1\n                        case w.state \u003c- state:\n                        }\n                }\n        }\n}\n\nBy making a little state machine sitting directly behind an unbuffered Events channel, that is also responsible for serving up SomeState, the SomeState can promise to be up to date with the latest event that was returned.\n\nA goroutine can probably be saved by merging in the implementation of pump.Pump, but I find this conceptually pretty tricky in this trivial SomeState example. If there was more than one stateful method it would get unruly.",
+      "parentUuid": "7ba54fc6_13d69ce9",
+      "revId": "1bfc2a1ec83b85ddc8aecd1cf33d2fc00b5c961d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7ba54fc6_9fe63367",
         "filename": "shiny/driver/x11driver/window.go",
         "patchSetId": 1
