@@ -72,7 +72,7 @@ func main() {
 				if b != nil {
 					b.Release()
 				}
-				b, err = s.NewBuffer(e.Size())
+				b, err = s.NewBuffer(e.Bounds().Size())
 				if err != nil {
 					log.Fatal(err)
 				}
