@@ -70,6 +70,24 @@
       "revId": "cc3419d713239c0a3c74ee43638527b95022ce31",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5b316b81_160b1caa",
+        "filename": "shiny/example/goban/main.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-01T17:27:55Z",
+      "side": 0,
+      "message": "This suggestion as a CL: http://golang.org/cl/17272",
+      "parentUuid": "fb0f7f76_b7643028",
+      "revId": "cc3419d713239c0a3c74ee43638527b95022ce31",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
