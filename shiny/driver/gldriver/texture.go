@@ -31,11 +31,8 @@ func (t *textureImpl) Release() {
 	t.id = gl.Texture{}
 }
 
-func (t *textureImpl) Upload(dp image.Point, src screen.Buffer, sr image.Rectangle, sender screen.Sender) {
+func (t *textureImpl) Upload(dp image.Point, src screen.Buffer, sr image.Rectangle) {
 	t.upload(dp, src, sr)
-	if sender != nil {
-		sender.Send(screen.UploadedEvent{Buffer: src, Uploader: t})
-	}
 }
 
 func (t *textureImpl) upload(dp image.Point, src screen.Buffer, sr image.Rectangle) {
