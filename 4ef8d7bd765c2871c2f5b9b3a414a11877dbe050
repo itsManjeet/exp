@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "80b8d0a7_67acb264",
+        "filename": "shiny/driver/gldriver/texture.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-12-04T10:03:33Z",
+      "side": 1,
+      "message": "I think you can now merge this method (Upload) and the next one (upload) into the one method.",
+      "range": {
+        "startLine": 34,
+        "startChar": 22,
+        "endLine": 34,
+        "endChar": 28
+      },
+      "revId": "4ef8d7bd765c2871c2f5b9b3a414a11877dbe050",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "80b8d0a7_c79a3e2f",
+        "filename": "shiny/driver/x11driver/buffer.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-12-04T10:03:33Z",
+      "side": 1,
+      "message": "FWIW, reusable is always going to be true now, both this method arg and the struct field. Cleaning that up can be a follow-up CL if you wish.\n\nIt does mean that we are always spending a little CPU on post-upload swizzling, which can be unnecessary for a buffer that we don\u0027t intend to re-use. But that\u0027s probably an acceptable cost for the simplification of removing the screen.UploadedEvent mechanism.",
+      "revId": "4ef8d7bd765c2871c2f5b9b3a414a11877dbe050",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "80b8d0a7_27b6bab0",
+        "filename": "shiny/driver/x11driver/screen.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2015-12-04T10:03:33Z",
+      "side": 1,
+      "message": "Huh, not your bug, but while you\u0027re here, add a\ndelete(s.uploads, ck)\nbefore this line, no?",
+      "revId": "4ef8d7bd765c2871c2f5b9b3a414a11877dbe050",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
