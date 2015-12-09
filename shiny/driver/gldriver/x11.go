@@ -38,7 +38,8 @@ func init() {
 	runtime.LockOSThread()
 }
 
-func newWindow(width, height int32) uintptr {
+func newWindow(opts *screen.NewWindowOptions) (uintptr, error) {
+	width, height := optsSize(opts)
 	retc := make(chan uintptr)
 	uic <- uiClosure{
 		f: func() uintptr {
@@ -46,7 +47,7 @@ func newWindow(width, height int32) uintptr {
 		},
 		retc: retc,
 	}
-	return <-retc
+	return <-retc, nil
 }
 
 func showWindow(w *windowImpl) {
