@@ -22,6 +22,30 @@
       "revId": "cd7cf8b6a1769bfd4bab131b6ca5a55f56ebd996",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a02dd478_c84c4f79",
+        "filename": "shiny/driver/internal/win32/win32.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-09T19:21:24Z",
+      "side": 1,
+      "message": "Does the Win32 API have a new widely adopted name? I want something that unambiguously distinguishes it from WinRT, and Win32 is the only thing I have ever heard it called.",
+      "parentUuid": "05487277_c6ac64b1",
+      "range": {
+        "startLine": 7,
+        "startChar": 8,
+        "endLine": 7,
+        "endChar": 13
+      },
+      "revId": "cd7cf8b6a1769bfd4bab131b6ca5a55f56ebd996",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
