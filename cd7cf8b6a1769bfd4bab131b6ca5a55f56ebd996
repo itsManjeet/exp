@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "05487277_c6ac64b1",
+        "filename": "shiny/driver/internal/win32/win32.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5080
+      },
+      "writtenOn": "2015-12-09T19:17:39Z",
+      "side": 1,
+      "message": "I know win32 is a common name for windows, but unless this is 32-bit specific, can we name this something else?",
+      "range": {
+        "startLine": 7,
+        "startChar": 8,
+        "endLine": 7,
+        "endChar": 13
+      },
+      "revId": "cd7cf8b6a1769bfd4bab131b6ca5a55f56ebd996",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
