@@ -54,8 +54,9 @@ func init() {
 	initThreadID = C.threadID()
 }
 
-func newWindow(width, height int32) uintptr {
-	return uintptr(C.doNewWindow(C.int(width), C.int(height)))
+func newWindow(opts *screen.NewWindowOptions) (uintptr, error) {
+	width, height := optsSize(opts)
+	return uintptr(C.doNewWindow(C.int(width), C.int(height))), nil
 }
 
 func showWindow(w *windowImpl) {
@@ -117,7 +118,7 @@ func drawgl(id uintptr) {
 // the window is resized).
 func drawLoop(w *windowImpl) {
 	runtime.LockOSThread()
-	C.makeCurrentContext(C.uintptr_t(w.ctx))
+	C.makeCurrentContext(C.uintptr_t(w.ctx.(uintptr)))
 
 	workAvailable := w.worker.WorkAvailable()
 
