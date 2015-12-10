@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a02dd478_2b632521",
+        "filename": "shiny/driver/internal/win32/syscall_windows.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-10T16:08:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8057f0e8_cff53d75",
+      "revId": "cd7cf8b6a1769bfd4bab131b6ca5a55f56ebd996",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8057f0e8_effa0164",
         "filename": "shiny/driver/internal/win32/syscall_windows.go",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2015-12-10T04:35:08Z",
       "side": 1,
       "message": "Same.",
+      "revId": "cd7cf8b6a1769bfd4bab131b6ca5a55f56ebd996",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a02dd478_4b605912",
+        "filename": "shiny/driver/internal/win32/syscall_windows.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-10T16:08:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8057f0e8_effa0164",
       "revId": "cd7cf8b6a1769bfd4bab131b6ca5a55f56ebd996",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -107,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "a02dd478_cbde09fd",
+        "filename": "shiny/driver/internal/win32/win32.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-10T16:08:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8057f0e8_6ff0d187",
+      "range": {
+        "startLine": 7,
+        "startChar": 8,
+        "endLine": 7,
+        "endChar": 13
+      },
+      "revId": "cd7cf8b6a1769bfd4bab131b6ca5a55f56ebd996",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8057f0e8_4ff30d95",
         "filename": "shiny/driver/internal/win32/win32.go",
         "patchSetId": 1
@@ -118,6 +178,24 @@
       "writtenOn": "2015-12-10T04:35:08Z",
       "side": 1,
       "message": "Perhaps you want to split this into 2 source files - screen related code and window related code.",
+      "revId": "cd7cf8b6a1769bfd4bab131b6ca5a55f56ebd996",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a02dd478_4b0a1939",
+        "filename": "shiny/driver/internal/win32/win32.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-10T16:08:16Z",
+      "side": 1,
+      "message": "Will do in a followup when there\u0027s more code and the distinction is clear (key event handling should add a few lines).",
+      "parentUuid": "8057f0e8_4ff30d95",
       "revId": "cd7cf8b6a1769bfd4bab131b6ca5a55f56ebd996",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -141,6 +219,24 @@
     },
     {
       "key": {
+        "uuid": "a02dd478_abd9d517",
+        "filename": "shiny/driver/internal/win32/win32.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-10T16:08:16Z",
+      "side": 1,
+      "message": "At one point I accidentally used an HDC as a HWND. While these are all uintptr handles, the win32 docs distinguishes a type and I find the conversion safety comforting.",
+      "parentUuid": "8057f0e8_8ffb356b",
+      "revId": "cd7cf8b6a1769bfd4bab131b6ca5a55f56ebd996",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8057f0e8_2f0de94f",
         "filename": "shiny/driver/internal/win32/win32.go",
         "patchSetId": 1
@@ -152,6 +248,24 @@
       "writtenOn": "2015-12-10T04:35:08Z",
       "side": 1,
       "message": "I am not sure \"Show\" is a good name for a function that sends fake size event.",
+      "revId": "cd7cf8b6a1769bfd4bab131b6ca5a55f56ebd996",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a02dd478_ebe3cdc7",
+        "filename": "shiny/driver/internal/win32/win32.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-10T16:08:16Z",
+      "side": 1,
+      "message": "I merged some of the followup lifecycle changes into this CL so Show makes more sense. (It actually calls ShowWindow now.) Happy to use an alternative name if you have a suggestion.",
+      "parentUuid": "8057f0e8_2f0de94f",
       "revId": "cd7cf8b6a1769bfd4bab131b6ca5a55f56ebd996",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -175,6 +289,24 @@
     },
     {
       "key": {
+        "uuid": "a02dd478_8bcdf13e",
+        "filename": "shiny/driver/internal/win32/win32.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-10T16:08:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8057f0e8_6f07f12d",
+      "revId": "cd7cf8b6a1769bfd4bab131b6ca5a55f56ebd996",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8057f0e8_2f31692d",
         "filename": "shiny/driver/internal/win32/win32.go",
         "patchSetId": 1
@@ -186,6 +318,24 @@
       "writtenOn": "2015-12-10T04:35:08Z",
       "side": 1,
       "message": "I am not a Windows GUI expert, but ...\n\nYou should not need to call runtime.LockOSThread here, because it is already running on thread you locked Main on. Windows arranges that.\n\nYou don\u0027t need to protect any code that is called from here, because Windows will serialize your calls.\n\nBut you also cannot block anywhere here (or any code that is called from here). Windows send messages async here, so your code need to be ready to handle them. So no blocking on channels. So you need to be careful with what MouseEvent, PaintEvent and SizeEvent do. Same with AddWindowMsg - its fn parameter will have similar restrictions.",
+      "revId": "cd7cf8b6a1769bfd4bab131b6ca5a55f56ebd996",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a02dd478_0be901a9",
+        "filename": "shiny/driver/internal/win32/win32.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-10T16:08:16Z",
+      "side": 1,
+      "message": "Done. Thanks, that was some debugging cruft I left behind.\n\nI believe the event Send done by MouseEvent, PaintEvent, etc is safe to call on the main loop. Send drops events onto an \"infinitely\" buffered channel (pump.Pump) so that will not deadlock.\n\nBut making me think about all of this again made it clear I had a logic bug in the GL driver, where each window has its own GL context, and each context wants its own thread. I believe I\u0027ve cleaned that code up now.",
+      "parentUuid": "8057f0e8_2f31692d",
       "revId": "cd7cf8b6a1769bfd4bab131b6ca5a55f56ebd996",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -209,6 +359,24 @@
     },
     {
       "key": {
+        "uuid": "a02dd478_4bf3f994",
+        "filename": "shiny/driver/internal/win32/win32.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-10T16:08:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8057f0e8_8f1fb59a",
+      "revId": "cd7cf8b6a1769bfd4bab131b6ca5a55f56ebd996",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8057f0e8_efb5a1a3",
         "filename": "shiny/driver/windriver/window.go",
         "patchSetId": 1
@@ -220,6 +388,24 @@
       "writtenOn": "2015-12-10T04:35:08Z",
       "side": 1,
       "message": "Unrelated to your changes, but perhaps we can find simpler way to pass this to handleUpload. Why cannot we just send *upload pointer as lParam? We just need some way to prevent the struct to be GCed until the call to win32.SendMessage returns. Code will be simpler and faster.",
+      "revId": "cd7cf8b6a1769bfd4bab131b6ca5a55f56ebd996",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a02dd478_ab00f51b",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-10T16:08:16Z",
+      "side": 1,
+      "message": "I have another open CL about simplifying the semantics of Upload, which would make it possible to remove this lock.",
+      "parentUuid": "8057f0e8_efb5a1a3",
       "revId": "cd7cf8b6a1769bfd4bab131b6ca5a55f56ebd996",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -260,6 +446,24 @@
     },
     {
       "key": {
+        "uuid": "a02dd478_0b102165",
+        "filename": "shiny/driver/windriver/windraw.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-10T16:08:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8057f0e8_4fa5cd70",
+      "revId": "cd7cf8b6a1769bfd4bab131b6ca5a55f56ebd996",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8057f0e8_6fa2916b",
         "filename": "shiny/driver/windriver/windraw.go",
         "patchSetId": 1
@@ -271,6 +475,24 @@
       "writtenOn": "2015-12-10T04:35:08Z",
       "side": 1,
       "message": "Use defer (in appropriate place) to delete brush.",
+      "revId": "cd7cf8b6a1769bfd4bab131b6ca5a55f56ebd996",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a02dd478_cbf52975",
+        "filename": "shiny/driver/windriver/windraw.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-10T16:08:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8057f0e8_6fa2916b",
       "revId": "cd7cf8b6a1769bfd4bab131b6ca5a55f56ebd996",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -294,6 +516,24 @@
     },
     {
       "key": {
+        "uuid": "a02dd478_ebfaed63",
+        "filename": "shiny/driver/windriver/windraw.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-10T16:08:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8057f0e8_afd2b9d7",
+      "revId": "cd7cf8b6a1769bfd4bab131b6ca5a55f56ebd996",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8057f0e8_cfc7fd18",
         "filename": "shiny/driver/windriver/windraw.go",
         "patchSetId": 1
@@ -305,6 +545,24 @@
       "writtenOn": "2015-12-10T04:35:08Z",
       "side": 1,
       "message": "Same.",
+      "revId": "cd7cf8b6a1769bfd4bab131b6ca5a55f56ebd996",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a02dd478_2b0de54f",
+        "filename": "shiny/driver/windriver/windraw.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-10T16:08:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8057f0e8_cfc7fd18",
       "revId": "cd7cf8b6a1769bfd4bab131b6ca5a55f56ebd996",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
