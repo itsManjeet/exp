@@ -74,6 +74,7 @@ const (
 	_WM_SYSKEYDOWN       = 260
 	_WM_SYSKEYUP         = 261
 	_WM_MOUSEMOVE        = 512
+	_WM_MOUSEWHEEL       = 522
 	_WM_LBUTTONDOWN      = 513
 	_WM_LBUTTONUP        = 514
 	_WM_RBUTTONDOWN      = 516
@@ -128,6 +129,8 @@ const (
 	_AC_SRC_ALPHA = 0x01
 
 	_SRCCOPY = 0x00cc0020
+
+	_WHEEL_DELTA = 120
 )
 
 func _GET_X_LPARAM(lp uintptr) int32 {
@@ -136,6 +139,10 @@ func _GET_X_LPARAM(lp uintptr) int32 {
 
 func _GET_Y_LPARAM(lp uintptr) int32 {
 	return int32(_HIWORD(lp))
+}
+
+func _GET_WHEEL_DELTA_WPARAM(lp uintptr) int {
+	return int(int16(lp >> 16))
 }
 
 func _LOWORD(l uintptr) uint16 {
