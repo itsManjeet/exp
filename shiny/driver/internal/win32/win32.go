@@ -148,11 +148,11 @@ func sendMouseEvent(hwnd HWND, uMsg uint32, wParam, lParam uintptr) (lResult uin
 			MK_RBUTTON = 0x0002
 		)
 		switch {
-		case wParam&MK_LBUTTON==MK_LBUTTON:
+		case wParam&MK_LBUTTON == MK_LBUTTON:
 			e.Button = mouse.ButtonLeft
-		case wParam&MK_MBUTTON==MK_MBUTTON:
+		case wParam&MK_MBUTTON == MK_MBUTTON:
 			e.Button = mouse.ButtonMiddle
-		case wParam&MK_RBUTTON==MK_RBUTTON:
+		case wParam&MK_RBUTTON == MK_RBUTTON:
 			e.Button = mouse.ButtonRight
 		default:
 			return
@@ -212,6 +212,7 @@ var (
 	MouseEvent     func(hwnd HWND, e mouse.Event)
 	PaintEvent     func(hwnd HWND, e paint.Event)
 	SizeEvent      func(hwnd HWND, e size.Event)
+	KeyEvent       func(hwnd HWND, e key.Event)
 	LifecycleEvent func(hwnd HWND, e lifecycle.Stage)
 )
 
@@ -253,7 +254,10 @@ var windowMsgs = map[uint32]func(hwnd HWND, uMsg uint32, wParam, lParam uintptr)
 	_WM_RBUTTONUP:   sendMouseEvent,
 	_WM_MOUSEMOVE:   sendMouseEvent,
 	_WM_MOUSEWHEEL:  sendMouseEvent,
-	// TODO case _WM_KEYDOWN, _WM_KEYUP, _WM_SYSKEYDOWN, _WM_SYSKEYUP:
+
+	_WM_KEYDOWN: sendKeyEvent,
+	_WM_KEYUP:   sendKeyEvent,
+	// TODO case _WM_SYSKEYDOWN, _WM_SYSKEYUP:
 }
 
 func AddWindowMsg(fn func(hwnd HWND, uMsg uint32, wParam, lParam uintptr)) uint32 {
