@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8057f0e8_cfbb7d30",
+        "filename": "shiny/driver/internal/win32/win32.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2015-12-11T00:36:06Z",
+      "side": 1,
+      "message": "This will always return 0 from WndProc. Is that what you want? Regardless you should just return 0 in windowWndProc. Why build this closure here? It does nothing else, but returns 0.",
+      "revId": "daf9acdd085bf90686aff809427338fd2f9d70b3",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
