@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a02dd478_ce69b794",
+        "filename": "shiny/driver/internal/win32/key.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-11T15:06:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8057f0e8_12d84a46",
+      "revId": "a9cbb5b90587afb116b898e87cc29a71ac2ef892",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8057f0e8_b2f3fec8",
         "filename": "shiny/driver/internal/win32/key.go",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2015-12-11T06:02:41Z",
       "side": 1,
       "message": "Should you cache \"layout\" and call it only when WM_INPUTLANGCHANGE (as GetKeyboardLayout suggests)? Maybe add a TODO.",
+      "revId": "a9cbb5b90587afb116b898e87cc29a71ac2ef892",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a02dd478_ee6e7b99",
+        "filename": "shiny/driver/internal/win32/key.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-11T15:06:49Z",
+      "side": 1,
+      "message": "TODO added.",
+      "parentUuid": "8057f0e8_b2f3fec8",
       "revId": "a9cbb5b90587afb116b898e87cc29a71ac2ef892",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "a02dd478_0e84af7a",
+        "filename": "shiny/driver/internal/win32/key.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 314,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-11T15:06:49Z",
+      "side": 1,
+      "message": "Done.\n\n5 is a remnant of when I was thinking of using Win32 functions to convert from UTF-16 into UTF-8 and needed a NUL terminator. 4 should be enough.",
+      "parentUuid": "8057f0e8_92eefae3",
+      "revId": "a9cbb5b90587afb116b898e87cc29a71ac2ef892",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8057f0e8_52ed72e1",
         "filename": "shiny/driver/internal/win32/key.go",
         "patchSetId": 1
@@ -64,6 +118,24 @@
       "writtenOn": "2015-12-11T06:02:41Z",
       "side": 1,
       "message": "Is that OK to return -1 for readRune?",
+      "revId": "a9cbb5b90587afb116b898e87cc29a71ac2ef892",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a02dd478_4e7ea746",
+        "filename": "shiny/driver/internal/win32/key.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-11T15:06:49Z",
+      "side": 1,
+      "message": "It\u0027s the documented \"unknown rune\" value in golang.org/x/mobile/event/key.",
+      "parentUuid": "8057f0e8_52ed72e1",
       "revId": "a9cbb5b90587afb116b898e87cc29a71ac2ef892",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -104,6 +176,24 @@
     },
     {
       "key": {
+        "uuid": "a02dd478_0ecf4fda",
+        "filename": "shiny/driver/internal/win32/key.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-11T15:06:49Z",
+      "side": 1,
+      "message": "It appears that Win32 is delivering an event for each repeated message, and so the repeat count is going up by 1 each time. So I\u0027m just checking the prevMask bit below and setting the key appropriately, and letting the user handle repeats. (This matches the behavior of gldriver/cocoa, whether this is the optimal design for the key package, I\u0027m not sure.)",
+      "parentUuid": "8057f0e8_f2c2e658",
+      "revId": "a9cbb5b90587afb116b898e87cc29a71ac2ef892",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8057f0e8_72b8b6e8",
         "filename": "shiny/driver/internal/win32/key.go",
         "patchSetId": 1
@@ -115,6 +205,24 @@
       "writtenOn": "2015-12-11T06:02:41Z",
       "side": 1,
       "message": "Add panic if uMsg is not _WM_KEYDOWN or _WM_KEYUP. Just in case.",
+      "revId": "a9cbb5b90587afb116b898e87cc29a71ac2ef892",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a02dd478_4ed947a0",
+        "filename": "shiny/driver/internal/win32/key.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-11T15:06:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8057f0e8_72b8b6e8",
       "revId": "a9cbb5b90587afb116b898e87cc29a71ac2ef892",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -138,6 +246,24 @@
     },
     {
       "key": {
+        "uuid": "a02dd478_6ed60b71",
+        "filename": "shiny/driver/internal/win32/syscall_windows.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-11T15:06:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8057f0e8_32ae2ea9",
+      "revId": "a9cbb5b90587afb116b898e87cc29a71ac2ef892",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8057f0e8_32d54e0d",
         "filename": "shiny/driver/internal/win32/syscall_windows.go",
         "patchSetId": 1
@@ -149,6 +275,24 @@
       "writtenOn": "2015-12-11T06:02:41Z",
       "side": 1,
       "message": "If you\ns/ok bool/err error/\nyou will be able to do get proper Windows error message when it fails.",
+      "revId": "a9cbb5b90587afb116b898e87cc29a71ac2ef892",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a02dd478_aec643bd",
+        "filename": "shiny/driver/internal/win32/syscall_windows.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-11T15:06:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8057f0e8_32d54e0d",
       "revId": "a9cbb5b90587afb116b898e87cc29a71ac2ef892",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
