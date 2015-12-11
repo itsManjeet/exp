@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8057f0e8_6f8e1154",
+        "filename": "shiny/driver/internal/win32/syscall_windows.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2015-12-11T05:07:46Z",
+      "side": 1,
+      "message": "_GET_WHEEL_DELTA_WPARAM returns short, so it is int16 not int.",
+      "revId": "419d4968a5428346f54a1996972fbbe988d67817",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8057f0e8_8f797515",
+        "filename": "shiny/driver/internal/win32/syscall_windows.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2015-12-11T05:07:46Z",
+      "side": 1,
+      "message": "From\n#define GET_WHEEL_DELTA_WPARAM(wparam) ((short)HIWORD (wparam))\nto\nreturn int16(_HIWORD(lp))",
+      "revId": "419d4968a5428346f54a1996972fbbe988d67817",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8057f0e8_ef78410e",
+        "filename": "shiny/driver/internal/win32/win32.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2015-12-11T05:07:46Z",
+      "side": 1,
+      "message": "Move these into syscall.go.",
+      "revId": "419d4968a5428346f54a1996972fbbe988d67817",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8057f0e8_0f6e6549",
+        "filename": "shiny/driver/internal/win32/win32.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2015-12-11T05:07:46Z",
+      "side": 1,
+      "message": "Is it OK to ignore this mouse event? Maybe X or Y changed. Same for all returns below.",
+      "revId": "419d4968a5428346f54a1996972fbbe988d67817",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8057f0e8_4f686d3b",
+        "filename": "shiny/driver/internal/win32/win32.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2015-12-11T05:07:46Z",
+      "side": 1,
+      "message": "Can this ever block?",
+      "revId": "419d4968a5428346f54a1996972fbbe988d67817",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
