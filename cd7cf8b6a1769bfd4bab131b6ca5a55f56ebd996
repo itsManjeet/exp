@@ -237,6 +237,24 @@
     },
     {
       "key": {
+        "uuid": "8057f0e8_4fd94da0",
+        "filename": "shiny/driver/internal/win32/win32.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2015-12-11T00:36:06Z",
+      "side": 1,
+      "message": "Fair enough.",
+      "parentUuid": "a02dd478_abd9d517",
+      "revId": "cd7cf8b6a1769bfd4bab131b6ca5a55f56ebd996",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8057f0e8_2f0de94f",
         "filename": "shiny/driver/internal/win32/win32.go",
         "patchSetId": 1
@@ -266,6 +284,24 @@
       "side": 1,
       "message": "I merged some of the followup lifecycle changes into this CL so Show makes more sense. (It actually calls ShowWindow now.) Happy to use an alternative name if you have a suggestion.",
       "parentUuid": "8057f0e8_2f0de94f",
+      "revId": "cd7cf8b6a1769bfd4bab131b6ca5a55f56ebd996",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8057f0e8_6fd61171",
+        "filename": "shiny/driver/internal/win32/win32.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2015-12-11T00:36:06Z",
+      "side": 1,
+      "message": "Then the comment that follows needs to change. The comment says \"Send a fake size event.\" it is different from Show. Maybe call this SendFakeSizeEvent because that what it does. Will this Show function be used later in hiding / showing this windows?",
+      "parentUuid": "a02dd478_ebe3cdc7",
       "revId": "cd7cf8b6a1769bfd4bab131b6ca5a55f56ebd996",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -342,6 +378,24 @@
     },
     {
       "key": {
+        "uuid": "8057f0e8_efc041a3",
+        "filename": "shiny/driver/internal/win32/win32.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2015-12-11T00:36:06Z",
+      "side": 1,
+      "message": "I am still not convinced this design is safe. But if this package is only used by 2 packages, it is OK.",
+      "parentUuid": "a02dd478_0be901a9",
+      "revId": "cd7cf8b6a1769bfd4bab131b6ca5a55f56ebd996",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8057f0e8_8f1fb59a",
         "filename": "shiny/driver/internal/win32/win32.go",
         "patchSetId": 1
@@ -371,6 +425,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "8057f0e8_8f1fb59a",
+      "revId": "cd7cf8b6a1769bfd4bab131b6ca5a55f56ebd996",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8057f0e8_0fb66546",
+        "filename": "shiny/driver/internal/win32/win32.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2015-12-11T00:36:06Z",
+      "side": 1,
+      "message": "\"!!!! rewrite this !!!!!!!!!!!!!!!!!!!!!!!!!!!\" was not for you, it was for me, because I was not sure about my message. Sorry. But I think what you\u0027ve done will work fine too. Leaving it up to you which version to use.",
+      "parentUuid": "a02dd478_4bf3f994",
       "revId": "cd7cf8b6a1769bfd4bab131b6ca5a55f56ebd996",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
