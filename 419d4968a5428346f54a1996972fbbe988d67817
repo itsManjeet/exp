@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a02dd478_ae6ac396",
+        "filename": "shiny/driver/internal/win32/syscall_windows.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-11T14:49:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8057f0e8_6f8e1154",
+      "revId": "419d4968a5428346f54a1996972fbbe988d67817",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8057f0e8_8f797515",
         "filename": "shiny/driver/internal/win32/syscall_windows.go",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2015-12-11T05:07:46Z",
       "side": 1,
       "message": "From\n#define GET_WHEEL_DELTA_WPARAM(wparam) ((short)HIWORD (wparam))\nto\nreturn int16(_HIWORD(lp))",
+      "revId": "419d4968a5428346f54a1996972fbbe988d67817",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a02dd478_ce5ff7ef",
+        "filename": "shiny/driver/internal/win32/syscall_windows.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-11T14:49:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8057f0e8_8f797515",
       "revId": "419d4968a5428346f54a1996972fbbe988d67817",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "a02dd478_ee64bbca",
+        "filename": "shiny/driver/internal/win32/win32.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-11T14:49:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8057f0e8_ef78410e",
+      "revId": "419d4968a5428346f54a1996972fbbe988d67817",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8057f0e8_0f6e6549",
         "filename": "shiny/driver/internal/win32/win32.go",
         "patchSetId": 1
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "a02dd478_6e51abde",
+        "filename": "shiny/driver/internal/win32/win32.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-11T14:49:59Z",
+      "side": 1,
+      "message": "Added a TODO.\n\nRight now other drivers (e.g. gldriver/cocoa and x11driver) do not report mouse move events when no buttons are held down. I suspect you\u0027re right and they probably should. But there should probably be some coordination for this.\n\nIdeally we would have some kind of driver validation test suite where we could write tests for properties like this. (Unfortunately building one requires a significant amount of platform-specific code for each driver, so it\u0027s not something I want to do until we have a stable feature set for the screen package.)",
+      "parentUuid": "8057f0e8_0f6e6549",
+      "revId": "419d4968a5428346f54a1996972fbbe988d67817",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8057f0e8_4f686d3b",
         "filename": "shiny/driver/internal/win32/win32.go",
         "patchSetId": 1
@@ -81,6 +153,24 @@
       "writtenOn": "2015-12-11T05:07:46Z",
       "side": 1,
       "message": "Can this ever block?",
+      "revId": "419d4968a5428346f54a1996972fbbe988d67817",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a02dd478_8e889f9e",
+        "filename": "shiny/driver/internal/win32/win32.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-11T14:49:59Z",
+      "side": 1,
+      "message": "That would be a bug in the implementation of MouseEvent. It should just drop an event on the infinite message pump.",
+      "parentUuid": "8057f0e8_4f686d3b",
       "revId": "419d4968a5428346f54a1996972fbbe988d67817",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
