@@ -16,6 +16,24 @@
       "revId": "daf9acdd085bf90686aff809427338fd2f9d70b3",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a02dd478_ce48d745",
+        "filename": "shiny/driver/internal/win32/win32.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-11T14:25:05Z",
+      "side": 1,
+      "message": "Some of the functions in windowMsgs return a value other than 0. (In particular, sendPaint.)\n\nAddWindowMsg lets windriver/gldriver register message handlers, and those always get a 0. I\u0027m creating a closure here to simplify their already-very-complex function signatures. (You quite reasonably asked about the bool return value in the last patchset, so I removed it completely with this change.)",
+      "parentUuid": "8057f0e8_cfbb7d30",
+      "revId": "daf9acdd085bf90686aff809427338fd2f9d70b3",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
