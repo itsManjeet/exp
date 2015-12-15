@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "85be22e1_17533462",
+        "filename": "shiny/driver/gldriver/texture.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-15T18:38:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80b8d0a7_67acb264",
+      "range": {
+        "startLine": 34,
+        "startChar": 22,
+        "endLine": 34,
+        "endChar": 28
+      },
+      "revId": "4ef8d7bd765c2871c2f5b9b3a414a11877dbe050",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "80b8d0a7_c79a3e2f",
         "filename": "shiny/driver/x11driver/buffer.go",
         "patchSetId": 1
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "85be22e1_d725bcf0",
+        "filename": "shiny/driver/x11driver/buffer.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-15T18:38:35Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "80b8d0a7_c79a3e2f",
+      "revId": "4ef8d7bd765c2871c2f5b9b3a414a11877dbe050",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "80b8d0a7_27b6bab0",
         "filename": "shiny/driver/x11driver/screen.go",
         "patchSetId": 1
@@ -53,6 +95,24 @@
       "writtenOn": "2015-12-04T10:03:33Z",
       "side": 1,
       "message": "Huh, not your bug, but while you\u0027re here, add a\ndelete(s.uploads, ck)\nbefore this line, no?",
+      "revId": "4ef8d7bd765c2871c2f5b9b3a414a11877dbe050",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85be22e1_f720c0e2",
+        "filename": "shiny/driver/x11driver/screen.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-15T18:38:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80b8d0a7_27b6bab0",
       "revId": "4ef8d7bd765c2871c2f5b9b3a414a11877dbe050",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
