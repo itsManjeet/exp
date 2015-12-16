@@ -252,6 +252,16 @@ func mouseEvent(id uintptr, x, y float32, ty, button int32, flags uint32) {
 	})
 }
 
+//export keyEvent
+func keyEvent(id uintptr, r rune, code, mods uint32, dir uint8) {
+	sendWindowEvent(id, key.Event{
+		Rune:      r,
+		Code:      key.Code(code),
+		Modifiers: key.Modifiers(mods),
+		Direction: key.Direction(dir),
+	})
+}
+
 func sendLifecycle(id uintptr, to lifecycle.Stage) {
 	theScreen.mu.Lock()
 	w := theScreen.windows[id]

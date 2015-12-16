@@ -145,7 +145,49 @@ uint64 threadID() {
 @end
 
 @implementation WindowResponder
-// TODO(crawshaw): key events
+{
+	uintptr_t windowID;
+}
+
+- (id)initWithWindowID:(uintptr_t)id {
+    windowID = id;
+    return self;
+}
+
+- (void)keyEventNS:(NSEvent *)theEvent {
+	unsigned char dir = 0;
+	if ([theEvent type] == NSKeyDown) {
+		dir = 1;
+	} else if ([theEvent type] == NSKeyUp) {
+		dir = 2;
+	}
+
+	unsigned int raw = [theEvent modifierFlags];
+	unsigned int mod = 0;
+	if (raw & NSShiftKeyMask) {
+		mod |= 1 << 0;
+	}
+	if (raw & NSControlKeyMask) {
+		mod |= 1 << 1;
+	}
+	if (raw & NSAlternateKeyMask) {
+		mod |= 1 << 2;
+	}
+	if (raw & NSCommandKeyMask) {
+		mod |= 1 << 3;
+	}
+
+	NSString *s = [theEvent characters];
+	if ([s length] == 1) {
+		unichar r = [s characterAtIndex:0];
+		keyEvent((GoUintptr)windowID, r, [theEvent keyCode], mod, dir);
+	} else {
+		NSLog(@"failed to handle keyboard event: %@", theEvent);
+	}
+}
+
+- (void)keyDown:(NSEvent *)theEvent { [self keyEventNS:theEvent]; }
+- (void)keyUp:(NSEvent *)theEvent { [self keyEventNS:theEvent]; }
 @end
 
 @interface AppDelegate : NSObject<NSApplicationDelegate>
@@ -220,7 +262,7 @@ uintptr_t doNewWindow(int width, int height) {
 		[window setContentView:view];
 		[window setDelegate:view];
 
-		window.nextResponder = [[WindowResponder alloc] init];
+		window.nextResponder = [[WindowResponder alloc] initWithWindowID:(uintptr_t)view];
 	});
 
 	return (uintptr_t)view;
