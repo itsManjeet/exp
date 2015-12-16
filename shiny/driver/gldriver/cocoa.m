@@ -145,8 +145,44 @@ uint64 threadID() {
 @end
 
 @implementation WindowResponder
-// TODO(crawshaw): key events
-@end
+{
+	uintptr_t windowID;
+}
+
+- (id)initWithWindowID:(uintptr_t)id {
+    windowID = id;
+    return self;
+}
+
+- (void)keyDown:(NSEvent *)theEvent {
+	[self key:theEvent];
+}
+- (void)keyUp:(NSEvent *)theEvent {
+	[self key:theEvent];
+}
+- (void)key:(NSEvent *)theEvent {
+	NSRange range = [theEvent.characters rangeOfComposedCharacterSequenceAtIndex:0];
+
+	uint8_t buf[4] = {0, 0, 0, 0};
+	if (![theEvent.characters getBytes:buf
+			maxLength:4
+			usedLength:nil
+			encoding:NSUTF32LittleEndianStringEncoding
+			options:NSStringEncodingConversionAllowLossy
+			range:range
+			remainingRange:nil]) {
+		NSLog(@"failed to read key event %@", theEvent);
+		return;
+	}
+
+	uint32_t rune = (uint32_t)buf[0]<<0 | (uint32_t)buf[1]<<8 | (uint32_t)buf[2]<<16 | (uint32_t)buf[3]<<24;
+
+	keyEvent((GoUintptr)windowID, (int32_t)rune, theEvent.type, theEvent.keyCode, theEvent.modifierFlags);
+}
+
+- (void)flagsChanged:(NSEvent *)theEvent {
+	flagEvent((GoUintptr)windowID, theEvent.modifierFlags);
+}@end
 
 @interface AppDelegate : NSObject<NSApplicationDelegate>
 {
@@ -220,7 +256,7 @@ uintptr_t doNewWindow(int width, int height) {
 		[window setContentView:view];
 		[window setDelegate:view];
 
-		window.nextResponder = [[WindowResponder alloc] init];
+		window.nextResponder = [[WindowResponder alloc] initWithWindowID:(uintptr_t)view];
 	});
 
 	return (uintptr_t)view;
