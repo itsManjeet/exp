@@ -16,6 +16,24 @@
       "revId": "e20d2898e2f5fddeaa789f5b4940b6863b225d8a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "85be22e1_97798411",
+        "filename": "shiny/driver/gldriver/win32.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-16T14:26:48Z",
+      "side": 1,
+      "message": "What state is your x/mobile repository in? It looks like x/mobile/gl/types_prod.go is not being included in your build, but it should be after golang.org/cl/17674.",
+      "parentUuid": "45434ae2_9d1ae3a7",
+      "revId": "e20d2898e2f5fddeaa789f5b4940b6863b225d8a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
