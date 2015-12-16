@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "45434ae2_9d1ae3a7",
+        "filename": "shiny/driver/gldriver/win32.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2015-12-16T04:53:06Z",
+      "side": 1,
+      "message": "I tried building this:\n\ngldriver # git fetch https://go.googlesource.com/exp refs/changes/77/17677/7 \u0026\u0026 git checkout FETCH_HEAD\nFrom https://go.googlesource.com/exp\n * branch            refs/changes/77/17677/7 -\u003e FETCH_HEAD\nHEAD is now at e20d289... shiny/driver/gldriver: windows support\ngldriver # GOOS\u003dwindows go build -v\ngolang.org/x/image/math/f64\ngolang.org/x/exp/shiny/screen\ngolang.org/x/exp/shiny/driver/internal/errscreen\ngolang.org/x/exp/shiny/driver/internal/pump\ngolang.org/x/mobile/event/key\ngolang.org/x/mobile/event/lifecycle\ngolang.org/x/mobile/event/mouse\ngolang.org/x/mobile/event/paint\ngolang.org/x/mobile/geom\ngolang.org/x/mobile/event/size\ngolang.org/x/exp/shiny/driver/internal/win32\ngolang.org/x/mobile/gl\n# golang.org/x/mobile/gl\n../../../../mobile/gl/interface.go:18: undefined: Enum\n../../../../mobile/gl/interface.go:23: undefined: Program\n../../../../mobile/gl/interface.go:23: undefined: Shader\n../../../../mobile/gl/interface.go:29: undefined: Program\n../../../../mobile/gl/interface.go:29: undefined: Attrib\n../../../../mobile/gl/interface.go:34: undefined: Enum\n../../../../mobile/gl/interface.go:34: undefined: Buffer\n../../../../mobile/gl/interface.go:39: undefined: Enum\n../../../../mobile/gl/interface.go:39: undefined: Framebuffer\n../../../../mobile/gl/interface.go:44: undefined: Enum\n../../../../mobile/gl/interface.go:44: too many errors\ngldriver #\n\nWhy does it fail?",
+      "revId": "e20d2898e2f5fddeaa789f5b4940b6863b225d8a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
