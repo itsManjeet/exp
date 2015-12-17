@@ -34,6 +34,24 @@
       "revId": "e20d2898e2f5fddeaa789f5b4940b6863b225d8a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a55406e5_f0fae02a",
+        "filename": "shiny/driver/gldriver/win32.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2015-12-17T06:03:36Z",
+      "side": 1,
+      "message": "I was not on the golang.org/x/mobile tip. But now I am. But it still does not build because of issue 13649. But if I make appropriate adjustment (see CL 17922), and also adjust golang.org/x/exp/shiny/driver like:\n```\ndiff --git a/shiny/driver/driver_windows.go b/shiny/driver/driver_windows.go\nindex 4ae016c..1b1a1db 100644\n--- a/shiny/driver/driver_windows.go\n+++ b/shiny/driver/driver_windows.go\n@@ -5,10 +5,11 @@\n package driver\n \n import (\n-\t\"golang.org/x/exp/shiny/driver/windriver\"\n+\t//\"golang.org/x/exp/shiny/driver/windriver\"\n+\t\"golang.org/x/exp/shiny/driver/gldriver\"\n \t\"golang.org/x/exp/shiny/screen\"\n )\n \n func main(f func(screen.Screen)) {\n-\twindriver.Main(f)\n+\tgldriver.Main(f)\n }\n```\nthen I can build golang.org/x/exp/shiny/example/basic/main.go. But If I run it, it crashes with:\n```\nC:\\Users\\brainman\u003eu:\\test\ncreateEGLSurface called\npanic: eglInitialize failed: EGL_NOT_INITIALIZED\n\ngoroutine 1 [running, locked to thread]:\ngolang.org/x/exp/shiny/driver/gldriver.sizeEvent(0x301e4, 0x4e4, 0x2c6, 0x44318000449c8000, 0x3f800000, 0x0)\n        /root/src/golang.org/x/exp/shiny/driver/gldriver/win32.go:186 +0x107\ngolang.org/x/exp/shiny/driver/internal/win32.sendSize(0x301e4)\n        /root/src/golang.org/x/exp/shiny/driver/internal/win32/win32.go:131 +0x13e\ngolang.org/x/exp/shiny/driver/internal/win32.sendShow(0x301e4, 0xc000000402, 0x0, 0x0, 0xc082063ba0)\n        /root/src/golang.org/x/exp/shiny/driver/internal/win32/win32.go:102 +0x5b\ngolang.org/x/exp/shiny/driver/internal/win32.windowWndProc(0x301e4, 0x402, 0x0, 0x0, 0x9a6f80)\n        /root/src/golang.org/x/exp/shiny/driver/internal/win32/win32.go:281 +0x7e\nsyscall.Syscall6(0x76c09e74, 0x4, 0xc082063d80, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, ...)\n        /root/go/src/runtime/syscall_windows.go:139 +0x5c\ngolang.org/x/exp/shiny/driver/internal/win32._GetMessage(0xc082063d80, 0x0, 0x0, 0x1, 0x0, 0x0)\n        /root/src/golang.org/x/exp/shiny/driver/internal/win32/zsyscall_windows.go:73 +0x91\ngolang.org/x/exp/shiny/driver/internal/win32.Main(0xc082002cf0, 0x0, 0x0)\n        /root/src/golang.org/x/exp/shiny/driver/internal/win32/win32.go:403 +0x235\ngolang.org/x/exp/shiny/driver/gldriver.main(0x878550, 0x0, 0x0)\n        /root/src/golang.org/x/exp/shiny/driver/gldriver/win32.go:26 +0x69\ngolang.org/x/exp/shiny/driver/gldriver.Main(0x878550)\n        /root/src/golang.org/x/exp/shiny/driver/gldriver/gldriver.go:26 +0x37\ngolang.org/x/exp/shiny/driver.main(0x878550)\n        /root/src/golang.org/x/exp/shiny/driver/driver_windows.go:14 +0x28\ngolang.org/x/exp/shiny/driver.Main(0x878550)\n        /root/src/golang.org/x/exp/shiny/driver/driver.go:24 +0x28\nmain.main()\n        /root/src/golang.org/x/exp/shiny/example/basic/main.go:92 +0x2a\n\nC:\\Users\\brainman\u003e\n```",
+      "parentUuid": "85be22e1_97798411",
+      "revId": "e20d2898e2f5fddeaa789f5b4940b6863b225d8a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
