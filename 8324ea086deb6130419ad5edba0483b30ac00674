@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "a55406e5_100be46d",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 5300
+      },
+      "writtenOn": "2015-12-17T02:59:19Z",
+      "side": 1,
+      "message": "I added the conversion code that is used in x/mobile/app.",
+      "parentUuid": "85be22e1_576c0c4e",
+      "revId": "8324ea086deb6130419ad5edba0483b30ac00674",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "85be22e1_3769983e",
         "filename": "shiny/driver/gldriver/cocoa.m",
         "patchSetId": 1
