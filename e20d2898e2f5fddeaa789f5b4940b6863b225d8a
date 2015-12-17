@@ -52,6 +52,24 @@
       "revId": "e20d2898e2f5fddeaa789f5b4940b6863b225d8a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c5365ac7_297b2dcf",
+        "filename": "shiny/driver/gldriver/win32.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-17T18:03:54Z",
+      "side": 1,
+      "message": "That\u0027s a surprising error message. What version of windows are you using? (So far all my development is on Windows 10.)",
+      "parentUuid": "a55406e5_f0fae02a",
+      "revId": "e20d2898e2f5fddeaa789f5b4940b6863b225d8a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
