@@ -88,6 +88,24 @@
       "revId": "e20d2898e2f5fddeaa789f5b4940b6863b225d8a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a4d4387_845e6655",
+        "filename": "shiny/driver/gldriver/win32.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-18T03:17:30Z",
+      "side": 1,
+      "message": "I\u0027m having trouble replicating this. Could you give me more information about the machine? Graphics card, driver version?",
+      "parentUuid": "aa405343_d0abfc90",
+      "revId": "e20d2898e2f5fddeaa789f5b4940b6863b225d8a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
