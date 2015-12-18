@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2a4d4387_44f06e4a",
+        "filename": "shiny/driver/gldriver/cocoa.m",
+        "patchSetId": 3
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 5190
+      },
+      "writtenOn": "2015-12-18T16:42:12Z",
+      "side": 1,
+      "message": "is this also a change (!barrier) necessary to avoid deadlock?",
+      "revId": "a79bddd8e450418a685a87b44058f2b8c44ff82b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
