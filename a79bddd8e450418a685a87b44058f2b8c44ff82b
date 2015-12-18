@@ -16,6 +16,24 @@
       "revId": "a79bddd8e450418a685a87b44058f2b8c44ff82b",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a4d4387_249fb289",
+        "filename": "shiny/driver/gldriver/cocoa.m",
+        "patchSetId": 3
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-18T20:31:14Z",
+      "side": 1,
+      "message": "no, it\u0027s just to make this code a little easier to reason about. the key property we want here is that doNewWindow does not return until this code has finished executing. dispatch_barrier_sync adds another obscure property about the ordering of blocks already dispatched to the queue that doesn\u0027t matter here.",
+      "parentUuid": "2a4d4387_44f06e4a",
+      "revId": "a79bddd8e450418a685a87b44058f2b8c44ff82b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
