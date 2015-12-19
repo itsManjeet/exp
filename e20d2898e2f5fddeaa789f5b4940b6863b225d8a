@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "2a4d4387_a794c4f6",
+        "filename": "shiny/driver/gldriver/egl.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-19T15:31:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa405343_7060d0b1",
+      "revId": "e20d2898e2f5fddeaa789f5b4940b6863b225d8a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45434ae2_9d1ae3a7",
         "filename": "shiny/driver/gldriver/win32.go",
         "patchSetId": 7
@@ -179,6 +197,24 @@
     },
     {
       "key": {
+        "uuid": "2a4d4387_8791c806",
+        "filename": "shiny/driver/gldriver/win32.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-19T15:31:35Z",
+      "side": 1,
+      "message": "The sizeEvent function is called on the thread responsible for calling worker.DoWork.\n\nThis are non-blocking GL calls, so they typically go on the work queue. This means it is usually possible to write:\n\nw.glctx.Viewport(...)\nw.worker.DoWork()\n\nWhen compiling with -tags gldebug, all GL functions become blocking so that the debug wrapper can call glGetError and get back a useful value. That means the above trick does not work, because we never call DoWork.",
+      "parentUuid": "aa405343_105f44f8",
+      "revId": "e20d2898e2f5fddeaa789f5b4940b6863b225d8a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa405343_903334c9",
         "filename": "shiny/driver/gldriver/window.go",
         "patchSetId": 7
@@ -196,6 +232,24 @@
     },
     {
       "key": {
+        "uuid": "2a4d4387_675ecc2f",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-19T15:31:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa405343_903334c9",
+      "revId": "e20d2898e2f5fddeaa789f5b4940b6863b225d8a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa405343_5065ccbf",
         "filename": "shiny/driver/gldriver/x11.go",
         "patchSetId": 7
@@ -207,6 +261,24 @@
       "writtenOn": "2015-12-19T00:08:45Z",
       "side": 1,
       "message": "Does this compile?",
+      "revId": "e20d2898e2f5fddeaa789f5b4940b6863b225d8a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2a4d4387_4763d0ed",
+        "filename": "shiny/driver/gldriver/x11.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-19T15:31:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa405343_5065ccbf",
       "revId": "e20d2898e2f5fddeaa789f5b4940b6863b225d8a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
