@@ -144,6 +144,24 @@
     },
     {
       "key": {
+        "uuid": "2a4d4387_2781f4b7",
+        "filename": "shiny/driver/gldriver/win32.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-19T15:01:54Z",
+      "side": 1,
+      "message": "Do you happen to have 64-bit chrome installed on the machine? If so, could you borrow the libglesv2.dll and libegl.dll from it and give it another go?\n\nI have one machine I could install Windows 7 on that will get close to yours, but I won\u0027t be near enough to do it until the new year.",
+      "parentUuid": "aa405343_30700871",
+      "revId": "e20d2898e2f5fddeaa789f5b4940b6863b225d8a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa405343_105f44f8",
         "filename": "shiny/driver/gldriver/win32.go",
         "patchSetId": 7
