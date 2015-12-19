@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2a4d4387_a76ba4c0",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2015-12-19T16:03:52Z",
+      "side": 1,
+      "message": "This extra function isn\u0027t helping, it\u0027s just turning the fields of the mouse.Event struct into a parameter list, which gives this code more moving parts. Merge it back into mouseEvent.",
+      "revId": "27b0028684973c8200d42f54c3e96cfde7264b04",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
