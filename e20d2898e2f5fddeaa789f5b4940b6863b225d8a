@@ -180,6 +180,24 @@
     },
     {
       "key": {
+        "uuid": "aa405343_903d7468",
+        "filename": "shiny/driver/gldriver/win32.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2015-12-20T07:52:12Z",
+      "side": 1,
+      "message": "I don\u0027t have 64-bit chrome installed. Looking at Task Manager the chrome process is named \"chrome.exe*32\". Can I download appropriate files from the Net somewhere?",
+      "parentUuid": "2a4d4387_2781f4b7",
+      "revId": "e20d2898e2f5fddeaa789f5b4940b6863b225d8a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa405343_105f44f8",
         "filename": "shiny/driver/gldriver/win32.go",
         "patchSetId": 7
