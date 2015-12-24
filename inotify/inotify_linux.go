@@ -162,6 +162,7 @@ func (w *Watcher) readEvents() {
 		}
 
 		// If EOF or a "done" message is received
+	done:
 		if n == 0 || done {
 			// The syscall.Close can be slow.  Close
 			// w.Event first.
@@ -206,7 +207,11 @@ func (w *Watcher) readEvents() {
 				event.Name += "/" + strings.TrimRight(string(bytes[0:nameLen]), "\000")
 			}
 			// Send the event on the events channel
-			w.Event <- event
+			select {
+			case w.Event <- event:
+			case done = <-w.done:
+				goto done
+			}
 
 			// Move to the next event in the buffer
 			offset += syscall.SizeofInotifyEvent + nameLen
