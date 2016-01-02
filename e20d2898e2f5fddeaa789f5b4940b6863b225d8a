@@ -233,6 +233,58 @@
     },
     {
       "key": {
+        "uuid": "ea988b91_a5c208aa",
+        "filename": "shiny/driver/gldriver/win32.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-01-02T06:55:13Z",
+      "side": 1,
+      "message": "I think this explanation belongs in the code comment, not just in the code review discussion.",
+      "parentUuid": "2a4d4387_8791c806",
+      "revId": "e20d2898e2f5fddeaa789f5b4940b6863b225d8a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea988b91_85b82432",
+        "filename": "shiny/driver/gldriver/win32.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-01-02T06:55:13Z",
+      "side": 1,
+      "message": "\"ur\".",
+      "revId": "e20d2898e2f5fddeaa789f5b4940b6863b225d8a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea988b91_65b52036",
+        "filename": "shiny/driver/gldriver/win32.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-01-02T06:55:13Z",
+      "side": 1,
+      "message": "\"receieved\", FWIWIW.",
+      "revId": "e20d2898e2f5fddeaa789f5b4940b6863b225d8a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa405343_903334c9",
         "filename": "shiny/driver/gldriver/window.go",
         "patchSetId": 7
