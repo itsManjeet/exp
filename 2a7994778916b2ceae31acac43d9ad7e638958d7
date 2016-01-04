@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ea988b91_a8e1bfbc",
+        "filename": "mmap/mmap_windows.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 5025
+      },
+      "writtenOn": "2016-01-04T10:23:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea988b91_68d3b730",
+      "revId": "2a7994778916b2ceae31acac43d9ad7e638958d7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea988b91_48d0f321",
         "filename": "mmap/mmap_windows.go",
         "patchSetId": 2
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "ea988b91_68e4d7c8",
+        "filename": "mmap/mmap_windows.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 5025
+      },
+      "writtenOn": "2016-01-04T10:23:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea988b91_48d0f321",
+      "range": {
+        "startLine": 102,
+        "startChar": 95,
+        "endLine": 102,
+        "endChar": 107
+      },
+      "revId": "2a7994778916b2ceae31acac43d9ad7e638958d7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea988b91_88d6fb1e",
         "filename": "mmap/mmap_windows.go",
         "patchSetId": 2
@@ -53,6 +95,24 @@
       "writtenOn": "2016-01-04T05:23:51Z",
       "side": 1,
       "message": "s/data[:]/data/\n\ndata is already a slice.",
+      "revId": "2a7994778916b2ceae31acac43d9ad7e638958d7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea988b91_c8dc030d",
+        "filename": "mmap/mmap_windows.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 5025
+      },
+      "writtenOn": "2016-01-04T10:23:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea988b91_88d6fb1e",
       "revId": "2a7994778916b2ceae31acac43d9ad7e638958d7",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
