@@ -1,0 +1,7 @@
+TryBot-Result-1: Gobot Gobot <gobot@golang.org>
+Code-Review+2: Alex Brainman <alex.brainman@gmail.com>
+Submitted-by: Alex Brainman <alex.brainman@gmail.com>
+Submitted-at: Wed, 06 Jan 2016 02:13:38 +0000
+Reviewed-on: https://go-review.googlesource.com/17630
+Project: exp
+Branch: refs/heads/master
