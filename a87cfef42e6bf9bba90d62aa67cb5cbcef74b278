@@ -1,0 +1,6 @@
+Code-Review+2: Ian Lance Taylor <iant@golang.org>
+Submitted-by: Russ Cox <rsc@golang.org>
+Submitted-at: Wed, 06 Jan 2016 17:55:58 +0000
+Reviewed-on: https://go-review.googlesource.com/18319
+Project: exp
+Branch: refs/heads/master
