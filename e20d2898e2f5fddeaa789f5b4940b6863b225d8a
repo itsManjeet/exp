@@ -216,6 +216,24 @@
     },
     {
       "key": {
+        "uuid": "cadae7a8_097e49bc",
+        "filename": "shiny/driver/gldriver/win32.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2016-01-08T20:20:45Z",
+      "side": 1,
+      "message": "I have no problem with you proceeding. I am not using this code. No one even build it - I had to change shiny/driver/windriver to make it build.",
+      "parentUuid": "ead7ab7c_aa8e0fa9",
+      "revId": "e20d2898e2f5fddeaa789f5b4940b6863b225d8a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa405343_105f44f8",
         "filename": "shiny/driver/gldriver/win32.go",
         "patchSetId": 7
