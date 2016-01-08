@@ -198,6 +198,24 @@
     },
     {
       "key": {
+        "uuid": "ead7ab7c_aa8e0fa9",
+        "filename": "shiny/driver/gldriver/win32.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-01-08T18:46:38Z",
+      "side": 1,
+      "message": "I got a Win7 VM going on my Win10 laptop (the builtin Hyper-V is quite impressive). It has the same EGL_NOT_INITIALIZED failure you described.\n\nI\u0027ve confirmed that it\u0027s an issue with ANGLE by running the hello_triangle.exe sample from the project using the same DLLs.\n\nAs this code is not the cause, I\u0027d like to move forward with this CL and look at fixing (or filing against the ANGLE folks) this bug.",
+      "parentUuid": "aa405343_903d7468",
+      "revId": "e20d2898e2f5fddeaa789f5b4940b6863b225d8a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "aa405343_105f44f8",
         "filename": "shiny/driver/gldriver/win32.go",
         "patchSetId": 7
