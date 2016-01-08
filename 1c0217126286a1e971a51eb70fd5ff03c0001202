@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ead7ab7c_aa73afef",
+        "filename": "shiny/driver/gldriver/win32.go",
+        "patchSetId": 8
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-01-08T16:59:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea988b91_0523f44f",
+      "revId": "1c0217126286a1e971a51eb70fd5ff03c0001202",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea988b91_25af18e6",
         "filename": "shiny/driver/gldriver/win32.go",
         "patchSetId": 8
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "ead7ab7c_8a786bcd",
+        "filename": "shiny/driver/gldriver/win32.go",
+        "patchSetId": 8
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-01-08T16:59:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea988b91_25af18e6",
+      "revId": "1c0217126286a1e971a51eb70fd5ff03c0001202",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ea988b91_45b21c50",
         "filename": "shiny/driver/gldriver/win32.go",
         "patchSetId": 8
@@ -47,6 +83,24 @@
       "writtenOn": "2016-01-02T06:55:13Z",
       "side": 1,
       "message": "Move this to egl.go? Or is it not part of the EGL 1.4 headers?\n\nIf we need this magic surface attribute, will we need to make the same request in the other flavors of gldriver? For example, x11.c\u0027s eglCreateWindowSurface call passes no surface attributes.\n\nOr, if the gldriver code can\u0027t assume in general that we have this, is it worth asking for it here?",
+      "revId": "1c0217126286a1e971a51eb70fd5ff03c0001202",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ead7ab7c_ea6da709",
+        "filename": "shiny/driver/gldriver/win32.go",
+        "patchSetId": 8
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-01-08T16:59:04Z",
+      "side": 1,
+      "message": "I\u0027ve removed this.\n\nThis was an experiment in getting direct screen write access, which we don\u0027t need with the current design. (In the past I\u0027ve told you that OpenGL ES needs to be double buffered, well angle at least supports this extension which lets you get at the screen buffer. I\u0027m not sure how widely supported this is.)",
+      "parentUuid": "ea988b91_45b21c50",
       "revId": "1c0217126286a1e971a51eb70fd5ff03c0001202",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
