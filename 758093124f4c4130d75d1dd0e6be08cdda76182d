@@ -1,0 +1,163 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "67af7662_a65f0651",
+        "filename": "shiny/driver/gldriver/egl.go",
+        "patchSetId": 9
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-01-12T03:04:46Z",
+      "side": 1,
+      "message": "Not sure why this was reverted: mention egl.h etc.",
+      "revId": "758093124f4c4130d75d1dd0e6be08cdda76182d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67af7662_c60ec24e",
+        "filename": "shiny/driver/gldriver/win32.go",
+        "patchSetId": 9
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-01-12T03:04:46Z",
+      "side": 1,
+      "message": "s/int/eglInt/ ??\n\nDoes Windows and X11 GL differ here?",
+      "revId": "758093124f4c4130d75d1dd0e6be08cdda76182d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67af7662_26fa3662",
+        "filename": "shiny/driver/gldriver/win32.go",
+        "patchSetId": 9
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-01-12T03:04:46Z",
+      "side": 1,
+      "message": "FWIW, the attribs in x11.c are different, e.g. \"EGL_DEPTH_SIZE, 16\". It might be worth harmonizing them (maybe in a follow-up).",
+      "revId": "758093124f4c4130d75d1dd0e6be08cdda76182d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67af7662_e60bbe3b",
+        "filename": "shiny/driver/gldriver/win32.go",
+        "patchSetId": 9
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-01-12T03:04:46Z",
+      "side": 1,
+      "message": "I\u0027d drop the parens.",
+      "revId": "758093124f4c4130d75d1dd0e6be08cdda76182d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67af7662_8608ca40",
+        "filename": "shiny/driver/gldriver/win32.go",
+        "patchSetId": 9
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-01-12T03:04:46Z",
+      "side": 1,
+      "message": "I\u0027d add a colon after TODO.",
+      "revId": "758093124f4c4130d75d1dd0e6be08cdda76182d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67af7662_a605c629",
+        "filename": "shiny/driver/gldriver/win32.go",
+        "patchSetId": 9
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-01-12T03:04:46Z",
+      "side": 1,
+      "message": "I\u0027d add a line break before the _EGL_NONE.",
+      "revId": "758093124f4c4130d75d1dd0e6be08cdda76182d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67af7662_066ffa01",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 9
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-01-12T03:04:46Z",
+      "side": 1,
+      "message": "Not sure why this was reverted: tabs vs spaces.",
+      "range": {
+        "startLine": 33,
+        "startChar": 10,
+        "endLine": 33,
+        "endChar": 11
+      },
+      "revId": "758093124f4c4130d75d1dd0e6be08cdda76182d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67af7662_a68626fb",
+        "filename": "shiny/driver/gldriver/x11.go",
+        "patchSetId": 9
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-01-12T03:04:46Z",
+      "side": 1,
+      "message": "Not sure why this was reverted:\nw.ctx.(uintptr)",
+      "revId": "758093124f4c4130d75d1dd0e6be08cdda76182d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "67af7662_4675f2d3",
+        "filename": "shiny/driver/gldriver/x11.go",
+        "patchSetId": 9
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-01-12T03:04:46Z",
+      "side": 1,
+      "message": "Ditto.",
+      "revId": "758093124f4c4130d75d1dd0e6be08cdda76182d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
