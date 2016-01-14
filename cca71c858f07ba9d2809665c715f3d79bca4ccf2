@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "87f38ae9_ef122139",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-01-14T07:01:28Z",
+      "side": 1,
+      "message": "BTW, I\u0027m not really sure how this should work, with Cocoa. I\u0027ve only manually tested this on Linux (x11driver and gldriver). I haven\u0027t even tried compiling this on other platforms.",
+      "revId": "cca71c858f07ba9d2809665c715f3d79bca4ccf2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
