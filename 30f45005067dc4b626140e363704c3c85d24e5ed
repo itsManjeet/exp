@@ -22,6 +22,30 @@
       "revId": "30f45005067dc4b626140e363704c3c85d24e5ed",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "87f38ae9_cf63dded",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5010
+      },
+      "writtenOn": "2016-01-14T04:22:30Z",
+      "side": 1,
+      "message": "\u003e Wrong issue number.\n\nremoved",
+      "parentUuid": "87f38ae9_4f87edca",
+      "range": {
+        "startLine": 9,
+        "startChar": 18,
+        "endLine": 9,
+        "endChar": 19
+      },
+      "revId": "30f45005067dc4b626140e363704c3c85d24e5ed",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
