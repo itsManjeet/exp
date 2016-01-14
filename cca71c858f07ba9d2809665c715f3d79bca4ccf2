@@ -16,6 +16,41 @@
       "revId": "cca71c858f07ba9d2809665c715f3d79bca4ccf2",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "87a54ac9_a2ad60c0",
+        "filename": "shiny/driver/gldriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-01-14T23:36:03Z",
+      "side": 1,
+      "message": "I tested this CL quickly on OS X and it doesn\u0027t break anything (though I\u0027m not sure lifecycle.StageDead is being sent properly).\n\nIf you like, you can submit this and I\u0027ll look at these details in a followup.\n\nAlso, maybe we should get you a mac laptop? This thing won\u0027t add much to your backpack: http://www.apple.com/macbook/",
+      "parentUuid": "87f38ae9_ef122139",
+      "revId": "cca71c858f07ba9d2809665c715f3d79bca4ccf2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "87a54ac9_022d2c81",
+        "filename": "shiny/screen/screen.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-01-14T23:36:03Z",
+      "side": 1,
+      "message": "Do you foresee any other uses for this besides embedding into Window?\n\nIntroducing a new symbol just for documentation seems a bit much. (I realize that Window has way more methods than is ideal for an interface, but splitting it out like this doesn\u0027t help with that.)",
+      "revId": "cca71c858f07ba9d2809665c715f3d79bca4ccf2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
