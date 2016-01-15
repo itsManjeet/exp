@@ -27,7 +27,6 @@ import (
 	"golang.org/x/mobile/event/lifecycle"
 	"golang.org/x/mobile/event/mouse"
 	"golang.org/x/mobile/event/paint"
-	"golang.org/x/mobile/event/size"
 )
 
 func main() {
@@ -48,7 +47,6 @@ func main() {
 			paintPending bool
 			drag         image.Point
 			origin       image.Point
-			sz           size.Event
 		)
 		for {
 			switch e := w.NextEvent().(type) {
@@ -87,6 +85,7 @@ func main() {
 			case paint.Event:
 				generation++
 				var wg sync.WaitGroup
+				sz := w.LatestSizeEvent()
 				for y := -(origin.Y & 0xff); y < sz.HeightPx; y += 256 {
 					for x := -(origin.X & 0xff); x < sz.WidthPx; x += 256 {
 						wg.Add(1)
@@ -97,9 +96,6 @@ func main() {
 				w.Publish()
 				paintPending = false
 				pool.releaseUnused()
-
-			case size.Event:
-				sz = e
 
 			case error:
 				log.Print(e)

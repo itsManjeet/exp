@@ -24,7 +24,6 @@ import (
 	"golang.org/x/mobile/event/key"
 	"golang.org/x/mobile/event/lifecycle"
 	"golang.org/x/mobile/event/paint"
-	"golang.org/x/mobile/event/size"
 )
 
 var (
@@ -55,7 +54,6 @@ func main() {
 		defer t.Release()
 		t.Upload(image.Point{}, b, b.Bounds())
 
-		var sz size.Event
 		for {
 			e := w.NextEvent()
 
@@ -80,8 +78,9 @@ func main() {
 				}
 
 			case paint.Event:
-				w.Fill(sz.Bounds(), blue0, draw.Src)
-				w.Fill(sz.Bounds().Inset(10), blue1, draw.Src)
+				bounds := w.LatestSizeEvent().Bounds()
+				w.Fill(bounds, blue0, draw.Src)
+				w.Fill(bounds.Inset(10), blue1, draw.Src)
 				w.Upload(image.Point{}, b, b.Bounds())
 				c := math.Cos(math.Pi / 6)
 				s := math.Sin(math.Pi / 6)
@@ -90,9 +89,6 @@ func main() {
 					+s, +c, 200,
 				}, t, t.Bounds(), screen.Over, nil)
 				w.Publish()
-
-			case size.Event:
-				sz = e
 
 			case error:
 				log.Print(e)
