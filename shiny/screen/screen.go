@@ -58,6 +58,7 @@ import (
 	"image/draw"
 
 	"golang.org/x/image/math/f64"
+	"golang.org/x/mobile/event/size"
 )
 
 // TODO: specify image format (Alpha or Gray, not just RGBA) for NewBuffer
@@ -159,7 +160,23 @@ type EventQueue interface {
 	// TODO: LatestLifecycleEvent? Is that still worth it if the
 	// lifecycle.Event struct type loses its DrawContext field?
 
-	// TODO: LatestSizeEvent?
+	// LatestSizeEvent returns the most recent size event previously returned
+	// by NextEvent.
+	LatestSizeEvent() size.Event
+
+	// TODO: do we want some sort of way to tell that there are multiple
+	// size.Event values in the queue, so that all but the last ones are
+	// obsolete? This might save some buffer churning when a window is being
+	// rapidly resized. Note that LatestSizeEvent returns the latest received,
+	// not the latest sent. (The queue is buffered).
+	//
+	// Should size.Event (and paint.Event?) have some sort of generic tag to
+	// say that, if multiple instances are in the queue, only the last one
+	// matters?
+	//
+	// How does this all work with a DrawContext, whether as a field of a
+	// lifecycle.Event, a method on EventQueue like LatestSizeEvent, or some
+	// other mechanism?
 }
 
 // Window is a top-level, double-buffered GUI window.
