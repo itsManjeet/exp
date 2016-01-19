@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "27801e4e_ccfaef64",
+        "filename": "shiny/screen/screen.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-01-19T19:15:57Z",
+      "side": 1,
+      "message": "This exposes an interesting overlap between these parameters and events. In particular, WindowSize and WindowPosition are components of size.Event.\n\nMaybe size.Event should be several different events, and those types can be reused as WindowParameters?",
+      "revId": "5ca86b66097b620f63327353d50782c887116c7a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
