@@ -41,7 +41,7 @@ const (
 
 var nextWM uint32 = msgLast
 
-func newWindow(opts *screen.NewWindowOptions) (HWND, error) {
+func newWindow(opts []screen.WindowParameter) (HWND, error) {
 	// TODO(brainman): convert windowClass to *uint16 once (in initWindowClass)
 	wcname, err := syscall.UTF16PtrFromString(windowClass)
 	if err != nil {
@@ -284,12 +284,12 @@ func windowWndProc(hwnd HWND, uMsg uint32, wParam uintptr, lParam uintptr) (lRes
 }
 
 type newWindowParams struct {
-	opts *screen.NewWindowOptions
+	opts []screen.WindowParameter
 	w    HWND
 	err  error
 }
 
-func NewWindow(opts *screen.NewWindowOptions) (HWND, error) {
+func NewWindow(opts []screen.WindowParameter) (HWND, error) {
 	var p newWindowParams
 	p.opts = opts
 	SendMessage(screenHWND, msgCreateWindow, 0, uintptr(unsafe.Pointer(&p)))

@@ -61,7 +61,7 @@ func (*screenImpl) NewTexture(size image.Point) (screen.Texture, error) {
 	return &textureImpl{}, nil
 }
 
-func (s *screenImpl) NewWindow(opts *screen.NewWindowOptions) (screen.Window, error) {
+func (s *screenImpl) NewWindow(opts ...screen.WindowParameter) (screen.Window, error) {
 	w := &windowImpl{}
 
 	var err error

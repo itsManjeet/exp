@@ -5,6 +5,7 @@
 package gldriver
 
 import (
+	"fmt"
 	"image"
 	"image/color"
 	"image/draw"
@@ -51,6 +52,22 @@ type windowImpl struct {
 
 	szMu sync.Mutex
 	sz   size.Event
+}
+
+func (w *windowImpl) Get(o *screen.WindowParameter) error {
+	switch (*o).(type) {
+	case screen.WindowSize:
+		w.szMu.Lock()
+		defer w.szMu.Unlock()
+		*o = screen.WindowSize{X: w.sz.WidthPx, Y: w.sz.HeightPx}
+		return nil
+	default:
+		return fmt.Errorf("gldriver: unknown window parameter: %T", *o)
+	}
+}
+
+func (w *windowImpl) Set(o screen.WindowParameter) error {
+	return fmt.Errorf("gldriver: unsupported window parameter: %T", o)
 }
 
 func (w *windowImpl) Release() {

@@ -22,4 +22,4 @@ type stub struct {
 
 func (s stub) NewBuffer(size image.Point) (screen.Buffer, error)              { return nil, s.err }
 func (s stub) NewTexture(size image.Point) (screen.Texture, error)            { return nil, s.err }
-func (s stub) NewWindow(opts *screen.NewWindowOptions) (screen.Window, error) { return nil, s.err }
+func (s stub) NewWindow(opt ...screen.WindowParameter) (screen.Window, error) { return nil, s.err }

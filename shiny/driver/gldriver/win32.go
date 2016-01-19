@@ -61,7 +61,7 @@ type ctxWin32 struct {
 	surface uintptr // EGLSurface
 }
 
-func newWindow(opts *screen.NewWindowOptions) (uintptr, error) {
+func newWindow(opts []screen.WindowParameter) (uintptr, error) {
 	w, err := win32.NewWindow(opts)
 	if err != nil {
 		return 0, err

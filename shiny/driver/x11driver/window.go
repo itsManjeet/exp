@@ -7,6 +7,7 @@ package x11driver
 // TODO: implement a back buffer.
 
 import (
+	"fmt"
 	"image"
 	"image/color"
 	"image/draw"
@@ -75,6 +76,14 @@ func (w *windowImpl) sendLifecycle() {
 			To:   to,
 		})
 	}
+}
+
+func (w *windowImpl) Get(o *screen.WindowParameter) error {
+	return fmt.Errorf("x11driver: unsupported window parameter: %T", *o)
+}
+
+func (w *windowImpl) Set(o screen.WindowParameter) error {
+	return fmt.Errorf("x11driver: unsupported window parameter: %T", o)
 }
 
 func (w *windowImpl) Release() {

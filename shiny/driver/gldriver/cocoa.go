@@ -57,7 +57,7 @@ func init() {
 	initThreadID = C.threadID()
 }
 
-func newWindow(opts *screen.NewWindowOptions) (uintptr, error) {
+func newWindow(opts []screen.WindowParameter) (uintptr, error) {
 	width, height := optsSize(opts)
 	return uintptr(C.doNewWindow(C.int(width), C.int(height))), nil
 }

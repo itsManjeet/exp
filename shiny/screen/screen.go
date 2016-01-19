@@ -22,7 +22,7 @@
 //
 //	func main() {
 //		driver.Main(func(s screen.Screen) {
-//			w, err := s.NewWindow(nil)
+//			w, err := s.NewWindow()
 //			if err != nil {
 //				handleError(err)
 //				return
@@ -64,7 +64,7 @@ type Screen interface {
 	NewTexture(size image.Point) (Texture, error)
 
 	// NewWindow returns a new Window for this screen.
-	NewWindow(opts *NewWindowOptions) (Window, error)
+	NewWindow(opt ...WindowParameter) (Window, error)
 }
 
 // TODO: rename Buffer to Image, to be less confusing with a Window's back and
@@ -168,6 +168,16 @@ type Window interface {
 
 	Drawer
 
+	// Get fills the WindowParameter pointed to by o with the Window's
+	// current value of that parameter. An error is returned if the
+	// parameter is not supported by the driver.
+	Get(o *WindowParameter) error
+
+	// Set sets the Window's current parameter to the value of o.
+	// An error is returned if setting the parameter is not supported by
+	// the driver.
+	Set(o WindowParameter) error
+
 	// Publish flushes any pending Upload and Draw calls to the window, and
 	// swaps the back buffer to the front.
 	Publish() PublishResult
@@ -180,15 +190,19 @@ type PublishResult struct {
 	BackBufferPreserved bool
 }
 
-// NewWindowOptions are optional arguments to NewWindow.
-type NewWindowOptions struct {
-	// Width and Height specify the dimensions of the new window. If Width
-	// or Height are zero, a driver-dependent default will be used for each
-	// zero value dimension.
-	Width, Height int
-
-	// TODO: fullscreen, title, icon, cursorHidden?
+// WindowParameter is a parameter of a Window.
+type WindowParameter interface {
+	windowParameter()
 }
+
+// WindowSize is the width and height of a window in pixels.
+type WindowSize image.Point
+
+// WindowSize is offset from the top-left corner of the screen in pixels.
+type WindowPosition image.Point
+
+func (WindowSize) windowParameter()     {}
+func (WindowPosition) windowParameter() {}
 
 // Uploader is something you can upload a Buffer to.
 type Uploader interface {

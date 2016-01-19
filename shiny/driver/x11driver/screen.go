@@ -315,16 +315,19 @@ func (s *screenImpl) NewTexture(size image.Point) (screen.Texture, error) {
 	return t, nil
 }
 
-func (s *screenImpl) NewWindow(opts *screen.NewWindowOptions) (screen.Window, error) {
-	width, height := 1024, 768
-	if opts != nil {
-		if opts.Width > 0 {
-			width = opts.Width
-		}
-		if opts.Height > 0 {
-			height = opts.Height
+func optsSize(opts []screen.WindowParameter) (width, height int) {
+	width, height = 1024, 768
+	for _, opt := range opts {
+		if winSize, ok := opt.(screen.WindowSize); ok {
+			width, height = winSize.X, winSize.Y
+			break
 		}
 	}
+	return width, height
+}
+
+func (s *screenImpl) NewWindow(opts ...screen.WindowParameter) (screen.Window, error) {
+	width, height := optsSize(opts)
 
 	xw, err := xproto.NewWindowId(s.xc)
 	if err != nil {
