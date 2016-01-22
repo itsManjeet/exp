@@ -1,0 +1,6 @@
+Code-Review+2: Andrew Gerrand <adg@golang.org>
+Submitted-by: Nigel Tao <nigeltao@golang.org>
+Submitted-at: Fri, 22 Jan 2016 00:47:31 +0000
+Reviewed-on: https://go-review.googlesource.com/18795
+Project: exp
+Branch: refs/heads/master
