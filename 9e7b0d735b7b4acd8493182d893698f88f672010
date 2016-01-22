@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5425c2a7_50eef271",
+        "filename": "shiny/screen/screen.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-01-22T03:05:23Z",
+      "side": 1,
+      "message": "What I would like to understand is where the line is drawn. Will there be a LatestMouseEvent? (Probably not.) Whereas LatestLifecycleEvent seems far more likely.\n\nWhy I proposed a Get is then the line is clearly drawn at the set of WindowParameter types. (We could even remove the error value on Get to make that clearer.)\n\nIf you\u0027d prefer to move forward on this, I guess I\u0027m OK with it, but it feels like a part-way solution I\u0027m having trouble coming with up a justification for.",
+      "revId": "9e7b0d735b7b4acd8493182d893698f88f672010",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
