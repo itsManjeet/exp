@@ -16,6 +16,24 @@
       "revId": "9e7b0d735b7b4acd8493182d893698f88f672010",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "071cfa50_4694d4f6",
+        "filename": "shiny/screen/screen.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-01-22T23:46:42Z",
+      "side": 1,
+      "message": "Yes, the line is drawn in an ad hoc fashion. My intention is to draw it conservatively. For example, it\u0027s a very small sample size, but two of the three shiny examples so far currently manually track the latest size event, since they need to know how big the window is when they paint it. Maybe the bar should be so conservative that two out of three shouldn\u0027t be enough, and we should abandon this CL.\n\n(Aside, maybe a paint.Event should also contain the window size, although you\u0027d probably then need a Window.Repaint method instead of saying w.Send(paint.Event{}). We might want a Repaint method anyway, if we want to collapse multiple paint requests, or if we want the paint to be sent only when the event queue is idle, to help avoid e.g. throttling mouse event processing to 60Hz if every mouse event triggers a paint event and paint events call Publish and Publish waits for vsync. This is tangential, though.)\n\nThere will not be a LatestMouseEvent method. The only other event type I was considering a dedicated LatestFooEvent method for was lifecycle events, but only if there seemed a need for it. I can think of two possible avenues for that need: if an app frequently needs to switch its painting on e.g. is my window focused or not, and if the app\u0027s painting depends on the lifecycle.Event\u0027s DrawContext (e.g. for OpenGL code). But I don\u0027t think we\u0027ve proven that there is such a need yet.\n\n(Another aside, maybe the paint.Event should hold the DrawContext instead of or in addition to the lifecycle.Event DrawContext field. But this is all hypothetical until we figure out how OpenGL can play well with shiny or mobile/app.)\n\nAs for your Get proposal: (1) I\u0027m not inspired by the awkwardness I\u0027m expecting for the code at the call sites, due to the pointer-to-interface arg, and (2) yes, the line is clearly drawn at WindowParameter types, but e.g. does the size.Event\u0027s PixelsPerPt field have a corresponding WindowParameter? Does a lifecycle.Event\u0027s DrawContext field have a corresponding WindowParameter? I think not, but then I\u0027m not sure if Get satisfies what apps will actually want to do. At the time of writing this comment, https://go-review.googlesource.com/#/c/18740/ is your Get CL - it shows changes to library code, but does not show any changes to any app code (example/*/main.go).",
+      "parentUuid": "5425c2a7_50eef271",
+      "revId": "9e7b0d735b7b4acd8493182d893698f88f672010",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
