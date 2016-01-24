@@ -34,6 +34,24 @@
       "revId": "9e7b0d735b7b4acd8493182d893698f88f672010",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d470d2c5_7ff0a7b8",
+        "filename": "shiny/screen/screen.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-01-24T23:59:18Z",
+      "side": 1,
+      "message": "OK, as this is use-driven API design, I think we should wait for more uses. I prototyped Get with our examples, and it\u0027s pretty clear that these programs aren\u0027t complicated enough to make any call. LatestSizeEvent feels similar to me.\n\nA good point to revisit this will probably be after your first round of widget-ish features are in, and we can look at what a few small programs built using them look like. \n\nI\u0027m going to rework the Get CL to just have Set, as that may be worth doing now, though I need to do some more thinking about errors.",
+      "parentUuid": "071cfa50_4694d4f6",
+      "revId": "9e7b0d735b7b4acd8493182d893698f88f672010",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
