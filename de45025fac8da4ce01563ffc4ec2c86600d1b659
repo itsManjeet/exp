@@ -53,6 +53,69 @@
     },
     {
       "key": {
+        "uuid": "54686202_f5635818",
+        "filename": "shiny/text/text.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 5010
+      },
+      "writtenOn": "2016-01-25T03:39:59Z",
+      "side": 1,
+      "message": "capital P?",
+      "range": {
+        "startLine": 48,
+        "startChar": 15,
+        "endLine": 48,
+        "endChar": 25
+      },
+      "revId": "de45025fac8da4ce01563ffc4ec2c86600d1b659",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54686202_9566642a",
+        "filename": "shiny/text/text.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 5010
+      },
+      "writtenOn": "2016-01-25T03:39:59Z",
+      "side": 1,
+      "message": "This comment is misleading.\nIt gives the impression that we will return the 0th paragraph here, when really we\u0027re returning the 1st.\nRephrase?",
+      "revId": "de45025fac8da4ce01563ffc4ec2c86600d1b659",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "54686202_d560dc0e",
+        "filename": "shiny/text/text.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 5010
+      },
+      "writtenOn": "2016-01-25T03:39:59Z",
+      "side": 1,
+      "message": "It\u0027s a bit clunky to have to pass a *Frame into each of these methods. I assume you considered putting a *Frame field in Paragraph and Line, but didn\u0027t do so to reduce memory use. Is there another reason?\n\nI wonder if the tradeoff is worth it.\n\nI suppose your answers to crawshaw\u0027s questions will reveal more of your thinking.",
+      "range": {
+        "startLine": 133,
+        "startChar": 30,
+        "endLine": 133,
+        "endChar": 38
+      },
+      "revId": "de45025fac8da4ce01563ffc4ec2c86600d1b659",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d470d2c5_5f1283a7",
         "filename": "shiny/text/text.go",
         "patchSetId": 4
