@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d470d2c5_dfde932f",
+        "filename": "shiny/text/caret.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-01-25T00:51:00Z",
+      "side": 1,
+      "message": "Is it valid to position a caret inside a code point?",
+      "revId": "de45025fac8da4ce01563ffc4ec2c86600d1b659",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d470d2c5_3ffa2f99",
+        "filename": "shiny/text/caret.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-01-25T00:51:00Z",
+      "side": 1,
+      "message": "Perhaps I should just wait to see what code follows this, but I\u0027m curious how text replacement will work with this model. (My instinct is a Caret should represent a continuous range.)",
+      "revId": "de45025fac8da4ce01563ffc4ec2c86600d1b659",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d470d2c5_bfe5dff6",
+        "filename": "shiny/text/text.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-01-25T00:51:00Z",
+      "side": 1,
+      "message": "How big do Frames get?\n\nIf a Frame is only meant to be slightly larger than the screen, and it\u0027s the job of some other code to map subsets of files into a frame as it is scrolled, then storing the text as a []byte may work. (Though it\u0027s going to have to get pretty clever to avoid lots of big allocations when scrolling up.)\n\nBut if a Frame is meant to hold files that could reasonably be loaded into memory(~10MBs) then []byte isn\u0027t going to work with edits. Inserting text at the top of a Frame is going to get slow if each event copies hundreds of MB around in memory.\n\nIf it\u0027s the former, there should probably be a note in the comments. If it\u0027s the latter, how about a TODO on the text field referencing other data structures (like a gap buffer, https://en.wikipedia.org/wiki/Gap_buffer).",
+      "revId": "de45025fac8da4ce01563ffc4ec2c86600d1b659",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d470d2c5_5f1283a7",
+        "filename": "shiny/text/text.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-01-25T00:51:00Z",
+      "side": 1,
+      "message": "Is []Box going to change sometime soon? If not, why not store a single value here, the index into the slice?",
+      "revId": "de45025fac8da4ce01563ffc4ec2c86600d1b659",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
