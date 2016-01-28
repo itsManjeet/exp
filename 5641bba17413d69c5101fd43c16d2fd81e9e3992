@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "54fea2bd_ce6637cf",
+        "filename": "shiny/text/caret.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 5010
+      },
+      "writtenOn": "2016-01-28T06:32:47Z",
+      "side": 1,
+      "message": "doc comment please",
+      "range": {
+        "startLine": 134,
+        "startChar": 5,
+        "endLine": 134,
+        "endChar": 19
+      },
+      "revId": "5641bba17413d69c5101fd43c16d2fd81e9e3992",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
