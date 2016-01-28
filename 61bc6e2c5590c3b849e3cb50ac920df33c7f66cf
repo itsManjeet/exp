@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5474e27a_f510189d",
+        "filename": "shiny/text/caret.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-01-28T22:47:13Z",
+      "side": 1,
+      "message": "You might want to consider introducing a named type, like layoutPos, for these positions that shouldn\u0027t be used as an index into Frame.text.",
+      "revId": "61bc6e2c5590c3b849e3cb50ac920df33c7f66cf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5474e27a_f54bb8b0",
+        "filename": "shiny/text/example_test.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-01-28T22:47:13Z",
+      "side": 1,
+      "message": "2016",
+      "revId": "61bc6e2c5590c3b849e3cb50ac920df33c7f66cf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
