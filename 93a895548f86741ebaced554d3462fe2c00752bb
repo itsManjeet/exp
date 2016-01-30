@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "111a7c67_16485a0b",
+        "filename": "shiny/text/caret.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-01-30T00:00:39Z",
+      "side": 1,
+      "message": "There\u0027s a \"TODO: allow multiple font faces, i.e. rich text?\" in text.go.",
+      "parentUuid": "f15fa825_4accf3e2",
+      "revId": "93a895548f86741ebaced554d3462fe2c00752bb",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f15fa825_cab7c33d",
         "filename": "shiny/text/text.go",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "111a7c67_f65cbecf",
+        "filename": "shiny/text/text.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-01-30T00:00:39Z",
+      "side": 1,
+      "message": "Well, the Trim in strings.TrimFoo is a verb - it takes the text as an argument. The Trimmed here is an adjective - it returns the text.",
+      "parentUuid": "f15fa825_cab7c33d",
+      "revId": "93a895548f86741ebaced554d3462fe2c00752bb",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f15fa825_0ac6fbc2",
         "filename": "shiny/text/text.go",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2016-01-29T18:57:16Z",
       "side": 1,
       "message": "why are you specifying capacity in the slice here?",
+      "revId": "93a895548f86741ebaced554d3462fe2c00752bb",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "111a7c67_d659c2dd",
+        "filename": "shiny/text/text.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-01-30T00:00:39Z",
+      "side": 1,
+      "message": "Ah, copy/paste from the Box.Text method. It probably isn\u0027t necessary in either case. Callers shouldn\u0027t be writing to the slice anyway.",
+      "parentUuid": "f15fa825_0ac6fbc2",
       "revId": "93a895548f86741ebaced554d3462fe2c00752bb",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
