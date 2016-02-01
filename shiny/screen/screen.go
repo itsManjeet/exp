@@ -65,10 +65,12 @@ import (
 
 // Screen creates Buffers, Textures and Windows.
 type Screen interface {
-	// NewBuffer returns a new Buffer for this screen.
+	// NewBuffer returns a new Buffer for this screen with the specified
+	// size, whose dimensions must be greater than zero.
 	NewBuffer(size image.Point) (Buffer, error)
 
-	// NewTexture returns a new Texture for this screen.
+	// NewTexture returns a new Texture for this screen with the specified
+	// size, whose dimensions must be greater than zero.
 	NewTexture(size image.Point) (Texture, error)
 
 	// NewWindow returns a new Window for this screen.
