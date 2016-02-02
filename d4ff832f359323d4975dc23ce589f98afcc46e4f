@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d15c6466_3974afae",
+        "filename": "shiny/driver/windriver/buffer.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2016-02-02T09:35:44Z",
+      "side": 1,
+      "message": "Why is it safe to change contents of b.buf? Is it possible that someone else modifies contents of b.buf as we swizzle it here?",
+      "revId": "d4ff832f359323d4975dc23ce589f98afcc46e4f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d15c6466_f9b8778d",
+        "filename": "shiny/driver/windriver/buffer.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2016-02-02T09:35:44Z",
+      "side": 1,
+      "message": "Why do we need \"nUpload\" here? Is it used when single buffer is uploaded into two (or more) different windows? Maybe some other scenario.",
+      "revId": "d4ff832f359323d4975dc23ce589f98afcc46e4f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
