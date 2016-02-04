@@ -14,9 +14,9 @@ import (
 
 func shmOpen(size int) (shmid uintptr, addr unsafe.Pointer, err error) {
 	return 0, unsafe.Pointer(uintptr(0)),
-		fmt.Errorf("unsupported GOOS/GOARCH %s/%s", runtime.GOOS, runtime.GOARCH)
+		fmt.Errorf("x11driver: unsupported GOOS/GOARCH %s/%s", runtime.GOOS, runtime.GOARCH)
 }
 
 func shmClose(p unsafe.Pointer) error {
-	return fmt.Errorf("unsupported GOOS/GOARCH %s/%s", runtime.GOOS, runtime.GOARCH)
+	return fmt.Errorf("x11driver: unsupported GOOS/GOARCH %s/%s", runtime.GOOS, runtime.GOARCH)
 }
