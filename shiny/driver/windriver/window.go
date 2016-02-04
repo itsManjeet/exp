@@ -89,7 +89,7 @@ func handleUpload(hwnd win32.HWND, uMsg uint32, wParam, lParam uintptr) {
 	u.src.preUpload(true)
 
 	// TODO: adjust if dp is outside dst bounds, or sr is outside src bounds.
-	err = blit(dc, _POINT{int32(u.dp.X), int32(u.dp.Y)}, u.src.hbitmap, &_RECT{
+	err = copyBitmapOntoDC(dc, _POINT{int32(u.dp.X), int32(u.dp.Y)}, u.src.hbitmap, &_RECT{
 		Left:   int32(u.sr.Min.X),
 		Top:    int32(u.sr.Min.Y),
 		Right:  int32(u.sr.Max.X),

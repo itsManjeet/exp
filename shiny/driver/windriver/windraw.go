@@ -68,6 +68,29 @@ func blend(dc win32.HDC, bitmap syscall.Handle, dr *_RECT, sdx int32, sdy int32)
 	return err
 }
 
+func copyBitmapOntoDC(dc win32.HDC, dp _POINT, bitmap syscall.Handle, sr *_RECT) (err error) {
+	memdc, err := _CreateCompatibleDC(dc)
+	if err != nil {
+		return err
+	}
+	defer _DeleteDC(memdc)
+
+	_, err = _SelectObject(memdc, bitmap)
+	if err != nil {
+		return err
+	}
+	f := _BLENDFUNCTION{
+		BlendOp:             _AC_SRC_OVER,
+		BlendFlags:          0,
+		SourceConstantAlpha: 255,           // only use per-pixel alphas
+		AlphaFormat:         _AC_SRC_ALPHA, // premultiplied
+	}
+	sdx, sdy := sr.Right-sr.Left, sr.Bottom-sr.Top
+	return _AlphaBlend(dc, dp.X, dp.Y, sdx, sdy, memdc, 0, 0, sdx, sdy, f.ToUintptr())
+}
+
+// TODO(brainman) delete blit function
+
 func blit(dc win32.HDC, dp _POINT, bitmap syscall.Handle, sr *_RECT) (err error) {
 	compatibleDC, err := _CreateCompatibleDC(dc)
 	if err != nil {
