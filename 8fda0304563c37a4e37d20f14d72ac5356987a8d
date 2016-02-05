@@ -16,6 +16,24 @@
       "revId": "8fda0304563c37a4e37d20f14d72ac5356987a8d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b1bb70f1_b8f359c5",
+        "filename": "shiny/driver/x11driver/shm_linux_amd64.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-02-05T00:03:23Z",
+      "side": 1,
+      "message": "Ah, yes. Thanks for the note. Done.",
+      "parentUuid": "d15c6466_ff93377b",
+      "revId": "8fda0304563c37a4e37d20f14d72ac5356987a8d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
