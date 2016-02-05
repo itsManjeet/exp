@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f1340868_02342acc",
+        "filename": "shiny/driver/internal/win32/win32.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 9615
+      },
+      "writtenOn": "2016-02-05T17:06:00Z",
+      "side": 1,
+      "message": "opts may be nil, so this would crash.",
+      "revId": "6f21d43fa9b34ffc78b75e9d1bc18d3cf6974128",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
