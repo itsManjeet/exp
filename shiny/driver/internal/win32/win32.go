@@ -51,11 +51,18 @@ func newWindow(opts *screen.NewWindowOptions) (HWND, error) {
 	if err != nil {
 		return 0, err
 	}
+	w, h := int32(opts.Width), int32(opts.Height)
+	if w == 0 {
+		w = _CW_USEDEFAULT
+	}
+	if h == 0 {
+		h = _CW_USEDEFAULT
+	}
 	hwnd, err := _CreateWindowEx(0,
 		wcname, title,
 		_WS_OVERLAPPEDWINDOW,
 		_CW_USEDEFAULT, _CW_USEDEFAULT,
-		_CW_USEDEFAULT, _CW_USEDEFAULT,
+		w, h,
 		0, 0, hThisInstance, 0)
 	if err != nil {
 		return 0, err
