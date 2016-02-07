@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d168e4a0_99cf1b50",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-02-07T12:22:54Z",
+      "side": 1,
+      "message": "For future reference, the \"x/exp/\" is unnecessary.",
+      "revId": "8f78588f428986c92002fbdb61c861ad1b6764c2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
