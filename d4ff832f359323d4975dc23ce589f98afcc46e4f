@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d168e4a0_f94ad7ac",
+        "filename": "shiny/driver/windriver/buffer.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-02-07T04:24:19Z",
+      "side": 1,
+      "message": "https://go.googlesource.com/exp/+/master/shiny/screen/screen.go#110 explicitly says that the \"contents should not be accessed while the Buffer is uploading\".",
+      "parentUuid": "d15c6466_3974afae",
+      "revId": "d4ff832f359323d4975dc23ce589f98afcc46e4f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d15c6466_f9b8778d",
         "filename": "shiny/driver/windriver/buffer.go",
         "patchSetId": 6
@@ -30,6 +48,24 @@
       "writtenOn": "2016-02-02T09:35:44Z",
       "side": 1,
       "message": "Why do we need \"nUpload\" here? Is it used when single buffer is uploaded into two (or more) different windows? Maybe some other scenario.",
+      "revId": "d4ff832f359323d4975dc23ce589f98afcc46e4f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d168e4a0_19506b5a",
+        "filename": "shiny/driver/windriver/buffer.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-02-07T04:24:19Z",
+      "side": 1,
+      "message": "Yes, https://go.googlesource.com/exp/+/master/shiny/screen/screen.go#236 says that \"it is valid to upload a Buffer while another upload of the same Buffer is in progress\".\n\nNote that you can upload a Buffer to a Texture, not just to a Window.",
+      "parentUuid": "d15c6466_f9b8778d",
       "revId": "d4ff832f359323d4975dc23ce589f98afcc46e4f",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
