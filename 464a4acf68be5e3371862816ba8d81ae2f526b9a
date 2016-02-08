@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d168e4a0_99455b53",
+        "filename": "shiny/text/text.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 5010
+      },
+      "writtenOn": "2016-02-08T04:21:32Z",
+      "side": 1,
+      "message": "joinBoxes?",
+      "range": {
+        "startLine": 185,
+        "startChar": 16,
+        "endLine": 185,
+        "endChar": 28
+      },
+      "revId": "464a4acf68be5e3371862816ba8d81ae2f526b9a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d168e4a0_b94a1f5e",
+        "filename": "shiny/text/text.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 5010
+      },
+      "writtenOn": "2016-02-08T04:21:32Z",
+      "side": 1,
+      "message": "panic?",
+      "revId": "464a4acf68be5e3371862816ba8d81ae2f526b9a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
