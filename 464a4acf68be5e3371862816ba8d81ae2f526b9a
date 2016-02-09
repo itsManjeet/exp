@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "5d808813_27611ab1",
+        "filename": "shiny/text/text.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-02-09T23:20:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d168e4a0_99455b53",
+      "range": {
+        "startLine": 185,
+        "startChar": 16,
+        "endLine": 185,
+        "endChar": 28
+      },
+      "revId": "464a4acf68be5e3371862816ba8d81ae2f526b9a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d168e4a0_b94a1f5e",
         "filename": "shiny/text/text.go",
         "patchSetId": 2
@@ -36,6 +60,24 @@
       "writtenOn": "2016-02-08T04:21:32Z",
       "side": 1,
       "message": "panic?",
+      "revId": "464a4acf68be5e3371862816ba8d81ae2f526b9a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5d808813_47560ed8",
+        "filename": "shiny/text/text.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-02-09T23:20:40Z",
+      "side": 1,
+      "message": "No, it should be valid to attempt to join boxes that can\u0027t be joined. For example, if one line\u0027s final box\u0027s i:j is 10:12 and the next line\u0027s first box is 15:20, you still want to unbreak all of the soft returns, even if there\u0027s a gap between the consecutive boxes\u0027 i:j\u0027s.",
+      "parentUuid": "d168e4a0_b94a1f5e",
       "revId": "464a4acf68be5e3371862816ba8d81ae2f526b9a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
