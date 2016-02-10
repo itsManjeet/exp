@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "5d808813_a77a6a4a",
+        "filename": "shiny/driver/windriver/buffer.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-02-10T00:59:45Z",
+      "side": 1,
+      "message": "BTW, in a follow-up CL, please do the equivalent for windriver as https://go-review.googlesource.com/#/c/19112/ did for x11driver.",
+      "revId": "1da6851e466aead31e8dca3bc1c8a0f80c433af5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9d5cc065_b93c3fca",
         "filename": "shiny/driver/windriver/syscall_windows.go",
         "patchSetId": 1
@@ -13,6 +30,97 @@
       "writtenOn": "2016-02-09T02:08:03Z",
       "side": 1,
       "message": "GetDC and ReleaseDC are exported by the win32 package. Use those?",
+      "revId": "1da6851e466aead31e8dca3bc1c8a0f80c433af5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5d808813_276f5a90",
+        "filename": "shiny/driver/windriver/texture.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-02-10T00:59:45Z",
+      "side": 1,
+      "message": "I would actually put this function in screen.go instead of texture.go. That\u0027s how gldriver and x11driver are organized.",
+      "revId": "1da6851e466aead31e8dca3bc1c8a0f80c433af5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5d808813_076a567f",
+        "filename": "shiny/driver/windriver/texture.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-02-10T00:59:45Z",
+      "side": 1,
+      "message": "This is dangerous. This newTexture function is called by screenImpl.NewTexture, and arbitrary app code can call NewTexture (part of the screen.Screen interface), so this UnlockOSThread is a silent side-effect, canceling any LockOSThread that the caller may have done.\n\nExisting windriver code already calls win32.GetDC / win32.ReleaseDC without any LockOSThread / UnlockOSThread calls. Is that code broken, or is this Lock / Unlock unnecessary?\n\nOr is the existing code safe because it\u0027s always done on the same thread (see the doc comment for win32.screenHWND). Can you get your GetDC calls to happen on the same thread?",
+      "revId": "1da6851e466aead31e8dca3bc1c8a0f80c433af5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5d808813_67695287",
+        "filename": "shiny/driver/windriver/texture.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-02-10T00:59:45Z",
+      "side": 1,
+      "message": "Does _DeleteDC also have to be called on the same thread as the matching CreateCompatibleDC?",
+      "revId": "1da6851e466aead31e8dca3bc1c8a0f80c433af5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5d808813_e774625f",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-02-10T00:59:45Z",
+      "side": 1,
+      "message": "It seems like you should be able to factor out this (upload to a window) and the new blitToDC method (upload to a texture) a little cleaner somehow. Ideally, you wouldn\u0027t need two separate call sites to preUpload. Isn\u0027t it all uploading to a DC?",
+      "revId": "1da6851e466aead31e8dca3bc1c8a0f80c433af5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5d808813_877d6647",
+        "filename": "shiny/driver/windriver/windraw.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-02-10T00:59:45Z",
+      "side": 1,
+      "message": "Windows noob question: why do you know that the returned DC is a mem DC?",
+      "range": {
+        "startLine": 76,
+        "startChar": 8,
+        "endLine": 76,
+        "endChar": 9
+      },
       "revId": "1da6851e466aead31e8dca3bc1c8a0f80c433af5",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
