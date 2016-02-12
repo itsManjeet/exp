@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "5d808813_303a2eb1",
+        "filename": "shiny/driver/windriver/buffer.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2016-02-12T03:42:56Z",
+      "side": 1,
+      "message": "Sure. Will do.",
+      "parentUuid": "5d808813_a77a6a4a",
+      "revId": "1da6851e466aead31e8dca3bc1c8a0f80c433af5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9d5cc065_b93c3fca",
         "filename": "shiny/driver/windriver/syscall_windows.go",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2016-02-09T02:08:03Z",
       "side": 1,
       "message": "GetDC and ReleaseDC are exported by the win32 package. Use those?",
+      "revId": "1da6851e466aead31e8dca3bc1c8a0f80c433af5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5d808813_f0189657",
+        "filename": "shiny/driver/windriver/syscall_windows.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2016-02-12T03:42:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d5cc065_b93c3fca",
       "revId": "1da6851e466aead31e8dca3bc1c8a0f80c433af5",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "5d808813_f046d61e",
+        "filename": "shiny/driver/windriver/texture.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2016-02-12T03:42:56Z",
+      "side": 1,
+      "message": "I disagree. The contents of newTexture filling details of new textureImpl instance, so, I think, newTexture should be close to textureImpl definition. Also (*textureImpl).Release undo what newTexture does, so these should be close to each other. But I will do what you suggest, if you insist.",
+      "parentUuid": "5d808813_276f5a90",
+      "revId": "1da6851e466aead31e8dca3bc1c8a0f80c433af5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5d808813_076a567f",
         "filename": "shiny/driver/windriver/texture.go",
         "patchSetId": 1
@@ -64,6 +118,24 @@
       "writtenOn": "2016-02-10T00:59:45Z",
       "side": 1,
       "message": "This is dangerous. This newTexture function is called by screenImpl.NewTexture, and arbitrary app code can call NewTexture (part of the screen.Screen interface), so this UnlockOSThread is a silent side-effect, canceling any LockOSThread that the caller may have done.\n\nExisting windriver code already calls win32.GetDC / win32.ReleaseDC without any LockOSThread / UnlockOSThread calls. Is that code broken, or is this Lock / Unlock unnecessary?\n\nOr is the existing code safe because it\u0027s always done on the same thread (see the doc comment for win32.screenHWND). Can you get your GetDC calls to happen on the same thread?",
+      "revId": "1da6851e466aead31e8dca3bc1c8a0f80c433af5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5d808813_b0937ed2",
+        "filename": "shiny/driver/windriver/texture.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2016-02-12T03:42:56Z",
+      "side": 1,
+      "message": "\u003e This is dangerous. ...\n\nI didn\u0027t realise that. I did LockOSThread / UnlockOSThread, because https://msdn.microsoft.com/en-us/library/windows/desktop/dd144871(v\u003dvs.85).aspx says:\n```\nReleaseDC must be called from the same thread that called GetDC\n```\nPerhaps it is not important and can be ignored. I am not Windows GUI expert, and in my time (old time ago) all Windows programming happened on a single thread anyway. Perhaps we can arrange for this to be executed on a \"main window thread\" (like we do with some other code).\n\nNow that looked at CreateCompatibleDC definition https://msdn.microsoft.com/en-us/library/windows/desktop/dd183489(v\u003dvs.85).aspx again:\n```\nIf hdc is NULL, the thread that calls CreateCompatibleDC owns the HDC that is created. When this thread is destroyed, the HDC is no longer valid. Thus, if you create the HDC and pass it to another thread, then exit the first thread, the second thread will not be able to use the HDC.\n```\nso I think we have no choice, but to make \"main window thread\" responsible for this memory DC.\n\nI am not even convinced this is correct way to implement screen.Texture - we create memory DC (temp DC) where we draw, and then we dump whatever we draw onto correspondent window. Our DC needs to be \"compatible\" with the window we draw, but I don\u0027t know what the destination window will be (the shiny design does not provide that information), so I use screen DC to create our temp DC and hope that it will match the destination.\n\nMaybe we should just store RGBA bits (just like bufferImp does) for later, and then use RGBA bits to draw on whatever destination window we\u0027re given. This is, probably, more involved because we need to do it all ourselves. Also I suspect using RGBA bits will be slower - if we use memory DC, once we dumped RGBA bits from our bufferImpl, it will be very quick to copy them from memory DC and into final window - the bits are already in correct (internal to Windows) representation, and they will use fastest possible code in OS.\n\nLet me know what you think about all that.\n\n\u003e Existing windriver code already calls win32.GetDC / win32.ReleaseDC without any LockOSThread / UnlockOSThread calls. Is that code broken, or is this Lock / Unlock unnecessary?\n\nReading the GetDC doco (see link above), I think we need to do GetDC / ReleaseDC on the same thread.\n\n\u003e Or is the existing code safe because it\u0027s always done on the same thread (see the doc comment for win32.screenHWND). Can you get your GetDC calls to happen on the same thread?\n\nI think existing code safe because it is all called from inside \"main window thread\".",
+      "parentUuid": "5d808813_076a567f",
       "revId": "1da6851e466aead31e8dca3bc1c8a0f80c433af5",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "5d808813_d0a0f219",
+        "filename": "shiny/driver/windriver/texture.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2016-02-12T03:42:56Z",
+      "side": 1,
+      "message": "I don\u0027t see any restrictions about DeleteDC. But as I already mentioned from CreateCompatibleDC definition https://msdn.microsoft.com/en-us/library/windows/desktop/dd183489(v\u003dvs.85).aspx\n```\nIf hdc is NULL, the thread that calls CreateCompatibleDC owns the HDC that is created. When this thread is destroyed, the HDC is no longer valid. Thus, if you create the HDC and pass it to another thread, then exit the first thread, the second thread will not be able to use the HDC.\n```\nso we need to arrange for thread that called CreateCompatibleDC to be still alive.",
+      "parentUuid": "5d808813_67695287",
+      "revId": "1da6851e466aead31e8dca3bc1c8a0f80c433af5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5d808813_e774625f",
         "filename": "shiny/driver/windriver/window.go",
         "patchSetId": 1
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "5d808813_f09df6de",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2016-02-12T03:42:56Z",
+      "side": 1,
+      "message": "I tried to touch as little of existing code as possible before we all agree on our general aproach first. For example we also don\u0027t need to do buffer bits swizzling on \"main window thread\" too, but I have left it lone for the moment.",
+      "parentUuid": "5d808813_e774625f",
+      "revId": "1da6851e466aead31e8dca3bc1c8a0f80c433af5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5d808813_877d6647",
         "filename": "shiny/driver/windriver/windraw.go",
         "patchSetId": 1
@@ -115,6 +223,30 @@
       "writtenOn": "2016-02-10T00:59:45Z",
       "side": 1,
       "message": "Windows noob question: why do you know that the returned DC is a mem DC?",
+      "range": {
+        "startLine": 76,
+        "startChar": 8,
+        "endLine": 76,
+        "endChar": 9
+      },
+      "revId": "1da6851e466aead31e8dca3bc1c8a0f80c433af5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5d808813_106a8a7f",
+        "filename": "shiny/driver/windriver/windraw.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2016-02-12T03:42:56Z",
+      "side": 1,
+      "message": "You are taling to another noob here. I think CreateCompatibleDC always return \"memory DC\". From what I understand it is used for double-buffer painting. I go mainly by http://www.codeproject.com/Articles/224754/Guide-to-Win-Memory-DC",
+      "parentUuid": "5d808813_877d6647",
       "range": {
         "startLine": 76,
         "startChar": 8,
