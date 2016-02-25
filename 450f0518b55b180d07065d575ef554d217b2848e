@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "02cf8da0_433210d5",
+        "filename": "shiny/driver/internal/win32/win32.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-02-25T13:24:37Z",
+      "side": 1,
+      "message": "Is this function only meant to be called from init functions (or equivalently when initializing global variables)? If so, that probably needs documenting.\n\nAlthough I suppose that you\u0027re just copy/pasting AddWindowMsg...",
+      "revId": "450f0518b55b180d07065d575ef554d217b2848e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02cf8da0_0382d883",
+        "filename": "shiny/driver/windriver/buffer.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-02-25T13:24:37Z",
+      "side": 1,
+      "message": "Maybe s/dest/dc/?",
+      "revId": "450f0518b55b180d07065d575ef554d217b2848e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02cf8da0_c35620d7",
+        "filename": "shiny/driver/windriver/syscall_windows.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-02-25T13:24:37Z",
+      "side": 1,
+      "message": "For a follow-up CL, can you sort these?",
+      "revId": "450f0518b55b180d07065d575ef554d217b2848e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02cf8da0_a35b24fd",
+        "filename": "shiny/driver/windriver/texture.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-02-25T13:24:37Z",
+      "side": 1,
+      "message": "Do you have a link to that \"Windows documentation\"? Similarly a couple of lines below.",
+      "revId": "450f0518b55b180d07065d575ef554d217b2848e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02cf8da0_835148df",
+        "filename": "shiny/driver/windriver/texture.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-02-25T13:24:37Z",
+      "side": 1,
+      "message": "You could roll this into the next line:\nif err :\u003d t.release(); err !\u003d nil {",
+      "revId": "450f0518b55b180d07065d575ef554d217b2848e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02cf8da0_434b3029",
+        "filename": "shiny/driver/windriver/texture.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-02-25T13:24:37Z",
+      "side": 1,
+      "message": "Ditto:\nif err :\u003d etc; err !\u003d nil {",
+      "revId": "450f0518b55b180d07065d575ef554d217b2848e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02cf8da0_634e2c3b",
+        "filename": "shiny/driver/windriver/texture.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-02-25T13:24:37Z",
+      "side": 1,
+      "message": "error should be (retErr error).",
+      "revId": "450f0518b55b180d07065d575ef554d217b2848e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02cf8da0_232f1469",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-02-25T13:24:37Z",
+      "side": 1,
+      "message": "Please break the long line.",
+      "revId": "450f0518b55b180d07065d575ef554d217b2848e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02cf8da0_035d38f3",
+        "filename": "shiny/driver/windriver/windraw.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-02-25T13:24:37Z",
+      "side": 1,
+      "message": "Is it worth pulling the \"ToUintptr\" call out here?",
+      "revId": "450f0518b55b180d07065d575ef554d217b2848e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02cf8da0_e3611cb3",
+        "filename": "shiny/driver/windriver/windraw.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-02-25T13:24:37Z",
+      "side": 1,
+      "message": "You still need to name the return value (err error) otherwise the defer below doesn\u0027t overwrite the return value properly.\n\nI\u0027d actually call it (retErr error) so that it\u0027s less ambiguous whether or not inner \"err\" variables are the same as the named return value.",
+      "revId": "450f0518b55b180d07065d575ef554d217b2848e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
