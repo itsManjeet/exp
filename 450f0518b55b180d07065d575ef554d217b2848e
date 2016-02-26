@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "02cf8da0_2e625b81",
+        "filename": "shiny/driver/internal/win32/win32.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2016-02-26T06:35:09Z",
+      "side": 1,
+      "message": "I did just copy AddWindowMsg. I did think about needing some locks here, but since this is all called from var initializing, I decided against complicating things. This package is internal, and I didn\u0027t see it growing much bigger. I propose I will add locks around nextWM and others in a following CL.",
+      "parentUuid": "02cf8da0_433210d5",
+      "revId": "450f0518b55b180d07065d575ef554d217b2848e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02cf8da0_0382d883",
         "filename": "shiny/driver/windriver/buffer.go",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2016-02-25T13:24:37Z",
       "side": 1,
       "message": "Maybe s/dest/dc/?",
+      "revId": "450f0518b55b180d07065d575ef554d217b2848e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02cf8da0_8ef04ff6",
+        "filename": "shiny/driver/windriver/buffer.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2016-02-26T06:35:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02cf8da0_0382d883",
       "revId": "450f0518b55b180d07065d575ef554d217b2848e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "02cf8da0_6eedf317",
+        "filename": "shiny/driver/windriver/syscall_windows.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2016-02-26T06:35:09Z",
+      "side": 1,
+      "message": "Will do.",
+      "parentUuid": "02cf8da0_c35620d7",
+      "revId": "450f0518b55b180d07065d575ef554d217b2848e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02cf8da0_a35b24fd",
         "filename": "shiny/driver/windriver/texture.go",
         "patchSetId": 3
@@ -64,6 +118,24 @@
       "writtenOn": "2016-02-25T13:24:37Z",
       "side": 1,
       "message": "Do you have a link to that \"Windows documentation\"? Similarly a couple of lines below.",
+      "revId": "450f0518b55b180d07065d575ef554d217b2848e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02cf8da0_ce1e47f6",
+        "filename": "shiny/driver/windriver/texture.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2016-02-26T06:35:09Z",
+      "side": 1,
+      "message": "Done. (I just googled for GetDC or CreateCompatibleDC).",
+      "parentUuid": "02cf8da0_a35b24fd",
       "revId": "450f0518b55b180d07065d575ef554d217b2848e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "02cf8da0_8e196f0e",
+        "filename": "shiny/driver/windriver/texture.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2016-02-26T06:35:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02cf8da0_835148df",
+      "revId": "450f0518b55b180d07065d575ef554d217b2848e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02cf8da0_434b3029",
         "filename": "shiny/driver/windriver/texture.go",
         "patchSetId": 3
@@ -98,6 +188,24 @@
       "writtenOn": "2016-02-25T13:24:37Z",
       "side": 1,
       "message": "Ditto:\nif err :\u003d etc; err !\u003d nil {",
+      "revId": "450f0518b55b180d07065d575ef554d217b2848e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02cf8da0_4e1357ec",
+        "filename": "shiny/driver/windriver/texture.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2016-02-26T06:35:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02cf8da0_434b3029",
       "revId": "450f0518b55b180d07065d575ef554d217b2848e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "02cf8da0_0ecaff92",
+        "filename": "shiny/driver/windriver/texture.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2016-02-26T06:35:09Z",
+      "side": 1,
+      "message": "My mistake. Done.",
+      "parentUuid": "02cf8da0_634e2c3b",
+      "revId": "450f0518b55b180d07065d575ef554d217b2848e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02cf8da0_232f1469",
         "filename": "shiny/driver/windriver/window.go",
         "patchSetId": 3
@@ -132,6 +258,24 @@
       "writtenOn": "2016-02-25T13:24:37Z",
       "side": 1,
       "message": "Please break the long line.",
+      "revId": "450f0518b55b180d07065d575ef554d217b2848e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02cf8da0_4efa37d4",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2016-02-26T06:35:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02cf8da0_232f1469",
       "revId": "450f0518b55b180d07065d575ef554d217b2848e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "02cf8da0_aed8ab69",
+        "filename": "shiny/driver/windriver/windraw.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2016-02-26T06:35:09Z",
+      "side": 1,
+      "message": "I was thinking about this, but decided against it. Garbage collector might decide to move this one day. But, I suppose, most of this code will not work then. I will let you decide what to do here.",
+      "parentUuid": "02cf8da0_035d38f3",
+      "revId": "450f0518b55b180d07065d575ef554d217b2848e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02cf8da0_e3611cb3",
         "filename": "shiny/driver/windriver/windraw.go",
         "patchSetId": 3
@@ -166,6 +328,24 @@
       "writtenOn": "2016-02-25T13:24:37Z",
       "side": 1,
       "message": "You still need to name the return value (err error) otherwise the defer below doesn\u0027t overwrite the return value properly.\n\nI\u0027d actually call it (retErr error) so that it\u0027s less ambiguous whether or not inner \"err\" variables are the same as the named return value.",
+      "revId": "450f0518b55b180d07065d575ef554d217b2848e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02cf8da0_eecea3a4",
+        "filename": "shiny/driver/windriver/windraw.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2016-02-26T06:35:09Z",
+      "side": 1,
+      "message": "My mistake. Done.",
+      "parentUuid": "02cf8da0_e3611cb3",
       "revId": "450f0518b55b180d07065d575ef554d217b2848e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
