@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "02cf8da0_0948b958",
+        "filename": "shiny/driver/windriver/texture.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-02-26T12:09:46Z",
+      "side": 1,
+      "message": "s/err/retErr/ and ditto on the next line.",
+      "range": {
+        "startLine": 145,
+        "startChar": 7,
+        "endLine": 145,
+        "endChar": 8
+      },
+      "revId": "6f9a808156db83fc217ad8327e398167daedf5c2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02cf8da0_893cc9c8",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-02-26T12:09:46Z",
+      "side": 1,
+      "message": "BTW, I\u0027m not 100% familiar with win32 programming, but if \"win32.SendMessage(w.hwnd, msgUpload, id, 0)\" above won\u0027t return until the handleUpload callback returns, I am not sure if we need the completion mechanism any more, now that the screen package\u0027s UploadedEvent was removed. But changing that is for a subsequent CL.",
+      "revId": "6f9a808156db83fc217ad8327e398167daedf5c2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02cf8da0_296ed5cb",
+        "filename": "shiny/driver/windriver/windraw.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-02-26T12:09:46Z",
+      "side": 1,
+      "message": "s/err/retErr/ and ditto on the next line.",
+      "revId": "6f9a808156db83fc217ad8327e398167daedf5c2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
