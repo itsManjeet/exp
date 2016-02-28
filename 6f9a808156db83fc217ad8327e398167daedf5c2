@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "02cf8da0_29e5b51f",
+        "filename": "shiny/driver/windriver/texture.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2016-02-28T01:46:23Z",
+      "side": 1,
+      "message": "Oops! Fixed.",
+      "parentUuid": "02cf8da0_0948b958",
+      "range": {
+        "startLine": 145,
+        "startChar": 7,
+        "endLine": 145,
+        "endChar": 8
+      },
+      "revId": "6f9a808156db83fc217ad8327e398167daedf5c2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02cf8da0_893cc9c8",
         "filename": "shiny/driver/windriver/window.go",
         "patchSetId": 4
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "02cf8da0_49e8f1f7",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2016-02-28T01:46:23Z",
+      "side": 1,
+      "message": "win32.SendMessage is a blocking call. It will not return `not return until the window procedure has processed the message` (https://msdn.microsoft.com/en-us/library/windows/desktop/ms644950(v\u003dvs.85).aspx).\n\nI will remove u.completion in a subsequent CL.",
+      "parentUuid": "02cf8da0_893cc9c8",
+      "revId": "6f9a808156db83fc217ad8327e398167daedf5c2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02cf8da0_296ed5cb",
         "filename": "shiny/driver/windriver/windraw.go",
         "patchSetId": 4
@@ -53,6 +95,24 @@
       "writtenOn": "2016-02-26T12:09:46Z",
       "side": 1,
       "message": "s/err/retErr/ and ditto on the next line.",
+      "revId": "6f9a808156db83fc217ad8327e398167daedf5c2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02cf8da0_09b31937",
+        "filename": "shiny/driver/windriver/windraw.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2016-02-28T01:46:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02cf8da0_296ed5cb",
       "revId": "6f9a808156db83fc217ad8327e398167daedf5c2",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
