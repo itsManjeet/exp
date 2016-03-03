@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "02cf8da0_918ceb62",
+        "filename": "shiny/driver/internal/win32/win32.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-03-03T00:33:49Z",
+      "side": 1,
+      "message": "Strictly speaking, I think that \"above WM_USER\" should be \"WM_USER and above\".\n\nI\u0027d also s/ids/IDs/",
+      "revId": "32dfdf7042426f1ff43056c837321dcf356d00cf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
