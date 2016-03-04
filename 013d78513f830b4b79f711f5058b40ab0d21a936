@@ -16,6 +16,24 @@
       "revId": "013d78513f830b4b79f711f5058b40ab0d21a936",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "02cf8da0_ea144888",
+        "filename": "shiny/text/caret.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-03-04T22:28:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22c651da_e5acb6d1",
+      "revId": "013d78513f830b4b79f711f5058b40ab0d21a936",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
