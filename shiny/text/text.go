@@ -312,6 +312,45 @@ func (f *Frame) NewCaret() *Caret {
 	return c
 }
 
+// readRune returns the next rune and its size in bytes, starting from the Box
+// indexed by b and the text in that Box indexed by k. It also returns the new
+// b and k indexes after reading size bytes. The b argument must not be zero,
+// and the newB return value will not be zero.
+//
+// It can cross Box boundaries, but not Line boundaries, in finding the next
+// rune.
+func (f *Frame) readRune(b, k int32) (r rune, size int, newB, newK int32) {
+	buf := [utf8.UTFMax]byte{}
+	newBAndKs := [utf8.UTFMax + 1]bAndK{
+		0: bAndK{b, k},
+	}
+	n := 0
+	for {
+		bb := &f.boxes[b]
+		if k < bb.j {
+			nCopied := copy(buf[n:], f.text[k:bb.j])
+			for i := 1; i <= nCopied; i++ {
+				newBAndKs[n+i] = bAndK{b, k + int32(i)}
+			}
+			n += nCopied
+			if n == len(buf) {
+				break
+			}
+		}
+		b = bb.next
+		if b == 0 {
+			break
+		}
+		k = f.boxes[b].i
+	}
+	r, size = utf8.DecodeRune(buf[:n])
+	bk := newBAndKs[size]
+	if bk.b == 0 {
+		panic("text: invalid state")
+	}
+	return r, size, bk.b, bk.k
+}
+
 func (f *Frame) lineReader(b, k int32) lineReader {
 	f.lineReaderData.b = b
 	f.lineReaderData.k = k
@@ -345,11 +384,13 @@ func (z lineReader) ReadRune() (r rune, size int, err error) {
 		if d.k < bb.j {
 			r, size = utf8.DecodeRune(z.f.text[d.k:bb.j])
 			if r >= utf8.RuneSelf && size == 1 {
-				// We decoded invalid UTF-8, possibly because a valid UTF-8 rune
-				// straddled this box and the next one.
-				panic("TODO: invalid UTF-8")
+				// We decoded invalid UTF-8, possibly because a valid UTF-8
+				// rune straddled this Box and the next one. Try again, calling
+				// readRune, which can cross Box boundaries.
+				r, size, d.b, d.k = z.f.readRune(d.b, d.k)
+			} else {
+				d.k += int32(size)
 			}
-			d.k += int32(size)
 			return r, size, nil
 		}
 		d.b = bb.next
