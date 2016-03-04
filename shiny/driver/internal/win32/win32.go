@@ -159,6 +159,11 @@ func sendSize(hwnd HWND) {
 	})
 }
 
+func sendClose(hwnd HWND, uMsg uint32, wParam, lParam uintptr) (lResult uintptr) {
+	LifecycleEvent(hwnd, lifecycle.StageDead)
+	return 0
+}
+
 func sendMouseEvent(hwnd HWND, uMsg uint32, wParam, lParam uintptr) (lResult uintptr) {
 	e := mouse.Event{
 		X:         float32(_GET_X_LPARAM(lParam)),
@@ -295,6 +300,7 @@ var windowMsgs = map[uint32]func(hwnd HWND, uMsg uint32, wParam, lParam uintptr)
 	_WM_PAINT:            sendPaint,
 	msgShow:              sendShow,
 	_WM_WINDOWPOSCHANGED: sendSizeEvent,
+	_WM_CLOSE:            sendClose,
 
 	_WM_LBUTTONDOWN: sendMouseEvent,
 	_WM_LBUTTONUP:   sendMouseEvent,
