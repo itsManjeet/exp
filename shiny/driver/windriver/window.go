@@ -71,7 +71,8 @@ func handleUpload(hwnd syscall.Handle, uMsg uint32, wParam, lParam uintptr) {
 	defer u.src.postUpload()
 
 	// TODO: adjust if dp is outside dst bounds, or sr is outside src bounds.
-	err = copyBitmapToDC(dc, u.dp, u.src.hbitmap, u.sr, draw.Src)
+	dr := image.Rect(0, 0, u.sr.Dx(), u.sr.Dy()).Add(u.dp)
+	err = copyBitmapToDC(dc, dr, u.src.hbitmap, u.sr, draw.Src)
 	if err != nil {
 		panic(err) // TODO handle errors
 	}
@@ -135,7 +136,8 @@ func handleCopy(hwnd syscall.Handle, uMsg uint32, wParam, lParam uintptr) {
 	}
 	defer win32.ReleaseDC(hwnd, dc)
 
-	err = copyBitmapToDC(dc, p.dp, p.src, p.sr, p.op)
+	dr := image.Rect(0, 0, p.sr.Dx(), p.sr.Dy()).Add(p.dp)
+	err = copyBitmapToDC(dc, dr, p.src, p.sr, p.op)
 	if err != nil {
 		panic(err) // TODO handle errors
 	}
