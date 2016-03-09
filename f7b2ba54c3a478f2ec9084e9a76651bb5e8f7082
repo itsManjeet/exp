@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9720212f_fc35252d",
+        "filename": "shiny/driver/windriver/buffer.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-03-09T23:23:18Z",
+      "side": 1,
+      "message": "Alternatively:\ndr :\u003d sr.Add(dp.Sub(sr.Min))",
+      "revId": "f7b2ba54c3a478f2ec9084e9a76651bb5e8f7082",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9720212f_7cffd57a",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-03-09T23:23:18Z",
+      "side": 1,
+      "message": "Alternatively:\ndr :\u003d u.sr.Add(u.dp.Sub(u.sr.Min))",
+      "revId": "f7b2ba54c3a478f2ec9084e9a76651bb5e8f7082",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9720212f_1cfc9983",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-03-09T23:23:18Z",
+      "side": 1,
+      "message": "Ditto.",
+      "revId": "f7b2ba54c3a478f2ec9084e9a76651bb5e8f7082",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9720212f_3cf95d94",
+        "filename": "shiny/driver/windriver/windraw.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-03-09T23:23:18Z",
+      "side": 1,
+      "message": "I\u0027d line break before memdc, and ditto below.",
+      "revId": "f7b2ba54c3a478f2ec9084e9a76651bb5e8f7082",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9720212f_dc306140",
+        "filename": "shiny/driver/windriver/windraw.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-03-09T23:23:18Z",
+      "side": 1,
+      "message": "It seems odd to me that there\u0027s different code paths for Window.Fill (fillSrc and fillOver above) and Texture.Fill (here). Aren\u0027t their DCs interchangable, API-wise?\n\nPerhaps a follow-up CL can refactor this??",
+      "revId": "f7b2ba54c3a478f2ec9084e9a76651bb5e8f7082",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
