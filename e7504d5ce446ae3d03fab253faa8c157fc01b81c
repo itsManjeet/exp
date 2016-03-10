@@ -16,6 +16,24 @@
       "revId": "e7504d5ce446ae3d03fab253faa8c157fc01b81c",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9720212f_dc3141eb",
+        "filename": "shiny/text/text.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-03-10T04:39:15Z",
+      "side": 1,
+      "message": "It probably avoids a function call and return in the common case, not that that\u0027s really a big deal.",
+      "parentUuid": "9720212f_bcd48dbb",
+      "revId": "e7504d5ce446ae3d03fab253faa8c157fc01b81c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
