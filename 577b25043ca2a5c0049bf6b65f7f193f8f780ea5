@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "576229c1_17a914a9",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-03-11T00:25:14Z",
+      "side": 1,
+      "message": "If this is a package-level comment, perhaps it should live in doc.go??",
+      "revId": "577b25043ca2a5c0049bf6b65f7f193f8f780ea5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
