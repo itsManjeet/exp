@@ -16,6 +16,24 @@
       "revId": "577b25043ca2a5c0049bf6b65f7f193f8f780ea5",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "576229c1_3d3c37c5",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2016-03-12T06:11:47Z",
+      "side": 1,
+      "message": "I was thinking about that, but then decided against it. The doc.go has a lot of misleading and out of date information. I was considering to delete doc.go altogether. Maybe I will rewrite goc.go and move this comment there. I don\u0027t know yet. If you have preference, let me know.",
+      "parentUuid": "576229c1_17a914a9",
+      "revId": "577b25043ca2a5c0049bf6b65f7f193f8f780ea5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
