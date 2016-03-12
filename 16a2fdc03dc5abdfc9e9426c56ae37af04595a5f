@@ -2,6 +2,29 @@
   "comments": [
     {
       "key": {
+        "uuid": "5bc96b78_b90d3bbf",
+        "filename": "rand/example_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5810
+      },
+      "writtenOn": "2016-03-12T09:41:48Z",
+      "side": 1,
+      "message": "2015?",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "16a2fdc03dc5abdfc9e9426c56ae37af04595a5f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4dc1956b_7afed9ab",
         "filename": "rand/example_test.go",
         "patchSetId": 2
@@ -18,6 +41,29 @@
         "startChar": 1,
         "endLine": 76,
         "endChar": 5
+      },
+      "revId": "16a2fdc03dc5abdfc9e9426c56ae37af04595a5f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5bc96b78_d90af7a3",
+        "filename": "rand/exp.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5810
+      },
+      "writtenOn": "2016-03-12T09:41:48Z",
+      "side": 1,
+      "message": "2015?",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
       },
       "revId": "16a2fdc03dc5abdfc9e9426c56ae37af04595a5f",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
@@ -64,6 +110,52 @@
         "startChar": 1,
         "endLine": 39,
         "endChar": 4
+      },
+      "revId": "16a2fdc03dc5abdfc9e9426c56ae37af04595a5f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5bc96b78_f907b39a",
+        "filename": "rand/normal.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5810
+      },
+      "writtenOn": "2016-03-12T09:41:48Z",
+      "side": 1,
+      "message": "2015?",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "16a2fdc03dc5abdfc9e9426c56ae37af04595a5f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5bc96b78_19c2af83",
+        "filename": "rand/rand.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5810
+      },
+      "writtenOn": "2016-03-12T09:41:48Z",
+      "side": 1,
+      "message": "2015?",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
       },
       "revId": "16a2fdc03dc5abdfc9e9426c56ae37af04595a5f",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
@@ -132,6 +224,52 @@
         "startLine": 148,
         "startChar": 5,
         "endLine": 148,
+        "endChar": 10
+      },
+      "revId": "16a2fdc03dc5abdfc9e9426c56ae37af04595a5f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5bc96b78_59cc27b4",
+        "filename": "rand/rand_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5810
+      },
+      "writtenOn": "2016-03-12T09:41:48Z",
+      "side": 1,
+      "message": "2015?",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "16a2fdc03dc5abdfc9e9426c56ae37af04595a5f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5bc96b78_79d1e34c",
+        "filename": "rand/rand_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5810
+      },
+      "writtenOn": "2016-03-12T09:41:48Z",
+      "side": 1,
+      "message": "s/this/stats/ ?",
+      "range": {
+        "startLine": 44,
+        "startChar": 6,
+        "endLine": 44,
         "endChar": 10
       },
       "revId": "16a2fdc03dc5abdfc9e9426c56ae37af04595a5f",
