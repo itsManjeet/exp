@@ -639,7 +639,35 @@ func (c *Caret) Delete(dir Direction, nBytes int) (dBytes int) {
 // location. It returns the number of runes and bytes deleted, which can be
 // fewer than that requested if it hits the beginning or end of the Frame.
 func (c *Caret) DeleteRunes(dir Direction, nRunes int) (dRunes, dBytes int) {
-	panic("TODO")
+	savedC := *c
+	if dir == Forwards {
+		for dRunes < nRunes {
+			var size int
+			_, size, c.b, c.k = c.f.readRune(c.b, c.k)
+			if size != 0 {
+				dRunes++
+				dBytes += size
+			} else if c.leanForwards() != leanOK {
+				break
+			}
+		}
+	} else {
+		for dRunes < nRunes {
+			var size int
+			_, size, c.b, c.k = c.f.readRuneBackwards(c.b, c.k)
+			if size != 0 {
+				dRunes++
+				dBytes += size
+			} else if c.leanBackwards() != leanOK {
+				break
+			}
+		}
+	}
+	*c = savedC
+	if dBytes != c.Delete(dir, dBytes) {
+		panic("text: invalid state")
+	}
+	return dRunes, dBytes
 }
 
 // joinNextParagraph joins c's current and next Paragraph. That next Paragraph
