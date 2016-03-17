@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "9c5cc665_99d69b09",
+        "filename": "shiny/text/caret.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 642,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-03-17T01:19:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17c6f1d9_083c87c4",
+      "revId": "181b11d95c28014577eb8ad0a94182a204b7324e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17c6f1d9_6849bb5a",
         "filename": "shiny/text/text.go",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2016-03-13T14:22:56Z",
       "side": 1,
       "message": "Do you mean readRune?\n\nFollowing the naming from utf8, these would be readRune and readLastRune. Though given that this package has a Direction, readRuneForwards/readRuneBackwards is fine, but the other function name should change.",
+      "range": {
+        "startLine": 400,
+        "startChar": 29,
+        "endLine": 400,
+        "endChar": 45
+      },
+      "revId": "181b11d95c28014577eb8ad0a94182a204b7324e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c5cc665_f9e357ed",
+        "filename": "shiny/text/text.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 400,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-03-17T01:19:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17c6f1d9_6849bb5a",
       "range": {
         "startLine": 400,
         "startChar": 29,
