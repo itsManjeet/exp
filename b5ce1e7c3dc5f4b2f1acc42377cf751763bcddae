@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c86862c_2c665bfd",
+        "filename": "shiny/widget/image.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-03-18T19:48:10Z",
+      "side": 1,
+      "message": "I\u0027m not clear on the purpose of having a wrapper object.\n\n*Node is concrete, so an *Image can\u0027t go into the node hierarchy. Who maintains it, where?\n\nI would have thought that either widget.Image exists and widget.Node is an interface, or there are just *Node, ImageClass, and NewImage() *Node. I\u0027m missing something?",
+      "revId": "b5ce1e7c3dc5f4b2f1acc42377cf751763bcddae",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c86862c_8c8bc7db",
+        "filename": "shiny/widget/widget.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-03-18T19:48:10Z",
+      "side": 1,
+      "message": "Why uint32? Why not int or uint8?",
+      "revId": "b5ce1e7c3dc5f4b2f1acc42377cf751763bcddae",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c86862c_6c8773d3",
+        "filename": "shiny/widget/widget.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-03-18T19:48:10Z",
+      "side": 1,
+      "message": "I find constants like this easier to read when the compact comments are inline:\n\nconst (\n    Leaf       Arity \u003d iota // no children\n    Shell                   // at most one child\n    Container               // any number of children\n)\n\niota if you prefer, I feel two ways about it.",
+      "revId": "b5ce1e7c3dc5f4b2f1acc42377cf751763bcddae",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c86862c_cc95bff6",
+        "filename": "shiny/widget/widget.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-03-18T19:48:10Z",
+      "side": 1,
+      "message": "Deciding to paint onto an image.RGBA instead of a screen.Uploader cuts off the potential to paint using side channels.\n\nIn some ways, that\u0027s very nice. Everything is easy and in-memory. It means parent widgets could make decisions about where to place the content after the child Paint is complete.\n\nIn another way, it means there\u0027s no chance for an OpenGL-specific widget to draw using side channels. It means a Widget cannot maintain screen.Texture objects and reuse them (saving roundtrips to the GPU memory each paint).\n\nI think something more is needed here. My instinct is screen.Uploader.",
+      "revId": "b5ce1e7c3dc5f4b2f1acc42377cf751763bcddae",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9c86862c_2c7d7b8d",
+        "filename": "shiny/widget/widget.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-03-18T19:48:10Z",
+      "side": 1,
+      "message": "How about calling it Data?",
+      "revId": "b5ce1e7c3dc5f4b2f1acc42377cf751763bcddae",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
