@@ -142,6 +142,24 @@
     },
     {
       "key": {
+        "uuid": "9c86862c_ac732b25",
+        "filename": "shiny/widget/widget.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-03-20T13:10:04Z",
+      "side": 1,
+      "message": "OK, we can talk about GL side channels later, but I don\u0027t see how the widget package can end up without one.\n\nConsider NSOpenGLView and \u003ccanvas\u003e, both of which embed GL in a widget hierarchy that can scroll and be repositioned.",
+      "parentUuid": "fcb5c2f8_bc6221a6",
+      "revId": "b5ce1e7c3dc5f4b2f1acc42377cf751763bcddae",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c86862c_2c7d7b8d",
         "filename": "shiny/widget/widget.go",
         "patchSetId": 1
