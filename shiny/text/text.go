@@ -336,6 +336,41 @@ func (f *Frame) Len() int {
 	return f.len
 }
 
+// deletedLen returns the number of deleted bytes in the Frame's text.
+func (f *Frame) deletedLen() int {
+	return len(f.text) - f.len
+}
+
+func (f *Frame) compactText() {
+	newText := make([]byte, 0, len(f.text))
+	for p := f.firstP; p != 0; {
+		pp := &f.paragraphs[p]
+		for l := pp.firstL; l != 0; {
+			ll := &f.lines[l]
+
+			i := int32(len(newText))
+			for b := ll.firstB; b != 0; {
+				bb := &f.boxes[b]
+				newText = append(newText, f.text[bb.i:bb.j]...)
+				nextB := bb.next
+				f.freeBox(b)
+				b = nextB
+			}
+			j := int32(len(newText))
+			ll.firstB, _ = f.newBox()
+			bb := &f.boxes[ll.firstB]
+			bb.i, bb.j = i, j
+
+			l = ll.next
+		}
+		p = pp.next
+	}
+	f.text = newText
+	if len(newText) != f.len {
+		panic("text: invalid state")
+	}
+}
+
 // NewCaret returns a new Caret at the start of this Frame.
 func (f *Frame) NewCaret() *Caret {
 	if !f.initialized() {
