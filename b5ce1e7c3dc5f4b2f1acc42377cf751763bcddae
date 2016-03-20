@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "fcb5c2f8_1c9b55e9",
+        "filename": "shiny/widget/image.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-03-20T00:35:38Z",
+      "side": 1,
+      "message": "The wrapper is there to attach class-specific methods like SetImage:\n\n----\n// imageImage is of type image.Image, from the standard library\u0027s image package.\nimageImage, err :\u003d jpeg.Decode(etc)\nif err !\u003d nil { etc }\n\n// widgetImage is of type widget.Image, from this package.\nwidgetImage :\u003d widget.NewImage()\nwidgetImage.SetImage(imageImage)\n\n// You can still insert a widget.Image into the node tree, via its embedded Node field.\ncontainer.AppendChild(widgetImage.Node)\n----\n\nYes, an example app will help explain this, although we don\u0027t really have enough functionality in the package to make an example app yet.",
+      "parentUuid": "9c86862c_2c665bfd",
+      "revId": "b5ce1e7c3dc5f4b2f1acc42377cf751763bcddae",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c86862c_8c8bc7db",
         "filename": "shiny/widget/widget.go",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2016-03-18T19:48:10Z",
       "side": 1,
       "message": "Why uint32? Why not int or uint8?",
+      "revId": "b5ce1e7c3dc5f4b2f1acc42377cf751763bcddae",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcb5c2f8_9c6765b6",
+        "filename": "shiny/widget/widget.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-03-20T00:35:38Z",
+      "side": 1,
+      "message": "uint8 works too.",
+      "parentUuid": "9c86862c_8c8bc7db",
       "revId": "b5ce1e7c3dc5f4b2f1acc42377cf751763bcddae",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "fcb5c2f8_fc68a989",
+        "filename": "shiny/widget/widget.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-03-20T00:35:38Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "9c86862c_6c8773d3",
+      "revId": "b5ce1e7c3dc5f4b2f1acc42377cf751763bcddae",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c86862c_cc95bff6",
         "filename": "shiny/widget/widget.go",
         "patchSetId": 1
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "fcb5c2f8_bc6221a6",
+        "filename": "shiny/widget/widget.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-03-20T00:35:38Z",
+      "side": 1,
+      "message": "The widget package is intended to ultimately draw onto a screen.Buffer, i.e. an *image.RGBA. As you said, it makes everything easy and in-memory. Composing that Buffer with other Textures, or with OpenGL effects, should be possible, but I think that\u0027s out of scope of this package.",
+      "parentUuid": "9c86862c_cc95bff6",
+      "revId": "b5ce1e7c3dc5f4b2f1acc42377cf751763bcddae",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c86862c_2c7d7b8d",
         "filename": "shiny/widget/widget.go",
         "patchSetId": 1
@@ -81,6 +153,24 @@
       "writtenOn": "2016-03-18T19:48:10Z",
       "side": 1,
       "message": "How about calling it Data?",
+      "revId": "b5ce1e7c3dc5f4b2f1acc42377cf751763bcddae",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcb5c2f8_dc6ded97",
+        "filename": "shiny/widget/widget.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-03-20T00:35:38Z",
+      "side": 1,
+      "message": "There will be other sorts of Data coming in future CLs.",
+      "parentUuid": "9c86862c_2c7d7b8d",
       "revId": "b5ce1e7c3dc5f4b2f1acc42377cf751763bcddae",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
