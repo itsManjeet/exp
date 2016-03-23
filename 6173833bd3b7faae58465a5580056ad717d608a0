@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c1bdab9_2a743b0d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 8490
+      },
+      "writtenOn": "2016-03-23T22:56:23Z",
+      "side": 1,
+      "message": "indicate what the backend is, ex:\n\nmultiple backend implementations  (e.g. sysfs, devfs)",
+      "range": {
+        "startLine": 13,
+        "startChar": 35,
+        "endLine": 13,
+        "endChar": 42
+      },
+      "revId": "6173833bd3b7faae58465a5580056ad717d608a0",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c1bdab9_0a7e9ff0",
+        "filename": "peripheral/spi/example_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 8490
+      },
+      "writtenOn": "2016-03-23T22:56:23Z",
+      "side": 1,
+      "message": "Consider mentioning that this is rendering to APA102C LEDs",
+      "range": {
+        "startLine": 9,
+        "startChar": 5,
+        "endLine": 9,
+        "endChar": 12
+      },
+      "revId": "6173833bd3b7faae58465a5580056ad717d608a0",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c1bdab9_ea0d03d2",
+        "filename": "peripheral/spi/spi.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 8490
+      },
+      "writtenOn": "2016-03-23T22:56:23Z",
+      "side": 1,
+      "message": "Consider returning an error if it\u0027s more than 8 bits",
+      "range": {
+        "startLine": 64,
+        "startChar": 6,
+        "endLine": 64,
+        "endChar": 11
+      },
+      "revId": "6173833bd3b7faae58465a5580056ad717d608a0",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c1bdab9_ea26a351",
+        "filename": "peripheral/spi/spi.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 8490
+      },
+      "writtenOn": "2016-03-23T22:56:23Z",
+      "side": 1,
+      "message": "consider phrasing as:\n\nDo performs a duplex transmission...",
+      "range": {
+        "startLine": 93,
+        "startChar": 6,
+        "endLine": 93,
+        "endChar": 10
+      },
+      "revId": "6173833bd3b7faae58465a5580056ad717d608a0",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c1bdab9_eab06325",
+        "filename": "peripheral/spi/spi.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 8490
+      },
+      "writtenOn": "2016-03-23T22:56:23Z",
+      "side": 1,
+      "message": "Missing description?",
+      "range": {
+        "startLine": 128,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 4
+      },
+      "revId": "6173833bd3b7faae58465a5580056ad717d608a0",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c1bdab9_2a8b9b4c",
+        "filename": "peripheral/spi/spi.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 8490
+      },
+      "writtenOn": "2016-03-23T22:56:23Z",
+      "side": 1,
+      "message": "Missing description?",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 4
+      },
+      "revId": "6173833bd3b7faae58465a5580056ad717d608a0",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
