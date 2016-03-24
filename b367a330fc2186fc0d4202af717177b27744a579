@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "fcb5c2f8_50cbfc6a",
+        "filename": "shiny/text/caret.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 656,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-03-24T00:43:50Z",
+      "side": 1,
+      "message": "The 1/8 is arbitrary. I changed it to 1/4 and added to the comment:\n\n// Compact c.f.text if it\u0027s large enough and the fraction of deleted text\n// is above some threshold. The actual threshold value (25%) is arbitrary.\n// A lower value means more frequent compactions, so less memory on average\n// but more CPU. A higher value means the opposite.",
+      "parentUuid": "9c86862c_4c7d4ff3",
+      "revId": "b367a330fc2186fc0d4202af717177b27744a579",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9c86862c_6c82132c",
         "filename": "shiny/text/text.go",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2016-03-20T12:45:23Z",
       "side": 1,
       "message": "Shouldn\u0027t the capacity be f.len?",
+      "revId": "b367a330fc2186fc0d4202af717177b27744a579",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcb5c2f8_10e69405",
+        "filename": "shiny/text/text.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-03-24T00:43:50Z",
+      "side": 1,
+      "message": "This is also somewhat arbitrary. I changed it to \"f.len + f.deletedLen()/2\" and added a comment:\n\n// f.text contains f.len live bytes and len(f.text) - f.len deleted bytes.\n// After the compaction, the new f.text slice\u0027s capacity should be at least\n// f.len, to hold all of the live bytes, but also be below len(f.text) to\n// allow total memory use to decrease. The actual value used (halfway\n// between them) is arbitrary. A lower value means less up-front memory\n// consumption but a lower threshold for re-allocating the f.text slice\n// upon further writes, such as a paste immediately after a cut. A higher\n// value means the opposite.",
+      "parentUuid": "9c86862c_6c82132c",
       "revId": "b367a330fc2186fc0d4202af717177b27744a579",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
