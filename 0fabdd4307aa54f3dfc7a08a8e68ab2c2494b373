@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "91d6710b_e3c70c5f",
+        "filename": "peripheral/spi/spi.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-03-25T23:40:42Z",
+      "side": 1,
+      "message": "Done.\n\nFor some reason, none of the SPI devices I have used complained about these values and I didnt recognize there was an issue.\n\nhttps://play.golang.org/p/ZRfTJ6B75A",
+      "parentUuid": "5144f987_5eacf5c3",
+      "revId": "0fabdd4307aa54f3dfc7a08a8e68ab2c2494b373",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3c1bdab9_10eff067",
         "filename": "peripheral/spi/spi.go",
         "patchSetId": 3
@@ -102,6 +120,24 @@
       "side": 1,
       "message": "but can you do anything if one of the call fails? Are some of the settings optional?",
       "parentUuid": "5144f987_9eeb1d92",
+      "revId": "0fabdd4307aa54f3dfc7a08a8e68ab2c2494b373",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "91d6710b_a3cd0485",
+        "filename": "peripheral/spi/spi.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-03-25T23:40:42Z",
+      "side": 1,
+      "message": "Mode and max speed are required. Added them as arguments to Open.",
+      "parentUuid": "5144f987_3e9da999",
       "revId": "0fabdd4307aa54f3dfc7a08a8e68ab2c2494b373",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
