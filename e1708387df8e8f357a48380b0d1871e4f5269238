@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "91d6710b_e3a62c80",
+        "filename": "io/spi/spi.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 5480
+      },
+      "writtenOn": "2016-03-26T00:03:06Z",
+      "side": 1,
+      "message": "you could update the doc to say, that it\u0027s the responsability of the caller to make sure not to mutate the buffer.\n\n(reslicing would only protect from append).",
+      "revId": "e1708387df8e8f357a48380b0d1871e4f5269238",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
