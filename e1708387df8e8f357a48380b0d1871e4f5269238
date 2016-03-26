@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "91d6710b_4630c69a",
+        "filename": "io/spi/spi.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-03-26T21:22:18Z",
+      "side": 1,
+      "message": "I removed reslicing and documented what\u0027s expected.",
+      "parentUuid": "91d6710b_e3a62c80",
+      "revId": "e1708387df8e8f357a48380b0d1871e4f5269238",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "91d6710b_43527810",
         "filename": "io/spi/spi.go",
         "patchSetId": 7
@@ -30,6 +48,24 @@
       "writtenOn": "2016-03-26T00:12:20Z",
       "side": 1,
       "message": "nit: maxSpeedHz is the max clock speed?",
+      "revId": "e1708387df8e8f357a48380b0d1871e4f5269238",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "91d6710b_6635ca89",
+        "filename": "io/spi/spi.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-03-26T21:22:18Z",
+      "side": 1,
+      "message": "We dont annotate arguments in godoc. It is clear what I am talking about.",
+      "parentUuid": "91d6710b_43527810",
       "revId": "e1708387df8e8f357a48380b0d1871e4f5269238",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
