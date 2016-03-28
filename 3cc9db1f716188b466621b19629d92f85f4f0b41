@@ -16,6 +16,24 @@
       "revId": "3cc9db1f716188b466621b19629d92f85f4f0b41",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71f3bdea_55753c05",
+        "filename": "io/spi/spi.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-03-28T20:19:03Z",
+      "side": 1,
+      "message": "We have other ideas how to identify the drivers and devices, but for now, let\u0027s keep it simple an use a string identifier.\n\nI will ping you once again with the other ideas once we begin to introduce the other drivers.",
+      "parentUuid": "f1e40df9_1e93697d",
+      "revId": "3cc9db1f716188b466621b19629d92f85f4f0b41",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
