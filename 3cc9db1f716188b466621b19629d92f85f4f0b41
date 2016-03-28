@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f1e40df9_1e93697d",
+        "filename": "io/spi/spi.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 5055
+      },
+      "writtenOn": "2016-03-28T20:02:46Z",
+      "side": 1,
+      "message": "should we also include a driver (backend) selector\nargument?\n\ne.g. on an embedded linux box with both spidev and\nftdi mpsse device connected to usb.\n\n\nfunc Open(driverName string, bus, cs int, mode int, maxSpeedHz int) (*Device, error)\n\n\nFor now, the user can just pass \"\" to use the default\ndriver.",
+      "revId": "3cc9db1f716188b466621b19629d92f85f4f0b41",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
