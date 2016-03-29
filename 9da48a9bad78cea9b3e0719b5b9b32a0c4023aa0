@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "71f3bdea_ae06526d",
+        "filename": "io/spi/devfs.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-03-29T19:43:55Z",
+      "side": 1,
+      "message": "Done\n\nRemove the godoc here and updated the original at spi.go.",
+      "parentUuid": "51acf9b4_41be9484",
+      "revId": "9da48a9bad78cea9b3e0719b5b9b32a0c4023aa0",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "51acf9b4_61c190fc",
         "filename": "io/spi/devfs.go",
         "patchSetId": 4
@@ -30,6 +48,24 @@
       "writtenOn": "2016-03-29T19:34:29Z",
       "side": 1,
       "message": "s/to not to mutate/not to mutate/\nor perhaps:\nThe user should not mutate [...]",
+      "revId": "9da48a9bad78cea9b3e0719b5b9b32a0c4023aa0",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71f3bdea_0e379e35",
+        "filename": "io/spi/devfs.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-03-29T19:43:55Z",
+      "side": 1,
+      "message": "Done for spi.go docs.",
+      "parentUuid": "51acf9b4_61c190fc",
       "revId": "9da48a9bad78cea9b3e0719b5b9b32a0c4023aa0",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
