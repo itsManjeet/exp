@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "51acf9b4_41be9484",
+        "filename": "io/spi/devfs.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 5810
+      },
+      "writtenOn": "2016-03-29T19:34:29Z",
+      "side": 1,
+      "message": "it doesn\u0027t look like it\u0027s called \u0027Do\u0027 anymore.\nalso, there is no \u0027buf\u0027 anymore.",
+      "revId": "9da48a9bad78cea9b3e0719b5b9b32a0c4023aa0",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51acf9b4_61c190fc",
+        "filename": "io/spi/devfs.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 5810
+      },
+      "writtenOn": "2016-03-29T19:34:29Z",
+      "side": 1,
+      "message": "s/to not to mutate/not to mutate/\nor perhaps:\nThe user should not mutate [...]",
+      "revId": "9da48a9bad78cea9b3e0719b5b9b32a0c4023aa0",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51acf9b4_21bb8894",
+        "filename": "io/spi/spi.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 5810
+      },
+      "writtenOn": "2016-03-29T19:34:29Z",
+      "side": 1,
+      "message": "s/to not to mutate/not to mutate/\ns/the tx and rx until/the tx and rx buffers until/\nor:\nThe user should not mutate the tx and rx buffers [...]",
+      "revId": "9da48a9bad78cea9b3e0719b5b9b32a0c4023aa0",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
