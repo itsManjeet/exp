@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "115281ad_fc89a91a",
+        "filename": "io/spi/driver/driver.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5055
+      },
+      "writtenOn": "2016-03-29T19:52:42Z",
+      "side": 1,
+      "message": "... and max clock speed (in Hz) to be used    ?",
+      "revId": "fb1326f4843ea58a41ecfc84445084568e46b4b7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
