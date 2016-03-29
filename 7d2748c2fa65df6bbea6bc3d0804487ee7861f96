@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "71f3bdea_2edca22c",
+        "filename": "io/spi/driver/driver.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-03-29T19:43:55Z",
+      "side": 1,
+      "message": "Done.\n\nThese values are queryable, I added a todo to extend the interface.",
+      "parentUuid": "115281ad_fc2209e9",
+      "revId": "7d2748c2fa65df6bbea6bc3d0804487ee7861f96",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "115281ad_dc1dcdb1",
         "filename": "io/spi/driver/driver.go",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2016-03-29T19:20:36Z",
       "side": 1,
       "message": "what does the delay parameter do?",
+      "revId": "7d2748c2fa65df6bbea6bc3d0804487ee7861f96",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "71f3bdea_0e08be7d",
+        "filename": "io/spi/driver/driver.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-03-29T19:43:55Z",
+      "side": 1,
+      "message": "Documented.",
+      "parentUuid": "115281ad_dc1dcdb1",
       "revId": "7d2748c2fa65df6bbea6bc3d0804487ee7861f96",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
