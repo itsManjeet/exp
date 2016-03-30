@@ -194,6 +194,24 @@
       "revId": "354d508b0e2a2c713728433cd81d2b1bf8d3f4f4",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51795972_fcb721af",
+        "filename": "io/spi/spi.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 5480
+      },
+      "writtenOn": "2016-03-30T20:00:28Z",
+      "side": 1,
+      "message": "if we wanted to build on the Opener interface, we could have a 2-step init for driver that needs vendor parameter, like MySPIConn in http://play.golang.org/p/3WjlKcq2j3.\n\nFirst the client can construct the driver type using vendor specific parameter, then spi.Open would call Open() on it, with generic spi param.",
+      "parentUuid": "51795972_d9def78a",
+      "revId": "354d508b0e2a2c713728433cd81d2b1bf8d3f4f4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
