@@ -16,6 +16,24 @@
       "revId": "354d508b0e2a2c713728433cd81d2b1bf8d3f4f4",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51795972_16f75c39",
+        "filename": "io/spi/spi.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-03-30T17:08:39Z",
+      "side": 1,
+      "message": "No, Device and the Conn are not exporting the same methods. Device is targeting the end user, Conn is targeting the driver implementors. Their godoc will diverge significantly. Hence I am not going to embed.",
+      "parentUuid": "71ed7d37_c2d4246e",
+      "revId": "354d508b0e2a2c713728433cd81d2b1bf8d3f4f4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
