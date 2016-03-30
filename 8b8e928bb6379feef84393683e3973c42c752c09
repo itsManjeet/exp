@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b16e1579_c9365138",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2016-03-30T01:47:24Z",
+      "side": 1,
+      "message": "It is actually\n\ndr \u003d sr.Sub(sr.Min)\n\nbut done.",
+      "parentUuid": "f16b2d2f_c6f684ea",
+      "revId": "8b8e928bb6379feef84393683e3973c42c752c09",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f16b2d2f_e6f380f7",
         "filename": "shiny/driver/windriver/window.go",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2016-03-29T09:27:08Z",
       "side": 1,
       "message": "You could drop this line so that it\u0027s just\n\nif retErr \u003d\u003d nil {\n\nthat\u0027s what the existing code, in other methods, does for writing to retErr.",
+      "revId": "8b8e928bb6379feef84393683e3973c42c752c09",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b16e1579_e93b151f",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2016-03-30T01:47:24Z",
+      "side": 1,
+      "message": "Too clever for my simple brain. But done.\n\nI have also change line 182 from:\n\n_, err \u003d _SetGraphicsMode(dc, prevmode)\n\nto\n\n_, err :\u003d _SetGraphicsMode(dc, prevmode)\n\nMy error while copying code.",
+      "parentUuid": "f16b2d2f_e6f380f7",
       "revId": "8b8e928bb6379feef84393683e3973c42c752c09",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "b16e1579_89405985",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2016-03-30T01:47:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f16b2d2f_461a9408",
+      "revId": "8b8e928bb6379feef84393683e3973c42c752c09",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f16b2d2f_661f90f7",
         "filename": "shiny/driver/windriver/window.go",
         "patchSetId": 1
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "b16e1579_694885aa",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2016-03-30T01:47:24Z",
+      "side": 1,
+      "message": "Rereading ModifyWorldTransform documentation I can see that second parameter is ignored when third parameter is MWT_IDENTITY. My fault. Changing to nil to avoid confusion in the future.",
+      "parentUuid": "f16b2d2f_661f90f7",
+      "revId": "8b8e928bb6379feef84393683e3973c42c752c09",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f16b2d2f_06209c30",
         "filename": "shiny/driver/windriver/window.go",
         "patchSetId": 1
@@ -81,6 +153,24 @@
       "writtenOn": "2016-03-29T09:27:08Z",
       "side": 1,
       "message": "Ditto.",
+      "revId": "8b8e928bb6379feef84393683e3973c42c752c09",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b16e1579_a9451d94",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2016-03-30T01:47:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f16b2d2f_06209c30",
       "revId": "8b8e928bb6379feef84393683e3973c42c752c09",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
