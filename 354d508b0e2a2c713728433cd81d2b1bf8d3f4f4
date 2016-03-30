@@ -176,6 +176,24 @@
       "revId": "354d508b0e2a2c713728433cd81d2b1bf8d3f4f4",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51795972_d9def78a",
+        "filename": "io/spi/spi.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 5480
+      },
+      "writtenOn": "2016-03-30T19:06:04Z",
+      "side": 1,
+      "message": "+1, it\u0027s even simpler if we pass the Conn interface directly instead of the Opener intermediate interface (each driver is free to implement their own NewMyConn function() if they need some custom opening logic).",
+      "parentUuid": "912d9179_88841703",
+      "revId": "354d508b0e2a2c713728433cd81d2b1bf8d3f4f4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
