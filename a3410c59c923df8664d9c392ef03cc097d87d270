@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4efc542b_7e1f71a9",
+        "filename": "shiny/example/fluid/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-03-30T23:41:23Z",
+      "side": 1,
+      "message": "N is such that the grid of cells has size NxN. As for the units, I don\u0027t really know; the paper and the C code don\u0027t seem to say. I think these numbers are just magic numbers that happen to look good, rather than being derived from first principles.",
+      "parentUuid": "fc5862e7_e4d6da6d",
+      "revId": "a3410c59c923df8664d9c392ef03cc097d87d270",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc5862e7_24cdd2d4",
         "filename": "shiny/example/fluid/main.go",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2016-03-25T00:13:19Z",
       "side": 1,
       "message": "Any motivation for a buffer size of 8? I\u0027m curious, can you observe any effects if you use an unbuffered channel?",
+      "revId": "a3410c59c923df8664d9c392ef03cc097d87d270",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4efc542b_be53b95e",
+        "filename": "shiny/example/fluid/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-03-30T23:41:23Z",
+      "side": 1,
+      "message": "I haven\u0027t observed any effects with my naked eye, but a unbuffered channel means it\u0027s more likely that the UI event loop blocks on the CPU-intensive simulation loop, especially if you up the N constant so that each simulation loop iteration takes noticably longer. 8 is just a magic (positive) number. In any case, I upped it to 64, which should be far less likely to be hit.",
+      "parentUuid": "fc5862e7_24cdd2d4",
       "revId": "a3410c59c923df8664d9c392ef03cc097d87d270",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
