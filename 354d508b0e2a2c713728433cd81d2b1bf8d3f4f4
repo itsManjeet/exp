@@ -52,6 +52,23 @@
       "revId": "354d508b0e2a2c713728433cd81d2b1bf8d3f4f4",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51795972_b9221be8",
+        "filename": "io/spi/spi.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 5480
+      },
+      "writtenOn": "2016-03-30T18:22:16Z",
+      "side": 1,
+      "message": "Since people will need to import devfs to register the driver as a side effect, did you consider having something more static?\n\nimport (\n  \"golang.org/exp/io/spi\"\n  \"golang.org/exp/io/spi/devfs\"\n)\n\nspi.Open(devfs.NewConn(bus, cs, mode, maxSpeedHz))\n\n(that could allow you to have init args that depends on the driver).",
+      "revId": "354d508b0e2a2c713728433cd81d2b1bf8d3f4f4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
