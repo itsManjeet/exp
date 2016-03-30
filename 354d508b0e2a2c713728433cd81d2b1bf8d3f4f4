@@ -158,6 +158,24 @@
       "revId": "354d508b0e2a2c713728433cd81d2b1bf8d3f4f4",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "912d9179_88841703",
+        "filename": "io/spi/spi.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 5055
+      },
+      "writtenOn": "2016-03-30T19:00:26Z",
+      "side": 1,
+      "message": "The reason I recommended a string parameter is that\nwe can add backend-specific parameters to that string,\nbut know I see a better and more type-safe approach:\n\nWe make the driver parameter a spi/driver.Conn\ninterface, and then the user import a package that\nprovide such a type that contains driver specific configuration fields and also implements the\nspi/driver.Conn interface. We don\u0027t actually need\ndynamic registration for backends, and this permits\na single package to provide backends for more than\none type of IO interface (SPI, I2C, for example),\nwhile allowing the linker to remove unused IO\nbackends (dynamic registration pretty much prevents\ndead code removal.)\n\nFor example, an imaginary ftdi MPSSE spi driver\ncould be like this:\n\npackage ftdi\n\n// SPIConn implements spi/driver.Conn\ntype SPIConn {\n     Vid, Pid uint16\n     // other backedn specific configs\n}\n// I2CConn implements i2c/driver.Conn\ntype I2CConn { /* ... */ }\n\n\nAnd the user code will look like this:\n\n\nimport (\n    \"..../ftdi\"\n    \"golang.org/x/exp/io/spi\"\n)\ndev, err :\u003d spi.Open(\u0026ftdi.SPIConn{Vid: 0x0403, Pid: 0x6014}, 0, 0, 1e6)",
+      "parentUuid": "51795972_19ef8fa0",
+      "revId": "354d508b0e2a2c713728433cd81d2b1bf8d3f4f4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
