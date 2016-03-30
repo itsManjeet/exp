@@ -86,6 +86,24 @@
       "revId": "354d508b0e2a2c713728433cd81d2b1bf8d3f4f4",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51795972_d98ef720",
+        "filename": "io/spi/spi.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 5480
+      },
+      "writtenOn": "2016-03-30T18:25:22Z",
+      "side": 1,
+      "message": "Oups I didn\u0027t realize devfs was part of the same package, then I\u0027m confused why the lookup needs to be dynamic instead of exporting the function that create the devfs conn?",
+      "parentUuid": "51795972_b9221be8",
+      "revId": "354d508b0e2a2c713728433cd81d2b1bf8d3f4f4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
