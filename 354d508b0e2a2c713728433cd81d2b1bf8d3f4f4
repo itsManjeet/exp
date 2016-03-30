@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "51795972_798083e7",
+        "filename": "io/spi/example_test.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-03-30T18:34:01Z",
+      "side": 1,
+      "message": "devfs is a part of the spi package. You dont have to import it but third party drivers will need to be imported.",
+      "parentUuid": "51795972_19322f39",
+      "revId": "354d508b0e2a2c713728433cd81d2b1bf8d3f4f4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71ed7d37_c2d4246e",
         "filename": "io/spi/spi.go",
         "patchSetId": 6
@@ -100,6 +118,24 @@
       "writtenOn": "2016-03-30T18:25:22Z",
       "side": 1,
       "message": "Oups I didn\u0027t realize devfs was part of the same package, then I\u0027m confused why the lookup needs to be dynamic instead of exporting the function that create the devfs conn?",
+      "parentUuid": "51795972_b9221be8",
+      "revId": "354d508b0e2a2c713728433cd81d2b1bf8d3f4f4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51795972_19ef8fa0",
+        "filename": "io/spi/spi.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-03-30T18:34:01Z",
+      "side": 1,
+      "message": "I was thinking about driverName to be an interface{} rather than a string.\n\nspi.Open(spi.DevFS, bus, cs, mode, speed)\n\nThe key could be exported from the third party packages. I will add a TODO for now. When minux first suggested the driver name to be a part of the Open function, I also mentioned I have alternative options. I will try to document them and have this debate on golang-dev rather than on individual CLs.",
       "parentUuid": "51795972_b9221be8",
       "revId": "354d508b0e2a2c713728433cd81d2b1bf8d3f4f4",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
