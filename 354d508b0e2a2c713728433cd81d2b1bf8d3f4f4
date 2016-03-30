@@ -34,6 +34,24 @@
       "revId": "354d508b0e2a2c713728433cd81d2b1bf8d3f4f4",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "51795972_16c91ccf",
+        "filename": "io/spi/spi.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 5480
+      },
+      "writtenOn": "2016-03-30T17:27:15Z",
+      "side": 1,
+      "message": "Makes sense, I was suggesting this because currently current set of methods they expose was ~similar. But I can understand you want to be able to make them diverge in the future (and even if they don\u0027t, you\u0027re right that embedding the interface would prevent you from attaching godoc to each Device method).",
+      "parentUuid": "51795972_16f75c39",
+      "revId": "354d508b0e2a2c713728433cd81d2b1bf8d3f4f4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
