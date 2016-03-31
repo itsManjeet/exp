@@ -16,12 +16,15 @@ type Opener interface {
 // Conn is a connection to an SPI device.
 // TODO(jbd): Expand the interface to query mode, bits per word and clock speed.
 type Conn interface {
-	// Configure configures the SPI mode, bits per word and max clock
-	// speed (in Hz) to be used. SPI devices can override these values.
+	// Configure configures the SPI mode, bits per word, max clock
+	// speed (in Hz) and bit order to be used.
+	//
+	// SPI devices can override these values.
+	//
 	// If a negative value is provided, it preserves the previous state
 	// of the setting, e.g. Configure(-1, -1, 10000) will only modify the
 	// speed.
-	Configure(mode, bits, speed int) error
+	Configure(mode, bits, speed, order int) error
 
 	// Transfer transfers tx and reads into rx.
 	// Some SPI devices require a minimum amount of wait time after
