@@ -21,7 +21,7 @@ type Conn interface {
 	// If a negative value is provided, it preserves the previous state
 	// of the setting, e.g. Configure(-1, -1, 10000) will only modify the
 	// speed.
-	Configure(mode, bits, speed int) error
+	Configure(mode, bits, speed, order int) error
 
 	// Transfer transfers tx and reads into rx.
 	// Some SPI devices require a minimum amount of wait time after

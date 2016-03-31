@@ -65,7 +65,7 @@ type devfsConn struct {
 	bits  uint8
 }
 
-func (c *devfsConn) Configure(mode, bits, speed int) error {
+func (c *devfsConn) Configure(mode, bits, speed, order int) error {
 	if mode > -1 {
 		m := uint8(mode)
 		if err := c.ioctl(requestCode(write, magic, 1, 1), uintptr(unsafe.Pointer(&m))); err != nil {
@@ -86,6 +86,12 @@ func (c *devfsConn) Configure(mode, bits, speed int) error {
 			return fmt.Errorf("error setting speed to %v: %v", speed, err)
 		}
 		c.speed = s
+	}
+	if order > -1 {
+		o := uint8(order)
+		if err := c.ioctl(requestCode(write, magic, 2, 1), uintptr(unsafe.Pointer(&o))); err != nil {
+			return fmt.Errorf("error setting bit order to %v: %v", o, err)
+		}
 	}
 	return nil
 }
