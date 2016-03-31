@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "912d9179_cbc9a92a",
+        "filename": "io/spi/driver/driver.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5055
+      },
+      "writtenOn": "2016-03-31T21:18:13Z",
+      "side": 1,
+      "message": "what about this instead?\n\n\ntype Config {\n    Mode int // should we move spi.Mode here?\n    Bits int\n    Speed int\n    Order int\n}\n\ntype Conn interface {\n    Configure(Config) (Config, error)\n}\n\n\nwe need to make zero values to signify\nkeep current setting. Bits, Speed\nand Order is probably fine, but we already\nuse 0 for Mode and mode 0 seems a very\nestablished SPI terminology, so I\u0027m not\nsure what to do here (we make the client\nalways use named constant Mode0 instead\nof raw 0).",
+      "revId": "cd18b6ca311361e33557842529fb2ea38d3de16d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
