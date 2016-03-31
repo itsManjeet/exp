@@ -15,21 +15,20 @@ import (
 )
 
 const (
-	magic = 107
+	devfs_magic = 107
 
-	nrbits   = 8
-	typebits = 8
-	sizebits = 13
-	dirbits  = 3
+	devfs_nrbits   = 8
+	devfs_typebits = 8
+	devfs_sizebits = 13
+	devfs_dirbits  = 3
 
-	nrshift   = 0
-	typeshift = nrshift + nrbits
-	sizeshift = typeshift + typebits
-	dirshift  = sizeshift + sizebits
+	devfs_nrshift   = 0
+	devfs_typeshift = devfs_nrshift + devfs_nrbits
+	devfs_sizeshift = devfs_typeshift + devfs_typebits
+	devfs_dirshift  = devfs_sizeshift + devfs_sizebits
 
-	none  = 0
-	read  = 2
-	write = 4
+	devfs_read  = 2
+	devfs_write = 4
 )
 
 type payload struct {
@@ -68,28 +67,28 @@ type devfsConn struct {
 func (c *devfsConn) Configure(mode, bits, speed, order int) error {
 	if mode > -1 {
 		m := uint8(mode)
-		if err := c.ioctl(requestCode(write, magic, 1, 1), uintptr(unsafe.Pointer(&m))); err != nil {
+		if err := c.ioctl(requestCode(devfs_write, devfs_magic, 1, 1), uintptr(unsafe.Pointer(&m))); err != nil {
 			return fmt.Errorf("error setting mode to %v: %v", mode, err)
 		}
 		c.mode = m
 	}
 	if bits > -1 {
 		b := uint8(bits)
-		if err := c.ioctl(requestCode(write, magic, 3, 1), uintptr(unsafe.Pointer(&b))); err != nil {
+		if err := c.ioctl(requestCode(devfs_write, devfs_magic, 3, 1), uintptr(unsafe.Pointer(&b))); err != nil {
 			return fmt.Errorf("error setting bits per word to %v: %v", bits, err)
 		}
 		c.bits = b
 	}
 	if speed > -1 {
 		s := uint32(speed)
-		if err := c.ioctl(requestCode(write, magic, 4, 4), uintptr(unsafe.Pointer(&s))); err != nil {
+		if err := c.ioctl(requestCode(devfs_write, devfs_magic, 4, 4), uintptr(unsafe.Pointer(&s))); err != nil {
 			return fmt.Errorf("error setting speed to %v: %v", speed, err)
 		}
 		c.speed = s
 	}
 	if order > -1 {
 		o := uint8(order)
-		if err := c.ioctl(requestCode(write, magic, 2, 1), uintptr(unsafe.Pointer(&o))); err != nil {
+		if err := c.ioctl(requestCode(devfs_write, devfs_magic, 2, 1), uintptr(unsafe.Pointer(&o))); err != nil {
 			return fmt.Errorf("error setting bit order to %v: %v", o, err)
 		}
 	}
@@ -116,7 +115,7 @@ func (c *devfsConn) Close() error {
 // requestCode returns the device specific request code for the specified direction,
 // type, number and size to be used in the ioctl call.
 func requestCode(dir, typ, nr, size uintptr) uintptr {
-	return (dir << dirshift) | (typ << typeshift) | (nr << nrshift) | (size << sizeshift)
+	return (dir << devfs_dirshift) | (typ << devfs_typeshift) | (nr << devfs_nrshift) | (size << devfs_sizeshift)
 }
 
 // msgRequestCode returns the device specific value for the SPI
