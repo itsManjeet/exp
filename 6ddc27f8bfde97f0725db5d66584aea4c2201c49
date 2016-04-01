@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee00a8f1_3e032563",
+        "filename": "io/spi/devfs.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5810
+      },
+      "writtenOn": "2016-04-01T07:57:01Z",
+      "side": 1,
+      "message": "minor nit but, shouldn\u0027t this be \u0027devfsMagic\u0027 instead?\n(ditto for the ones below)\nI myself prefer snake_case (from my old C/C++/python days) but Go has settled on camelCase :)",
+      "revId": "6ddc27f8bfde97f0725db5d66584aea4c2201c49",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
