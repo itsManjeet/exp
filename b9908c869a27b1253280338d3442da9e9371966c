@@ -34,6 +34,41 @@
       "revId": "b9908c869a27b1253280338d3442da9e9371966c",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "912d9179_8b86d198",
+        "filename": "shiny/widget/theme.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-04-01T09:28:13Z",
+      "side": 1,
+      "message": "I missed the significance of this the first time through the methods and the comments. I only got it because you mentioned sync.Pool. Pool not is a great analogy here, because with a Pool it doesn\u0027t matter if you forget to call Put.\n\nI think you would be better off with either:\n\n    AcquireFontFace() font.Face\n    ReleaseFontFace(font.Face)\n\nor\n\n    FontFace() (f font.Face, release func())\n\nI\u0027m leaning towards the latter.",
+      "parentUuid": "4efc542b_a1503852",
+      "revId": "b9908c869a27b1253280338d3442da9e9371966c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "912d9179_ab8b95a1",
+        "filename": "shiny/widget/theme.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-04-01T09:28:13Z",
+      "side": 1,
+      "message": "Maybe the FontFace method should take a FontFaceOptions struct?",
+      "revId": "b9908c869a27b1253280338d3442da9e9371966c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
