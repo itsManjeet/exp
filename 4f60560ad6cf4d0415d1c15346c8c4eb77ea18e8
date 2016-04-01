@@ -16,6 +16,24 @@
       "revId": "4f60560ad6cf4d0415d1c15346c8c4eb77ea18e8",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4efc542b_81365c38",
+        "filename": "shiny/widget/widget.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-04-01T03:04:20Z",
+      "side": 1,
+      "message": "Changed to GetFontFace. I think that that was what you were asking about.",
+      "parentUuid": "4efc542b_c1f6a4a3",
+      "revId": "4f60560ad6cf4d0415d1c15346c8c4eb77ea18e8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
