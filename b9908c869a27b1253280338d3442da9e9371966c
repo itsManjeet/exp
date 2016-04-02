@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "cefe846f_721938c1",
+        "filename": "shiny/widget/theme.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-04-02T00:32:30Z",
+      "side": 1,
+      "message": "I went with the former.",
+      "parentUuid": "912d9179_8b86d198",
+      "revId": "b9908c869a27b1253280338d3442da9e9371966c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "912d9179_ab8b95a1",
         "filename": "shiny/widget/theme.go",
         "patchSetId": 3
@@ -66,6 +84,24 @@
       "writtenOn": "2016-04-01T09:28:13Z",
       "side": 1,
       "message": "Maybe the FontFace method should take a FontFaceOptions struct?",
+      "revId": "b9908c869a27b1253280338d3442da9e9371966c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cefe846f_521eb4aa",
+        "filename": "shiny/widget/theme.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-04-02T00:32:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "912d9179_ab8b95a1",
       "revId": "b9908c869a27b1253280338d3442da9e9371966c",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
