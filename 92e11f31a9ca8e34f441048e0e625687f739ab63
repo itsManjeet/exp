@@ -34,6 +34,24 @@
       "revId": "92e11f31a9ca8e34f441048e0e625687f739ab63",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cebbe49e_d16f5332",
+        "filename": "io/spi/driver/driver.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 5480
+      },
+      "writtenOn": "2016-04-04T19:04:57Z",
+      "side": 1,
+      "message": "LGTM then",
+      "parentUuid": "cebbe49e_318eef21",
+      "revId": "92e11f31a9ca8e34f441048e0e625687f739ab63",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
