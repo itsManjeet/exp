@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-// Package spi allows users to read from and write to an SPI device.
+// Package spi allows users to read from and write to an SPI slave device.
 package spi // import "golang.org/x/exp/io/spi"
 
 import (
