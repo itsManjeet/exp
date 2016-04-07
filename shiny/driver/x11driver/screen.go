@@ -342,9 +342,17 @@ func (s *screenImpl) NewWindow(opts *screen.NewWindowOptions) (screen.Window, er
 	if err != nil {
 		return nil, fmt.Errorf("x11driver: xproto.NewGcontextId failed: %v", err)
 	}
-	xp, err := render.NewPictureId(s.xc)
+	backPix, err := xproto.NewPixmapId(s.xc)
+	if err != nil {
+		return nil, fmt.Errorf("x11driver: xproto.NewPixmapId failed: %v", err)
+	}
+	backPic, err := render.NewPictureId(s.xc)
 	if err != nil {
 		return nil, fmt.Errorf("x11driver: render.NewPictureId failed: %v", err)
+	}
+	resizePix, err := xproto.NewPixmapId(s.xc)
+	if err != nil {
+		return nil, fmt.Errorf("x11driver: xproto.NewPixmapId failed: %v", err)
 	}
 	pictformat := render.Pictformat(0)
 	switch s.xsi.RootDepth {
@@ -357,11 +365,16 @@ func (s *screenImpl) NewWindow(opts *screen.NewWindowOptions) (screen.Window, er
 	}
 
 	w := &windowImpl{
-		s:       s,
-		xw:      xw,
-		xg:      xg,
-		xp:      xp,
-		xevents: make(chan xgb.Event),
+		s:          s,
+		xw:         xw,
+		xg:         xg,
+		backPix:    backPix,
+		backPic:    backPic,
+		resizePix:  resizePix,
+		backWidth:  width,
+		backHeight: height,
+		pictformat: pictformat,
+		xevents:    make(chan xgb.Event),
 	}
 
 	s.mu.Lock()
@@ -387,7 +400,8 @@ func (s *screenImpl) NewWindow(opts *screen.NewWindowOptions) (screen.Window, er
 	)
 	s.setProperty(xw, s.atomWMProtocols, s.atomWMDeleteWindow, s.atomWMTakeFocus)
 	xproto.CreateGC(s.xc, xg, xproto.Drawable(xw), 0, nil)
-	render.CreatePicture(s.xc, xp, xproto.Drawable(xw), pictformat, 0, nil)
+	xproto.CreatePixmap(s.xc, s.xsi.RootDepth, w.backPix, xproto.Drawable(w.xw), uint16(width), uint16(height))
+	render.CreatePicture(s.xc, w.backPic, xproto.Drawable(w.backPix), pictformat, 0, nil)
 	xproto.MapWindow(s.xc, xw)
 
 	return w, nil

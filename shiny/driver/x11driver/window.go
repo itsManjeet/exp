@@ -4,8 +4,6 @@
 
 package x11driver
 
-// TODO: implement a back buffer.
-
 import (
 	"image"
 	"image/color"
@@ -32,9 +30,15 @@ import (
 type windowImpl struct {
 	s *screenImpl
 
-	xw xproto.Window
-	xg xproto.Gcontext
-	xp render.Picture
+	xw         xproto.Window
+	xg         xproto.Gcontext
+	pictformat render.Pictformat
+
+	backMu                sync.RWMutex
+	backPix               xproto.Pixmap
+	backPic               render.Picture
+	resizePix             xproto.Pixmap
+	backWidth, backHeight int
 
 	event.Queue
 	xevents chan xgb.Event
@@ -89,17 +93,23 @@ func (w *windowImpl) Release() {
 	if released {
 		return
 	}
-	render.FreePicture(w.s.xc, w.xp)
 	xproto.FreeGC(w.s.xc, w.xg)
 	xproto.DestroyWindow(w.s.xc, w.xw)
+	render.FreePicture(w.s.xc, w.backPic)
+	xproto.FreePixmap(w.s.xc, w.backPix)
 }
 
 func (w *windowImpl) Upload(dp image.Point, src screen.Buffer, sr image.Rectangle) {
-	src.(*bufferImpl).upload(xproto.Drawable(w.xw), w.xg, w.s.xsi.RootDepth, dp, sr)
+	w.backMu.RLock()
+	wait := src.(*bufferImpl).upload(xproto.Drawable(w.backPix), w.xg, w.s.xsi.RootDepth, dp, sr)
+	w.backMu.RUnlock()
+	wait()
 }
 
 func (w *windowImpl) Fill(dr image.Rectangle, src color.Color, op draw.Op) {
-	fill(w.s.xc, w.xp, dr, src, op)
+	w.backMu.RLock()
+	fill(w.s.xc, w.backPic, dr, src, op)
+	w.backMu.RUnlock()
 }
 
 func (w *windowImpl) Draw(src2dst f64.Aff3, src screen.Texture, sr image.Rectangle, op draw.Op, opts *screen.DrawOptions) {
@@ -107,7 +117,9 @@ func (w *windowImpl) Draw(src2dst f64.Aff3, src screen.Texture, sr image.Rectang
 	if t.degenerate() {
 		return
 	}
-	t.draw(w.xp, &src2dst, sr, op, w.width, w.height, opts)
+	w.backMu.RLock()
+	t.draw(w.backPic, &src2dst, sr, op, w.width, w.height, opts)
+	w.backMu.RUnlock()
 }
 
 func (w *windowImpl) Copy(dp image.Point, src screen.Texture, sr image.Rectangle, op draw.Op, opts *screen.DrawOptions) {
@@ -119,8 +131,16 @@ func (w *windowImpl) Scale(dr image.Rectangle, src screen.Texture, sr image.Rect
 }
 
 func (w *windowImpl) Publish() screen.PublishResult {
-	// TODO.
-	return screen.PublishResult{}
+	w.backMu.RLock()
+	xproto.CopyArea(w.s.xc,
+		xproto.Drawable(w.backPix), xproto.Drawable(w.xw),
+		w.xg,
+		0, 0, // SrcX, SrcY,
+		0, 0, // DstX, DstY,
+		uint16(w.width), uint16(w.height), // Width, Height,
+	)
+	w.backMu.RUnlock()
+	return screen.PublishResult{BackBufferPreserved: true}
 }
 
 func (w *windowImpl) handleConfigureNotify(ev xproto.ConfigureNotifyEvent) {
@@ -138,6 +158,13 @@ func (w *windowImpl) handleConfigureNotify(ev xproto.ConfigureNotifyEvent) {
 	}
 	w.width, w.height = newWidth, newHeight
 	// TODO: don't assume that PixelsPerPt == 1.
+
+	w.backMu.Lock()
+	if w.backWidth < newWidth || w.backHeight < newHeight {
+		w.growBackBuffer()
+	}
+	w.backMu.Unlock()
+
 	w.Send(size.Event{
 		WidthPx:     newWidth,
 		HeightPx:    newHeight,
@@ -145,6 +172,31 @@ func (w *windowImpl) handleConfigureNotify(ev xproto.ConfigureNotifyEvent) {
 		HeightPt:    geom.Pt(newHeight),
 		PixelsPerPt: 1,
 	})
+}
+
+func (w *windowImpl) growBackBuffer() {
+	oldWidth, oldHeight := w.backWidth, w.backHeight
+	for w.backWidth < w.width {
+		w.backWidth *= 2
+	}
+	for w.backHeight < w.height {
+		w.backHeight *= 2
+	}
+
+	xproto.CreatePixmap(w.s.xc, w.s.xsi.RootDepth, w.resizePix, xproto.Drawable(w.xw), uint16(w.backWidth), uint16(w.backHeight))
+
+	xproto.CopyArea(w.s.xc,
+		xproto.Drawable(w.backPix), xproto.Drawable(w.resizePix),
+		w.xg,
+		0, 0, // SrcX, SrcY,
+		0, 0, // DstX, DstY,
+		uint16(oldWidth), uint16(oldHeight), // Width, Height,
+	)
+
+	render.FreePicture(w.s.xc, w.backPic)
+	xproto.FreePixmap(w.s.xc, w.backPix)
+	w.backPix, w.resizePix = w.resizePix, w.backPix
+	render.CreatePicture(w.s.xc, w.backPic, xproto.Drawable(w.backPix), w.pictformat, 0, nil)
 }
 
 func (w *windowImpl) handleExpose() {
