@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ee4c2816_7ef34d4d",
+        "filename": "io/i2c/driver/driver.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5810
+      },
+      "writtenOn": "2016-04-07T12:05:05Z",
+      "side": 1,
+      "message": "-to open a connection an I2C device\n+to open a connection to an I2C device",
+      "range": {
+        "startLine": 8,
+        "startChar": 62,
+        "endLine": 9,
+        "endChar": 29
+      },
+      "revId": "db2c090e19116c25fe48daa1e5efc6083cce1931",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e525cad_1fab27e2",
+        "filename": "io/i2c/i2c.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 5810
+      },
+      "writtenOn": "2016-04-07T12:05:05Z",
+      "side": 1,
+      "message": "-the give byte buffer\n+the given byte buffer\n\nalso perhaps reflow as:\nWrite writes the given byte buffer to a device.",
+      "range": {
+        "startLine": 24,
+        "startChar": 28,
+        "endLine": 24,
+        "endChar": 48
+      },
+      "revId": "db2c090e19116c25fe48daa1e5efc6083cce1931",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e2c802d_950164a3",
+        "filename": "io/i2c/i2c.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 5810
+      },
+      "writtenOn": "2016-04-07T12:05:05Z",
+      "side": 1,
+      "message": "devices? plural?\ndoes this imply we can (and should handle) build trees of devices?",
+      "range": {
+        "startLine": 30,
+        "startChar": 3,
+        "endLine": 30,
+        "endChar": 27
+      },
+      "revId": "db2c090e19116c25fe48daa1e5efc6083cce1931",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
