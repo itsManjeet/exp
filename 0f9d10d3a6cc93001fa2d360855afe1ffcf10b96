@@ -16,6 +16,24 @@
       "revId": "0f9d10d3a6cc93001fa2d360855afe1ffcf10b96",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ea598c6_0be413c3",
+        "filename": "io/i2c/driver/driver.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-04-07T18:28:57Z",
+      "side": 1,
+      "message": "We only communicate with slaves and providing nothing in the scope of  master management. It also applies to the SPI package.",
+      "parentUuid": "6ea598c6_eb6b2fea",
+      "revId": "0f9d10d3a6cc93001fa2d360855afe1ffcf10b96",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
