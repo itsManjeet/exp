@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6e1af804_ba07ad6b",
+        "filename": "shiny/widget/flow.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 5810
+      },
+      "writtenOn": "2016-04-07T13:01:39Z",
+      "side": 1,
+      "message": "what about AxisBoth?",
+      "range": {
+        "startLine": 29,
+        "startChar": 1,
+        "endLine": 29,
+        "endChar": 50
+      },
+      "revId": "75ca44268c064359e9db90fc7c9cf9dd748eb846",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e2c802d_951ac405",
+        "filename": "shiny/widget/flow.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 5810
+      },
+      "writtenOn": "2016-04-07T13:01:39Z",
+      "side": 1,
+      "message": "axis \u003d\u003d AxisHorizontal || axis \u003d\u003d AxisBoth ?\n(and change the \u0027else\u0027 branch to an \u0027if axis\u003d\u003dAxisVertical || axis\u003d\u003dAxisBoth ?)",
+      "range": {
+        "startLine": 37,
+        "startChar": 5,
+        "endLine": 37,
+        "endChar": 27
+      },
+      "revId": "75ca44268c064359e9db90fc7c9cf9dd748eb846",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e2b3c19_d49b5ca3",
+        "filename": "shiny/widget/widget.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5810
+      },
+      "writtenOn": "2016-04-07T13:01:39Z",
+      "side": 1,
+      "message": "perhaps AxisBoth should be AxisVertical|AxisHorizontal to ease the logic (as in widget/flow.go) ?",
+      "range": {
+        "startLine": 31,
+        "startChar": 1,
+        "endLine": 31,
+        "endChar": 25
+      },
+      "revId": "75ca44268c064359e9db90fc7c9cf9dd748eb846",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
