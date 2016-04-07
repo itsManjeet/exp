@@ -110,9 +110,10 @@ func (b *bufferImpl) cleanUp() {
 	}
 }
 
-func (b *bufferImpl) upload(xd xproto.Drawable, xg xproto.Gcontext, depth uint8, dp image.Point, sr image.Rectangle) {
+// Upload starts the upload and returns a function that blocks until it is complete.
+func (b *bufferImpl) upload(xd xproto.Drawable, xg xproto.Gcontext, depth uint8, dp image.Point, sr image.Rectangle) func() {
 	if b.degenerate() {
-		return
+		return func() {}
 	}
 	b.preUpload()
 
@@ -141,9 +142,10 @@ func (b *bufferImpl) upload(xd xproto.Drawable, xg xproto.Gcontext, depth uint8,
 	b.s.handleCompletions()
 	b.s.mu.Unlock()
 
-	<-completion
-
-	b.postUpload()
+	return func() {
+		<-completion
+		b.postUpload()
+	}
 }
 
 func fill(xc *xgb.Conn, xp render.Picture, dr image.Rectangle, src color.Color, op draw.Op) {
