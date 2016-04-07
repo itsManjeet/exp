@@ -34,6 +34,24 @@
       "revId": "0f9d10d3a6cc93001fa2d360855afe1ffcf10b96",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ea598c6_cb174b6c",
+        "filename": "io/i2c/driver/driver.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 5480
+      },
+      "writtenOn": "2016-04-07T18:30:20Z",
+      "side": 1,
+      "message": "should we call this out in the package godoc?",
+      "parentUuid": "6ea598c6_0be413c3",
+      "revId": "0f9d10d3a6cc93001fa2d360855afe1ffcf10b96",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
