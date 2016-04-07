@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6ea598c6_4b869b9c",
+        "filename": "io/spi/spi.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5480
+      },
+      "writtenOn": "2016-04-07T18:48:07Z",
+      "side": 1,
+      "message": "is that supposed to be i2c or spi?",
+      "revId": "70d6d53507b7ff2a66a2f4345de5676bcecffd82",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
