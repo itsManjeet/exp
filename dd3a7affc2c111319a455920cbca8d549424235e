@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "6ea598c6_06b52af2",
+        "filename": "io/i2c/devfs.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-04-07T19:36:48Z",
+      "side": 1,
+      "message": "This doesn\u0027t require more context. A file not found error message will be returned from OpenFile.",
+      "parentUuid": "6ea598c6_4bf8dbdb",
+      "revId": "dd3a7affc2c111319a455920cbca8d549424235e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ea598c6_2bfd97ca",
         "filename": "io/i2c/devfs.go",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2016-04-07T19:04:21Z",
       "side": 1,
       "message": "maybe add more context about the error?",
+      "revId": "dd3a7affc2c111319a455920cbca8d549424235e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ea598c6_e6b926ee",
+        "filename": "io/i2c/devfs.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-04-07T19:36:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ea598c6_2bfd97ca",
       "revId": "dd3a7affc2c111319a455920cbca8d549424235e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "6ea598c6_66f5166d",
+        "filename": "io/i2c/devfs.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-04-07T19:36:48Z",
+      "side": 1,
+      "message": "Added a TODO on i2c.go.",
+      "parentUuid": "6ea598c6_cb906b7f",
+      "revId": "dd3a7affc2c111319a455920cbca8d549424235e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6ea598c6_eb068fb7",
         "filename": "io/i2c/devfs.go",
         "patchSetId": 3
@@ -64,6 +118,30 @@
       "writtenOn": "2016-04-07T19:04:21Z",
       "side": 1,
       "message": "maybe add more context about the error?",
+      "range": {
+        "startLine": 52,
+        "startChar": 17,
+        "endLine": 52,
+        "endChar": 22
+      },
+      "revId": "dd3a7affc2c111319a455920cbca8d549424235e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ea598c6_c6cf4279",
+        "filename": "io/i2c/devfs.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-04-07T19:36:48Z",
+      "side": 1,
+      "message": "This is only called from Open which now gives more context.",
+      "parentUuid": "6ea598c6_eb068fb7",
       "range": {
         "startLine": 52,
         "startChar": 17,
