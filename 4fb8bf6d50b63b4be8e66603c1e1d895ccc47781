@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6ea598c6_6b515f55",
+        "filename": "io/i2c/devfs.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 5480
+      },
+      "writtenOn": "2016-04-07T18:25:31Z",
+      "side": 1,
+      "message": "maybe move the string fmt to a top level const.",
+      "revId": "4fb8bf6d50b63b4be8e66603c1e1d895ccc47781",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ea598c6_4b6d7b00",
+        "filename": "io/i2c/devfs.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5480
+      },
+      "writtenOn": "2016-04-07T18:25:31Z",
+      "side": 1,
+      "message": "should slave/master be a parameter?",
+      "revId": "4fb8bf6d50b63b4be8e66603c1e1d895ccc47781",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6ea598c6_eb444f99",
+        "filename": "io/i2c/devfs.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 5480
+      },
+      "writtenOn": "2016-04-07T18:25:31Z",
+      "side": 1,
+      "message": "maybe inline the call in the if, since you\u0027re not using any other return value.",
+      "revId": "4fb8bf6d50b63b4be8e66603c1e1d895ccc47781",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
