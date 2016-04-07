@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8ef00cde_93b5fe13",
+        "filename": "io/i2c/i2c.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 5055
+      },
+      "writtenOn": "2016-04-07T20:41:16Z",
+      "side": 1,
+      "message": "s/an/and",
+      "range": {
+        "startLine": 5,
+        "startChar": 41,
+        "endLine": 5,
+        "endChar": 43
+      },
+      "revId": "e49bd25c2dc035a5fbdceb294ec84ab4d19229f8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ef00cde_53c8b690",
+        "filename": "io/i2c/i2c.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 5055
+      },
+      "writtenOn": "2016-04-07T20:41:16Z",
+      "side": 1,
+      "message": "I\u0027m a little concerned that implementing\nio.Reader/io.Writer for i2c.Device.\n\ni2c devices might not implement a streaming\nabstraction in that splitting a single read\nor write transaction into two might have\nother side effects. I\u0027m wondering if we should\nuse a package oriented interface instead.\n\nThat being said, I haven\u0027t thought of any\nbetter alternatives.",
+      "revId": "e49bd25c2dc035a5fbdceb294ec84ab4d19229f8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ef00cde_33c53279",
+        "filename": "io/i2c/i2c.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 5055
+      },
+      "writtenOn": "2016-04-07T20:41:16Z",
+      "side": 1,
+      "message": "who determine whether to use 7-bit address phase\nor 10-bit address phase? Or does it only support\n7-bit addressing and the user code has to emulate\n10-bit addressing by sending the lower 8-bit of\nthe address as the first data byte? This seems\nvery inconvenient for the user given that the\nuser only has to open the device once, but has\nto remember to add an address byte before each\ntransaction. Also, it doesn\u0027t work with Reads.",
+      "revId": "e49bd25c2dc035a5fbdceb294ec84ab4d19229f8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
