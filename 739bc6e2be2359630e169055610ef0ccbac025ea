@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2efe40bd_68a61bd5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-04-08T00:48:09Z",
+      "side": 1,
+      "message": "s,x11driver,exp/shiny/x11driver,",
+      "revId": "739bc6e2be2359630e169055610ef0ccbac025ea",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
