@@ -12,6 +12,8 @@ import (
 // TODO: have source-rect, mask, mask-point properties as per draw.Draw arguments.
 
 // Image is a leaf widget that holds an image.Image.
+//
+// TODO: take an "m image.Image" argument?
 type Image struct{ *Node }
 
 // NewImage returns a new Image widget.
@@ -32,14 +34,9 @@ func (k ImageClass) Measure(n *Node, t *Theme) {
 	}
 }
 
-func (k ImageClass) Paint(n *Node, t *Theme, dst *image.RGBA) {
+func (k ImageClass) Paint(n *Node, t *Theme, dst *image.RGBA, origin image.Point) {
 	o := Image{n}
 	if m := o.Image(); m != nil {
-		// TODO: honor an offset and clip. Also, adjust for n.Rect being
-		// relative to the parent instead of being absolute coordinates. This
-		// all looks 'OK' if the m image.Image is an *image.Uniform and the
-		// parent's absolute rectangle minimum is (0, 0), but that won't be
-		// true in general.
-		draw.Draw(dst, n.Rect, m, image.Point{}, draw.Src)
+		draw.Draw(dst, n.Rect.Add(origin), m, image.Point{}, draw.Src)
 	}
 }
