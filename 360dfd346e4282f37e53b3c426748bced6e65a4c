@@ -19,6 +19,23 @@
     },
     {
       "key": {
+        "uuid": "2b20f290_d8c8d175",
+        "filename": "shiny/widget/label.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-04-11T15:09:49Z",
+      "side": 1,
+      "message": "Yes!",
+      "revId": "360dfd346e4282f37e53b3c426748bced6e65a4c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e27f498_702edd69",
         "filename": "shiny/widget/widget.go",
         "patchSetId": 2
@@ -30,6 +47,24 @@
       "writtenOn": "2016-04-11T00:59:08Z",
       "side": 1,
       "message": "This is in another CL yeah?",
+      "revId": "360dfd346e4282f37e53b3c426748bced6e65a4c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2b20f290_38b22509",
+        "filename": "shiny/widget/widget.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-04-11T15:09:49Z",
+      "side": 1,
+      "message": "You might want to invest some neurons in creating CL series in git. If you had 21784 and 21786 as two commits in a single branch and mailed them both from there, gerrit would show this as a diff on the former, and so none of this text would show.\n\nAs a warning though, I found learning how to do it reliably a giant pain. I spent a lot of time trashing branches and cherry-picking CLs into new branches, and then a lot of time getting to know git rebase -i. This git thing is painful.",
+      "parentUuid": "4e27f498_702edd69",
       "revId": "360dfd346e4282f37e53b3c426748bced6e65a4c",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
