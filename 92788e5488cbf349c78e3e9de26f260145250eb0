@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b4eceab_fc47c920",
+        "filename": "shiny/driver/windriver/window.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-04-12T14:24:13Z",
+      "side": 1,
+      "message": "Maybe add c.id to the panic message.",
+      "revId": "92788e5488cbf349c78e3e9de26f260145250eb0",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
