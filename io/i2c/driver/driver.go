@@ -7,6 +7,7 @@ package driver // import "golang.org/x/exp/io/i2c/driver"
 
 // Opener is an interface to be implemented by the I2C driver to open
 // a connection to an I2C device with the specified bus number and I2C address.
+// Open should be able to open 10-bit addresses.
 type Opener interface {
 	Open(bus, addr int) (Conn, error)
 }
