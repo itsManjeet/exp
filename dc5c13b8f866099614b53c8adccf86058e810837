@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b4eceab_5c599d06",
+        "filename": "shiny/widget/uniform.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-04-12T14:18:43Z",
+      "side": 1,
+      "message": "Say you want a Uniform to fill the space, what is the sensible natural size? Is it zero?",
+      "revId": "dc5c13b8f866099614b53c8adccf86058e810837",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
