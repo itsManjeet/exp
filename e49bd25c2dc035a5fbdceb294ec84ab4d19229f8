@@ -92,6 +92,24 @@
       "revId": "e49bd25c2dc035a5fbdceb294ec84ab4d19229f8",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b524ead_3cf631e8",
+        "filename": "io/i2c/i2c.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-04-12T23:36:34Z",
+      "side": 1,
+      "message": "Kernel driver can handle 10-bit addresses. We should document that the driver implementations should handle 10-bit.",
+      "parentUuid": "8b3abef4_a0607a77",
+      "revId": "e49bd25c2dc035a5fbdceb294ec84ab4d19229f8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
