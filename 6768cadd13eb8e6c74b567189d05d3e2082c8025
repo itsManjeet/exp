@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "0b808e4d_8cf94767",
+        "filename": "io/i2c/devfs.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 5055
+      },
+      "writtenOn": "2016-04-13T04:08:09Z",
+      "side": 1,
+      "message": "OK, I understand why SMBus is preferable now.\n(SMBus is a subset of I2C, so if we stick to\nSMBus operations, this package automatically\nsupports SMBus-only drivers.)",
+      "parentUuid": "0b808e4d_0cf79775",
+      "range": {
+        "startLine": 25,
+        "startChar": 1,
+        "endLine": 25,
+        "endChar": 10
+      },
+      "revId": "6768cadd13eb8e6c74b567189d05d3e2082c8025",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b808e4d_6ceadb92",
         "filename": "io/i2c/devfs.go",
         "patchSetId": 1
@@ -41,6 +65,29 @@
         "startChar": 11,
         "endLine": 33,
         "endChar": 14
+      },
+      "revId": "6768cadd13eb8e6c74b567189d05d3e2082c8025",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b808e4d_acfe834a",
+        "filename": "io/i2c/devfs.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 5055
+      },
+      "writtenOn": "2016-04-13T04:08:09Z",
+      "side": 1,
+      "message": "should this be a unsafe.Pointer instead (to keep the memory\nalive?)",
+      "range": {
+        "startLine": 34,
+        "startChar": 11,
+        "endLine": 34,
+        "endChar": 18
       },
       "revId": "6768cadd13eb8e6c74b567189d05d3e2082c8025",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
