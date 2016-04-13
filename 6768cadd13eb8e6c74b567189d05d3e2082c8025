@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "4bcb66e2_6fc6e167",
+        "filename": "io/i2c/devfs.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 5480
+      },
+      "writtenOn": "2016-04-13T19:36:20Z",
+      "side": 1,
+      "message": "Apparently some i2c devices don\u0027t work with smbus:\nhttps://en.wikipedia.org/wiki/I%C2%B2C#Messaging_example:_24c32_EEPROM\nhttp://www.atmel.com/images/doc0336.pdf",
+      "parentUuid": "4bcb66e2_cc6283e1",
+      "range": {
+        "startLine": 25,
+        "startChar": 1,
+        "endLine": 25,
+        "endChar": 10
+      },
+      "revId": "6768cadd13eb8e6c74b567189d05d3e2082c8025",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b808e4d_6ceadb92",
         "filename": "io/i2c/devfs.go",
         "patchSetId": 1
