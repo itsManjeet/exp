@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0b808e4d_0cf79775",
+        "filename": "io/i2c/devfs.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 5055
+      },
+      "writtenOn": "2016-04-13T03:53:19Z",
+      "side": 1,
+      "message": "SMBus is not strictly equivalent to I2C, so why\nuse i2c_SMBUS ioctl rather than i2c_RDWR?",
+      "range": {
+        "startLine": 25,
+        "startChar": 1,
+        "endLine": 25,
+        "endChar": 10
+      },
+      "revId": "6768cadd13eb8e6c74b567189d05d3e2082c8025",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b808e4d_6ceadb92",
+        "filename": "io/i2c/devfs.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 5055
+      },
+      "writtenOn": "2016-04-13T03:53:19Z",
+      "side": 1,
+      "message": "using explicit sized integer is more portable.\n\nuint32",
+      "range": {
+        "startLine": 33,
+        "startChar": 11,
+        "endLine": 33,
+        "endChar": 14
+      },
+      "revId": "6768cadd13eb8e6c74b567189d05d3e2082c8025",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b808e4d_2cf4d36d",
+        "filename": "io/i2c/devfs.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 5055
+      },
+      "writtenOn": "2016-04-13T03:53:19Z",
+      "side": 1,
+      "message": "note that for the i2c-dev driver, client that want to use\n10-bit address must use I2C_TENBIT ioctl to enable\nthe support, how could the client signal that it uses\n10-bit address with this function signature?",
+      "range": {
+        "startLine": 39,
+        "startChar": 26,
+        "endLine": 39,
+        "endChar": 30
+      },
+      "revId": "6768cadd13eb8e6c74b567189d05d3e2082c8025",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
