@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"os"
 	"syscall"
+	"unsafe"
 
 	"golang.org/x/exp/io/i2c/driver"
 )
@@ -16,7 +17,22 @@ import (
 // You need to load the "i2c-dev" kernel module to use this driver.
 type Devfs struct{}
 
-const i2c_SLAVE = 0x0703 // TODO(jbd): Allow users to use I2C_SLAVE_FORCE?
+const (
+	i2c_SMBUS_READ           = 1
+	i2c_SMBUS_WRITE          = 0
+	i2c_SMBUS_I2C_BLOCK_DATA = 8
+
+	i2c_SMBUS = 0x0720
+
+	i2c_SLAVE = 0x0703 // TODO(jbd): Allow users to use I2C_SLAVE_FORCE?
+)
+
+type i2c_smbus_ioctl_data struct {
+	readwrite uint8
+	command   uint8
+	size      int
+	data      uintptr
+}
 
 // TODO(jbd): Support I2C_RETRIES and I2C_TIMEOUT at the driver and implementation level.
 
@@ -41,8 +57,16 @@ func (c *devfsConn) Read(buf []byte) (int, error) {
 	return c.f.Read(buf)
 }
 
-func (c *devfsConn) Write(buf []byte) (int, error) {
-	return c.f.Write(buf)
+func (c *devfsConn) Write(cmd byte, buf []byte) error {
+	size := len(buf)
+	buffer := append([]byte{byte(size)}, buf...)
+	data := i2c_smbus_ioctl_data{
+		readwrite: i2c_SMBUS_WRITE,
+		command:   cmd,
+		size:      i2c_SMBUS_I2C_BLOCK_DATA,
+		data:      uintptr(unsafe.Pointer(&buffer[0])),
+	}
+	return c.ioctl(i2c_SMBUS, uintptr(unsafe.Pointer(&data)))
 }
 
 func (c *devfsConn) Close() error {
