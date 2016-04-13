@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "4bcb66e2_cc6283e1",
+        "filename": "io/i2c/devfs.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-04-13T18:44:49Z",
+      "side": 1,
+      "message": "SMBus have some other limitations though such as a shorter read poll timeout. I don\u0027t have much hands on experience with the driver to talk about how disabling they are. I may get off of SMBus once they are a practically blocking us to implement I2C.\n\nFor now, it provides compatibility with SMBus devices.",
+      "parentUuid": "0b808e4d_8cf94767",
+      "range": {
+        "startLine": 25,
+        "startChar": 1,
+        "endLine": 25,
+        "endChar": 10
+      },
+      "revId": "6768cadd13eb8e6c74b567189d05d3e2082c8025",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b808e4d_6ceadb92",
         "filename": "io/i2c/devfs.go",
         "patchSetId": 1
@@ -60,6 +84,30 @@
       "writtenOn": "2016-04-13T03:53:19Z",
       "side": 1,
       "message": "using explicit sized integer is more portable.\n\nuint32",
+      "range": {
+        "startLine": 33,
+        "startChar": 11,
+        "endLine": 33,
+        "endChar": 14
+      },
+      "revId": "6768cadd13eb8e6c74b567189d05d3e2082c8025",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bcb66e2_0ceadb90",
+        "filename": "io/i2c/devfs.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-04-13T18:44:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0b808e4d_6ceadb92",
       "range": {
         "startLine": 33,
         "startChar": 11,
@@ -95,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "4bcb66e2_2c91970e",
+        "filename": "io/i2c/devfs.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-04-13T18:44:49Z",
+      "side": 1,
+      "message": "This looks invalid but I am trying understand whether I can pass an unsafe.Pointer directly to a system call.\n\nIf provided by an argument (e.g. for syscall.Syscall), the compiler can recognize the uintptr casts but I am not confident about the case where I pass a unsafe.Pointer in a struct value.",
+      "parentUuid": "0b808e4d_acfe834a",
+      "range": {
+        "startLine": 34,
+        "startChar": 11,
+        "endLine": 34,
+        "endChar": 18
+      },
+      "revId": "6768cadd13eb8e6c74b567189d05d3e2082c8025",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0b808e4d_2cf4d36d",
         "filename": "io/i2c/devfs.go",
         "patchSetId": 1
@@ -106,6 +178,30 @@
       "writtenOn": "2016-04-13T03:53:19Z",
       "side": 1,
       "message": "note that for the i2c-dev driver, client that want to use\n10-bit address must use I2C_TENBIT ioctl to enable\nthe support, how could the client signal that it uses\n10-bit address with this function signature?",
+      "range": {
+        "startLine": 39,
+        "startChar": 26,
+        "endLine": 39,
+        "endChar": 30
+      },
+      "revId": "6768cadd13eb8e6c74b567189d05d3e2082c8025",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4bcb66e2_0c75bb94",
+        "filename": "io/i2c/devfs.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-04-13T18:44:49Z",
+      "side": 1,
+      "message": "What about having options on Open to open/enable 10-bit if that is what it is desired?",
+      "parentUuid": "0b808e4d_2cf4d36d",
       "range": {
         "startLine": 39,
         "startChar": 26,
