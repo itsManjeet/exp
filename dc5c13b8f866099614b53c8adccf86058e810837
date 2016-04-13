@@ -16,6 +16,24 @@
       "revId": "dc5c13b8f866099614b53c8adccf86058e810837",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0b524ead_3053b05e",
+        "filename": "shiny/widget/uniform.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-04-13T12:16:28Z",
+      "side": 1,
+      "message": "Zero should work. The parent should expand the child on layout to fill the space.",
+      "parentUuid": "0b4eceab_5c599d06",
+      "revId": "dc5c13b8f866099614b53c8adccf86058e810837",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
