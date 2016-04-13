@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4bcb66e2_accc67b5",
+        "filename": "io/i2c/devfs.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 5480
+      },
+      "writtenOn": "2016-04-13T19:15:38Z",
+      "side": 1,
+      "message": "does that mean that message can never be bigger than 256 bytes?",
+      "revId": "b9c200ea843f2908ef2e5d5bfbc2a3cd60f9c900",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
