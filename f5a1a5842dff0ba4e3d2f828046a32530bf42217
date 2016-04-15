@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8b547ee5_50d56c5e",
+        "filename": "shiny/widget/run.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 5810
+      },
+      "writtenOn": "2016-04-15T06:44:44Z",
+      "side": 1,
+      "message": "perhaps by passing a func to RunWindow?\nthat\u0027s what I did in my shiny backend for gonum/plot:\nhttps://github.com/go-hep/hplot/blob/master/vgshiny/vg.go#L86",
+      "revId": "f5a1a5842dff0ba4e3d2f828046a32530bf42217",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
