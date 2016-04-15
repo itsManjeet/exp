@@ -58,5 +58,8 @@ func (k UniformClass) Measure(n *Node, t *Theme) {
 
 func (k UniformClass) Paint(n *Node, t *Theme, dst *image.RGBA, origin image.Point) {
 	d := Uniform{n}.classData()
+	if d.u.C == nil {
+		return
+	}
 	draw.Draw(dst, n.Rect.Add(origin), d.u, image.Point{}, draw.Src)
 }
