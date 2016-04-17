@@ -137,13 +137,13 @@ func (w *windowImpl) handleConfigureNotify(ev xproto.ConfigureNotifyEvent) {
 		return
 	}
 	w.width, w.height = newWidth, newHeight
-	// TODO: don't assume that PixelsPerPt == 1.
+	const ptPerInch = 72
 	w.Send(size.Event{
 		WidthPx:     newWidth,
 		HeightPx:    newHeight,
 		WidthPt:     geom.Pt(newWidth),
 		HeightPt:    geom.Pt(newHeight),
-		PixelsPerPt: 1,
+		PixelsPerPt: w.s.dpi / ptPerInch,
 	})
 }
 
