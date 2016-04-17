@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "081fb456_dd7d5f3e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5761
+      },
+      "writtenOn": "2016-04-17T15:18:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4898cc33_419f147c",
+      "revId": "7298e5f269037a49b0b210708714f1d63e5dcfa5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4898cc33_e1a3c0c3",
         "filename": "shiny/driver/x11driver/window.go",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2016-04-17T12:41:49Z",
       "side": 1,
       "message": "Generally speaking, I like to hold locks for as little as possible. Is it possible to do something like:\n\nw.backMu.RLock()\nxp :\u003d w.backPic\nw.backMu.RUnlock()\nfill(w.s.xc, xp, dr, src, op)\n\ninstead, and ditto elsewhere, obviously? Sure, there are some details to be worked out, such as ensuring that the xp isn\u0027t free\u0027d while it\u0027s still in use, but in general, I\u0027m wary of holding locks for so long, especially if it leads to performing I/O under the lock, or calling other functions.",
+      "revId": "7298e5f269037a49b0b210708714f1d63e5dcfa5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "081fb456_1d6cf793",
+        "filename": "shiny/driver/x11driver/window.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 5761
+      },
+      "writtenOn": "2016-04-17T15:18:34Z",
+      "side": 1,
+      "message": "Right, the lock needs to be around the entire fill so that the pic isn\u0027t freed while filling. I agree that I prefer to avoid I/O under a lock, but I\u0027m not sure of a better solution. We could reference count the pic, but that seems heavy-weight given how rarely the grow code will actually be called — likely only for the life of the program, if at all.",
+      "parentUuid": "4898cc33_e1a3c0c3",
       "revId": "7298e5f269037a49b0b210708714f1d63e5dcfa5",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
