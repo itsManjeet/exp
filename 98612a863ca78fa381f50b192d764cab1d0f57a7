@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a8594975_fd57c314",
+        "filename": "io/i2c/devfs.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 5055
+      },
+      "writtenOn": "2016-04-27T17:29:14Z",
+      "side": 1,
+      "message": "why is this necessary?\n\nwe\u0027re not creating the file (O_CREATE,\nand even if we\u0027re creating the device\nnode, we need Mknod instead of OpenFile),\nso the perm argument is entirely\nunnecessary.",
+      "revId": "98612a863ca78fa381f50b192d764cab1d0f57a7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
