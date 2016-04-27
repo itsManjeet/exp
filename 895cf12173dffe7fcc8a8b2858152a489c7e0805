@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a8fea96d_66b976f9",
+        "filename": "io/i2c/i2c.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 5480
+      },
+      "writtenOn": "2016-04-27T09:08:31Z",
+      "side": 1,
+      "message": "does the first-byte trick also applies here?",
+      "revId": "895cf12173dffe7fcc8a8b2858152a489c7e0805",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
