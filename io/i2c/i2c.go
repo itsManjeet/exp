@@ -17,6 +17,22 @@ type Device struct {
 	conn driver.Conn
 }
 
+// Addr represents an I2C address.
+type Addr struct {
+	addr   int
+	tenbit bool
+}
+
+// NewAddr returns a 7-bit I2C address.
+func NewAddr(addr int) Addr {
+	return Addr{addr: addr}
+}
+
+// New10BitAddr returns a 10-bit I2C address.
+func New10BitAddr(addr int) Addr {
+	return Addr{addr: addr, tenbit: true}
+}
+
 // TOOD(jbd): Do we need higher level I2C packet writers and readers?
 // TODO(jbd): Support bidirectional communication.
 // TODO(jbd): How do we support 10-bit addresses and how to enable 10-bit on devfs?
@@ -47,11 +63,12 @@ func (d *Device) Close() error {
 }
 
 // Open opens an I2C device with the given I2C address on the specified bus.
-func Open(o driver.Opener, bus, addr int) (*Device, error) {
+// If tenbit is true, the address is treated as a 10-bit I2C address.
+func Open(o driver.Opener, bus int, addr Addr) (*Device, error) {
 	if o == nil {
 		o = &Devfs{}
 	}
-	conn, err := o.Open(bus, addr)
+	conn, err := o.Open(bus, addr.addr, addr.tenbit)
 	if err != nil {
 		return nil, err
 	}
