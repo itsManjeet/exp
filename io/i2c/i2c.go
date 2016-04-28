@@ -47,11 +47,12 @@ func (d *Device) Close() error {
 }
 
 // Open opens an I2C device with the given I2C address on the specified bus.
-func Open(o driver.Opener, bus, addr int) (*Device, error) {
+// If tenbit is true, the address is treated as a 10-bit I2C address.
+func Open(o driver.Opener, bus, addr int, tenbit bool) (*Device, error) {
 	if o == nil {
 		o = &Devfs{}
 	}
-	conn, err := o.Open(bus, addr)
+	conn, err := o.Open(bus, addr, tenbit)
 	if err != nil {
 		return nil, err
 	}
