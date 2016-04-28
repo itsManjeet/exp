@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a8594975_a40febd0",
+        "filename": "io/i2c/example_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 5055
+      },
+      "writtenOn": "2016-04-28T15:25:31Z",
+      "side": 1,
+      "message": "ExampleOpen?",
+      "range": {
+        "startLine": 11,
+        "startChar": 5,
+        "endLine": 11,
+        "endChar": 17
+      },
+      "revId": "16416734e9b6a57039889d24ed43fbcd04663763",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
