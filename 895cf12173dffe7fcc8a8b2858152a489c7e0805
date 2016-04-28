@@ -16,6 +16,24 @@
       "revId": "895cf12173dffe7fcc8a8b2858152a489c7e0805",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "68d6710e_a36c2428",
+        "filename": "io/i2c/i2c.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-04-28T10:46:27Z",
+      "side": 1,
+      "message": "No. How could it be? Read buf is just used to io.Copy the input stream. It is not being passed to the device.\n\nWe need a ReadReg(reg byte, buf []byte) type of method to support reading from registers.",
+      "parentUuid": "a8fea96d_66b976f9",
+      "revId": "895cf12173dffe7fcc8a8b2858152a489c7e0805",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
