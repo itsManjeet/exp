@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a8fea96d_12aa6129",
+        "filename": "io/i2c/devfs.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 5480
+      },
+      "writtenOn": "2016-04-28T17:27:21Z",
+      "side": 1,
+      "message": "Is there a particular reason you just don\u0027t pass 1 as the second parameter, the kernel doc seems to say that any value !\u003d 0 would do for the \u0027select\u0027 parameter.",
+      "revId": "2419fd06089cf10ee4835e7892f63142c8450599",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
