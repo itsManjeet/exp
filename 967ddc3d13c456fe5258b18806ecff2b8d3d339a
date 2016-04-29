@@ -16,6 +16,24 @@
       "revId": "967ddc3d13c456fe5258b18806ecff2b8d3d339a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "681751d9_b89d796b",
+        "filename": "io/i2c/i2c_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-04-29T22:25:10Z",
+      "side": 1,
+      "message": "It is a detail, what I care is I have an original input and the question whether I am being able to put more information into it and retrieve the original address and the additional information correctly. How I achieve this is detail.",
+      "parentUuid": "4841add6_c2164445",
+      "revId": "967ddc3d13c456fe5258b18806ecff2b8d3d339a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
