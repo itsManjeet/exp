@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a8594975_9011419f",
+        "filename": "io/i2c/i2c.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 5055
+      },
+      "writtenOn": "2016-04-29T18:25:59Z",
+      "side": 1,
+      "message": "this is 32 and one of 7-bit addresses.\nyou want at least 1\u003c\u003c11. But we probably\nwant to use a bit slighter higher than\nthat in case I2C standard support more\naddress bits.\n\nint is guaranteed to be 32-bit at least,\nwhat about 1\u003c\u003c30?",
+      "range": {
+        "startLine": 14,
+        "startChar": 19,
+        "endLine": 14,
+        "endChar": 25
+      },
+      "revId": "c384d649d34de2fac40aca07ab3b9755813d9220",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
