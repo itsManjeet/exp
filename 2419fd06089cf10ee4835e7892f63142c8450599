@@ -16,6 +16,24 @@
       "revId": "2419fd06089cf10ee4835e7892f63142c8450599",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "48b28df7_faffa5b8",
+        "filename": "io/i2c/devfs.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-04-29T15:10:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8fea96d_12aa6129",
+      "revId": "2419fd06089cf10ee4835e7892f63142c8450599",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
