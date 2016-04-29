@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4841add6_c2164445",
+        "filename": "io/i2c/i2c_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 5480
+      },
+      "writtenOn": "2016-04-29T19:22:48Z",
+      "side": 1,
+      "message": "Do you want to also test the masked value (masked \u003d\u003d addrWant | tenbitMask)? or is the fact that it is masked an implementation detail?",
+      "revId": "967ddc3d13c456fe5258b18806ecff2b8d3d339a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
