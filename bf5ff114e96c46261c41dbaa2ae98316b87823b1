@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "681751d9_98fd1581",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 5810
+      },
+      "writtenOn": "2016-05-02T07:26:28Z",
+      "side": 1,
+      "message": "naive comment, but, shouldn\u0027t this be prepended with \"flex: \" or \"shiny: \" ?",
+      "range": {
+        "startLine": 685,
+        "startChar": 20,
+        "endLine": 685,
+        "endChar": 33
+      },
+      "revId": "bf5ff114e96c46261c41dbaa2ae98316b87823b1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
