@@ -2,6 +2,91 @@
   "comments": [
     {
       "key": {
+        "uuid": "6da203c1_9ac51da1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-05T00:37:15Z",
+      "side": 1,
+      "message": "s,flex,shiny/widget/flex,",
+      "revId": "bf5ff114e96c46261c41dbaa2ae98316b87823b1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6da203c1_3aff31bb",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-05T00:37:15Z",
+      "side": 1,
+      "message": "FWIW, this isn\u0027t the way the other widgets work. They have\n\ntype Foo struct{ widget.Node }\n\nwith no extra fields, and the fields are in the fooClass type. I suppose that we could change the other widgets to be like this, but I\u0027d need to think about that.\n\nThe motivation for the getter/setters instead of exposed struct fields was so that changing attributes would also re-trigger a re-layout and re-paint if necessary. Perhaps users should just explicitly \"n.RequestRepaint()\" after \"n.Foo \u003d bar\". As I said, more thought required.",
+      "revId": "bf5ff114e96c46261c41dbaa2ae98316b87823b1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6da203c1_fa6309a1",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-05T00:37:15Z",
+      "side": 1,
+      "message": "I\u0027d s/int8/uint8/\n\nDitto below.",
+      "revId": "bf5ff114e96c46261c41dbaa2ae98316b87823b1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6da203c1_da5845ec",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-05T00:37:15Z",
+      "side": 1,
+      "message": "Is it?",
+      "revId": "bf5ff114e96c46261c41dbaa2ae98316b87823b1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6da203c1_3aedf1fe",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-05T00:37:15Z",
+      "side": 1,
+      "message": "Shouldn\u0027t these fields be part of LayoutData?\n\nDitto for flexLine?",
+      "revId": "bf5ff114e96c46261c41dbaa2ae98316b87823b1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "681751d9_98fd1581",
         "filename": "shiny/widget/flex/flex.go",
         "patchSetId": 1
