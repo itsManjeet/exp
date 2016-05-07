@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "f24c148d_2a977b4a",
+        "filename": "io/gpio/driver/driver.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5480
+      },
+      "writtenOn": "2016-05-07T04:53:03Z",
+      "side": 1,
+      "message": "what about having const for HIGH AND LOW?",
+      "revId": "fbcf614020c6bee84ed54a9f1d392e0f0d1421e5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b2845ccd_c24322a0",
         "filename": "io/gpio/driver/driver.go",
         "patchSetId": 3
@@ -25,6 +42,29 @@
     },
     {
       "key": {
+        "uuid": "f24c148d_0a9cbf6a",
+        "filename": "io/gpio/driver/driver.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5480
+      },
+      "writtenOn": "2016-05-07T04:53:03Z",
+      "side": 1,
+      "message": "what about having setActive(pin, HIGH) or setActive(pin, LOW) ?",
+      "range": {
+        "startLine": 27,
+        "startChar": 4,
+        "endLine": 27,
+        "endChar": 11
+      },
+      "revId": "fbcf614020c6bee84ed54a9f1d392e0f0d1421e5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b2845ccd_a2461eb1",
         "filename": "io/gpio/driver/driver.go",
         "patchSetId": 3
@@ -36,6 +76,57 @@
       "writtenOn": "2016-05-07T01:59:08Z",
       "side": 1,
       "message": "what does polarity mean in this package?\n\nThe current interface doesn\u0027t provide support\nfor interrupts, and I think polarity only has\nmeaning if we support interrupts from GPIOs.\nBut then we also need to consider level trigger\nvs. edge trigger.",
+      "revId": "fbcf614020c6bee84ed54a9f1d392e0f0d1421e5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f24c148d_8aa78fb9",
+        "filename": "io/gpio/gpio.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 5480
+      },
+      "writtenOn": "2016-05-07T04:53:03Z",
+      "side": 1,
+      "message": "do you plan to also define const for High Low?",
+      "revId": "fbcf614020c6bee84ed54a9f1d392e0f0d1421e5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f24c148d_ca9d8767",
+        "filename": "io/gpio/gpio.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 5480
+      },
+      "writtenOn": "2016-05-07T04:53:03Z",
+      "side": 1,
+      "message": "in a separate adc package?",
+      "revId": "fbcf614020c6bee84ed54a9f1d392e0f0d1421e5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f24c148d_aaaa4b81",
+        "filename": "io/gpio/gpio.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 5480
+      },
+      "writtenOn": "2016-05-07T04:53:03Z",
+      "side": 1,
+      "message": "curious why you need to \"convert\" v?",
       "revId": "fbcf614020c6bee84ed54a9f1d392e0f0d1421e5",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
