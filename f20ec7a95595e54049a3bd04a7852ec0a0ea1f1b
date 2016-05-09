@@ -108,6 +108,24 @@
     },
     {
       "key": {
+        "uuid": "d26b902f_e62d409b",
+        "filename": "io/i2c/example/displayip/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 5480
+      },
+      "writtenOn": "2016-05-09T18:36:12Z",
+      "side": 1,
+      "message": "and the other values {0,0}, {1,0}, {0x08, 0xaa} are just the i2c prelude for that command? I was curious about the details of the transaction.",
+      "parentUuid": "d26b902f_a6aee83e",
+      "revId": "f20ec7a95595e54049a3bd04a7852ec0a0ea1f1b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f24c148d_6a8d733c",
         "filename": "io/i2c/example/displayip/main.go",
         "patchSetId": 3
