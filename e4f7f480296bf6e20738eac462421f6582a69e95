@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "92daf8a7_29a18da8",
+        "filename": "shiny/widget/node/node.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-10T22:07:58Z",
+      "side": 1,
+      "message": "Ah, yes, I can pull the arity-specific checks up one call level now, and then delete the arity type entirely. Done.",
+      "parentUuid": "d26b902f_ac6fa284",
+      "revId": "e4f7f480296bf6e20738eac462421f6582a69e95",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d26b902f_cc6cde92",
         "filename": "shiny/widget/node/node.go",
         "patchSetId": 2
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "92daf8a7_099e4962",
+        "filename": "shiny/widget/node/node.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-10T22:07:58Z",
+      "side": 1,
+      "message": "Ditto.",
+      "parentUuid": "d26b902f_cc6cde92",
+      "revId": "e4f7f480296bf6e20738eac462421f6582a69e95",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d26b902f_ac216241",
         "filename": "shiny/widget/node/node.go",
         "patchSetId": 2
@@ -47,6 +83,24 @@
       "writtenOn": "2016-05-10T14:48:10Z",
       "side": 1,
       "message": "I don\u0027t see the advantage in the double layer of embedding.(Embedding is the source of all my type system woes in Go, so I try to minimize its use as much as possible.)\n\nThe only method the Embed type provides is Wrappee. This could be provided easily enough by {Leaf,Container,Shell}Embed.\n\nThen this type could be called node.Data. The Wrappee method could be renamed Data, and Wrapper renamed Node.",
+      "revId": "e4f7f480296bf6e20738eac462421f6582a69e95",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92daf8a7_c99b9173",
+        "filename": "shiny/widget/node/node.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-10T22:07:58Z",
+      "side": 1,
+      "message": "Re the advantage of the double layer of embedding, I added some words to the doc-level comment:\n\nThere are three layers here (Button embeds LeafEmbed embeds Embed) instead of two. The intermediate layer exists because there needs to be a place to provide default implementations of methods like Measure, but that place shouldn\u0027t be the inner-most type (Embed), otherwise it\u0027d be too easy to write subtly incorrect code like:\n\nfor c :\u003d w.FirstChild; c !\u003d nil; c \u003d c.NextSibling {\n\tc.Measure(t) // This should instead be c.Wrapper.Measure(t).\n}\n\nRe having the Wrappee method have the same name as the type (whether Embed or Data), that creates an ambiguity as to whether Button.Embed refers to the field or the method. Instead, I named the method Wrappee, and for symmetry it seems better for the field to then be named Wrapper instead of Node.",
+      "parentUuid": "d26b902f_ac216241",
       "revId": "e4f7f480296bf6e20738eac462421f6582a69e95",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
