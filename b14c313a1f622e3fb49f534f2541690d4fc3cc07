@@ -16,6 +16,24 @@
       "revId": "b14c313a1f622e3fb49f534f2541690d4fc3cc07",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d25390c8_e94c7191",
+        "filename": "io/gpio/gpio.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-05-10T19:31:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d25390c8_498b45d6",
+      "revId": "b14c313a1f622e3fb49f534f2541690d4fc3cc07",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
