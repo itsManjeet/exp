@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d2a63027_6b4701af",
+        "filename": "io/gpio/devfs.go",
+        "patchSetId": 8
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5055
+      },
+      "writtenOn": "2016-05-10T20:22:28Z",
+      "side": 1,
+      "message": "I think different GPIO drivers are too diverse that\nit\u0027s probably better to always use an external\ndriver package (this file references to BCM2835, but\nthat\u0027s only one of the possible GPIO designs.)\n\nPerhaps the default driver should use gpio interface\nin sysfs instead? It will be slow, but directly\naccess hardware registers is not portable to be\nthe builtin driver.",
+      "revId": "cd43217ce00e64bf96838eaf1b463c362f23452c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2a63027_4b44c5a8",
+        "filename": "io/gpio/driver/driver.go",
+        "patchSetId": 8
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 5055
+      },
+      "writtenOn": "2016-05-10T20:22:28Z",
+      "side": 1,
+      "message": "SetActive ?",
+      "range": {
+        "startLine": 36,
+        "startChar": 4,
+        "endLine": 36,
+        "endChar": 16
+      },
+      "revId": "cd43217ce00e64bf96838eaf1b463c362f23452c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2a63027_eb093178",
+        "filename": "io/gpio/driver/driver.go",
+        "patchSetId": 8
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 5055
+      },
+      "writtenOn": "2016-05-10T20:22:28Z",
+      "side": 1,
+      "message": "I still don\u0027t understand what does this mean in\nthis context.\n\nThere are two approaches for a gpio driver and\nthe terminology is different:\n1. absolute value\nthe let the user fully set the absolute digital\nlevel on the pin, e.g. \"high\" or \"low\".\n\n2. relative value\nwe let the user configure the pin\u0027s polarity,\nand then let the user either \"assert\" the pin\n(set the output to its polarity) or \"deassert\"\nthe pin (set the output to opposite of its\npolarity)\n\n\nI think the current the design mixes the two\napproaches. If we want a relative value approach,\nthat could be provided by the gpio package itself,\nand not by the driver. The driver should only\nhandle setting absolute values on a pin.",
+      "revId": "cd43217ce00e64bf96838eaf1b463c362f23452c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
