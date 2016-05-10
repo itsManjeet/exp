@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d26b902f_865bac42",
+        "filename": "io/gpio/driver/driver.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-05-10T00:10:50Z",
+      "side": 1,
+      "message": "Do we need them? Isn\u0027t it too much of cognitive overhead to read the docs about those constants?",
+      "parentUuid": "f24c148d_2a977b4a",
+      "revId": "fbcf614020c6bee84ed54a9f1d392e0f0d1421e5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b2845ccd_c24322a0",
         "filename": "io/gpio/driver/driver.go",
         "patchSetId": 3
@@ -30,6 +48,30 @@
       "writtenOn": "2016-05-07T01:59:08Z",
       "side": 1,
       "message": "should this be a type with IN/OUT/BIDIR const instead?\n\nalso, bidir pins could also be open drain (basically\ncan either float the pin or drive it low, requires\nexternal resistor to output high.)",
+      "range": {
+        "startLine": 24,
+        "startChar": 23,
+        "endLine": 24,
+        "endChar": 33
+      },
+      "revId": "fbcf614020c6bee84ed54a9f1d392e0f0d1421e5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d26b902f_92c5a2a2",
+        "filename": "io/gpio/driver/driver.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-05-10T00:10:50Z",
+      "side": 1,
+      "message": "Done\n\nDon\u0027t have bidirectional option yet but added a TODO.",
+      "parentUuid": "b2845ccd_c24322a0",
       "range": {
         "startLine": 24,
         "startChar": 23,
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "d26b902f_29c3a900",
+        "filename": "io/gpio/driver/driver.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-05-10T00:10:50Z",
+      "side": 1,
+      "message": "More constants to learn and read about. The API is so much simpler currently.",
+      "parentUuid": "f24c148d_0a9cbf6a",
+      "range": {
+        "startLine": 27,
+        "startChar": 4,
+        "endLine": 27,
+        "endChar": 11
+      },
+      "revId": "fbcf614020c6bee84ed54a9f1d392e0f0d1421e5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b2845ccd_a2461eb1",
         "filename": "io/gpio/driver/driver.go",
         "patchSetId": 3
@@ -76,6 +142,24 @@
       "writtenOn": "2016-05-07T01:59:08Z",
       "side": 1,
       "message": "what does polarity mean in this package?\n\nThe current interface doesn\u0027t provide support\nfor interrupts, and I think polarity only has\nmeaning if we support interrupts from GPIOs.\nBut then we also need to consider level trigger\nvs. edge trigger.",
+      "revId": "fbcf614020c6bee84ed54a9f1d392e0f0d1421e5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d26b902f_898addcf",
+        "filename": "io/gpio/driver/driver.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-05-10T00:10:50Z",
+      "side": 1,
+      "message": "Polarity is the wrong term. I updated the godoc explaining what active means from the perspective of a device.",
+      "parentUuid": "b2845ccd_a2461eb1",
       "revId": "fbcf614020c6bee84ed54a9f1d392e0f0d1421e5",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -99,6 +183,24 @@
     },
     {
       "key": {
+        "uuid": "d26b902f_52cc0acf",
+        "filename": "io/gpio/gpio.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-05-10T00:10:50Z",
+      "side": 1,
+      "message": "No. Too many constants.",
+      "parentUuid": "f24c148d_8aa78fb9",
+      "revId": "fbcf614020c6bee84ed54a9f1d392e0f0d1421e5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f24c148d_ca9d8767",
         "filename": "io/gpio/gpio.go",
         "patchSetId": 3
@@ -116,6 +218,24 @@
     },
     {
       "key": {
+        "uuid": "d26b902f_32d78e5b",
+        "filename": "io/gpio/gpio.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-05-10T00:10:50Z",
+      "side": 1,
+      "message": "No idea currently, seems like a good idea to have a separate package.",
+      "parentUuid": "f24c148d_ca9d8767",
+      "revId": "fbcf614020c6bee84ed54a9f1d392e0f0d1421e5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f24c148d_aaaa4b81",
         "filename": "io/gpio/gpio.go",
         "patchSetId": 3
@@ -127,6 +247,24 @@
       "writtenOn": "2016-05-07T04:53:03Z",
       "side": 1,
       "message": "curious why you need to \"convert\" v?",
+      "revId": "fbcf614020c6bee84ed54a9f1d392e0f0d1421e5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d26b902f_b2db7e89",
+        "filename": "io/gpio/gpio.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-05-10T00:10:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f24c148d_aaaa4b81",
       "revId": "fbcf614020c6bee84ed54a9f1d392e0f0d1421e5",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
