@@ -131,6 +131,30 @@
     },
     {
       "key": {
+        "uuid": "d26b902f_b27a9e10",
+        "filename": "io/gpio/driver/driver.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5480
+      },
+      "writtenOn": "2016-05-10T00:40:16Z",
+      "side": 1,
+      "message": "in that case I think a constant would make things easier to read and learn, think about: SetActiveLow(12, false) versus SetActive(12, HIGH);",
+      "parentUuid": "d26b902f_29c3a900",
+      "range": {
+        "startLine": 27,
+        "startChar": 4,
+        "endLine": 27,
+        "endChar": 11
+      },
+      "revId": "fbcf614020c6bee84ed54a9f1d392e0f0d1421e5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b2845ccd_a2461eb1",
         "filename": "io/gpio/driver/driver.go",
         "patchSetId": 3
