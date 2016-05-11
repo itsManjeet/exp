@@ -122,6 +122,24 @@
       "revId": "e4f7f480296bf6e20738eac462421f6582a69e95",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92daf8a7_e9581523",
+        "filename": "shiny/widget/node/node.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-11T11:32:59Z",
+      "side": 1,
+      "message": "If it\u0027s a field, you can\u0027t say:\n\nfunc (w *Image) Measure(t *theme.Theme) {\n    w.MeasuredSize \u003d etc\n}\n\nit would have to be w.Embed.MeasuredSize. Similarly for w.Wrapper or w.Rect, which is used in e.g. image.go, label.go, uniform.go, and any other widget...\n\nSimilarly, in node.go, you can\u0027t say:\n\nfunc (e *ContainerEmbed) Measure(t *theme.Theme) {\n  etc\n  for c :\u003d e.FirstChild; etc\n}\n\nit would have to be e.Embed.FirstChild, and similarly in flow.go, or any other container widget...\n\nSimilarly, you wouldn\u0027t be able to say:\n\nb :\u003d widget.NewButton(etc)\nb.LayoutData \u003d etc\n\nas it would have to be b.Embed.LayoutData...\n\nBasically, actually embedding the Embed, instead of just having a field, saves a lot of little \".Embed\"s everywhere.",
+      "parentUuid": "d2a63027_8b37cdec",
+      "revId": "e4f7f480296bf6e20738eac462421f6582a69e95",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
