@@ -20,6 +20,7 @@ type layoutTest struct {
 	direction    Direction
 	wrap         FlexWrap
 	alignContent AlignContent
+	justify      Justify
 	size         image.Point       // size of container
 	measured     [][2]float64      // MeasuredSize of child elements
 	layoutData   []LayoutData      // LayoutData of child elements
@@ -63,6 +64,17 @@ func (test *layoutTest) html() string {
 		fmt.Fprintf(buf, "\talign-content: space-around;\n")
 	case AlignContentStretch:
 		fmt.Fprintf(buf, "\talign-content: stretch;\n")
+	}
+	switch test.justify {
+	case JustifyStart:
+	case JustifyEnd:
+		fmt.Fprintf(buf, "\tjustify-content: flex-end;\n")
+	case JustifyCenter:
+		fmt.Fprintf(buf, "\tjustify-content: center;\n")
+	case JustifySpaceBetween:
+		fmt.Fprintf(buf, "\tjustify-content: space-between;\n")
+	case JustifySpaceAround:
+		fmt.Fprintf(buf, "\tjustify-content: space-around;\n")
 	}
 	fmt.Fprintf(buf, "}\n")
 
@@ -234,6 +246,36 @@ var layoutTests = []layoutTest{
 			{Grow: 1},
 		},
 	},
+	{
+		size:     image.Point{90, 90},
+		measured: [][2]float64{{10, 10}, {10, 10}, {10, 10}},
+		justify:  JustifyEnd,
+		want: []image.Rectangle{
+			{size(60, 0), size(70, 10)},
+			{size(70, 0), size(80, 10)},
+			{size(80, 0), size(90, 10)},
+		},
+	},
+	{
+		size:     image.Point{90, 90},
+		measured: [][2]float64{{10, 10}, {10, 10}, {10, 10}},
+		justify:  JustifyCenter,
+		want: []image.Rectangle{
+			{size(30, 0), size(40, 10)},
+			{size(40, 0), size(50, 10)},
+			{size(50, 0), size(60, 10)},
+		},
+	},
+	{
+		size:     image.Point{90, 90},
+		measured: [][2]float64{{5, 10}, {5, 10}, {10, 10}},
+		justify:  JustifySpaceAround,
+		want: []image.Rectangle{
+			{size(12, 0), size(17, 10)},
+			{size(40, 0), size(45, 10)},
+			{size(68, 0), size(78, 10)},
+		},
+	},
 }
 
 func size(x, y int) image.Point { return image.Pt(x, y) }
@@ -248,6 +290,7 @@ func TestLayout(t *testing.T) {
 		fl.Direction = test.direction
 		fl.Wrap = test.wrap
 		fl.AlignContent = test.alignContent
+		fl.Justify = test.justify
 
 		var children []node.Node
 		for i, sz := range test.measured {

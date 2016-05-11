@@ -451,11 +451,41 @@ func (k *Flex) Layout(t *theme.Theme) {
 		for _, child := range line.child {
 			total += child.mainSize
 		}
-		// TODO: alternate values of k.Justify
-		off := 0.0
-		for _, child := range line.child {
-			child.mainOffset = off
-			off += child.mainSize
+		remFree := containerMainSize - total
+		switch k.Justify {
+		case JustifyStart:
+			off := 0.0
+			for _, child := range line.child {
+				child.mainOffset = off
+				off += child.mainSize
+			}
+		case JustifyEnd:
+			off := remFree
+			for _, child := range line.child {
+				child.mainOffset = off
+				off += child.mainSize
+			}
+		case JustifyCenter:
+			off := remFree / 2
+			for _, child := range line.child {
+				child.mainOffset = off
+				off += child.mainSize
+			}
+		case JustifySpaceBetween:
+			spacing := remFree / float64(len(line.child)-1)
+			off := 0.0
+			for _, child := range line.child {
+				child.mainOffset = off
+				off += spacing + child.mainSize
+			}
+		case JustifySpaceAround:
+			spacing := remFree / float64(len(line.child))
+			off := spacing / 2
+			fmt.Printf("JustifySpaceAround: remFree=%f, spacing=%f, off=%f\n", remFree, spacing, off)
+			for _, child := range line.child {
+				child.mainOffset = off
+				off += spacing + child.mainSize
+			}
 		}
 	}
 
@@ -555,20 +585,24 @@ func (k *Flex) Layout(t *theme.Theme) {
 		for _, child := range line.child {
 			switch k.Direction {
 			case Row, RowReverse:
-				child.n.Rect.Min.X = int(math.Ceil(child.mainOffset))
-				child.n.Rect.Max.X = int(math.Ceil(child.mainOffset + child.mainSize))
-				child.n.Rect.Min.Y = int(math.Ceil(child.crossOffset))
-				child.n.Rect.Max.Y = int(math.Ceil(child.crossOffset + child.crossSize))
+				child.n.Rect.Min.X = round(child.mainOffset)
+				child.n.Rect.Max.X = round(child.mainOffset + child.mainSize)
+				child.n.Rect.Min.Y = round(child.crossOffset)
+				child.n.Rect.Max.Y = round(child.crossOffset + child.crossSize)
 			case Column, ColumnReverse:
-				child.n.Rect.Min.Y = int(math.Ceil(child.mainOffset))
-				child.n.Rect.Max.Y = int(math.Ceil(child.mainOffset + child.mainSize))
-				child.n.Rect.Min.X = int(math.Ceil(child.crossOffset))
-				child.n.Rect.Max.X = int(math.Ceil(child.crossOffset + child.crossSize))
+				child.n.Rect.Min.Y = round(child.mainOffset)
+				child.n.Rect.Max.Y = round(child.mainOffset + child.mainSize)
+				child.n.Rect.Min.X = round(child.crossOffset)
+				child.n.Rect.Max.X = round(child.crossOffset + child.crossSize)
 			default:
 				panic(fmt.Sprint("flex: bad direction ", k.Direction))
 			}
 		}
 	}
+}
+
+func round(f float64) int {
+	return int(math.Floor(f + .5))
 }
 
 type element struct {
