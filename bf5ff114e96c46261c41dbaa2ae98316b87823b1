@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d25390c8_06c21c47",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-05-11T16:55:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6da203c1_9ac51da1",
+      "revId": "bf5ff114e96c46261c41dbaa2ae98316b87823b1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6da203c1_3aff31bb",
         "filename": "shiny/widget/flex/flex.go",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2016-05-05T00:37:15Z",
       "side": 1,
       "message": "FWIW, this isn\u0027t the way the other widgets work. They have\n\ntype Foo struct{ widget.Node }\n\nwith no extra fields, and the fields are in the fooClass type. I suppose that we could change the other widgets to be like this, but I\u0027d need to think about that.\n\nThe motivation for the getter/setters instead of exposed struct fields was so that changing attributes would also re-trigger a re-layout and re-paint if necessary. Perhaps users should just explicitly \"n.RequestRepaint()\" after \"n.Foo \u003d bar\". As I said, more thought required.",
+      "revId": "bf5ff114e96c46261c41dbaa2ae98316b87823b1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d25390c8_e666e042",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-05-11T16:55:21Z",
+      "side": 1,
+      "message": "I\u0027m delaying this for a later CL and after your Class removal CL is complete.\n\nI think it\u0027s fine to put the burden of requesting a repaint on the person modifying the structure, but it would be nice to get some experience with it.",
+      "parentUuid": "6da203c1_3aff31bb",
       "revId": "bf5ff114e96c46261c41dbaa2ae98316b87823b1",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "d25390c8_06dd3c1c",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-05-11T16:55:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6da203c1_fa6309a1",
+      "revId": "bf5ff114e96c46261c41dbaa2ae98316b87823b1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6da203c1_da5845ec",
         "filename": "shiny/widget/flex/flex.go",
         "patchSetId": 1
@@ -64,6 +118,24 @@
       "writtenOn": "2016-05-05T00:37:15Z",
       "side": 1,
       "message": "Is it?",
+      "revId": "bf5ff114e96c46261c41dbaa2ae98316b87823b1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d25390c8_26dab825",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-05-11T16:55:21Z",
+      "side": 1,
+      "message": "It is.",
+      "parentUuid": "6da203c1_da5845ec",
       "revId": "bf5ff114e96c46261c41dbaa2ae98316b87823b1",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "d25390c8_a637883a",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-05-11T16:55:21Z",
+      "side": 1,
+      "message": "This is intermediate data calculated during the layout, named in a way to help a reader line it up with the spec.\n\nI suspect a lot of it could be packed into fewer values, but I kept these unfactored as:\n\n1. There are parts of the spec not implemented here that we may want to add later, it\u0027s easier to do in this form.\n\n2. I would like to write more tests (or convert some of the standard tests), and it\u0027s easier to fix bugs when the names line up with the values described in the spec.",
+      "parentUuid": "6da203c1_3aedf1fe",
+      "revId": "bf5ff114e96c46261c41dbaa2ae98316b87823b1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "681751d9_98fd1581",
         "filename": "shiny/widget/flex/flex.go",
         "patchSetId": 1
@@ -98,6 +188,30 @@
       "writtenOn": "2016-05-02T07:26:28Z",
       "side": 1,
       "message": "naive comment, but, shouldn\u0027t this be prepended with \"flex: \" or \"shiny: \" ?",
+      "range": {
+        "startLine": 685,
+        "startChar": 20,
+        "endLine": 685,
+        "endChar": 33
+      },
+      "revId": "bf5ff114e96c46261c41dbaa2ae98316b87823b1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d25390c8_46c81469",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-05-11T16:55:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "681751d9_98fd1581",
       "range": {
         "startLine": 685,
         "startChar": 20,
