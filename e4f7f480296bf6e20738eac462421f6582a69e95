@@ -140,6 +140,24 @@
       "revId": "e4f7f480296bf6e20738eac462421f6582a69e95",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d2a63027_6ba1c1b5",
+        "filename": "shiny/widget/node/node.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-05-11T13:33:59Z",
+      "side": 1,
+      "message": "All of those seem to be benefits to people writing implementations of widgets, at the expense of those reading documentation for using widgets. (Generated docs like editor autocomplete will surface these fields that should mostly not be used.) Though maybe I am not being imaginative enough about LayoutData.\n\nAnyway, let\u0027s give it a try and see how it looks.",
+      "parentUuid": "92daf8a7_e9581523",
+      "revId": "e4f7f480296bf6e20738eac462421f6582a69e95",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
