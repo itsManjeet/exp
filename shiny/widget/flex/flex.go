@@ -426,10 +426,95 @@ func (w *Flex) Layout(t *theme.Theme) {
 		}
 	}
 
-	// TODO
 	// §9.6 cross axis alignment
+	// §9.6.13 no 'auto' margins
+	// §9.6.14 align items inside line, 'align-self'.
+	for lineNum := range lines {
+		line := &lines[lineNum]
+		for _, child := range line.child {
+			child.crossOffset = line.crossOffset
+			if child.crossSize == line.crossSize {
+				continue
+			}
+			diff := line.crossSize - child.crossSize
+			switch w.alignItem(child.n) {
+			case AlignItemStart:
+				// already laid out correctly
+			case AlignItemEnd:
+				child.crossOffset = line.crossOffset + diff
+			case AlignItemCenter:
+				child.crossOffset = line.crossOffset + diff/2
+			case AlignItemBaseline:
+				// TODO requires introducing inline-axis concept
+			case AlignItemStretch:
+				// handled earlier, so child.crossSize == line.crossSize
+			}
+		}
+	}
+	// §9.6.15 determine container cross size used
+	crossSize := lines[len(lines)-1].crossOffset + lines[len(lines)-1].crossSize
+	remFree := containerCrossSize - crossSize
 
-	// TODO: RowReverse, ColumnReverse
+	// §9.6.16 align flex lines, 'align-content'.
+	if remFree > 0 {
+		switch w.AlignContent {
+		case AlignContentStart:
+			// already laid out correctly
+		case AlignContentEnd:
+			off := remFree
+			for lineNum := range lines {
+				line := &lines[lineNum]
+				line.crossOffset += off
+				for _, child := range line.child {
+					child.crossOffset += off
+				}
+			}
+		case AlignContentCenter:
+			off := remFree / 2
+			for lineNum := range lines {
+				line := &lines[lineNum]
+				line.crossOffset += off
+				for _, child := range line.child {
+					child.crossOffset += off
+				}
+			}
+		case AlignContentSpaceBetween:
+			spacing := remFree / float64(len(lines)-1)
+			off := 0.0
+			for lineNum := range lines {
+				line := &lines[lineNum]
+				line.crossOffset += off
+				for _, child := range line.child {
+					child.crossOffset += off
+				}
+				off += spacing
+			}
+		case AlignContentSpaceAround:
+			spacing := remFree / float64(len(lines))
+			off := spacing / 2
+			for lineNum := range lines {
+				line := &lines[lineNum]
+				line.crossOffset += off
+				for _, child := range line.child {
+					child.crossOffset += off
+				}
+				off += spacing
+			}
+		case AlignContentStretch:
+			// handled earlier, why is remFree > 0?
+		}
+	}
+
+	switch w.Direction {
+	case RowReverse, ColumnReverse:
+		// Invert main-start and main-end.
+		for lineNum := range lines {
+			line := &lines[lineNum]
+			for _, child := range line.child {
+				child.mainOffset = containerMainSize - child.mainOffset - child.mainSize
+			}
+		}
+	}
 
 	// Layout complete. Generate child Rect values.
 	for l := range lines {

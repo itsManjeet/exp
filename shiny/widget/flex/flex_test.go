@@ -174,6 +174,57 @@ var layoutTests = []layoutTest{{
 		{MinSize: image.Point{100, 0}, Grow: 1},
 		{Grow: 4},
 	},
+}, {
+	size:     image.Point{300, 200},
+	wrap:     Wrap,
+	measured: [][2]float64{{150, 100}, {160, 100}, {20, 100}},
+	want: []image.Rectangle{
+		image.Rect(0, 0, 30, 100),
+		image.Rect(0, 100, 220, 200),
+		image.Rect(220, 100, 300, 200),
+	},
+	layoutData: []LayoutData{
+		{MaxSize: &image.Point{30, 100}, Grow: 1},
+		{MinSize: image.Point{100, 0}, Grow: 1},
+		{Grow: 1},
+	},
+}, {
+	size:         image.Point{300, 200},
+	direction:    Column,
+	wrap:         Wrap,
+	alignContent: AlignContentSpaceBetween,
+	measured:     [][2]float64{{150, 100}, {160, 100}, {20, 100}, {300, 300}},
+	want: []image.Rectangle{
+		image.Rect(0, 0, 30, 100),
+		image.Rect(0, 100, 160, 200),
+		image.Rect(218, 0, 238, 200),
+		image.Rect(295, 0, 300, 5),
+	},
+	layoutData: []LayoutData{
+		{MaxSize: &image.Point{30, 100}, Grow: 1},
+		{MinSize: image.Point{100, 0}, Grow: 1},
+		{Grow: 1},
+		{MaxSize: &image.Point{5, 5}},
+	},
+}, {
+	size:      image.Point{300, 60},
+	direction: ColumnReverse,
+	wrap:      Wrap,
+	measured:  [][2]float64{{25, 25}, {25, 25}, {25, 25}, {25, 25}, {25, 25}},
+	want: []image.Rectangle{
+		image.Rect(0, 35, 25, 60),
+		image.Rect(0, 0, 25, 35),
+		image.Rect(100, 35, 125, 60),
+		image.Rect(100, 10, 125, 35),
+		image.Rect(200, 0, 225, 60),
+	},
+	layoutData: []LayoutData{
+		{},
+		{Grow: 1},
+		{},
+		{},
+		{Grow: 1},
+	},
 }}
 
 func TestLayout(t *testing.T) {
