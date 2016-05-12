@@ -2,13 +2,16 @@
 
 package win32
 
-import "unsafe"
-import "syscall"
+import (
+	"golang.org/x/sys/windows"
+	"syscall"
+	"unsafe"
+)
 
 var _ unsafe.Pointer
 
 var (
-	moduser32 = syscall.NewLazyDLL("user32.dll")
+	moduser32 = windows.NewLazySystemDLL("user32.dll")
 
 	procGetDC             = moduser32.NewProc("GetDC")
 	procReleaseDC         = moduser32.NewProc("ReleaseDC")

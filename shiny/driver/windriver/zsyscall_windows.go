@@ -2,15 +2,18 @@
 
 package windriver
 
-import "unsafe"
-import "syscall"
+import (
+	"golang.org/x/sys/windows"
+	"syscall"
+	"unsafe"
+)
 
 var _ unsafe.Pointer
 
 var (
-	modmsimg32 = syscall.NewLazyDLL("msimg32.dll")
-	modgdi32   = syscall.NewLazyDLL("gdi32.dll")
-	moduser32  = syscall.NewLazyDLL("user32.dll")
+	modmsimg32 = windows.NewLazySystemDLL("msimg32.dll")
+	modgdi32   = windows.NewLazySystemDLL("gdi32.dll")
+	moduser32  = windows.NewLazySystemDLL("user32.dll")
 
 	procAlphaBlend             = modmsimg32.NewProc("AlphaBlend")
 	procBitBlt                 = modgdi32.NewProc("BitBlt")
