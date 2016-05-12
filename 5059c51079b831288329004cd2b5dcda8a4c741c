@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "92daf8a7_a9a29dbe",
+        "filename": "shiny/driver/internal/win32/zsyscall_windows.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-12T03:56:33Z",
+      "side": 1,
+      "message": "I\u0027d separate the stdlib imports from the others:\n\nimport (\n\t\"syscall\"\n\t\"unsafe\"\n\n\t\"golang.org/x/sys/windows\"\n)",
+      "range": {
+        "startLine": 5,
+        "startChar": 1,
+        "endLine": 9,
+        "endChar": 1
+      },
+      "revId": "5059c51079b831288329004cd2b5dcda8a4c741c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92daf8a7_89a7d9ce",
+        "filename": "shiny/driver/windriver/zsyscall_windows.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-12T03:56:33Z",
+      "side": 1,
+      "message": "Ditto.",
+      "revId": "5059c51079b831288329004cd2b5dcda8a4c741c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
