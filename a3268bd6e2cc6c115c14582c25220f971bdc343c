@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "d72e2290_cb9c756b",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-12T05:30:58Z",
+      "side": 1,
+      "message": "I\u0027d move Flex and NewFlex below all the \"type Direction\" and const blocks, so that \"type Flex\" is closer to its methods.",
+      "revId": "a3268bd6e2cc6c115c14582c25220f971bdc343c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92daf8a7_698ee58c",
         "filename": "shiny/widget/flex/flex.go",
         "patchSetId": 2
@@ -172,6 +189,24 @@
     },
     {
       "key": {
+        "uuid": "d72e2290_0b9b9d74",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-12T05:30:58Z",
+      "side": 1,
+      "message": "For flow.go, I put the FlowLayoutData type below all of a Flow\u0027s methods.",
+      "parentUuid": "92daf8a7_89efd92f",
+      "revId": "a3268bd6e2cc6c115c14582c25220f971bdc343c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "92daf8a7_c9439104",
         "filename": "shiny/widget/flex/flex.go",
         "patchSetId": 2
@@ -257,6 +292,24 @@
       "writtenOn": "2016-05-12T03:40:53Z",
       "side": 1,
       "message": "c.Rect \u003d k.Rect.Sub(k.Rect.Min)\n\nas the Embed.Rect field is relative to the parent node.\n\nThis method should also call c.Wrapper.Layout. Basically, if you want a placeholder, just copy/paste ShellEmbed or ContainerEmbed\u0027s Layout implementation.",
+      "revId": "a3268bd6e2cc6c115c14582c25220f971bdc343c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d72e2290_eb9f315d",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-12T05:30:58Z",
+      "side": 1,
+      "message": "Or, if you just want a placeholder in this CL, you could delete the Measure and Layout methods in this CL, and just fall back to the ContainerEmbed implementations. The tests probably still pass.",
+      "parentUuid": "92daf8a7_a9ea9d1f",
       "revId": "a3268bd6e2cc6c115c14582c25220f971bdc343c",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
