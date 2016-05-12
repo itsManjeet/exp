@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d72e2290_4b2ac570",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-12T22:49:28Z",
+      "side": 1,
+      "message": "There are three different FooStart constants. This is OK for now, and I\u0027m happy to submit this CL as is, but an alternative design is\n\ntype Alignment uint8\n\nconst (\n  Auto Alignment \u003d iota\n  Start\n  End\n  etc\n)\n\ntype Flex struct {\n  etc\n\n  Justify      Alignment\n  AlignItems   Alignment\n  AlignContent Alignment\n}\n\nThe pro is that the names are shorter: f.Justify \u003d flex.Center instead of flex.JustifyCenter, similar to how it\u0027s flex.Row instead of flex.DirectionRow. The cons are that you lose some type safety, you need to make sure (or make up semantics) so that the zero value of \u0027auto\u0027 means the right thing, and there\u0027s a possible collision between Auto Alignment and Auto Basis.\n\nIn any case, not something for this CL. Let\u0027s see how the rest of the code pans out.",
+      "revId": "4b81787e3b875ece8b41117af371fa7d3062e6e1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d72e2290_cb0c752d",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-12T22:49:28Z",
+      "side": 1,
+      "message": "Should Item be Items or even s/Item// (and ditto below)? I\u0027m not sure.",
+      "revId": "4b81787e3b875ece8b41117af371fa7d3062e6e1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d72e2290_6b2581a0",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-12T22:49:28Z",
+      "side": 1,
+      "message": "s/Item/Items/ would be more consistent with CSS terms, no??",
+      "revId": "4b81787e3b875ece8b41117af371fa7d3062e6e1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d72e2290_ab192969",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-12T22:49:28Z",
+      "side": 1,
+      "message": "s/Node./node /",
+      "revId": "4b81787e3b875ece8b41117af371fa7d3062e6e1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d72e2290_8b166d37",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-12T22:49:28Z",
+      "side": 1,
+      "message": "s/Node/node/ is probably more consistent. Ditto in the comments below.",
+      "revId": "4b81787e3b875ece8b41117af371fa7d3062e6e1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d72e2290_2b1f794a",
+        "filename": "shiny/widget/flex/flex_test.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-12T22:49:28Z",
+      "side": 1,
+      "message": "Add \"// Red\" etc comments?",
+      "revId": "4b81787e3b875ece8b41117af371fa7d3062e6e1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
