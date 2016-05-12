@@ -1,0 +1,401 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "92daf8a7_698ee58c",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-12T03:40:53Z",
+      "side": 1,
+      "message": "I think this is OK (in that I suspect that none of the fields are mandatory, or conversely the zero values are all OK), but FYI, the convention in package widget is that the NewXxx function takes as arguments any fields that would be considered practically mandatory, such as a label\u0027s text.",
+      "revId": "a3268bd6e2cc6c115c14582c25220f971bdc343c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92daf8a7_099129a9",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-12T03:40:53Z",
+      "side": 1,
+      "message": "The convention in package widget is that all method receivers, or similar variables like the return value of a NewXxx function, are named w, not f or fl.",
+      "revId": "a3268bd6e2cc6c115c14582c25220f971bdc343c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92daf8a7_69e9c526",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-12T03:40:53Z",
+      "side": 1,
+      "message": "Tyypo.",
+      "revId": "a3268bd6e2cc6c115c14582c25220f971bdc343c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92daf8a7_c9d0b161",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-12T03:40:53Z",
+      "side": 1,
+      "message": "I don\u0027t think this comment adds anything. Ditto below.",
+      "revId": "a3268bd6e2cc6c115c14582c25220f971bdc343c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92daf8a7_e9cbf5b5",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-12T03:40:53Z",
+      "side": 1,
+      "message": "Maybe DirRow, DirRowReverse, etc. a la golang.org/x/mobile/event/mouse and its \"type Direction\" constants.",
+      "revId": "a3268bd6e2cc6c115c14582c25220f971bdc343c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92daf8a7_69c0a58e",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-12T03:40:53Z",
+      "side": 1,
+      "message": "I know that you\u0027re mimicking the CSS names, but it looks stuttery to have the \"Flex\" in the name here. How about\n\ntype Wrap etc\n\nconst (\n  WrapSingleLine\n  WrapMultiLine\n  WrapMultiLineReverse\n)",
+      "revId": "a3268bd6e2cc6c115c14582c25220f971bdc343c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92daf8a7_e93e5578",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-12T03:40:53Z",
+      "side": 1,
+      "message": "It\u0027d be nice to be consistent with the \"It is the \u0027foo-bar\u0027 property\" comments: whether they\u0027re present or not, and if present, whether they\u0027re the first line in the doc comment.\n\nYou could also just delete them all, and just keep the w3.org links.",
+      "revId": "a3268bd6e2cc6c115c14582c25220f971bdc343c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92daf8a7_49e68156",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-12T03:40:53Z",
+      "side": 1,
+      "message": "Why did the http drop the s?",
+      "revId": "a3268bd6e2cc6c115c14582c25220f971bdc343c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92daf8a7_09dc8980",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-12T03:40:53Z",
+      "side": 1,
+      "message": "I don\u0027t know exactly what the difference between auto, content and definite is for CSS flexbox, but I\u0027d just delete this type entirely for this CL. If we need it in the future, we can add it in the future.",
+      "revId": "a3268bd6e2cc6c115c14582c25220f971bdc343c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92daf8a7_89efd92f",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-12T03:40:53Z",
+      "side": 1,
+      "message": "In flow.go I did s/Node.LayoutData/node LayoutData/ as Node is now an interface, not a struct.",
+      "revId": "a3268bd6e2cc6c115c14582c25220f971bdc343c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92daf8a7_c9439104",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-12T03:40:53Z",
+      "side": 1,
+      "message": "Can sizes be expressed in e.g. em instead of px? You may want \"MinWidth unit.Value\" here instead of \"Min image.Point\".",
+      "revId": "a3268bd6e2cc6c115c14582c25220f971bdc343c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92daf8a7_29498d25",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-12T03:40:53Z",
+      "side": 1,
+      "message": "You could probably drop \"is the flex grow factor which\".",
+      "range": {
+        "startLine": 142,
+        "startChar": 32,
+        "endLine": 142,
+        "endChar": 33
+      },
+      "revId": "a3268bd6e2cc6c115c14582c25220f971bdc343c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92daf8a7_09464913",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-12T03:40:53Z",
+      "side": 1,
+      "message": "*float64 is awkward to use for the caller: you can\u0027t do a \u0026float64(2) syntax, for example.\n\nI take it that a 0 Shrink is actually useful in practice, and means something different than the default?",
+      "revId": "a3268bd6e2cc6c115c14582c25220f971bdc343c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92daf8a7_498b217b",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-12T03:40:53Z",
+      "side": 1,
+      "message": "s/k/w/ and ditto below.",
+      "revId": "a3268bd6e2cc6c115c14582c25220f971bdc343c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92daf8a7_a9ea9d1f",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-12T03:40:53Z",
+      "side": 1,
+      "message": "c.Rect \u003d k.Rect.Sub(k.Rect.Min)\n\nas the Embed.Rect field is relative to the parent node.\n\nThis method should also call c.Wrapper.Layout. Basically, if you want a placeholder, just copy/paste ShellEmbed or ContainerEmbed\u0027s Layout implementation.",
+      "revId": "a3268bd6e2cc6c115c14582c25220f971bdc343c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92daf8a7_09c9298c",
+        "filename": "shiny/widget/flex/flex_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-12T03:40:53Z",
+      "side": 1,
+      "message": "\"tile\"??",
+      "revId": "a3268bd6e2cc6c115c14582c25220f971bdc343c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92daf8a7_09e2c913",
+        "filename": "shiny/widget/flex/flex_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-12T03:40:53Z",
+      "side": 1,
+      "message": "s/color.RGBA//",
+      "revId": "a3268bd6e2cc6c115c14582c25220f971bdc343c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92daf8a7_29e50d1c",
+        "filename": "shiny/widget/flex/flex_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-12T03:40:53Z",
+      "side": 1,
+      "message": "You can outdent it by one level if you format it like this:\n\nvar layoutTests \u003d []layoutTest{{\n\tsize:     image.Point{100, 100},\n\tmeasured: [][2]float64{{100, 100}},\n\twant: []image.Rectangle{\n\t\t{size(0, 0), size(100, 100)},\n\t},\n}}",
+      "revId": "a3268bd6e2cc6c115c14582c25220f971bdc343c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92daf8a7_e9b13511",
+        "filename": "shiny/widget/flex/flex_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-12T03:40:53Z",
+      "side": 1,
+      "message": "I\u0027d use the image.Rect function.",
+      "revId": "a3268bd6e2cc6c115c14582c25220f971bdc343c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92daf8a7_a9b73d05",
+        "filename": "shiny/widget/flex/flex_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-12T03:40:53Z",
+      "side": 1,
+      "message": "It seems easier to just say\n\nreturn \u0026image.Point{x, y}\n\nThe image.Pt function really only exists because early versions of Go didn\u0027t have struct literals.",
+      "revId": "a3268bd6e2cc6c115c14582c25220f971bdc343c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92daf8a7_89bcf9ea",
+        "filename": "shiny/widget/flex/flex_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-12T03:40:53Z",
+      "side": 1,
+      "message": "I\u0027d s/fl/f/",
+      "revId": "a3268bd6e2cc6c115c14582c25220f971bdc343c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92daf8a7_29cced9b",
+        "filename": "shiny/widget/flex/flex_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-12T03:40:53Z",
+      "side": 1,
+      "message": "I\u0027d say:\n\nif got, want :\u003d n.Wrappee().Rect, test.want[i]; got !\u003d want {\n\nand re-use the want variable on the next line.",
+      "revId": "a3268bd6e2cc6c115c14582c25220f971bdc343c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "92daf8a7_c9b6f106",
+        "filename": "shiny/widget/flex/flex_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-12T03:40:53Z",
+      "side": 1,
+      "message": "Why the \"\\t\"?",
+      "revId": "a3268bd6e2cc6c115c14582c25220f971bdc343c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
