@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1239a8b4_626a9c75",
+        "filename": "shiny/widget/node/node.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-05-12T15:15:14Z",
+      "side": 1,
+      "message": "I certainly hope do don\u0027t have containers take advantage of this. Messy. (Menu overlays need some other priority system for events from the top of the window.)",
+      "revId": "b244ba2acf23eeeb41be2c87e23f4c548df219bd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
