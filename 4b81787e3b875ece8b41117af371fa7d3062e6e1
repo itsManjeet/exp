@@ -230,6 +230,24 @@
     },
     {
       "key": {
+        "uuid": "d72e2290_0e060b77",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-13T22:43:17Z",
+      "side": 1,
+      "message": "Alternatively, put it in the end of your rewritten comment:\n\n// Basis determines the initial size of the node in the direction\n// of the flex container (the main axis).",
+      "parentUuid": "d72e2290_aedb7727",
+      "revId": "4b81787e3b875ece8b41117af371fa7d3062e6e1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d72e2290_2b1f794a",
         "filename": "shiny/widget/flex/flex_test.go",
         "patchSetId": 3
