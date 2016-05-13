@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "722d8476_0ec82f68",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-05-13T12:20:57Z",
+      "side": 1,
+      "message": "I tried something like this originally, but note that AlignItem and AlignContent have different values. I wasn\u0027t entirely happy panicing if someone set AlignItems to flex.SpaceBetween. But maybe that\u0027s OK. I\u0027ll look into it after this CL series.",
+      "parentUuid": "d72e2290_4b2ac570",
+      "revId": "4b81787e3b875ece8b41117af371fa7d3062e6e1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d72e2290_cb0c752d",
         "filename": "shiny/widget/flex/flex.go",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2016-05-12T22:49:28Z",
       "side": 1,
       "message": "Should Item be Items or even s/Item// (and ditto below)? I\u0027m not sure.",
+      "revId": "4b81787e3b875ece8b41117af371fa7d3062e6e1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "722d8476_2ec5f34e",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-05-13T12:20:57Z",
+      "side": 1,
+      "message": "This name is a compromise between align-items and align-self.\n\nThis enumeration is used to describe how a single item is aligned in the space it has. The \u0027align-items\u0027 property is a default for all the items in a container. The \u0027align-self\u0027 property is an individual element value that overrides the default.\n\nGiven we have the separate types I think it\u0027s worth keeping the Item for now, and the lack of s is OK. I might end up combining the Justify and AlignContent type, in which case this could be renamed to Align.",
+      "parentUuid": "d72e2290_cb0c752d",
       "revId": "4b81787e3b875ece8b41117af371fa7d3062e6e1",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "722d8476_4ec22748",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-05-13T12:20:57Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "d72e2290_6b2581a0",
+      "revId": "4b81787e3b875ece8b41117af371fa7d3062e6e1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d72e2290_ab192969",
         "filename": "shiny/widget/flex/flex.go",
         "patchSetId": 3
@@ -64,6 +118,24 @@
       "writtenOn": "2016-05-12T22:49:28Z",
       "side": 1,
       "message": "s/Node./node /",
+      "revId": "4b81787e3b875ece8b41117af371fa7d3062e6e1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "722d8476_aee3a3ea",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-05-13T12:20:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d72e2290_ab192969",
       "revId": "4b81787e3b875ece8b41117af371fa7d3062e6e1",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "722d8476_8ededf1d",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-05-13T12:20:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d72e2290_8b166d37",
+      "revId": "4b81787e3b875ece8b41117af371fa7d3062e6e1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d72e2290_eb3851c3",
         "filename": "shiny/widget/flex/flex.go",
         "patchSetId": 3
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "722d8476_6ebfebb8",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-05-13T12:20:57Z",
+      "side": 1,
+      "message": "Done.\n\n\"main\" is a technical term from the CSS spec: main is the direction of flex container, X/Width for Row, Y/Height for Column. cross is orthogonal to main, Y/Height for Row, X/Width for Column.",
+      "parentUuid": "d72e2290_eb3851c3",
+      "revId": "4b81787e3b875ece8b41117af371fa7d3062e6e1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d72e2290_2b1f794a",
         "filename": "shiny/widget/flex/flex_test.go",
         "patchSetId": 3
@@ -115,6 +223,24 @@
       "writtenOn": "2016-05-12T22:49:28Z",
       "side": 1,
       "message": "Add \"// Red\" etc comments?",
+      "revId": "4b81787e3b875ece8b41117af371fa7d3062e6e1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "722d8476_cee8d7c9",
+        "filename": "shiny/widget/flex/flex_test.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-05-13T12:20:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d72e2290_2b1f794a",
       "revId": "4b81787e3b875ece8b41117af371fa7d3062e6e1",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
