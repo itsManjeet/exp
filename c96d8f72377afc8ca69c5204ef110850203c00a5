@@ -16,6 +16,24 @@
       "revId": "c96d8f72377afc8ca69c5204ef110850203c00a5",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d72e2290_cecec36b",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-13T22:37:52Z",
+      "side": 1,
+      "message": "Yeah, I\u0027ll have a crack at that later, but this CL was already large enough.",
+      "parentUuid": "1239a8b4_21288826",
+      "revId": "c96d8f72377afc8ca69c5204ef110850203c00a5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
