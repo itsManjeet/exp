@@ -61,6 +61,10 @@ func copyBitmapToDC(dc syscall.Handle, dr image.Rectangle, src syscall.Handle, s
 		}
 	}()
 
+	if _GetDeviceCaps(dc, _SHADEBLENDCAPS) == _SB_NONE {
+		op = draw.Src
+	}
+
 	switch op {
 	case draw.Src:
 		return _StretchBlt(dc, int32(dr.Min.X), int32(dr.Min.Y), int32(dr.Dx()), int32(dr.Dy()),
