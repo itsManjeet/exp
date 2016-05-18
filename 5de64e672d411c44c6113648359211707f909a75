@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "97b82ad6_593c23d0",
+        "filename": "shiny/driver/x11driver/screen.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-18T12:47:15Z",
+      "side": 1,
+      "message": "Ah, that\u0027s a nice idea. I\u0027ll leave it as a TODO in this CL.",
+      "parentUuid": "f797a652_0c98b7d8",
+      "revId": "5de64e672d411c44c6113648359211707f909a75",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97b82ad6_39912f56",
         "filename": "shiny/driver/x11driver/texture.go",
         "patchSetId": 1
