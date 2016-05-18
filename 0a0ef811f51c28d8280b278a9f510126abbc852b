@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97b82ad6_791ac768",
+        "filename": "shiny/example/basic/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-18T13:35:49Z",
+      "side": 1,
+      "message": "BTW, this isn\u0027t a regression. The affine-transformed draw did not work correctly prior to this CL either, under x11driver.",
+      "revId": "0a0ef811f51c28d8280b278a9f510126abbc852b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
