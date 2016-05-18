@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "f797a652_0c98b7d8",
+        "filename": "shiny/driver/x11driver/screen.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-05-18T12:04:36Z",
+      "side": 1,
+      "message": "It looks like you need the the extra mutex here because opaqueM/P is per-screen instead of per-texture. Is the overhead significant enough for that? This would be a little simpler if done on the texture.",
+      "revId": "5de64e672d411c44c6113648359211707f909a75",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97b82ad6_39912f56",
         "filename": "shiny/driver/x11driver/texture.go",
         "patchSetId": 1
