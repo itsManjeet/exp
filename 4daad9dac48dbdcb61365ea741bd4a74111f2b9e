@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97b82ad6_59cd03c9",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-18T22:49:54Z",
+      "side": 1,
+      "message": "I\u0027d s/lineNum/l/ or s/lineNum/i/ and ditto below.",
+      "revId": "4daad9dac48dbdcb61365ea741bd4a74111f2b9e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97b82ad6_b9c37f9b",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-18T22:49:54Z",
+      "side": 1,
+      "message": "Flex.Layout should also call c.Wrapper.Layout on each child.",
+      "revId": "4daad9dac48dbdcb61365ea741bd4a74111f2b9e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97b82ad6_79d2c769",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-18T22:49:54Z",
+      "side": 1,
+      "message": "Any potential issues with rounding, e.g. where the parent has width 100 but the children\u0027s rounded widths sum to 101?",
+      "revId": "4daad9dac48dbdcb61365ea741bd4a74111f2b9e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97b82ad6_39d84f88",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-18T22:49:54Z",
+      "side": 1,
+      "message": "If this is per-child-node layout data, this can be fields of a LayoutData. Not every LayoutData field has to be exported or read-only.\n\nIt\u0027s OK to leave this as is, though, and I can see what this looks like in a follow-up CL.",
+      "revId": "4daad9dac48dbdcb61365ea741bd4a74111f2b9e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
