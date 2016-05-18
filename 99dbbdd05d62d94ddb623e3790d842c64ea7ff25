@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97b82ad6_d9e75352",
+        "filename": "shiny/widget/flex/flex_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-18T22:05:45Z",
+      "side": 1,
+      "message": "s/test/t/",
+      "revId": "99dbbdd05d62d94ddb623e3790d842c64ea7ff25",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "97b82ad6_f9e41750",
+        "filename": "shiny/widget/flex/flex_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-18T22:05:45Z",
+      "side": 1,
+      "message": "More future-proof might be:\n\nc :\u003d colors[i % len(colors)]",
+      "revId": "99dbbdd05d62d94ddb623e3790d842c64ea7ff25",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
