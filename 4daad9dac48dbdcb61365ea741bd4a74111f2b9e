@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "b7344e67_88d5bbc7",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-05-19T19:36:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97b82ad6_59cd03c9",
+      "revId": "4daad9dac48dbdcb61365ea741bd4a74111f2b9e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97b82ad6_b9c37f9b",
         "filename": "shiny/widget/flex/flex.go",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2016-05-18T22:49:54Z",
       "side": 1,
       "message": "Flex.Layout should also call c.Wrapper.Layout on each child.",
+      "revId": "4daad9dac48dbdcb61365ea741bd4a74111f2b9e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7344e67_484ed3b2",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-05-19T19:36:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97b82ad6_b9c37f9b",
       "revId": "4daad9dac48dbdcb61365ea741bd4a74111f2b9e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "b7344e67_68571748",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 441,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-05-19T19:36:15Z",
+      "side": 1,
+      "message": "Possibly. I think I\u0027ve found one problem, but I\u0027m not certain about my fix. I\u0027ll address this in a later CL.",
+      "parentUuid": "97b82ad6_79d2c769",
+      "revId": "4daad9dac48dbdcb61365ea741bd4a74111f2b9e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "97b82ad6_39d84f88",
         "filename": "shiny/widget/flex/flex.go",
         "patchSetId": 2
@@ -64,6 +118,24 @@
       "writtenOn": "2016-05-18T22:49:54Z",
       "side": 1,
       "message": "If this is per-child-node layout data, this can be fields of a LayoutData. Not every LayoutData field has to be exported or read-only.\n\nIt\u0027s OK to leave this as is, though, and I can see what this looks like in a follow-up CL.",
+      "revId": "4daad9dac48dbdcb61365ea741bd4a74111f2b9e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b7344e67_e8624731",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-05-19T19:36:15Z",
+      "side": 1,
+      "message": "My hope is this structure is being entirely stack allocated and only lived during the Layout call. (I need to test that.)",
+      "parentUuid": "97b82ad6_39d84f88",
       "revId": "4daad9dac48dbdcb61365ea741bd4a74111f2b9e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
