@@ -139,6 +139,24 @@
       "revId": "4daad9dac48dbdcb61365ea741bd4a74111f2b9e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "375f7ecd_c6b402e5",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-19T23:58:52Z",
+      "side": 1,
+      "message": "Can it be stack allocated if the number you allocate is dynamic, equal to the number of children?\n\nI suppose that you could do\nvar elementBuffer [16]element\nchildren :\u003d elementBuffer[:0]\nso it\u0027s mostly stack allocated instead of always stack allocated, provided the escape analysis is good enough, but that seems awkward.",
+      "parentUuid": "b7344e67_e8624731",
+      "revId": "4daad9dac48dbdcb61365ea741bd4a74111f2b9e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
