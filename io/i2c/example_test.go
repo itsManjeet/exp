@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+// +build !windows
+
 package i2c_test
 
 import (
@@ -9,13 +11,13 @@ import (
 )
 
 func ExampleOpen() {
-	d, err := i2c.Open(&i2c.Devfs{}, 1, 0x39)
+	d, err := i2c.Open(&i2c.Devfs{Dev: "/dev/i2c-1", Addr: 0x39})
 	if err != nil {
 		panic(err)
 	}
 
 	// opens a 10-bit address
-	d, err = i2c.Open(&i2c.Devfs{}, 1, i2c.TenBit(0x78))
+	d, err = i2c.Open(&i2c.Devfs{Dev: "/dev-i2c-1", Addr: i2c.TenBit(0x78)})
 	if err != nil {
 		panic(err)
 	}
