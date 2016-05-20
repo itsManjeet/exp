@@ -157,6 +157,24 @@
       "revId": "4daad9dac48dbdcb61365ea741bd4a74111f2b9e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a62227_f15760ef",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-05-20T15:30:59Z",
+      "side": 1,
+      "message": "That\u0027s the basic idea I had in mind. But there are several steps do to before that, and shaking out bugs is best done as close to the textual description of the algorithm in the W3C spec as possible. Mixing all of this into the LayoutData (or some other optimizations I\u0027ve been considering) seems premature.",
+      "parentUuid": "375f7ecd_c6b402e5",
+      "revId": "4daad9dac48dbdcb61365ea741bd4a74111f2b9e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
