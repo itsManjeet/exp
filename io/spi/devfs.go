@@ -45,16 +45,45 @@ type payload struct {
 
 // Devfs is an SPI driver that works against the devfs.
 // You need to load the "spidev" module to use this driver.
-type Devfs struct{}
+type Devfs struct {
+	// Bus is the bus number to open.
+	// Required.
+	Bus int
 
-// Open Devfs /dev/spidev<bus>.<chip> and returns a connection.
-func (d *Devfs) Open(bus, chip int) (driver.Conn, error) {
-	n := fmt.Sprintf("/dev/spidev%d.%d", bus, chip)
-	f, err := os.OpenFile(n, os.O_RDWR, os.ModeDevice)
+	// CS is the slave selected on this bus.
+	// Required.
+	CS int
+
+	// Mode is the SPI mode. SPI mode is a combination of polarity and phases.
+	// CPOL is the high order bit, CPHA is the low order. Pre-computed mode
+	// values are Mode0, Mode1, Mode2 and Mode3. The value of the mode argument
+	// can be overriden by the device's driver.
+	// Required.
+	Mode Mode
+
+	// MaxSpeed is the max clock speed (Hz) and can be overriden by the device's driver.
+	// Required.
+	MaxSpeed int64
+}
+
+// Open opens the provided device with the speicifed options
+// and returns a connection.
+func (d *Devfs) Open() (driver.Conn, error) {
+	dev := fmt.Sprintf("/dev/spidev%d.%d", d.Bus, d.CS)
+	f, err := os.OpenFile(dev, os.O_RDWR, os.ModeDevice)
 	if err != nil {
 		return nil, err
 	}
-	return &devfsConn{f: f}, nil
+	conn := &devfsConn{f: f}
+	if err := conn.Configure(driver.Mode, int(d.Mode)); err != nil {
+		conn.Close()
+		return nil, err
+	}
+	if err := conn.Configure(driver.MaxSpeed, int(d.MaxSpeed)); err != nil {
+		conn.Close()
+		return nil, err
+	}
+	return conn, nil
 }
 
 type devfsConn struct {
@@ -79,7 +108,7 @@ func (c *devfsConn) Configure(k, v int) error {
 			return fmt.Errorf("error setting bits per word to %v: %v", b, err)
 		}
 		c.bits = b
-	case driver.Speed:
+	case driver.MaxSpeed:
 		s := uint32(v)
 		if err := c.ioctl(requestCode(devfs_WRITE, devfs_MAGIC, 4, 4), uintptr(unsafe.Pointer(&s))); err != nil {
 			return fmt.Errorf("error setting speed to %v: %v", s, err)
