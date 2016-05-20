@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d7a62227_d46e92f0",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-05-20T21:04:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d76d42b5_13012c2d",
+      "revId": "cd01673ca63eb3b7fecd63a3412e51f486b6f511",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d76d42b5_33fe2846",
         "filename": "shiny/widget/flex/flex.go",
         "patchSetId": 2
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "d7a62227_d440524c",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-05-20T21:04:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d76d42b5_33fe2846",
+      "revId": "cd01673ca63eb3b7fecd63a3412e51f486b6f511",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d76d42b5_b39a3820",
         "filename": "shiny/widget/flex/flex.go",
         "patchSetId": 2
@@ -47,6 +83,24 @@
       "writtenOn": "2016-05-20T04:46:37Z",
       "side": 1,
       "message": "You could share code with the next case:\n\ncase AlignContentEnd, AlignContentCenter:\n  off :\u003d remFree\n  if w.AlignContent \u003d\u003d AlignContentCenter {\n    off /\u003d 2\n  }\n  for etc {\n    etc\n  }",
+      "revId": "cd01673ca63eb3b7fecd63a3412e51f486b6f511",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a62227_34ac36ff",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-05-20T21:04:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d76d42b5_b39a3820",
       "revId": "cd01673ca63eb3b7fecd63a3412e51f486b6f511",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -76,6 +130,30 @@
     },
     {
       "key": {
+        "uuid": "d7a62227_3439d6c6",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 465,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-05-20T21:04:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d76d42b5_53fba454",
+      "range": {
+        "startLine": 465,
+        "startChar": 7,
+        "endLine": 465,
+        "endChar": 14
+      },
+      "revId": "cd01673ca63eb3b7fecd63a3412e51f486b6f511",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d76d42b5_93953cf5",
         "filename": "shiny/widget/flex/flex.go",
         "patchSetId": 2
@@ -87,6 +165,24 @@
       "writtenOn": "2016-05-20T04:46:37Z",
       "side": 1,
       "message": "What happens if len(lines) is 1?",
+      "revId": "cd01673ca63eb3b7fecd63a3412e51f486b6f511",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a62227_b45ca6de",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-05-20T21:04:34Z",
+      "side": 1,
+      "message": "Alignment is between lines. If there\u0027s only one line, then remFree is zero.",
+      "parentUuid": "d76d42b5_93953cf5",
       "revId": "cd01673ca63eb3b7fecd63a3412e51f486b6f511",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -116,6 +212,30 @@
     },
     {
       "key": {
+        "uuid": "d7a62227_d414d2e5",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-05-20T21:04:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d76d42b5_73f8a057",
+      "range": {
+        "startLine": 511,
+        "startChar": 6,
+        "endLine": 511,
+        "endChar": 13
+      },
+      "revId": "cd01673ca63eb3b7fecd63a3412e51f486b6f511",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d76d42b5_d39fb40e",
         "filename": "shiny/widget/flex/flex_test.go",
         "patchSetId": 2
@@ -127,6 +247,24 @@
       "writtenOn": "2016-05-20T04:46:37Z",
       "side": 1,
       "message": "No test coverage for any other alignContent values?\n\nAlso, test coverage for len(lines) \u003d\u003d 0, 1, 2 or many?",
+      "revId": "cd01673ca63eb3b7fecd63a3412e51f486b6f511",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7a62227_da199974",
+        "filename": "shiny/widget/flex/flex_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-05-20T21:04:34Z",
+      "side": 1,
+      "message": "I added test coverage for other alignContent values, and you\u0027ll be happy to hear I found a bug. (I was conflating flex base size with hypothetical main size in some early layout steps, oops.)\n\nI\u0027ll do coverage for multiple lines a bit later. For 0 and 1 the code path is entirely skipped, so that\u0027s not too interesting. These are all len(lines)\u003d\u003d2, there should be something for three or more somewhere.",
+      "parentUuid": "d76d42b5_d39fb40e",
       "revId": "cd01673ca63eb3b7fecd63a3412e51f486b6f511",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
