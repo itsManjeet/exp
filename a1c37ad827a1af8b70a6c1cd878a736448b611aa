@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d76d42b5_f3f830f5",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-21T23:45:33Z",
+      "side": 1,
+      "message": "Looking a little closer at this, it seems like you could reduce some of this copy/paste:\n\nspacing, off :\u003d 0.0, 0.0\nswitch w.AlignContent {\ncase AlignContentStart:\n\t// already laid out correctly\ncase AlignContentEnd:\n\toff \u003d remFree\ncase AlignContentCenter:\n\toff \u003d remFree / 2\ncase AlignContentSpaceBetween:\n\tspacing \u003d remFree / float64(len(lines)-1)\ncase AlignContentSpaceAround:\n\tspacing \u003d remFree / float64(len(lines))\n\toff \u003d spacing / 2\ncase AlignContentStretch:\n\t// handled earlier, why is remFree \u003e 0?\n}\nif w.AlignContent !\u003d AlignContentStart \u0026\u0026 w.AlignContent !\u003d AlignContentStretch {\n\tfor l :\u003d range lines {\n\t\tline :\u003d \u0026lines[l]\n\t\tline.crossOffset +\u003d off\n\t\tfor _, child :\u003d range line.child {\n\t\t\tchild.crossOffset +\u003d off\n\t\t}\n\t\toff +\u003d spacing\n\t}\n}",
+      "revId": "a1c37ad827a1af8b70a6c1cd878a736448b611aa",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d76d42b5_13de8c7a",
+        "filename": "shiny/widget/flex/flex_test.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-05-21T23:45:33Z",
+      "side": 1,
+      "message": "This test case is a dupe.",
+      "range": {
+        "startLine": 298,
+        "startChar": 34,
+        "endLine": 298,
+        "endChar": 36
+      },
+      "revId": "a1c37ad827a1af8b70a6c1cd878a736448b611aa",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
