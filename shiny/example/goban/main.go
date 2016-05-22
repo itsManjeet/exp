@@ -65,6 +65,15 @@ func main() {
 				}
 
 			case mouse.Event:
+				// Re-map control-click to middle-click, etc, for computers with one-button mice.
+				if e.Modifiers&key.ModControl != 0 {
+					e.Button = mouse.ButtonMiddle
+				} else if e.Modifiers&key.ModAlt != 0 {
+					e.Button = mouse.ButtonRight
+				} else if e.Modifiers&key.ModMeta != 0 {
+					e.Button = mouse.ButtonMiddle
+				}
+
 				if e.Direction == mouse.DirRelease && e.Button != 0 {
 					board.click(b.RGBA(), int(e.X), int(e.Y), int(e.Button))
 					w.Send(paint.Event{})
