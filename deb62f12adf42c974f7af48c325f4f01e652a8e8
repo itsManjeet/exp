@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1c98df32_f20e3027",
+        "filename": "io/i2c/i2c.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 5480
+      },
+      "writtenOn": "2016-05-23T22:01:15Z",
+      "side": 1,
+      "message": "maybe this should be called Tenbit() since it also return the address.",
+      "revId": "deb62f12adf42c974f7af48c325f4f01e652a8e8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
