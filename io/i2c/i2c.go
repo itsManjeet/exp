@@ -36,6 +36,14 @@ func (d *Device) Read(buf []byte) error {
 	return nil
 }
 
+// ReadReg is similar to Read but it reads from a register.
+func (d *Device) ReadReg(reg byte, buf []byte) error {
+	if err := d.Write([]byte{reg}); err != nil {
+		return fmt.Errorf("cannot write the reg: %v", err)
+	}
+	return d.Read(buf)
+}
+
 // Write writes the buffer to the device. If it is required to write to a
 // specific register, the register should be passed as the first byte in the
 // given buffer.
