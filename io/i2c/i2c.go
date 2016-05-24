@@ -29,11 +29,15 @@ func TenBit(addr int) int {
 
 // Read reads len(buf) bytes from the device.
 func (d *Device) Read(buf []byte) error {
-	// TODO(jbd): Support reading from a register.
 	if err := d.conn.Read(buf); err != nil {
 		return fmt.Errorf("error reading from device: %v", err)
 	}
 	return nil
+}
+
+// ReadReg is similar to Read but it reads from a register.
+func (d *Device) ReadReg(reg byte, buf []byte) error {
+	return d.conn.ReadReg(reg, buf)
 }
 
 // Write writes the buffer to the device. If it is required to write to a
