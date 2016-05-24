@@ -64,6 +64,13 @@ func (c *devfsConn) Read(buf []byte) error {
 	return err
 }
 
+func (c *devfsConn) ReadReg(reg byte, buf []byte) error {
+	if err := d.Write([]byte{reg}); err != nil {
+		return fmt.Errorf("cannot write the reg: %v", err)
+	}
+	return d.Read(buf)
+}
+
 func (c *devfsConn) Write(buf []byte) error {
 	_, err := c.f.Write(buf)
 	// TODO(jbd): len(buf) == number of bytes written?
