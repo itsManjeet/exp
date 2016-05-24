@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1c98df32_c867c0a3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-05-24T16:51:59Z",
+      "side": 1,
+      "message": "Your Author line needs fixing.",
+      "revId": "dc1f38e630a7c00ccf1f5e563b77a4942ecafcc3",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
