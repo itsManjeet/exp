@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "bcf7d3e0_66c890bb",
+        "filename": "shiny/widget/flex/flex.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-05-25T14:50:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d76d42b5_f3f830f5",
+      "revId": "a1c37ad827a1af8b70a6c1cd878a736448b611aa",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d76d42b5_13de8c7a",
         "filename": "shiny/widget/flex/flex_test.go",
         "patchSetId": 3
@@ -30,6 +48,30 @@
       "writtenOn": "2016-05-21T23:45:33Z",
       "side": 1,
       "message": "This test case is a dupe.",
+      "range": {
+        "startLine": 298,
+        "startChar": 34,
+        "endLine": 298,
+        "endChar": 36
+      },
+      "revId": "a1c37ad827a1af8b70a6c1cd878a736448b611aa",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bcf7d3e0_c637449a",
+        "filename": "shiny/widget/flex/flex_test.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-05-25T14:50:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d76d42b5_13de8c7a",
       "range": {
         "startLine": 298,
         "startChar": 34,
