@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bcf7d3e0_58baff2f",
+        "filename": "io/i2c/devfs.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 5480
+      },
+      "writtenOn": "2016-05-26T23:06:05Z",
+      "side": 1,
+      "message": "https://www.kernel.org/doc/Documentation/i2c/dev-interface examples show:\n  buf[0] \u003d reg;\n  buf[1] \u003d 0x43;\n  buf[2] \u003d 0x65;\n\nis that optional?",
+      "revId": "500e7a2feb6ed1eb13de2cd2f0ddd677d1d45a8f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
