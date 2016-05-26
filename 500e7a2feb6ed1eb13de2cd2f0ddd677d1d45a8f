@@ -105,6 +105,23 @@
       "revId": "500e7a2feb6ed1eb13de2cd2f0ddd677d1d45a8f",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fc594be9_c59e3acd",
+        "filename": "io/i2c/i2c.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 6480
+      },
+      "writtenOn": "2016-05-26T23:55:10Z",
+      "side": 1,
+      "message": "Remove TODO?",
+      "revId": "500e7a2feb6ed1eb13de2cd2f0ddd677d1d45a8f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
