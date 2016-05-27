@@ -63,6 +63,10 @@ type Node interface {
 	// Wrappee returns the inner (embedded) type that is wrapped by this type.
 	Wrappee() *Embed
 
+	// WithLayoutData returns this node after setting its embedded LayoutData
+	// field to the given argument.
+	WithLayoutData(layoutData interface{}) Node
+
 	// AppendChild adds a node c as a child of this node.
 	//
 	// It will panic if c already has a parent or siblings.
@@ -257,6 +261,11 @@ type Embed struct {
 }
 
 func (m *Embed) Wrappee() *Embed { return m }
+
+func (m *Embed) WithLayoutData(layoutData interface{}) Node {
+	m.LayoutData = layoutData
+	return m.Wrapper
+}
 
 func (m *Embed) appendChild(c Node) {
 	n := c.Wrappee()
