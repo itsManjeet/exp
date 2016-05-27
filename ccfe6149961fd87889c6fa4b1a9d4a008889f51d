@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bcf7d3e0_cab051eb",
+        "filename": "io/i2c/driver/driver.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5055
+      },
+      "writtenOn": "2016-05-27T17:50:35Z",
+      "side": 1,
+      "message": "As I said in #15858, how about a generic\nTx function that does write + read?\n\n\n  // Tx first writes w (if not nil), then reads len(r)\n  // bytes from device into r (if not nil) in a single\n  // i2c transaction.\n  Tx(w []byte, r []byte) error\n\n\nThen we don\u0027t need separate Read/Write/ReadReg/WriteReg\nfunctions in the interface, and having them together in\none functions makes it possible for the driver to do more\noptimization.\n\n\n  Read(b) \u003d\u003d Tx(nil, b)\n  Write(b) \u003d\u003d Tx(b, nil)\n  ReadReg(r, b) \u003d\u003d Tx([]byte{r}, b)\n  WriteReg(r, b) \u003d\u003d Tx(append([]byte{r}, b...), nil) // allocating, not ideal.\n\n\nOne more thing to think about is how to specify\ntimeout on write/read.",
+      "range": {
+        "startLine": 16,
+        "startChar": 1,
+        "endLine": 16,
+        "endChar": 8
+      },
+      "revId": "ccfe6149961fd87889c6fa4b1a9d4a008889f51d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
