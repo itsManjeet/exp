@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c7ccf58_02446a5d",
+        "filename": "shiny/widget/node/node.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-05-28T04:12:56Z",
+      "side": 1,
+      "message": "I\u0027m a little worried about the number of methods on this interface.\n\nThis one helps a little with example/layout/main.go, but do you expect that to hold for widgets any more complex than a fixed set of Uniforms. Wouldn\u0027t it be better to write a bespoke helper function in the example?",
+      "revId": "df30ac271e09e7e5de31614f41a3467e5845ce53",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
