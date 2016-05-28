@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9c7ccf58_c239a2e1",
+        "filename": "shiny/driver/gldriver/texture.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-05-28T04:02:45Z",
+      "side": 1,
+      "message": "Please add a TODO here about GL_UNPACK_ROW_LENGTH, which can be used with glPixelStorei for stride in ES 3.0.\n\nWe don\u0027t have ES 3.0 yet, but I\u0027m thinking about it for a glwidget.",
+      "revId": "7b33987aaae4e940544b8f0116027a66c5cf877b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
