@@ -16,6 +16,24 @@
       "revId": "e77ea0e5e81a024fc4800072809c94e6677c1092",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b99c452b_1b873b27",
+        "filename": "io/spi/driver/driver.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-05-31T18:18:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dcaba7ee_c6c26616",
+      "revId": "e77ea0e5e81a024fc4800072809c94e6677c1092",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
