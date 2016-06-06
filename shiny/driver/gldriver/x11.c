@@ -59,7 +59,7 @@ eglGetErrorStr() {
 }
 
 void
-startDriver() {
+startDriver(int version) {
 	x_dpy = XOpenDisplay(NULL);
 	if (!x_dpy) {
 		fprintf(stderr, "XOpenDisplay failed\n");
@@ -117,10 +117,10 @@ startDriver() {
 		exit(1);
 	}
 
-	static const EGLint ctx_attribs[] = {
-		EGL_CONTEXT_CLIENT_VERSION, 2,
-		EGL_NONE
-	};
+	EGLint ctx_attribs[3];
+	ctx_attribs[0] = EGL_CONTEXT_CLIENT_VERSION;
+	ctx_attribs[1] = (EGLint)version;
+	ctx_attribs[2] = EGL_NONE;
 	e_ctx = eglCreateContext(e_dpy, e_config, EGL_NO_CONTEXT, ctx_attribs);
 	if (!e_ctx) {
 		fprintf(stderr, "eglCreateContext failed: %s\n", eglGetErrorStr());

@@ -11,7 +11,7 @@ package gldriver
 
 #include <stdint.h>
 
-void startDriver();
+void startDriver(int);
 void processEvents();
 void makeCurrent(uintptr_t ctx);
 void swapBuffers(uintptr_t ctx);
@@ -112,7 +112,11 @@ type uiClosure struct {
 }
 
 func main(f func(screen.Screen)) error {
-	C.startDriver()
+	version := C.int(3)
+	if gl.Version() == "GL_ES_2_0" {
+		version = 2
+	}
+	C.startDriver(version)
 	glctx, worker = gl.NewContext()
 
 	closec := make(chan struct{})
