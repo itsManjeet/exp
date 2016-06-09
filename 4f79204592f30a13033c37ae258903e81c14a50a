@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ffc242a_a714c891",
+        "filename": "io/i2c/devfs_nonlinux.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-06-09T02:43:10Z",
+      "side": 1,
+      "message": "The license header must be before the build constraint.\n\nUse this as an example: https://github.com/golang/exp/blob/master/io/i2c/devfs.go#L5",
+      "revId": "4f79204592f30a13033c37ae258903e81c14a50a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
