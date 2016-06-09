@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ef4d1087_25f0ce6c",
+        "filename": "shiny/driver/gldriver/x11.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-06-09T06:55:21Z",
+      "side": 1,
+      "message": "Or should we just require version 3, to avoid bug reports that we can\u0027t reproduce on our machines? What happens if Go v3 code tries to run on a v2 only driver??",
+      "range": {
+        "startLine": 117,
+        "startChar": 9,
+        "endLine": 117,
+        "endChar": 10
+      },
+      "revId": "f48a2911e9f23e91fc59354799b6dc25602989ad",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
