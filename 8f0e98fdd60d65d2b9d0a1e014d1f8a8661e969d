@@ -16,6 +16,24 @@
       "revId": "8f0e98fdd60d65d2b9d0a1e014d1f8a8661e969d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ef4d1087_2591ee5d",
+        "filename": "shiny/text/text.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-06-09T01:12:36Z",
+      "side": 1,
+      "message": "I think it\u0027s too easy to forget to explicitly initialize it to -1 at all the places it needs to. (That list of places can change over time).",
+      "parentUuid": "a382544f_7bce1399",
+      "revId": "8f0e98fdd60d65d2b9d0a1e014d1f8a8661e969d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
