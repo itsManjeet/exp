@@ -22,6 +22,30 @@
       "revId": "f48a2911e9f23e91fc59354799b6dc25602989ad",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ffc242a_2df5395d",
+        "filename": "shiny/driver/gldriver/x11.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-06-09T15:04:45Z",
+      "side": 1,
+      "message": "Done, for gldriver on X11.\n\nI would still like to try and support the gldriver on Android. It\u0027s going to involve a messy double copy through a texture (or some as-yet-undiscovered widely supported GL extension), but should work.",
+      "parentUuid": "ef4d1087_25f0ce6c",
+      "range": {
+        "startLine": 117,
+        "startChar": 9,
+        "endLine": 117,
+        "endChar": 10
+      },
+      "revId": "f48a2911e9f23e91fc59354799b6dc25602989ad",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
