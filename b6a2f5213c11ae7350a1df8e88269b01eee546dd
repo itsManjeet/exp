@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "0ffc242a_c4211245",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-06-09T02:11:42Z",
+      "side": 1,
+      "message": "add a no-implementation of devfs for !linux",
+      "revId": "b6a2f5213c11ae7350a1df8e88269b01eee546dd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0ffc242a_a4f5e6c2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-06-09T02:11:42Z",
+      "side": 1,
+      "message": "Let\u0027s simplify this sentence.\n\nAllow users to build with Devfs on all platforms by exporting required symbols with no implementation. Then, users can use tools such as goimports if their host machine is not linux.",
+      "revId": "b6a2f5213c11ae7350a1df8e88269b01eee546dd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0ffc242a_e44f6e1d",
         "filename": "io/i2c/devfs_mock.go",
         "patchSetId": 1
