@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ffc242a_12b85c8b",
+        "filename": "io/spi/devfs_nonlinux.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-06-09T07:32:30Z",
+      "side": 1,
+      "message": "Can we document that this is a no-implementation Devfs?",
+      "revId": "992d75435528df0f4c7f47e76bee63bf29e6ea5f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
