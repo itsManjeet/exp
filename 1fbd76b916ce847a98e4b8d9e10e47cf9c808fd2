@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d4cf0546_ec63abf4",
+        "filename": "shiny/widget/widget.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 5810
+      },
+      "writtenOn": "2016-06-14T12:18:46Z",
+      "side": 1,
+      "message": "what happens if t is nil and opts is nil?\nis a nil *theme.Theme guaranteed to be a valid value?\n\nit\u0027s ok for theme.Theme.GetDPI() below, but is it also (always?) for node.Node.Measure(*theme.Theme) and node.Node.Layout(*theme.Theme) as well?",
+      "range": {
+        "startLine": 70,
+        "startChar": 2,
+        "endLine": 70,
+        "endChar": 18
+      },
+      "revId": "1fbd76b916ce847a98e4b8d9e10e47cf9c808fd2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
