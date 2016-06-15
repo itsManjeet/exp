@@ -22,6 +22,30 @@
       "revId": "1fbd76b916ce847a98e4b8d9e10e47cf9c808fd2",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34edc138_7f896f87",
+        "filename": "shiny/widget/widget.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-06-15T12:15:49Z",
+      "side": 1,
+      "message": "A nil *theme.Theme is valid.",
+      "parentUuid": "d4cf0546_ec63abf4",
+      "range": {
+        "startLine": 70,
+        "startChar": 2,
+        "endLine": 70,
+        "endChar": 18
+      },
+      "revId": "1fbd76b916ce847a98e4b8d9e10e47cf9c808fd2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
