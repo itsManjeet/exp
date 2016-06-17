@@ -44,6 +44,7 @@ package node // import "golang.org/x/exp/shiny/widget/node"
 import (
 	"image"
 
+	"golang.org/x/exp/shiny/gesture"
 	"golang.org/x/exp/shiny/widget/theme"
 	"golang.org/x/mobile/event/mouse"
 )
@@ -97,6 +98,13 @@ type Node interface {
 	// smaller dst images?
 	Paint(t *theme.Theme, dst *image.RGBA, origin image.Point)
 
+	// OnGestureEvent handles a gesture event.
+	//
+	// origin is the parent widget's origin with respect to the gesture event
+	// origin; this node's Embed.Rect.Add(origin) will be its position and size
+	// in gesture event coordinate space.
+	OnGestureEvent(e gesture.Event, origin image.Point) EventHandled
+
 	// OnMouseEvent handles a mouse event.
 	//
 	// origin is the parent widget's origin with respect to the mouse event
@@ -122,6 +130,10 @@ func (m *LeafEmbed) Measure(t *theme.Theme) { m.MeasuredSize = image.Point{} }
 func (m *LeafEmbed) Layout(t *theme.Theme) {}
 
 func (m *LeafEmbed) Paint(t *theme.Theme, dst *image.RGBA, origin image.Point) {}
+
+func (m *LeafEmbed) OnGestureEvent(e gesture.Event, origin image.Point) EventHandled {
+	return NotHandled
+}
 
 func (m *LeafEmbed) OnMouseEvent(e mouse.Event, origin image.Point) EventHandled { return NotHandled }
 
@@ -158,6 +170,13 @@ func (m *ShellEmbed) Paint(t *theme.Theme, dst *image.RGBA, origin image.Point) 
 	if c := m.FirstChild; c != nil {
 		c.Wrapper.Paint(t, dst, origin.Add(m.Rect.Min))
 	}
+}
+
+func (m *ShellEmbed) OnGestureEvent(e gesture.Event, origin image.Point) EventHandled {
+	if c := m.FirstChild; c != nil {
+		return c.Wrapper.OnGestureEvent(e, origin.Add(m.Rect.Min))
+	}
+	return NotHandled
 }
 
 func (m *ShellEmbed) OnMouseEvent(e mouse.Event, origin image.Point) EventHandled {
@@ -201,6 +220,22 @@ func (m *ContainerEmbed) Paint(t *theme.Theme, dst *image.RGBA, origin image.Poi
 	for c := m.FirstChild; c != nil; c = c.NextSibling {
 		c.Wrapper.Paint(t, dst, origin)
 	}
+}
+
+func (m *ContainerEmbed) OnGestureEvent(e gesture.Event, origin image.Point) EventHandled {
+	origin = origin.Add(m.Rect.Min)
+	p := image.Point{
+		X: int(e.CurPos.X) - origin.X,
+		Y: int(e.CurPos.Y) - origin.Y,
+	}
+	// Iterate backwards. Later children have priority over earlier children,
+	// as later ones are usually drawn over earlier ones.
+	for c := m.LastChild; c != nil; c = c.PrevSibling {
+		if p.In(c.Rect) && c.Wrapper.OnGestureEvent(e, origin) == Handled {
+			return Handled
+		}
+	}
+	return NotHandled
 }
 
 func (m *ContainerEmbed) OnMouseEvent(e mouse.Event, origin image.Point) EventHandled {
