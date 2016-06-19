@@ -3,7 +3,7 @@
 // license that can be found in the LICENSE file.
 
 // Package gpio allows users to communicate with GPIO pins.
-package gpio
+package gpio // import "golang.org/x/exp/io/gpio"
 
 import "golang.org/x/exp/io/gpio/driver"
 
@@ -43,7 +43,7 @@ func Open(d driver.Opener) (*Device, error) {
 }
 
 // Value returns the value for the pin. 0 for low, 1 for high values.
-func (d *Device) Value(pin int) (int, error) {
+func (d *Device) Value(pin int) (value int, err error) {
 	return d.conn.Value(pin)
 }
 
