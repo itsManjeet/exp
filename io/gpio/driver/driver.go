@@ -4,7 +4,7 @@
 
 // Package driver contains interfaces that needs to be implemented by
 // various GPIO implementations.
-package driver
+package driver // import "golang.org/x/exp/io/gpio/driver"
 
 // Direction determines the direction of the pin. A pin could be
 // configured to be an input or an output.
@@ -24,10 +24,12 @@ type Opener interface {
 // Conn represents an open GPIO connection. Each driver should implement
 // this interface to provide a full implementation of the GPIO protocol.
 type Conn interface {
-	// Value returns the value of the pin. 0 for low values, 1 for high.
+	// Value returns the value of the pin. For analog pins the value is
+	// and integer. For digital pins, it is either 0 or 1.
 	Value(pin int) (int, error)
 
-	// SetValue sets the value of the pin. 0 for low values, 1 for high.
+	// SetValue sets the value of the pin. For digital pins,
+	// 0 for low values, 1 for high.
 	SetValue(pin int, v int) error
 
 	// SetDirection sets the direction of the pin.

@@ -3,7 +3,7 @@
 // license that can be found in the LICENSE file.
 
 // Package gpio allows users to communicate with GPIO pins.
-package gpio
+package gpio // import "golang.org/x/exp/io/gpio"
 
 import "golang.org/x/exp/io/gpio/driver"
 
@@ -43,7 +43,7 @@ func Open(d driver.Opener) (*Device, error) {
 }
 
 // Value returns the value for the pin. 0 for low, 1 for high values.
-func (d *Device) Value(pin int) (int, error) {
+func (d *Device) Value(pin int) (value int, err error) {
 	return d.conn.Value(pin)
 }
 
@@ -55,6 +55,11 @@ func (d *Device) SetValue(pin int, v int) error {
 // SetDirection configures the direction of the pin.
 func (d *Device) SetDirection(pin int, dir Direction) error {
 	return d.conn.SetDirection(pin, driver.Direction(dir))
+}
+
+// Wait blocks until there is an interrupt on the pin.
+func (d *Device) Wait(pin int) {
+	panic("not implemented yet")
 }
 
 // Close closes the device and frees the resources.
