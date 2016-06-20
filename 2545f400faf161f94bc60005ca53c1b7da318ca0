@@ -33,6 +33,24 @@
       "revId": "2545f400faf161f94bc60005ca53c1b7da318ca0",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "69e3e04a_c1842222",
+        "filename": "io/gpio/driver/driver.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 13882
+      },
+      "writtenOn": "2016-06-20T21:04:21Z",
+      "side": 1,
+      "message": "I agree, if you look at GoBot\u0027s adapters you will see that they use strings for this very reason. Here is an example with the beaglebone black: https://github.com/hybridgroup/gobot/blob/dev/platforms/beaglebone/beaglebone_adaptor.go#L36",
+      "parentUuid": "8982d44f_87a27412",
+      "revId": "2545f400faf161f94bc60005ca53c1b7da318ca0",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
