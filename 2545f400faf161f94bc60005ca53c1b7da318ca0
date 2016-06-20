@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8982d44f_0773e49a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 5480
+      },
+      "writtenOn": "2016-06-20T20:58:49Z",
+      "side": 1,
+      "message": "mapping",
+      "revId": "2545f400faf161f94bc60005ca53c1b7da318ca0",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8982d44f_87a27412",
+        "filename": "io/gpio/driver/driver.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 5480
+      },
+      "writtenOn": "2016-06-20T20:58:49Z",
+      "side": 1,
+      "message": "Gus told me once, that some board have non-trivial pin naming (eg: A12, B6), that may be something to keep in mind when designing this.",
+      "revId": "2545f400faf161f94bc60005ca53c1b7da318ca0",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
