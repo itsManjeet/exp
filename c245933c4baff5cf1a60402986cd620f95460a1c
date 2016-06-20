@@ -91,6 +91,24 @@
       "revId": "c245933c4baff5cf1a60402986cd620f95460a1c",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8982d44f_197d8c55",
+        "filename": "io/gpio/gpio.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-06-20T21:49:39Z",
+      "side": 1,
+      "message": "Sorry, this was not supposed to be a a part of the CL. I mistakenly staged the lines. I am thinking about something else for interrupts and will reveal them soon.",
+      "parentUuid": "8982d44f_c7e71c1c",
+      "revId": "c245933c4baff5cf1a60402986cd620f95460a1c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
