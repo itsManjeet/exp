@@ -73,6 +73,24 @@
       "revId": "c245933c4baff5cf1a60402986cd620f95460a1c",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8982d44f_c7e71c1c",
+        "filename": "io/gpio/gpio.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 13882
+      },
+      "writtenOn": "2016-06-20T21:13:36Z",
+      "side": 1,
+      "message": "we might want to add a comment mentioning that the device connection isn\u0027t locked while in wait mode, just the code execution. It might sound trivial but someone could misread the current comment and start multiple connections in various goroutines because they\u0027d be worried about blocking the connection. I assume a use case example would be to monitor a button or sensor that only reports change of state via an interrupt on a given pin. One would start a new go routine and have it wait on the interrupt. However the same Device pointer can be used to poll other pins.",
+      "parentUuid": "c9668c36_7af8d184",
+      "revId": "c245933c4baff5cf1a60402986cd620f95460a1c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
