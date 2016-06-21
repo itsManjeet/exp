@@ -127,6 +127,7 @@ startDriver() {
 		exit(1);
 	}
 
+
 	wm_delete_window = XInternAtom(x_dpy, "WM_DELETE_WINDOW", False);
 	wm_protocols = XInternAtom(x_dpy, "WM_PROTOCOLS", False);
 	wm_take_focus= XInternAtom(x_dpy, "WM_TAKE_FOCUS", False);
@@ -197,13 +198,10 @@ processEvents() {
 	}
 }
 
-void
+bool
 makeCurrent(uintptr_t surface) {
 	EGLSurface surf = (EGLSurface)(surface);
-	if (!eglMakeCurrent(e_dpy, surf, surf, e_ctx)) {
-		fprintf(stderr, "eglMakeCurrent failed: %s\n", eglGetErrorStr());
-		exit(1);
-	}
+	return eglMakeCurrent(e_dpy, surf, surf, e_ctx);
 }
 
 void
@@ -264,4 +262,54 @@ doShowWindow(uintptr_t id) {
 		exit(1);
 	}
 	return (uintptr_t)(surf);
+}
+
+uintptr_t
+surfaceCreate() {
+	static const EGLint ctx_attribs[] = {
+		EGL_CONTEXT_CLIENT_VERSION, 3,
+		EGL_NONE
+	};
+	EGLContext ctx = eglCreateContext(e_dpy, e_config, EGL_NO_CONTEXT, ctx_attribs);
+	if (!ctx) {
+		fprintf(stderr, "surface eglCreateContext failed: %s\n", eglGetErrorStr());
+		exit(1);
+	}
+
+	static const EGLint cfg_attribs[] = {
+		EGL_RENDERABLE_TYPE, EGL_OPENGL_ES2_BIT,
+		EGL_SURFACE_TYPE, EGL_PBUFFER_BIT,
+		//EGL_BIND_TO_TEXTURE_RGBA, EGL_TRUE,
+		EGL_BLUE_SIZE, 8,
+		EGL_GREEN_SIZE, 8,
+		EGL_RED_SIZE, 8,
+		EGL_DEPTH_SIZE, 16,
+		EGL_CONFIG_CAVEAT, EGL_NONE,
+		EGL_NONE
+	};
+	EGLConfig cfg;
+	EGLint num_configs;
+	if (!eglChooseConfig(e_dpy, cfg_attribs, &cfg, 1, &num_configs)) {
+		fprintf(stderr, "surface eglChooseConfig failed: %s\n", eglGetErrorStr());
+		exit(1);
+	}
+
+	static const EGLint attribs[] = {
+		EGL_WIDTH, 1024,
+		EGL_HEIGHT, 768,
+		EGL_NONE
+	};
+	EGLSurface surface = eglCreatePbufferSurface(e_dpy, cfg, attribs);
+	if (!surface) {
+		fprintf(stderr, "surface eglCreatePbufferSurface failed: %s\n", eglGetErrorStr());
+		exit(1);
+	}
+
+	EGLSurface surf = (EGLSurface)(surface);
+	if (!eglMakeCurrent(e_dpy, surface, surface, ctx)) {
+		fprintf(stderr, "surface eglMakeCurrent failed: %s\n", eglGetErrorStr());
+		exit(1);
+	}
+
+	return (uintptr_t)surface;
 }
