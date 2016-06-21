@@ -29,6 +29,7 @@ uint64_t threadID();
 import "C"
 
 import (
+	"errors"
 	"fmt"
 	"log"
 	"runtime"
@@ -635,4 +636,8 @@ func cocoaKeyCode(vkcode uint16) key.Code {
 	default:
 		return key.CodeUnknown
 	}
+}
+
+func surfaceCreate() error {
+	return errors.New("gldriver: surface creation not implemented on darwin")
 }
