@@ -9,19 +9,23 @@ package gldriver
 /*
 #cgo LDFLAGS: -lEGL -lGLESv2 -lX11
 
+#include <stdbool.h>
 #include <stdint.h>
 
+char *eglGetErrorStr();
 void startDriver();
 void processEvents();
-void makeCurrent(uintptr_t ctx);
+bool makeCurrent(uintptr_t ctx);
 void swapBuffers(uintptr_t ctx);
 void doCloseWindow(uintptr_t id);
 uintptr_t doNewWindow(int width, int height);
 uintptr_t doShowWindow(uintptr_t id);
+uintptr_t surfaceCreate();
 */
 import "C"
 import (
 	"errors"
+	"fmt"
 	"runtime"
 	"time"
 
@@ -146,7 +150,9 @@ func main(f func(screen.Screen)) error {
 			// occasionally seen a stale viewport, if the window manager sets
 			// the window width and height to something other than that
 			// requested by XCreateWindow, but it's not easily reproducible.
-			C.makeCurrent(C.uintptr_t(ctx))
+			if !C.makeCurrent(C.uintptr_t(ctx)) {
+				panic(fmt.Sprintf("eglMakeCurrent failed: %s", C.eglGetErrorStr()))
+			}
 		case w := <-publishc:
 			C.swapBuffers(C.uintptr_t(w.ctx.(uintptr)))
 			w.publishDone <- screen.PublishResult{}
@@ -287,4 +293,8 @@ func onDeleteWindow(id uintptr) {
 
 	w.lifecycler.SetDead(true)
 	w.lifecycler.SendEvent(w)
+}
+
+func surfaceCreate() interface{} {
+	return C.surfaceCreate()
 }
