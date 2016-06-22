@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e5fcacc_c6f3a242",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2016-06-22T21:11:47Z",
+      "side": 1,
+      "message": "You are in the x/exp repo here, so no need to mention it.  Also, lower case.  So:\n\ninotify: fix memory leak in Watcher",
+      "revId": "874ce3a2a7b2a57b7a2cd8d382b1139f52a47b2e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cefdb2ea_fca74975",
+        "filename": "inotify/inotify_linux.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2016-06-22T21:11:47Z",
+      "side": 1,
+      "message": "I don\u0027t see a need to hold the lock across the change to w.watches.",
+      "revId": "874ce3a2a7b2a57b7a2cd8d382b1139f52a47b2e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
