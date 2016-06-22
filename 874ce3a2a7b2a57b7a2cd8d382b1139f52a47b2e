@@ -56,6 +56,30 @@
       "revId": "874ce3a2a7b2a57b7a2cd8d382b1139f52a47b2e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2e680e70_c7a95ead",
+        "filename": "inotify/inotify_linux.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 14196
+      },
+      "writtenOn": "2016-06-22T21:34:44Z",
+      "side": 1,
+      "message": "Would you like me to also add a comment where mu is defined stating exactly what it guards?",
+      "parentUuid": "0e5fcacc_668aee81",
+      "range": {
+        "startLine": 146,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 14
+      },
+      "revId": "874ce3a2a7b2a57b7a2cd8d382b1139f52a47b2e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
