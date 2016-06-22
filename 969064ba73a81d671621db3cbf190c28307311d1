@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4e5f02fa_f892d15f",
+        "filename": "shiny/gesture/gesture.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-06-22T23:49:44Z",
+      "side": 1,
+      "message": "Eh, I generally don\u0027t use iota. I find it helps, when debugging, to be able to easily map backwards from a value like 110 to a name like typeLongPressSchedule, so I prefer explicit values.",
+      "parentUuid": "8982d44f_ecd6c7fd",
+      "revId": "969064ba73a81d671621db3cbf190c28307311d1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8982d44f_0c030b71",
         "filename": "shiny/gesture/gesture.go",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2016-06-20T20:18:45Z",
       "side": 1,
       "message": "If it\u0027s a touch event, PressPos isn\u0027t a very informative name. How about InitialPos?",
+      "revId": "969064ba73a81d671621db3cbf190c28307311d1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e5f02fa_1898657d",
+        "filename": "shiny/gesture/gesture.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-06-22T23:49:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8982d44f_0c030b71",
       "revId": "969064ba73a81d671621db3cbf190c28307311d1",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "4e5f02fa_38952946",
+        "filename": "shiny/gesture/gesture.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-06-22T23:49:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8982d44f_0c7d4b55",
+      "revId": "969064ba73a81d671621db3cbf190c28307311d1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8982d44f_ac675fd5",
         "filename": "shiny/gesture/gesture.go",
         "patchSetId": 1
@@ -64,6 +118,24 @@
       "writtenOn": "2016-06-20T20:18:45Z",
       "side": 1,
       "message": "I think I\u0027ve confused myself but, what case is this?",
+      "revId": "969064ba73a81d671621db3cbf190c28307311d1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e5f02fa_58a2ddb4",
+        "filename": "shiny/gesture/gesture.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-06-22T23:49:44Z",
+      "side": 1,
+      "message": "Mouse moves with no buttons down.",
+      "parentUuid": "8982d44f_ac675fd5",
       "revId": "969064ba73a81d671621db3cbf190c28307311d1",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "4e5f02fa_789fa163",
+        "filename": "shiny/gesture/gesture.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-06-22T23:49:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8982d44f_8c2dbb8d",
+      "revId": "969064ba73a81d671621db3cbf190c28307311d1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8982d44f_8cbdbbcb",
         "filename": "shiny/widget/node/node.go",
         "patchSetId": 1
@@ -98,6 +188,24 @@
       "writtenOn": "2016-06-20T20:18:45Z",
       "side": 1,
       "message": "Something to consider for later: should there be one OnEvent method, with the user writing a type switch?\n\n(This is part of my usual attempt to minimize the number of methods on an interface.)",
+      "revId": "969064ba73a81d671621db3cbf190c28307311d1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e5f02fa_d88d0d43",
+        "filename": "shiny/widget/node/node.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-06-22T23:49:44Z",
+      "side": 1,
+      "message": "Ah, I did it in this CL, collapsing it into a single OnInputEvent method. It means that mouse, touch and gesture events might need to satisfy a new interface{ Location() (x, y float32) }. We\u0027ll see how it plays out.",
+      "parentUuid": "8982d44f_8cbdbbcb",
       "revId": "969064ba73a81d671621db3cbf190c28307311d1",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
