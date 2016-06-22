@@ -266,10 +266,11 @@ func mouseEvent(id uintptr, x, y, dx, dy float32, ty, button int32, flags uint32
 		// No-op.
 	case C.NSScrollWheel:
 		// TODO: handle horizontal scrolling
-		button := mouse.ButtonWheelDown
+		// TODO: add isDirectionInvertedFromDevice fact to mouse.Event?
+		button := mouse.ButtonWheelUp
 		if dy < 0 {
 			dy = -dy
-			button = mouse.ButtonWheelUp
+			button = mouse.ButtonWheelDown
 		}
 		for delta := int(dy); delta != 0; delta-- {
 			sendWindowEvent(id, mouse.Event{
