@@ -33,6 +33,29 @@
       "revId": "874ce3a2a7b2a57b7a2cd8d382b1139f52a47b2e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "0e5fcacc_668aee81",
+        "filename": "inotify/inotify_linux.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 13020
+      },
+      "writtenOn": "2016-06-22T21:20:55Z",
+      "side": 1,
+      "message": "Adding w.mu here makes it look like this routine is now threadsafe, but the read from w.watches above on 138 is still unprotected.\n\nI understand your purpose here is not to make the package threadsafe, but can you at least document that fact here? Otherwise a casual observer might see w.mu here and assume Add/Remove are threadsafe.",
+      "range": {
+        "startLine": 146,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 14
+      },
+      "revId": "874ce3a2a7b2a57b7a2cd8d382b1139f52a47b2e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
