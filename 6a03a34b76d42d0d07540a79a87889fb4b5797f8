@@ -16,6 +16,24 @@
       "revId": "6a03a34b76d42d0d07540a79a87889fb4b5797f8",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c3cf4d46_0c14f738",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-06-23T16:37:19Z",
+      "side": 1,
+      "message": "I added some commentary. I believe this CL does what you\u0027re after: a shiny app will scroll in the same direction as Chrome on both Linux and OS X after this.\n\nThe directions were simply inverted before this as I made my \"natural scrolling\" mac match the same motion on linux, even though that\u0027s not what the OS wants.",
+      "parentUuid": "4e5f02fa_18c1453d",
+      "revId": "6a03a34b76d42d0d07540a79a87889fb4b5797f8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
