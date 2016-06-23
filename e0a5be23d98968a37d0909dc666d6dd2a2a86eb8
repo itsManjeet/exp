@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "839ab576_92de7ce8",
+        "filename": "shiny/driver/gldriver/context.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-06-23T21:03:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e5f02fa_58865dc4",
+      "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e5f02fa_187ce59c",
         "filename": "shiny/driver/gldriver/context.go",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2016-06-23T04:27:08Z",
       "side": 1,
       "message": "How about\nfor range workAvailable {\n  worker.DoWork()\n}",
+      "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "839ab576_d2e80487",
+        "filename": "shiny/driver/gldriver/context.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-06-23T21:03:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e5f02fa_187ce59c",
       "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "839ab576_f2e508ac",
+        "filename": "shiny/driver/gldriver/context.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-06-23T21:03:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e5f02fa_78e7a1ba",
+      "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e5f02fa_98f47564",
         "filename": "shiny/driver/gldriver/x11.c",
         "patchSetId": 2
@@ -64,6 +118,24 @@
       "writtenOn": "2016-06-23T04:27:08Z",
       "side": 1,
       "message": "Revert.",
+      "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "839ab576_12f28c74",
+        "filename": "shiny/driver/gldriver/x11.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-06-23T21:03:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e5f02fa_98f47564",
       "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "839ab576_72f1186c",
+        "filename": "shiny/driver/gldriver/x11.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-06-23T21:03:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e5f02fa_b86cd9f3",
+      "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e5f02fa_d8eeed91",
         "filename": "shiny/driver/gldriver/x11.c",
         "patchSetId": 2
@@ -98,6 +188,24 @@
       "writtenOn": "2016-06-23T04:27:08Z",
       "side": 1,
       "message": "Delete?",
+      "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "839ab576_92059c44",
+        "filename": "shiny/driver/gldriver/x11.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-06-23T21:03:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e5f02fa_d8eeed91",
       "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -121,6 +229,24 @@
     },
     {
       "key": {
+        "uuid": "839ab576_b202a037",
+        "filename": "shiny/driver/gldriver/x11.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-06-23T21:03:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e5f02fa_98c63508",
+      "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e5f02fa_788321b3",
         "filename": "shiny/driver/gldriver/x11.c",
         "patchSetId": 2
@@ -132,6 +258,24 @@
       "writtenOn": "2016-06-23T04:27:08Z",
       "side": 1,
       "message": "surf is an unused variable.",
+      "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "839ab576_d2ff2436",
+        "filename": "shiny/driver/gldriver/x11.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-06-23T21:03:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e5f02fa_788321b3",
       "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -155,6 +299,24 @@
     },
     {
       "key": {
+        "uuid": "839ab576_52a33464",
+        "filename": "shiny/driver/gldriver/x11.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-06-23T21:03:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e5f02fa_3879a9ad",
+      "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e5f02fa_f87651bf",
         "filename": "shiny/widget/glwidget/glwidget.go",
         "patchSetId": 2
@@ -166,6 +328,24 @@
       "writtenOn": "2016-06-23T04:27:08Z",
       "side": 1,
       "message": "\"into which OpenGL calls can be rendered\" is possibly redundant.",
+      "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "839ab576_b289c0e7",
+        "filename": "shiny/widget/glwidget/glwidget.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-06-23T21:03:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e5f02fa_f87651bf",
       "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -189,6 +369,24 @@
     },
     {
       "key": {
+        "uuid": "839ab576_f2934813",
+        "filename": "shiny/widget/glwidget/glwidget.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-06-23T21:03:35Z",
+      "side": 1,
+      "message": "I think the TODO above is enough. These values should come from the monitor size.",
+      "parentUuid": "4e5f02fa_38b8c988",
+      "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e5f02fa_98671511",
         "filename": "shiny/widget/glwidget/glwidget.go",
         "patchSetId": 2
@@ -200,6 +398,24 @@
       "writtenOn": "2016-06-23T04:27:08Z",
       "side": 1,
       "message": "Should tex be w.tex, similar to w.framebuffer?",
+      "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "839ab576_321f905a",
+        "filename": "shiny/widget/glwidget/glwidget.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-06-23T21:03:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e5f02fa_98671511",
       "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -223,6 +439,24 @@
     },
     {
       "key": {
+        "uuid": "839ab576_f260a8e4",
+        "filename": "shiny/widget/glwidget/glwidget.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-06-23T21:03:35Z",
+      "side": 1,
+      "message": "It may not be necessary now I\u0027m rendering into a texture, though it\u0027s not clear to me this is very fast yet. (I know for example, that in ANGLE this is a bit inefficient.) Either way, I won\u0027t need ES 3 or anything else until I address the elephant-sized TODO below \"TODO: draw the widget texture directly into the window framebuffer\".",
+      "parentUuid": "4e5f02fa_58b57d8f",
+      "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e5f02fa_78b241aa",
         "filename": "shiny/widget/glwidget/glwidget.go",
         "patchSetId": 2
@@ -234,6 +468,24 @@
       "writtenOn": "2016-06-23T04:27:08Z",
       "side": 1,
       "message": "And the gl.Context, no?",
+      "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "839ab576_f20d0831",
+        "filename": "shiny/widget/glwidget/glwidget.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-06-23T21:03:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e5f02fa_78b241aa",
       "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -257,6 +509,24 @@
     },
     {
       "key": {
+        "uuid": "839ab576_72bf5873",
+        "filename": "shiny/widget/glwidget/glwidget.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-06-23T21:03:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e5f02fa_f8c571fa",
+      "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e5f02fa_18bb0588",
         "filename": "shiny/widget/glwidget/glwidget.go",
         "patchSetId": 2
@@ -274,6 +544,24 @@
     },
     {
       "key": {
+        "uuid": "839ab576_92b3dcab",
+        "filename": "shiny/widget/glwidget/glwidget.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-06-23T21:03:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e5f02fa_18bb0588",
+      "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e5f02fa_d8718dca",
         "filename": "shiny/widget/glwidget/glwidget.go",
         "patchSetId": 2
@@ -285,6 +573,24 @@
       "writtenOn": "2016-06-23T04:27:08Z",
       "side": 1,
       "message": "Is it easier if you add\nw.Publish()\nafter this line, and then the \"package main\" draw functions don\u0027t need to explicitly call w.Publish?\n\nObviously, you can then s/Publish/publish/ and you don\u0027t need to check that e.g. w.dst !\u003d nil. In fact, you might not need a w.dst field at all.",
+      "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "839ab576_5250941d",
+        "filename": "shiny/widget/glwidget/glwidget.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-06-23T21:03:35Z",
+      "side": 1,
+      "message": "It\u0027s easier, but it subtracts what is otherwise an interesting and potentially useful feature from glwdiget. With w.Publish called by the user, then the user is, after NewGL, the owner of all uses of the GL context. That means the user can do OpenGL work whenever they want in their own goroutine and not worry about when Paint is called, and treating a call to w.Draw as an instruction from the widget hierarchy to get the framebuffer ready.\n\nI haven\u0027t honed in on exactly what use a user might put this to yet, but I think it\u0027s pretty interesting and a property worth preserving. I\u0027ve attempted to note it in the type documentation above.",
+      "parentUuid": "4e5f02fa_d8718dca",
       "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
