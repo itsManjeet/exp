@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e5f02fa_18c1453d",
+        "filename": "shiny/driver/gldriver/cocoa.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-06-23T00:21:33Z",
+      "side": 1,
+      "message": "Can I get a bit more commentary here on how it\u0027s mean to work, or at least warn future maintainers about the Mac OS system-wide \"invert\" setting.\n\nAs for a isDirectionInvertedFromDevice fact, I\u0027d rather avoid if it we can. I haven\u0027t thought through the details, but what I\u0027d like is to have both:\n\n1) pushing a mouse wheel physically away from me does the same thing (in terms of scrolling up or down) for Chrome-on-Linux and shiny-on-Linux. Similarly, it should do the same for Chrome-on-MacOS and shiny-on-MacOS. It will not necessarily be the same for Chrome-on-Linux and Chrome-on-MacOS, as that might depend on Mac OS\u0027s system-wide \"invert\" setting.\n\n2) Go code above the drivers (including package widget) doesn\u0027t care for inversion. For example, the text widget code will map mouse.ButtonWheelUp to \"scroll up\" (I\u0027m guessing) on all platforms. It\u0027s the driver\u0027s responsibility to send mouse.ButtonWheelUp when appropriate.",
+      "revId": "6a03a34b76d42d0d07540a79a87889fb4b5797f8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
