@@ -1,0 +1,293 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e5f02fa_58865dc4",
+        "filename": "shiny/driver/gldriver/context.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-06-23T04:27:08Z",
+      "side": 1,
+      "message": "Should the variable be called ctx or surface??",
+      "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e5f02fa_187ce59c",
+        "filename": "shiny/driver/gldriver/context.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-06-23T04:27:08Z",
+      "side": 1,
+      "message": "How about\nfor range workAvailable {\n  worker.DoWork()\n}",
+      "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e5f02fa_78e7a1ba",
+        "filename": "shiny/driver/gldriver/context.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-06-23T04:27:08Z",
+      "side": 1,
+      "message": "Why isn\u0027t this if just\n\u003c-ctxCh\n\nBut should the value received be used somehow?",
+      "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e5f02fa_98f47564",
+        "filename": "shiny/driver/gldriver/x11.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-06-23T04:27:08Z",
+      "side": 1,
+      "message": "Revert.",
+      "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e5f02fa_b86cd9f3",
+        "filename": "shiny/driver/gldriver/x11.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-06-23T04:27:08Z",
+      "side": 1,
+      "message": "Any reason why this function had to change?",
+      "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e5f02fa_d8eeed91",
+        "filename": "shiny/driver/gldriver/x11.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-06-23T04:27:08Z",
+      "side": 1,
+      "message": "Delete?",
+      "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e5f02fa_98c63508",
+        "filename": "shiny/driver/gldriver/x11.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-06-23T04:27:08Z",
+      "side": 1,
+      "message": "This should have a TODO to set these attributes at runtime, no?",
+      "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e5f02fa_788321b3",
+        "filename": "shiny/driver/gldriver/x11.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-06-23T04:27:08Z",
+      "side": 1,
+      "message": "surf is an unused variable.",
+      "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e5f02fa_3879a9ad",
+        "filename": "shiny/driver/gldriver/x11.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-06-23T04:27:08Z",
+      "side": 1,
+      "message": "Please add empty (panicking?) stubs to cocoa.go and win32.go so we don\u0027t break the build there.",
+      "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e5f02fa_f87651bf",
+        "filename": "shiny/widget/glwidget/glwidget.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-06-23T04:27:08Z",
+      "side": 1,
+      "message": "\"into which OpenGL calls can be rendered\" is possibly redundant.",
+      "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e5f02fa_38b8c988",
+        "filename": "shiny/widget/glwidget/glwidget.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-06-23T04:27:08Z",
+      "side": 1,
+      "message": "This should also be \"TODO: dynamic\", no?",
+      "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e5f02fa_98671511",
+        "filename": "shiny/widget/glwidget/glwidget.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-06-23T04:27:08Z",
+      "side": 1,
+      "message": "Should tex be w.tex, similar to w.framebuffer?",
+      "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e5f02fa_58b57d8f",
+        "filename": "shiny/widget/glwidget/glwidget.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-06-23T04:27:08Z",
+      "side": 1,
+      "message": "Out of curiousity, what if any part of this requres OpenGL ES 3 (as opposed to 2)? I have some vague memory that you needed version 3 for glBlitFramebuffer, but you\u0027re not using that here.",
+      "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e5f02fa_78b241aa",
+        "filename": "shiny/widget/glwidget/glwidget.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-06-23T04:27:08Z",
+      "side": 1,
+      "message": "And the gl.Context, no?",
+      "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e5f02fa_f8c571fa",
+        "filename": "shiny/widget/glwidget/glwidget.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-06-23T04:27:08Z",
+      "side": 1,
+      "message": "You should be able to delete this, and use the default LeafEmbed implementation.\n\nDitto for the Layout method.",
+      "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e5f02fa_18bb0588",
+        "filename": "shiny/widget/glwidget/glwidget.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-06-23T04:27:08Z",
+      "side": 1,
+      "message": "if w.Rect.Empty() {",
+      "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4e5f02fa_d8718dca",
+        "filename": "shiny/widget/glwidget/glwidget.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-06-23T04:27:08Z",
+      "side": 1,
+      "message": "Is it easier if you add\nw.Publish()\nafter this line, and then the \"package main\" draw functions don\u0027t need to explicitly call w.Publish?\n\nObviously, you can then s/Publish/publish/ and you don\u0027t need to check that e.g. w.dst !\u003d nil. In fact, you might not need a w.dst field at all.",
+      "revId": "e0a5be23d98968a37d0909dc666d6dd2a2a86eb8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
