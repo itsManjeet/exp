@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "23f3c9eb_8f915563",
+        "filename": "shiny/widget/glwidget/glwidget.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-06-24T00:51:30Z",
+      "side": 1,
+      "message": "Draw could probably be draw.",
+      "revId": "62ff6333a32ad9708e843f0e8e3d026764354905",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
