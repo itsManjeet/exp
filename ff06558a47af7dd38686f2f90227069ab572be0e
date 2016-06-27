@@ -70,6 +70,24 @@
       "revId": "ff06558a47af7dd38686f2f90227069ab572be0e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3bfb931_02a3bf65",
+        "filename": "io/gpio/driver/driver.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5480
+      },
+      "writtenOn": "2016-06-27T18:57:26Z",
+      "side": 1,
+      "message": "\u003e so I think a no-config setup will practically never be useful\n\nI guess I\u0027m just asking if there will be a way for people to provide their own mapping to the driver w/o submitting a pull request the gpio package.\n(I\u0027m not sure how DMA is related to the name of the device node in devfs).\n\nMy current understanding of the interface is that gpio.Device hides driver.Conn (and hence the Map interface method) from its users.",
+      "parentUuid": "a3bfb931_821ccfbf",
+      "revId": "ff06558a47af7dd38686f2f90227069ab572be0e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
