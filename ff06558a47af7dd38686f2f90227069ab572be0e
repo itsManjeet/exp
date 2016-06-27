@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3bfb931_ef180c70",
+        "filename": "io/gpio/driver/driver.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5480
+      },
+      "writtenOn": "2016-06-27T17:55:49Z",
+      "side": 1,
+      "message": "I wonder if there should also be a method that takes physical pin?\n\nDo you envision the mapping as an optional aliasing? what happen in a pin is not aliased? if given a physical pin number how to find out if and what is the string alias?",
+      "revId": "ff06558a47af7dd38686f2f90227069ab572be0e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
