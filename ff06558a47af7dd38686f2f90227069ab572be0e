@@ -52,6 +52,24 @@
       "revId": "ff06558a47af7dd38686f2f90227069ab572be0e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3bfb931_821ccfbf",
+        "filename": "io/gpio/driver/driver.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-06-27T18:48:13Z",
+      "side": 1,
+      "message": "There is no default devfs or sysfs unless you mean Raspberry Pi \u003cor insert other board here\u003e configuration needs to be the default.\n\nThe board configuration is a requirement to calculate and base and offset to do the DMA (e.g. https://github.com/stianeikeland/go-rpio/blob/master/rpio.go#L320), so I think a no-config setup will practically never be useful.",
+      "parentUuid": "a3bfb931_af345487",
+      "revId": "ff06558a47af7dd38686f2f90227069ab572be0e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
