@@ -16,6 +16,24 @@
       "revId": "ff06558a47af7dd38686f2f90227069ab572be0e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3bfb931_4ffde0b7",
+        "filename": "io/gpio/driver/driver.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-06-27T18:21:14Z",
+      "side": 1,
+      "message": "I am thinking about distribute mappings from common boards from the package. The driver implementor can depend on that database or write their own.",
+      "parentUuid": "a3bfb931_ef180c70",
+      "revId": "ff06558a47af7dd38686f2f90227069ab572be0e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
