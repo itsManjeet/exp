@@ -34,6 +34,24 @@
       "revId": "ff06558a47af7dd38686f2f90227069ab572be0e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a3bfb931_af345487",
+        "filename": "io/gpio/driver/driver.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5480
+      },
+      "writtenOn": "2016-06-27T18:22:48Z",
+      "side": 1,
+      "message": "it would be nice to have a fallback mecanism (to hardware-pin-as-string?) in case your board is not part of the \"common boards\" and you just want to use the default devfs driver.",
+      "parentUuid": "a3bfb931_4ffde0b7",
+      "revId": "ff06558a47af7dd38686f2f90227069ab572be0e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
