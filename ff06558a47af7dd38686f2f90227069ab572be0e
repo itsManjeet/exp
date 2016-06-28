@@ -106,6 +106,24 @@
       "revId": "ff06558a47af7dd38686f2f90227069ab572be0e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0c0c717_ed02c501",
+        "filename": "io/gpio/driver/driver.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5480
+      },
+      "writtenOn": "2016-06-28T17:45:24Z",
+      "side": 1,
+      "message": "Sure, I was just curious how the package could be used if there is no user-facing mapping interfaces and no board definitions (but I guess those would come before or at the same time as the driver impl).\n\nWill file a bug!",
+      "parentUuid": "e0c0c717_ad611de9",
+      "revId": "ff06558a47af7dd38686f2f90227069ab572be0e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
