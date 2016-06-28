@@ -124,6 +124,24 @@
       "revId": "ff06558a47af7dd38686f2f90227069ab572be0e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0c0c717_cd9fc97b",
+        "filename": "io/gpio/driver/driver.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-06-28T18:10:57Z",
+      "side": 1,
+      "message": "Thanks, I haven\u0027t addressed the user-facing APIs before thinking more how we are going to represent the mapping data and where we should export them. Gonna address your issue when designing the board-specific configuration packages.",
+      "parentUuid": "e0c0c717_ed02c501",
+      "revId": "ff06558a47af7dd38686f2f90227069ab572be0e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
