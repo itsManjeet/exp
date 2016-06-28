@@ -88,6 +88,24 @@
       "revId": "ff06558a47af7dd38686f2f90227069ab572be0e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e0c0c717_ad611de9",
+        "filename": "io/gpio/driver/driver.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-06-28T17:39:45Z",
+      "side": 1,
+      "message": "\u003e  I\u0027m just asking if there will be a way for people to provide their own mapping\n\nThis is not possible without wrapping a driver.Conn at the moment and is not ideal. the gpio.Device should export interfaces that makes it easy.\n\nIs it possible for you to file a bug at golang.org/issues?\n\nThe lack of user-facing mapping interfaces is not in the scope of this CL.",
+      "parentUuid": "a3bfb931_02a3bf65",
+      "revId": "ff06558a47af7dd38686f2f90227069ab572be0e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
