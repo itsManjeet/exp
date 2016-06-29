@@ -16,6 +16,24 @@
       "revId": "da5013fe99549fe9949402c3f879c9b8e684df3b",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "2041ffd7_ffce7f38",
+        "filename": "io/i2c/devfs.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-06-29T22:05:42Z",
+      "side": 1,
+      "message": "I am on the side of swallowing it. It is more about we are doing best to fsync immediately. If it doesn\u0027t happen, it is not fatal and user has little to handle that error.",
+      "parentUuid": "2041ffd7_ffaf5f8f",
+      "revId": "da5013fe99549fe9949402c3f879c9b8e684df3b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
