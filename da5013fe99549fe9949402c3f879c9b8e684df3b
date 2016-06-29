@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2041ffd7_ffaf5f8f",
+        "filename": "io/i2c/devfs.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 5683
+      },
+      "writtenOn": "2016-06-29T21:29:51Z",
+      "side": 1,
+      "message": "is it ok for this to swallow the error from Sync(), or should it be returned?",
+      "revId": "da5013fe99549fe9949402c3f879c9b8e684df3b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
