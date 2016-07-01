@@ -16,6 +16,24 @@
       "revId": "136ec34b5700c2ed010d7442d5a6d44b26211ee5",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8082ab4f_2fb4be49",
+        "filename": "shiny/gesture/gesture.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-07-01T21:37:19Z",
+      "side": 1,
+      "message": "I think DirStep is better than two synthetic events, but as I mentioned on one of the win32 CLs, the equivalent of wheel events on trackpads are significantly more complex than instantaneous events so I don\u0027t know it will cover it.",
+      "parentUuid": "40b8b33d_53cbd653",
+      "revId": "136ec34b5700c2ed010d7442d5a6d44b26211ee5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
