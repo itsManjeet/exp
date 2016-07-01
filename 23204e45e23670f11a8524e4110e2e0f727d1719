@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8082ab4f_cfa4121e",
+        "filename": "shiny/driver/internal/win32/win32.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-07-01T21:32:46Z",
+      "side": 1,
+      "message": "This is better than what we have now, but there\u0027s some information being lost here. On a trackpad, a scroll can be a drawn-out affair with a distinct beginning and end. So I assume the intermediate events would be DirNone? Maybe add a TODO about it?",
+      "revId": "23204e45e23670f11a8524e4110e2e0f727d1719",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
