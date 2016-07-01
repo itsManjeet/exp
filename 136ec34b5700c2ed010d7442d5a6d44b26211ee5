@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "40b8b33d_53cbd653",
+        "filename": "shiny/gesture/gesture.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-07-01T14:13:29Z",
+      "side": 1,
+      "message": "An alternative approach is https://go-review.googlesource.com/24639\n\nand the drivers would send a single mouse event (DirStep) instead of the two (synthetic) events (DirPress; DirRelease).\n\nWDYT?",
+      "revId": "136ec34b5700c2ed010d7442d5a6d44b26211ee5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
