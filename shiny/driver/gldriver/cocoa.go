@@ -286,14 +286,17 @@ func mouseEvent(id uintptr, x, y, dx, dy float32, ty, button int32, flags uint32
 			dy = -dy
 			button = mouse.ButtonWheelDown
 		}
+		e := mouse.Event{
+			X:         x,
+			Y:         y,
+			Button:    button,
+			Modifiers: cocoaMods(flags),
+		}
 		for delta := int(dy); delta != 0; delta-- {
-			sendWindowEvent(id, mouse.Event{
-				X:         x,
-				Y:         y,
-				Button:    button,
-				Direction: mouse.DirNone,
-				Modifiers: cocoaMods(flags),
-			})
+			e.Direction = mouse.DirPress
+			sendWindowEvent(id, e)
+			e.Direction = mouse.DirRelease
+			sendWindowEvent(id, e)
 		}
 		return
 	}
