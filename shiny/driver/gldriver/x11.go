@@ -216,10 +216,21 @@ func onMouse(id uintptr, x, y int32, state uint16, button, dir uint8) {
 
 	// TODO: should a mouse.Event have a separate MouseModifiers field, for
 	// which buttons are pressed during a mouse move?
+	btn := mouse.Button(button)
+	switch btn {
+	case 4:
+		btn = mouse.ButtonWheelUp
+	case 5:
+		btn = mouse.ButtonWheelDown
+	case 6:
+		btn = mouse.ButtonWheelLeft
+	case 7:
+		btn = mouse.ButtonWheelRight
+	}
 	w.Send(mouse.Event{
 		X:         float32(x),
 		Y:         float32(y),
-		Button:    mouse.Button(button),
+		Button:    btn,
 		Modifiers: x11key.KeyModifiers(state),
 		Direction: mouse.Direction(dir),
 	})

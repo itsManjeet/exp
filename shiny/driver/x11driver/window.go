@@ -129,11 +129,15 @@ func (w *windowImpl) handleMouse(x, y int16, b xproto.Button, state uint16, dir 
 	// TODO: should a mouse.Event have a separate MouseModifiers field, for
 	// which buttons are pressed during a mouse move?
 	btn := mouse.Button(b)
-	switch b {
+	switch btn {
 	case 4:
 		btn = mouse.ButtonWheelUp
 	case 5:
 		btn = mouse.ButtonWheelDown
+	case 6:
+		btn = mouse.ButtonWheelLeft
+	case 7:
+		btn = mouse.ButtonWheelRight
 	}
 	w.Send(mouse.Event{
 		X:         float32(x),
