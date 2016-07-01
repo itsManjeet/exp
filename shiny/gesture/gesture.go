@@ -274,7 +274,7 @@ func (f *EventFilter) Filter(e interface{}) interface{} {
 			}
 
 		case mouse.DirPress:
-			if f.pressButton != mouse.ButtonNone {
+			if f.pressButton != mouse.ButtonNone || e.Button.IsWheel() {
 				break
 			}
 
