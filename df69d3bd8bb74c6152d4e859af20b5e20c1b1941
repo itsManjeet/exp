@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ad2c8e8_d5ef4eef",
+        "filename": "shiny/screen/screen.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-07-09T13:22:01Z",
+      "side": 1,
+      "message": "Not specific to this CL because it applies to both Draw and DrawUniform, but why pass in the sr parameter at all?\n\nIt seems like src2dst can do everything, so a helper function outside the screen package could implement this on top of Draw{,Uniform}(src2dst, src, op, opts). That would be just a little less complexity in each driver, which would be welcome.",
+      "revId": "df69d3bd8bb74c6152d4e859af20b5e20c1b1941",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
