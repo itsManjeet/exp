@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ad2c8e8_38a81188",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5055
+      },
+      "writtenOn": "2016-07-10T03:04:33Z",
+      "side": 1,
+      "message": "not linux\n?",
+      "range": {
+        "startLine": 7,
+        "startChar": 35,
+        "endLine": 7,
+        "endChar": 45
+      },
+      "revId": "f4625f7746f030535d244d17b48ae36cdebbb5d8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
