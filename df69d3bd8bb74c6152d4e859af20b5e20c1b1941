@@ -16,6 +16,24 @@
       "revId": "df69d3bd8bb74c6152d4e859af20b5e20c1b1941",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a3648e0_3276d0be",
+        "filename": "shiny/screen/screen.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-07-10T03:56:57Z",
+      "side": 1,
+      "message": "For Draw, you definitely need the sr parameter. You might not want to draw the entire texture. For example, a smaller viewport of a larger widget (e.g. a text widget) might clip its textures to the viewport.\n\nFor DrawUniform, you still need to calculate the parallelogram to draw. It\u0027s not totally determined just by the src2dst transform matrix. It\u0027s true that, alternatively, you could implicitly use a (0,0)-(1,1) unit rectangle, but then you need to fiddle with the matrix whenever you want to e.g. draw a highlight border (composed of 4 rectangles) on top of another widget. It seems easier to pass 4 separate rectangles instead of fiddling with the transform matrix 4 times. It\u0027s also symmetric with Draw.",
+      "parentUuid": "7ad2c8e8_d5ef4eef",
+      "revId": "df69d3bd8bb74c6152d4e859af20b5e20c1b1941",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
