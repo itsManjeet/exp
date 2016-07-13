@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a0f7c78_9533e253",
+        "filename": "shiny/widget/uniform.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-07-13T17:28:41Z",
+      "side": 1,
+      "message": "draw.Over would be more useful.\n\nDoes draw.Draw have a fast path for (image.Uniform, draw.Over, alpha 0xff) \u003d\u003e draw.Src? It seems like it could.",
+      "revId": "0d98166215fe8047fe2251945abb2ff623f24aff",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
