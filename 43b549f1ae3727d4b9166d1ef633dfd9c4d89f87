@@ -34,6 +34,57 @@
       "revId": "43b549f1ae3727d4b9166d1ef633dfd9c4d89f87",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a0930b0_c8374f89",
+        "filename": "shiny/driver/internal/win32/win32.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-07-14T09:27:09Z",
+      "side": 1,
+      "message": "Delete the blank line?? I\u0027m surprised that the \"//go:etc\" line has an effect when it\u0027s separated from the func by a blank line.",
+      "revId": "43b549f1ae3727d4b9166d1ef633dfd9c4d89f87",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a0930b0_88315796",
+        "filename": "shiny/driver/internal/win32/win32.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-07-14T09:27:09Z",
+      "side": 1,
+      "message": "s/Send/send/ ?",
+      "revId": "43b549f1ae3727d4b9166d1ef633dfd9c4d89f87",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3a0930b0_a82c1b3e",
+        "filename": "shiny/driver/internal/win32/win32.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-07-14T09:27:09Z",
+      "side": 1,
+      "message": "Ditto.",
+      "revId": "43b549f1ae3727d4b9166d1ef633dfd9c4d89f87",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
