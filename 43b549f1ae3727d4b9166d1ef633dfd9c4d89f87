@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "7a83a81d_b371ca5b",
+        "filename": "shiny/driver/internal/win32/win32.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 5055
+      },
+      "writtenOn": "2016-07-14T11:20:23Z",
+      "side": 1,
+      "message": "//go:* magic comments always apply to the next\ndeclared item (func, var, etc.)\n\nThe convention is to leave an empty line between\nthe magic comment and the item it annotates so\nthat the magic comment is not treated as a doc\ncomment.\n\n\n  //go:magic\n  \n  // F does something.\n  func F()",
+      "parentUuid": "3a0930b0_c8374f89",
+      "revId": "43b549f1ae3727d4b9166d1ef633dfd9c4d89f87",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3a0930b0_88315796",
         "filename": "shiny/driver/internal/win32/win32.go",
         "patchSetId": 1
