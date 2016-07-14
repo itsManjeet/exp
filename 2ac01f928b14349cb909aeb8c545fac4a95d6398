@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a0f7c78_5ed06200",
+        "filename": "io/spi/devfs.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-07-14T05:02:05Z",
+      "side": 1,
+      "message": "If this is not a global setting and needs to be applied only during Tx, we should maybe make it a Tx argument.",
+      "revId": "2ac01f928b14349cb909aeb8c545fac4a95d6398",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a0f7c78_1ec6ea51",
+        "filename": "io/spi/driver/driver.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-07-14T05:02:05Z",
+      "side": 1,
+      "message": "Chip Select is shorten as CS. We should capitalize both.",
+      "revId": "2ac01f928b14349cb909aeb8c545fac4a95d6398",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a0f7c78_fec2ee3a",
+        "filename": "io/spi/spi.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 5040
+      },
+      "writtenOn": "2016-07-14T05:02:05Z",
+      "side": 1,
+      "message": "SetCSChange",
+      "revId": "2ac01f928b14349cb909aeb8c545fac4a95d6398",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
