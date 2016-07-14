@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3a0930b0_a8c89bb6",
+        "filename": "shiny/driver/internal/win32/syscall_windows.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 5025
+      },
+      "writtenOn": "2016-07-14T07:12:11Z",
+      "side": 1,
+      "message": "_SendMessage? Sorry, I don\u0027t make sure why this is separated with empty line.",
+      "revId": "43b549f1ae3727d4b9166d1ef633dfd9c4d89f87",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
