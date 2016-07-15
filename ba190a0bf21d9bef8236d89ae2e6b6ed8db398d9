@@ -1,0 +1,6 @@
+Code-Review+2: Nigel Tao <nigeltao@golang.org>
+Submitted-by: Alex Brainman <alex.brainman@gmail.com>
+Submitted-at: Fri, 15 Jul 2016 02:00:28 +0000
+Reviewed-on: https://go-review.googlesource.com/24921
+Project: exp
+Branch: refs/heads/master
