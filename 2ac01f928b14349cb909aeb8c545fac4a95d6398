@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "baab60ef_95b24611",
+        "filename": "io/spi/devfs.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 5683
+      },
+      "writtenOn": "2016-07-15T04:01:18Z",
+      "side": 1,
+      "message": "My hesitation here is that I have no sense of how common or uncommon this half-duplex use case is. I would hate to clutter up the Tx func with additional arguments that are unused in most cases.\n\nMaybe you have a better sense of this?",
+      "parentUuid": "9a0f7c78_5ed06200",
+      "revId": "2ac01f928b14349cb909aeb8c545fac4a95d6398",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a0f7c78_1ec6ea51",
         "filename": "io/spi/driver/driver.go",
         "patchSetId": 1
