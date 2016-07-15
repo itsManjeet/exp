@@ -54,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "baab60ef_739b6f7c",
+        "filename": "io/spi/driver/driver.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 5683
+      },
+      "writtenOn": "2016-07-15T19:18:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a0f7c78_1ec6ea51",
+      "revId": "2ac01f928b14349cb909aeb8c545fac4a95d6398",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a0f7c78_fec2ee3a",
         "filename": "io/spi/spi.go",
         "patchSetId": 1
@@ -65,6 +83,24 @@
       "writtenOn": "2016-07-14T05:02:05Z",
       "side": 1,
       "message": "SetCSChange",
+      "revId": "2ac01f928b14349cb909aeb8c545fac4a95d6398",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baab60ef_b3add79c",
+        "filename": "io/spi/spi.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 5683
+      },
+      "writtenOn": "2016-07-15T19:18:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a0f7c78_fec2ee3a",
       "revId": "2ac01f928b14349cb909aeb8c545fac4a95d6398",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
