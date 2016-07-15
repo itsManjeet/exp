@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a9d046f_b1b380a9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5821
+      },
+      "writtenOn": "2016-07-15T05:29:05Z",
+      "side": 1,
+      "message": "Needs https://go-review.googlesource.com/#/c/24880/ to work",
+      "revId": "124d603b566f0f267ea2d8b07a91af6cbd012037",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
