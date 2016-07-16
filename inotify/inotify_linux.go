@@ -36,6 +36,9 @@ import (
 	"unsafe"
 )
 
+// ErrQueueOverflow error is used to inform about event queue overflow
+var ErrQueueOverflow = errors.New("inotify: queue overflow")
+
 type Event struct {
 	Mask   uint32 // Mask of events
 	Cookie uint32 // Unique cookie associating related events (for rename(2))
@@ -192,28 +195,37 @@ func (w *Watcher) readEvents() {
 		for offset <= uint32(n-syscall.SizeofInotifyEvent) {
 			// Point "raw" to the event in the buffer
 			raw := (*syscall.InotifyEvent)(unsafe.Pointer(&buf[offset]))
-			event := new(Event)
-			event.Mask = uint32(raw.Mask)
-			event.Cookie = uint32(raw.Cookie)
 			nameLen := uint32(raw.Len)
-			// If the event happened to the watched directory or the watched file, the kernel
-			// doesn't append the filename to the event, but we would like to always fill the
-			// the "Name" field with a valid filename. We retrieve the path of the watch from
-			// the "paths" map.
-			w.mu.Lock()
-			name, ok := w.paths[int(raw.Wd)]
-			w.mu.Unlock()
-			if ok {
-				event.Name = name
-				if nameLen > 0 {
-					// Point "bytes" at the first byte of the filename
-					bytes := (*[syscall.PathMax]byte)(unsafe.Pointer(&buf[offset+syscall.SizeofInotifyEvent]))
-					// The filename is padded with NUL bytes. TrimRight() gets rid of those.
-					event.Name += "/" + strings.TrimRight(string(bytes[0:nameLen]), "\000")
+			mask := uint32(raw.Mask)
+
+			// Report event queue overflow as a error. Note that raw.Wd will be
+			// set to -1 making lookup in w.paths useless.
+			if mask&IN_Q_OVERFLOW == IN_Q_OVERFLOW {
+				w.Error <- ErrQueueOverflow
+			} else {
+				event := new(Event)
+				event.Mask = mask
+				event.Cookie = uint32(raw.Cookie)
+				// If the event happened to the watched directory or the watched file, the kernel
+				// doesn't append the filename to the event, but we would like to always fill the
+				// the "Name" field with a valid filename. We retrieve the path of the watch from
+				// the "paths" map.
+				w.mu.Lock()
+				name, ok := w.paths[int(raw.Wd)]
+				w.mu.Unlock()
+				if ok {
+					event.Name = name
+					if nameLen > 0 {
+						// Point "bytes" at the first byte of the filename
+						bytes := (*[syscall.PathMax]byte)(unsafe.Pointer(&buf[offset+syscall.SizeofInotifyEvent]))
+						// The filename is padded with NUL bytes. TrimRight() gets rid of those.
+						event.Name += "/" + strings.TrimRight(string(bytes[0:nameLen]), "\000")
+					}
+					// Send the event on the events channel
+					w.Event <- event
 				}
-				// Send the event on the events channel
-				w.Event <- event
 			}
+
 			// Move to the next event in the buffer
 			offset += syscall.SizeofInotifyEvent + nameLen
 		}
