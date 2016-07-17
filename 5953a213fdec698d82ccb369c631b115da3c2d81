@@ -16,6 +16,24 @@
       "revId": "5953a213fdec698d82ccb369c631b115da3c2d81",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a4d0459_91cefcc2",
+        "filename": "shiny/driver/windriver/windraw.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2016-07-17T07:39:38Z",
+      "side": 1,
+      "message": "Good idea. Done.",
+      "parentUuid": "5a4d0459_f117483a",
+      "revId": "5953a213fdec698d82ccb369c631b115da3c2d81",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
