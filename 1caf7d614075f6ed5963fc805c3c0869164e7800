@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "aa6dcf44_879f28f9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5295
+      },
+      "writtenOn": "2016-07-22T09:52:07Z",
+      "side": 1,
+      "message": "I cannot parse this sentence.",
+      "revId": "1caf7d614075f6ed5963fc805c3c0869164e7800",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
