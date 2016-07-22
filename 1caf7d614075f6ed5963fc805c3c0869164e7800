@@ -16,6 +16,24 @@
       "revId": "1caf7d614075f6ed5963fc805c3c0869164e7800",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6a1e77f5_7a4b5983",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 7276
+      },
+      "writtenOn": "2016-07-22T18:11:19Z",
+      "side": 1,
+      "message": "Some big decimal libraries store numbers as strings or arrays of bytes and operate from there. Others (like the most popular Go decimal library at the moment) convert the decimal to a string to do division because the authors found implementing division to be confusing.\n\nApologies for the wording, it was awkward to write last night. I couldn\u0027t figure out the best way to word it.",
+      "parentUuid": "aa6dcf44_879f28f9",
+      "revId": "1caf7d614075f6ed5963fc805c3c0869164e7800",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
