@@ -52,6 +52,24 @@
       "revId": "cbe1a6c11b12535a57563bc3a6a646fd27903d71",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4f50e5ef_d187a407",
+        "filename": "shiny/driver/internal/lifecycler/lifecycler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-07-28T23:16:06Z",
+      "side": 1,
+      "message": "Ah, that access might not be necessary. I have some prototype code where the glwidget\u0027s dedicated GL context is render-to-textured, and the resultant texture is wrapped as a screen.Texture. You can copy that to the default framebuffer via the window\u0027s screen.Drawer in the normal fashion, e.g. during node.Paint, without the gldriver having to expose its GL context as a \u0027draw context\u0027. This avoids the issue of having to co-ordinate (i.e. mutex) the glwidget and the gldriver both trying to concurrently use the same stateful GL context.\n\nThis was only a prototype, though. My multi-threaded multi-context OpenGL was crashing somewhere in C/C++ code /usr/lib/x86_64-linux-gnu/libLLVM-3.4.so.1 called from /usr/lib/x86_64-linux-gnu/dri/swrast_dri.so. I suspect that it was a driver bug, but it\u0027s really hard to tell, and there are higher priority things to work on.",
+      "parentUuid": "cf8db5b7_bd82fff8",
+      "revId": "cbe1a6c11b12535a57563bc3a6a646fd27903d71",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
