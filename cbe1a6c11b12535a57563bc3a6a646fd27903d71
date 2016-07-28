@@ -34,6 +34,24 @@
       "revId": "cbe1a6c11b12535a57563bc3a6a646fd27903d71",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cf8db5b7_bd82fff8",
+        "filename": "shiny/driver/internal/lifecycler/lifecycler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-07-28T22:55:52Z",
+      "side": 1,
+      "message": "Each glwidget has its own dedicated GL context already. The point of passing the paint context is to give access to the default framebuffer to copy the result into.",
+      "parentUuid": "8fa57d1d_cb8c352d",
+      "revId": "cbe1a6c11b12535a57563bc3a6a646fd27903d71",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
