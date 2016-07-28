@@ -107,6 +107,24 @@
     },
     {
       "key": {
+        "uuid": "4f50e5ef_71999868",
+        "filename": "shiny/widget/node/node.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-07-28T23:28:25Z",
+      "side": 1,
+      "message": "I\u0027m curious to see the prototype.\n\nOne random thought: the Upload method is currently synchronous. It blocks until the upload is complete and the *image.RGBA can be freely modified. If you have a widget tree with 100 buttons and they each do their own Upload, then a naive tree walk paint might have 100 sequential stalls, which may or may not be problematic.",
+      "parentUuid": "cf8db5b7_fd8c872c",
+      "revId": "bc7356d236c22f5b27af60e4fe2815f3421a50b9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "efda7963_e8e56f36",
         "filename": "shiny/widget/node/node.go",
         "patchSetId": 1
