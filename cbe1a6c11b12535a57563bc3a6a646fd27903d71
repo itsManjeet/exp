@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "efda7963_c87e337a",
+        "filename": "shiny/driver/internal/lifecycler/lifecycler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-07-28T15:04:37Z",
+      "side": 1,
+      "message": "The glwidget will eventually use it.",
+      "revId": "cbe1a6c11b12535a57563bc3a6a646fd27903d71",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
