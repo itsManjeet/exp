@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "efda7963_68e97f14",
+        "filename": "shiny/screen/screen.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-07-28T16:00:42Z",
+      "side": 1,
+      "message": "I believe my comment below on PaintBaseContext makes this less urgent by reducing unnecessary Uploads.",
+      "revId": "bc7356d236c22f5b27af60e4fe2815f3421a50b9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "efda7963_08e1db2a",
+        "filename": "shiny/widget/node/node.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-07-28T16:00:42Z",
+      "side": 1,
+      "message": "I believe PaintContext should carry the current DrawContext, so that widgets with driver-specific painting logic can go to town. (Could just be a TODO for now.)",
+      "revId": "bc7356d236c22f5b27af60e4fe2815f3421a50b9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "efda7963_88ecab26",
+        "filename": "shiny/widget/node/node.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-07-28T16:00:42Z",
+      "side": 1,
+      "message": "So now there is two-pass painting and a PaintContext, I\u0027d like to understand why there should be a PaintBaseContext. In particular, it seems to me that PaintBase should be:\n\n        PaintBase(ctx *PaintContext, origin image.Point) error\n\nand if a widget wants to assemble pixels itself, it should maintain a screen.Texture and using ctx.Drawer to put it on the screen.\n\nThis lets widgets take significant advantage of the underlying graphics hardware. For example, a widget.Uniform shouldn\u0027t fill a bunch of CPU-side pixels, upload them to the graphics card and then render them onto triangles. At the very least it should keep those pixels on the graphics card as a screen.Texture (and in the future we could provide more ways to create screen.Texture objects that let us take a shortcut in GLSL and not use any memory for uniform textures).\n\nOf course this makes Sheet more complex, it has to provide it\u0027s own *image.RGBA-based Drawer implementation. I think that\u0027s OK. (In fact, one day the Sheet implementation might even have gldriver-specific logic so that instead of being backed by an *image.RGBA, it provides a screen.Drawer that works on a GL framebuffer.)",
+      "revId": "bc7356d236c22f5b27af60e4fe2815f3421a50b9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "efda7963_e8e56f36",
+        "filename": "shiny/widget/node/node.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-07-28T16:00:42Z",
+      "side": 1,
+      "message": "As a merged PaintContext, yes.",
+      "revId": "bc7356d236c22f5b27af60e4fe2815f3421a50b9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
