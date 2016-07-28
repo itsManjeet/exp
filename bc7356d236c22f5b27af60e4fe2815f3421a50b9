@@ -89,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "cf8db5b7_fd8c872c",
+        "filename": "shiny/widget/node/node.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-07-28T22:57:57Z",
+      "side": 1,
+      "message": "I am actually suggesting most widgets maintain their own screen.Texture objects. I think that\u0027s a completely reasonable way to let the widget system extract a lot of value from separate graphics memory. But I\u0027ll prototype it after this CL series is in.",
+      "parentUuid": "8fa57d1d_4b996568",
+      "revId": "bc7356d236c22f5b27af60e4fe2815f3421a50b9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "efda7963_e8e56f36",
         "filename": "shiny/widget/node/node.go",
         "patchSetId": 1
