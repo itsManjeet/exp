@@ -16,6 +16,24 @@
       "revId": "cbe1a6c11b12535a57563bc3a6a646fd27903d71",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8fa57d1d_cb8c352d",
+        "filename": "shiny/driver/internal/lifecycler/lifecycler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-07-28T21:23:20Z",
+      "side": 1,
+      "message": "Maybe. Or each glwidget has its own dedicated GL context separate from the shiny window GL context. We\u0027ll see.",
+      "parentUuid": "efda7963_c87e337a",
+      "revId": "cbe1a6c11b12535a57563bc3a6a646fd27903d71",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
