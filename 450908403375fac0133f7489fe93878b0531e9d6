@@ -1,0 +1,208 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "367f97e8_679eb257",
+        "filename": "decimal/const.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 8065
+      },
+      "writtenOn": "2016-09-07T06:55:51Z",
+      "side": 1,
+      "message": "I think the documentation here is misleading. It is not clear what do you mean by \"not expected to be used itself\". There is Big.Context and Big.SetContext.\n\nAlso math/big.Float uses rounding mode and precision separately. Maybe big.Decimal should be the same?",
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "367f97e8_a7afca80",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 8065
+      },
+      "writtenOn": "2016-09-07T06:55:51Z",
+      "side": 1,
+      "message": "I am not sure that mantissa is the right name here. I think it only applies to floating point numbers. A better name would be unscaled.",
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d66d5b44_a486e210",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 8065
+      },
+      "writtenOn": "2016-09-07T06:55:51Z",
+      "side": 1,
+      "message": "can big.Decimal be -inf? It would be good to have a package level documentation that describes possible big.Decimal values.",
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "56a16ba9_50808cf8",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 8065
+      },
+      "writtenOn": "2016-09-07T06:55:51Z",
+      "side": 1,
+      "message": "The documentation here seems to be wrong.",
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b66aa72b_237bca1c",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 8065
+      },
+      "writtenOn": "2016-09-07T06:55:51Z",
+      "side": 1,
+      "message": "what if the value \u003e MaxInt64 or \u003c MinInt64?",
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1678d3fe_c693e251",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 8065
+      },
+      "writtenOn": "2016-09-07T06:55:51Z",
+      "side": 1,
+      "message": "Do we need both Context() and Mode()?",
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f6741f0d_6585c607",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 8065
+      },
+      "writtenOn": "2016-09-07T06:55:51Z",
+      "side": 1,
+      "message": "This documentation is wrong",
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d66d5b44_c493de51",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 8065
+      },
+      "writtenOn": "2016-09-07T06:55:51Z",
+      "side": 1,
+      "message": "What is plain string representation? Is it defined somewhere?",
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "367f97e8_e7be22ad",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 8065
+      },
+      "writtenOn": "2016-09-07T06:55:51Z",
+      "side": 1,
+      "message": "/s/x/z/ (and in some other places too)\n\nDo we need both Round and SetContext?",
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "367f97e8_47e7eed5",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 8065
+      },
+      "writtenOn": "2016-09-07T06:55:51Z",
+      "side": 1,
+      "message": "Does any rounding occur?\n\nDo we need both SetContext and SetMode?",
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "367f97e8_a7dd0a01",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 8065
+      },
+      "writtenOn": "2016-09-07T06:55:51Z",
+      "side": 1,
+      "message": "Prec and SetPrec meaning different things is confusing. Again SetContext can be used instead of SetPrec",
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "367f97e8_e7d702dd",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 8065
+      },
+      "writtenOn": "2016-09-07T06:55:51Z",
+      "side": 1,
+      "message": "possibly not needed",
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
