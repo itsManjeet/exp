@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "96e76324_5251d462",
+        "filename": "decimal/const.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 7276
+      },
+      "writtenOn": "2016-09-07T17:09:09Z",
+      "side": 1,
+      "message": "IEEE 754R specifies three precision/mode pairs and I figured a Context type was the best way to group them together. If mode and precision were only specified separately I\u0027m unsure how utilizing the three IEEE formats would work.",
+      "parentUuid": "367f97e8_679eb257",
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "367f97e8_a7afca80",
         "filename": "decimal/decimal.go",
         "patchSetId": 4
@@ -30,6 +48,24 @@
       "writtenOn": "2016-09-07T06:55:51Z",
       "side": 1,
       "message": "I am not sure that mantissa is the right name here. I think it only applies to floating point numbers. A better name would be unscaled.",
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96e76324_325e5073",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 7276
+      },
+      "writtenOn": "2016-09-07T17:09:09Z",
+      "side": 1,
+      "message": "Agreed.",
+      "parentUuid": "367f97e8_a7afca80",
       "revId": "450908403375fac0133f7489fe93878b0531e9d6",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "96e76324_92473ca0",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 7276
+      },
+      "writtenOn": "2016-09-07T17:09:09Z",
+      "side": 1,
+      "message": "true. good point.",
+      "parentUuid": "d66d5b44_a486e210",
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56a16ba9_50808cf8",
         "filename": "decimal/decimal.go",
         "patchSetId": 4
@@ -70,6 +124,24 @@
     },
     {
       "key": {
+        "uuid": "96e76324_523af424",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 7276
+      },
+      "writtenOn": "2016-09-07T17:09:09Z",
+      "side": 1,
+      "message": "how so?",
+      "parentUuid": "56a16ba9_50808cf8",
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b66aa72b_237bca1c",
         "filename": "decimal/decimal.go",
         "patchSetId": 4
@@ -81,6 +153,24 @@
       "writtenOn": "2016-09-07T06:55:51Z",
       "side": 1,
       "message": "what if the value \u003e MaxInt64 or \u003c MinInt64?",
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96e76324_12346c34",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 7276
+      },
+      "writtenOn": "2016-09-07T17:09:09Z",
+      "side": 1,
+      "message": "I previously had a comment that if x too large or too small the result was undefined much like math.Big\u0027s implementation. Will add.",
+      "parentUuid": "b66aa72b_237bca1c",
       "revId": "450908403375fac0133f7489fe93878b0531e9d6",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -121,6 +211,24 @@
     },
     {
       "key": {
+        "uuid": "96e76324_f2bd6888",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 7276
+      },
+      "writtenOn": "2016-09-07T17:09:09Z",
+      "side": 1,
+      "message": "yup yup.",
+      "parentUuid": "f6741f0d_6585c607",
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d66d5b44_c493de51",
         "filename": "decimal/decimal.go",
         "patchSetId": 4
@@ -138,6 +246,24 @@
     },
     {
       "key": {
+        "uuid": "96e76324_b2c7e008",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 7276
+      },
+      "writtenOn": "2016-09-07T17:09:09Z",
+      "side": 1,
+      "message": "It should be defined. fwiw \"plain string\" means \"1.234567\" instead of scientific or engineering notation.",
+      "parentUuid": "d66d5b44_c493de51",
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "367f97e8_e7be22ad",
         "filename": "decimal/decimal.go",
         "patchSetId": 4
@@ -149,6 +275,24 @@
       "writtenOn": "2016-09-07T06:55:51Z",
       "side": 1,
       "message": "/s/x/z/ (and in some other places too)\n\nDo we need both Round and SetContext?",
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96e76324_72d298cb",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 7276
+      },
+      "writtenOn": "2016-09-07T17:09:09Z",
+      "side": 1,
+      "message": "Yes, I think we need both. Round literally rounds z while SetContext sets the precision which is only used in lossy operations.",
+      "parentUuid": "367f97e8_e7be22ad",
       "revId": "450908403375fac0133f7489fe93878b0531e9d6",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -200,6 +344,24 @@
       "writtenOn": "2016-09-07T06:55:51Z",
       "side": 1,
       "message": "possibly not needed",
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "96e76324_f28b28cd",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 7276
+      },
+      "writtenOn": "2016-09-07T17:09:09Z",
+      "side": 1,
+      "message": "Agreed. It was added because 1) math.Big has ModSqrt and 2) sqrt can be faster if it has internal access to Big.",
+      "parentUuid": "367f97e8_e7d702dd",
       "revId": "450908403375fac0133f7489fe93878b0531e9d6",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
