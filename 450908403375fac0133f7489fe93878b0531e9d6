@@ -37,6 +37,120 @@
     },
     {
       "key": {
+        "uuid": "966683cf_c07a7217",
+        "filename": "decimal/const.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2016-09-08T05:46:10Z",
+      "side": 1,
+      "message": "doesn\u0027t seem like a hack to me - it\u0027s an internal mechanism to make use of the zero value in a meaningful way",
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "966683cf_ddf33fd2",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2016-09-08T05:46:10Z",
+      "side": 1,
+      "message": "This doc string should be completed rather sooner than later. It sets the expectations for this package and thus what a reviewer should look out for.",
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "966683cf_fdf803af",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2016-09-08T05:46:10Z",
+      "side": 1,
+      "message": "just saying \u003e\u003d 0 is easier to read, same with the \"number times ten raised...\" - use mathematical expressions",
+      "range": {
+        "startLine": 9,
+        "startChar": 39,
+        "endLine": 9,
+        "endChar": 40
+      },
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "966683cf_7ddeb32a",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2016-09-08T05:46:10Z",
+      "side": 1,
+      "message": "There needs to be a more precise description of the representation, even if just as an internal comment. It\u0027s unclear what the representation is. There should be a few clarifying examples. This may be obvious to the author and others, but not for the casual reader or reviewer who wants to understand the code in detail.",
+      "range": {
+        "startLine": 11,
+        "startChar": 3,
+        "endLine": 11,
+        "endChar": 8
+      },
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "966683cf_1dfe9798",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2016-09-08T05:46:10Z",
+      "side": 1,
+      "message": "Is there going to be a Small value? Otherwise I\u0027d call this Value as in decimal.Value - reads much nicer than decimal.Big.",
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "966683cf_3de43bfd",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2016-09-08T05:46:10Z",
+      "side": 1,
+      "message": "there\u0027s no v here - just say: if the decimal value fits into an int64 (how does the scale come into play in this case?)",
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "367f97e8_a7afca80",
         "filename": "decimal/decimal.go",
         "patchSetId": 4
@@ -66,6 +180,63 @@
       "side": 1,
       "message": "Agreed.",
       "parentUuid": "367f97e8_a7afca80",
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "966683cf_bdbccbdb",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2016-09-08T05:46:10Z",
+      "side": 1,
+      "message": "norma? normalized? normal?",
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "966683cf_ddc17f46",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2016-09-08T05:46:10Z",
+      "side": 1,
+      "message": "change",
+      "range": {
+        "startLine": 24,
+        "startChar": 10,
+        "endLine": 24,
+        "endChar": 18
+      },
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "966683cf_1dacd7a4",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2016-09-08T05:46:10Z",
+      "side": 1,
+      "message": "Example?",
       "revId": "450908403375fac0133f7489fe93878b0531e9d6",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -107,6 +278,29 @@
     },
     {
       "key": {
+        "uuid": "966683cf_3da99b95",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2016-09-08T05:46:10Z",
+      "side": 1,
+      "message": "Add(x, y *Big)\n\nno need to repeat the type in Go",
+      "range": {
+        "startLine": 52,
+        "startChar": 17,
+        "endLine": 52,
+        "endChar": 18
+      },
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "56a16ba9_50808cf8",
         "filename": "decimal/decimal.go",
         "patchSetId": 4
@@ -142,6 +336,64 @@
     },
     {
       "key": {
+        "uuid": "966683cf_5db64ff8",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2016-09-08T05:46:10Z",
+      "side": 1,
+      "message": "I\u0027d leave special operations like this away for now. No need to commit to things like this which are unclear in semantics. These are not simple 2\u0027s complement integers.",
+      "parentUuid": "96e76324_523af424",
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "966683cf_7db31307",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2016-09-08T05:46:10Z",
+      "side": 1,
+      "message": "There\u0027s no d here.\n\nAlso, note that in math/big, the convention is that z is always the name of the result. In this case, z is one of the arguments. I would call them x and y. The result is returned.",
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "966683cf_9da0e7a8",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2016-09-08T05:46:10Z",
+      "side": 1,
+      "message": "returns the Context of x.",
+      "range": {
+        "startLine": 72,
+        "startChar": 11,
+        "endLine": 72,
+        "endChar": 18
+      },
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b66aa72b_237bca1c",
         "filename": "decimal/decimal.go",
         "patchSetId": 4
@@ -171,6 +423,46 @@
       "side": 1,
       "message": "I previously had a comment that if x too large or too small the result was undefined much like math.Big\u0027s implementation. Will add.",
       "parentUuid": "b66aa72b_237bca1c",
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "966683cf_dd9a5f72",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2016-09-08T05:46:10Z",
+      "side": 1,
+      "message": "This is where the naming is bad. Of course a Big decimal is big, isn\u0027t it? If it where a decimal.Value it would make sense to distinguish between big and small.\n\nInstead, avoid the debate and make this: IsCompact, or better: IsInt64.",
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "966683cf_1d95b740",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2016-09-08T05:46:10Z",
+      "side": 1,
+      "message": "why both IsInf and IsFinite? keep it small.\n\nAlso, does it make sense to have infinite big decimals?",
+      "range": {
+        "startLine": 93,
+        "startChar": 12,
+        "endLine": 93,
+        "endChar": 19
+      },
       "revId": "450908403375fac0133f7489fe93878b0531e9d6",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -223,6 +515,29 @@
       "side": 1,
       "message": "yup yup.",
       "parentUuid": "f6741f0d_6585c607",
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "966683cf_5d8f2f2c",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2016-09-08T05:46:10Z",
+      "side": 1,
+      "message": "x, y *Big\n\napply everywhere",
+      "range": {
+        "startLine": 125,
+        "startChar": 21,
+        "endLine": 125,
+        "endChar": 24
+      },
       "revId": "450908403375fac0133f7489fe93878b0531e9d6",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -327,6 +642,29 @@
       "writtenOn": "2016-09-07T06:55:51Z",
       "side": 1,
       "message": "Prec and SetPrec meaning different things is confusing. Again SetContext can be used instead of SetPrec",
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "966683cf_a0757e2a",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2016-09-08T05:46:10Z",
+      "side": 1,
+      "message": "does -0 make sense for big decimals? These are not floats, after all. Is this used in practice? Where?",
+      "range": {
+        "startLine": 247,
+        "startChar": 15,
+        "endLine": 247,
+        "endChar": 16
+      },
       "revId": "450908403375fac0133f7489fe93878b0531e9d6",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
