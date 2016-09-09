@@ -134,6 +134,24 @@
     },
     {
       "key": {
+        "uuid": "966683cf_35fa875e",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 7276
+      },
+      "writtenOn": "2016-09-09T07:03:35Z",
+      "side": 1,
+      "message": "Creating a fixed-size decimal is definitely on my radar. While I like the name `Value\u0027, I\u0027d be hesitant to change it since `Big\u0027 conveys what this is--an arbitrary-precision decimal. (Unlike, for example, C#\u0027s `decimal\u0027 which is fixed to 128 bits I think.)",
+      "parentUuid": "966683cf_1dfe9798",
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "966683cf_3de43bfd",
         "filename": "decimal/decimal.go",
         "patchSetId": 4
@@ -354,6 +372,24 @@
     },
     {
       "key": {
+        "uuid": "966683cf_550ffb8d",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 7276
+      },
+      "writtenOn": "2016-09-09T07:03:35Z",
+      "side": 1,
+      "message": "That makes sense.",
+      "parentUuid": "966683cf_5db64ff8",
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "966683cf_7db31307",
         "filename": "decimal/decimal.go",
         "patchSetId": 4
@@ -446,6 +482,24 @@
     },
     {
       "key": {
+        "uuid": "966683cf_750cff98",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 7276
+      },
+      "writtenOn": "2016-09-09T07:03:35Z",
+      "side": 1,
+      "message": "I entirely agree. That\u0027s an excellent idea.",
+      "parentUuid": "966683cf_dd9a5f72",
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "966683cf_1d95b740",
         "filename": "decimal/decimal.go",
         "patchSetId": 4
@@ -457,6 +511,30 @@
       "writtenOn": "2016-09-08T05:46:10Z",
       "side": 1,
       "message": "why both IsInf and IsFinite? keep it small.\n\nAlso, does it make sense to have infinite big decimals?",
+      "range": {
+        "startLine": 93,
+        "startChar": 12,
+        "endLine": 93,
+        "endChar": 19
+      },
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "966683cf_9509938a",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 7276
+      },
+      "writtenOn": "2016-09-09T07:03:35Z",
+      "side": 1,
+      "message": "\u003e Why both?\n\nI think it\u0027s a relic from when I implemented NaN and forgot to remove it when I removed NaN.\n\n\u003e Does it make sense?\n\nI think so. What happens if the scale is exceeded? Even with a 32-bit scale it\u0027s unlikely, but I think the result needs to be well-defined.",
+      "parentUuid": "966683cf_1d95b740",
       "range": {
         "startLine": 93,
         "startChar": 12,
@@ -659,6 +737,30 @@
       "writtenOn": "2016-09-08T05:46:10Z",
       "side": 1,
       "message": "does -0 make sense for big decimals? These are not floats, after all. Is this used in practice? Where?",
+      "range": {
+        "startLine": 247,
+        "startChar": 15,
+        "endLine": 247,
+        "endChar": 16
+      },
+      "revId": "450908403375fac0133f7489fe93878b0531e9d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "966683cf_b5069776",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 7276
+      },
+      "writtenOn": "2016-09-09T07:03:35Z",
+      "side": 1,
+      "message": "No to both your questions. I think this may have been a copy+paste error. (I copied some comments from math.Big, particularly because I did not know how to make the -/+ symbol in vim.)",
+      "parentUuid": "966683cf_a0757e2a",
       "range": {
         "startLine": 247,
         "startChar": 15,
