@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "abbcfece_f625fec9",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 7276
+      },
+      "writtenOn": "2016-09-09T22:10:14Z",
+      "side": 1,
+      "message": "These methods are primarily here to prevent typos.",
+      "revId": "6c7fd3392e953ad11d77eb8b1e53f78cd6210d30",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abbcfece_f64a5e75",
+        "filename": "decimal/internal/arith/arith_amd64.s",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 7276
+      },
+      "writtenOn": "2016-09-09T22:10:14Z",
+      "side": 1,
+      "message": "fwiw this cmov could probably just be a jump since the branch predictor will guess it correctly most of the time. cmov was faster on my (older ish) machine, though.",
+      "revId": "6c7fd3392e953ad11d77eb8b1e53f78cd6210d30",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
