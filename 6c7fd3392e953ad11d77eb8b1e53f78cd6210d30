@@ -36,6 +36,57 @@
     },
     {
       "key": {
+        "uuid": "abbcfece_8249e4b7",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 7276
+      },
+      "writtenOn": "2016-09-10T17:58:56Z",
+      "side": 1,
+      "message": "In other places I do not make a distinction between +/-Inf. This leads me to believe this bit of code should be rewritten, perhaps. Either that or I need to differentiate between +/- Infinities.",
+      "revId": "6c7fd3392e953ad11d77eb8b1e53f78cd6210d30",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abbcfece_a23d001d",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 7276
+      },
+      "writtenOn": "2016-09-10T17:58:56Z",
+      "side": 1,
+      "message": "This might need a comment or two. It\u0027s essentially this: https://golang.org/src/math/big/int.go?s\u003d7472:7505#L298",
+      "revId": "6c7fd3392e953ad11d77eb8b1e53f78cd6210d30",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abbcfece_c23afc21",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 667,
+      "author": {
+        "id": 7276
+      },
+      "writtenOn": "2016-09-10T17:58:56Z",
+      "side": 1,
+      "message": "perhaps \u0027b\u0027 could be *buffer instead of writer.",
+      "revId": "6c7fd3392e953ad11d77eb8b1e53f78cd6210d30",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "abbcfece_f64a5e75",
         "filename": "decimal/internal/arith/arith_amd64.s",
         "patchSetId": 5
