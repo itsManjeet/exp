@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "abbcfece_6d63d912",
+        "filename": "shiny/iconvg/doc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2016-09-11T19:56:40Z",
+      "side": 1,
+      "message": "Why are titles allcaps instead of title case, like \"Overview\". godoc already displays them as titles.\n\nE.g., see http://instantshare.virtivia.com:27080/ykus7pxhiymg.png. The allcaps seems unneccessary. Compare to https://golang.org/pkg/encoding/gob/ which uses title case for titles.",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 8
+      },
+      "revId": "d89e6b94a60e233d5610ade0323f2944fa772df5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abbcfece_4d5e1d48",
+        "filename": "shiny/iconvg/doc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2016-09-11T19:56:40Z",
+      "side": 1,
+      "message": "This seems a little unclear to me. What is considered an extreme size? Is 1024x1024 pixels extreme (for a small icon, it may be)? Or are you talking about 10^32 pixels extreme?\n\nWhat kind of artifacts? Is this about potential not exact pixel values that are still imperceptible to naked eye, or major artifacts easily visible?\n\nI am guessing this refers to the floating point inaccuracies at large values, is that it?",
+      "range": {
+        "startLine": 29,
+        "startChar": 67,
+        "endLine": 30,
+        "endChar": 44
+      },
+      "revId": "d89e6b94a60e233d5610ade0323f2944fa772df5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
