@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "cb4e920b_bc71e108",
+        "filename": "decimal/const.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 8065
+      },
+      "writtenOn": "2016-09-12T06:50:26Z",
+      "side": 1,
+      "message": "I think you should add a paragrap explain this statement in more details.",
+      "revId": "6c7fd3392e953ad11d77eb8b1e53f78cd6210d30",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eba996a7_3ddbafe3",
+        "filename": "decimal/const.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 8065
+      },
+      "writtenOn": "2016-09-12T06:50:26Z",
+      "side": 1,
+      "message": "I still think that the documentation saying \"Context is exported for this documentation but is not expected to be used itself\" is confusing given Big.Context and Big.SetContext methods.",
+      "revId": "6c7fd3392e953ad11d77eb8b1e53f78cd6210d30",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "abbcfece_f625fec9",
         "filename": "decimal/decimal.go",
         "patchSetId": 5
@@ -36,6 +70,23 @@
     },
     {
       "key": {
+        "uuid": "cb4e920b_7c54b950",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 8065
+      },
+      "writtenOn": "2016-09-12T06:50:26Z",
+      "side": 1,
+      "message": "The documentation for operations like Add should specify how the scale of z is calculated. E.g. 1e+2 + 1e+3 could be 1.1e+3 or 11e+2.",
+      "revId": "6c7fd3392e953ad11d77eb8b1e53f78cd6210d30",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "abbcfece_8249e4b7",
         "filename": "decimal/decimal.go",
         "patchSetId": 5
@@ -53,6 +104,41 @@
     },
     {
       "key": {
+        "uuid": "cb4e920b_dc62ad40",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 8065
+      },
+      "writtenOn": "2016-09-12T06:50:26Z",
+      "side": 1,
+      "message": "I think you should either support +/-Inf or do not support infinities at all.",
+      "parentUuid": "abbcfece_8249e4b7",
+      "revId": "6c7fd3392e953ad11d77eb8b1e53f78cd6210d30",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb4e920b_5c577d56",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 8065
+      },
+      "writtenOn": "2016-09-12T06:50:26Z",
+      "side": 1,
+      "message": "Does Big support -0?",
+      "revId": "6c7fd3392e953ad11d77eb8b1e53f78cd6210d30",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "abbcfece_a23d001d",
         "filename": "decimal/decimal.go",
         "patchSetId": 5
@@ -64,6 +150,23 @@
       "writtenOn": "2016-09-10T17:58:56Z",
       "side": 1,
       "message": "This might need a comment or two. It\u0027s essentially this: https://golang.org/src/math/big/int.go?s\u003d7472:7505#L298",
+      "revId": "6c7fd3392e953ad11d77eb8b1e53f78cd6210d30",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb4e920b_9c6c2534",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 8065
+      },
+      "writtenOn": "2016-09-12T06:50:26Z",
+      "side": 1,
+      "message": "Does plain string use \",\" as a group separator?",
       "revId": "6c7fd3392e953ad11d77eb8b1e53f78cd6210d30",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
