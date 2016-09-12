@@ -90,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "abbcfece_f036d99c",
+        "filename": "decimal/const.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 7276
+      },
+      "writtenOn": "2016-09-12T22:04:27Z",
+      "side": 1,
+      "message": "Haha, all good questions! I\u0027ll probably go with the former simply because I can\u0027t allow internal access to Context and `a.SetContext(NewContext(prec, mode))\u0027 seems a bit clunky IMO.",
+      "parentUuid": "0bad0ab1_de5ba525",
+      "revId": "6c7fd3392e953ad11d77eb8b1e53f78cd6210d30",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb4e920b_5c969d4b",
         "filename": "decimal/const.go",
         "patchSetId": 5
@@ -327,6 +345,24 @@
       "writtenOn": "2016-09-12T21:28:13Z",
       "side": 1,
       "message": "I think having Prec and SetPrec mean different things is confusing.",
+      "revId": "6c7fd3392e953ad11d77eb8b1e53f78cd6210d30",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abbcfece_3004d1b8",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 500,
+      "author": {
+        "id": 7276
+      },
+      "writtenOn": "2016-09-12T22:04:27Z",
+      "side": 1,
+      "message": "Agreed.",
+      "parentUuid": "cb4e920b_7c93595a",
       "revId": "6c7fd3392e953ad11d77eb8b1e53f78cd6210d30",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
