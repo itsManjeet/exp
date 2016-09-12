@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "abbcfece_8872e309",
+        "filename": "decimal/const.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 7276
+      },
+      "writtenOn": "2016-09-12T07:04:55Z",
+      "side": 1,
+      "message": "Agreed.",
+      "parentUuid": "cb4e920b_bc71e108",
+      "revId": "6c7fd3392e953ad11d77eb8b1e53f78cd6210d30",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eba996a7_3ddbafe3",
         "filename": "decimal/const.go",
         "patchSetId": 5
@@ -30,6 +48,24 @@
       "writtenOn": "2016-09-12T06:50:26Z",
       "side": 1,
       "message": "I still think that the documentation saying \"Context is exported for this documentation but is not expected to be used itself\" is confusing given Big.Context and Big.SetContext methods.",
+      "revId": "6c7fd3392e953ad11d77eb8b1e53f78cd6210d30",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abbcfece_c853fb67",
+        "filename": "decimal/const.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 7276
+      },
+      "writtenOn": "2016-09-12T07:04:55Z",
+      "side": 1,
+      "message": "Do you have any suggestions on how I could reword it? I want to let the user know what Context does, but also that really the only use for Context is to use one of the pre-defined ContextXXs. (Well, that\u0027s not entirely true since it might make sense to write: `a.SetContext(c.Context())\u0027, but still...)",
+      "parentUuid": "eba996a7_3ddbafe3",
       "revId": "6c7fd3392e953ad11d77eb8b1e53f78cd6210d30",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -87,6 +123,24 @@
     },
     {
       "key": {
+        "uuid": "abbcfece_085ed370",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 7276
+      },
+      "writtenOn": "2016-09-12T07:04:55Z",
+      "side": 1,
+      "message": "Ah, yes. Good point.",
+      "parentUuid": "cb4e920b_7c54b950",
+      "revId": "6c7fd3392e953ad11d77eb8b1e53f78cd6210d30",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "abbcfece_8249e4b7",
         "filename": "decimal/decimal.go",
         "patchSetId": 5
@@ -122,6 +176,24 @@
     },
     {
       "key": {
+        "uuid": "abbcfece_e860b733",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 7276
+      },
+      "writtenOn": "2016-09-12T07:04:55Z",
+      "side": 1,
+      "message": "I would definitely lean towards supporting both positive and negative infinities, then. I think omitting infinity is a mistake, otherwise the only sane alternative is to panic if the bounds of the scale is exceeded.",
+      "parentUuid": "cb4e920b_dc62ad40",
+      "revId": "6c7fd3392e953ad11d77eb8b1e53f78cd6210d30",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb4e920b_5c577d56",
         "filename": "decimal/decimal.go",
         "patchSetId": 5
@@ -133,6 +205,24 @@
       "writtenOn": "2016-09-12T06:50:26Z",
       "side": 1,
       "message": "Does Big support -0?",
+      "revId": "6c7fd3392e953ad11d77eb8b1e53f78cd6210d30",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abbcfece_284aafad",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 7276
+      },
+      "writtenOn": "2016-09-12T07:04:55Z",
+      "side": 1,
+      "message": "I think this was covered elsewhere, but no, it does not. That\u0027s a particular quirk of floating point numbers that somehow snuck its way into this via documentation (but not in the code itself).",
+      "parentUuid": "cb4e920b_5c577d56",
       "revId": "6c7fd3392e953ad11d77eb8b1e53f78cd6210d30",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -167,6 +257,24 @@
       "writtenOn": "2016-09-12T06:50:26Z",
       "side": 1,
       "message": "Does plain string use \",\" as a group separator?",
+      "revId": "6c7fd3392e953ad11d77eb8b1e53f78cd6210d30",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abbcfece_484febbc",
+        "filename": "decimal/decimal.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 7276
+      },
+      "writtenOn": "2016-09-12T07:04:55Z",
+      "side": 1,
+      "message": "Good point. I must\u0027ve added them for clarity, but no, it does not. I\u0027ll omit them from the documentation.",
+      "parentUuid": "cb4e920b_9c6c2534",
       "revId": "6c7fd3392e953ad11d77eb8b1e53f78cd6210d30",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
