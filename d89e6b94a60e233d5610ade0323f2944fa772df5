@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "8b101ad0_ca82a36b",
+        "filename": "shiny/iconvg/doc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-09-12T09:34:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abbcfece_6d63d912",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 8
+      },
+      "revId": "d89e6b94a60e233d5610ade0323f2944fa772df5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "abbcfece_4d5e1d48",
         "filename": "shiny/iconvg/doc.go",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "8b101ad0_8a7cab78",
+        "filename": "shiny/iconvg/doc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-09-12T09:34:22Z",
+      "side": 1,
+      "message": "Yeah, floating point inaccuracies at large values. 1024 is not extreme. 10^32 is.",
+      "parentUuid": "abbcfece_4d5e1d48",
+      "range": {
+        "startLine": 29,
+        "startChar": 67,
+        "endLine": 30,
+        "endChar": 44
+      },
+      "revId": "d89e6b94a60e233d5610ade0323f2944fa772df5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "abbcfece_4d453d6a",
         "filename": "shiny/iconvg/doc.go",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2016-09-11T20:01:18Z",
       "side": 1,
       "message": "Consider indenting these non-english sections with a single tab, to create a code block.\n\nThat improves readability as a monospace font is used, and newlines/whitespace are preserved as is.\n\nOtherwise the whitespace is collapsed within paragraphs.",
+      "range": {
+        "startLine": 461,
+        "startChar": 0,
+        "endLine": 477,
+        "endChar": 12
+      },
+      "revId": "d89e6b94a60e233d5610ade0323f2944fa772df5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8b101ad0_aa776f93",
+        "filename": "shiny/iconvg/doc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-09-12T09:34:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abbcfece_4d453d6a",
       "range": {
         "startLine": 461,
         "startChar": 0,
