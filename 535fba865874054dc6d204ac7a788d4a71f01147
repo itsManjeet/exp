@@ -16,6 +16,24 @@
       "revId": "535fba865874054dc6d204ac7a788d4a71f01147",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "50efb36f_8013f66e",
+        "filename": "shiny/materialdesign/colornames/table.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-09-18T01:14:34Z",
+      "side": 1,
+      "message": "They\u0027re sorted by the order they appear in https://material.google.com/style/color.html",
+      "parentUuid": "90120b46_405602cf",
+      "revId": "535fba865874054dc6d204ac7a788d4a71f01147",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
