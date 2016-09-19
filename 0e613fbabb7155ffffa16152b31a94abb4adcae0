@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4b62a290_a8c99b6f",
+        "filename": "shiny/iconvg/buffer_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-09-19T16:53:33Z",
+      "side": 1,
+      "message": "Given you have both sides of the encodings in these tests, how about also testing the encode functions?",
+      "revId": "0e613fbabb7155ffffa16152b31a94abb4adcae0",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "90d3ebea_b2350032",
+        "filename": "shiny/iconvg/encode.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-09-19T16:53:33Z",
+      "side": 1,
+      "message": "What\u0027s the strategy for reusing a buffer for generating lots of icons? Compatible with this I can imagine a Reset method on the encoder, that takes an optional *Metadata.\n\nOtherwise this could take a []byte to use?",
+      "revId": "0e613fbabb7155ffffa16152b31a94abb4adcae0",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
