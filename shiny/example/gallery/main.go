@@ -22,6 +22,7 @@ import (
 	"golang.org/x/exp/shiny/screen"
 	"golang.org/x/exp/shiny/widget"
 	"golang.org/x/exp/shiny/widget/node"
+	"golang.org/x/exp/shiny/widget/theme"
 )
 
 var uniforms = [...]*image.Uniform{
@@ -66,12 +67,26 @@ func (w *custom) PaintBase(ctx *node.PaintBaseContext, origin image.Point) error
 	return nil
 }
 
+var (
+	green = theme.StaticColor(color.RGBA{G: 0xff, A: 0xff})
+	blue  = theme.StaticColor(color.RGBA{B: 0xff, A: 0xff})
+)
+
 func main() {
 	log.SetFlags(0)
 	driver.Main(func(s screen.Screen) {
 		// TODO: create a bunch of standard widgets: buttons, labels, etc.
-		w := widget.NewSheet(newCustom())
-		if err := widget.RunWindow(s, w, nil); err != nil {
+		w := newCustom()
+		g := widget.NewUniform(green, nil)
+		b := widget.NewUniform(blue, nil)
+		t1 := widget.NewUniform(green, nil)
+		tabs := widget.NewTabs(
+			widget.WithLayoutData(w, widget.TabsLayoutData{Label: "Main"}),
+			widget.WithLayoutData(g, widget.TabsLayoutData{Label: "Green, a very green green, with a multi-line label"}),
+			widget.WithLayoutData(b, widget.TabsLayoutData{Label: "Blue"}),
+			widget.WithLayoutData(t1, widget.TabsLayoutData{Label: "Another Green"}),
+		)
+		if err := widget.RunWindow(s, widget.NewSheet(tabs), nil); err != nil {
 			log.Fatal(err)
 		}
 	})
