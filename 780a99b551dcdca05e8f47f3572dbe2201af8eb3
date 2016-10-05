@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c26cb9ba_3310e8b3",
+        "filename": "shiny/iconvg/buffer.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-10-05T05:05:58Z",
+      "side": 1,
+      "message": "You\u0027re introducing return values on existing encode* functions, but not on the new encodeColor* functions you add here?",
+      "revId": "780a99b551dcdca05e8f47f3572dbe2201af8eb3",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c26cb9ba_530d6496",
+        "filename": "shiny/iconvg/color.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-10-05T05:05:58Z",
+      "side": 1,
+      "message": "No panic if you try to call RGBA() on a Color of the wrong ColorType?",
+      "revId": "780a99b551dcdca05e8f47f3572dbe2201af8eb3",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c26cb9ba_730a6081",
+        "filename": "shiny/iconvg/color.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-10-05T05:05:58Z",
+      "side": 1,
+      "message": "I\u0027m not really clear on why these are exported methods, I would have thought most uses outside the package could/should be via Resolve.",
+      "revId": "780a99b551dcdca05e8f47f3572dbe2201af8eb3",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c26cb9ba_13584c8b",
+        "filename": "shiny/iconvg/color.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-10-05T05:05:58Z",
+      "side": 1,
+      "message": "As you have bounds on these values, isn\u0027t it more efficient to convert into higher bits and then byte((25*r+5*g+b)/0x3f)?",
+      "revId": "780a99b551dcdca05e8f47f3572dbe2201af8eb3",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
