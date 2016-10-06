@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "ff6a38fa_f58878d4",
+        "filename": "shiny/iconvg/buffer.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-10-06T11:29:27Z",
+      "side": 1,
+      "message": "Yeah, the encoded size is needed for Encoder.SetNReg but not for Encoder.SetCReg. For colors, when you call e.g. buffer.encodeColor2, you know exactly how many bytes the encoded form takes: 2. For numbers, when you call e.g. buffer.encodeCoordinate, it might end up taking 1, 2 or 4 bytes on the wire.",
+      "parentUuid": "c26cb9ba_3310e8b3",
+      "revId": "780a99b551dcdca05e8f47f3572dbe2201af8eb3",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c26cb9ba_530d6496",
         "filename": "shiny/iconvg/color.go",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2016-10-05T05:05:58Z",
       "side": 1,
       "message": "No panic if you try to call RGBA() on a Color of the wrong ColorType?",
+      "revId": "780a99b551dcdca05e8f47f3572dbe2201af8eb3",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff6a38fa_35b2f09a",
+        "filename": "shiny/iconvg/color.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-10-06T11:29:27Z",
+      "side": 1,
+      "message": "No, I trust callers to check the ColorType first.",
+      "parentUuid": "c26cb9ba_530d6496",
       "revId": "780a99b551dcdca05e8f47f3572dbe2201af8eb3",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "ff6a38fa_d5857cba",
+        "filename": "shiny/iconvg/color.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-10-06T11:29:27Z",
+      "side": 1,
+      "message": "Yeah, I started with a notion that third parties could write their own encoders, but I suppose that we can start unexported and capitalize the names if necessary.\n\nDone.",
+      "parentUuid": "c26cb9ba_730a6081",
+      "revId": "780a99b551dcdca05e8f47f3572dbe2201af8eb3",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c26cb9ba_13584c8b",
         "filename": "shiny/iconvg/color.go",
         "patchSetId": 2
@@ -64,6 +118,24 @@
       "writtenOn": "2016-10-05T05:05:58Z",
       "side": 1,
       "message": "As you have bounds on these values, isn\u0027t it more efficient to convert into higher bits and then byte((25*r+5*g+b)/0x3f)?",
+      "revId": "780a99b551dcdca05e8f47f3572dbe2201af8eb3",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ff6a38fa_15b7f48a",
+        "filename": "shiny/iconvg/color.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-10-06T11:29:27Z",
+      "side": 1,
+      "message": "Happy to be proven wrong, but I don\u0027t think that works. Fractions of red or green, divided by 0x3f, would leak into the blue value.",
+      "parentUuid": "c26cb9ba_13584c8b",
       "revId": "780a99b551dcdca05e8f47f3572dbe2201af8eb3",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
