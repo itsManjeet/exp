@@ -9,6 +9,7 @@ package gldriver
 import (
 	"errors"
 	"fmt"
+	"os"
 	"runtime"
 	"syscall"
 	"unsafe"
@@ -221,13 +222,57 @@ func eglErr() error {
 	return nil
 }
 
+func getDisplayAttribList(platform string) ([]eglInt, error) {
+	switch platform {
+	case "":
+		return []eglInt{
+			_EGL_PLATFORM_ANGLE_TYPE_ANGLE,
+			_EGL_PLATFORM_ANGLE_TYPE_DEFAULT_ANGLE,
+			_EGL_PLATFORM_ANGLE_MAX_VERSION_MAJOR_ANGLE, _EGL_DONT_CARE,
+			_EGL_PLATFORM_ANGLE_MAX_VERSION_MINOR_ANGLE, _EGL_DONT_CARE,
+			_EGL_NONE,
+		}, nil
+	case "d3d11":
+		return []eglInt{
+			_EGL_PLATFORM_ANGLE_TYPE_ANGLE,
+			_EGL_PLATFORM_ANGLE_TYPE_D3D11_ANGLE,
+			_EGL_PLATFORM_ANGLE_MAX_VERSION_MAJOR_ANGLE, _EGL_DONT_CARE,
+			_EGL_PLATFORM_ANGLE_MAX_VERSION_MINOR_ANGLE, _EGL_DONT_CARE,
+			_EGL_NONE,
+		}, nil
+	case "d3d9":
+		return []eglInt{
+			_EGL_PLATFORM_ANGLE_TYPE_ANGLE,
+			_EGL_PLATFORM_ANGLE_TYPE_D3D9_ANGLE,
+			_EGL_PLATFORM_ANGLE_MAX_VERSION_MAJOR_ANGLE, _EGL_DONT_CARE,
+			_EGL_PLATFORM_ANGLE_MAX_VERSION_MINOR_ANGLE, _EGL_DONT_CARE,
+			_EGL_NONE,
+		}, nil
+	case "warp":
+		return []eglInt{
+			_EGL_PLATFORM_ANGLE_TYPE_ANGLE,
+			_EGL_PLATFORM_ANGLE_TYPE_D3D11_ANGLE,
+			_EGL_PLATFORM_ANGLE_DEVICE_TYPE_ANGLE,
+			_EGL_PLATFORM_ANGLE_DEVICE_TYPE_WARP_ANGLE,
+			_EGL_PLATFORM_ANGLE_MAX_VERSION_MAJOR_ANGLE, _EGL_DONT_CARE,
+			_EGL_PLATFORM_ANGLE_MAX_VERSION_MINOR_ANGLE, _EGL_DONT_CARE,
+			_EGL_NONE,
+		}, nil
+	}
+
+	return nil, errors.New("Unknown platform " + platform)
+}
+
+// ANGLE device type can be adjusted via GO_ANGLE_PLATFORM environment variable.
+// Accepted values are:
+//   d3d11 - Direct3D 11
+//   d3d9  - Direct3D 9
+//   warp  - Direct3D software rasterizer
+//           https://msdn.microsoft.com/en-us/library/windows/desktop/gg615082.aspx
 func createEGLSurface(hwnd syscall.Handle, w *windowImpl) error {
-	displayAttrib := [...]eglInt{
-		_EGL_PLATFORM_ANGLE_TYPE_ANGLE,
-		_EGL_PLATFORM_ANGLE_TYPE_DEFAULT_ANGLE,
-		_EGL_PLATFORM_ANGLE_MAX_VERSION_MAJOR_ANGLE, _EGL_DONT_CARE,
-		_EGL_PLATFORM_ANGLE_MAX_VERSION_MINOR_ANGLE, _EGL_DONT_CARE,
-		_EGL_NONE,
+	displayAttrib, err := getDisplayAttribList(os.Getenv("GO_ANGLE_PLATFORM"))
+	if err != nil {
+		return fmt.Errorf("getDisplayAttribList failed: %v", err)
 	}
 
 	dc, err := win32.GetDC(hwnd)
@@ -237,7 +282,7 @@ func createEGLSurface(hwnd syscall.Handle, w *windowImpl) error {
 	display, _, _ := eglGetPlatformDisplayEXT.Call(
 		_EGL_PLATFORM_ANGLE_ANGLE,
 		uintptr(dc),
-		uintptr(unsafe.Pointer(&displayAttrib)),
+		uintptr(unsafe.Pointer(&displayAttrib[0])),
 	)
 	if display == _EGL_NO_DISPLAY {
 		return fmt.Errorf("eglGetPlatformDisplayEXT failed: %v", eglErr())
