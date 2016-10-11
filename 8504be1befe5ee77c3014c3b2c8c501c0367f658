@@ -52,6 +52,24 @@
       "revId": "8504be1befe5ee77c3014c3b2c8c501c0367f658",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7f0f28e3_39a0afef",
+        "filename": "shiny/driver/gldriver/win32.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 6785
+      },
+      "writtenOn": "2016-10-11T10:14:34Z",
+      "side": 1,
+      "message": "\u003e So, I think, we could interpret that as \"try next display attribute setting\". I am not sure what order we should try them.\n\nWe can use order default, d3d11, d3d9, warp... but as said some of the issues may happen after initialization has succeeded.\n\n\u003e I just don\u0027t see how you are going to explain this environment variable to gomobile users. They want to build their iphone/android app, they do not want to waste their time trying to make their Windows \"emulator\" going.\n\nWell the \"emulator\" is mainly for convenience and by default on newer computers should work fine. And, yeah, I don\u0027t like the variable either...\n\nAnyways, I\u0027ll make it automatic and let\u0027s figure out something better when we run into issues with it.",
+      "parentUuid": "3c0dbe2c_f7acc08d",
+      "revId": "8504be1befe5ee77c3014c3b2c8c501c0367f658",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
