@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9fe13c43_22f18e59",
+        "filename": "shiny/driver/gldriver/win32.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2016-10-11T00:28:26Z",
+      "side": 1,
+      "message": "Why introduce new environment variable? You could try different displayAttrib combinations until you find the one that works. No?",
+      "revId": "8504be1befe5ee77c3014c3b2c8c501c0367f658",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
