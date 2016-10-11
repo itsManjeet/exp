@@ -16,6 +16,24 @@
       "revId": "8504be1befe5ee77c3014c3b2c8c501c0367f658",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1f1e2c18_7694f043",
+        "filename": "shiny/driver/gldriver/win32.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 6785
+      },
+      "writtenOn": "2016-10-11T06:13:39Z",
+      "side": 1,
+      "message": "There\u0027s a danger here that one of these can crash the program. But, sure we could initially go with the automatic approach and see how big of a problem crashing is in practice.",
+      "parentUuid": "9fe13c43_22f18e59",
+      "revId": "8504be1befe5ee77c3014c3b2c8c501c0367f658",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
