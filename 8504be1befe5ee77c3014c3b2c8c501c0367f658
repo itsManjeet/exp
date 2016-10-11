@@ -34,6 +34,24 @@
       "revId": "8504be1befe5ee77c3014c3b2c8c501c0367f658",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c0dbe2c_f7acc08d",
+        "filename": "shiny/driver/gldriver/win32.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2016-10-11T09:06:31Z",
+      "side": 1,
+      "message": "\u003e There\u0027s a danger here that one of these can crash the program. \n\nI tried them all (including not setting GO_ANGLE_PLATFORM environment variable), and only GO_ANGLE_PLATFORM\u003dwarp works for me. All others crash with:\n\npanic: eglInitialize failed: EGL_NOT_INITIALIZED\n\nSo, I think, we could interpret that as \"try next display attribute setting\". I am not sure what order we should try them.\n\n \u003e But,\n \u003e sure we could initially go with the automatic approach and see how\n \u003e big of a problem crashing is in practice.\n\nI just don\u0027t see how you are going to explain this environment variable to gomobile users. They want to build their iphone/android app, they do not want to waste their time trying to make their Windows \"emulator\" going.",
+      "parentUuid": "1f1e2c18_7694f043",
+      "revId": "8504be1befe5ee77c3014c3b2c8c501c0367f658",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
