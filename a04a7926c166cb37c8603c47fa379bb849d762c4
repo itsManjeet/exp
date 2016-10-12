@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fcac0670_8563e23a",
+        "filename": "shiny/materialdesign/icons/gen.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 5810
+      },
+      "writtenOn": "2016-10-12T07:38:30Z",
+      "side": 1,
+      "message": "maybe use a `flag.String` for this?\nand modify the \"go generate\" invocation line?",
+      "revId": "a04a7926c166cb37c8603c47fa379bb849d762c4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
