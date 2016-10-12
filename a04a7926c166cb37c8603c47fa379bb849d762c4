@@ -16,6 +16,40 @@
       "revId": "a04a7926c166cb37c8603c47fa379bb849d762c4",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c99da37_c12d6446",
+        "filename": "shiny/materialdesign/icons/gen.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-10-12T12:41:15Z",
+      "side": 1,
+      "message": "This is pretty gross. You\u0027re at the mercy of someone who owns material design running some xmlfmt-like program over the code.\n\n(For example, I\u0027d expect any decent fmt-like tool to reorder xmlns to come before other attributes, and any naive fmt-like tool to reorder attributes alphabetically.)\n\nI think this TODO is worth doing.",
+      "revId": "a04a7926c166cb37c8603c47fa379bb849d762c4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1c99da37_a130589d",
+        "filename": "shiny/materialdesign/icons/icons_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-10-12T12:41:15Z",
+      "side": 1,
+      "message": "A potentially useful variant of this is a test that checks iconvg.Decode does not return any error decoding the list onto an empty rasterizer. (This would catch breaking changes in the iconvg package.)",
+      "revId": "a04a7926c166cb37c8603c47fa379bb849d762c4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
