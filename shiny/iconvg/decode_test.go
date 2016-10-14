@@ -131,6 +131,7 @@ var testdataTestCases = []struct {
 	variants string
 }{
 	{"testdata/action-info", ""},
+	{"testdata/arcs", ""},
 	{"testdata/blank", ""},
 	{"testdata/lod-polygon", ";64"},
 	{"testdata/video-005.primitive", ""},
