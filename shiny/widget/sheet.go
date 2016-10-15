@@ -7,14 +7,37 @@ package widget
 import (
 	"image"
 	"image/draw"
+	"sync"
 
 	"golang.org/x/exp/shiny/screen"
 	"golang.org/x/exp/shiny/widget/node"
+	"golang.org/x/exp/shiny/widget/theme"
 	"golang.org/x/image/math/f64"
 	"golang.org/x/mobile/event/lifecycle"
+	"golang.org/x/mobile/event/mouse"
 )
 
-// TODO: scrolling.
+const (
+	tileLength = 256
+	tileMask   = tileLength - 1
+)
+
+// TODO: make this configurable? Theme DPI dependent? OS dependent?
+//
+// TODO: do things like a touchpad's synthetic 'wheel' events have richer delta
+// information we should use instead?
+const buttonWheelDelta = 16
+
+type tile struct {
+	buf  screen.Buffer
+	tex  screen.Texture
+	used bool
+}
+
+func (t *tile) release() {
+	t.buf.Release()
+	t.tex.Release()
+}
 
 // Sheet is a shell widget that provides *image.RGBA pixel buffers (analogous
 // to blank sheets of paper) for its descendent widgets to paint on, via their
@@ -29,13 +52,21 @@ import (
 // should not scroll the former.
 type Sheet struct {
 	node.ShellEmbed
-	buf screen.Buffer
-	tex screen.Texture
+
+	scroll      Axis
+	scrollStart image.Point // origin of scroll gesture
+	origin      image.Point // current sheet scroll offset
+	lastRect    image.Rectangle
+
+	m map[image.Point]*tile
 }
 
 // NewSheet returns a new Sheet widget.
-func NewSheet(inner node.Node) *Sheet {
-	w := &Sheet{}
+func NewSheet(scroll Axis, inner node.Node) *Sheet {
+	w := &Sheet{
+		scroll: scroll,
+		m:      make(map[image.Point]*tile),
+	}
 	w.Wrapper = w
 	if inner != nil {
 		w.Insert(inner, nil)
@@ -43,18 +74,44 @@ func NewSheet(inner node.Node) *Sheet {
 	return w
 }
 
-func (w *Sheet) release() {
-	if w.buf != nil {
-		w.buf.Release()
-		w.buf = nil
-	}
-	if w.tex != nil {
-		w.tex.Release()
-		w.tex = nil
+func (m *Sheet) Layout(t *theme.Theme) {
+	if c := m.FirstChild; c != nil {
+		c.Rect = m.Rect.Sub(m.Rect.Min)
+		if m.scroll.Horizontal() && c.MeasuredSize.X > c.Rect.Max.X {
+			c.Rect.Max.X = c.MeasuredSize.X
+		}
+		if m.scroll.Vertical() && c.MeasuredSize.Y > c.Rect.Max.Y {
+			c.Rect.Max.Y = c.MeasuredSize.Y
+		}
+		c.Wrapper.Layout(t)
 	}
 }
 
-func (w *Sheet) Paint(ctx *node.PaintContext, origin image.Point) (retErr error) {
+func (w *Sheet) release() {
+	for offset, t := range w.m {
+		t.release()
+		delete(w.m, offset)
+	}
+}
+
+func (w *Sheet) clampOrigin() {
+	c := w.FirstChild
+	if c == nil {
+		return
+	}
+	if w.origin.X < 0 {
+		w.origin.X = 0
+	} else if m := c.MeasuredSize.X - w.Rect.Dx(); w.origin.X > m {
+		w.origin.X = m
+	}
+	if w.origin.Y < 0 {
+		w.origin.Y = 0
+	} else if m := c.MeasuredSize.Y - w.Rect.Dy(); w.origin.Y > m {
+		w.origin.Y = m
+	}
+}
+
+func (w *Sheet) Paint(ctx *node.PaintContext, origin image.Point) (err error) {
 	w.Marks.UnmarkNeedsPaint()
 	c := w.FirstChild
 	if c == nil {
@@ -62,39 +119,110 @@ func (w *Sheet) Paint(ctx *node.PaintContext, origin image.Point) (retErr error)
 		return nil
 	}
 
-	fresh, size := false, w.Rect.Size()
-	if w.buf != nil && w.buf.Size() != size {
-		w.release()
-	}
-	if w.buf == nil {
-		w.buf, retErr = ctx.Screen.NewBuffer(size)
-		if retErr != nil {
-			w.release()
-			return retErr
+	// Pool to reuse sheet tiles.
+	// Catches the common case that the child needs repainting.
+	var tilePool []*tile
+	newTile := func() (*tile, error) {
+		if len(tilePool) > 0 {
+			t := tilePool[0]
+			tilePool = tilePool[1:]
+			return t, err
 		}
-		w.tex, retErr = ctx.Screen.NewTexture(size)
-		if retErr != nil {
-			w.release()
-			return retErr
+		buf, err := ctx.Screen.NewBuffer(image.Point{X: tileLength, Y: tileLength})
+		if err != nil {
+			return nil, err
 		}
-		fresh = true
-	}
-	if fresh || c.Marks.NeedsPaintBase() {
-		c.Wrapper.PaintBase(&node.PaintBaseContext{
-			Theme: ctx.Theme,
-			Dst:   w.buf.RGBA(),
-		}, image.Point{})
+		tex, err := ctx.Screen.NewTexture(image.Point{X: tileLength, Y: tileLength})
+		if err != nil {
+			return nil, err
+		}
+		return &tile{
+			buf: buf,
+			tex: tex,
+		}, nil
 	}
 
-	w.tex.Upload(image.Point{}, w.buf, w.buf.Bounds())
+	if c.Marks.NeedsPaintBase() || w.Rect != w.lastRect {
+		tilePool = make([]*tile, 0, len(w.m))
+		for p, t := range w.m {
+			tilePool = append(tilePool, t)
+			delete(w.m, p)
+		}
+	}
+	for _, t := range w.m {
+		t.used = false
+	}
+	w.lastRect = w.Rect
 
-	src2dst := ctx.Src2Dst
-	translate(&src2dst,
-		float64(origin.X+w.Rect.Min.X),
-		float64(origin.Y+w.Rect.Min.Y),
-	)
-	// TODO: should draw.Over be configurable?
-	ctx.Drawer.Draw(src2dst, w.tex, w.tex.Bounds(), draw.Over, nil)
+	var wg sync.WaitGroup
+	xMax := w.Rect.Max.X + w.origin.X
+	yMax := w.Rect.Max.Y + w.origin.Y
+	for y := w.origin.Y &^ tileMask; y < yMax; y += tileLength {
+		for x := w.origin.X &^ tileMask; x < xMax; x += tileLength {
+			offset := image.Point{
+				X: x,
+				Y: y,
+			}
+			t, found := w.m[offset]
+			if found {
+				t.used = true
+				continue
+			}
+
+			t, err = newTile()
+			if err != nil {
+				return err
+			}
+			w.m[offset] = t
+
+			c.Wrapper.PaintBase(&node.PaintBaseContext{
+				Theme: ctx.Theme,
+				Dst:   t.buf.RGBA(),
+			}, image.Point{X: -x, Y: -y})
+			t.used = true
+
+			wg.Add(1)
+			go func() {
+				// TODO: if we required PaintBase to be safe for
+				// concurrent calls, we could move it here.
+				t.tex.Upload(image.Point{}, t.buf, t.buf.Bounds())
+				wg.Done()
+			}()
+		}
+	}
+	for p, t := range w.m {
+		if !t.used {
+			t.release()
+			delete(w.m, p)
+		}
+	}
+	for _, t := range tilePool {
+		t.release()
+	}
+	wg.Wait()
+
+	for offset, t := range w.m {
+		src2dst := ctx.Src2Dst
+		b := t.tex.Bounds()
+		if offset.X < w.origin.X {
+			b.Min.X += w.origin.X - offset.X
+		}
+		if offset.Y < w.origin.Y {
+			b.Min.Y += w.origin.Y - offset.Y
+		}
+		if maxX := offset.X + tileLength; maxX > w.Rect.Max.X {
+			b.Max.X -= w.Rect.Max.X - maxX
+		}
+		if maxY := offset.Y + tileLength; maxY > w.Rect.Max.Y {
+			b.Max.Y -= w.Rect.Max.Y - maxY
+		}
+		translate(&src2dst,
+			float64(origin.X+w.Rect.Min.X+offset.X-w.origin.X),
+			float64(origin.Y+w.Rect.Min.Y+offset.Y-w.origin.Y),
+		)
+		// TODO: should draw.Over be configurable?
+		ctx.Drawer.Draw(src2dst, t.tex, b, draw.Over, nil)
+	}
 
 	return c.Wrapper.Paint(ctx, origin.Add(w.Rect.Min))
 }
@@ -124,4 +252,41 @@ func (w *Sheet) OnLifecycleEvent(e lifecycle.Event) {
 	if e.Crosses(lifecycle.StageVisible) == lifecycle.CrossOff {
 		w.release()
 	}
+}
+
+func (w *Sheet) OnInputEvent(e interface{}, origin image.Point) node.EventHandled {
+	if w.ShellEmbed.OnInputEvent(e, origin.Sub(w.origin)) == node.Handled {
+		return node.Handled
+	}
+	if w.scroll != AxisNone {
+		switch e := e.(type) {
+		// TODO: gesture.Event
+		case mouse.Event:
+			if !e.Button.IsWheel() {
+				break
+			}
+			switch e.Button {
+			case mouse.ButtonWheelUp:
+				if w.scroll&AxisVertical != 0 {
+					w.origin.Y -= buttonWheelDelta
+				}
+			case mouse.ButtonWheelDown:
+				if w.scroll&AxisVertical != 0 {
+					w.origin.Y += buttonWheelDelta
+				}
+			case mouse.ButtonWheelLeft:
+				if w.scroll&AxisHorizontal != 0 {
+					w.origin.X -= buttonWheelDelta
+				}
+			case mouse.ButtonWheelRight:
+				if w.scroll&AxisHorizontal != 0 {
+					w.origin.X += buttonWheelDelta
+				}
+			}
+			w.clampOrigin()
+			w.Mark(node.MarkNeedsPaint)
+			return node.Handled
+		}
+	}
+	return node.NotHandled
 }

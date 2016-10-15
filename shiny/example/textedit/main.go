@@ -53,10 +53,9 @@ func main() {
 		body := widget.NewText(prideAndPrejudice)
 
 		w := widget.NewFlow(widget.AxisVertical,
-			stretch(widget.NewSheet(header), 0),
-			stretch(widget.NewSheet(divider), 0),
-			// TODO: make the body's sheet scrollable.
-			stretch(widget.NewSheet(body), 1),
+			stretch(widget.NewSheet(widget.AxisNone, header), 0),
+			stretch(widget.NewSheet(widget.AxisNone, divider), 0),
+			stretch(widget.NewSheet(widget.AxisVertical, body), 1),
 		)
 
 		if err := widget.RunWindow(s, w, nil); err != nil {
