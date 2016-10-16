@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7c82d683_a1bd7ed3",
+        "filename": "shiny/widget/sheet.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 10961
+      },
+      "writtenOn": "2016-10-16T15:27:04Z",
+      "side": 1,
+      "message": "Is it cheaper to have the non-function-call test first?\n(I assume m can scroll H and V at the same time.)",
+      "revId": "b0dbcb156df5a85111294886306d03a610433ffd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7c82d683_81e07ae7",
+        "filename": "shiny/widget/sheet.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 10961
+      },
+      "writtenOn": "2016-10-16T15:27:04Z",
+      "side": 1,
+      "message": "If X has been set to 0 above, can it be larger than m here?",
+      "revId": "b0dbcb156df5a85111294886306d03a610433ffd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
