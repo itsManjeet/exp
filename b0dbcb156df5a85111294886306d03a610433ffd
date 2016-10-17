@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "dc5582ad_9848a5b7",
+        "filename": "shiny/widget/sheet.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-10-17T02:05:29Z",
+      "side": 1,
+      "message": "\u003e Is it cheaper to have the non-function-call test first?\n\nIt\u0027s a tiny function that will easily inline. I can\u0027t measure any difference. Moreover, all this code is once per layout, not even every frame drawing.\n\n \u003e (I assume m can scroll H and V at the same time.)\n\nYes.",
+      "parentUuid": "7c82d683_a1bd7ed3",
+      "revId": "b0dbcb156df5a85111294886306d03a610433ffd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7c82d683_81e07ae7",
         "filename": "shiny/widget/sheet.go",
         "patchSetId": 1
@@ -30,6 +48,41 @@
       "writtenOn": "2016-10-16T15:27:04Z",
       "side": 1,
       "message": "If X has been set to 0 above, can it be larger than m here?",
+      "revId": "b0dbcb156df5a85111294886306d03a610433ffd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc5582ad_7840498c",
+        "filename": "shiny/widget/sheet.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-10-17T02:05:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c82d683_81e07ae7",
+      "revId": "b0dbcb156df5a85111294886306d03a610433ffd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc5582ad_58430d9a",
+        "filename": "shiny/widget/sheet.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-10-17T02:05:29Z",
+      "side": 1,
+      "message": "This goroutine is a bit of a gimmick, and I\u0027ll remove it if it bothers you.\n\nParallel uploads thanks to multiple buffers is cute, but not the main point of this CL. What is: the stable choices of offset for tiles, so that a small scroll event does not require any new uploads (the \"if found\" fast path above). Minor scroll events require no copying to GPU memory.",
       "revId": "b0dbcb156df5a85111294886306d03a610433ffd",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
