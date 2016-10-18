@@ -104,10 +104,10 @@ func (e *Encoder) Reset(m Metadata) {
 	if mcViewBox {
 		e.altBuf = e.altBuf[:0]
 		e.altBuf.encodeNatural(midViewBox)
-		e.altBuf.encodeCoordinate(m.ViewBox.Min[0])
-		e.altBuf.encodeCoordinate(m.ViewBox.Min[1])
-		e.altBuf.encodeCoordinate(m.ViewBox.Max[0])
-		e.altBuf.encodeCoordinate(m.ViewBox.Max[1])
+		e.altBuf.encodeCoordinate(e.quantize(m.ViewBox.Min[0]))
+		e.altBuf.encodeCoordinate(e.quantize(m.ViewBox.Min[1]))
+		e.altBuf.encodeCoordinate(e.quantize(m.ViewBox.Max[0]))
+		e.altBuf.encodeCoordinate(e.quantize(m.ViewBox.Max[1]))
 
 		e.buf.encodeNatural(uint32(len(e.altBuf)))
 		e.buf = append(e.buf, e.altBuf...)
@@ -270,8 +270,8 @@ func (e *Encoder) StartPath(adj uint8, x, y float32) {
 	}
 	e.highResolutionCoordinates = e.HighResolutionCoordinates
 	e.buf = append(e.buf, uint8(0xc0+adj))
-	e.buf.encodeCoordinate(x)
-	e.buf.encodeCoordinate(y)
+	e.buf.encodeCoordinate(e.quantize(x))
+	e.buf.encodeCoordinate(e.quantize(y))
 	e.mode = modeDrawing
 }
 
