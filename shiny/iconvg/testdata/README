@@ -40,7 +40,7 @@ favicon.ivg is an IconVG version of that SVG file.
 
 favicon.ivg.disassembly is a disassembly of that IconVG file.
 
-favicon.png is a rendering of that IconVG file.
+favicon.png and favicon.pink.png are renderings of that IconVG file.
 
 
 
@@ -66,7 +66,7 @@ https://codereview.appspot.com/5758047/
 video-005.primitive.svg was based on running github.com/fogleman/primitive on a
 256x192 scaled version of video-005.jpeg.
 
-video-005.primitive.ivg is an IconVG version of video-005.primitive.svg.
+video-005.primitive.ivg is an IconVG version of that SVG file.
 
 video-005.primitive.ivg.disassembly is a disassembly of that IconVG file.
 
