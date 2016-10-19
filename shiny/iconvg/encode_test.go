@@ -324,6 +324,40 @@ func TestEncodeFavicon(t *testing.T) {
 	testEncode(t, &e, "testdata/favicon.ivg")
 }
 
+func TestEncodeGradient(t *testing.T) {
+	var e Encoder
+
+	e.SetLinearGradient(10, 10, -12, -24, +12, -8, GradientSpreadReflect, []GradientStop{
+		{Offset: 0.00, Color: color.RGBA{0xff, 0x00, 0x00, 0xff}},
+		{Offset: 0.25, Color: color.RGBA{0x00, 0xff, 0x00, 0xff}},
+		{Offset: 0.50, Color: color.RGBA{0x00, 0x00, 0xff, 0xff}},
+		{Offset: 1.00, Color: color.RGBA{0x00, 0x00, 0x00, 0xff}},
+	})
+
+	e.StartPath(0, -24, -24)
+	e.AbsHLineTo(+24)
+	e.AbsVLineTo(-8)
+	e.AbsHLineTo(-24)
+	e.ClosePathEndPath()
+
+	e.SetCSel(1)
+	e.SetRadialGradient(20, 20, -8, 16, 16, GradientSpreadRepeat, []GradientStop{
+		{Offset: 0.00, Color: color.RGBA{0x00, 0xff, 0xff, 0xff}},
+		{Offset: 0.25, Color: color.RGBA{0xff, 0xff, 0xff, 0xff}},
+		{Offset: 0.50, Color: color.RGBA{0xff, 0x00, 0xff, 0xff}},
+		{Offset: 0.75, Color: color.RGBA{0x00, 0x00, 0x00, 0x00}},
+		{Offset: 1.00, Color: color.RGBA{0xff, 0xff, 0x00, 0xff}},
+	})
+
+	e.StartPath(0, -24, +24)
+	e.AbsHLineTo(+24)
+	e.AbsVLineTo(+8)
+	e.AbsHLineTo(-24)
+	e.ClosePathEndPath()
+
+	testEncode(t, &e, "testdata/gradient.ivg")
+}
+
 var video005PrimitiveSVGData = []struct {
 	r, g, b uint32
 	x0, y0  int
