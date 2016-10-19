@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dcdd835f_cb4ab572",
+        "filename": "shiny/iconvg/internal/gradient/gradient.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 10961
+      },
+      "writtenOn": "2016-10-19T14:09:03Z",
+      "side": 1,
+      "message": "else not wanted after return.  Ditto below.",
+      "revId": "b63b2ab36ce4396b7f96493e2da261427c145b3d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
