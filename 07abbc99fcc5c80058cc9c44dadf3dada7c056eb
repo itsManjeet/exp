@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1cc71b67_354bf077",
+        "filename": "shiny/widget/sheet.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-10-19T13:07:21Z",
+      "side": 1,
+      "message": "Huh, I would have thought that you\u0027d want to keep the pool across Paint calls. Otherwise, I suspect that you\u0027ll flap between N and N+1 tiles (or e.g. N and N+width/256) as you scroll, for some value of N, and will malloc and free.",
+      "revId": "07abbc99fcc5c80058cc9c44dadf3dada7c056eb",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cc71b67_55406c4f",
+        "filename": "shiny/widget/sheet.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-10-19T13:07:21Z",
+      "side": 1,
+      "message": "I\u0027d make it LIFO instead of FIFO, especially if the pool has a longer lifetime and you\u0027ll be continually appending to and popping from it.",
+      "revId": "07abbc99fcc5c80058cc9c44dadf3dada7c056eb",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cc71b67_d5539c28",
+        "filename": "shiny/widget/sheet.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-10-19T13:07:21Z",
+      "side": 1,
+      "message": "If the sheet\u0027s scroll is only AxisVertical, and its width is 800 px, then I think that you want the buffers to also have width 800 instead of width 256. There\u0027s fewer off-cuts that way.\n\nI suppose that we can leave that as a TODO for now.",
+      "revId": "07abbc99fcc5c80058cc9c44dadf3dada7c056eb",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cc71b67_7545685e",
+        "filename": "shiny/widget/sheet.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-10-19T13:07:21Z",
+      "side": 1,
+      "message": "Add a\nbuf.Release()\nabove this.",
+      "revId": "07abbc99fcc5c80058cc9c44dadf3dada7c056eb",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cc71b67_f550981e",
+        "filename": "shiny/widget/sheet.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-10-19T13:07:21Z",
+      "side": 1,
+      "message": "I\u0027d add\noldOrigin :\u003d w.origin\nafter this line.",
+      "revId": "07abbc99fcc5c80058cc9c44dadf3dada7c056eb",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cc71b67_b556201a",
+        "filename": "shiny/widget/sheet.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-10-19T13:07:21Z",
+      "side": 1,
+      "message": "Adding a\nif w.origin !\u003d oldOrigin { ... }\naround this will save you same unnecessary paints, e.g. when you\u0027re scrolling up but are already at the top of the sheet.",
+      "revId": "07abbc99fcc5c80058cc9c44dadf3dada7c056eb",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
