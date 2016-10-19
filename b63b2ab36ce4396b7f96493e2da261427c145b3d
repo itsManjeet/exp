@@ -2,6 +2,23 @@
   "comments": [
     {
       "key": {
+        "uuid": "5c2353ec_ea6a47c8",
+        "filename": "shiny/iconvg/iconvg.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-10-19T19:56:39Z",
+      "side": 1,
+      "message": "This mode appears to be untested in this CL?",
+      "revId": "b63b2ab36ce4396b7f96493e2da261427c145b3d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcdd835f_cb4ab572",
         "filename": "shiny/iconvg/internal/gradient/gradient.go",
         "patchSetId": 1
@@ -13,6 +30,40 @@
       "writtenOn": "2016-10-19T14:09:03Z",
       "side": 1,
       "message": "else not wanted after return.  Ditto below.",
+      "revId": "b63b2ab36ce4396b7f96493e2da261427c145b3d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ca6f3c4_03d6be51",
+        "filename": "shiny/iconvg/internal/gradient/gradient.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-10-19T19:56:39Z",
+      "side": 1,
+      "message": "Question about one of your TODOs above: will this be enough to support non-linear gradients?",
+      "revId": "b63b2ab36ce4396b7f96493e2da261427c145b3d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ca6f3c4_43a7e6f5",
+        "filename": "shiny/iconvg/internal/gradient/gradient.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-10-19T19:56:39Z",
+      "side": 1,
+      "message": "Move this documentation to the Pix2Grad type definition?",
       "revId": "b63b2ab36ce4396b7f96493e2da261427c145b3d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
