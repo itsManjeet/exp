@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "dc52e3c5_e3ab3229",
+        "filename": "shiny/iconvg/iconvg.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-10-20T10:15:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c2353ec_ea6a47c8",
+      "revId": "b63b2ab36ce4396b7f96493e2da261427c145b3d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dcdd835f_cb4ab572",
         "filename": "shiny/iconvg/internal/gradient/gradient.go",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2016-10-19T14:09:03Z",
       "side": 1,
       "message": "else not wanted after return.  Ditto below.",
+      "revId": "b63b2ab36ce4396b7f96493e2da261427c145b3d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc52e3c5_232b8ade",
+        "filename": "shiny/iconvg/internal/gradient/gradient.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-10-20T10:15:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dcdd835f_cb4ab572",
       "revId": "b63b2ab36ce4396b7f96493e2da261427c145b3d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "dc52e3c5_c3a63662",
+        "filename": "shiny/iconvg/internal/gradient/gradient.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-10-20T10:15:06Z",
+      "side": 1,
+      "message": "Not sure what you mean by non-linear, but it should support elliptical gradients.\n\nIf you mean non-linear color interpolation then no, that\u0027s something different. (Related is golang.org/issue/11420)",
+      "parentUuid": "5ca6f3c4_03d6be51",
+      "revId": "b63b2ab36ce4396b7f96493e2da261427c145b3d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5ca6f3c4_43a7e6f5",
         "filename": "shiny/iconvg/internal/gradient/gradient.go",
         "patchSetId": 1
@@ -64,6 +118,24 @@
       "writtenOn": "2016-10-19T19:56:39Z",
       "side": 1,
       "message": "Move this documentation to the Pix2Grad type definition?",
+      "revId": "b63b2ab36ce4396b7f96493e2da261427c145b3d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc52e3c5_83b03e97",
+        "filename": "shiny/iconvg/internal/gradient/gradient.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2016-10-20T10:15:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ca6f3c4_43a7e6f5",
       "revId": "b63b2ab36ce4396b7f96493e2da261427c145b3d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
