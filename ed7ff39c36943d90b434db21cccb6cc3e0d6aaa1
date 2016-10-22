@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dcf74308_fa92a0a0",
+        "filename": "shiny/iconvg/internal/gradient/gradient.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 5030
+      },
+      "writtenOn": "2016-10-22T15:28:21Z",
+      "side": 1,
+      "message": "You could ditch the affine matrix in the type and have three Gradient structures for each type, leaving the calculation up to the code that processes the gradient.",
+      "revId": "ed7ff39c36943d90b434db21cccb6cc3e0d6aaa1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
