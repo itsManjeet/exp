@@ -16,6 +16,24 @@
       "revId": "1f05e9045dd13659e3cd34f4443633783e7f4cde",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dc52e3c5_c34b9626",
+        "filename": "shiny/driver/gldriver/cocoa.m",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 7380
+      },
+      "writtenOn": "2016-10-23T07:08:22Z",
+      "side": 1,
+      "message": "Maybe we should use __MAC_OS_X_VERSION_MAX_ALLOWED to do that. I post a new CL https://go-review.googlesource.com/#/c/31546/ .\n\nCould you help me test it on OSX 10.11 or any old version than macOS sierra.",
+      "parentUuid": "dcf74308_3d57e218",
+      "revId": "1f05e9045dd13659e3cd34f4443633783e7f4cde",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
