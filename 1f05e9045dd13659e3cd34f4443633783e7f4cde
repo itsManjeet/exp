@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dcf74308_3d57e218",
+        "filename": "shiny/driver/gldriver/cocoa.m",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2016-10-23T04:29:53Z",
+      "side": 1,
+      "message": "This does not look correct me, because I think any non-zero number (including negative) qualifies as truth-y.\n\nDid you perhaps mean to write this?\n\n    #define IS_MAC_SIERRA_OR_LATER ((NSAppKitVersionNumber - NSAppKitVersionNumber10_11) \u003e 0)\n\nOr this?\n\n    #define IS_MAC_SIERRA_OR_LATER (NSAppKitVersionNumber \u003e NSAppKitVersionNumber10_11)\n\nReference: Runtime Version Check section of https://developer.apple.com/library/content/releasenotes/AppKit/RN-AppKit/.",
+      "revId": "1f05e9045dd13659e3cd34f4443633783e7f4cde",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
