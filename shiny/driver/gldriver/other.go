@@ -15,6 +15,8 @@ import (
 	"golang.org/x/exp/shiny/screen"
 )
 
+type windowImpl struct{}
+
 func newWindow(opts *screen.NewWindowOptions) (uintptr, error) { return 0, nil }
 
 func showWindow(id *windowImpl) {}
