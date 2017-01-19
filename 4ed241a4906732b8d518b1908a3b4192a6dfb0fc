@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c836a60f_216bce5a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2017-01-19T05:11:38Z",
+      "side": 1,
+      "message": "s|x/exp/shiny: windriver|shiny/driver/internal/win32|\n\nWe are using golang.org/x/exp here already, so no need for x/exp prefix.\n\nAlso use full directory path.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 22
+      },
+      "revId": "4ed241a4906732b8d518b1908a3b4192a6dfb0fc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c836a60f_8170da47",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2017-01-19T05:11:38Z",
+      "side": 1,
+      "message": "s/Windows mouse/Mouse/\n\nTo be clear that it is Windows (not some part of Go) that send the event.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 5
+      },
+      "revId": "4ed241a4906732b8d518b1908a3b4192a6dfb0fc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c836a60f_6175d635",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2017-01-19T05:11:38Z",
+      "side": 1,
+      "message": "s/syscall_windows/syscall_windows.go/",
+      "revId": "4ed241a4906732b8d518b1908a3b4192a6dfb0fc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c836a60f_0184caf7",
+        "filename": "shiny/driver/internal/win32/win32.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2017-01-19T05:11:38Z",
+      "side": 1,
+      "message": "Need small comment explaining why ScreenToClient is called here.",
+      "revId": "4ed241a4906732b8d518b1908a3b4192a6dfb0fc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c836a60f_e180c6e5",
+        "filename": "shiny/driver/internal/win32/win32.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2017-01-19T05:11:38Z",
+      "side": 1,
+      "message": "I wonder if you should check the error returned from ScreenToClient. Probably not. I do not write GUI at all. What would you do in C?",
+      "revId": "4ed241a4906732b8d518b1908a3b4192a6dfb0fc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
