@@ -170,7 +170,7 @@ func paintEvent(hwnd syscall.Handle, e paint.Event) {
 		return
 	}
 
-	w.Send(paint.Event{})
+	w.Send(paint.Event{External: true})
 }
 
 func sizeEvent(hwnd syscall.Handle, e size.Event) {
@@ -210,7 +210,7 @@ func sizeEvent(hwnd syscall.Handle, e size.Event) {
 		w.glctx.Clear(gl.COLOR_BUFFER_BIT)
 		w.glctxMu.Unlock()
 
-		w.Send(paint.Event{})
+		w.Send(paint.Event{External: true})
 	}()
 }
 
