@@ -75,7 +75,8 @@ type Screen interface {
 
 	// NewWindow returns a new Window for this screen.
 	//
-	// A nil opts is valid and means to use the default option values.
+	// A nil opts is valid and means to use the default option values,
+	// identical to the zero value of NewWindowOptions.
 	NewWindow(opts *NewWindowOptions) (Window, error)
 }
 
@@ -226,13 +227,17 @@ type PublishResult struct {
 }
 
 // NewWindowOptions are optional arguments to NewWindow.
+// When not given, the default is to use the zero values.
 type NewWindowOptions struct {
 	// Width and Height specify the dimensions of the new window. If Width
 	// or Height are zero, a driver-dependent default will be used for each
 	// zero value dimension.
 	Width, Height int
 
-	// TODO: fullscreen, title, icon, cursorHidden?
+	// Title specifies a window title.
+	Title string
+
+	// TODO: fullscreen, icon, cursorHidden?
 }
 
 // Uploader is something you can upload a Buffer to.
