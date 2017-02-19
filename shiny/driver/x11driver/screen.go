@@ -36,6 +36,7 @@ type screenImpl struct {
 	atomWMDeleteWindow xproto.Atom
 	atomWMProtocols    xproto.Atom
 	atomWMTakeFocus    xproto.Atom
+	atomUTF8String     xproto.Atom
 
 	pixelsPerPt  float32
 	pictformat24 render.Pictformat
@@ -421,6 +422,13 @@ func (s *screenImpl) NewWindow(opts *screen.NewWindowOptions) (screen.Window, er
 		},
 	)
 	s.setProperty(xw, s.atomWMProtocols, s.atomWMDeleteWindow, s.atomWMTakeFocus)
+
+	var title []byte
+	if opts != nil {
+		title = []byte(opts.Title)
+	}
+	xproto.ChangeProperty(s.xc, xproto.PropModeReplace, xw, xproto.AtomWmName, s.atomUTF8String, 8, uint32(len(title)), title)
+
 	xproto.CreateGC(s.xc, xg, xproto.Drawable(xw), 0, nil)
 	render.CreatePicture(s.xc, xp, xproto.Drawable(xw), pictformat, 0, nil)
 	xproto.MapWindow(s.xc, xw)
@@ -438,6 +446,10 @@ func (s *screenImpl) initAtoms() (err error) {
 		return err
 	}
 	s.atomWMTakeFocus, err = s.internAtom("WM_TAKE_FOCUS")
+	if err != nil {
+		return err
+	}
+	s.atomUTF8String, err = s.internAtom("UTF8_STRING")
 	if err != nil {
 		return err
 	}
