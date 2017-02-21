@@ -118,7 +118,7 @@ startDriver() {
 	}
 
 	static const EGLint ctx_attribs[] = {
-		EGL_CONTEXT_CLIENT_VERSION, 3,
+		EGL_CONTEXT_CLIENT_VERSION, 2,
 		EGL_NONE
 	};
 	e_ctx = eglCreateContext(e_dpy, e_config, EGL_NO_CONTEXT, ctx_attribs);
@@ -272,7 +272,7 @@ doShowWindow(uintptr_t id) {
 uintptr_t
 surfaceCreate() {
 	static const EGLint ctx_attribs[] = {
-		EGL_CONTEXT_CLIENT_VERSION, 3,
+		EGL_CONTEXT_CLIENT_VERSION, 2,
 		EGL_NONE
 	};
 	EGLContext ctx = eglCreateContext(e_dpy, e_config, EGL_NO_CONTEXT, ctx_attribs);
