@@ -16,6 +16,24 @@
       "revId": "eecd3a71e7e66eef6e886e121fc68a2b09551a7c",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9df42d0f_108727a8",
+        "filename": "shiny/driver/internal/win32/win32.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 17319
+      },
+      "writtenOn": "2017-02-21T11:04:02Z",
+      "side": 1,
+      "message": "The empty title as zero value is indeed intentional. Before, window titles were driver-specific: empty, process name, \"App\" and \"Shiny Window\".\nI therefore tried to establish a useful, consistent behaviour when the newWindow is passed the zero value - an empty title seemed most appropriate.\n\nYou are certainly right about the documentation part. I will push a new patch set with an amended comment.",
+      "parentUuid": "4ac089ca_3b6603ac",
+      "revId": "eecd3a71e7e66eef6e886e121fc68a2b09551a7c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
