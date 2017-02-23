@@ -1,0 +1,129 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bfe4b96a_ddbfa51b",
+        "filename": "shiny/driver/gldriver/x11.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2017-02-23T09:46:41Z",
+      "side": 1,
+      "message": "Please sort this group.",
+      "revId": "ea0f9f20d5d9fcd80d6f52c5fac20b7975b4b83c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7e7a7827_d6592836",
+        "filename": "shiny/driver/gldriver/x11.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2017-02-23T09:46:41Z",
+      "side": 1,
+      "message": "Ditto.",
+      "revId": "ea0f9f20d5d9fcd80d6f52c5fac20b7975b4b83c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "019579bf_7f31c815",
+        "filename": "shiny/driver/x11driver/screen.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2017-02-23T09:46:41Z",
+      "side": 1,
+      "message": "Ditto.",
+      "range": {
+        "startLine": 39,
+        "startChar": 1,
+        "endLine": 39,
+        "endChar": 15
+      },
+      "revId": "ea0f9f20d5d9fcd80d6f52c5fac20b7975b4b83c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cc34afe6_4a4550e6",
+        "filename": "shiny/driver/x11driver/screen.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2017-02-23T09:46:41Z",
+      "side": 1,
+      "message": "Ditto.",
+      "revId": "ea0f9f20d5d9fcd80d6f52c5fac20b7975b4b83c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a733664b_624d783d",
+        "filename": "shiny/screen/screen.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2017-02-23T09:46:41Z",
+      "side": 1,
+      "message": "I know Alex asked you otherwise, but I\u0027d drop this change.",
+      "revId": "ea0f9f20d5d9fcd80d6f52c5fac20b7975b4b83c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ea063b03_a0bd3157",
+        "filename": "shiny/screen/screen.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2017-02-23T09:46:41Z",
+      "side": 1,
+      "message": "I know Alex asked you otherwise, but I\u0027d drop this change.",
+      "revId": "ea0f9f20d5d9fcd80d6f52c5fac20b7975b4b83c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "20c5a945_949cb1a6",
+        "filename": "shiny/screen/screen.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2017-02-23T09:46:41Z",
+      "side": 1,
+      "message": "s/a/the/",
+      "revId": "ea0f9f20d5d9fcd80d6f52c5fac20b7975b4b83c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
