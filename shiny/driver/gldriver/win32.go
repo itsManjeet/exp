@@ -170,7 +170,7 @@ func paintEvent(hwnd syscall.Handle, e paint.Event) {
 		return
 	}
 
-	w.Send(paint.Event{})
+	w.Send(paint.Event{External: true})
 }
 
 func sizeEvent(hwnd syscall.Handle, e size.Event) {
@@ -187,31 +187,7 @@ func sizeEvent(hwnd syscall.Handle, e size.Event) {
 		go drawLoop(w)
 	}
 
-	w.szMu.Lock()
-	w.sz = e
-	w.szMu.Unlock()
-
 	w.Send(e)
-
-	// Screen is dirty, generate a paint event.
-	//
-	// The sizeEvent function is called on the goroutine responsible for
-	// calling the GL worker.DoWork. When compiling with -tags gldebug,
-	// these GL calls are blocking (so we can read the error message), so
-	// to make progress they need to happen on another goroutine.
-	go func() {
-		// TODO: this call to Viewport is not right, but is very hard to
-		// do correctly with our async events channel model. We want
-		// the call to Viewport to be made the instant before the
-		// paint.Event is received.
-		w.glctxMu.Lock()
-		w.glctx.Viewport(0, 0, e.WidthPx, e.HeightPx)
-		w.glctx.ClearColor(0, 0, 0, 1)
-		w.glctx.Clear(gl.COLOR_BUFFER_BIT)
-		w.glctxMu.Unlock()
-
-		w.Send(paint.Event{})
-	}()
 }
 
 func eglErr() error {

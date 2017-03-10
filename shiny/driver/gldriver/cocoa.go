@@ -185,19 +185,13 @@ func setGeom(id uintptr, ppp float32, widthPx, heightPx int) {
 		return // closing window
 	}
 
-	sz := size.Event{
+	w.Send(size.Event{
 		WidthPx:     widthPx,
 		HeightPx:    heightPx,
 		WidthPt:     geom.Pt(float32(widthPx) / ppp),
 		HeightPt:    geom.Pt(float32(heightPx) / ppp),
 		PixelsPerPt: ppp,
-	}
-
-	w.szMu.Lock()
-	w.sz = sz
-	w.szMu.Unlock()
-
-	w.Send(sz)
+	})
 }
 
 //export windowClosing
