@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d8891165_06a2bfdb",
+        "filename": "shiny/driver/internal/win32/win32.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2017-04-01T02:09:56Z",
+      "side": 1,
+      "message": "You could roll this into the next if:\n\nif opts \u003d\u003d nil || opts.Width \u003c\u003d 0 || etc {",
+      "revId": "a98744b445c4762f036357117adb9fd6bbf72f8c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae6a1d65_80498af6",
+        "filename": "shiny/driver/internal/win32/win32.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2017-04-01T02:09:56Z",
+      "side": 1,
+      "message": "Is cr.Left and cr.Top guaranteed to be zero?",
+      "revId": "a98744b445c4762f036357117adb9fd6bbf72f8c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
