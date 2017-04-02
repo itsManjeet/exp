@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "26eef823_12abdbf3",
+        "filename": "shiny/driver/internal/win32/win32.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2017-04-02T07:31:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8891165_06a2bfdb",
+      "revId": "a98744b445c4762f036357117adb9fd6bbf72f8c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ae6a1d65_80498af6",
         "filename": "shiny/driver/internal/win32/win32.go",
         "patchSetId": 1
@@ -30,6 +48,24 @@
       "writtenOn": "2017-04-01T02:09:56Z",
       "side": 1,
       "message": "Is cr.Left and cr.Top guaranteed to be zero?",
+      "revId": "a98744b445c4762f036357117adb9fd6bbf72f8c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c0ecdc01_2c880362",
+        "filename": "shiny/driver/internal/win32/win32.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2017-04-02T07:31:13Z",
+      "side": 1,
+      "message": "Yes. From https://msdn.microsoft.com/en-us/library/windows/desktop/ms633503(v\u003dvs.85).aspx\n```\nBecause client coordinates are relative to the upper-left corner of a window\u0027s client area, the coordinates of the upper-left corner are (0,0).\n```",
+      "parentUuid": "ae6a1d65_80498af6",
       "revId": "a98744b445c4762f036357117adb9fd6bbf72f8c",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
