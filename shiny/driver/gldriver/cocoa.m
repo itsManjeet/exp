@@ -266,7 +266,6 @@ uintptr_t doNewWindow(int width, int height) {
 			NSOpenGLPFAColorSize,     24,
 			NSOpenGLPFAAlphaSize,     8,
 			NSOpenGLPFADepthSize,     16,
-			NSOpenGLPFAAccelerated,
 			NSOpenGLPFADoubleBuffer,
 			NSOpenGLPFAAllowOfflineRenderers,
 			0
