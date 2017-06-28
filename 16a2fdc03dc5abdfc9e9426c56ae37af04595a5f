@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "83637e04_b91b7775",
+        "filename": "rand/example_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2017-06-28T01:36:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4dc1956b_7afed9ab",
+      "range": {
+        "startLine": 76,
+        "startChar": 1,
+        "endLine": 76,
+        "endChar": 5
+      },
+      "revId": "16a2fdc03dc5abdfc9e9426c56ae37af04595a5f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5bc96b78_d90af7a3",
         "filename": "rand/exp.go",
         "patchSetId": 2
@@ -94,6 +118,30 @@
     },
     {
       "key": {
+        "uuid": "ad49f333_7ad58a60",
+        "filename": "rand/modulo_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2017-06-28T01:36:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8dc2ad55_1bec5c08",
+      "range": {
+        "startLine": 5,
+        "startChar": 47,
+        "endLine": 5,
+        "endChar": 53
+      },
+      "revId": "16a2fdc03dc5abdfc9e9426c56ae37af04595a5f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8dc2ad55_9b194cb1",
         "filename": "rand/modulo_test.go",
         "patchSetId": 2
@@ -105,6 +153,30 @@
       "writtenOn": "2015-05-16T03:11:46Z",
       "side": 1,
       "message": "I think switching these variable names around makes more sense:\n\nvar src modSource\nrng :\u003d New(\u0026src)",
+      "range": {
+        "startLine": 39,
+        "startChar": 1,
+        "endLine": 39,
+        "endChar": 4
+      },
+      "revId": "16a2fdc03dc5abdfc9e9426c56ae37af04595a5f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a8a7de25_4e096f88",
+        "filename": "rand/modulo_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2017-06-28T01:36:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8dc2ad55_9b194cb1",
       "range": {
         "startLine": 39,
         "startChar": 1,
@@ -209,6 +281,30 @@
     },
     {
       "key": {
+        "uuid": "748c3f59_4692a28d",
+        "filename": "rand/rand.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2017-06-28T01:36:50Z",
+      "side": 1,
+      "message": "i went with \u0027ceiling\u0027, although honestly max doesn\u0027t bother me. the comment explains what\u0027s going on",
+      "parentUuid": "4dc1956b_ba135191",
+      "range": {
+        "startLine": 76,
+        "startChar": 2,
+        "endLine": 76,
+        "endChar": 5
+      },
+      "revId": "16a2fdc03dc5abdfc9e9426c56ae37af04595a5f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8dc2ad55_bb58c85a",
         "filename": "rand/rand.go",
         "patchSetId": 2
@@ -289,6 +385,30 @@
       "writtenOn": "2015-05-16T16:23:12Z",
       "side": 1,
       "message": "Perhaps relax this comment while the code is in exp?",
+      "range": {
+        "startLine": 8,
+        "startChar": 6,
+        "endLine": 8,
+        "endChar": 9
+      },
+      "revId": "16a2fdc03dc5abdfc9e9426c56ae37af04595a5f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "517b5e27_22360703",
+        "filename": "rand/regress_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2017-06-28T01:36:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4dc1956b_9a188dac",
       "range": {
         "startLine": 8,
         "startChar": 6,
