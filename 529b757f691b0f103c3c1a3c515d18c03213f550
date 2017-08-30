@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "106d7ec4_76270914",
+        "filename": "rand/modulo_test.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2017-08-30T13:35:28Z",
+      "side": 1,
+      "message": "2017",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "529b757f691b0f103c3c1a3c515d18c03213f550",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aeae1b2f_1db8258c",
+        "filename": "rand/rand.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2017-08-30T13:35:28Z",
+      "side": 1,
+      "message": "Issue #21393 asks for a concurrency-safe Source.  As long as we are rejiggering things, should we export lockedSource?",
+      "revId": "529b757f691b0f103c3c1a3c515d18c03213f550",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
