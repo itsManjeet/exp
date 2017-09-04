@@ -34,6 +34,24 @@
       "revId": "1f324b6b2dcc90f2fb09a94cac109ba3495d39c9",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4db7edbb_5ef93c0d",
+        "filename": "rand/rand.go",
+        "patchSetId": 10
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 7435
+      },
+      "writtenOn": "2017-09-04T11:20:19Z",
+      "side": 1,
+      "message": "Method Float64 starts with\n\nreturn float64(r.Uint64n(1\u003c\u003c53)) / (1 \u003c\u003c 53)\n\non line 142. It seems to me the rest of Float64 is unreachable. Oddly, go vet doesn\u0027t complain.",
+      "parentUuid": "464e03c3_4e30b27a",
+      "revId": "1f324b6b2dcc90f2fb09a94cac109ba3495d39c9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
     }
   ]
 }
