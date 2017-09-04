@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "90a96a1d_9f397140",
+        "filename": "rand/rand.go",
+        "patchSetId": 10
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 7435
+      },
+      "writtenOn": "2017-09-04T08:17:30Z",
+      "side": 1,
+      "message": "Is this section intentionally unreachable?",
+      "revId": "1f324b6b2dcc90f2fb09a94cac109ba3495d39c9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
