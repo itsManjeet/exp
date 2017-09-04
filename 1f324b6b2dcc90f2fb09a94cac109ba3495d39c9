@@ -16,6 +16,24 @@
       "revId": "1f324b6b2dcc90f2fb09a94cac109ba3495d39c9",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "464e03c3_4e30b27a",
+        "filename": "rand/rand.go",
+        "patchSetId": 10
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2017-09-04T09:29:57Z",
+      "side": 1,
+      "message": "I don\u0027t know what you mean.",
+      "parentUuid": "90a96a1d_9f397140",
+      "revId": "1f324b6b2dcc90f2fb09a94cac109ba3495d39c9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
     }
   ]
 }
