@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6b235e48_942859b3",
+        "filename": "README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2017-09-21T15:46:08Z",
+      "side": 1,
+      "message": "Please use code font for directories and commands:\n\n    `old`\n    `pkg/exp`\n    `go get`",
+      "revId": "3467e8fdacf5231bb8f040bdd49b09154beb4613",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed800820_d32d80c4",
+        "filename": "README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2017-09-21T15:46:08Z",
+      "side": 1,
+      "message": "Bold on Warning is fine, but then you don\u0027t also need italics on the entire paragraph.",
+      "revId": "3467e8fdacf5231bb8f040bdd49b09154beb4613",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
