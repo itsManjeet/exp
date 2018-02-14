@@ -14,8 +14,8 @@ import (
 type Deque struct {
 	mu    sync.Mutex
 	cond  sync.Cond     // cond.L is lazily initialized to &Deque.mu.
-	back  []interface{} // FIFO.
 	front []interface{} // LIFO.
+	back  []interface{} // FIFO; used only when front is not empty.
 }
 
 func (q *Deque) lockAndInit() {
@@ -30,23 +30,22 @@ func (q *Deque) NextEvent() interface{} {
 	q.lockAndInit()
 	defer q.mu.Unlock()
 
-	for {
-		if n := len(q.front); n > 0 {
-			e := q.front[n-1]
-			q.front[n-1] = nil
-			q.front = q.front[:n-1]
-			return e
-		}
-
-		if n := len(q.back); n > 0 {
-			e := q.back[0]
-			q.back[0] = nil
-			q.back = q.back[1:]
-			return e
-		}
-
+	for len(q.front) == 0 {
 		q.cond.Wait()
 	}
+	i := len(q.front) - 1
+	event := q.front[i]
+	q.front[i] = nil
+	q.front = q.front[:i]
+
+	if len(q.front) == 0 {
+		for n := len(q.back); n > 0; n-- {
+			q.front = append(q.front, q.back[n-1])
+			q.back[n-1] = nil
+		}
+		q.back = q.back[:0]
+	}
+	return event
 }
 
 // Send implements the screen.EventDeque interface.
@@ -54,7 +53,11 @@ func (q *Deque) Send(event interface{}) {
 	q.lockAndInit()
 	defer q.mu.Unlock()
 
-	q.back = append(q.back, event)
+	if len(q.front) == 0 && len(q.back) == 0 {
+		q.front = append(q.front, event)
+	} else {
+		q.back = append(q.back, event)
+	}
 	q.cond.Signal()
 }
 
