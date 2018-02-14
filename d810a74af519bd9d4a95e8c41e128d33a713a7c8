@@ -16,6 +16,24 @@
       "revId": "d810a74af519bd9d4a95e8c41e128d33a713a7c8",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9d1cd517_f373464f",
+        "filename": "shiny/driver/internal/event/event.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2018-02-14T21:47:21Z",
+      "side": 1,
+      "message": "That\u0027s why all of the channel-sends are done via a select-with-default: if some other goroutine already filled the buffer, we\u0027ll take the default case at line 52 and not bother updating the queue (on the grounds that someone else already did).\n\nThe only unconditional send in this draft is the one at line 100, but at that point q.head is guaranteed to be empty: we checked it at 95, and all of the sends are guarded by q.mu.",
+      "parentUuid": "43b1f1e5_ce92b9b7",
+      "revId": "d810a74af519bd9d4a95e8c41e128d33a713a7c8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
     }
   ]
 }
