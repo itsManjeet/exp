@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "43b1f1e5_ce92b9b7",
+        "filename": "shiny/driver/internal/event/event.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2018-02-14T21:27:26Z",
+      "side": 1,
+      "message": "What happens if you block after event \u003d \u003c-q.head, but before q.mu.Lock, then two other goroutines call Send, then this goroutine continues?  Seems like it will lock, see an element in the queue, and send it to q.head, but q.head is already full, so it will block on the channel send holding the lock.",
+      "revId": "d810a74af519bd9d4a95e8c41e128d33a713a7c8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
