@@ -12,29 +12,50 @@ import (
 // Deque is an infinitely buffered double-ended queue of events. The zero value
 // is usable, but a Deque value must not be copied.
 type Deque struct {
-	mu    sync.Mutex
-	cond  sync.Cond     // cond.L is lazily initialized to &Deque.mu.
-	front []interface{} // LIFO.
-	back  []interface{} // FIFO; used only when front is not empty.
+	mu sync.Mutex
+
+	// The head of the queue, stored in a channel with a one-element buffer.
+	// The channel is lazily allocated in lockAndInit.
+	// Sending requires a lock on mu, but receiving does not.
+	head chan interface{}
+
+	front []interface{} // LIFO events after the head.
+	back  []interface{} // FIFO events after front; used only when front is non-empty.
 }
 
 func (q *Deque) lockAndInit() {
 	q.mu.Lock()
-	if q.cond.L == nil {
-		q.cond.L = &q.mu
+	if q.head == nil {
+		q.head = make(chan interface{}, 1)
 	}
 }
 
 // NextEvent implements the screen.EventDeque interface.
-func (q *Deque) NextEvent() interface{} {
+func (q *Deque) NextEvent() (event interface{}) {
+	// If we could guarantee that q.head is always initialized, we could simplify
+	// this block (and avoid some contention on q.mu) as:
+	// 	event := <-q.head
+	// 	q.mu.Lock()
+	// 	defer q.mu.Unlock()
 	q.lockAndInit()
 	defer q.mu.Unlock()
+	select {
+	case event = <-q.head:
+	default:
+		q.mu.Unlock()
+		event = <-q.head
+		q.mu.Lock()
+	}
 
-	for len(q.front) == 0 {
-		q.cond.Wait()
+	if len(q.front) == 0 {
+		return event
 	}
 	i := len(q.front) - 1
-	event := q.front[i]
+	select {
+	case q.head <- q.front[i]:
+	default:
+		return event
+	}
 	q.front[i] = nil
 	q.front = q.front[:i]
 
@@ -53,12 +74,20 @@ func (q *Deque) Send(event interface{}) {
 	q.lockAndInit()
 	defer q.mu.Unlock()
 
+	// The head event must be stored in the head channel.
 	if len(q.front) == 0 && len(q.back) == 0 {
-		q.front = append(q.front, event)
-	} else {
-		q.back = append(q.back, event)
+		select {
+		case q.head <- event:
+		default:
+			// Maintain the invariant that q.back is unused when q.front is empty.
+			// That avoids unnecessary copying in the steady state and somewhat
+			// simplifies NextEvent.
+			q.front = append(q.front, event)
+		}
+		return
 	}
-	q.cond.Signal()
+
+	q.back = append(q.back, event)
 }
 
 // SendFirst implements the screen.EventDeque interface.
@@ -66,6 +95,14 @@ func (q *Deque) SendFirst(event interface{}) {
 	q.lockAndInit()
 	defer q.mu.Unlock()
 
-	q.front = append(q.front, event)
-	q.cond.Signal()
+	// Move the previous head, if any, to the front slice.
+	select {
+	case prev := <-q.head:
+		q.front = append(q.front, prev)
+	default:
+	}
+
+	// This send does not block: we emptied the channel buffer above,
+	// and since we hold the lock, no other send can occur in the meantime.
+	q.head <- event
 }
