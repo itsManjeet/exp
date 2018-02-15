@@ -34,6 +34,24 @@
       "revId": "d810a74af519bd9d4a95e8c41e128d33a713a7c8",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bfe14b47_095b12ed",
+        "filename": "shiny/driver/internal/event/event.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2018-02-15T17:31:08Z",
+      "side": 1,
+      "message": "Added some comments to clarify these invariants.",
+      "parentUuid": "9d1cd517_f373464f",
+      "revId": "d810a74af519bd9d4a95e8c41e128d33a713a7c8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
