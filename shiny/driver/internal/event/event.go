@@ -12,16 +12,23 @@ import (
 // Deque is an infinitely buffered double-ended queue of events. The zero value
 // is usable, but a Deque value must not be copied.
 type Deque struct {
-	mu    sync.Mutex
-	cond  sync.Cond     // cond.L is lazily initialized to &Deque.mu.
-	front []interface{} // LIFO.
-	back  []interface{} // FIFO; used only when front is not empty.
+	mu       sync.Mutex
+	nonempty chan bool     // Buffered; sent with mu locked when the queue is not empty.
+	back     []interface{} // FIFO.
+	front    []interface{} // LIFO; used only when front is not empty.
 }
 
 func (q *Deque) lockAndInit() {
 	q.mu.Lock()
-	if q.cond.L == nil {
-		q.cond.L = &q.mu
+	if q.nonempty == nil {
+		q.nonempty = make(chan bool, 1)
+	}
+}
+
+func (q *Deque) signal() {
+	select {
+	case q.nonempty <- true:
+	default:
 	}
 }
 
@@ -31,7 +38,9 @@ func (q *Deque) NextEvent() interface{} {
 	defer q.mu.Unlock()
 
 	for len(q.front) == 0 {
-		q.cond.Wait()
+		q.mu.Unlock()
+		<-q.nonempty
+		q.mu.Lock()
 	}
 	i := len(q.front) - 1
 	event := q.front[i]
@@ -44,6 +53,9 @@ func (q *Deque) NextEvent() interface{} {
 			q.back[n-1] = nil
 		}
 		q.back = q.back[:0]
+	}
+	if len(q.front) != 0 {
+		q.signal()
 	}
 	return event
 }
@@ -58,7 +70,7 @@ func (q *Deque) Send(event interface{}) {
 	} else {
 		q.back = append(q.back, event)
 	}
-	q.cond.Signal()
+	q.signal()
 }
 
 // SendFirst implements the screen.EventDeque interface.
@@ -67,5 +79,5 @@ func (q *Deque) SendFirst(event interface{}) {
 	defer q.mu.Unlock()
 
 	q.front = append(q.front, event)
-	q.cond.Signal()
+	q.signal()
 }
