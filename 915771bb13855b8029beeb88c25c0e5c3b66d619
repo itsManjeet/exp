@@ -45,6 +45,30 @@
       "revId": "915771bb13855b8029beeb88c25c0e5c3b66d619",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "394afe77_7fc0f3e4",
+        "filename": "shiny/driver/internal/event/event.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2018-02-21T23:31:09Z",
+      "side": 1,
+      "message": "Probably a bad merge from https://go-review.googlesource.com/c/exp/+/94137\n\nI\u0027ll let bcmills fix it, one way or another.",
+      "parentUuid": "1991fba6_eeea67e4",
+      "range": {
+        "startLine": 18,
+        "startChar": 33,
+        "endLine": 18,
+        "endChar": 66
+      },
+      "revId": "915771bb13855b8029beeb88c25c0e5c3b66d619",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
     }
   ]
 }
