@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7df15145_a3d332ff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2018-02-21T23:30:16Z",
+      "side": 1,
+      "message": "Well, that copy is O(N). If you\u0027re really worried about algorithmic complexity, perhaps the back slice should be a ring buffer, growing on demand.",
+      "revId": "9cbec01c5e5f6105cf135c62d3bae958e19444bc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ddfb9e51_08c00e78",
+        "filename": "shiny/driver/internal/event/event.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2018-02-21T23:30:16Z",
+      "side": 1,
+      "message": "Add a comment above this line:\n\n// Move back\u0027s elements to front, in reverse order.\n\nIt also might be easier if the loop was:\nfor n :\u003d len(q.back) - 1; n \u003e\u003d 0; n-- {\nand s/n-1/n/ on the next lines, obviously.\n\nI\u0027d also rename n to j.",
+      "revId": "9cbec01c5e5f6105cf135c62d3bae958e19444bc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cbd2b086_2e04be65",
+        "filename": "shiny/driver/internal/event/event.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2018-02-21T23:30:16Z",
+      "side": 1,
+      "message": "Maybe just \"if len(q.front) \u003d\u003d 0 {\"? Not sure which way is clearer.",
+      "revId": "9cbec01c5e5f6105cf135c62d3bae958e19444bc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
