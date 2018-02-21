@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8960b55d_b4b2c01c",
+        "filename": "shiny/driver/internal/event/event.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2018-02-21T03:45:24Z",
+      "side": 1,
+      "message": "Personally, I would s/nonempty/nonEmpty/ and s/bool/struct{}/.",
+      "range": {
+        "startLine": 16,
+        "startChar": 17,
+        "endLine": 16,
+        "endChar": 18
+      },
+      "revId": "915771bb13855b8029beeb88c25c0e5c3b66d619",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
