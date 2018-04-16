@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9bcc2f8c_4fdc0919",
+        "filename": "write/write.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2018-04-16T22:42:22Z",
+      "side": 1,
+      "message": "Do we need to verify that tmpdir is on the same file system as dest?\n\n(Would it make sense to fall back to `filepath.Dir(dest)` if $TMPDIR isn\u0027t on the same file system?)",
+      "revId": "b2c03fa5ddd2f21038a2529774eea9535db308aa",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a0a6d332_e6e0ed6c",
+        "filename": "write/write.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2018-04-16T22:42:22Z",
+      "side": 1,
+      "message": "This seems fragile from an API perspective.\n\nThere are many reasons one might want to use the write-and-rename strategy, including:\n• Ensuring that incomplete files don\u0027t have the exact names of their complete equivalents.\n• Ensuring that incomplete files don\u0027t match globs.\n• Ensuring that temporary files go into a directory that is periodically cleaned by some other means (e.g., a cron job).\n\nThis API addresses the first only.\nThe second requires that the temporary directory is not `filepath.Dir(dest)`.\nThe third requires application control over the temporary directory.",
+      "revId": "b2c03fa5ddd2f21038a2529774eea9535db308aa",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "353dd69b_05e5e560",
+        "filename": "write/write.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2018-04-16T22:42:22Z",
+      "side": 1,
+      "message": "This seems to conflate recovery and reporting. (It may be useful to return the error to the caller for logging/reporting/monitoring even if there is nothing more they can do to recover from that error.)",
+      "range": {
+        "startLine": 57,
+        "startChar": 54,
+        "endLine": 58,
+        "endChar": 37
+      },
+      "revId": "b2c03fa5ddd2f21038a2529774eea9535db308aa",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41bdaa1e_cf942df9",
+        "filename": "write/write.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2018-04-16T22:42:22Z",
+      "side": 1,
+      "message": "This currently results in a double-Close if the Close call in CloseAtomicallyReplace fails.\n\n(Some io.Closer implementations do not allow Close to be called more than once, and (*file.File).Close does not currently say one way or the other.)",
+      "revId": "b2c03fa5ddd2f21038a2529774eea9535db308aa",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "84bda188_77fcdc65",
+        "filename": "write/write.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2018-04-16T22:42:22Z",
+      "side": 1,
+      "message": "I understand the reason behind the naming, but I can\u0027t say I\u0027m a fan. (It\u0027s already verbose, but missing a conjunction.)\n\nI\u0027d be inclined to call this method `Commit` or `Rename` instead.",
+      "range": {
+        "startLine": 71,
+        "startChar": 22,
+        "endLine": 71,
+        "endChar": 44
+      },
+      "revId": "b2c03fa5ddd2f21038a2529774eea9535db308aa",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
