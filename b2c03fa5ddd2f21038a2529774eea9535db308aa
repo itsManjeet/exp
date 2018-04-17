@@ -76,6 +76,23 @@
     },
     {
       "key": {
+        "uuid": "bb711e48_9a5e00ce",
+        "filename": "write/write.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 5167
+      },
+      "writtenOn": "2018-04-17T18:55:04Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem like something we can ask of the caller. If this package isn\u0027t taking care of such details, then what\u0027s the point?\n\nThat said, I agree with the distinction you\u0027re drawing between atomicity and durability, since there are applications where you care only that the file either exist or not exist after a crash, and there are applications where you need to ensure that it exists before doing a follow-on action, even if there\u0027s a crash. In particular, I think this comes up in applications that need to write several files and can atomically commit each individual file, but need a group durability guarantee only once all of the files have been written. This can usually be implemented in a far more performant way than durably committing each individual file.\n\nBut the API of this package should directly expose the concepts of atomicity and durability and implement them however\u0027s appropriate, rather than depending on the caller to determine whether the file system uses write barriers.",
+      "revId": "b2c03fa5ddd2f21038a2529774eea9535db308aa",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "84bda188_77fcdc65",
         "filename": "write/write.go",
         "patchSetId": 2
@@ -93,6 +110,23 @@
         "endLine": 71,
         "endChar": 44
       },
+      "revId": "b2c03fa5ddd2f21038a2529774eea9535db308aa",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0898f730_6b748c6e",
+        "filename": "write/write.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 5167
+      },
+      "writtenOn": "2018-04-17T18:55:04Z",
+      "side": 1,
+      "message": "This is the main entry point to this package, yet it seems like *temporary* files are the least likely files to require atomic commit. And they certainly don\u0027t require durability, given that /tmp is often scrubbed on reboot.",
       "revId": "b2c03fa5ddd2f21038a2529774eea9535db308aa",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
