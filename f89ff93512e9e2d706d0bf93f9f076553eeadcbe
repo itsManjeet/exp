@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3b82450e_8a7022a5",
+        "filename": "mmap/mmap_windows_386.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 24935
+      },
+      "writtenOn": "2018-06-24T18:48:30Z",
+      "side": 1,
+      "message": "Remove; package doc already defined in mmap_windows.go (You could actually consolidate package docs into a new doc.go file).",
+      "revId": "f89ff93512e9e2d706d0bf93f9f076553eeadcbe",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed95c3b6_8d3fe8ad",
+        "filename": "mmap/mmap_windows_amd64.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 24935
+      },
+      "writtenOn": "2018-06-24T18:48:30Z",
+      "side": 1,
+      "message": "Remove",
+      "revId": "f89ff93512e9e2d706d0bf93f9f076553eeadcbe",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
