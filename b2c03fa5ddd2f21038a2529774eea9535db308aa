@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "50635ef6_6b7e38ce",
+        "filename": "write/write.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 8470
+      },
+      "writtenOn": "2018-06-28T10:59:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9bcc2f8c_4fdc0919",
+      "revId": "b2c03fa5ddd2f21038a2529774eea9535db308aa",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a0a6d332_e6e0ed6c",
         "filename": "write/write.go",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "b2c03fa5ddd2f21038a2529774eea9535db308aa",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c65f7f7_e915d759",
+        "filename": "write/write.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 8470
+      },
+      "writtenOn": "2018-06-28T10:59:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0a6d332_e6e0ed6c",
+      "revId": "b2c03fa5ddd2f21038a2529774eea9535db308aa",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -59,6 +95,30 @@
     },
     {
       "key": {
+        "uuid": "455189ab_24f25102",
+        "filename": "write/write.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 8470
+      },
+      "writtenOn": "2018-06-28T10:59:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "353dd69b_05e5e560",
+      "range": {
+        "startLine": 57,
+        "startChar": 54,
+        "endLine": 58,
+        "endChar": 37
+      },
+      "revId": "b2c03fa5ddd2f21038a2529774eea9535db308aa",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "41bdaa1e_cf942df9",
         "filename": "write/write.go",
         "patchSetId": 2
@@ -76,6 +136,24 @@
     },
     {
       "key": {
+        "uuid": "e4d89156_911c688a",
+        "filename": "write/write.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 8470
+      },
+      "writtenOn": "2018-06-28T10:59:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41bdaa1e_cf942df9",
+      "revId": "b2c03fa5ddd2f21038a2529774eea9535db308aa",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bb711e48_9a5e00ce",
         "filename": "write/write.go",
         "patchSetId": 2
@@ -90,6 +168,24 @@
       "revId": "b2c03fa5ddd2f21038a2529774eea9535db308aa",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "521b73b5_bda33293",
+        "filename": "write/write.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 8470
+      },
+      "writtenOn": "2018-06-28T10:59:08Z",
+      "side": 1,
+      "message": "Done (see my comment on the proposal at https://github.com/golang/go/issues/22397)",
+      "parentUuid": "bb711e48_9a5e00ce",
+      "revId": "b2c03fa5ddd2f21038a2529774eea9535db308aa",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -116,6 +212,30 @@
     },
     {
       "key": {
+        "uuid": "38feef29_d7d31d4a",
+        "filename": "write/write.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 8470
+      },
+      "writtenOn": "2018-06-28T10:59:08Z",
+      "side": 1,
+      "message": "I don’t have very strong feelings, but I wonder if Commit or Rename are really better choices. Commit might imply durability to casual readers, which we don’t guarantee. Rename doesn’t convey that the file is closed after this call.\n\nDo we put conjunctions in method names as a general rule? We don’t have them in e.g. io.WriteSeeker.",
+      "parentUuid": "84bda188_77fcdc65",
+      "range": {
+        "startLine": 71,
+        "startChar": 22,
+        "endLine": 71,
+        "endChar": 44
+      },
+      "revId": "b2c03fa5ddd2f21038a2529774eea9535db308aa",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0898f730_6b748c6e",
         "filename": "write/write.go",
         "patchSetId": 2
@@ -130,6 +250,24 @@
       "revId": "b2c03fa5ddd2f21038a2529774eea9535db308aa",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5135f41c_2b4a2aa7",
+        "filename": "write/write.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 8470
+      },
+      "writtenOn": "2018-06-28T10:59:08Z",
+      "side": 1,
+      "message": "The way to atomically write a file is to create a temporary file, then rename it. The names in this package reflect that. We’re not just talking about creating a temporary file, but a temporary file with the intention of atomically making it appear at the destination path.",
+      "parentUuid": "0898f730_6b748c6e",
+      "revId": "b2c03fa5ddd2f21038a2529774eea9535db308aa",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
