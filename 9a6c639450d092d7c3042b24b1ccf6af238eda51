@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1ba3c8b7_ebb72762",
+        "filename": "crypto/macOS-roots-test/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2018-08-06T23:57:44Z",
+      "side": 1,
+      "message": "Why the trailing underscore?  After all, we don\u0027t usually use underscores in Go names.",
+      "range": {
+        "startLine": 44,
+        "startChar": 1,
+        "endLine": 44,
+        "endChar": 10
+      },
+      "revId": "9a6c639450d092d7c3042b24b1ccf6af238eda51",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
