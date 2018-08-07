@@ -22,6 +22,30 @@
       "revId": "9a6c639450d092d7c3042b24b1ccf6af238eda51",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e1dd1e4_c9f45a8a",
+        "filename": "crypto/macOS-roots-test/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2018-08-07T00:02:37Z",
+      "side": 1,
+      "message": "It\u0027s just a dirty patch to then defeat the type system with unsafe.Pointer below. I\u0027ll change it to sysRootsExt.",
+      "parentUuid": "1ba3c8b7_ebb72762",
+      "range": {
+        "startLine": 44,
+        "startChar": 1,
+        "endLine": 44,
+        "endChar": 10
+      },
+      "revId": "9a6c639450d092d7c3042b24b1ccf6af238eda51",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
