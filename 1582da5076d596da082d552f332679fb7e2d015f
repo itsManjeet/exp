@@ -1,0 +1,257 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "124aacb3_2ba6dfac",
+        "filename": "errors/errors.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-09-21T21:05:22Z",
+      "side": 1,
+      "message": "Our draft design never talked about how to create errors. You could argue, though, that this package should replace the standard errors package, and this is implementation of errors.New.",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 1
+      },
+      "revId": "1582da5076d596da082d552f332679fb7e2d015f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "05931f2d_9f91d266",
+        "filename": "errors/errors.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-09-21T21:05:22Z",
+      "side": 1,
+      "message": "Here you have a truly new function not covered in the draft design. We\u0027d have to bikeshed the name (\"Annotate\" is a long-winded way of saying \"Note\", IMO; Cheney\u0027s package calls this \"Wrap\"). We\u0027d also want an \"f\" variant. But then whither fmt.Errorf?",
+      "range": {
+        "startLine": 51,
+        "startChar": 5,
+        "endLine": 51,
+        "endChar": 13
+      },
+      "revId": "1582da5076d596da082d552f332679fb7e2d015f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8bab6cf1_12739b08",
+        "filename": "errors/errors.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-09-21T21:05:22Z",
+      "side": 1,
+      "message": "I don\u0027t understand what this means. Equivalent in what way?",
+      "range": {
+        "startLine": 83,
+        "startChar": 1,
+        "endLine": 84,
+        "endChar": 17
+      },
+      "revId": "1582da5076d596da082d552f332679fb7e2d015f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61ae9689_acda2a2c",
+        "filename": "errors/errors.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-09-21T21:05:22Z",
+      "side": 1,
+      "message": "Oh, *that* way. But I thought we weren\u0027t doing this?",
+      "range": {
+        "startLine": 103,
+        "startChar": 25,
+        "endLine": 103,
+        "endChar": 27
+      },
+      "revId": "1582da5076d596da082d552f332679fb7e2d015f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d30eaa0_841d55ab",
+        "filename": "errors/format.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-09-21T21:05:22Z",
+      "side": 1,
+      "message": "FormatError",
+      "range": {
+        "startLine": 14,
+        "startChar": 4,
+        "endLine": 14,
+        "endChar": 10
+      },
+      "revId": "1582da5076d596da082d552f332679fb7e2d015f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e63ce8ee_1cec759c",
+        "filename": "errors/format.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-09-21T21:05:22Z",
+      "side": 1,
+      "message": "How can a package implement an interface?",
+      "range": {
+        "startLine": 22,
+        "startChar": 3,
+        "endLine": 22,
+        "endChar": 32
+      },
+      "revId": "1582da5076d596da082d552f332679fb7e2d015f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6e33e480_e72f0ba7",
+        "filename": "errors/stack.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-09-21T21:05:22Z",
+      "side": 1,
+      "message": "People will naturally assume that you\u0027re capturing the entire call stack. I\u0027d prefer the word \"Frame\" be used instead of \"Stack,\" though \"NewFrame\" seems wrong to me.",
+      "range": {
+        "startLine": 21,
+        "startChar": 3,
+        "endLine": 21,
+        "endChar": 11
+      },
+      "revId": "1582da5076d596da082d552f332679fb7e2d015f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe148153_9499009d",
+        "filename": "errors/unwrap.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-09-21T21:05:22Z",
+      "side": 1,
+      "message": "The draft design calls this Wrapper.",
+      "range": {
+        "startLine": 12,
+        "startChar": 5,
+        "endLine": 12,
+        "endChar": 14
+      },
+      "revId": "1582da5076d596da082d552f332679fb7e2d015f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0746f0aa_bf566ce1",
+        "filename": "errors/unwrap.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-09-21T21:05:22Z",
+      "side": 1,
+      "message": "You used the same phrase \"the error chain\" in the description of FormatError, but the chains aren\u0027t the same. You might want to format nested errors that are implementation details, but not allow programs to traverse them.",
+      "range": {
+        "startLine": 13,
+        "startChar": 37,
+        "endLine": 13,
+        "endChar": 52
+      },
+      "revId": "1582da5076d596da082d552f332679fb7e2d015f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8fb2d3ce_add04325",
+        "filename": "errors/unwrap.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-09-21T21:05:22Z",
+      "side": 1,
+      "message": "I think you\u0027ve pointed out how confusing this asymmetry can be.",
+      "range": {
+        "startLine": 43,
+        "startChar": 2,
+        "endLine": 48,
+        "endChar": 3
+      },
+      "revId": "1582da5076d596da082d552f332679fb7e2d015f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d9cd636_9d9b38a6",
+        "filename": "errors/unwrap.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-09-21T21:05:22Z",
+      "side": 1,
+      "message": "We would give this another name, to reserve \"As\" for the generic version.",
+      "range": {
+        "startLine": 73,
+        "startChar": 5,
+        "endLine": 73,
+        "endChar": 7
+      },
+      "revId": "1582da5076d596da082d552f332679fb7e2d015f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
