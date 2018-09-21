@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "375e6b65_ab8be538",
+        "filename": "errors/errors.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5305
+      },
+      "writtenOn": "2018-09-21T21:53:53Z",
+      "side": 1,
+      "message": "Yes, since this is intended to explore ideas that may be incorporated into the standard errors package it should be usable as a drop-in replacement to that package.",
+      "parentUuid": "124aacb3_2ba6dfac",
+      "range": {
+        "startLine": 23,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 1
+      },
+      "revId": "1582da5076d596da082d552f332679fb7e2d015f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "05931f2d_9f91d266",
         "filename": "errors/errors.go",
         "patchSetId": 2
@@ -36,6 +60,30 @@
       "writtenOn": "2018-09-21T21:05:22Z",
       "side": 1,
       "message": "Here you have a truly new function not covered in the draft design. We\u0027d have to bikeshed the name (\"Annotate\" is a long-winded way of saying \"Note\", IMO; Cheney\u0027s package calls this \"Wrap\"). We\u0027d also want an \"f\" variant. But then whither fmt.Errorf?",
+      "range": {
+        "startLine": 51,
+        "startChar": 5,
+        "endLine": 51,
+        "endChar": 13
+      },
+      "revId": "1582da5076d596da082d552f332679fb7e2d015f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7b4d0710_9c8192dd",
+        "filename": "errors/errors.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 5305
+      },
+      "writtenOn": "2018-09-21T21:53:53Z",
+      "side": 1,
+      "message": "Perhaps theres should be Errorf/Annotatef functions in here to stand in for fmt.Errorf et al.",
+      "parentUuid": "05931f2d_9f91d266",
       "range": {
         "startLine": 51,
         "startChar": 5,
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "48aa2b61_6243fe8c",
+        "filename": "errors/errors.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 5305
+      },
+      "writtenOn": "2018-09-21T21:53:53Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8bab6cf1_12739b08",
+      "range": {
+        "startLine": 83,
+        "startChar": 1,
+        "endLine": 84,
+        "endChar": 17
+      },
+      "revId": "1582da5076d596da082d552f332679fb7e2d015f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "61ae9689_acda2a2c",
         "filename": "errors/errors.go",
         "patchSetId": 2
@@ -82,6 +154,30 @@
       "writtenOn": "2018-09-21T21:05:22Z",
       "side": 1,
       "message": "Oh, *that* way. But I thought we weren\u0027t doing this?",
+      "range": {
+        "startLine": 103,
+        "startChar": 25,
+        "endLine": 103,
+        "endChar": 27
+      },
+      "revId": "1582da5076d596da082d552f332679fb7e2d015f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c2b615b5_d852befb",
+        "filename": "errors/errors.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 5305
+      },
+      "writtenOn": "2018-09-21T21:53:53Z",
+      "side": 1,
+      "message": "We\u0027ve kicked this idea around quite a lot, but never quite settled entirely for or against it. It does allow for some wonderfully simple error handling. From predicate_example_test.go:\n\n  if err :\u003d Do(tries); errors.Is(err, ErrRetriable) { ... }\n\nWith an Iser interface, you can use errors.Is for almost all error tests. Packages can consistently expose all their testable error conditions as values of type error, without exposing the underlying implementation.\n\nI also found Chris Siebenmann feedback on the proposal to make a quite compelling argument on this point:\nhttps://utcc.utoronto.ca/~cks/space/blog/programming/Go2ErrorInspectionViews\n\nBut it does add a fair bit of complexity. As you point out elsewhere, you need to decide whether Is is symmetrical or not, and either choice comes with downsides.\n\nThis may be an area where we need to gain practical experience with the feature before we can really say whether it\u0027s a good idea or not. To do that, we need to have an implementation that can be tested out in practice.",
+      "parentUuid": "61ae9689_acda2a2c",
       "range": {
         "startLine": 103,
         "startChar": 25,
@@ -151,6 +247,30 @@
       "writtenOn": "2018-09-21T21:05:22Z",
       "side": 1,
       "message": "People will naturally assume that you\u0027re capturing the entire call stack. I\u0027d prefer the word \"Frame\" be used instead of \"Stack,\" though \"NewFrame\" seems wrong to me.",
+      "range": {
+        "startLine": 21,
+        "startChar": 3,
+        "endLine": 21,
+        "endChar": 11
+      },
+      "revId": "1582da5076d596da082d552f332679fb7e2d015f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e42bc75b_fdc80ba6",
+        "filename": "errors/stack.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 5305
+      },
+      "writtenOn": "2018-09-21T21:53:53Z",
+      "side": 1,
+      "message": "Yeah, I\u0027m not happy with the naming here.\n\nI think \u0027Stack\u0027 is probably right, because there\u0027s no reason it couldn\u0027t contain a full stack. (You could imagine errors.NewStack/errors.NewFrame functions which capture all or part of the stack respectively.)\n\nNewStack should indicate that it\u0027s only capturing one frame, though. errors.Frame, with the \"New\" implied? Better suggestions welcome.",
+      "parentUuid": "6e33e480_e72f0ba7",
       "range": {
         "startLine": 21,
         "startChar": 3,
