@@ -190,6 +190,30 @@
     },
     {
       "key": {
+        "uuid": "1395cf2b_5da153a7",
+        "filename": "errors/errors.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-09-27T13:16:18Z",
+      "side": 1,
+      "message": "Chris Siebenmann\u0027s article can also be used to argue the other way:\n\n\u003e I expect that pretty much every boolean \u0027is this a ....\u0027 method call on errors today would likely be more ergonomic if it was expressed as a sentinel value this way.\n\nYes, and that would be an abuse -- it would confuse sentinel errors with xerror-style tags.\n\n\u003e Once general sentinels are available, people may be tempted to implement \u0027is this a temporary error\u0027 and the like purely through sentinels, which would make the error method interface less and less useful.\n\nI\u0027d prefer a world where Temporary was an interface to one where it was a sentinel.",
+      "parentUuid": "c2b615b5_d852befb",
+      "range": {
+        "startLine": 103,
+        "startChar": 25,
+        "endLine": 103,
+        "endChar": 27
+      },
+      "revId": "1582da5076d596da082d552f332679fb7e2d015f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4d30eaa0_841d55ab",
         "filename": "errors/format.go",
         "patchSetId": 2
