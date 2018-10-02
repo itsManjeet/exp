@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "f8c9c064_baa15abf",
+        "filename": "errors/errors.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-10-02T16:51:01Z",
+      "side": 1,
+      "message": "There should be a drop-in replacement package for fmt with an implementation of Errorf to handle this. This is change would give the biggest bang for the buck and is worth giving it a shot.\n\nThere is a value in having an Annotate or Wrap function in this package to support similar functionality without creating a dependency on fmt, but for now I think this is too confusing. I suggest stripping this from the implementation for now.",
+      "parentUuid": "7b4d0710_9c8192dd",
+      "range": {
+        "startLine": 51,
+        "startChar": 5,
+        "endLine": 51,
+        "endChar": 13
+      },
+      "revId": "1582da5076d596da082d552f332679fb7e2d015f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8bab6cf1_12739b08",
         "filename": "errors/errors.go",
         "patchSetId": 2
@@ -131,6 +155,30 @@
       "side": 1,
       "message": "Ack",
       "parentUuid": "8bab6cf1_12739b08",
+      "range": {
+        "startLine": 83,
+        "startChar": 1,
+        "endLine": 84,
+        "endChar": 17
+      },
+      "revId": "1582da5076d596da082d552f332679fb7e2d015f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f019f085_5b40a344",
+        "filename": "errors/errors.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-10-02T16:51:01Z",
+      "side": 1,
+      "message": "agreed.",
+      "parentUuid": "48aa2b61_6243fe8c",
       "range": {
         "startLine": 83,
         "startChar": 1,
@@ -214,6 +262,30 @@
     },
     {
       "key": {
+        "uuid": "bda4e12c_c63a2a8c",
+        "filename": "errors/errors.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-10-02T16:51:01Z",
+      "side": 1,
+      "message": "I am not fully on board with the abuse argument. I like the sentinel approach personally.\n\nI would punt on NewPredicate for the first version.",
+      "parentUuid": "1395cf2b_5da153a7",
+      "range": {
+        "startLine": 103,
+        "startChar": 25,
+        "endLine": 103,
+        "endChar": 27
+      },
+      "revId": "1582da5076d596da082d552f332679fb7e2d015f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4d30eaa0_841d55ab",
         "filename": "errors/format.go",
         "patchSetId": 2
@@ -237,6 +309,23 @@
     },
     {
       "key": {
+        "uuid": "24c36f20_af7dff0a",
+        "filename": "errors/format.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-10-02T16:51:01Z",
+      "side": 1,
+      "message": "This really should be called Format and not FormatError. Allowing types to implement both fmt.Formatter and errors.Formatter results in unnecessary ambiguity. It only makes sense for a type to implement one.",
+      "revId": "1582da5076d596da082d552f332679fb7e2d015f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e63ce8ee_1cec759c",
         "filename": "errors/format.go",
         "patchSetId": 2
@@ -254,6 +343,40 @@
         "endLine": 22,
         "endChar": 32
       },
+      "revId": "1582da5076d596da082d552f332679fb7e2d015f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "958d0c9b_56def605",
+        "filename": "errors/format.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-10-02T16:51:01Z",
+      "side": 1,
+      "message": "This should not be in the errors package. Assuming that this ultimately makes its way to pkg errors in core, it would create a dependency on fmt in errors.\n\nThe interface has been designed for the implementation to be in pkg fmt.\n\nI suggest creating a plugin compatible version in x/exp/errors/fmt for this purpose. I am intimately familiar with this package so I can implement the necessary stuff in there.",
+      "revId": "1582da5076d596da082d552f332679fb7e2d015f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9982e96e_8393a091",
+        "filename": "errors/format.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-10-02T16:51:01Z",
+      "side": 1,
+      "message": "ditto",
       "revId": "1582da5076d596da082d552f332679fb7e2d015f",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
@@ -307,6 +430,81 @@
     },
     {
       "key": {
+        "uuid": "735f006f_20110bff",
+        "filename": "errors/stack.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-10-02T16:51:01Z",
+      "side": 1,
+      "message": "I expect the underlying data types for a full stack capture vs a Frame would be different.\n\nI like the Frame / NewFrame naming for this implementation.",
+      "parentUuid": "e42bc75b_fdc80ba6",
+      "range": {
+        "startLine": 21,
+        "startChar": 3,
+        "endLine": 21,
+        "endChar": 11
+      },
+      "revId": "1582da5076d596da082d552f332679fb7e2d015f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b85b2ca6_942fdc15",
+        "filename": "errors/stack.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-10-02T16:51:01Z",
+      "side": 1,
+      "message": "A common use of Stack/Frame would be to include it in a custom error type. I think we should allow for the user case where the user embeds the Frame value, as this will allow Frame to implement some standard way of exposing the stack info in a structured way. This has been requested by people.\n\ntype MyError struct {\n   ...\n   errors.Frame\n}\n\nIt is probably fine for Frame to have a String method here, (MyError already implements Error) but it makes me a bit squirmy.",
+      "revId": "1582da5076d596da082d552f332679fb7e2d015f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2faa2d5_1981a77e",
+        "filename": "errors/stack.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-10-02T16:51:01Z",
+      "side": 1,
+      "message": "Package errors should not have an dependency on package fmt. Should not be hard to avoid in this case.\n\nAt least add a TODO",
+      "revId": "1582da5076d596da082d552f332679fb7e2d015f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bda217f0_1d8875cf",
+        "filename": "errors/stack.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-10-02T16:51:01Z",
+      "side": 1,
+      "message": "Stack should probably not implement errors.Formatter for the simple reason it is not an error in and of itself. Embedding it in a custom error type would cause it to implement this interface, causing the error type to print an empty string in the common case if the error itself does not implement this interface.\n\nI suggest something like \n\nfunc (s Stack) Print(p Printer)",
+      "revId": "1582da5076d596da082d552f332679fb7e2d015f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fe148153_9499009d",
         "filename": "errors/unwrap.go",
         "patchSetId": 2
@@ -318,6 +516,30 @@
       "writtenOn": "2018-09-21T21:05:22Z",
       "side": 1,
       "message": "The draft design calls this Wrapper.",
+      "range": {
+        "startLine": 12,
+        "startChar": 5,
+        "endLine": 12,
+        "endChar": 14
+      },
+      "revId": "1582da5076d596da082d552f332679fb7e2d015f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "391ee1be_19156591",
+        "filename": "errors/unwrap.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-10-02T16:51:01Z",
+      "side": 1,
+      "message": "Some people has suggested to call it this way.\n\nI personally still like Wrapper.",
+      "parentUuid": "fe148153_9499009d",
       "range": {
         "startLine": 12,
         "startChar": 5,
@@ -353,6 +575,47 @@
     },
     {
       "key": {
+        "uuid": "9283b84a_3d1f2a18",
+        "filename": "errors/unwrap.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-10-02T16:51:01Z",
+      "side": 1,
+      "message": "Correct, they are explicitly distinct concepts, albeit often identical.\n\nWe should different names for these two different concepts.",
+      "parentUuid": "0746f0aa_bf566ce1",
+      "range": {
+        "startLine": 13,
+        "startChar": 37,
+        "endLine": 13,
+        "endChar": 52
+      },
+      "revId": "1582da5076d596da082d552f332679fb7e2d015f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23be3f5f_d2ab03d5",
+        "filename": "errors/unwrap.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-10-02T16:51:01Z",
+      "side": 1,
+      "message": "As far as I understand English morphology and how it relates to phonology (based on Dutch, actually, and thus strikingly similar), this would be pronounced as \"īsər\" (ice-er), rather than \"izer\" (is-er). Should it not be Isser? Same with Aser below would be pronounced as \"āsər\"(Acer).",
+      "revId": "1582da5076d596da082d552f332679fb7e2d015f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8fb2d3ce_add04325",
         "filename": "errors/unwrap.go",
         "patchSetId": 2
@@ -376,6 +639,30 @@
     },
     {
       "key": {
+        "uuid": "4422c364_2648719d",
+        "filename": "errors/unwrap.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-10-02T16:51:01Z",
+      "side": 1,
+      "message": "I would expect only Is on err to be called. This would also be consistent with As.\n\nDo you have a reason to call it both ways? Is this to allow testing on a set of errors?",
+      "parentUuid": "8fb2d3ce_add04325",
+      "range": {
+        "startLine": 43,
+        "startChar": 2,
+        "endLine": 48,
+        "endChar": 3
+      },
+      "revId": "1582da5076d596da082d552f332679fb7e2d015f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4d9cd636_9d9b38a6",
         "filename": "errors/unwrap.go",
         "patchSetId": 2
@@ -387,6 +674,30 @@
       "writtenOn": "2018-09-21T21:05:22Z",
       "side": 1,
       "message": "We would give this another name, to reserve \"As\" for the generic version.",
+      "range": {
+        "startLine": 73,
+        "startChar": 5,
+        "endLine": 73,
+        "endChar": 7
+      },
+      "revId": "1582da5076d596da082d552f332679fb7e2d015f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d088d6cf_33bb148b",
+        "filename": "errors/unwrap.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-10-02T16:51:01Z",
+      "side": 1,
+      "message": "Russ has suggested, IIRC, implementing this as an alternative to using templates:\n\nfunc As(err error, target interface{}) bool\n\nallowing for something like\n\nif as :\u003d \u0026PathError{}; errors.As(err, \u0026as) {\n    // do something \n}\n\nCompare this to\n\nif as, ok :\u003d errors.As(err, \u0026PathError{}); ok {\n    // do something\n}\n\nor \n\nif as, ok :\u003d errors.As(*PathError)(err); ok {\n    // do something\n}\n\nusing generics\n\nNote that this alternative is even shorter than using generics. It can be implemented with minimal use of reflection.",
+      "parentUuid": "4d9cd636_9d9b38a6",
       "range": {
         "startLine": 73,
         "startChar": 5,
