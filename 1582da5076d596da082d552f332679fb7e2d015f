@@ -326,6 +326,24 @@
     },
     {
       "key": {
+        "uuid": "794f8a6f_6d98df5f",
+        "filename": "errors/format.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5305
+      },
+      "writtenOn": "2018-10-02T18:53:07Z",
+      "side": 1,
+      "message": "The problem is that we want errors produced by this package to respond appropriately to %v and %+v today, with the existing fmt package. The only way I can see to do that is to implement Format.\n\nIf you\u0027ve got a better way, I\u0027m all ears.",
+      "parentUuid": "24c36f20_af7dff0a",
+      "revId": "1582da5076d596da082d552f332679fb7e2d015f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e63ce8ee_1cec759c",
         "filename": "errors/format.go",
         "patchSetId": 2
@@ -663,6 +681,30 @@
     },
     {
       "key": {
+        "uuid": "7595dcf4_1c482839",
+        "filename": "errors/unwrap.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 5305
+      },
+      "writtenOn": "2018-10-02T18:53:07Z",
+      "side": 1,
+      "message": "Two reasons:\n\n- Asymmetric identity (a is b, but b is not a) is surprising. Unfortunately, errors.Is is still asymmetric (because only one of the chains is unwrapped), but this does reduce the amount of asymmetry.\n\n- I think there are some very nice patterns enabled by sentinel errors which can perform programmatic identity comparisons. For example, there is no need for io.IsPermission if io.ErrPermission can test itself against syscall.EPERM et al.",
+      "parentUuid": "4422c364_2648719d",
+      "range": {
+        "startLine": 43,
+        "startChar": 2,
+        "endLine": 48,
+        "endChar": 3
+      },
+      "revId": "1582da5076d596da082d552f332679fb7e2d015f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4d9cd636_9d9b38a6",
         "filename": "errors/unwrap.go",
         "patchSetId": 2
@@ -698,6 +740,30 @@
       "side": 1,
       "message": "Russ has suggested, IIRC, implementing this as an alternative to using templates:\n\nfunc As(err error, target interface{}) bool\n\nallowing for something like\n\nif as :\u003d \u0026PathError{}; errors.As(err, \u0026as) {\n    // do something \n}\n\nCompare this to\n\nif as, ok :\u003d errors.As(err, \u0026PathError{}); ok {\n    // do something\n}\n\nor \n\nif as, ok :\u003d errors.As(*PathError)(err); ok {\n    // do something\n}\n\nusing generics\n\nNote that this alternative is even shorter than using generics. It can be implemented with minimal use of reflection.",
       "parentUuid": "4d9cd636_9d9b38a6",
+      "range": {
+        "startLine": 73,
+        "startChar": 5,
+        "endLine": 73,
+        "endChar": 7
+      },
+      "revId": "1582da5076d596da082d552f332679fb7e2d015f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "edbb28b2_f0db2892",
+        "filename": "errors/unwrap.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 5305
+      },
+      "writtenOn": "2018-10-02T18:53:07Z",
+      "side": 1,
+      "message": "I like this.",
+      "parentUuid": "d088d6cf_33bb148b",
       "range": {
         "startLine": 73,
         "startChar": 5,
