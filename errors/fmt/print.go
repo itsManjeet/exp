@@ -11,6 +11,8 @@ import (
 	"reflect"
 	"sync"
 	"unicode/utf8"
+
+	experrors "golang.org/x/exp/errors"
 )
 
 // Strings for use with buffer.WriteString.
@@ -563,8 +565,13 @@ func (p *pp) handleMethods(verb rune) (handled bool) {
 	if p.erroring {
 		return
 	}
-	// Is it a Formatter?
-	if formatter, ok := p.arg.(Formatter); ok {
+	// Is it an errors.Formatter or Formatter?
+	if formatter, ok := p.arg.(experrors.Formatter); ok {
+		handled = true
+		defer p.catchPanic(p.arg, verb)
+		fmtError(p, verb, formatter)
+		return
+	} else if formatter, ok := p.arg.(Formatter); ok {
 		handled = true
 		defer p.catchPanic(p.arg, verb)
 		formatter.Format(p, verb)
