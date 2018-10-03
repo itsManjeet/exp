@@ -11,15 +11,14 @@ type Formatter interface {
 	Format(p Printer) (next error)
 }
 
-// A Printer creates formatted error messages. It enforces that
-// detailed information is written last.
+// A Printer creates formatted error messages. It enforces that detailed
+// information is written last.
 //
-// Printer is implemented by fmt. Localization packages may provide
-// their own implementation to support localized error messages
-// (see for instance golang.org/x/text/message).
+// Printer implementations are provided by the packages printing errors. This
+// will often be package fmt. Packages responsible for localization may provide
+// their own implementation (see for instance golang.org/x/text/message).
 type Printer interface {
 	// Print appends args to the message output.
-	// String arguments are not localized, even within a localized context.
 	Print(args ...interface{})
 
 	// Printf writes a formatted string.
