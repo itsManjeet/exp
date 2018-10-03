@@ -344,6 +344,24 @@
     },
     {
       "key": {
+        "uuid": "4e3ccac7_b9fcaffd",
+        "filename": "errors/format.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-10-03T16:04:43Z",
+      "side": 1,
+      "message": "The design assumes the implementation is in fmt and it will only work well if it is. I can see this approach as a temporary measure, but I don\u0027t favor an approach where we introduce API that is guaranteed to change again later.\n\nI think we should have a plugin replacement for fmt in x/exp/errors/fmt to use used along with the plugin replacement for errors and then aim to have this in Go core, possibly as an experiment, in 1.13.\n\nI believe we can use mod\u0027s replace directive to manage this in the mean time.",
+      "parentUuid": "794f8a6f_6d98df5f",
+      "revId": "1582da5076d596da082d552f332679fb7e2d015f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e63ce8ee_1cec759c",
         "filename": "errors/format.go",
         "patchSetId": 2
