@@ -7,7 +7,6 @@ package fmt_test
 import (
 	"bytes"
 	. "fmt"
-	"internal/race"
 	"io"
 	"math"
 	"reflect"
@@ -15,7 +14,7 @@ import (
 	"strings"
 	"testing"
 	"time"
-	"unicode"
+	// "unicode"
 )
 
 type (
@@ -1393,8 +1392,6 @@ func TestCountMallocs(t *testing.T) {
 		t.Skip("skipping malloc count in short mode")
 	case runtime.GOMAXPROCS(0) > 1:
 		t.Skip("skipping; GOMAXPROCS>1")
-	case race.Enabled:
-		t.Skip("skipping malloc count under race detector")
 	}
 	for _, mt := range mallocTest {
 		mallocs := testing.AllocsPerRun(100, mt.fn)
@@ -1723,6 +1720,7 @@ func TestBadVerbRecursion(t *testing.T) {
 	}
 }
 
+/*
 func TestIsSpace(t *testing.T) {
 	// This tests the internal isSpace function.
 	// IsSpace = isSpace is defined in export_test.go.
@@ -1732,6 +1730,7 @@ func TestIsSpace(t *testing.T) {
 		}
 	}
 }
+*/
 
 func hideFromVet(s string) string { return s }
 
@@ -1818,6 +1817,7 @@ func TestFormatterFlags(t *testing.T) {
 	}
 }
 
+/*
 func TestParsenum(t *testing.T) {
 	testCases := []struct {
 		s          string
@@ -1840,3 +1840,4 @@ func TestParsenum(t *testing.T) {
 		}
 	}
 }
+*/
