@@ -6,11 +6,60 @@ package fmt
 
 import (
 	"bytes"
+	coreerrors "errors"
+	"strings"
 
 	"golang.org/x/exp/errors"
 )
 
+func errorf(format string, a []interface{}) error {
+	if len(a) > 0 {
+		p := len(a) - 1
+		err, ok := a[p].(error)
+		if !ok {
+			goto noWrap
+		}
+
+		if strings.HasSuffix(format, ": %s") || strings.HasSuffix(format, ": %v") {
+			// TODO: this is not entirely correct. The error value could be
+			// printed elsewhere in format if it mixes numbered with unnumbered
+			// substitutions. With relatively small changes to doPrintf we can
+			// have it optionally ignore extra arguments and pass the argument
+			// list in its entirety.
+			format = format[:len(format)-len(": %s")]
+			return &withChain{Sprintf(format, a[:p]...), err}
+		}
+
+		// TODO: allow the pattern where the last argument is an unused error
+		// variable, eliminating the need to write the substitution. This can
+		// be done with a relatively simple change to doPrintf. Errorf would
+		// then be equivalent to Annotate(msg string, err error).
+
+		// TODO: should we allow special syntax to distinguish between creating
+		// errors that are error.Wrappers and not? If not, should the returned
+		// error implement errors.Wrapper in addition to errors.Formatter?
+	}
+noWrap:
+	return coreerrors.New(Sprintf(format, a...))
+}
+
+type withChain struct {
+	// TODO: add frame information
+	msg string
+	err error
+}
+
+func (e *withChain) Error() string {
+	return Sprint(e)
+}
+
+func (e *withChain) Format(p errors.Printer) (next error) {
+	p.Print(e.msg)
+	return e.err
+}
+
 func fmtError(p *pp, verb rune, f errors.Formatter) {
+	// TODO: handle #v: will be useful to be able to print error value.
 	var (
 		sep = ": "
 		w   = p
