@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c87c5323_241a12d5",
+        "filename": "errors/format.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 5305
+      },
+      "writtenOn": "2018-10-04T21:59:38Z",
+      "side": 1,
+      "message": "Continuing discussion from https://go-review.googlesource.com/c/exp/+/136539:\n\nNaming this method Format makes it impossible for an error type to support %+v detailed output when used with the fmt package from any currently released Go version. There\u0027s no way for e.g., github.com/pkg/errors to adopt the new formatting interfaces without losing some of its existing features on current Go versions.\n\nI think we need to think more about how users can incrementally adopt these proposed changes.",
+      "revId": "1b480f9cb5491d53841d1259634cd593eaeb630c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
