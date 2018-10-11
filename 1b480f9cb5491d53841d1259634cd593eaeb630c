@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "8bd1a739_1287a91f",
+        "filename": "errors/format.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-10-11T12:25:17Z",
+      "side": 1,
+      "message": "If the issue is just a matter of transition, we could support FormatError to support transition as a hidden interface. I\u0027ve added support for that. The code now also handles fmt.Formatter as last error in the chain, preserving their details mode. That covers handling all features I\u0027m aware of of old packages (please let me know if you know of more).\n\nI think that supporting Format and FormatError are quite confusing. People would have to remember that errors.Formatter trumps fmt.Formatter trumps error and remember to change both pieces of code. It is a feature to not be able to implement both. \n\nI see that keeping semantic versioning into account, the API cannot be changed in a backwards incompatible way. However, users should not use Format directly. Indeed, most packages do not expose the Format method in their API (e.g. pkg/errors, uber/multierr, spacemonkeygo/errors, and ergo/errors). So we\u0027re good there. Juju errors does, but it has no semantic version.\n\nNote also that it is okay for packages to require new Go releases.",
+      "parentUuid": "c87c5323_241a12d5",
+      "revId": "1b480f9cb5491d53841d1259634cd593eaeb630c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a9780c1b_1a345309",
         "filename": "errors/format.go",
         "patchSetId": 1
@@ -30,6 +48,30 @@
       "writtenOn": "2018-10-05T15:12:17Z",
       "side": 1,
       "message": "fmt dot something? A type in the fmt package?",
+      "range": {
+        "startLine": 17,
+        "startChar": 29,
+        "endLine": 17,
+        "endChar": 32
+      },
+      "revId": "1b480f9cb5491d53841d1259634cd593eaeb630c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fa3639d7_05cea10d",
+        "filename": "errors/format.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-10-11T12:25:17Z",
+      "side": 1,
+      "message": "I\u0027ve reworded it a bit.",
+      "parentUuid": "a9780c1b_1a345309",
       "range": {
         "startLine": 17,
         "startChar": 29,
