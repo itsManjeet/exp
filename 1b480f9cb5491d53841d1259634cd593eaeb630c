@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "643427eb_dfd0691c",
+        "filename": "errors/format.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 5305
+      },
+      "writtenOn": "2018-10-11T15:26:22Z",
+      "side": 1,
+      "message": "Users already need to remember that fmt.Format trumps error trumps fmt.Stringer. Is adding one more item to that list really that confusing? There\u0027s even a nice balance: formatting methods trump string-return ones, and error-specific methods trump general-purpose ones.\n\nIf we provide an adapter from FormatError to Format, there is no concern about changing both pieces of code:\n\n  func (err errType) Format(s fmt.State, r rune) { fmt.FormatError(err, s, r) }\n  func (err errType) FormatError(p errors.Printer) (next error) { ... }\n\nAnd yes, it\u0027s okay for packages to require new Go releases, but we need to be able to demonstrate the value of these interfaces before they can go into a release.",
+      "parentUuid": "8bd1a739_1287a91f",
+      "revId": "1b480f9cb5491d53841d1259634cd593eaeb630c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a9780c1b_1a345309",
         "filename": "errors/format.go",
         "patchSetId": 1
