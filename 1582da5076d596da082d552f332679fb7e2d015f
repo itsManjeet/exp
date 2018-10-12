@@ -490,6 +490,30 @@
     },
     {
       "key": {
+        "uuid": "73339fd2_cda828a3",
+        "filename": "errors/stack.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-10-12T07:11:52Z",
+      "side": 1,
+      "message": "Just a thought about naming, if stack were implemented in its own package, say errors/stack, errors.Stack could be stack.Top.\n\nIt could implement a Frames() []Frame method, where type stack.Frame could implement a Location() (file string, line int) method (consistent with errgo, for example). \n\nI think this also makes the naming for creating full depth stacks a bit easier.",
+      "parentUuid": "735f006f_20110bff",
+      "range": {
+        "startLine": 21,
+        "startChar": 3,
+        "endLine": 21,
+        "endChar": 11
+      },
+      "revId": "1582da5076d596da082d552f332679fb7e2d015f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b85b2ca6_942fdc15",
         "filename": "errors/stack.go",
         "patchSetId": 2
