@@ -55,6 +55,24 @@
     },
     {
       "key": {
+        "uuid": "f56daa5f_c38fe9aa",
+        "filename": "errors/format.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-10-12T06:55:54Z",
+      "side": 1,
+      "message": "To be complete, it would be FormatError beats Formats beats (GoStringer | Error beats String).\n\nLet\u0027s approach it a different way, though. Aside from transition, what is the value of providing both methods?\n\nHere are the arguments agains:\n- FormatError is longer to type\n- Format would never be called by fmt. Users usually don\u0027t and shouldn\u0027t create their own state, so this means a matching Format implementation would be dead code.\n- It is almost certainly wrong to call Format from within another implementations of Format when it concerns printing errors. To avoid confusion, it is better not to have the possibility.\n- Pretty much all implementations of Format for errors outside of the stdlib already break the usual functionality of printing errors by fmt in some relevant way (%+q, %#v, etc.); it is hard to get it right. This will only get worse with FormatError, as now order matters too. Using Format to print errors should be highly discouraged once this alternative is available.\n\nIn general, I don\u0027t see any upside to support both in the long run. Do you have any examples to the contrary not related to transitioning?\n\nI\u0027m not saying I\u0027m fully opposed to calling it FormatError, but I\u0027m still not convinced of the upside.\n\nI don\u0027t understand how the adaptor would work. It would rely on a newer version of Go that would already ignore the fmt.Format implementation. Any other use of calling Format (like passing the state on from within another format call) is very likely to be incorrect and should be discouraged.\n\nAnother solution to providing both versions during a transition would be to use build tags.\n\nAnother way to address my issues above is to have a vet rule that complains about errors implementing fmt.Formatter. That would make FormatError just longer to type. I like the idea of the compiler taking care of it though.",
+      "parentUuid": "643427eb_dfd0691c",
+      "revId": "1b480f9cb5491d53841d1259634cd593eaeb630c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a9780c1b_1a345309",
         "filename": "errors/format.go",
         "patchSetId": 1
