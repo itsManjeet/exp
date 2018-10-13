@@ -73,6 +73,24 @@
     },
     {
       "key": {
+        "uuid": "9ea95f18_0a2f2443",
+        "filename": "errors/format.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 5305
+      },
+      "writtenOn": "2018-10-13T16:52:45Z",
+      "side": 1,
+      "message": "I agree that just having one method would be fine if we were starting ab initio. I don\u0027t think we can ignore the transitional period, however.\n\n- We need to be able to use the experimental errors and fmt packages to prove these concepts in practice before adopting them in the standard library. That means something that works with Go 1.11.\n\n- You\u0027ve proposed using vendoring for so that \"errors\" and \"fmt\" are replaced with the experimental version. I don\u0027t think this works, since a vendor directory will only replace packages in the current module. If two modules both vendor the experimental errors packages in, they won\u0027t share a definition of errors.Printer.\n\n\u003e I don\u0027t understand how the adaptor would work. It would rely on a newer version of Go that would already ignore the fmt.Format implementation.\n\nNo, the adapter would rely on a package (possibly this one) that would be compatible with any version of Go.",
+      "parentUuid": "f56daa5f_c38fe9aa",
+      "revId": "1b480f9cb5491d53841d1259634cd593eaeb630c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a9780c1b_1a345309",
         "filename": "errors/format.go",
         "patchSetId": 1
