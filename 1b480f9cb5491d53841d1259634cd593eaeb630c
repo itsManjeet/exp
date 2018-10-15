@@ -91,6 +91,24 @@
     },
     {
       "key": {
+        "uuid": "21c4b2fa_60fa5529",
+        "filename": "errors/format.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-10-15T10:04:11Z",
+      "side": 1,
+      "message": "\u003e I don\u0027t think we can ignore the transitional period\n\nWhat is wrong with the build tag approach? I makes reality very explicit: in new Go versions, fmt.Format will _never_ be used by package fmt and should not be used by users either.\n\n\u003e vendoring ... I don\u0027t think this works, since a vendor directory will only replace packages in the current module\n\ngo mod vendor puts the transitive dependencies of all packages in the vendor directory. It does not seem to support vendoring of core libs, but after vendoring one can switch to GOPATH mode, which will. The result is that, after copying in fmt and errors, all transitive dependencies will use the replacement packages. I verified this works. Clearly not production-worthy or winning any beauty contest, but it is relatively straightforward to test out the impact of these packages across a project.\n\n\u003e the adapter would rely on a package (possibly this one) that would be compatible with any version of Go.\n\nYes, but the adaptor would be included in a new Go releases, at which point package fmt will never call it and users calling it will most likely be incorrect. It is probably possible to make an adaptor that tracks the origin of the fmt.State and finagles the flags and verb to approximate correct results, but I don\u0027t think we want to go there.",
+      "parentUuid": "9ea95f18_0a2f2443",
+      "revId": "1b480f9cb5491d53841d1259634cd593eaeb630c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a9780c1b_1a345309",
         "filename": "errors/format.go",
         "patchSetId": 1
