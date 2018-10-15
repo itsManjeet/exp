@@ -127,6 +127,24 @@
     },
     {
       "key": {
+        "uuid": "0824c384_914bb186",
+        "filename": "errors/format.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 5305
+      },
+      "writtenOn": "2018-10-15T17:23:49Z",
+      "side": 1,
+      "message": "\u003e What is wrong with the build tag approach?\n\nWhat build tag do I use today, when none of this is included in a Go release, and when we don\u0027t even know whether any of it ever will be included in a Go release?\n\n\u003e it is relatively straightforward to test out the impact of these packages across a project.\n\nIf a \"project\" is not a dependency of anything else, this is true. How would one test these packages in a package that is imported by other parties, however?\n\n\u003e Yes, but the adaptor would be included in a new Go releases, at which point package fmt will never call it and users calling it will most likely be incorrect.\n\nI don\u0027t follow this. The adapter would be in a package (probably this one), not in a Go release. There\u0027s no need for the adapter to ever be in a Go release.\n\nAnd the purpose of the adapter is to make code which calls it universally correct:\n\n  // The Format method is called by the fmt package in older Go releases.\n  //\n  // fmt.FormatError calls err.FormatError.\n  // (The fmt package here is \"golang.org/x/errors/fmt\", not \"fmt\".)\n  //\n  // Newer Go releases will never call this method. It may be removed once\n  // the author no longer cares about support for older releases.\n  func (err errType) Format(s fmt.State, r rune) { fmt.FormatError(err, s, r) }\n\n  // The FormatError method is called by the fmt package in newer Go releases. \n  func (err errType) FormatError(p errors.Printer) (next error) { ... }\n\nWhy is the user of fmt.FormatError (the adapter) \"most likely incorrect\"?",
+      "parentUuid": "0cef5d23_03f03904",
+      "revId": "1b480f9cb5491d53841d1259634cd593eaeb630c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a9780c1b_1a345309",
         "filename": "errors/format.go",
         "patchSetId": 1
