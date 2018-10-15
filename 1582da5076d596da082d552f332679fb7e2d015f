@@ -676,6 +676,24 @@
     },
     {
       "key": {
+        "uuid": "b6a466e7_43e219a7",
+        "filename": "errors/unwrap.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-15T12:33:48Z",
+      "side": 1,
+      "message": "You are technically correct, but if they\u0027ve seen \"Is\" and they understand Go naming conventions, people will understand that this is \"Is\" + \"er\" and pronounce it \"izer\". \"Isser,\" by the way, would definitely be pronounced \"iser\" (short /i/, then an /s/, not a /z/), so it\u0027s wrong too.",
+      "parentUuid": "23be3f5f_d2ab03d5",
+      "revId": "1582da5076d596da082d552f332679fb7e2d015f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "8fb2d3ce_add04325",
         "filename": "errors/unwrap.go",
         "patchSetId": 2
@@ -806,6 +824,30 @@
       "side": 1,
       "message": "I like this.",
       "parentUuid": "d088d6cf_33bb148b",
+      "range": {
+        "startLine": 73,
+        "startChar": 5,
+        "endLine": 73,
+        "endChar": 7
+      },
+      "revId": "1582da5076d596da082d552f332679fb7e2d015f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2cf80dca_356e50c6",
+        "filename": "errors/unwrap.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-15T12:33:48Z",
+      "side": 1,
+      "message": "Fine with me.",
+      "parentUuid": "edbb28b2_f0db2892",
       "range": {
         "startLine": 73,
         "startChar": 5,
