@@ -109,6 +109,24 @@
     },
     {
       "key": {
+        "uuid": "0cef5d23_03f03904",
+        "filename": "errors/format.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-10-15T10:08:50Z",
+      "side": 1,
+      "message": "One more note on build tags: one already needs to use build tags if one implements errors.Formatter while wanting to stay backwards compatible with Go, as the implementation would have to refer to errors.Printer.",
+      "parentUuid": "21c4b2fa_60fa5529",
+      "revId": "1b480f9cb5491d53841d1259634cd593eaeb630c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a9780c1b_1a345309",
         "filename": "errors/format.go",
         "patchSetId": 1
