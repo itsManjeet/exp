@@ -16,6 +16,24 @@
       "revId": "344881521eb66a48a03a5b55b4be147ab3f462e8",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca37263c_8c737b23",
+        "filename": "xerrors/errors.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 5305
+      },
+      "writtenOn": "2018-10-17T21:44:34Z",
+      "side": 1,
+      "message": "A couple reasons not to do this:\n\n1. I intend to add stack information to these errors, at which point this needs to be a separate implementation.\n\n2. See the discussion about Format/FormatError on https://go-review.googlesource.com/c/exp/+/139499. If the discussion resolves in favor of calling the error formatting method \"Format\" (which I\u0027m guessing it does, since you\u0027re +2 on it), I don\u0027t believe the experimental error and fmt packages can coexist in a program with the stdlib ones.",
+      "parentUuid": "610fdccf_b3aca4dd",
+      "revId": "344881521eb66a48a03a5b55b4be147ab3f462e8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
     }
   ]
 }
