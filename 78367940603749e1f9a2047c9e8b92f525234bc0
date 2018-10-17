@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ff471788_91ce0058",
+        "filename": "errors/format.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2018-10-17T15:13:54Z",
+      "side": 1,
+      "message": "// Format prints the receiver\u0027s first error\n// and returns the next error in the error chain, if any.",
+      "revId": "78367940603749e1f9a2047c9e8b92f525234bc0",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b696bf6d_51442bfd",
+        "filename": "errors/format.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2018-10-17T15:13:54Z",
+      "side": 1,
+      "message": "s/creates formatted/formats/\ndrop the \"It enforces...\" sentence.",
+      "revId": "78367940603749e1f9a2047c9e8b92f525234bc0",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca59bffc_0872b0ad",
+        "filename": "errors/format.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2018-10-17T15:13:54Z",
+      "side": 1,
+      "message": "// The most common implementation of Printer is the one\n// provided by package fmt during Printf.\n// Localization packages such as golang.org/x/text/message\n// typically provide their own implementations.",
+      "revId": "78367940603749e1f9a2047c9e8b92f525234bc0",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
