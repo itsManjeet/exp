@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "610fdccf_b3aca4dd",
+        "filename": "xerrors/errors.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2018-10-17T15:09:59Z",
+      "side": 1,
+      "message": "This should call the real errors.New.\nIn general this package should be as thin a wrapper around the standard \"errors\" as possible.\nFor example if anything is looking at the underlying type of the result, we want to still see \u0027errors.errorString\u0027 not \u0027golang.org/x/exp/errors.errorString\u0027.",
+      "revId": "344881521eb66a48a03a5b55b4be147ab3f462e8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
