@@ -1,0 +1,170 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2fd0727f_92a3268c",
+        "filename": "apidiff/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 5195
+      },
+      "writtenOn": "2018-10-20T19:24:16Z",
+      "side": 1,
+      "message": "Nitpick: It\u0027s not an error to _have_ two fields at the same depth, it\u0027s only an error to use an ambiguous selector. If all selectors are explicit about the intermediate (anon) field, there\u0027s no error.",
+      "range": {
+        "startLine": 65,
+        "startChar": 26,
+        "endLine": 65,
+        "endChar": 30
+      },
+      "revId": "90d938b607840aac5486162166d5f37fcfa4a6d7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3b662bb9_2aa83548",
+        "filename": "apidiff/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 5195
+      },
+      "writtenOn": "2018-10-20T19:24:16Z",
+      "side": 1,
+      "message": "var v struct { pkg.Point; z } // not an error\n_ \u003d v.Z // ambiguous selector",
+      "revId": "90d938b607840aac5486162166d5f37fcfa4a6d7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef313c7a_03cdf9c6",
+        "filename": "apidiff/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 5195
+      },
+      "writtenOn": "2018-10-20T19:24:16Z",
+      "side": 1,
+      "message": "s/integer/numeric/\n\nfloats can end up in array bounds too. You don\u0027t even need arrays for this to be a problem. Changing 1.0 below to 1.1 breaks the program.\n\nconst f \u003d 1.0\nconst x \u003d int(f)",
+      "range": {
+        "startLine": 125,
+        "startChar": 16,
+        "endLine": 125,
+        "endChar": 23
+      },
+      "revId": "90d938b607840aac5486162166d5f37fcfa4a6d7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be1cef79_29e80eb1",
+        "filename": "apidiff/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 5195
+      },
+      "writtenOn": "2018-10-20T19:24:16Z",
+      "side": 1,
+      "message": "What does \"places\" mean?  Ignoring function-local type declarations (as we may here), all defined types are created by package-level \u0027type\u0027 declarations.  I think that\u0027s the only possible \"place\" of interest.",
+      "range": {
+        "startLine": 206,
+        "startChar": 65,
+        "endLine": 206,
+        "endChar": 76
+      },
+      "revId": "90d938b607840aac5486162166d5f37fcfa4a6d7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce88a75b_f0039791",
+        "filename": "apidiff/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 5195
+      },
+      "writtenOn": "2018-10-20T19:24:16Z",
+      "side": 1,
+      "message": "\"I use the term \"object\" in the sense of `go/types`: a named entity created by a declaration.\"",
+      "range": {
+        "startLine": 266,
+        "startChar": 40,
+        "endLine": 266,
+        "endChar": 50
+      },
+      "revId": "90d938b607840aac5486162166d5f37fcfa4a6d7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13491916_29f0de8b",
+        "filename": "apidiff/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 5195
+      },
+      "writtenOn": "2018-10-20T19:24:16Z",
+      "side": 1,
+      "message": "You might want to mention that the checker (like all go/types tools) has to pick a single configuration, but GOOS/GOARCH/build tags may complicate things.",
+      "revId": "90d938b607840aac5486162166d5f37fcfa4a6d7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4914137_aeacd3f5",
+        "filename": "apidiff/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 5195
+      },
+      "writtenOn": "2018-10-20T19:24:16Z",
+      "side": 1,
+      "message": "nor func(interface{})",
+      "range": {
+        "startLine": 333,
+        "startChar": 61,
+        "endLine": 333,
+        "endChar": 62
+      },
+      "revId": "90d938b607840aac5486162166d5f37fcfa4a6d7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11c2c984_ef1421ff",
+        "filename": "apidiff/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 5195
+      },
+      "writtenOn": "2018-10-20T19:24:16Z",
+      "side": 1,
+      "message": "Not entirely harmless: it could cause conflict in a type switch.\n\ntype B \u003d   chan int  // old\ntype C \u003d \u003c-chan int  // old\ntype C \u003d   chan int  // new\n\n// outside\nswitch x.(type) {\ncase B:\ncase C: // new: error: duplicate case type\n}\n\n\nObviously this is super-obscure.",
+      "revId": "90d938b607840aac5486162166d5f37fcfa4a6d7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
