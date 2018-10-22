@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "32635e97_fbcc12e7",
+        "filename": "errors/fmt/errors.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-10-22T08:44:35Z",
+      "side": 1,
+      "message": "removed TODO",
+      "parentUuid": "722b2f26_aded044b",
+      "revId": "341b28f74c93fef785604156cc87956d430bb5a9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "dd386b51_5b40f1fb",
         "filename": "errors/fmt/errors.go",
         "patchSetId": 3
@@ -30,6 +48,24 @@
       "writtenOn": "2018-10-17T15:23:44Z",
       "side": 1,
       "message": "Please do have the result of fmt.Errorf implement errors.Wrapper unconditionally.\nWe can deal with situations that don\u0027t want wrapping when they arise (no one has shown me a real one yet!).\n\nIf they did arise, my inclination would be to do something like\n\n    func Opaque(err error) error {\n        return \u0026noWrapper{err}\n    }",
+      "revId": "341b28f74c93fef785604156cc87956d430bb5a9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4ec1912_7b90ae4b",
+        "filename": "errors/fmt/errors.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-10-22T08:44:35Z",
+      "side": 1,
+      "message": "Removed the TODO. Wrapping will be added when available.",
+      "parentUuid": "dd386b51_5b40f1fb",
       "revId": "341b28f74c93fef785604156cc87956d430bb5a9",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
