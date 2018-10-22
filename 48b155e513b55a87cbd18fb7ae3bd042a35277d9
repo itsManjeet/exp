@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d2d82b5f_a199ad5a",
+        "filename": "errors/fmt/errors.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-10-22T08:39:45Z",
+      "side": 1,
+      "message": "Yes, good catch. I missed this due to a few sequences of changes.\nThe issue was in print.go, though, which I modified accordingly.\n\n\nNote that the \"FormatError\" interface variant now no longer makes sense as it cannot be reached if used together with fmt.Formatter. I can support it explicitly in print.go or remove it altogether.",
+      "parentUuid": "54c9d116_e201a70c",
+      "revId": "48b155e513b55a87cbd18fb7ae3bd042a35277d9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "0395982e_b5437ee1",
         "filename": "errors/fmt/format_example_test.go",
         "patchSetId": 5
@@ -30,6 +48,24 @@
       "writtenOn": "2018-10-17T15:15:38Z",
       "side": 1,
       "message": "Why is this \"+build ignore\"? Don\u0027t you want this to run?",
+      "revId": "48b155e513b55a87cbd18fb7ae3bd042a35277d9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8e3ea8c1_e948066e",
+        "filename": "errors/fmt/format_example_test.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-10-22T08:39:45Z",
+      "side": 1,
+      "message": "Sorry, that wasn\u0027t supposed to be added here.",
+      "parentUuid": "0395982e_b5437ee1",
       "revId": "48b155e513b55a87cbd18fb7ae3bd042a35277d9",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
