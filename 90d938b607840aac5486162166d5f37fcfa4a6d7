@@ -131,6 +131,30 @@
     },
     {
       "key": {
+        "uuid": "871119c5_f45d5fe1",
+        "filename": "apidiff/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 5195
+      },
+      "writtenOn": "2018-10-22T21:55:30Z",
+      "side": 1,
+      "message": "I think it\u0027s good to be aware of these things, and write them down, perhaps in the test suite, but I suspect only practice will tell which rules are best broken.",
+      "parentUuid": "5b32fe0d_39bf3763",
+      "range": {
+        "startLine": 125,
+        "startChar": 16,
+        "endLine": 125,
+        "endChar": 23
+      },
+      "revId": "90d938b607840aac5486162166d5f37fcfa4a6d7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "be1cef79_29e80eb1",
         "filename": "apidiff/README.md",
         "patchSetId": 3
@@ -166,6 +190,30 @@
       "side": 1,
       "message": "That\u0027s where they\u0027re created, but they can appear in the types of variables and in signatures. E.g. u1 and u2 correspond in\n\nvar v map[u1]int  // old\nvar v map[u2]int  // old\n\n(assuming they match up in all other \"places\" as well).\n\nI\u0027m not sure I can come up with a short, formal definition. The implementation establishes correspondence when it tries to determine if two types are equivalent, as it would in the above example if u1 and u2 hadn\u0027t been seen before. So we could say two types correspond if they make all matching old and new types that they appear in equivalent. That feels like it\u0027s circular with equivalence, even though it isn\u0027t.",
       "parentUuid": "be1cef79_29e80eb1",
+      "range": {
+        "startLine": 206,
+        "startChar": 65,
+        "endLine": 206,
+        "endChar": 76
+      },
+      "revId": "90d938b607840aac5486162166d5f37fcfa4a6d7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "77779fa9_3d313867",
+        "filename": "apidiff/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 5195
+      },
+      "writtenOn": "2018-10-22T21:55:30Z",
+      "side": 1,
+      "message": "Ah, I thought \"appear in the same places\" was referring to the declaration.  It would be clearer to say \"used in the same places\".",
+      "parentUuid": "d9732b9f_a5b5234a",
       "range": {
         "startLine": 206,
         "startChar": 65,
