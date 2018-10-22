@@ -145,6 +145,24 @@
     },
     {
       "key": {
+        "uuid": "0c379a69_9800c289",
+        "filename": "errors/format.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-10-22T08:05:41Z",
+      "side": 1,
+      "message": "I think a lot of the misunderstanding comes from a different understanding of on how these exp packages will be used and what transition means. To me, the exp packages will be very short lived and will serve to develop what will go in to core soon. The transition I had in mind was the one once these package are already integrated in core.\n\nSo I see what you mean with the transition issue. I just don\u0027t think this will be too much of an issue.\n\n\u003e What build tag do I use today, when none of this is included in a Go release, and when we don\u0027t even know whether any of it ever will be included in a Go release?\n\nFair point. However, in our case the exp repo is used to develop what something that will either make in core soon or not at all. I don\u0027t expect production packages to depend on these exp repos. If they do, they can use the hidden and temporary FormatError interface.\n\n\u003e If a \"project\" is not a dependency of anything else, this is true. How would one test these packages in a package that is imported by other parties, however?\n\nThat also works also with the technique I described. This works particularly well if people use go mods and then fall back on GOPATH for the experiment.\n\n\u003e Why is the user of fmt.FormatError (the adapter) \"most likely incorrect\"?\n\nI see the use case for it now. I was talking about the case where providing this in core, where Format would only be called manually, which is hard to do right.\n\nI see the exp packages mostly for experimenting with these packages and not as production code. I hope it can make it into core soon. But if needed we can add such a FormatError in exp only.",
+      "parentUuid": "0824c384_914bb186",
+      "revId": "1b480f9cb5491d53841d1259634cd593eaeb630c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a9780c1b_1a345309",
         "filename": "errors/format.go",
         "patchSetId": 1
