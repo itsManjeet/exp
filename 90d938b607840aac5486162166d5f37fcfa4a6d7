@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "019ca8a7_7410d81f",
+        "filename": "apidiff/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-22T21:45:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2fd0727f_92a3268c",
+      "range": {
+        "startLine": 65,
+        "startChar": 26,
+        "endLine": 65,
+        "endChar": 30
+      },
+      "revId": "90d938b607840aac5486162166d5f37fcfa4a6d7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3b662bb9_2aa83548",
         "filename": "apidiff/README.md",
         "patchSetId": 3
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "59cd6f17_1d3be354",
+        "filename": "apidiff/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-22T21:45:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b662bb9_2aa83548",
+      "revId": "90d938b607840aac5486162166d5f37fcfa4a6d7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ef313c7a_03cdf9c6",
         "filename": "apidiff/README.md",
         "patchSetId": 3
@@ -53,6 +95,30 @@
       "writtenOn": "2018-10-20T19:24:16Z",
       "side": 1,
       "message": "s/integer/numeric/\n\nfloats can end up in array bounds too. You don\u0027t even need arrays for this to be a problem. Changing 1.0 below to 1.1 breaks the program.\n\nconst f \u003d 1.0\nconst x \u003d int(f)",
+      "range": {
+        "startLine": 125,
+        "startChar": 16,
+        "endLine": 125,
+        "endChar": 23
+      },
+      "revId": "90d938b607840aac5486162166d5f37fcfa4a6d7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b32fe0d_39bf3763",
+        "filename": "apidiff/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-22T21:45:29Z",
+      "side": 1,
+      "message": "Interesting. Should I report value changes like this? Or should I just report all const value changes as incompatible? That\u0027s what the stdlib API checker does.",
+      "parentUuid": "ef313c7a_03cdf9c6",
       "range": {
         "startLine": 125,
         "startChar": 16,
@@ -88,6 +154,30 @@
     },
     {
       "key": {
+        "uuid": "d9732b9f_a5b5234a",
+        "filename": "apidiff/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-22T21:45:29Z",
+      "side": 1,
+      "message": "That\u0027s where they\u0027re created, but they can appear in the types of variables and in signatures. E.g. u1 and u2 correspond in\n\nvar v map[u1]int  // old\nvar v map[u2]int  // old\n\n(assuming they match up in all other \"places\" as well).\n\nI\u0027m not sure I can come up with a short, formal definition. The implementation establishes correspondence when it tries to determine if two types are equivalent, as it would in the above example if u1 and u2 hadn\u0027t been seen before. So we could say two types correspond if they make all matching old and new types that they appear in equivalent. That feels like it\u0027s circular with equivalence, even though it isn\u0027t.",
+      "parentUuid": "be1cef79_29e80eb1",
+      "range": {
+        "startLine": 206,
+        "startChar": 65,
+        "endLine": 206,
+        "endChar": 76
+      },
+      "revId": "90d938b607840aac5486162166d5f37fcfa4a6d7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ce88a75b_f0039791",
         "filename": "apidiff/README.md",
         "patchSetId": 3
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "9e16bfd6_a476da21",
+        "filename": "apidiff/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-22T21:45:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ce88a75b_f0039791",
+      "range": {
+        "startLine": 266,
+        "startChar": 40,
+        "endLine": 266,
+        "endChar": 50
+      },
+      "revId": "90d938b607840aac5486162166d5f37fcfa4a6d7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "13491916_29f0de8b",
         "filename": "apidiff/README.md",
         "patchSetId": 3
@@ -125,6 +239,24 @@
       "revId": "90d938b607840aac5486162166d5f37fcfa4a6d7",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e77b31e5_b79afeaa",
+        "filename": "apidiff/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-22T21:45:29Z",
+      "side": 1,
+      "message": "Added something, not sure if it\u0027s quite right.",
+      "parentUuid": "13491916_29f0de8b",
+      "revId": "90d938b607840aac5486162166d5f37fcfa4a6d7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -151,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "c1b7c817_60e7c1e2",
+        "filename": "apidiff/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-22T21:45:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4914137_aeacd3f5",
+      "range": {
+        "startLine": 333,
+        "startChar": 61,
+        "endLine": 333,
+        "endChar": 62
+      },
+      "revId": "90d938b607840aac5486162166d5f37fcfa4a6d7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "11c2c984_ef1421ff",
         "filename": "apidiff/README.md",
         "patchSetId": 3
@@ -162,6 +318,24 @@
       "writtenOn": "2018-10-20T19:24:16Z",
       "side": 1,
       "message": "Not entirely harmless: it could cause conflict in a type switch.\n\ntype B \u003d   chan int  // old\ntype C \u003d \u003c-chan int  // old\ntype C \u003d   chan int  // new\n\n// outside\nswitch x.(type) {\ncase B:\ncase C: // new: error: duplicate case type\n}\n\n\nObviously this is super-obscure.",
+      "revId": "90d938b607840aac5486162166d5f37fcfa4a6d7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "89e3b76b_7ed8ed97",
+        "filename": "apidiff/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-22T21:45:29Z",
+      "side": 1,
+      "message": "I just added the words \"almost certainly\" to qualify the statement, and wrote something below in \"Whole-Package Compatibility\" about the general problem that your example is an instance of.",
+      "parentUuid": "11c2c984_ef1421ff",
       "revId": "90d938b607840aac5486162166d5f37fcfa4a6d7",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
