@@ -87,6 +87,24 @@
       "revId": "341b28f74c93fef785604156cc87956d430bb5a9",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c582cff_3a39031c",
+        "filename": "errors/fmt/errors.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-10-23T13:52:35Z",
+      "side": 1,
+      "message": "We don\u0027t believe this will be an issue in practice.\n\nAs long as things are not final, we can always revert. For now it seems sensible to force the issue, if there is one, and encourage people to come up with concrete counter examples.",
+      "parentUuid": "e0c55c41_0a0c085b",
+      "revId": "341b28f74c93fef785604156cc87956d430bb5a9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
     }
   ]
 }
