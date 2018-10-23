@@ -1,0 +1,854 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "97181f9b_0aa2ce8b",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-10-23T19:49:11Z",
+      "side": 1,
+      "message": "s/like/such as/ (?)",
+      "range": {
+        "startLine": 20,
+        "startChar": 50,
+        "endLine": 20,
+        "endChar": 54
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be7bec07_3e7581ba",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-10-23T19:49:11Z",
+      "side": 1,
+      "message": "s/outside/client/",
+      "range": {
+        "startLine": 54,
+        "startChar": 3,
+        "endLine": 54,
+        "endChar": 10
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dd860a2d_e383277f",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-10-23T19:49:11Z",
+      "side": 1,
+      "message": "s/outside/in a client of/",
+      "range": {
+        "startLine": 58,
+        "startChar": 59,
+        "endLine": 58,
+        "endChar": 66
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35d0aeae_706832e7",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-10-23T19:49:11Z",
+      "side": 1,
+      "message": "s/outside/client/",
+      "range": {
+        "startLine": 59,
+        "startChar": 42,
+        "endLine": 59,
+        "endChar": 49
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4b29cbbe_4599a524",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-10-23T19:49:11Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this explain why this tool won\u0027t report this? (It can\u0027t, of course, w/o knowing all clients).",
+      "range": {
+        "startLine": 60,
+        "startChar": 20,
+        "endLine": 60,
+        "endChar": 21
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9bcb2eb5_98b3dd20",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-10-23T19:49:11Z",
+      "side": 1,
+      "message": "because the newly added field may conflict with an identically named field\nat the same struct depth. A selector referring to the latter would become\nambiguous and thus erroneous. (?)",
+      "range": {
+        "startLine": 65,
+        "startChar": 8,
+        "endLine": 65,
+        "endChar": 10
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5e54ab0_4c6dde80",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-10-23T19:49:11Z",
+      "side": 1,
+      "message": "s/outside/client/",
+      "range": {
+        "startLine": 75,
+        "startChar": 3,
+        "endLine": 75,
+        "endChar": 10
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fbe84a53_d6d7bf3a",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-10-23T19:49:11Z",
+      "side": 1,
+      "message": "unclear: what is the package of a type expression?",
+      "range": {
+        "startLine": 91,
+        "startChar": 56,
+        "endLine": 91,
+        "endChar": 59
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe836a6f_cb530d55",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-10-23T19:49:11Z",
+      "side": 1,
+      "message": "s/outside/external/",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 7
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4cd9628f_1fc10aeb",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-10-23T19:49:11Z",
+      "side": 1,
+      "message": "also, even if this is done, the external type cannot be used interchangeably in general. It works for assignments due to the rules for assignability.",
+      "range": {
+        "startLine": 92,
+        "startChar": 24,
+        "endLine": 92,
+        "endChar": 39
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4cdf1315_635bff72",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-10-23T19:49:11Z",
+      "side": 1,
+      "message": "s/outside/client/ (or external)",
+      "range": {
+        "startLine": 105,
+        "startChar": 10,
+        "endLine": 105,
+        "endChar": 17
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "feb56ea5_81acac03",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-10-23T19:49:11Z",
+      "side": 1,
+      "message": "s/outside/client (or external)\n\napply everywhere",
+      "range": {
+        "startLine": 119,
+        "startChar": 3,
+        "endLine": 119,
+        "endChar": 10
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2757dccc_3afcb3b8",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-10-23T19:49:11Z",
+      "side": 1,
+      "message": "similar problems for unsafe.Offsetof, unsafe.Alignof. Also, it\u0027s not just any type, only the types of to which the unsafe op is applied.",
+      "range": {
+        "startLine": 122,
+        "startChar": 15,
+        "endLine": 122,
+        "endChar": 21
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8ffe0fa1_a4ef2c12",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-10-23T19:49:11Z",
+      "side": 1,
+      "message": "Here you mention a reason for ignoring this. Should have such a rationale for each example.",
+      "range": {
+        "startLine": 140,
+        "startChar": 7,
+        "endLine": 140,
+        "endChar": 11
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9158c209_754f3384",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-10-23T19:49:11Z",
+      "side": 1,
+      "message": "A package change that merges two different types (with same underlying type) into a single new type\nmay break type switches in clients that refer to both original types:",
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db3f8ac2_9a169c4c",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-10-23T19:49:11Z",
+      "side": 1,
+      "message": "This seems pretty esoteric.",
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45cb4ba4_5521c850",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-10-23T19:49:11Z",
+      "side": 1,
+      "message": "maybe s/u/t/ or s/u/typ/ (?)",
+      "range": {
+        "startLine": 176,
+        "startChar": 6,
+        "endLine": 176,
+        "endChar": 7
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4c18f858_6841969f",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-10-23T19:49:11Z",
+      "side": 1,
+      "message": "... via the exported variable V.",
+      "range": {
+        "startLine": 185,
+        "startChar": 38,
+        "endLine": 185,
+        "endChar": 39
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b8e3b1dc_0863a69e",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-10-23T19:49:11Z",
+      "side": 1,
+      "message": "nice definition but it seems that it only shifts the problem to what \"reachable\" means; and it\u0027s not quite trivial - this needs to be expanded as it seems a crucial property",
+      "range": {
+        "startLine": 187,
+        "startChar": 63,
+        "endLine": 187,
+        "endChar": 72
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "098f37a2_0d25f603",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-10-23T19:49:11Z",
+      "side": 1,
+      "message": "s/u/t/ or typ, to emphasize this is a type?",
+      "range": {
+        "startLine": 201,
+        "startChar": 5,
+        "endLine": 201,
+        "endChar": 6
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3eb567e4_342015fd",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-10-23T19:49:11Z",
+      "side": 1,
+      "message": "it\u0027s not clear to me why this requires a new term (correspond). why is this not just type identity? if not, this section should explain this more of refer to some other section which does.",
+      "range": {
+        "startLine": 204,
+        "startChar": 25,
+        "endLine": 204,
+        "endChar": 35
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd702e85_3def703a",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-10-23T19:49:11Z",
+      "side": 1,
+      "message": "is that ever not the case?",
+      "range": {
+        "startLine": 206,
+        "startChar": 50,
+        "endLine": 206,
+        "endChar": 51
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "085d7514_d0f4dd42",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-10-23T19:49:11Z",
+      "side": 1,
+      "message": "This seems all very complicated.\n\nCouldn\u0027t you just say that two types are equivalent if they are identical or they correspond?",
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3eb13b7_53da76f9",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-10-23T19:49:11Z",
+      "side": 1,
+      "message": "which one? point 1) ?",
+      "range": {
+        "startLine": 234,
+        "startChar": 12,
+        "endLine": 234,
+        "endChar": 17
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d223c4ed_70b79c5b",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-10-23T19:49:11Z",
+      "side": 1,
+      "message": "I find it confusing that in a couple of places you refer to this package when you mean \"this tool\". The reason it\u0027s confusing is that this tool is all about packages, so it might be better to not refer the tool as a package, too.",
+      "range": {
+        "startLine": 255,
+        "startChar": 64,
+        "endLine": 255,
+        "endChar": 71
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38fd418d_0f027c78",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-10-23T19:49:11Z",
+      "side": 1,
+      "message": "s/exposed/exported/ ?\n\nor what does exposed mean?",
+      "range": {
+        "startLine": 263,
+        "startChar": 13,
+        "endLine": 263,
+        "endChar": 20
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "abf78183_bfb413ca",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-10-23T19:49:11Z",
+      "side": 1,
+      "message": "s/names/exported names/\ns/are not in/are not exported in/",
+      "range": {
+        "startLine": 272,
+        "startChar": 20,
+        "endLine": 272,
+        "endChar": 25
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6634c329_c61f4029",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-10-23T19:49:11Z",
+      "side": 1,
+      "message": "this is true for the compiler as well - singling out go/types makes it sound like a design defect of go/types - in fact go/types couldn\u0027t care less. it\u0027s about the files that are being presented to go/types",
+      "range": {
+        "startLine": 275,
+        "startChar": 27,
+        "endLine": 275,
+        "endChar": 32
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f94a64e_ba0cfb7d",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-10-23T19:49:11Z",
+      "side": 1,
+      "message": "this sentence is a bit odd",
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59fc8a62_6217ff3d",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-10-23T19:49:11Z",
+      "side": 1,
+      "message": "This is an exceedingly esoteric case. The much more common case is:\n\nold:\nconst C int64 \u003d 1\n\nnew:\nconst C \u003d 1\n\nand now an external declaration of the form\nx :\u003d C\n\nwill have the wrong type for x",
+      "range": {
+        "startLine": 304,
+        "startChar": 0,
+        "endLine": 304,
+        "endChar": 7
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2caae617_45f57f5b",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-10-23T19:49:11Z",
+      "side": 1,
+      "message": "yes, it should be incompatible",
+      "range": {
+        "startLine": 307,
+        "startChar": 18,
+        "endLine": 307,
+        "endChar": 20
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "363e2d39_4e0a88a2",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-10-23T19:49:11Z",
+      "side": 1,
+      "message": "don\u0027t use the term \"named type\" anymore; just use \"defined type\"\n\nAs far as I am concerned, any type that has a name is named, even if that\u0027s an alias name.",
+      "range": {
+        "startLine": 355,
+        "startChar": 37,
+        "endLine": 355,
+        "endChar": 43
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c45353ef_b473f9d1",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-10-23T19:49:11Z",
+      "side": 1,
+      "message": "which one (equivalent or correspond)",
+      "range": {
+        "startLine": 368,
+        "startChar": 58,
+        "endLine": 368,
+        "endChar": 62
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9fd45539_753adbe1",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-10-23T19:49:11Z",
+      "side": 1,
+      "message": "s/u/t/?",
+      "range": {
+        "startLine": 378,
+        "startChar": 6,
+        "endLine": 378,
+        "endChar": 7
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "669d61d0_5d427445",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-10-23T19:49:11Z",
+      "side": 1,
+      "message": "? It must have an unexported method? something is not right here",
+      "range": {
+        "startLine": 432,
+        "startChar": 14,
+        "endLine": 432,
+        "endChar": 20
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d562a905_dc55ee3d",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-10-23T19:49:11Z",
+      "side": 1,
+      "message": "This is all a bit unclear.",
+      "range": {
+        "startLine": 434,
+        "startChar": 23,
+        "endLine": 434,
+        "endChar": 33
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d81123b0_3f7e53da",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-10-23T19:49:11Z",
+      "side": 1,
+      "message": "need to define _selectable_",
+      "range": {
+        "startLine": 456,
+        "startChar": 20,
+        "endLine": 456,
+        "endChar": 32
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "028beaeb_b0b4f61f",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-10-23T19:49:11Z",
+      "side": 1,
+      "message": "should say: same T, or in this case just:\n\ntype T int // no method m anymore",
+      "range": {
+        "startLine": 482,
+        "startChar": 3,
+        "endLine": 482,
+        "endChar": 7
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
