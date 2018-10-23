@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "2d83df69_4283c271",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-23T21:55:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97181f9b_0aa2ce8b",
+      "range": {
+        "startLine": 20,
+        "startChar": 50,
+        "endLine": 20,
+        "endChar": 54
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "be7bec07_3e7581ba",
         "filename": "apidiff/README.md",
         "patchSetId": 6
@@ -45,6 +69,30 @@
       "revId": "95f44193d797e31e888609c37ee045544936f59a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe0a0947_a20d2541",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-23T21:55:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be7bec07_3e7581ba",
+      "range": {
+        "startLine": 54,
+        "startChar": 3,
+        "endLine": 54,
+        "endChar": 10
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "253eca8c_9aeaf589",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-23T21:55:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd860a2d_e383277f",
+      "range": {
+        "startLine": 58,
+        "startChar": 59,
+        "endLine": 58,
+        "endChar": 66
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "35d0aeae_706832e7",
         "filename": "apidiff/README.md",
         "patchSetId": 6
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "65f9c75a_642f98ca",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-23T21:55:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35d0aeae_706832e7",
+      "range": {
+        "startLine": 59,
+        "startChar": 42,
+        "endLine": 59,
+        "endChar": 49
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b29cbbe_4599a524",
         "filename": "apidiff/README.md",
         "patchSetId": 6
@@ -105,6 +201,30 @@
       "writtenOn": "2018-10-23T19:49:11Z",
       "side": 1,
       "message": "Shouldn\u0027t this explain why this tool won\u0027t report this? (It can\u0027t, of course, w/o knowing all clients).",
+      "range": {
+        "startLine": 60,
+        "startChar": 20,
+        "endLine": 60,
+        "endChar": 21
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea06e180_fa109f5d",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-23T21:55:17Z",
+      "side": 1,
+      "message": "This tool doesn\u0027t report client code that breaks; it reports changes to package code that _could_ break clients. So it\u0027s not that the tool doesn\u0027t report this; rather, in determining incompatibility, the tool ignores the possibility of this usage. \n\nThe ultimate reason is not lack of knowledge, but rather that acknowledging this usage would preclude adding any field to a struct, and that is just too restrictive.\n\nThe reasoning is the same as that of the Go 1 compatibility guarantee.",
+      "parentUuid": "4b29cbbe_4599a524",
       "range": {
         "startLine": 60,
         "startChar": 20,
@@ -140,6 +260,30 @@
     },
     {
       "key": {
+        "uuid": "e227e985_790aebbd",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-23T21:55:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9bcb2eb5_98b3dd20",
+      "range": {
+        "startLine": 65,
+        "startChar": 8,
+        "endLine": 65,
+        "endChar": 10
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f5e54ab0_4c6dde80",
         "filename": "apidiff/README.md",
         "patchSetId": 6
@@ -163,6 +307,30 @@
     },
     {
       "key": {
+        "uuid": "e8ea14aa_54812460",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-23T21:55:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5e54ab0_4c6dde80",
+      "range": {
+        "startLine": 75,
+        "startChar": 3,
+        "endLine": 75,
+        "endChar": 10
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fbe84a53_d6d7bf3a",
         "filename": "apidiff/README.md",
         "patchSetId": 6
@@ -174,6 +342,30 @@
       "writtenOn": "2018-10-23T19:49:11Z",
       "side": 1,
       "message": "unclear: what is the package of a type expression?",
+      "range": {
+        "startLine": 91,
+        "startChar": 56,
+        "endLine": 91,
+        "endChar": 59
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "20918ef7_058d6ebc",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-23T21:55:17Z",
+      "side": 1,
+      "message": "I tried to clarify.",
+      "parentUuid": "fbe84a53_d6d7bf3a",
       "range": {
         "startLine": 91,
         "startChar": 56,
@@ -232,6 +424,54 @@
     },
     {
       "key": {
+        "uuid": "608cead3_7dbb3b12",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-23T21:55:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4cd9628f_1fc10aeb",
+      "range": {
+        "startLine": 92,
+        "startChar": 24,
+        "endLine": 92,
+        "endChar": 39
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "eb574f12_ca01f11c",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-23T21:55:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe836a6f_cb530d55",
+      "range": {
+        "startLine": 92,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 7
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4cdf1315_635bff72",
         "filename": "apidiff/README.md",
         "patchSetId": 6
@@ -252,6 +492,30 @@
       "revId": "95f44193d797e31e888609c37ee045544936f59a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c53d0ad8_2f167684",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-23T21:55:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4cdf1315_635bff72",
+      "range": {
+        "startLine": 105,
+        "startChar": 10,
+        "endLine": 105,
+        "endChar": 17
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -278,6 +542,30 @@
     },
     {
       "key": {
+        "uuid": "d995a52d_ea6b6ae3",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-23T21:55:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "feb56ea5_81acac03",
+      "range": {
+        "startLine": 119,
+        "startChar": 3,
+        "endLine": 119,
+        "endChar": 10
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2757dccc_3afcb3b8",
         "filename": "apidiff/README.md",
         "patchSetId": 6
@@ -289,6 +577,30 @@
       "writtenOn": "2018-10-23T19:49:11Z",
       "side": 1,
       "message": "similar problems for unsafe.Offsetof, unsafe.Alignof. Also, it\u0027s not just any type, only the types of to which the unsafe op is applied.",
+      "range": {
+        "startLine": 122,
+        "startChar": 15,
+        "endLine": 122,
+        "endChar": 21
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6bb42a07_86c1a0fd",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-23T21:55:17Z",
+      "side": 1,
+      "message": "Added the other two unsafe ops.\n\nI changed the phrasing to indicate that these are _potential_ incompatibilities. My point is that if the tool took these unsafe ops into account, it would have to mark any change that altered their return values as incompatible.",
+      "parentUuid": "2757dccc_3afcb3b8",
       "range": {
         "startLine": 122,
         "startChar": 15,
@@ -324,6 +636,30 @@
     },
     {
       "key": {
+        "uuid": "5ec2e55f_2dbd77fa",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-23T21:55:17Z",
+      "side": 1,
+      "message": "Any statement of the form \"... would make [a change we want to be able to make] incompatible\" is such a rationale.",
+      "parentUuid": "8ffe0fa1_a4ef2c12",
+      "range": {
+        "startLine": 140,
+        "startChar": 7,
+        "endLine": 140,
+        "endChar": 11
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9158c209_754f3384",
         "filename": "apidiff/README.md",
         "patchSetId": 6
@@ -341,6 +677,24 @@
     },
     {
       "key": {
+        "uuid": "7ce0c67e_a6606fe5",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-23T21:55:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9158c209_754f3384",
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "db3f8ac2_9a169c4c",
         "filename": "apidiff/README.md",
         "patchSetId": 6
@@ -352,6 +706,24 @@
       "writtenOn": "2018-10-23T19:49:11Z",
       "side": 1,
       "message": "This seems pretty esoteric.",
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7badcc76_3413bff2",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-23T21:55:17Z",
+      "side": 1,
+      "message": "Noted in the doc as the reason to ignore it.",
+      "parentUuid": "db3f8ac2_9a169c4c",
       "revId": "95f44193d797e31e888609c37ee045544936f59a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
@@ -381,6 +753,30 @@
     },
     {
       "key": {
+        "uuid": "3cab66b8_d861fb41",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-23T21:55:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45cb4ba4_5521c850",
+      "range": {
+        "startLine": 176,
+        "startChar": 6,
+        "endLine": 176,
+        "endChar": 7
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4c18f858_6841969f",
         "filename": "apidiff/README.md",
         "patchSetId": 6
@@ -404,6 +800,30 @@
     },
     {
       "key": {
+        "uuid": "964425f5_3ef3377b",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-23T21:55:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c18f858_6841969f",
+      "range": {
+        "startLine": 185,
+        "startChar": 38,
+        "endLine": 185,
+        "endChar": 39
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b8e3b1dc_0863a69e",
         "filename": "apidiff/README.md",
         "patchSetId": 6
@@ -415,6 +835,30 @@
       "writtenOn": "2018-10-23T19:49:11Z",
       "side": 1,
       "message": "nice definition but it seems that it only shifts the problem to what \"reachable\" means; and it\u0027s not quite trivial - this needs to be expanded as it seems a crucial property",
+      "range": {
+        "startLine": 187,
+        "startChar": 63,
+        "endLine": 187,
+        "endChar": 72
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b096eae2_72bbb28c",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-23T21:55:17Z",
+      "side": 1,
+      "message": "I tried to strike a balance between formality and brevity. In this case, I don\u0027t think the extra formality is crucial because \"exposed\" doesn\u0027t really figure in the definition of compatibility; it\u0027s more of a useful concept to understand. But here\u0027s a more precise definition, if you find it obscure:\n\nA typename is exposed iff:\n- It is exported, or\n- It is part of the type of an exported top-level object (const, var, func, typename).\n\nA typename N is part of a type T iff:\n- T is a defined type and N is its name.\n- T a pointer, channel, slice or array type and N is part of T\u0027s element type.\n- T is a map type and N is part of T\u0027s key or element types.\n- T is a signature and N is part of its parameters or results.\n- T is a tuple and N is part of one of the tuple\u0027s vars\u0027 types.\n- T is an interface type and N is part of one of T\u0027s exported methods\u0027 signatures.\n- T is a struct type and N is part of one of its exported selectable fields\u0027 types.\n\n(I define the exported selectable field set below.)\n\nI used \"reachable\" rather than writing this definition out to avoid bogging down the document. Maybe there\u0027s a shorter way to define \"exposed\" that\u0027s still precise?",
+      "parentUuid": "b8e3b1dc_0863a69e",
       "range": {
         "startLine": 187,
         "startChar": 63,
@@ -450,6 +894,30 @@
     },
     {
       "key": {
+        "uuid": "a2974983_d417e6f3",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-23T21:55:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "098f37a2_0d25f603",
+      "range": {
+        "startLine": 201,
+        "startChar": 5,
+        "endLine": 201,
+        "endChar": 6
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3eb567e4_342015fd",
         "filename": "apidiff/README.md",
         "patchSetId": 6
@@ -470,6 +938,30 @@
       "revId": "95f44193d797e31e888609c37ee045544936f59a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb40fb9b_014d6255",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-23T21:55:17Z",
+      "side": 1,
+      "message": "Rewrote the section.",
+      "parentUuid": "3eb567e4_342015fd",
+      "range": {
+        "startLine": 204,
+        "startChar": 25,
+        "endLine": 204,
+        "endChar": 35
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -496,6 +988,30 @@
     },
     {
       "key": {
+        "uuid": "11eff4ac_00b7d71b",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-23T21:55:17Z",
+      "side": 1,
+      "message": "Rewritten to clarify.",
+      "parentUuid": "bd702e85_3def703a",
+      "range": {
+        "startLine": 206,
+        "startChar": 50,
+        "endLine": 206,
+        "endChar": 51
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "085d7514_d0f4dd42",
         "filename": "apidiff/README.md",
         "patchSetId": 6
@@ -507,6 +1023,24 @@
       "writtenOn": "2018-10-23T19:49:11Z",
       "side": 1,
       "message": "This seems all very complicated.\n\nCouldn\u0027t you just say that two types are equivalent if they are identical or they correspond?",
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ca260325_f37a7b57",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-23T21:55:17Z",
+      "side": 1,
+      "message": "That\u0027s approximately correct, and maybe I should say that first. But it\u0027s not quite right, because the definition of identity uses itself recursively. E.g. \"two slice types are identical if their element types are identical.\" Consider []A and []B where A and B correspond. These types are not identical, nor do they correspond, but they are equivalent.",
+      "parentUuid": "085d7514_d0f4dd42",
       "revId": "95f44193d797e31e888609c37ee045544936f59a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
@@ -536,6 +1070,30 @@
     },
     {
       "key": {
+        "uuid": "82cdac7e_fd072f9a",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-23T21:55:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3eb13b7_53da76f9",
+      "range": {
+        "startLine": 234,
+        "startChar": 12,
+        "endLine": 234,
+        "endChar": 17
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d223c4ed_70b79c5b",
         "filename": "apidiff/README.md",
         "patchSetId": 6
@@ -559,6 +1117,30 @@
     },
     {
       "key": {
+        "uuid": "9d6e9c2c_62feca87",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-23T21:55:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d223c4ed_70b79c5b",
+      "range": {
+        "startLine": 255,
+        "startChar": 64,
+        "endLine": 255,
+        "endChar": 71
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "38fd418d_0f027c78",
         "filename": "apidiff/README.md",
         "patchSetId": 6
@@ -570,6 +1152,30 @@
       "writtenOn": "2018-10-23T19:49:11Z",
       "side": 1,
       "message": "s/exposed/exported/ ?\n\nor what does exposed mean?",
+      "range": {
+        "startLine": 263,
+        "startChar": 13,
+        "endLine": 263,
+        "endChar": 20
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b93d65bc_2c5b51ef",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-23T21:55:17Z",
+      "side": 1,
+      "message": "Defined above in \"Exposure\".",
+      "parentUuid": "38fd418d_0f027c78",
       "range": {
         "startLine": 263,
         "startChar": 13,
@@ -605,6 +1211,30 @@
     },
     {
       "key": {
+        "uuid": "6da9659a_ebeac93f",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-23T21:55:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "abf78183_bfb413ca",
+      "range": {
+        "startLine": 272,
+        "startChar": 20,
+        "endLine": 272,
+        "endChar": 25
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6634c329_c61f4029",
         "filename": "apidiff/README.md",
         "patchSetId": 6
@@ -628,6 +1258,30 @@
     },
     {
       "key": {
+        "uuid": "79badcfd_a6ab657f",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-23T21:55:17Z",
+      "side": 1,
+      "message": "Removed the phrase.",
+      "parentUuid": "6634c329_c61f4029",
+      "range": {
+        "startLine": 275,
+        "startChar": 27,
+        "endLine": 275,
+        "endChar": 32
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4f94a64e_ba0cfb7d",
         "filename": "apidiff/README.md",
         "patchSetId": 6
@@ -639,6 +1293,24 @@
       "writtenOn": "2018-10-23T19:49:11Z",
       "side": 1,
       "message": "this sentence is a bit odd",
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6b467f7_4c937851",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-23T21:55:17Z",
+      "side": 1,
+      "message": "I am trying to adopt the style of the spec, where instead of writing \"if and only if\" you write the \"if\" and then say \"no other foo is bar\" or \"otherwise the foos are not bar\". Maybe you can help me write this more clearly. The reason the \"only if\" clause appears at the beginning is that otherwise, it would require its own section after the typename section.",
+      "parentUuid": "4f94a64e_ba0cfb7d",
       "revId": "95f44193d797e31e888609c37ee045544936f59a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
@@ -668,6 +1340,30 @@
     },
     {
       "key": {
+        "uuid": "7abd487d_ed70df7f",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-23T21:55:17Z",
+      "side": 1,
+      "message": "Changed the example.",
+      "parentUuid": "59fc8a62_6217ff3d",
+      "range": {
+        "startLine": 304,
+        "startChar": 0,
+        "endLine": 304,
+        "endChar": 7
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2caae617_45f57f5b",
         "filename": "apidiff/README.md",
         "patchSetId": 6
@@ -688,6 +1384,30 @@
       "revId": "95f44193d797e31e888609c37ee045544936f59a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c38ae626_704c4eb5",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-23T21:55:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2caae617_45f57f5b",
+      "range": {
+        "startLine": 307,
+        "startChar": 18,
+        "endLine": 307,
+        "endChar": 20
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -714,6 +1434,30 @@
     },
     {
       "key": {
+        "uuid": "10512add_326d990f",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-23T21:55:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "363e2d39_4e0a88a2",
+      "range": {
+        "startLine": 355,
+        "startChar": 37,
+        "endLine": 355,
+        "endChar": 43
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c45353ef_b473f9d1",
         "filename": "apidiff/README.md",
         "patchSetId": 6
@@ -725,6 +1469,30 @@
       "writtenOn": "2018-10-23T19:49:11Z",
       "side": 1,
       "message": "which one (equivalent or correspond)",
+      "range": {
+        "startLine": 368,
+        "startChar": 58,
+        "endLine": 368,
+        "endChar": 62
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed9856c7_70f1f854",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 368,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-23T21:55:17Z",
+      "side": 1,
+      "message": "The definitions collapse here, because an old and new defined type are equivalent iff they correspond.",
+      "parentUuid": "c45353ef_b473f9d1",
       "range": {
         "startLine": 368,
         "startChar": 58,
@@ -760,6 +1528,30 @@
     },
     {
       "key": {
+        "uuid": "a73a774b_c3a4aea2",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-23T21:55:17Z",
+      "side": 1,
+      "message": "Hesitant to make that change here because there is an uppercase T and when I read the code in my head I find \"T\" vs. \"t\" distracting.",
+      "parentUuid": "9fd45539_753adbe1",
+      "range": {
+        "startLine": 378,
+        "startChar": 6,
+        "endLine": 378,
+        "endChar": 7
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "669d61d0_5d427445",
         "filename": "apidiff/README.md",
         "patchSetId": 6
@@ -780,6 +1572,30 @@
       "revId": "95f44193d797e31e888609c37ee045544936f59a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5c5d334a_c184ce28",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-23T21:55:17Z",
+      "side": 1,
+      "message": "It\u0027s an \"if\", not an \"only if,\" but I see what you mean. Reworded.",
+      "parentUuid": "669d61d0_5d427445",
+      "range": {
+        "startLine": 432,
+        "startChar": 14,
+        "endLine": 432,
+        "endChar": 20
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -806,6 +1622,30 @@
     },
     {
       "key": {
+        "uuid": "e54e38cc_65c69a34",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-23T21:55:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d562a905_dc55ee3d",
+      "range": {
+        "startLine": 434,
+        "startChar": 23,
+        "endLine": 434,
+        "endChar": 33
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d81123b0_3f7e53da",
         "filename": "apidiff/README.md",
         "patchSetId": 6
@@ -817,6 +1657,30 @@
       "writtenOn": "2018-10-23T19:49:11Z",
       "side": 1,
       "message": "need to define _selectable_",
+      "range": {
+        "startLine": 456,
+        "startChar": 20,
+        "endLine": 456,
+        "endChar": 32
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "58462d65_06ce7fa1",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-23T21:55:17Z",
+      "side": 1,
+      "message": "Done just below. Made it a separate paragraph.",
+      "parentUuid": "d81123b0_3f7e53da",
       "range": {
         "startLine": 456,
         "startChar": 20,
@@ -849,6 +1713,30 @@
       "revId": "95f44193d797e31e888609c37ee045544936f59a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3d348a40_5bc0f20b",
+        "filename": "apidiff/README.md",
+        "patchSetId": 6
+      },
+      "lineNbr": 482,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-23T21:55:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "028beaeb_b0b4f61f",
+      "range": {
+        "startLine": 482,
+        "startChar": 3,
+        "endLine": 482,
+        "endChar": 7
+      },
+      "revId": "95f44193d797e31e888609c37ee045544936f59a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
