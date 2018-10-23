@@ -61,6 +61,10 @@ func (e *withChain) Format(p errors.Printer) (next error) {
 	return e.err
 }
 
+func (e *withChain) Unwrap() error {
+	return e.err
+}
+
 func fmtError(p *pp, verb rune, err error) (handled bool) {
 	var (
 		sep = ": " // separator before next error
