@@ -291,6 +291,9 @@ func TestErrorf(t *testing.T) {
 	}, {
 		fmt.Errorf("foo: %+v", chained),
 		chain("foo: chained\n    somefile.go:123"), // ditto
+	}, {
+		fmt.Errorf("opaque: %v", errors.Opaque(chained)),
+		chain("opaque", "chained/somefile.go:123"),
 	}}
 	for _, tc := range testCases {
 		t.Run(path.Join(tc.want...), func(t *testing.T) {
