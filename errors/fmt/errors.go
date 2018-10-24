@@ -14,7 +14,7 @@ import (
 func errorf(format string, a []interface{}) error {
 	err := lastError(format, a)
 	if err == nil {
-		return errors.New(Sprintf(format, a...))
+		return &simpleErr{Sprintf(format, a...), errors.Caller(2)}
 	}
 
 	// TODO: this is not entirely correct. The error value could be
@@ -23,7 +23,11 @@ func errorf(format string, a []interface{}) error {
 	// have it optionally ignore extra arguments and pass the argument
 	// list in its entirety.
 	format = format[:len(format)-len(": %s")]
-	return &withChain{Sprintf(format, a[:len(a)-1]...), err}
+	return &withChain{
+		msg:   Sprintf(format, a[:len(a)-1]...),
+		err:   err,
+		Frame: errors.Caller(2),
+	}
 }
 
 func lastError(format string, a []interface{}) error {
@@ -44,10 +48,26 @@ func lastError(format string, a []interface{}) error {
 	return err
 }
 
+type simpleErr struct {
+	msg string
+	errors.Frame
+}
+
+func (e *simpleErr) Error() string {
+	return Sprint(e)
+}
+
+func (e *simpleErr) Format(p errors.Printer) (next error) {
+	p.Print(e.msg)
+	e.Frame.Format(p)
+	return nil
+}
+
 type withChain struct {
 	// TODO: add frame information
 	msg string
 	err error
+	errors.Frame
 }
 
 func (e *withChain) Error() string {
@@ -56,6 +76,7 @@ func (e *withChain) Error() string {
 
 func (e *withChain) Format(p errors.Printer) (next error) {
 	p.Print(e.msg)
+	e.Frame.Format(p)
 	return e.err
 }
 
