@@ -34,6 +34,24 @@
       "revId": "75e176acbda4192c602c18ae3d0d95089e76cdd2",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d4f9486_bbbe3950",
+        "filename": "apidiff/README.md",
+        "patchSetId": 9
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 28792
+      },
+      "writtenOn": "2018-10-24T21:54:22Z",
+      "side": 1,
+      "message": "It is not clear to me personally what the final definition will be regarding module compatibility when it involves moving packages between modules, but going back to the #27858 issue I had mentioned, see for example this comment from Bryan: \n\n\"Creating a submodule is not a breaking change as long as the module and submodule have a cyclic requirement.\"\n\nPart of the context there is that creating a submodule often includes moving a package from one module to another module (at least as far as I understand things). You can see additional discussion in #27858, but here is that particular quote from Bryan in context:\n  https://github.com/golang/go/issues/27858#issuecomment-425089484\n\nOr perhaps I am off base here, but I wanted to at least provide a potentially useful reference.",
+      "parentUuid": "1b22a89f_7f487dcb",
+      "revId": "75e176acbda4192c602c18ae3d0d95089e76cdd2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
     }
   ]
 }
