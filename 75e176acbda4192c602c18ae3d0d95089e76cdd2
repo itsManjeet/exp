@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a5a173e_16144229",
+        "filename": "apidiff/README.md",
+        "patchSetId": 9
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 28792
+      },
+      "writtenOn": "2018-10-24T14:11:58Z",
+      "side": 1,
+      "message": "Perhaps my comment is premature or would be more applicable to a different document, but it might be worth mentioning the case of packages moving between modules (especially if \"incompatible\" in this document implies needing to increment the semver major version for a v1 or higher module). See for example some of the discussion in #27858.",
+      "revId": "75e176acbda4192c602c18ae3d0d95089e76cdd2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
