@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "24a5cc05_47b9fb0b",
+        "filename": "errors/wrap.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-10-24T09:28:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b342961_214e13ec",
+      "revId": "a293f789703206994a2cd166c30bc9413bba627b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cce5fdde_0bb5da41",
         "filename": "errors/wrap.go",
         "patchSetId": 1
@@ -33,6 +51,24 @@
       "revId": "a293f789703206994a2cd166c30bc9413bba627b",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18c36948_4ff4cc0c",
+        "filename": "errors/wrap.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-10-24T09:28:31Z",
+      "side": 1,
+      "message": "Yes, good point.",
+      "parentUuid": "cce5fdde_0bb5da41",
+      "revId": "a293f789703206994a2cd166c30bc9413bba627b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "ab40c6b3_17f425c4",
+        "filename": "errors/wrap.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-10-24T09:28:31Z",
+      "side": 1,
+      "message": "Removed this functionality for now.",
+      "parentUuid": "61528c66_4f19dcaf",
+      "revId": "a293f789703206994a2cd166c30bc9413bba627b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "26fb2ea3_47a03d6a",
         "filename": "errors/wrap.go",
         "patchSetId": 1
@@ -64,6 +118,24 @@
       "writtenOn": "2018-10-23T23:42:42Z",
       "side": 1,
       "message": "I believe that if we include support for an Is method, it should be bidirectional. That is, errors.Is(err, target) is true if err.Is(target) or target.Is(err).",
+      "revId": "a293f789703206994a2cd166c30bc9413bba627b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f2518ab_3aef9cd7",
+        "filename": "errors/wrap.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-10-24T09:28:31Z",
+      "side": 1,
+      "message": "Do you have a writeup of this somewhere? I see the appeal of being able to define predicates. But do you not see any unforeseen weird behaviors? Are there any other arguments in favor?",
+      "parentUuid": "26fb2ea3_47a03d6a",
       "revId": "a293f789703206994a2cd166c30bc9413bba627b",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
@@ -84,6 +156,24 @@
       "revId": "a293f789703206994a2cd166c30bc9413bba627b",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb3c9a89_d6d72ff0",
+        "filename": "errors/wrap.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-10-24T09:28:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa192fc2_dcd50596",
+      "revId": "a293f789703206994a2cd166c30bc9413bba627b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
