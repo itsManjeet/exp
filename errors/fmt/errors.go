@@ -86,7 +86,7 @@ func (e *withChain) Unwrap() error {
 
 func fmtError(p *pp, verb rune, err error) (handled bool) {
 	var (
-		sep = ": "
+		sep = " "
 		w   = p
 	)
 	switch {
@@ -152,7 +152,15 @@ loop:
 		if err == nil {
 			break
 		}
+		if !w.fmt.inDetail || !p.fmt.plusV {
+			w.buf.WriteByte(':')
+		}
+		// Strip last newline of detail.
+		if bytes.HasSuffix([]byte(w.buf), detailSep) {
+			w.buf = w.buf[:len(w.buf)-len(detailSep)]
+		}
 		w.buf.WriteString(sep)
+		w.fmt.inDetail = false
 	}
 
 	if w != p {
@@ -160,6 +168,8 @@ loop:
 	}
 	return true
 }
+
+var detailSep = []byte("\n    ")
 
 // errPP wraps a pp to implement an errors.Printer. It keeps the ability to
 // implement State so that the indenting functionality can be passed to
@@ -176,7 +186,7 @@ func (p *errPP) WriteString(s string) (n int, err error) {
 func (p *errPP) Write(b []byte) (n int, err error) {
 	if !p.fmt.inDetail || p.fmt.plusV {
 		if p.fmt.indent {
-			b = bytes.Replace(b, []byte("\n"), []byte("\n    "), -1)
+			b = bytes.Replace(b, []byte("\n"), detailSep, -1)
 		}
 		p.buf.Write(b)
 	}
@@ -204,8 +214,11 @@ func (p *errPP) Printf(format string, args ...interface{}) {
 }
 
 func (p *errPP) Detail() bool {
-	p.fmt.indent = p.fmt.plusV
+	inDetail := p.fmt.inDetail
 	p.fmt.inDetail = true
-	p.Write([]byte("\n"))
+	p.fmt.indent = p.fmt.plusV
+	if p.fmt.plusV && !inDetail {
+		p.Write([]byte(":\n"))
+	}
 	return p.fmt.plusV
 }
