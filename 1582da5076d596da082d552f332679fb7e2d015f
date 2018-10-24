@@ -565,6 +565,24 @@
     },
     {
       "key": {
+        "uuid": "e5805141_d8db7277",
+        "filename": "errors/stack.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-10-24T10:54:25Z",
+      "side": 1,
+      "message": "Ah, I see that FormatError doesn\u0027t return error. That way it will not implement error, but also be hidden once embedded and errors.Formatter is implemented.",
+      "parentUuid": "bda217f0_1d8875cf",
+      "revId": "1582da5076d596da082d552f332679fb7e2d015f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "fe148153_9499009d",
         "filename": "errors/unwrap.go",
         "patchSetId": 2
