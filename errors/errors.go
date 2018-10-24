@@ -13,13 +13,23 @@ package errors
 // errorString is a trivial implementation of error.
 type errorString struct {
 	s string
+	Frame
 }
 
 // New returns an error that formats as the given text.
+//
+// The returned error embeds a Frame set to the caller's location and implements
+// Formatter to show this information when printed with details.
 func New(text string) error {
-	return &errorString{text}
+	return &errorString{text, Caller(1)}
 }
 
 func (e *errorString) Error() string {
 	return e.s
+}
+
+func (e *errorString) Format(p Printer) (next error) {
+	p.Print(e.s)
+	e.Frame.Format(p)
+	return nil
 }
