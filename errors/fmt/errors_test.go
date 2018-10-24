@@ -94,24 +94,28 @@ func TestErrorFormatter(t *testing.T) {
 		fmt:  "%s",
 		want: "can't adumbrate elephant: out of peanuts",
 	}, {
+		err:  &wrapped{"a", &wrapped{"b", &wrapped{"c", nil}}},
+		fmt:  "%s",
+		want: "a: b: c",
+	}, {
 		err:  simple,
 		fmt:  "%+v",
-		want: "simple\n    somefile.go:123",
+		want: "simple:\n    somefile.go:123",
 	}, {
 		err: elephant,
 		fmt: "%+v",
-		want: `can't adumbrate elephant
+		want: `can't adumbrate elephant:
     somefile.go:123
---- out of peanuts
+--- out of peanuts:
     the elephant is on strike
     and the 12 monkeys
     are laughing`,
 	}, {
 		err: transition,
 		fmt: "%+v",
-		want: `elephant still on strike
+		want: `elephant still on strike:
     somefile.go:123
---- out of peanuts
+--- out of peanuts:
     the elephant is on strike
     and the 12 monkeys
     are laughing`,
@@ -128,9 +132,10 @@ func TestErrorFormatter(t *testing.T) {
 		fmt:  "%s",
 		want: "fallback: file does not exist",
 	}, {
-		err:  fallback,
-		fmt:  "%+v",
-		want: "fallback\n    somefile.go:123\n--- file does not exist",
+		err: fallback,
+		fmt: "%+v",
+		// Note: no colon after the last error, as there are no details.
+		want: "fallback:\n    somefile.go:123\n--- file does not exist",
 	}, {
 		err:  oldAndNew,
 		fmt:  "%v",
@@ -143,7 +148,9 @@ func TestErrorFormatter(t *testing.T) {
 		err: oldAndNew,
 		fmt: "%+v",
 		// Note the extra indentation.
-		want: "new style\n    somefile.go:123\n--- old style\n    otherfile.go:456",
+		// Colon for old style error is rendered by the fmt.Formatter
+		// implementation of the old-style error.
+		want: "new style:\n    somefile.go:123\n--- old style:\n    otherfile.go:456",
 	}, {
 		err:  simple,
 		fmt:  "%-12s",
@@ -152,7 +159,7 @@ func TestErrorFormatter(t *testing.T) {
 		// Don't use formatting flags for detailed view.
 		err:  simple,
 		fmt:  "%+12v",
-		want: "simple\n    somefile.go:123",
+		want: "simple:\n    somefile.go:123",
 	}, {
 		err:  elephant,
 		fmt:  "%+50s",
@@ -274,7 +281,7 @@ func (e formatError) Format(s fmt.State, verb rune) {
 	case 'v':
 		if s.Flag('+') {
 			io.WriteString(s, string(e))
-			fmt.Fprintf(s, "\n%s", "otherfile.go:456")
+			fmt.Fprintf(s, ":\n%s", "otherfile.go:456")
 			return
 		}
 		fallthrough

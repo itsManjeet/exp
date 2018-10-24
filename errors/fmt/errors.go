@@ -75,7 +75,7 @@ func (e *withChain) Unwrap() error {
 
 func fmtError(p *pp, verb rune, err error) (handled bool) {
 	var (
-		sep = ": "
+		sep = " "
 		w   = p
 	)
 	switch {
@@ -141,6 +141,9 @@ loop:
 		if err == nil {
 			break
 		}
+		if !w.fmt.inDetail || !p.fmt.plusV {
+			w.buf.WriteByte(':')
+		}
 		w.buf.WriteString(sep)
 	}
 
@@ -195,6 +198,6 @@ func (p *errPP) Printf(format string, args ...interface{}) {
 func (p *errPP) Detail() bool {
 	p.fmt.indent = p.fmt.plusV
 	p.fmt.inDetail = true
-	p.Write([]byte("\n"))
+	p.Write([]byte(":\n"))
 	return p.fmt.plusV
 }
