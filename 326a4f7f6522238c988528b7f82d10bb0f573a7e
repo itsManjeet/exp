@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e4c4abbb_ed31a2bf",
+        "filename": "errors/errors.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5305
+      },
+      "writtenOn": "2018-10-25T23:36:44Z",
+      "side": 1,
+      "message": "Is this embedded to expose the Location method?\n\nIf so, Location should be documented as part of the supported API. If not, it shouldn\u0027t be exported.",
+      "revId": "326a4f7f6522238c988528b7f82d10bb0f573a7e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cfd3fccc_91d4257e",
+        "filename": "errors/stack.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 5305
+      },
+      "writtenOn": "2018-10-25T23:36:44Z",
+      "side": 1,
+      "message": "f.Format will disable subsequent printing of non-detail information.\n\ne.g.,\n\nfunc (e *someError) Format(p Printer) (next error) {\n  e.Print(\"one\")\n  e.frame.Format(p)\n  e.Print(\"two\")\n}\n\n\"two\" is only printed in detail mode, which seems subtle and surprising.\n\nBetter, I think, to leave it up to the caller to call Detail. This also allows the caller to include frame information in the non-detail text, if they so desire.",
+      "revId": "326a4f7f6522238c988528b7f82d10bb0f573a7e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
