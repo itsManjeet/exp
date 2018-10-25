@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "01f0d55b_b55a3e0d",
+        "filename": "errors/fmt/errors.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 5305
+      },
+      "writtenOn": "2018-10-25T23:50:58Z",
+      "side": 1,
+      "message": "This is really subtle. Change from \"foo: %v\" to \"foo: %v (bar)\" and you not only change the format string, but the semantic meaning of the error chain as well.",
+      "revId": "736b7301ca41de8c8f378fd272e41eccaf78a0c1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
