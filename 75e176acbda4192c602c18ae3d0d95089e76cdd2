@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "5f021591_8b24982e",
+        "filename": "apidiff/README.md",
+        "patchSetId": 9
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 6010
+      },
+      "writtenOn": "2018-10-26T11:42:50Z",
+      "side": 1,
+      "message": "Please explain what a typename is. Is it an alias or a type definition or both? The \"remember that\" clause seems to indicate that there\u0027s something to remember, but there doesn\u0027t seem to be an explanator clause earlier. Perhaps \"typename is the name of a type\" could be a link somewhere?\n\nWhat does it mean to say that an exported typename is \"new\" if it has the same name?\nIf you mean that it\u0027s an exported typename in the new package, then perhaps \"A new exported typename is compatible with an old one if their types are equivalent\".",
+      "revId": "75e176acbda4192c602c18ae3d0d95089e76cdd2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19f2c02a_c1f3df0a",
+        "filename": "apidiff/README.md",
+        "patchSetId": 9
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 6010
+      },
+      "writtenOn": "2018-10-26T11:42:50Z",
+      "side": 1,
+      "message": "It\u0027s not clear to me at first glance which examples in this section are considered OK or not.",
+      "revId": "75e176acbda4192c602c18ae3d0d95089e76cdd2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "5a5a173e_16144229",
         "filename": "apidiff/README.md",
         "patchSetId": 9
