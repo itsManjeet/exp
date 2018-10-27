@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "73462ff7_732e63ac",
+        "filename": "apidiff/README.md",
+        "patchSetId": 9
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-27T10:50:00Z",
+      "side": 1,
+      "message": "Sorry, I was assuming familiarity with the go/types package. I\u0027ve tried to clarify.\n\nI rewrote the rule to make it clear that not only the types, but also the names have to match.",
+      "parentUuid": "5f021591_8b24982e",
+      "revId": "75e176acbda4192c602c18ae3d0d95089e76cdd2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19f2c02a_c1f3df0a",
         "filename": "apidiff/README.md",
         "patchSetId": 9
@@ -33,6 +51,24 @@
       "revId": "75e176acbda4192c602c18ae3d0d95089e76cdd2",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6f3df4a2_fe75c965",
+        "filename": "apidiff/README.md",
+        "patchSetId": 9
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-27T10:50:00Z",
+      "side": 1,
+      "message": "Clarified the first one, at least. I think the other two are clear.",
+      "parentUuid": "19f2c02a_c1f3df0a",
+      "revId": "75e176acbda4192c602c18ae3d0d95089e76cdd2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -101,6 +137,24 @@
       "side": 1,
       "message": "You\u0027re right, I\u0027m confused about module compatibility.",
       "parentUuid": "4d4f9486_bbbe3950",
+      "revId": "75e176acbda4192c602c18ae3d0d95089e76cdd2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33c01961_4520af31",
+        "filename": "apidiff/README.md",
+        "patchSetId": 9
+      },
+      "lineNbr": 554,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-27T10:50:00Z",
+      "side": 1,
+      "message": "Deleting this section.",
+      "parentUuid": "ab1b0103_5835d12b",
       "revId": "75e176acbda4192c602c18ae3d0d95089e76cdd2",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
