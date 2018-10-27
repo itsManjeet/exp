@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "ead555de_1097d8dc",
+        "filename": "apidiff/README.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-27T10:23:11Z",
+      "side": 1,
+      "message": "From the point of view of the implementation, there\u0027s no difference between two packages and two versions of the same package, so I didn\u0027t call it out before. I have now.",
+      "parentUuid": "7b1a0aad_c2d26952",
+      "range": {
+        "startLine": 3,
+        "startChar": 0,
+        "endLine": 3,
+        "endChar": 79
+      },
+      "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "252685c0_85cd0959",
         "filename": "apidiff/README.md",
         "patchSetId": 11
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "1182035c_07d49c95",
+        "filename": "apidiff/README.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-27T10:23:11Z",
+      "side": 1,
+      "message": "Did something like that.",
+      "parentUuid": "252685c0_85cd0959",
+      "range": {
+        "startLine": 88,
+        "startChar": 45,
+        "endLine": 88,
+        "endChar": 46
+      },
+      "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6afb9a90_ef22560a",
         "filename": "apidiff/README.md",
         "patchSetId": 11
@@ -62,6 +110,24 @@
       "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad4843fb_f6a4fa67",
+        "filename": "apidiff/README.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-27T10:23:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6afb9a90_ef22560a",
+      "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -85,6 +151,30 @@
       "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01c12d7c_c29b40cb",
+        "filename": "apidiff/README.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-27T10:23:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5d56eaf_b3d1638d",
+      "range": {
+        "startLine": 93,
+        "startChar": 61,
+        "endLine": 93,
+        "endChar": 65
+      },
+      "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -128,6 +218,48 @@
     },
     {
       "key": {
+        "uuid": "52820169_533c2df7",
+        "filename": "apidiff/README.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-27T10:23:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc4cb64a_16a9b0b2",
+      "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4c524098_14cee083",
+        "filename": "apidiff/README.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-27T10:23:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d3c33f2_a69c9f06",
+      "range": {
+        "startLine": 95,
+        "startChar": 65,
+        "endLine": 95,
+        "endChar": 69
+      },
+      "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "794fac54_855316d8",
         "filename": "apidiff/README.md",
         "patchSetId": 11
@@ -151,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "76efa2ec_5d73c05e",
+        "filename": "apidiff/README.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-27T10:23:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "794fac54_855316d8",
+      "range": {
+        "startLine": 111,
+        "startChar": 22,
+        "endLine": 111,
+        "endChar": 28
+      },
+      "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6427b527_eb40124d",
         "filename": "apidiff/README.md",
         "patchSetId": 11
@@ -168,6 +324,24 @@
     },
     {
       "key": {
+        "uuid": "d2ef984f_c472753c",
+        "filename": "apidiff/README.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-27T10:23:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6427b527_eb40124d",
+      "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "84b93558_2e4b60f4",
         "filename": "apidiff/README.md",
         "patchSetId": 11
@@ -182,6 +356,24 @@
       "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14be24e9_15b7d318",
+        "filename": "apidiff/README.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-27T10:23:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84b93558_2e4b60f4",
+      "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -208,6 +400,30 @@
     },
     {
       "key": {
+        "uuid": "d3021acc_c028b667",
+        "filename": "apidiff/README.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-27T10:23:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "40bfc2b7_b6dbcbdf",
+      "range": {
+        "startLine": 173,
+        "startChar": 7,
+        "endLine": 173,
+        "endChar": 8
+      },
+      "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "511066df_9a43ee25",
         "filename": "apidiff/README.md",
         "patchSetId": 11
@@ -228,6 +444,30 @@
       "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1dee892_6e97928f",
+        "filename": "apidiff/README.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-27T10:23:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "511066df_9a43ee25",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 8
+      },
+      "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -254,6 +494,30 @@
     },
     {
       "key": {
+        "uuid": "8bd498c5_a8dbdcc7",
+        "filename": "apidiff/README.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-27T10:23:11Z",
+      "side": 1,
+      "message": "I agree it\u0027s only needed for types (actually, typenames).\n\nI don\u0027t need to know how to implement it; it falls out of the implementation. (I just traverse package-level objects and types.) I mention it here because it\u0027s a useful to understand the concept.\n\nYour definition of \"reachable\" may as well be the definition of \"exposed.\" I wish the definition were that simple, and maybe there is one, but yours falls short because I only care about accesses that are visible at compile time. So t is not exposed in \n\n   type t ...\n   var V interface{} \u003d t{}\n\nIs there a short, precise way to say that? \n\nThis is why I provided a definition in terms of the structure of types in my reply to your comment in PS6, line 187. I don\u0027t know if you saw that.",
+      "parentUuid": "4dcfeabb_d8490ffc",
+      "range": {
+        "startLine": 196,
+        "startChar": 63,
+        "endLine": 196,
+        "endChar": 72
+      },
+      "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b1c1fcb4_cd4a9fea",
         "filename": "apidiff/README.md",
         "patchSetId": 11
@@ -274,6 +538,30 @@
       "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2f49d96_bfa3802e",
+        "filename": "apidiff/README.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-27T10:23:11Z",
+      "side": 1,
+      "message": "I hope I clarified this above.",
+      "parentUuid": "b1c1fcb4_cd4a9fea",
+      "range": {
+        "startLine": 204,
+        "startChar": 56,
+        "endLine": 204,
+        "endChar": 64
+      },
+      "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -300,6 +588,30 @@
     },
     {
       "key": {
+        "uuid": "0eb22ee6_4f3e066c",
+        "filename": "apidiff/README.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-27T10:23:11Z",
+      "side": 1,
+      "message": "Indeed, it doesn\u0027t matter. \n\nBut it would break an algorithm that used a simple-minded definition of type sameness, like requiring old and new typenames to be the same. I\u0027m making this point in the context of that argument. I\u0027m saying that _because_ an unexported but exposed type can be renamed, _and_ that shouldn\u0027t matter to compatibility, it follows that you can\u0027t use name identity to match old and new typenames.",
+      "parentUuid": "ad9bd118_7b1f83b3",
+      "range": {
+        "startLine": 219,
+        "startChar": 25,
+        "endLine": 219,
+        "endChar": 26
+      },
+      "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "17d17b5b_e7cd0f7c",
         "filename": "apidiff/README.md",
         "patchSetId": 11
@@ -320,6 +632,30 @@
       "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86015b37_2eb2dca1",
+        "filename": "apidiff/README.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-27T10:23:11Z",
+      "side": 1,
+      "message": "Indeed, otherwise to 1). I clarified in the ham-handed way of negating 1) inside 2). I couldn\u0027t think of a simple way to express the negation otherwise.",
+      "parentUuid": "17d17b5b_e7cd0f7c",
+      "range": {
+        "startLine": 252,
+        "startChar": 3,
+        "endLine": 252,
+        "endChar": 12
+      },
+      "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -346,6 +682,30 @@
     },
     {
       "key": {
+        "uuid": "b1b4c14f_a3a52f29",
+        "filename": "apidiff/README.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-27T10:23:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4c80961_71a0f5da",
+      "range": {
+        "startLine": 273,
+        "startChar": 3,
+        "endLine": 273,
+        "endChar": 13
+      },
+      "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "feeec175_f907955e",
         "filename": "apidiff/README.md",
         "patchSetId": 11
@@ -357,6 +717,30 @@
       "writtenOn": "2018-10-26T20:21:11Z",
       "side": 1,
       "message": "s/the name/their names/ (?)\n\nthere\u0027s some grammatical incorrectness here",
+      "range": {
+        "startLine": 282,
+        "startChar": 50,
+        "endLine": 282,
+        "endChar": 53
+      },
+      "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "533470b7_8acc3ba8",
+        "filename": "apidiff/README.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-27T10:23:11Z",
+      "side": 1,
+      "message": "Reworded. Does that help?",
+      "parentUuid": "feeec175_f907955e",
       "range": {
         "startLine": 282,
         "startChar": 50,
@@ -392,6 +776,30 @@
     },
     {
       "key": {
+        "uuid": "1e109bd2_110cab87",
+        "filename": "apidiff/README.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-27T10:23:11Z",
+      "side": 1,
+      "message": "Removed. Alan suggested I add it, but I suppose it doesn\u0027t really add anything.",
+      "parentUuid": "189e63b1_a125f13e",
+      "range": {
+        "startLine": 295,
+        "startChar": 0,
+        "endLine": 295,
+        "endChar": 4
+      },
+      "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1e120126_f34f1d3a",
         "filename": "apidiff/README.md",
         "patchSetId": 11
@@ -412,6 +820,30 @@
       "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "25deac42_3b171411",
+        "filename": "apidiff/README.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-27T10:23:11Z",
+      "side": 1,
+      "message": "It\u0027s nice that the rules for variables, functions and typenames are (nearly) identical. Using \"type\" here emphasizes that. \n\nAdded \"signatures\" in parens.",
+      "parentUuid": "1e120126_f34f1d3a",
+      "range": {
+        "startLine": 355,
+        "startChar": 20,
+        "endLine": 355,
+        "endChar": 25
+      },
+      "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -438,6 +870,30 @@
     },
     {
       "key": {
+        "uuid": "16f62490_0abb5a53",
+        "filename": "apidiff/README.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-27T10:23:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f6c34017_4ee4bef5",
+      "range": {
+        "startLine": 367,
+        "startChar": 0,
+        "endLine": 367,
+        "endChar": 4
+      },
+      "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "55d5f8ae_e4176246",
         "filename": "apidiff/README.md",
         "patchSetId": 11
@@ -458,6 +914,30 @@
       "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9abc124_19ad9604",
+        "filename": "apidiff/README.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-27T10:23:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55d5f8ae_e4176246",
+      "range": {
+        "startLine": 376,
+        "startChar": 65,
+        "endLine": 376,
+        "endChar": 72
+      },
+      "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -484,6 +964,30 @@
     },
     {
       "key": {
+        "uuid": "2d0bd25d_83b5e778",
+        "filename": "apidiff/README.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-27T10:23:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4699db4b_80e963c0",
+      "range": {
+        "startLine": 387,
+        "startChar": 19,
+        "endLine": 387,
+        "endChar": 24
+      },
+      "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2a4aa38e_e6a1fba1",
         "filename": "apidiff/README.md",
         "patchSetId": 11
@@ -504,6 +1008,30 @@
       "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "115e1d8f_b50a7c77",
+        "filename": "apidiff/README.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-27T10:23:11Z",
+      "side": 1,
+      "message": "The case I had in mind is splitting types, which I say below that I don\u0027t check for:\n\n  // old\n  type C1 chan\u003c- int\n  type C2 chan\u003c- int\n\n  // new\n  type C1 chan\u003c- int\n  type C2 chan int\n\nThat can break assignment.",
+      "parentUuid": "2a4aa38e_e6a1fba1",
+      "range": {
+        "startLine": 446,
+        "startChar": 64,
+        "endLine": 446,
+        "endChar": 70
+      },
+      "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -530,6 +1058,30 @@
     },
     {
       "key": {
+        "uuid": "7a9d74d2_466d32f3",
+        "filename": "apidiff/README.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 457,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-27T10:23:11Z",
+      "side": 1,
+      "message": "I meant that that is the only way for a client type to implement the interface. \n\nReworded.",
+      "parentUuid": "ed3c8a2b_e681de5b",
+      "range": {
+        "startLine": 457,
+        "startChar": 57,
+        "endLine": 457,
+        "endChar": 65
+      },
+      "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "250ae328_1cef8ba9",
         "filename": "apidiff/README.md",
         "patchSetId": 11
@@ -553,6 +1105,30 @@
     },
     {
       "key": {
+        "uuid": "e99614c5_c793a80d",
+        "filename": "apidiff/README.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 470,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-27T10:23:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "250ae328_1cef8ba9",
+      "range": {
+        "startLine": 470,
+        "startChar": 16,
+        "endLine": 470,
+        "endChar": 17
+      },
+      "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c41e0f9e_87f33714",
         "filename": "apidiff/README.md",
         "patchSetId": 11
@@ -567,6 +1143,24 @@
       "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a552638f_57a8e356",
+        "filename": "apidiff/README.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-27T10:23:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c41e0f9e_87f33714",
+      "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -593,6 +1187,30 @@
     },
     {
       "key": {
+        "uuid": "3f257c2c_837c04db",
+        "filename": "apidiff/README.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 525,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-27T10:23:11Z",
+      "side": 1,
+      "message": "Changed to a conversion.\n\nThe alias version you give is not a problem, because I don\u0027t allow any changes in that case.",
+      "parentUuid": "dda0cc09_d953bc1c",
+      "range": {
+        "startLine": 525,
+        "startChar": 7,
+        "endLine": 525,
+        "endChar": 13
+      },
+      "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "689f3a43_3876671e",
         "filename": "apidiff/README.md",
         "patchSetId": 11
@@ -613,6 +1231,30 @@
       "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a4b429b_05de9ab9",
+        "filename": "apidiff/README.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 553,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-27T10:23:11Z",
+      "side": 1,
+      "message": "It had better be reflexive, because what would it mean for a package to be incompatible with itself? And it had better be transitive, because if you make compatible changes to go from v1.1 to v1.2, and then again to go from v1.2 to v1.3, then v1.1 and v1.3 had better be compatible. That is how semver works, and we\u0027re building this tool to help with semver.\n\nMy definition is definitely reflexive. Each typename corresponds with itself, and all the compatibility rules for objects and types are satisfied by identical types (and in the case of consts, equal values).\n\nI don\u0027t have a solid proof of transitivity, because I don\u0027t see how to show that correspondence is transitive. But each individual rule in the definition is transitive. Most require a superset relation, and superset is transitive. This includes the two package rules: the first says that the new set of exported package-level names is a superset of the old, and the second that the new set of pairs of types (T, I) where T implements I is a superset of the old.\n\nThe other rules are latches, in the sense that once you transition from state A to B, you cannot leave B. These include the rules about removing channel direction and changing a struct from non-comparable to comparable, as well as removing an unexported method from an interface, which moves it from interface rule 1 to rule 2.\n\n(BTW, the definition of module compatibility in the text here is wrong and I\u0027m going to remove it.)",
+      "parentUuid": "689f3a43_3876671e",
+      "range": {
+        "startLine": 553,
+        "startChar": 35,
+        "endLine": 553,
+        "endChar": 45
+      },
+      "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -639,6 +1281,30 @@
     },
     {
       "key": {
+        "uuid": "322b2fc9_74df6160",
+        "filename": "apidiff/README.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-27T10:23:11Z",
+      "side": 1,
+      "message": "No, the difference is that T is a defined type while the type of V isn\u0027t.\n\n(By the way, you might want to just skip this whole \"Compatibility and Named Types\" section until you\u0027re comfortable with the rest of the doc. This section is muddier, because my thoughts aren\u0027t as clear.)",
+      "parentUuid": "00236968_4a548acd",
+      "range": {
+        "startLine": 565,
+        "startChar": 6,
+        "endLine": 565,
+        "endChar": 12
+      },
+      "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3bfd3665_89c87021",
         "filename": "apidiff/README.md",
         "patchSetId": 11
@@ -650,6 +1316,30 @@
       "writtenOn": "2018-10-26T20:21:11Z",
       "side": 1,
       "message": "I don\u0027t understand the 2nd part of this sentence: \"cannot be written externally\" - it\u0027s not exported? Cannot be written a type literal?",
+      "range": {
+        "startLine": 610,
+        "startChar": 53,
+        "endLine": 610,
+        "endChar": 63
+      },
+      "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87d9aa77_eaa61538",
+        "filename": "apidiff/README.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 610,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-27T10:23:11Z",
+      "side": 1,
+      "message": "The latter. Changed.",
+      "parentUuid": "3bfd3665_89c87021",
       "range": {
         "startLine": 610,
         "startChar": 53,
@@ -682,6 +1372,30 @@
       "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fb97b835_4c8d9def",
+        "filename": "apidiff/README.md",
+        "patchSetId": 11
+      },
+      "lineNbr": 640,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-10-27T10:23:11Z",
+      "side": 1,
+      "message": "It should read pkg.V1 \u003d pkg.V2. Fixed.\n\nI tested this code. The old version does compile. Did you notice that these are vars, not types?",
+      "parentUuid": "dce23981_b66dbd5a",
+      "range": {
+        "startLine": 640,
+        "startChar": 5,
+        "endLine": 640,
+        "endChar": 7
+      },
+      "revId": "51cb26fdabd83966a4a2cbb7701e6a796c87f5dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
