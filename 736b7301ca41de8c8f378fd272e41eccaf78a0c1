@@ -16,6 +16,24 @@
       "revId": "736b7301ca41de8c8f378fd272e41eccaf78a0c1",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "022d7f0c_2d61a737",
+        "filename": "errors/fmt/errors.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-10-30T16:32:14Z",
+      "side": 1,
+      "message": "It is not perfect, but dealing with what we have, it improves errors for a lot of existing code. Any suggestions to make this approach more robust are welcome.\n\nIn this CL, this is only used for printing, not wrapping. The only thing that would break for printing is that the layout won\u0027t be nice. The benefits of this approach outweigh the negatives, imo.\n\nFor wrapping this may still be the case, but we could consider having an errors.Wrap() or errors.Chain() instead of errors.Opaque().",
+      "parentUuid": "01f0d55b_b55a3e0d",
+      "revId": "736b7301ca41de8c8f378fd272e41eccaf78a0c1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
     }
   ]
 }
