@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "97d0e16b_dd809fa0",
+        "filename": "errors/errors.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-10-30T08:12:36Z",
+      "side": 1,
+      "message": "As part of which API? Just as an error might implement Is, if we support an isser, an error might implement Location. Would you suggest an recommendation to embed a Frame as recommendation? Anything else?",
+      "parentUuid": "e4c4abbb_ed31a2bf",
+      "revId": "326a4f7f6522238c988528b7f82d10bb0f573a7e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cfd3fccc_91d4257e",
         "filename": "errors/stack.go",
         "patchSetId": 2
@@ -30,6 +48,24 @@
       "writtenOn": "2018-10-25T23:36:44Z",
       "side": 1,
       "message": "f.Format will disable subsequent printing of non-detail information.\n\ne.g.,\n\nfunc (e *someError) Format(p Printer) (next error) {\n  e.Print(\"one\")\n  e.frame.Format(p)\n  e.Print(\"two\")\n}\n\n\"two\" is only printed in detail mode, which seems subtle and surprising.\n\nBetter, I think, to leave it up to the caller to call Detail. This also allows the caller to include frame information in the non-detail text, if they so desire.",
+      "revId": "326a4f7f6522238c988528b7f82d10bb0f573a7e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7088c104_d69eaaa4",
+        "filename": "errors/stack.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-10-30T08:12:36Z",
+      "side": 1,
+      "message": "The flip side of this is that the frame information will likely often be the only detail and it will make it more likely that users will not wrap it in detail, leading to inconsistent error messages. Using the Location method it would still be trivial to include frame info in the non-detail section if this is desired.\n\nI agree it may be surprising, but would you still favor not calling the detail here? Perhaps we use a different name, like FormatDetail?\n\nIn this case there is, I believe, an obvious right thing to do and I want to eliminate the possibility for error there as much as possible.",
+      "parentUuid": "cfd3fccc_91d4257e",
       "revId": "326a4f7f6522238c988528b7f82d10bb0f573a7e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
