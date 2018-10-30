@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "df3a9d7d_54c57aeb",
+        "filename": "errors/errors.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 9735
+      },
+      "writtenOn": "2018-10-30T17:32:23Z",
+      "side": 1,
+      "message": "It\u0027s more that New should document exactly what \"features\" the concrete error type it returns supports.\nThat is, New should specify that the error it returns supports a Location method and a Format method.\n\nIf this is not a documented guarantee, then we should not export it. Psuedo-guarantees will eventually be functional-guarantees due to Hyrum\u0027s law.",
+      "parentUuid": "97d0e16b_dd809fa0",
+      "revId": "326a4f7f6522238c988528b7f82d10bb0f573a7e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "cfd3fccc_91d4257e",
         "filename": "errors/stack.go",
         "patchSetId": 2
