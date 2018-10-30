@@ -34,6 +34,24 @@
       "revId": "736b7301ca41de8c8f378fd272e41eccaf78a0c1",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4cdee433_9ca2a33b",
+        "filename": "errors/fmt/errors.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 9735
+      },
+      "writtenOn": "2018-10-30T17:51:40Z",
+      "side": 1,
+      "message": "(apologies for jumping in now; was a little distant from errors stuff lately, but looping back now)\n\nIs the goal here to have fmt.Errorf automatically support error wrapping with *no* change whatsoever? Or is the goal to have fmt.Errorf support error wrapping with little change needed?\n\nIf the former (no change to fmt), this change is subtle and I\u0027ve expressed in the past my concern with this. Given that this is also a change in semantics, wouldn\u0027t that also imply that there needs to a v2 of the fmt package? Is that something that we want? A v2 of fmt seems heavy-weight only for this.\n\nIf the later (minor change to usage of fmt), then I\u0027m more in support of this.\nHave we considered any of the following alternatives?\n* a new fmt verb specific for errors (e.g., \"%E\"? although that overlaps with formatting floats...)\n* an explicit named type that wraps the error that is guaranteed to never have been used before (e.g., fmt.Printf(\"foo exploded: %v\", fmt.E{err})). The presence of that named type (which can\u0027t have existed up till now, means that the intention is clear that wrapping was desired)",
+      "parentUuid": "022d7f0c_2d61a737",
+      "revId": "736b7301ca41de8c8f378fd272e41eccaf78a0c1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
     }
   ]
 }
