@@ -21,6 +21,10 @@ func TestIs(t *testing.T) {
 
 	err3 := errors.New("3")
 
+	poser := &poser{"either 1 or 3", func(err error) bool {
+		return err == err1 || err == err3
+	}}
+
 	testCases := []struct {
 		err    error
 		target error
@@ -40,6 +44,14 @@ func TestIs(t *testing.T) {
 		{err1, err3, false},
 		{erra, err3, false},
 		{errb, err3, false},
+
+		{poser, err1, true},
+		{poser, err3, true},
+
+		{poser, erra, false},
+		{poser, errb, false},
+		{poser, erro, false},
+		{poser, errco, false},
 	}
 	for _, tc := range testCases {
 		if got := errors.Is(tc.err, tc.target); got != tc.match {
@@ -47,6 +59,14 @@ func TestIs(t *testing.T) {
 		}
 	}
 }
+
+type poser struct {
+	msg string
+	f   func(error) bool
+}
+
+func (p *poser) Error() string     { return p.msg }
+func (p *poser) Is(err error) bool { return p.f(err) }
 
 func TestAs(t *testing.T) {
 	var errT errorT
