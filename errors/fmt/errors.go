@@ -9,12 +9,18 @@ import (
 	"strings"
 
 	"golang.org/x/exp/errors"
+	"golang.org/x/exp/errors/internal"
 )
 
-func errorf(format string, a []interface{}) error {
+// Errorf formats according to a format specifier and returns the string
+// as a value that satisfies error.
+//
+// The returned error embeds a Frame set to the caller's location and implements
+// Formatter to show this information when printed with details.
+func Errorf(format string, a ...interface{}) error {
 	err := lastError(format, a)
 	if err == nil {
-		return &simpleErr{Sprintf(format, a...), errors.Caller(1)}
+		return &simpleErr{Sprintf(format, a...), errors.Caller(0)}
 	}
 
 	// TODO: this is not entirely correct. The error value could be
@@ -23,10 +29,13 @@ func errorf(format string, a []interface{}) error {
 	// have it optionally ignore extra arguments and pass the argument
 	// list in its entirety.
 	format = format[:len(format)-len(": %s")]
+	if !internal.EnableTrace {
+		return &withChain{msg: Sprintf(format, a[:len(a)-1]...), err: err}
+	}
 	return &withChain{
 		msg:   Sprintf(format, a[:len(a)-1]...),
 		err:   err,
-		Frame: errors.Caller(1),
+		Frame: errors.Caller(0),
 	}
 }
 
