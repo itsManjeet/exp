@@ -105,6 +105,24 @@
       "revId": "326a4f7f6522238c988528b7f82d10bb0f573a7e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f79fa2db_e5510ea9",
+        "filename": "errors/stack.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 5305
+      },
+      "writtenOn": "2018-11-01T17:30:01Z",
+      "side": 1,
+      "message": "Another problem that I just realized: The caller needs to know not to write:\n\n  p.Print(\"something\")\n  if p.Detail() {\n    e.frame.Format(p)\n    p.Print(\"something more\")\n  }\n\nSince each p.Detail call adds a newline, this will produce (\"something\\n\\n\u003cframe\u003esomething more\").\n\nRenaming this FormatDetail might be a sufficient hint as to proper usage, but I wonder if the Detail method isn\u0027t a bit too subtle right now.",
+      "parentUuid": "7088c104_d69eaaa4",
+      "revId": "326a4f7f6522238c988528b7f82d10bb0f573a7e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
     }
   ]
 }
