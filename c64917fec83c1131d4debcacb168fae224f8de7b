@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "af44a123_0d438704",
+        "filename": "errors/errors.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 9735
+      },
+      "writtenOn": "2018-11-01T04:56:47Z",
+      "side": 1,
+      "message": "\"embeds a Frame\" sounds like an implementation detail as that information doesn\u0027t directly help users since they can\u0027t type assert to a Frame. The only useful way to interact with it is to use Go reflection, and that seems like a clunky API if people are supposed to do that. Perhaps:\n\n // The returned error additionally provides the same method set as Frame.\n // Specifically, it implements Formatter and has a Frame.Location method.\n\nThe later part does bother me though. If access to the location is an important functionality then perhaps it should be a top-level interface?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 64
+      },
+      "revId": "c64917fec83c1131d4debcacb168fae224f8de7b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
