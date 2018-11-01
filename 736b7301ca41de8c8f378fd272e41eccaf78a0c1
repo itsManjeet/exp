@@ -52,6 +52,24 @@
       "revId": "736b7301ca41de8c8f378fd272e41eccaf78a0c1",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a039a468_4002eb94",
+        "filename": "errors/fmt/errors.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-11-01T16:50:13Z",
+      "side": 1,
+      "message": "The idea at the moment was the former. We have heard concerns, but so far they were always abstract. We would like to see concrete examples of how this could break. Would you happen to have some?\n\nWe should not do a v2 of this package in my believe.\n\nIf the objections to wrapping by default are big enough, I\u0027ve expressed my preference for using some type that marks the desire to wrap.",
+      "parentUuid": "4cdee433_9ca2a33b",
+      "revId": "736b7301ca41de8c8f378fd272e41eccaf78a0c1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
     }
   ]
 }
