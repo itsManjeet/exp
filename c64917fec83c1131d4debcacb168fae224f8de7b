@@ -22,6 +22,30 @@
       "revId": "c64917fec83c1131d4debcacb168fae224f8de7b",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00bb4f55_01406484",
+        "filename": "errors/errors.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-11-01T17:03:19Z",
+      "side": 1,
+      "message": "The reason for this wording is that I wanted to keep it short. I prefer not to expose a Locationer interface and I do not want to mention the signature of the function. \n\nI like your wording, and it would achieve the same, if it were true: the returned error does not implement the same method set (Frame does not implement errors.Formatter).\n\nI\u0027m fine with removing exposing the method for now until people demand it. \nWording-wise, I can live with:\n\n// The returned error records the callers frame. It exposes this frame\u0027s\n// Location method and implements Formatter to print the location in the\n// error details.\n\nWould that work?",
+      "parentUuid": "af44a123_0d438704",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 64
+      },
+      "revId": "c64917fec83c1131d4debcacb168fae224f8de7b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
     }
   ]
 }
