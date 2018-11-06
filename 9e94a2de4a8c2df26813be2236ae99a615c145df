@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "80414aa5_cf6d37b3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2018-11-06T15:48:36Z",
+      "side": 1,
+      "message": "errors: add Caller, a helper for recording stack frame detail\n\nCaller returns a Frame that can be stored in an error\nand then used when formatting error detail, to print\ninformation about a particular caller\u0027s frame.\n\n(the rest of the text in the current message is review notes\nand doesn\u0027t belong in the commit message.)",
+      "revId": "9e94a2de4a8c2df26813be2236ae99a615c145df",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc2edfd5_ec84854f",
+        "filename": "errors/errors.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2018-11-06T15:48:36Z",
+      "side": 1,
+      "message": "Please make this not embedded.",
+      "revId": "9e94a2de4a8c2df26813be2236ae99a615c145df",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08b7e566_af450b31",
+        "filename": "errors/fmt/print.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2018-11-06T15:48:36Z",
+      "side": 1,
+      "message": "// The returned error includes the file and line number of of the caller\n// when formatted with additional detail enabled.",
+      "revId": "9e94a2de4a8c2df26813be2236ae99a615c145df",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2eee3dbd_3c9c42a9",
+        "filename": "errors/stack.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2018-11-06T15:48:36Z",
+      "side": 1,
+      "message": "// Caller returns a Frame that describes a frame on the caller\u0027s stack.\n// The argument skip is the number of frames to skip over.\n// Caller(0) returns the frame for the caller of Caller.",
+      "revId": "9e94a2de4a8c2df26813be2236ae99a615c145df",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "262a03c9_f2d5d589",
+        "filename": "errors/stack.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2018-11-06T15:48:36Z",
+      "side": 1,
+      "message": "Please unexport for now.\nLet\u0027s proceed slowly with more things here.\nI want to understand why people need this before we \ndecide to commit to an API.\nThe triple being returned seems particularly fragile to me.",
+      "revId": "9e94a2de4a8c2df26813be2236ae99a615c145df",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f9ca59fc_8ef7a803",
+        "filename": "errors/stack.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2018-11-06T15:48:36Z",
+      "side": 1,
+      "message": "// It should be called from an error\u0027s Format implementation,\n// before printing any other error detail.\n\n(or after, you decide, but we need to make a clear recommendation)",
+      "revId": "9e94a2de4a8c2df26813be2236ae99a615c145df",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
