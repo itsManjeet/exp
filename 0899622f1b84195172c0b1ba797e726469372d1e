@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "0ceb65d8_ceb32ab8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2018-11-06T15:34:52Z",
+      "side": 1,
+      "message": "new entire commit message:\n\nerrors: add Is, As, Wrapper, Unwrap, Opaque\n\nSee golang.org/s/go2design for the designs of these.\nOpaque is new - it provides a way to force an error\nnot to be unwrappable.",
+      "revId": "0899622f1b84195172c0b1ba797e726469372d1e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e70d04e0_75e26959",
+        "filename": "errors/fmt/errors.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2018-11-06T15:34:52Z",
+      "side": 1,
+      "message": "Here it is! OK, you can leave this in this CL.",
+      "revId": "0899622f1b84195172c0b1ba797e726469372d1e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "57247094_9edf93af",
         "filename": "errors/wrap.go",
         "patchSetId": 6
