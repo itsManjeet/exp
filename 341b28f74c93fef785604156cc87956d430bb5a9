@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "bf0c6543_b11c1ccf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-11-06T16:17:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27c1b862_96cc3b50",
+      "revId": "341b28f74c93fef785604156cc87956d430bb5a9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "722b2f26_aded044b",
         "filename": "errors/fmt/errors.go",
         "patchSetId": 3

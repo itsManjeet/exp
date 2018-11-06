@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "c340691f_011219bc",
+        "filename": "errors/fmt/errors.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-11-06T16:17:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e7522b1_ad201250",
+      "revId": "6f79e4d5b8005f2364d4283977fad5eae85d270f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5942d831_cc647d40",
         "filename": "errors/fmt/errors.go",
         "patchSetId": 7
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "6b35b77f_ab53c4ce",
+        "filename": "errors/fmt/errors.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-11-06T16:17:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5942d831_cc647d40",
+      "revId": "6f79e4d5b8005f2364d4283977fad5eae85d270f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3608aad0_3ddd6729",
         "filename": "errors/fmt/errors.go",
         "patchSetId": 7
@@ -50,6 +86,24 @@
       "revId": "6f79e4d5b8005f2364d4283977fad5eae85d270f",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9839190_a7eefdea",
+        "filename": "errors/fmt/errors.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-11-06T16:17:55Z",
+      "side": 1,
+      "message": "The wrappers are defined in a follow-up CL, where this is indeed added.",
+      "parentUuid": "3608aad0_3ddd6729",
+      "revId": "6f79e4d5b8005f2364d4283977fad5eae85d270f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
