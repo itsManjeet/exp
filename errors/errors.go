@@ -18,7 +18,7 @@ type errorString struct {
 
 // New returns an error that formats as the given text.
 //
-// The returned error embeds a Frame set to the caller's location and implements
+// The returned error contains a Frame set to the caller's location and implements
 // Formatter to show this information when printed with details.
 func New(text string) error {
 	return &errorString{text, Caller(1)}

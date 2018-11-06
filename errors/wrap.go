@@ -8,7 +8,7 @@ import (
 	"reflect"
 )
 
-// An Wrapper provides context around another error.
+// A Wrapper provides context around another error.
 type Wrapper interface {
 	// Unwrap returns the next error in the error chain.
 	// If there is no next error, Unwrap returns nil.
@@ -43,7 +43,7 @@ func Unwrap(err error) error {
 	return u.Unwrap()
 }
 
-// Is returns true if any error in err's chain is equal to target.
+// Is reports whether any error in err's chain is equal to target.
 func Is(err, target error) bool {
 	if target == nil {
 		return err == target
