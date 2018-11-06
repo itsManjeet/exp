@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "58ca9316_6e85bea3",
+        "filename": "errors/fmt/errors.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2018-11-06T15:13:53Z",
+      "side": 1,
+      "message": "// fmtError formats err according to verb, writing to p.\n// If it cannot handle the error, it does no formatting\n// and returns false.",
+      "revId": "86a2d9f508b3ea41d9edd4b3ca6edd7e3f7921fd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2a33256d_710f3b15",
+        "filename": "errors/fmt/errors.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2018-11-06T15:13:53Z",
+      "side": 1,
+      "message": "sep \u003d \": \" // separator before next error\nw \u003d p // print buffer where error text is written",
+      "revId": "86a2d9f508b3ea41d9edd4b3ca6edd7e3f7921fd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bb3ec0dd_b137b21c",
+        "filename": "errors/fmt/errors.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2018-11-06T15:13:53Z",
+      "side": 1,
+      "message": "// Note that this switch must match the preference order\n// for ordinary string printing (%#v before %+v, and so on).",
+      "revId": "86a2d9f508b3ea41d9edd4b3ca6edd7e3f7921fd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "11478fec_29d0dbb9",
+        "filename": "errors/fmt/errors.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2018-11-06T15:13:53Z",
+      "side": 1,
+      "message": "This type is going to be handed to things as a errors.Formatter.\nIf it also implements fmt.State, code will type-assert for that and\nstart using it. I\u0027d rather avoid that if possible.\n\nDefine:\n\n    type errPPState errPP\n\nAnd then put the state methods on it:\n\n    func (p *errPPState) Width ...\n\nand then when you need a fmt.State, pass (*errPPState)(p) instead of p.\n\nOr maybe just convert back to (*pp)(p).",
+      "revId": "86a2d9f508b3ea41d9edd4b3ca6edd7e3f7921fd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38eadc4a_bcef8575",
+        "filename": "errors/fmt/errors.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2018-11-06T15:13:53Z",
+      "side": 1,
+      "message": "fmt does not depend on bytes yet. I guess it\u0027s OK to do so,\nsince fmt does already depend on Unicode.",
+      "revId": "86a2d9f508b3ea41d9edd4b3ca6edd7e3f7921fd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
