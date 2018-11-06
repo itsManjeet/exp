@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0278e8e_0fa39ebd",
+        "filename": "errors/wrap.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-11-06T23:37:56Z",
+      "side": 1,
+      "message": "matches",
+      "range": {
+        "startLine": 46,
+        "startChar": 47,
+        "endLine": 46,
+        "endChar": 58
+      },
+      "revId": "0d16b4a30785a9e6257298a87c656b3fbd927b70",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b575b25f_c6888406",
+        "filename": "errors/wrap.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-11-06T23:37:56Z",
+      "side": 1,
+      "message": "match",
+      "range": {
+        "startLine": 48,
+        "startChar": 29,
+        "endLine": 48,
+        "endChar": 40
+      },
+      "revId": "0d16b4a30785a9e6257298a87c656b3fbd927b70",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c40e540f_7ad1852c",
+        "filename": "errors/wrap.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-11-06T23:37:56Z",
+      "side": 1,
+      "message": "represents as? \n\nIn any case, the phrasing must match the next sentence.",
+      "range": {
+        "startLine": 70,
+        "startChar": 48,
+        "endLine": 70,
+        "endChar": 55
+      },
+      "revId": "0d16b4a30785a9e6257298a87c656b3fbd927b70",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cec033b8_3089ea4c",
+        "filename": "errors/wrap.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-11-06T23:37:56Z",
+      "side": 1,
+      "message": "We need to document the contract of this As method somewhere. If we don\u0027t export an Aser interface, I guess it has to be here.",
+      "range": {
+        "startLine": 72,
+        "startChar": 75,
+        "endLine": 73,
+        "endChar": 43
+      },
+      "revId": "0d16b4a30785a9e6257298a87c656b3fbd927b70",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f40c0b49_3bad0eda",
+        "filename": "errors/wrap.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-11-06T23:37:56Z",
+      "side": 1,
+      "message": "or is not a pointer?",
+      "range": {
+        "startLine": 73,
+        "startChar": 72,
+        "endLine": 73,
+        "endChar": 75
+      },
+      "revId": "0d16b4a30785a9e6257298a87c656b3fbd927b70",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
