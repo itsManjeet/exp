@@ -22,6 +22,30 @@
       "revId": "21d2f0e521973b56d826c53829578a904d09cd3e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a1041dce_2d03f5ea",
+        "filename": "errors/fmt/errors.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2018-11-06T15:31:27Z",
+      "side": 1,
+      "message": "That\u0027s not my intuition. I think most of the time people _are_ wrapping and don\u0027t want to lose the underlying error matches. I would say instead that _not_ wrapping should always be a deliberate choice.\n\nDo you have concrete examples where fmt.Errorf would cause problems if it made an unwrappable error?",
+      "parentUuid": "07298c7f_34f47709",
+      "range": {
+        "startLine": 39,
+        "startChar": 45,
+        "endLine": 40,
+        "endChar": 67
+      },
+      "revId": "21d2f0e521973b56d826c53829578a904d09cd3e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
     }
   ]
 }

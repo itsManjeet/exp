@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7e7522b1_ad201250",
+        "filename": "errors/fmt/errors.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2018-11-06T15:31:27Z",
+      "side": 1,
+      "message": "Just write a[len(a)-1] on next line.",
+      "revId": "6f79e4d5b8005f2364d4283977fad5eae85d270f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5942d831_cc647d40",
+        "filename": "errors/fmt/errors.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2018-11-06T15:31:27Z",
+      "side": 1,
+      "message": "This is the cheapest test. Put it first (above argument array checks).",
+      "revId": "6f79e4d5b8005f2364d4283977fad5eae85d270f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3608aad0_3ddd6729",
+        "filename": "errors/fmt/errors.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2018-11-06T15:31:27Z",
+      "side": 1,
+      "message": "Please make withChain implement Unwrap.",
+      "revId": "6f79e4d5b8005f2364d4283977fad5eae85d270f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
