@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "57247094_9edf93af",
+        "filename": "errors/wrap.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2018-11-06T14:23:19Z",
+      "side": 1,
+      "message": "// Opaque returns an error with the same error formatting as err\n// but that does not match err and cannot be unwrapped.",
+      "revId": "0899622f1b84195172c0b1ba797e726469372d1e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5da874a6_ee292a9d",
+        "filename": "errors/wrap.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2018-11-06T14:23:19Z",
+      "side": 1,
+      "message": "if target \u003d\u003d nil {\n    return err \u003d\u003d nil\n}\nfor {\n    if err \u003d\u003d\u003d target {\n        return true\n    }\n    if err \u003d Unwrap(err); err \u003d\u003d nil {\n        return false\n    }\n}",
+      "revId": "0899622f1b84195172c0b1ba797e726469372d1e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2da1e5c8_7113ddbe",
+        "filename": "errors/wrap.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2018-11-06T14:23:19Z",
+      "side": 1,
+      "message": "Drop this check?",
+      "revId": "0899622f1b84195172c0b1ba797e726469372d1e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
