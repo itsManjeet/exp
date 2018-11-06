@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "7ab8d620_326f90d4",
+        "filename": "errors/wrap.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2018-11-06T14:27:41Z",
+      "side": 1,
+      "message": "(Still need to add check for .(interface{Is(error) bool}).)",
+      "parentUuid": "5da874a6_ee292a9d",
+      "revId": "0899622f1b84195172c0b1ba797e726469372d1e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2da1e5c8_7113ddbe",
         "filename": "errors/wrap.go",
         "patchSetId": 6
@@ -47,6 +65,57 @@
       "writtenOn": "2018-11-06T14:23:19Z",
       "side": 1,
       "message": "Drop this check?",
+      "revId": "0899622f1b84195172c0b1ba797e726469372d1e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "959f0d67_d922f711",
+        "filename": "errors/wrap.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2018-11-06T14:27:41Z",
+      "side": 1,
+      "message": "Avoid any panic from reflect during this function.\nNeeds explicit check for target !\u003d nil, and also for target being a pointer kind.",
+      "revId": "0899622f1b84195172c0b1ba797e726469372d1e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54952fbf_de6dc9eb",
+        "filename": "errors/wrap.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2018-11-06T14:27:41Z",
+      "side": 1,
+      "message": "Drop.",
+      "revId": "0899622f1b84195172c0b1ba797e726469372d1e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be09d2e9_2f681556",
+        "filename": "errors/wrap.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2018-11-06T14:27:41Z",
+      "side": 1,
+      "message": "err \u003d Unwrap(err)",
       "revId": "0899622f1b84195172c0b1ba797e726469372d1e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
