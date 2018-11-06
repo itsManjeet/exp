@@ -123,6 +123,24 @@
       "revId": "326a4f7f6522238c988528b7f82d10bb0f573a7e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f33b184f_80237d60",
+        "filename": "errors/stack.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-11-06T10:09:14Z",
+      "side": 1,
+      "message": "Good catch. Fixed. Even if Frame.Format doesn\u0027t call detail, it should still be possible to call Detail more than once.\n\nIn addition, right now the something more should also print a newline. This is awkward. This can be fixed by gobbling a trailing newline in the detail section, allowing any modular detail printer to end with a newline.\n\nI\u0027ll submit these changes in a separate CL.",
+      "parentUuid": "f79fa2db_e5510ea9",
+      "revId": "326a4f7f6522238c988528b7f82d10bb0f573a7e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
     }
   ]
 }
