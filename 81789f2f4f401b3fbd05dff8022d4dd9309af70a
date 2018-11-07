@@ -1,0 +1,326 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "601fe235_30c00922",
+        "filename": "apidiff/README.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-07T19:23:05Z",
+      "side": 1,
+      "message": "Would you do this even if the internal change was just in comments, or perhaps code cleanups w/o any semantic change?",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 63
+      },
+      "revId": "81789f2f4f401b3fbd05dff8022d4dd9309af70a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c50c422_7d8b9080",
+        "filename": "apidiff/README.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-07T19:23:05Z",
+      "side": 1,
+      "message": "s/a //",
+      "range": {
+        "startLine": 116,
+        "startChar": 66,
+        "endLine": 116,
+        "endChar": 67
+      },
+      "revId": "81789f2f4f401b3fbd05dff8022d4dd9309af70a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1f37ab5_6b86ceba",
+        "filename": "apidiff/README.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-07T19:23:05Z",
+      "side": 1,
+      "message": "s/would/could/",
+      "range": {
+        "startLine": 129,
+        "startChar": 24,
+        "endLine": 129,
+        "endChar": 29
+      },
+      "revId": "81789f2f4f401b3fbd05dff8022d4dd9309af70a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a5795600_7811672b",
+        "filename": "apidiff/README.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-07T19:23:05Z",
+      "side": 1,
+      "message": "s/in/with/ ?",
+      "range": {
+        "startLine": 169,
+        "startChar": 11,
+        "endLine": 169,
+        "endChar": 13
+      },
+      "revId": "81789f2f4f401b3fbd05dff8022d4dd9309af70a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6fd91f3c_379d4192",
+        "filename": "apidiff/README.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-07T19:23:05Z",
+      "side": 1,
+      "message": "s/old/old one/ ?",
+      "range": {
+        "startLine": 180,
+        "startChar": 36,
+        "endLine": 180,
+        "endChar": 39
+      },
+      "revId": "81789f2f4f401b3fbd05dff8022d4dd9309af70a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98f1308e_ab4399a9",
+        "filename": "apidiff/README.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-07T19:23:05Z",
+      "side": 1,
+      "message": "s/old/old package/ ?",
+      "range": {
+        "startLine": 181,
+        "startChar": 47,
+        "endLine": 181,
+        "endChar": 50
+      },
+      "revId": "81789f2f4f401b3fbd05dff8022d4dd9309af70a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a63d85be_9053c70b",
+        "filename": "apidiff/README.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-07T19:23:05Z",
+      "side": 1,
+      "message": "s/occurs/is declared/\n\n(it cannot not just \"occur\" somewhere)",
+      "range": {
+        "startLine": 181,
+        "startChar": 66,
+        "endLine": 181,
+        "endChar": 72
+      },
+      "revId": "81789f2f4f401b3fbd05dff8022d4dd9309af70a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be8207cb_6076dcce",
+        "filename": "apidiff/README.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-07T19:23:05Z",
+      "side": 1,
+      "message": "s/new at package-level/",
+      "range": {
+        "startLine": 182,
+        "startChar": 2,
+        "endLine": 182,
+        "endChar": 5
+      },
+      "revId": "81789f2f4f401b3fbd05dff8022d4dd9309af70a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41dae091_4ccf11f7",
+        "filename": "apidiff/README.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-07T19:23:05Z",
+      "side": 1,
+      "message": "exposed has not be defined yet - maybe sufficient to explain it in a subsequent paragraph.",
+      "range": {
+        "startLine": 254,
+        "startChar": 13,
+        "endLine": 254,
+        "endChar": 20
+      },
+      "revId": "81789f2f4f401b3fbd05dff8022d4dd9309af70a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db3ef9f1_0168a4d9",
+        "filename": "apidiff/README.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-07T19:23:05Z",
+      "side": 1,
+      "message": "I\u0027d leave go/types out here and just say:\n\nAn \"object\" is a named constant, variable, function, or type.\n\nOr leave this paragraph away and say if above when you mention object the first time:\n\n... and the object (constant, variable, function, or type) denoted by that name ...",
+      "range": {
+        "startLine": 261,
+        "startChar": 0,
+        "endLine": 261,
+        "endChar": 46
+      },
+      "revId": "81789f2f4f401b3fbd05dff8022d4dd9309af70a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f33cc22d_86a9727c",
+        "filename": "apidiff/README.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 271,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-07T19:23:05Z",
+      "side": 1,
+      "message": "s/typenames/types/\n\n(The fact that they are called TypeName in go/types is an unfortunate implementation detail: I would have liked to call them Type, but Type is already used for the actual Type interface. On the other hand, I didn\u0027t want to call all the other objects ConstName, VarName, and FuncName, just for consistency. Note that like for types, we have unnamed constants, unnamed variables (heap allocated!), and unnamed functions (closures).)\n\nIf I were to do it again, I might call the objects Const, Type, Var, Func, and the actual type interface just T.",
+      "range": {
+        "startLine": 271,
+        "startChar": 4,
+        "endLine": 271,
+        "endChar": 13
+      },
+      "revId": "81789f2f4f401b3fbd05dff8022d4dd9309af70a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aec349ad_8689ef37",
+        "filename": "apidiff/README.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-07T19:23:05Z",
+      "side": 1,
+      "message": "which T is this?",
+      "range": {
+        "startLine": 277,
+        "startChar": 57,
+        "endLine": 277,
+        "endChar": 58
+      },
+      "revId": "81789f2f4f401b3fbd05dff8022d4dd9309af70a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "aa85825b_a7c52166",
+        "filename": "apidiff/README.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-07T19:23:05Z",
+      "side": 1,
+      "message": "It\u0027s not quite clear what happens now, according to this paragraph. Are they reported, or not, or only some? Rephrase?",
+      "range": {
+        "startLine": 294,
+        "startChar": 0,
+        "endLine": 294,
+        "endChar": 69
+      },
+      "revId": "81789f2f4f401b3fbd05dff8022d4dd9309af70a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4d48748e_f0dee1c1",
+        "filename": "apidiff/README.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-07T19:23:05Z",
+      "side": 1,
+      "message": "Can we make this just: Types?\n\n(see also comment above).\n\nAnd then say:\n\nA new exported type ...\n\n(that implies it must be named, after all. Also, we don\u0027t talk about constant names, or variable names, or function names).",
+      "range": {
+        "startLine": 334,
+        "startChar": 5,
+        "endLine": 334,
+        "endChar": 14
+      },
+      "revId": "81789f2f4f401b3fbd05dff8022d4dd9309af70a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
