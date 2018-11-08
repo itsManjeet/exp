@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "66e633f9_102f8563",
+        "filename": "apidiff/apidiff.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-11-08T02:49:19Z",
+      "side": 1,
+      "message": "gri, PTAL",
+      "range": {
+        "startLine": 154,
+        "startChar": 3,
+        "endLine": 154,
+        "endChar": 64
+      },
+      "revId": "0969c19ad75453f879123366601d579728c57b56",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0d99e79a_d0b3b409",
+        "filename": "apidiff/compatibility.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-11-08T02:49:19Z",
+      "side": 1,
+      "message": "gri, PTAL",
+      "range": {
+        "startLine": 130,
+        "startChar": 0,
+        "endLine": 170,
+        "endChar": 1
+      },
+      "revId": "0969c19ad75453f879123366601d579728c57b56",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b8d8851_af0ecf3a",
+        "filename": "apidiff/testdata/tests.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-11-08T02:49:19Z",
+      "side": 1,
+      "message": "gri, please look over as many of these tests as you can bear and see if you believe them. Also, suggest others.\n\n\"// i\" means an incompatible change.\n\"// c\" means a compatible change.",
+      "revId": "0969c19ad75453f879123366601d579728c57b56",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
