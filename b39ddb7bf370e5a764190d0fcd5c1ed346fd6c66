@@ -1,0 +1,533 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "df540c64_88539886",
+        "filename": "apidiff/README.md",
+        "patchSetId": 16
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-09T00:17:59Z",
+      "side": 1,
+      "message": "Clearer:\n\nBecause `apidiff` ignores package import paths, it may be used to display API differences between any two packages, not just different versions of the same package.\n\n(And then just leave the rest of this paragraph away. As it stands, the 2nd part seems to contradict the first sentence: The first sentence explicitly talks about two (different?) packages, and the 2nd part talks about versions again.)",
+      "range": {
+        "startLine": 14,
+        "startChar": 41,
+        "endLine": 14,
+        "endChar": 44
+      },
+      "revId": "b39ddb7bf370e5a764190d0fcd5c1ed346fd6c66",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e2e1895_96b69cb9",
+        "filename": "apidiff/README.md",
+        "patchSetId": 16
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-09T00:17:59Z",
+      "side": 1,
+      "message": "s/will/may/",
+      "range": {
+        "startLine": 35,
+        "startChar": 75,
+        "endLine": 35,
+        "endChar": 79
+      },
+      "revId": "b39ddb7bf370e5a764190d0fcd5c1ed346fd6c66",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "54941fd4_e1668819",
+        "filename": "apidiff/README.md",
+        "patchSetId": 16
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-09T00:17:59Z",
+      "side": 1,
+      "message": "s/code/client code/ (or client\u0027s code) ?",
+      "range": {
+        "startLine": 39,
+        "startChar": 12,
+        "endLine": 39,
+        "endChar": 16
+      },
+      "revId": "b39ddb7bf370e5a764190d0fcd5c1ed346fd6c66",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fbc0957a_dcc4df2d",
+        "filename": "apidiff/README.md",
+        "patchSetId": 16
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-09T00:17:59Z",
+      "side": 1,
+      "message": "I\u0027ve read this now many times, but it\u0027s not clear to me what this means. Example, clarify/rephrase, or leave away?",
+      "range": {
+        "startLine": 40,
+        "startChar": 46,
+        "endLine": 42,
+        "endChar": 9
+      },
+      "revId": "b39ddb7bf370e5a764190d0fcd5c1ed346fd6c66",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1a96586b_a527f958",
+        "filename": "apidiff/README.md",
+        "patchSetId": 16
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-09T00:17:59Z",
+      "side": 1,
+      "message": "add a link to the spec for defined types - people not very familiar with the spec terminology may not necessarily read the meaning of \u0027defined\u0027 different from \u0027declraed\u0027",
+      "range": {
+        "startLine": 185,
+        "startChar": 0,
+        "endLine": 185,
+        "endChar": 13
+      },
+      "revId": "b39ddb7bf370e5a764190d0fcd5c1ed346fd6c66",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d74f78ad_3a016fda",
+        "filename": "apidiff/README.md",
+        "patchSetId": 16
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-09T00:17:59Z",
+      "side": 1,
+      "message": "perhaps a bit clearer:\n\n.. two _defined_ types with different names:",
+      "range": {
+        "startLine": 186,
+        "startChar": 50,
+        "endLine": 186,
+        "endChar": 55
+      },
+      "revId": "b39ddb7bf370e5a764190d0fcd5c1ed346fd6c66",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c6e1a274_f9d12afb",
+        "filename": "apidiff/README.md",
+        "patchSetId": 16
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-09T00:17:59Z",
+      "side": 1,
+      "message": "I think it shouldn\u0027t be too hard to defined exposure:\n\nA type is considered exposed if a client package can create values of that type.\n\n(Once we have a value, we can declare variables of that type by virtue of a variable declaration that omits a type and which is initialized by that value. And we can possibly operate on that value.)",
+      "range": {
+        "startLine": 207,
+        "startChar": 63,
+        "endLine": 207,
+        "endChar": 72
+      },
+      "revId": "b39ddb7bf370e5a764190d0fcd5c1ed346fd6c66",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64600e74_778e56df",
+        "filename": "apidiff/README.md",
+        "patchSetId": 16
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-09T00:17:59Z",
+      "side": 1,
+      "message": "As an aside, the tool also ...  (?)\n\n(since this is perhaps less important)",
+      "range": {
+        "startLine": 243,
+        "startChar": 0,
+        "endLine": 243,
+        "endChar": 3
+      },
+      "revId": "b39ddb7bf370e5a764190d0fcd5c1ed346fd6c66",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "49cc9116_e42d0391",
+        "filename": "apidiff/README.md",
+        "patchSetId": 16
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-09T00:17:59Z",
+      "side": 1,
+      "message": "maybe\n\nvar x \u003d C\n\n(this may be a top-level decl.)",
+      "range": {
+        "startLine": 270,
+        "startChar": 2,
+        "endLine": 270,
+        "endChar": 3
+      },
+      "revId": "b39ddb7bf370e5a764190d0fcd5c1ed346fd6c66",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "541e5422_81d29e32",
+        "filename": "apidiff/README.md",
+        "patchSetId": 16
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-09T00:17:59Z",
+      "side": 1,
+      "message": "not clear what \"this is unlikely\" refers to in this sentence. Maybe just:\n\nChanges to constant values are rare, and determining if they are compatible changes are not is better left to the user, so the tool reports them.",
+      "range": {
+        "startLine": 287,
+        "startChar": 9,
+        "endLine": 287,
+        "endChar": 13
+      },
+      "revId": "b39ddb7bf370e5a764190d0fcd5c1ed346fd6c66",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "56ccdc19_090cf3fb",
+        "filename": "apidiff/README.md",
+        "patchSetId": 16
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-09T00:17:59Z",
+      "side": 1,
+      "message": "s/stops at names/doesn\u0027t look past names/ (?)",
+      "range": {
+        "startLine": 296,
+        "startChar": 15,
+        "endLine": 296,
+        "endChar": 29
+      },
+      "revId": "b39ddb7bf370e5a764190d0fcd5c1ed346fd6c66",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "38279f22_52eb2b38",
+        "filename": "apidiff/README.md",
+        "patchSetId": 16
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-09T00:17:59Z",
+      "side": 1,
+      "message": "I think the reason why this is confusing at first is that we talk about same type names and corresponding types, and that in the case for defined types, the names and the types are \"the same thing\". It would be good to take the apart a bit and explain better, but I don\u0027t have a good suggestion at the moment.\n\nIt\u0027s becoming clearer with the new phrasing below, so maybe it\u0027s ok for now.",
+      "range": {
+        "startLine": 331,
+        "startChar": 0,
+        "endLine": 331,
+        "endChar": 58
+      },
+      "revId": "b39ddb7bf370e5a764190d0fcd5c1ed346fd6c66",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8e70542_944be559",
+        "filename": "apidiff/README.md",
+        "patchSetId": 16
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-09T00:17:59Z",
+      "side": 1,
+      "message": "s/a kind of/a/\n\nseems sufficient",
+      "range": {
+        "startLine": 377,
+        "startChar": 63,
+        "endLine": 377,
+        "endChar": 73
+      },
+      "revId": "b39ddb7bf370e5a764190d0fcd5c1ed346fd6c66",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0528606d_7d25e621",
+        "filename": "apidiff/README.md",
+        "patchSetId": 16
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-09T00:17:59Z",
+      "side": 1,
+      "message": "s/and/and by/ (?)",
+      "range": {
+        "startLine": 378,
+        "startChar": 13,
+        "endLine": 378,
+        "endChar": 16
+      },
+      "revId": "b39ddb7bf370e5a764190d0fcd5c1ed346fd6c66",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e30d056e_be1d6848",
+        "filename": "apidiff/README.md",
+        "patchSetId": 16
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-09T00:17:59Z",
+      "side": 1,
+      "message": "a/an assertion/a type assertion/",
+      "range": {
+        "startLine": 388,
+        "startChar": 29,
+        "endLine": 388,
+        "endChar": 41
+      },
+      "revId": "b39ddb7bf370e5a764190d0fcd5c1ed346fd6c66",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eade25d4_ad07e457",
+        "filename": "apidiff/README.md",
+        "patchSetId": 16
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-09T00:17:59Z",
+      "side": 1,
+      "message": "a/an old/an old one/ (?)",
+      "range": {
+        "startLine": 394,
+        "startChar": 35,
+        "endLine": 394,
+        "endChar": 38
+      },
+      "revId": "b39ddb7bf370e5a764190d0fcd5c1ed346fd6c66",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15ac7d77_06249b2f",
+        "filename": "apidiff/README.md",
+        "patchSetId": 16
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-09T00:17:59Z",
+      "side": 1,
+      "message": "... to send to or receive from them, and to close them.",
+      "range": {
+        "startLine": 426,
+        "startChar": 12,
+        "endLine": 426,
+        "endChar": 14
+      },
+      "revId": "b39ddb7bf370e5a764190d0fcd5c1ed346fd6c66",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33d63a4a_bfc0dfb0",
+        "filename": "apidiff/README.md",
+        "patchSetId": 16
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-09T00:17:59Z",
+      "side": 1,
+      "message": "s/cannot/by removing the channel direction cannot/",
+      "range": {
+        "startLine": 432,
+        "startChar": 0,
+        "endLine": 432,
+        "endChar": 6
+      },
+      "revId": "b39ddb7bf370e5a764190d0fcd5c1ed346fd6c66",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4107101f_4640f578",
+        "filename": "apidiff/README.md",
+        "patchSetId": 16
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-09T00:17:59Z",
+      "side": 1,
+      "message": "s/an/an existing/\n\n(I think you cannot add an unexported method)",
+      "range": {
+        "startLine": 450,
+        "startChar": 65,
+        "endLine": 450,
+        "endChar": 75
+      },
+      "revId": "b39ddb7bf370e5a764190d0fcd5c1ed346fd6c66",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "13b61a2f_d890c93b",
+        "filename": "apidiff/README.md",
+        "patchSetId": 16
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-09T00:17:59Z",
+      "side": 1,
+      "message": "s/to embed it in a struct/to embed it/\n\nor\n\ns/to embed it in a struct/to embed it in a struct or interface/.",
+      "range": {
+        "startLine": 466,
+        "startChar": 50,
+        "endLine": 466,
+        "endChar": 73
+      },
+      "revId": "b39ddb7bf370e5a764190d0fcd5c1ed346fd6c66",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "154b542c_d6e73838",
+        "filename": "apidiff/README.md",
+        "patchSetId": 16
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-09T00:17:59Z",
+      "side": 1,
+      "message": "In the example below, B and C are not identical, though. Only their underlying type is. But they are \"convertible\".",
+      "range": {
+        "startLine": 522,
+        "startChar": 13,
+        "endLine": 522,
+        "endChar": 22
+      },
+      "revId": "b39ddb7bf370e5a764190d0fcd5c1ed346fd6c66",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c957f9b_e680e40d",
+        "filename": "apidiff/README.md",
+        "patchSetId": 16
+      },
+      "lineNbr": 542,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-09T00:17:59Z",
+      "side": 1,
+      "message": "c/definition here doesn\u0027t/definitions here don\u0027t/",
+      "range": {
+        "startLine": 542,
+        "startChar": 4,
+        "endLine": 542,
+        "endChar": 14
+      },
+      "revId": "b39ddb7bf370e5a764190d0fcd5c1ed346fd6c66",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "597c34f0_11f9ddc2",
+        "filename": "apidiff/README.md",
+        "patchSetId": 16
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-09T00:17:59Z",
+      "side": 1,
+      "message": "s/definition states/definitions state/ (?)",
+      "range": {
+        "startLine": 547,
+        "startChar": 10,
+        "endLine": 547,
+        "endChar": 20
+      },
+      "revId": "b39ddb7bf370e5a764190d0fcd5c1ed346fd6c66",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}

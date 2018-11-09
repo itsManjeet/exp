@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b19a9e4b_ec8fdc5f",
+        "filename": "apidiff/README.md",
+        "patchSetId": 15
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-09T00:17:59Z",
+      "side": 1,
+      "message": "should it say: defined types ?",
+      "range": {
+        "startLine": 336,
+        "startChar": 31,
+        "endLine": 336,
+        "endChar": 36
+      },
+      "revId": "3c87ffa664d20e847f8f13053c0e92d3613c4eed",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
