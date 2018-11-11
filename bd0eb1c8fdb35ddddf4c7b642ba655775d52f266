@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5af9d2fe_2dc51add",
+        "filename": "apidiff/README.md",
+        "patchSetId": 18
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-11T00:47:22Z",
+      "side": 1,
+      "message": "s/are/or/",
+      "range": {
+        "startLine": 282,
+        "startChar": 0,
+        "endLine": 282,
+        "endChar": 3
+      },
+      "revId": "bd0eb1c8fdb35ddddf4c7b642ba655775d52f266",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}

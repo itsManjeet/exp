@@ -331,6 +331,30 @@
     },
     {
       "key": {
+        "uuid": "52d5788d_4b0708b4",
+        "filename": "apidiff/README.md",
+        "patchSetId": 16
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-11T00:47:22Z",
+      "side": 1,
+      "message": "Yeah, maybe. Really they can create values of interface{} holding a u, but there\u0027s no way to get to that u value, really.\n\nMaybe:\n\nA type is _exposed_ if a client package can declare variables of that type.\n\n(?) Fine for a future CL.",
+      "parentUuid": "4ada714e_3c44c39a",
+      "range": {
+        "startLine": 207,
+        "startChar": 63,
+        "endLine": 207,
+        "endChar": 72
+      },
+      "revId": "b39ddb7bf370e5a764190d0fcd5c1ed346fd6c66",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "64600e74_778e56df",
         "filename": "apidiff/README.md",
         "patchSetId": 16
