@@ -22,6 +22,30 @@
       "revId": "ba054b7a29e4723c62edd493d25cc4be8f50761e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee59195e_1fbe8b3d",
+        "filename": "apidiff/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-11-11T21:42:13Z",
+      "side": 1,
+      "message": "V is the name of a variable. Thus\n\n  x :\u003d V\n\ndeclares a variable x of type u1 (old) or u2 (new).",
+      "parentUuid": "53d70281_1547e737",
+      "range": {
+        "startLine": 204,
+        "startChar": 65,
+        "endLine": 204,
+        "endChar": 66
+      },
+      "revId": "ba054b7a29e4723c62edd493d25cc4be8f50761e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
     }
   ]
 }
