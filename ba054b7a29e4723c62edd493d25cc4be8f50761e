@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "53d70281_1547e737",
+        "filename": "apidiff/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-11T17:28:49Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem the right place for this definition. For one, I don\u0027t see how it\u0027s possible to declare variables of type u1 or u2 in this case: they will be variables of type V.\n\n(maybe the suggested definition is still not right)",
+      "range": {
+        "startLine": 204,
+        "startChar": 65,
+        "endLine": 204,
+        "endChar": 66
+      },
+      "revId": "ba054b7a29e4723c62edd493d25cc4be8f50761e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
