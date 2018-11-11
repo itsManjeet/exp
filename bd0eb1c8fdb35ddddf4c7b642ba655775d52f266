@@ -22,6 +22,30 @@
       "revId": "bd0eb1c8fdb35ddddf4c7b642ba655775d52f266",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eef518c1_42b9733f",
+        "filename": "apidiff/README.md",
+        "patchSetId": 18
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-11-11T16:05:05Z",
+      "side": 1,
+      "message": "Done in https://go-review.googlesource.com/c/exp/+/149037.",
+      "parentUuid": "5af9d2fe_2dc51add",
+      "range": {
+        "startLine": 282,
+        "startChar": 0,
+        "endLine": 282,
+        "endChar": 3
+      },
+      "revId": "bd0eb1c8fdb35ddddf4c7b642ba655775d52f266",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
