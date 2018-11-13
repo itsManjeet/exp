@@ -48,6 +48,23 @@
     },
     {
       "key": {
+        "uuid": "3cc54033_05d46f68",
+        "filename": "errors/wrap.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 5305
+      },
+      "writtenOn": "2018-11-13T19:07:41Z",
+      "side": 1,
+      "message": "A thought which I had while writing a response to Roger Peppe\u0027s comment (attaching here rather there, since this is a digression and I don\u0027t want to distract from his point):\n\nA tricky point about error (un)wrapping APIs is that a user failing to unwrap an error may not immediately notice their mistake:\n\n  // Wrong: Failed to unwrap err.\n  if err :\u003d p.F(); err \u003d\u003d p.ErrFoo {}\n\n  // Right.\n  if err :\u003d p.F(); errors.Cause(err) \u003d\u003d p.ErrFoo {}\n  if err :\u003d p.F(); errors.Is(err, p.ErrFoo) {}\n\nThe part which makes this particularly tricky is that the first case isn\u0027t obviously wrong. If p.F() doesn\u0027t return wrapped errors, the code will work today. If p.F() is then changed to wrap its errors, the code will become incorrect but will continue to compile.\n\nThe author of package p can mitigate this by always returning wrapped errors to ensure that no users depend on errors being unwrapped. This is still tricky, however, because the first case above will still compile. If no tests exercise the case where p.F() returns ErrFoo, the failure to unwrap the error may go undetected for a long time.\n\nIt would be better if the wrong case simply didn\u0027t compile. Perhaps this is an argument for changing the signature of Is so the target isn\u0027t an error, but some other type designed specifically to be compared to errors? This would also resolve the asymmetry in which Is unwraps its first parameter but not the second. On the other hand, this would make Is more difficult to use with existing sentinel values, so perhaps the gain isn\u0027t worth it. I think it\u0027s worth considering, however.",
+      "revId": "0d16b4a30785a9e6257298a87c656b3fbd927b70",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c40e540f_7ad1852c",
         "filename": "errors/wrap.go",
         "patchSetId": 1
