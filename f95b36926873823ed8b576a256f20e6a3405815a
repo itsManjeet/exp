@@ -33,6 +33,114 @@
       "revId": "f95b36926873823ed8b576a256f20e6a3405815a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5b536b0_07e56923",
+        "filename": "apidiff/testdata/tests.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2018-11-13T22:42:28Z",
+      "side": 1,
+      "message": "What about copyability? For example, adding a `sync.Mutex` to a struct that previously had only primitive fields can break callers that expected to be able to assign one struct value to another after invoking a pointer method.\n\nSimilarly for the ability to use a struct type as a map key.",
+      "revId": "f95b36926873823ed8b576a256f20e6a3405815a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e7bb2fff_3468a0d6",
+        "filename": "apidiff/testdata/tests.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2018-11-13T22:42:28Z",
+      "side": 1,
+      "message": "This should be an incompatible change, for the same reason that switching between typed and untyped constants is incompatible. Consider the following caller code:\n\n\tc :\u003d pkg.Ch4\n\t[…]\n\tc \u003d pkg.Ch3",
+      "revId": "f95b36926873823ed8b576a256f20e6a3405815a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3589946e_55c24c7c",
+        "filename": "apidiff/testdata/tests.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2018-11-13T22:42:28Z",
+      "side": 1,
+      "message": "What if the function argument type is a named interface?\n\nShould functions be able to relax their input constraints, for example by moving methods from the parameter itself to a type-assertion in the function body?\n\nConsider:\n\n// old\ntype I interface {\n\tMethod1()\n\tMethod2()\n}\nfunc F9(I) {}\n\n//new\ntype I interface {\n\tMethod1()\n}\n// ? F9: dropped Method2 from parameter interface I\nfunc F9(I) {}",
+      "range": {
+        "startLine": 473,
+        "startChar": 10,
+        "endLine": 473,
+        "endChar": 26
+      },
+      "revId": "f95b36926873823ed8b576a256f20e6a3405815a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1c70bed_4e7e4021",
+        "filename": "apidiff/testdata/tests.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2018-11-13T22:42:28Z",
+      "side": 1,
+      "message": "What about the reverse change, from var to func? (Presumably that one is incompatible?)",
+      "revId": "f95b36926873823ed8b576a256f20e6a3405815a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "579afca6_44ca7246",
+        "filename": "apidiff/testdata/tests.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2018-11-13T22:42:28Z",
+      "side": 1,
+      "message": "Should this line belong before the x field?",
+      "revId": "f95b36926873823ed8b576a256f20e6a3405815a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e6bb6ab6_7291776d",
+        "filename": "apidiff/testdata/tests.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2018-11-13T22:42:28Z",
+      "side": 1,
+      "message": "Reflexivity may also be important if the struct is comparable. Consider:\n\n\tvar x S1 \u003d […]\n\tm[x] \u003d […]\n\tdelete(m, x)  // ⚠ no longer works if it is possible that x !\u003d x\n\nWhether that matters depends on whether the concrete values for the field can include NaNs.",
+      "revId": "f95b36926873823ed8b576a256f20e6a3405815a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
     }
   ]
 }
