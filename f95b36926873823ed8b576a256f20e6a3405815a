@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "47ca9348_2d0d3a95",
+        "filename": "apidiff/apidiff.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2018-11-13T22:12:59Z",
+      "side": 1,
+      "message": "Where is the package comment for this package? (I couldn\u0027t find it.)",
+      "revId": "f95b36926873823ed8b576a256f20e6a3405815a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "171b35dc_19925a7e",
+        "filename": "apidiff/testdata/tests.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2018-11-13T22:12:59Z",
+      "side": 1,
+      "message": "What about changing a defined integer type from one size to another — for example, changing an `int8` enum-like type to an `int16` type as a result of adding a 256th value?",
+      "revId": "f95b36926873823ed8b576a256f20e6a3405815a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
