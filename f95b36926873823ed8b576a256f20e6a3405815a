@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "347ffb16_696da24b",
+        "filename": "apidiff/apidiff.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-11-14T22:48:43Z",
+      "side": 1,
+      "message": "TBD.\n\nI\u0027m not even sure this should be a separate package.",
+      "parentUuid": "47ca9348_2d0d3a95",
+      "revId": "f95b36926873823ed8b576a256f20e6a3405815a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "171b35dc_19925a7e",
         "filename": "apidiff/testdata/tests.go",
         "patchSetId": 5
@@ -30,6 +48,24 @@
       "writtenOn": "2018-11-13T22:12:59Z",
       "side": 1,
       "message": "What about changing a defined integer type from one size to another — for example, changing an `int8` enum-like type to an `int16` type as a result of adding a 256th value?",
+      "revId": "f95b36926873823ed8b576a256f20e6a3405815a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "760a3216_009fbb88",
+        "filename": "apidiff/testdata/tests.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-11-14T22:48:43Z",
+      "side": 1,
+      "message": "If you mean\n   type x int8  // old\n   type x int16 // new\nthat would be caught by the same line that generates this message.\nIf you mean something else, can you give an example?",
+      "parentUuid": "171b35dc_19925a7e",
       "revId": "f95b36926873823ed8b576a256f20e6a3405815a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "55764267_063173fb",
+        "filename": "apidiff/testdata/tests.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-11-14T22:48:43Z",
+      "side": 1,
+      "message": "copyability: Coincidentally, Alan and I were just talking about that yesterday. He felt that since it wasn\u0027t part of the language, and was implemented in a slightly hacky way (looking for a type that implemented sync.Locker), it would be better to omit it. \n\nmap key: handled as part of struct comparability. Search for \"comparable\" below.",
+      "parentUuid": "c5b536b0_07e56923",
+      "revId": "f95b36926873823ed8b576a256f20e6a3405815a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "e7bb2fff_3468a0d6",
         "filename": "apidiff/testdata/tests.go",
         "patchSetId": 5
@@ -64,6 +118,24 @@
       "writtenOn": "2018-11-13T22:42:28Z",
       "side": 1,
       "message": "This should be an incompatible change, for the same reason that switching between typed and untyped constants is incompatible. Consider the following caller code:\n\n\tc :\u003d pkg.Ch4\n\t[…]\n\tc \u003d pkg.Ch3",
+      "revId": "f95b36926873823ed8b576a256f20e6a3405815a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "289577b6_19e39735",
+        "filename": "apidiff/testdata/tests.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-11-14T22:48:43Z",
+      "side": 1,
+      "message": "In the README I explicitly say that I\u0027m not going to check for intra-package breakages like this that occur because two defined types in the old package happened to have identical underlying types. (See https://go.googlesource.com/exp/+/master/apidiff/README.md, second part of \"Whole-Package Compatibility\".) It would add a quadratic loop to the checker (though admittedly it already has one) and not sure it\u0027s worth the effort, since what are the odds that you have two defined types that are the same? \n\nThat is not the same reason you can\u0027t change a const from typed to untyped. That can break code like\n  x :\u003d pkg.C\n  var y int64 \u003d x\nwhere old C was int64 but new C is untyped. No mention of another type in the same package is necessary.",
+      "parentUuid": "e7bb2fff_3468a0d6",
       "revId": "f95b36926873823ed8b576a256f20e6a3405815a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
@@ -93,6 +165,30 @@
     },
     {
       "key": {
+        "uuid": "cbefb642_5517c5d0",
+        "filename": "apidiff/testdata/tests.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 473,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-11-14T22:48:43Z",
+      "side": 1,
+      "message": "\u003e What if the function argument type is a named interface?\n\nThat doesn\u0027t even count as a change (assuming the names correspond). I added a case for that (though generally I don\u0027t have cases for every no-op), because it could be surprising that the functions are OK even if the arg types are incompatible. That is more about keeping the output reasonably small.\n\n\u003e Should functions be able to relax their input constraints ...\n\nIn your example, the problem is not the functions, it\u0027s I, which is incompatible because you removed a method. \n\nMore generally (e.g. if the interfaces were inlined), you\u0027re going down the complicated road of call-site compatibility. Thankfully there\u0027s no need to go there because any change in a signature breaks assignment compatibility.",
+      "parentUuid": "3589946e_55c24c7c",
+      "range": {
+        "startLine": 473,
+        "startChar": 10,
+        "endLine": 473,
+        "endChar": 26
+      },
+      "revId": "f95b36926873823ed8b576a256f20e6a3405815a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d1c70bed_4e7e4021",
         "filename": "apidiff/testdata/tests.go",
         "patchSetId": 5
@@ -104,6 +200,24 @@
       "writtenOn": "2018-11-13T22:42:28Z",
       "side": 1,
       "message": "What about the reverse change, from var to func? (Presumably that one is incompatible?)",
+      "revId": "f95b36926873823ed8b576a256f20e6a3405815a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6dd8dc99_b8507d2a",
+        "filename": "apidiff/testdata/tests.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 479,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-11-14T22:48:43Z",
+      "side": 1,
+      "message": "It is. Added it.",
+      "parentUuid": "d1c70bed_4e7e4021",
       "revId": "f95b36926873823ed8b576a256f20e6a3405815a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
@@ -127,6 +241,24 @@
     },
     {
       "key": {
+        "uuid": "8eae56a9_5addd84e",
+        "filename": "apidiff/testdata/tests.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-11-14T22:48:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "579afca6_44ca7246",
+      "revId": "f95b36926873823ed8b576a256f20e6a3405815a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e6bb6ab6_7291776d",
         "filename": "apidiff/testdata/tests.go",
         "patchSetId": 5
@@ -138,6 +270,24 @@
       "writtenOn": "2018-11-13T22:42:28Z",
       "side": 1,
       "message": "Reflexivity may also be important if the struct is comparable. Consider:\n\n\tvar x S1 \u003d […]\n\tm[x] \u003d […]\n\tdelete(m, x)  // ⚠ no longer works if it is possible that x !\u003d x\n\nWhether that matters depends on whether the concrete values for the field can include NaNs.",
+      "revId": "f95b36926873823ed8b576a256f20e6a3405815a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50f75ffa_d56cd5c8",
+        "filename": "apidiff/testdata/tests.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-11-14T22:48:43Z",
+      "side": 1,
+      "message": "That is not something that breaks compilation, though, and that\u0027s all this tool cares about.",
+      "parentUuid": "e6bb6ab6_7291776d",
       "revId": "f95b36926873823ed8b576a256f20e6a3405815a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
