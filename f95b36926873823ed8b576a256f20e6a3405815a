@@ -90,6 +90,24 @@
     },
     {
       "key": {
+        "uuid": "e25f2670_c04135a6",
+        "filename": "apidiff/testdata/tests.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-11-15T20:13:46Z",
+      "side": 1,
+      "message": "I think you\u0027re right. Let me run the rule past Alan and Robert, then I\u0027ll write a CL for the README.",
+      "parentUuid": "bc3a4ab2_e0a8698b",
+      "revId": "f95b36926873823ed8b576a256f20e6a3405815a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c5b536b0_07e56923",
         "filename": "apidiff/testdata/tests.go",
         "patchSetId": 5
@@ -172,6 +190,24 @@
       "side": 1,
       "message": "Oh, didn\u0027t notice that these were types rather than variables.\nI think my comment actually belongs to the V7 case at line 188, and it is indeed marked incompatible there.\n\nStill, there seems to be a problem here. Caller code could have something like:\n\n\tc :\u003d make(chan int)\n\trecv :\u003d (\u003c-chan int)(c)\n\ty :\u003d pkg.Ch4(recv)\n\nThat\u0027s a breaking change.",
       "parentUuid": "289577b6_19e39735",
+      "revId": "f95b36926873823ed8b576a256f20e6a3405815a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4439719a_0188b9c5",
+        "filename": "apidiff/testdata/tests.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-11-15T20:13:46Z",
+      "side": 1,
+      "message": "Or even\n\n    var pkg.Ch4 \u003d make(\u003c-chan int)\n\nYou can break pretty much any change to a type if you can write the type outside the package. So I ignore those possibilities. See https://go.googlesource.com/exp/+/master/apidiff/README.md#using-an-identical-type-externally. That\u0027s one reason why I only allow changes to named types.",
+      "parentUuid": "853c4c10_7a00de7a",
       "revId": "f95b36926873823ed8b576a256f20e6a3405815a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
