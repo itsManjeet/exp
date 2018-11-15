@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "bc3a4ab2_e0a8698b",
+        "filename": "apidiff/testdata/tests.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2018-11-15T14:32:01Z",
+      "side": 1,
+      "message": "Yes, I mean something like that. I\u0027m not at all certain that should be an incompatible change — it\u0027s clearly incompatible for int-like types (e.g. `time.Duration`), but arguably compatible for enum-like types (e.g. `time.Month`).",
+      "parentUuid": "760a3216_009fbb88",
+      "revId": "f95b36926873823ed8b576a256f20e6a3405815a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c5b536b0_07e56923",
         "filename": "apidiff/testdata/tests.go",
         "patchSetId": 5
@@ -136,6 +154,24 @@
       "side": 1,
       "message": "In the README I explicitly say that I\u0027m not going to check for intra-package breakages like this that occur because two defined types in the old package happened to have identical underlying types. (See https://go.googlesource.com/exp/+/master/apidiff/README.md, second part of \"Whole-Package Compatibility\".) It would add a quadratic loop to the checker (though admittedly it already has one) and not sure it\u0027s worth the effort, since what are the odds that you have two defined types that are the same? \n\nThat is not the same reason you can\u0027t change a const from typed to untyped. That can break code like\n  x :\u003d pkg.C\n  var y int64 \u003d x\nwhere old C was int64 but new C is untyped. No mention of another type in the same package is necessary.",
       "parentUuid": "e7bb2fff_3468a0d6",
+      "revId": "f95b36926873823ed8b576a256f20e6a3405815a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "853c4c10_7a00de7a",
+        "filename": "apidiff/testdata/tests.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2018-11-15T14:32:01Z",
+      "side": 1,
+      "message": "Oh, didn\u0027t notice that these were types rather than variables.\nI think my comment actually belongs to the V7 case at line 188, and it is indeed marked incompatible there.\n\nStill, there seems to be a problem here. Caller code could have something like:\n\n\tc :\u003d make(chan int)\n\trecv :\u003d (\u003c-chan int)(c)\n\ty :\u003d pkg.Ch4(recv)\n\nThat\u0027s a breaking change.",
+      "parentUuid": "289577b6_19e39735",
       "revId": "f95b36926873823ed8b576a256f20e6a3405815a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
