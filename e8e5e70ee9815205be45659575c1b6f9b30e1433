@@ -1,0 +1,188 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "59c5b2bb_4df3330b",
+        "filename": "apidiff/apidiff_test.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 10033
+      },
+      "writtenOn": "2018-11-19T21:53:02Z",
+      "side": 1,
+      "message": "could we make a tempdir in /tmp instead of putting the temp files in the source directory?",
+      "range": {
+        "startLine": 18,
+        "startChar": 1,
+        "endLine": 18,
+        "endChar": 35
+      },
+      "revId": "e8e5e70ee9815205be45659575c1b6f9b30e1433",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9856e1d_a55f097a",
+        "filename": "apidiff/compatibility.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 10033
+      },
+      "writtenOn": "2018-11-19T21:53:02Z",
+      "side": 1,
+      "message": "i\u0027d add a comment on the value with the parameter name.\n\n(Even better we can define constants, or two versions of checkMethodSet)?",
+      "range": {
+        "startLine": 116,
+        "startChar": 34,
+        "endLine": 116,
+        "endChar": 38
+      },
+      "revId": "e8e5e70ee9815205be45659575c1b6f9b30e1433",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "158ed5d8_10ead01a",
+        "filename": "apidiff/compatibility.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 10033
+      },
+      "writtenOn": "2018-11-19T21:53:02Z",
+      "side": 1,
+      "message": "what do we do about ambiguous fields? When are they legal?",
+      "range": {
+        "startLine": 185,
+        "startChar": 23,
+        "endLine": 185,
+        "endChar": 45
+      },
+      "revId": "e8e5e70ee9815205be45659575c1b6f9b30e1433",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a71bdf3a_d5a2f158",
+        "filename": "apidiff/compatibility.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 10033
+      },
+      "writtenOn": "2018-11-19T21:53:02Z",
+      "side": 1,
+      "message": "When does this happen that the name of the receiver is not the same as the old type name? Aren\u0027t we examining the method set of the old type?\n\nShould this have a comment?",
+      "range": {
+        "startLine": 285,
+        "startChar": 3,
+        "endLine": 287,
+        "endChar": 4
+      },
+      "revId": "e8e5e70ee9815205be45659575c1b6f9b30e1433",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c4139d4f_555574e1",
+        "filename": "apidiff/correspondence.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 10033
+      },
+      "writtenOn": "2018-11-19T21:53:02Z",
+      "side": 1,
+      "message": "Is this for debugging? Do you want to keep it?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 49
+      },
+      "revId": "e8e5e70ee9815205be45659575c1b6f9b30e1433",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "987fe27b_faca9b23",
+        "filename": "apidiff/correspondence.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 10033
+      },
+      "writtenOn": "2018-11-19T21:53:02Z",
+      "side": 1,
+      "message": "I think the interface pair stuff here is pretty confusing. If ifacePair were called ifaceList and instead of identical we  had a search method, it would be a bit easier to read.\n\nBut i guess it\u0027s better to keep consistency with the original...",
+      "range": {
+        "startLine": 101,
+        "startChar": 3,
+        "endLine": 106,
+        "endChar": 4
+      },
+      "revId": "e8e5e70ee9815205be45659575c1b6f9b30e1433",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "69d1b265_ad1e33f0",
+        "filename": "apidiff/testdata/tests.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 10033
+      },
+      "writtenOn": "2018-11-19T21:53:02Z",
+      "side": 1,
+      "message": "this looks strange in the code review tool",
+      "range": {
+        "startLine": 4,
+        "startChar": 4,
+        "endLine": 9,
+        "endChar": 63
+      },
+      "revId": "e8e5e70ee9815205be45659575c1b6f9b30e1433",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "428d9ac9_a23e8d40",
+        "filename": "apidiff/testdata/tests.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 586,
+      "author": {
+        "id": 10033
+      },
+      "writtenOn": "2018-11-19T21:53:02Z",
+      "side": 1,
+      "message": "Isn\u0027t this incompatible with line 557?",
+      "range": {
+        "startLine": 586,
+        "startChar": 0,
+        "endLine": 586,
+        "endChar": 26
+      },
+      "revId": "e8e5e70ee9815205be45659575c1b6f9b30e1433",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}

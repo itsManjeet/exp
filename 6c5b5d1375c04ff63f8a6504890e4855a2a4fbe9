@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ae225b6b_b5088e5a",
+        "filename": "apidiff/apidiff.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 10033
+      },
+      "writtenOn": "2018-11-19T21:53:02Z",
+      "side": 1,
+      "message": "why is this a method on differ? it doesn\u0027t seem to use differ at all",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 1
+      },
+      "revId": "6c5b5d1375c04ff63f8a6504890e4855a2a4fbe9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1ad5d992_98679eb7",
+        "filename": "apidiff/apidiff.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 10033
+      },
+      "writtenOn": "2018-11-19T21:53:02Z",
+      "side": 1,
+      "message": "To me, this loop would be a little easier to follow if we flipped it  (excuse my long var names):\n\n// Loop over interfaces in correspondMap (continue if I and correspondI aren\u0027t interfaces).\nfor I :\u003d correspondI range d.correspondMap {\n    oldIface, ok :\u003d I.Type().Underlying().(*types.Interface)\n    if !ok {continue}\n    newIface, ok :\u003d correspondI.Underlying().(*types.Interface)\n    if !ok {\n\t// If nt2 isn\u0027t an interface, but nt1 is, then that\u0027s an incompatibility that\n\t// we\u0027ve already noticed, so there\u0027s no need to do anything here.\n        continue\n    }\n\n    // each type that satisfies I must satisfy corresponding(I)\n    for T, correspondT :\u003d range d.CorrespondMap {\n    if types.Implements(T.Type(), oldIface) \u0026\u0026 !types.Implements(correspondT, newIface) {\n        d.incompatible (...)\n    }\n}\n\nI think this should have the same behavior",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 60
+      },
+      "revId": "6c5b5d1375c04ff63f8a6504890e4855a2a4fbe9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe04397e_1fa78b57",
+        "filename": "apidiff/apidiff.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 10033
+      },
+      "writtenOn": "2018-11-19T21:53:02Z",
+      "side": 1,
+      "message": "the switch seems to handle all the types defined in go/constant that satisfy constant.Value ...",
+      "range": {
+        "startLine": 161,
+        "startChar": 0,
+        "endLine": 161,
+        "endChar": 64
+      },
+      "revId": "6c5b5d1375c04ff63f8a6504890e4855a2a4fbe9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "072afd25_6d99daaa",
+        "filename": "apidiff/apidiff.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 10033
+      },
+      "writtenOn": "2018-11-19T21:53:02Z",
+      "side": 1,
+      "message": "maybe a comment about why we\u0027re formatting the message this way?",
+      "revId": "6c5b5d1375c04ff63f8a6504890e4855a2a4fbe9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
