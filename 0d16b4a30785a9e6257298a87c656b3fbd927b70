@@ -65,6 +65,24 @@
     },
     {
       "key": {
+        "uuid": "b8f4c7d4_ec245659",
+        "filename": "errors/wrap.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2018-11-20T15:21:33Z",
+      "side": 1,
+      "message": "Like you said, I think sentinel values essentially force the current function signature.",
+      "parentUuid": "3cc54033_05d46f68",
+      "revId": "0d16b4a30785a9e6257298a87c656b3fbd927b70",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c40e540f_7ad1852c",
         "filename": "errors/wrap.go",
         "patchSetId": 1
