@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "7bebf1aa_03425d0b",
+        "filename": "apidiff/apidiff.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-11-20T02:40:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae225b6b_b5088e5a",
+      "range": {
+        "startLine": 63,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 1
+      },
+      "revId": "6c5b5d1375c04ff63f8a6504890e4855a2a4fbe9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1ad5d992_98679eb7",
         "filename": "apidiff/apidiff.go",
         "patchSetId": 6
@@ -45,6 +69,30 @@
       "revId": "6c5b5d1375c04ff63f8a6504890e4855a2a4fbe9",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43ca82aa_9bd0aabb",
+        "filename": "apidiff/apidiff.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-11-20T02:40:06Z",
+      "side": 1,
+      "message": "Yup, much nicer. Done.",
+      "parentUuid": "1ad5d992_98679eb7",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 60
+      },
+      "revId": "6c5b5d1375c04ff63f8a6504890e4855a2a4fbe9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f82de6a2_dd7889f6",
+        "filename": "apidiff/apidiff.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-11-20T02:40:06Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fe04397e_1fa78b57",
+      "range": {
+        "startLine": 161,
+        "startChar": 0,
+        "endLine": 161,
+        "endChar": 64
+      },
+      "revId": "6c5b5d1375c04ff63f8a6504890e4855a2a4fbe9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "072afd25_6d99daaa",
         "filename": "apidiff/apidiff.go",
         "patchSetId": 6
@@ -85,6 +157,24 @@
       "revId": "6c5b5d1375c04ff63f8a6504890e4855a2a4fbe9",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "95cf6147_84b2aa4e",
+        "filename": "apidiff/apidiff.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-11-20T02:40:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "072afd25_6d99daaa",
+      "revId": "6c5b5d1375c04ff63f8a6504890e4855a2a4fbe9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }

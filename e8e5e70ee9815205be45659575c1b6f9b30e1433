@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "17137dce_b132d46f",
+        "filename": "apidiff/apidiff_test.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-11-20T02:40:06Z",
+      "side": 1,
+      "message": "I did it this way because I wasn\u0027t sure how to set up a workspace out of my GOPATH. For instance, when I just change all the paths to be rooted at /tmp, I get\n\n    import \"/tmp/old\": cannot import absolute path",
+      "parentUuid": "59c5b2bb_4df3330b",
+      "range": {
+        "startLine": 18,
+        "startChar": 1,
+        "endLine": 18,
+        "endChar": 35
+      },
+      "revId": "e8e5e70ee9815205be45659575c1b6f9b30e1433",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c9856e1d_a55f097a",
         "filename": "apidiff/compatibility.go",
         "patchSetId": 11
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "af2ba492_67e09e63",
+        "filename": "apidiff/compatibility.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-11-20T02:40:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9856e1d_a55f097a",
+      "range": {
+        "startLine": 116,
+        "startChar": 34,
+        "endLine": 116,
+        "endChar": 38
+      },
+      "revId": "e8e5e70ee9815205be45659575c1b6f9b30e1433",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "158ed5d8_10ead01a",
         "filename": "apidiff/compatibility.go",
         "patchSetId": 11
@@ -59,6 +107,30 @@
       "writtenOn": "2018-11-19T21:53:02Z",
       "side": 1,
       "message": "what do we do about ambiguous fields? When are they legal?",
+      "range": {
+        "startLine": 185,
+        "startChar": 23,
+        "endLine": 185,
+        "endChar": 45
+      },
+      "revId": "e8e5e70ee9815205be45659575c1b6f9b30e1433",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e48117d1_2c8b3446",
+        "filename": "apidiff/compatibility.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-11-20T02:40:06Z",
+      "side": 1,
+      "message": "It\u0027s legal to have ambiguous fields in a struct, but they aren\u0027t selectable (it\u0027s a compile-time error to write x.F). So the intention here is to exclude them when constructing the set of selectable fields.\n\nIs the above paragraph comment-worthy?",
+      "parentUuid": "158ed5d8_10ead01a",
       "range": {
         "startLine": 185,
         "startChar": 23,
@@ -94,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "a1fe2fc1_00d90335",
+        "filename": "apidiff/compatibility.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-11-20T02:40:06Z",
+      "side": 1,
+      "message": "Done. (Be careful what you wish for.)\n\nIn rereading this function to try to make sense of it, I realized my variable names were too obscure, so I renamed.",
+      "parentUuid": "a71bdf3a_d5a2f158",
+      "range": {
+        "startLine": 285,
+        "startChar": 3,
+        "endLine": 287,
+        "endChar": 4
+      },
+      "revId": "e8e5e70ee9815205be45659575c1b6f9b30e1433",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c4139d4f_555574e1",
         "filename": "apidiff/correspondence.go",
         "patchSetId": 11
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "af621bcd_da171fe6",
+        "filename": "apidiff/correspondence.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-11-20T02:40:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c4139d4f_555574e1",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 49
+      },
+      "revId": "e8e5e70ee9815205be45659575c1b6f9b30e1433",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "987fe27b_faca9b23",
         "filename": "apidiff/correspondence.go",
         "patchSetId": 11
@@ -128,6 +248,30 @@
       "writtenOn": "2018-11-19T21:53:02Z",
       "side": 1,
       "message": "I think the interface pair stuff here is pretty confusing. If ifacePair were called ifaceList and instead of identical we  had a search method, it would be a bit easier to read.\n\nBut i guess it\u0027s better to keep consistency with the original...",
+      "range": {
+        "startLine": 101,
+        "startChar": 3,
+        "endLine": 106,
+        "endChar": 4
+      },
+      "revId": "e8e5e70ee9815205be45659575c1b6f9b30e1433",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e8d936a5_1592541a",
+        "filename": "apidiff/correspondence.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-11-20T02:40:06Z",
+      "side": 1,
+      "message": "Yes, this is copied directly from go/types.",
+      "parentUuid": "987fe27b_faca9b23",
       "range": {
         "startLine": 101,
         "startChar": 3,
@@ -160,6 +304,30 @@
       "revId": "e8e5e70ee9815205be45659575c1b6f9b30e1433",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4059fcec_9ffdc296",
+        "filename": "apidiff/testdata/tests.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2018-11-20T02:40:06Z",
+      "side": 1,
+      "message": "Yes, I see. Tab widths. I changed to spaces.",
+      "parentUuid": "69d1b265_ad1e33f0",
+      "range": {
+        "startLine": 4,
+        "startChar": 4,
+        "endLine": 9,
+        "endChar": 63
+      },
+      "revId": "e8e5e70ee9815205be45659575c1b6f9b30e1433",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
