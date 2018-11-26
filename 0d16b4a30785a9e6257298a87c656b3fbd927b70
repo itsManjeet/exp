@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "1ac4bd9d_1e8d9062",
+        "filename": "errors/wrap.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-11-26T10:14:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0278e8e_0fa39ebd",
+      "range": {
+        "startLine": 46,
+        "startChar": 47,
+        "endLine": 46,
+        "endChar": 58
+      },
+      "revId": "0d16b4a30785a9e6257298a87c656b3fbd927b70",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b575b25f_c6888406",
         "filename": "errors/wrap.go",
         "patchSetId": 1
@@ -45,6 +69,30 @@
       "revId": "0d16b4a30785a9e6257298a87c656b3fbd927b70",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3a2efae_0e3f9d60",
+        "filename": "errors/wrap.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-11-26T10:14:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b575b25f_c6888406",
+      "range": {
+        "startLine": 48,
+        "startChar": 29,
+        "endLine": 48,
+        "endChar": 40
+      },
+      "revId": "0d16b4a30785a9e6257298a87c656b3fbd927b70",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -83,6 +131,24 @@
     },
     {
       "key": {
+        "uuid": "274bcdf4_daebd8f0",
+        "filename": "errors/wrap.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-11-26T10:14:29Z",
+      "side": 1,
+      "message": "I will change Errorf to require explicit wrapping. This should at least mitigate this a bit.",
+      "parentUuid": "b8f4c7d4_ec245659",
+      "revId": "0d16b4a30785a9e6257298a87c656b3fbd927b70",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c40e540f_7ad1852c",
         "filename": "errors/wrap.go",
         "patchSetId": 1
@@ -103,6 +169,30 @@
       "revId": "0d16b4a30785a9e6257298a87c656b3fbd927b70",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65603c0f_0cd57adb",
+        "filename": "errors/wrap.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-11-26T10:14:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c40e540f_7ad1852c",
+      "range": {
+        "startLine": 70,
+        "startChar": 48,
+        "endLine": 70,
+        "endChar": 55
+      },
+      "revId": "0d16b4a30785a9e6257298a87c656b3fbd927b70",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -149,6 +239,54 @@
       "revId": "0d16b4a30785a9e6257298a87c656b3fbd927b70",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6a0e5e5c_842367c3",
+        "filename": "errors/wrap.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-11-26T10:14:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f40c0b49_3bad0eda",
+      "range": {
+        "startLine": 73,
+        "startChar": 72,
+        "endLine": 73,
+        "endChar": 75
+      },
+      "revId": "0d16b4a30785a9e6257298a87c656b3fbd927b70",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "66566da7_5ec41047",
+        "filename": "errors/wrap.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-11-26T10:14:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cec033b8_3089ea4c",
+      "range": {
+        "startLine": 72,
+        "startChar": 75,
+        "endLine": 73,
+        "endChar": 43
+      },
+      "revId": "0d16b4a30785a9e6257298a87c656b3fbd927b70",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
