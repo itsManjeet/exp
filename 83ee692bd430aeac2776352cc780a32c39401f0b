@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cff32efa_0333a379",
+        "filename": "apidiff/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-26T19:33:16Z",
+      "side": 1,
+      "message": "s/can be used/appear/",
+      "range": {
+        "startLine": 492,
+        "startChar": 38,
+        "endLine": 492,
+        "endChar": 49
+      },
+      "revId": "83ee692bd430aeac2776352cc780a32c39401f0b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0187851e_b219b030",
+        "filename": "apidiff/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 492,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-26T19:33:16Z",
+      "side": 1,
+      "message": "s/than/than in/",
+      "range": {
+        "startLine": 492,
+        "startChar": 6,
+        "endLine": 492,
+        "endChar": 10
+      },
+      "revId": "83ee692bd430aeac2776352cc780a32c39401f0b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "09dd5cd9_da1026dd",
+        "filename": "apidiff/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 494,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-26T19:33:16Z",
+      "side": 1,
+      "message": "maybe add: (see section on Type Literal Compatibility)\n\nbefore the 2nd comma on this line?",
+      "range": {
+        "startLine": 494,
+        "startChar": 72,
+        "endLine": 494,
+        "endChar": 73
+      },
+      "revId": "83ee692bd430aeac2776352cc780a32c39401f0b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61c7e771_6a74cb7c",
+        "filename": "apidiff/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-26T19:33:16Z",
+      "side": 1,
+      "message": "FWIW, numeric types can also appear in type assertions and type switches. That may complicate things.",
+      "range": {
+        "startLine": 496,
+        "startChar": 0,
+        "endLine": 496,
+        "endChar": 8
+      },
+      "revId": "83ee692bd430aeac2776352cc780a32c39401f0b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34d8032f_ab83630c",
+        "filename": "apidiff/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-26T19:33:16Z",
+      "side": 1,
+      "message": "Going from an unsigned to a signed integer type is an incompatible change for the sole reason that ...",
+      "range": {
+        "startLine": 498,
+        "startChar": 6,
+        "endLine": 498,
+        "endChar": 18
+      },
+      "revId": "83ee692bd430aeac2776352cc780a32c39401f0b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c7273d9_6b6789c2",
+        "filename": "apidiff/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-26T19:33:16Z",
+      "side": 1,
+      "message": "... to a variable of integer type that is too small to represent the constant is a compile-time error.",
+      "range": {
+        "startLine": 514,
+        "startChar": 18,
+        "endLine": 514,
+        "endChar": 20
+      },
+      "revId": "83ee692bd430aeac2776352cc780a32c39401f0b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60045288_bc2d1973",
+        "filename": "apidiff/README.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 516,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-26T19:33:16Z",
+      "side": 1,
+      "message": "s/to include/must include/",
+      "range": {
+        "startLine": 516,
+        "startChar": 0,
+        "endLine": 516,
+        "endChar": 88
+      },
+      "revId": "83ee692bd430aeac2776352cc780a32c39401f0b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
