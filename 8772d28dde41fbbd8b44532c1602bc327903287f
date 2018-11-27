@@ -1,0 +1,119 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "d91c97e4_19e46448",
+        "filename": "apidiff/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 493,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-27T19:49:52Z",
+      "side": 1,
+      "message": "not true for shifts\n\nSince all arithmetic operations but shifts (see below) require that ...",
+      "range": {
+        "startLine": 493,
+        "startChar": 19,
+        "endLine": 493,
+        "endChar": 22
+      },
+      "revId": "8772d28dde41fbbd8b44532c1602bc327903287f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5b09a498_35197dae",
+        "filename": "apidiff/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-27T19:49:52Z",
+      "side": 1,
+      "message": "That is why switching from an integer to a floating-point type - even one that can represent all values of the integer type - is an incompatible change.",
+      "range": {
+        "startLine": 511,
+        "startChar": 40,
+        "endLine": 511,
+        "endChar": 47
+      },
+      "revId": "8772d28dde41fbbd8b44532c1602bc327903287f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a14ece36_9d623e13",
+        "filename": "apidiff/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-27T19:49:52Z",
+      "side": 1,
+      "message": "Conversions from floating-point to complex types or vice versa are not permitted (the predeclared functions real, imag, and complex must be used instead). To prevent valid floating-point or complex conversions from becoming invalid, changing a floating-point type to a complex type or vice versa is considered an incompatible change.",
+      "range": {
+        "startLine": 515,
+        "startChar": 27,
+        "endLine": 515,
+        "endChar": 29
+      },
+      "revId": "8772d28dde41fbbd8b44532c1602bc327903287f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "faaea86c_4b7a5964",
+        "filename": "apidiff/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-27T19:49:52Z",
+      "side": 1,
+      "message": "s/is a compile-time error/is not permitted/.",
+      "range": {
+        "startLine": 521,
+        "startChar": 9,
+        "endLine": 521,
+        "endChar": 32
+      },
+      "revId": "8772d28dde41fbbd8b44532c1602bc327903287f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d933c8c_f90c2257",
+        "filename": "apidiff/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 530,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2018-11-27T19:49:52Z",
+      "side": 1,
+      "message": "This is unclear. What is a compatible change here? And the 2nd half of this sentence doesn\u0027t help. Clarify, please.",
+      "range": {
+        "startLine": 530,
+        "startChar": 47,
+        "endLine": 530,
+        "endChar": 54
+      },
+      "revId": "8772d28dde41fbbd8b44532c1602bc327903287f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
