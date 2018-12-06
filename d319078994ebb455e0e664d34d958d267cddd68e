@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "112cc398_b7ab00d5",
+        "filename": "cmd/apidiff/main.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2018-12-06T20:58:59Z",
+      "side": 1,
+      "message": "I suspect there\u0027s a missing call to os.Exit(2) here. It doesn\u0027t make sense to continue running if the number of args isn\u0027t 1.",
+      "range": {
+        "startLine": 32,
+        "startChar": 3,
+        "endLine": 33,
+        "endChar": 3
+      },
+      "revId": "d319078994ebb455e0e664d34d958d267cddd68e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3fccd3b9_8aa68343",
+        "filename": "cmd/apidiff/main.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2018-12-06T20:58:59Z",
+      "side": 1,
+      "message": "Here as well.",
+      "range": {
+        "startLine": 40,
+        "startChar": 3,
+        "endLine": 41,
+        "endChar": 3
+      },
+      "revId": "d319078994ebb455e0e664d34d958d267cddd68e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
