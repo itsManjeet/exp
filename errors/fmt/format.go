@@ -36,8 +36,9 @@ type fmtFlags struct {
 	sharpV bool
 
 	// error-related flags. plusV indicates detail mode.
-	inDetail bool
-	indent   bool
+	inDetail    bool
+	indent      bool
+	needNewline bool
 }
 
 // A fmt is the raw formatter used by Printf etc.
