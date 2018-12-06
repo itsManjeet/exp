@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f92cbce3_b7924c6e",
+        "filename": "cmd/apidiff/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2018-12-06T16:45:47Z",
+      "side": 1,
+      "message": "super nit: io almost always means input/output. OTOH, I can\u0027t think of anything else succinct heh",
+      "range": {
+        "startLine": 17,
+        "startChar": 32,
+        "endLine": 17,
+        "endChar": 34
+      },
+      "revId": "003f1c6c999e8d7e6789b1b1cd4340e73640377f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
