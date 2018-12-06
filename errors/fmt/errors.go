@@ -151,13 +151,9 @@ loop:
 			err = v.Format((*errPP)(w))
 		// TODO: This case is for supporting old error implementations.
 		// It may eventually disappear.
-		case interface{ FormatError(errors.Printer) error }:
+		case ErrorFormatter:
 			err = v.FormatError((*errPP)(w))
 		case Formatter:
-			// Discard verb, but keep the flags. Discarding the verb prevents
-			// nested quoting and other unwanted behavior. Preserving flags
-			// recursively signals a request for detail, if interpreted as %+v.
-			w.fmt.fmtFlags = p.fmt.fmtFlags
 			if w.fmt.plusV {
 				v.Format((*errPPState)(w), 'v') // indent new lines
 			} else {

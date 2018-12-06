@@ -30,3 +30,27 @@ type Printer interface {
 	// If Detail returns false, the caller can avoid printing the detail at all.
 	Detail() bool
 }
+
+type errorFormatter interface {
+	FormatError(Printer) error
+}
+
+// Format formats just err but not the next error in the formatting chain.
+// It returns the next error or nil if there is none.
+func Format(p Printer, err error) (next error) {
+	switch v := err.(type) {
+	case Formatter:
+		err = v.Format(p)
+
+	// TODO: This case is for supporting old error implementations.
+	// It may eventually disappear.
+	case errorFormatter:
+		err = v.FormatError(p)
+
+	default:
+		p.Print(err)
+		err = nil
+	}
+
+	return err
+}
