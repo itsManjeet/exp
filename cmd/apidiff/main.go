@@ -33,6 +33,7 @@ func main() {
 	if *exportDataOutfile != "" {
 		if len(flag.Args()) != 1 {
 			flag.Usage()
+			os.Exit(2)
 		}
 		pkg := mustLoadPackage(flag.Arg(0))
 		if err := writeExportData(pkg, *exportDataOutfile); err != nil {
@@ -41,6 +42,7 @@ func main() {
 	} else {
 		if len(flag.Args()) != 2 {
 			flag.Usage()
+			os.Exit(2)
 		}
 		oldpkg := mustLoadOrRead(flag.Arg(0))
 		newpkg := mustLoadOrRead(flag.Arg(1))
