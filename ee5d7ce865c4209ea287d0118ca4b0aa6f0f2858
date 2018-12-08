@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f11fad52_355ffe9c",
+        "filename": "errors/fmt/adaptor.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5305
+      },
+      "writtenOn": "2018-12-08T00:22:33Z",
+      "side": 1,
+      "message": "typo: FormatError",
+      "revId": "ee5d7ce865c4209ea287d0118ca4b0aa6f0f2858",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "02f08121_7de101a5",
+        "filename": "errors/fmt/errors.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 5305
+      },
+      "writtenOn": "2018-12-08T00:22:33Z",
+      "side": 1,
+      "message": "This case can\u0027t disappear except as a breaking change.\n\nGiven that we\u0027re stuck with it forever, I don\u0027t see the value in supporting both Formatter and ErrorFormatter interfaces.",
+      "revId": "ee5d7ce865c4209ea287d0118ca4b0aa6f0f2858",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f90cb04b_3770de8f",
+        "filename": "errors/fmt/errors.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 5305
+      },
+      "writtenOn": "2018-12-08T00:22:33Z",
+      "side": 1,
+      "message": "I don\u0027t think this case can ever happen. The only call to fmtError is in print.go, which will never call this function with an error which implements Formatter but not ErrorFormatter.",
+      "revId": "ee5d7ce865c4209ea287d0118ca4b0aa6f0f2858",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
