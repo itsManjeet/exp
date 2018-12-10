@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0108355d_621ecb5b",
+        "filename": "errors/fmt/adaptor.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-12-10T13:15:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f11fad52_355ffe9c",
+      "revId": "ee5d7ce865c4209ea287d0118ca4b0aa6f0f2858",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "02f08121_7de101a5",
         "filename": "errors/fmt/errors.go",
         "patchSetId": 1
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "48e30e71_19187987",
+        "filename": "errors/fmt/errors.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-12-10T13:15:11Z",
+      "side": 1,
+      "message": "Okay, removed the comment as it may be misleading. What it means is that it may disappear in core.\n\nI see the use of supporting FormatError in x/exp, but I am still not convinced we shouldn\u0027t strive to remove it from core. I can think of at least three ways to transition supporting both versions, only one of which requires FormatError to be supported in core (** see below).\n\nI an still not a fan of the semantics of FormatError as it would end up.\n\nWhat do others think?\n\n**  One is to pass the return error back in the fmtState. I implemented this: it is possible without exposing it in the API, but haven\u0027t found a good way to make this work with different implementations of printers.\nThe other is to use build rules making a Format use the wrapper for old versions, while calling FormatError for others.",
+      "parentUuid": "02f08121_7de101a5",
+      "revId": "ee5d7ce865c4209ea287d0118ca4b0aa6f0f2858",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f90cb04b_3770de8f",
         "filename": "errors/fmt/errors.go",
         "patchSetId": 1
@@ -47,6 +83,24 @@
       "writtenOn": "2018-12-08T00:22:33Z",
       "side": 1,
       "message": "I don\u0027t think this case can ever happen. The only call to fmtError is in print.go, which will never call this function with an error which implements Formatter but not ErrorFormatter.",
+      "revId": "ee5d7ce865c4209ea287d0118ca4b0aa6f0f2858",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f461be8_453a108a",
+        "filename": "errors/fmt/errors.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-12-10T13:15:11Z",
+      "side": 1,
+      "message": "It may not happen for the first error, but it may happen on next iterations (errors obtained from Format(Error)?.\n\nI could optimized this loop to not test this case for the first iteration, but for now I figured it is fine as is.",
+      "parentUuid": "f90cb04b_3770de8f",
       "revId": "ee5d7ce865c4209ea287d0118ca4b0aa6f0f2858",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
