@@ -22,6 +22,30 @@
       "revId": "801b471b1f432a4f9d804358b3d1751dd8caf175",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a14a26e0_4bbabcac",
+        "filename": "errors/fmt/format.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-12-18T13:59:46Z",
+      "side": 1,
+      "message": "why? We would normally need a \"detail\" flag, but plusV already indicates exactly that. Is it a matter of rewording?",
+      "parentUuid": "7520d587_6a4d6e5f",
+      "range": {
+        "startLine": 38,
+        "startChar": 25,
+        "endLine": 38,
+        "endChar": 52
+      },
+      "revId": "801b471b1f432a4f9d804358b3d1751dd8caf175",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
     }
   ]
 }
