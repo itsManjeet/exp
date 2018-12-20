@@ -72,6 +72,24 @@
     },
     {
       "key": {
+        "uuid": "9e77b981_da3e85c1",
+        "filename": "errors/fmt/errors.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-12-20T09:22:21Z",
+      "side": 1,
+      "message": "Okay, I\u0027ve removed the duplicate support and renamed it FormatError. Note that FormatError must trump Format (if supported) to fully reap the benefits of its simplicity. This is weird to me (a high-level formatter trumping a lower-level one), but one could argue that FormatError trumping Format is analogous to Error trumping String.\nBut the result is simpler for this implementation as well as the user.",
+      "parentUuid": "48e30e71_19187987",
+      "revId": "ee5d7ce865c4209ea287d0118ca4b0aa6f0f2858",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "f90cb04b_3770de8f",
         "filename": "errors/fmt/errors.go",
         "patchSetId": 1
