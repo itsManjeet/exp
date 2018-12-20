@@ -46,6 +46,30 @@
       "revId": "801b471b1f432a4f9d804358b3d1751dd8caf175",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c964409_d837e888",
+        "filename": "errors/fmt/format.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2018-12-20T08:18:03Z",
+      "side": 1,
+      "message": "just removed it altogether.",
+      "parentUuid": "a14a26e0_4bbabcac",
+      "range": {
+        "startLine": 38,
+        "startChar": 25,
+        "endLine": 38,
+        "endChar": 52
+      },
+      "revId": "801b471b1f432a4f9d804358b3d1751dd8caf175",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
     }
   ]
 }
