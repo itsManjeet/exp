@@ -14,8 +14,9 @@ import (
 )
 
 var (
-	exportDataOutfile = flag.String("w", "", "file for export data")
-	incompatibleOnly  = flag.Bool("incompatible", false, "display only incompatible changes")
+	exportDataOutfile         = flag.String("w", "", "file for export data")
+	incompatibleOnly          = flag.Bool("incompatible", false, "display only incompatible changes")
+	constChangesAreCompatible = flag.Bool("const_compatible", false, "const value changes considered compatible")
 )
 
 func main() {
@@ -46,7 +47,7 @@ func main() {
 		oldpkg := mustLoadOrRead(flag.Arg(0))
 		newpkg := mustLoadOrRead(flag.Arg(1))
 
-		report := apidiff.Changes(oldpkg, newpkg)
+		report := apidiff.Changes(oldpkg, newpkg, *constChangesAreCompatible)
 		var err error
 		if *incompatibleOnly {
 			err = report.TextIncompatible(os.Stdout)

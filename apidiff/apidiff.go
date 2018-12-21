@@ -21,8 +21,10 @@ import (
 // It classifies each difference as either compatible or incompatible (breaking.) For
 // a detailed discussion of what constitutes an incompatible change, see the package
 // documentation.
-func Changes(old, new *types.Package) Report {
-	d := newDiffer(old, new)
+//
+// If constCompat is true, changes to the values of constants are considered compatible.
+func Changes(old, new *types.Package, constCompat bool) Report {
+	d := newDiffer(old, new, constCompat)
 	d.checkPackage()
 	return Report{
 		Incompatible: d.incompatibles.collect(),
@@ -41,15 +43,18 @@ type differ struct {
 	// Messages.
 	incompatibles messageSet
 	compatibles   messageSet
+
+	constCompat bool // if true, const value changes are considered compatible
 }
 
-func newDiffer(old, new *types.Package) *differ {
+func newDiffer(old, new *types.Package, constCompat bool) *differ {
 	return &differ{
 		old:           old,
 		new:           new,
 		correspondMap: map[*types.TypeName]types.Type{},
 		incompatibles: messageSet{},
 		compatibles:   messageSet{},
+		constCompat:   constCompat,
 	}
 }
 
@@ -161,7 +166,11 @@ func (d *differ) constChanges(old, new *types.Const) {
 	// Check for change of value.
 	// We know the types are the same, so constant.Compare shouldn't panic.
 	if !constant.Compare(old.Val(), token.EQL, new.Val()) {
-		d.incompatible(old, "", "value changed from %s to %s", old.Val(), new.Val())
+		if d.constCompat {
+			d.compatible(old, "", "value changed from %s to %s", old.Val(), new.Val())
+		} else {
+			d.incompatible(old, "", "value changed from %s to %s", old.Val(), new.Val())
+		}
 	}
 }
 

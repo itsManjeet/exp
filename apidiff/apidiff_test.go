@@ -35,7 +35,7 @@ func TestChanges(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	report := Changes(oldpkg.Types, newpkg.Types)
+	report := Changes(oldpkg.Types, newpkg.Types, false)
 
 	if !reflect.DeepEqual(report.Incompatible, wanti) {
 		t.Errorf("incompatibles: got %v\nwant %v\n", report.Incompatible, wanti)
