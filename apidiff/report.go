@@ -30,6 +30,15 @@ func (r Report) TextIncompatible(w io.Writer) error {
 	return r.writeMessages(w, "Incompatible changes:", r.Incompatible)
 }
 
+func (r Report) TextIncompatibleMinimal(w io.Writer) error {
+	for _, m := range r.Incompatible {
+		if _, err := fmt.Fprintf(w, "- %s\n", m); err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
 func (r Report) TextCompatible(w io.Writer) error {
 	return r.writeMessages(w, "Compatible changes:", r.Compatible)
 }

@@ -49,7 +49,7 @@ func main() {
 		report := apidiff.Changes(oldpkg, newpkg)
 		var err error
 		if *incompatibleOnly {
-			err = report.TextIncompatible(os.Stdout)
+			err = report.TextIncompatibleMinimal(os.Stdout)
 		} else {
 			err = report.Text(os.Stdout)
 		}
