@@ -22,6 +22,30 @@
       "revId": "d084716753de902a14e86282d5e14f6a1948e19a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67ba7e45_faaeae40",
+        "filename": "apidiff/report.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2018-12-21T18:16:33Z",
+      "side": 1,
+      "message": "PTAL latest - is this what you had in mind?",
+      "parentUuid": "11d4ab8d_7bb91f69",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 4
+      },
+      "revId": "d084716753de902a14e86282d5e14f6a1948e19a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
     }
   ]
 }
