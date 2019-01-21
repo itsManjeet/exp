@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "55e8d785_35888c6c",
+        "filename": "xerrors/adaptor.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2019-01-21T16:01:40Z",
+      "side": 1,
+      "message": "So with this I can just write\n\n  func (e MyError) Error() string { return xerrors.String(e) }\n\ninstead of defining MyError.Format to delegate to xerrors.FormatError?\n\nIf so, maybe s/String/Error/?",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 35
+      },
+      "revId": "002b842f9bd1df76647fcc74c77c30ec82e698b8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
