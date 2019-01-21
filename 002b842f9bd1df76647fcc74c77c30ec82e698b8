@@ -22,6 +22,30 @@
       "revId": "002b842f9bd1df76647fcc74c77c30ec82e698b8",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d05910d3_f1268181",
+        "filename": "xerrors/adaptor.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2019-01-21T17:36:43Z",
+      "side": 1,
+      "message": "You\u0027ll need to forward Error to FormatError whether one uses Format or not.\n\nI\u0027ve picked String over Error as error is often used as a name for an error type, so I deemed this confusing. But I\u0027m happy to name it String or to remove it altogether and let users use return fmt.Sprint(e).\n\nThe latter just caused me to end up with a stack overflow a few times when I used a fmt package that didn\u0027t recognize FormatError or mistyped FormatError, and so on.",
+      "parentUuid": "55e8d785_35888c6c",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 35
+      },
+      "revId": "002b842f9bd1df76647fcc74c77c30ec82e698b8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
     }
   ]
 }
