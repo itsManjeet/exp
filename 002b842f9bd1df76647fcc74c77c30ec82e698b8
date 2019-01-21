@@ -46,6 +46,30 @@
       "revId": "002b842f9bd1df76647fcc74c77c30ec82e698b8",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a8b88025_1c117a7f",
+        "filename": "xerrors/adaptor.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2019-01-21T22:57:22Z",
+      "side": 1,
+      "message": "Oh, I see, this doesn\u0027t give me %+v behavior. So why/where is it useful?",
+      "parentUuid": "d05910d3_f1268181",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 35
+      },
+      "revId": "002b842f9bd1df76647fcc74c77c30ec82e698b8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
     }
   ]
 }
