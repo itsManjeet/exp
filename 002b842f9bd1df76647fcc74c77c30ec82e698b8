@@ -118,6 +118,30 @@
       "revId": "002b842f9bd1df76647fcc74c77c30ec82e698b8",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1517d67_1b2f372b",
+        "filename": "xerrors/adaptor.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2019-01-24T08:54:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c00c0263_6a713d5d",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 35
+      },
+      "revId": "002b842f9bd1df76647fcc74c77c30ec82e698b8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
