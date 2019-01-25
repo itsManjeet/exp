@@ -16,6 +16,24 @@
       "revId": "46d4dbe27dea037dc3971ada1cb414fe780d2fa1",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6daeb957_922d2498",
+        "filename": "xerrors/example_FormatError_test.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2019-01-25T15:30:34Z",
+      "side": 1,
+      "message": "Interesting. You could also go the other way: have `Error` format the non-detail message, and invoke it from `FormatError`.\n\nUnless one of these is clearly better than the other, I suggest we don\u0027t take sides and leave the example as it is.",
+      "parentUuid": "045e005a_eaefe6a5",
+      "revId": "46d4dbe27dea037dc3971ada1cb414fe780d2fa1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
     }
   ]
 }
