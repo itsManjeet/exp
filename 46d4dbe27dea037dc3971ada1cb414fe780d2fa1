@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "045e005a_eaefe6a5",
+        "filename": "xerrors/example_FormatError_test.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2019-01-25T15:13:56Z",
+      "side": 1,
+      "message": "Do we want to write this or fmt.Sprint(m)?\n\nIn this particular case this is sufficient. But in the general case, people probably should not repeat logic for generating the non-detailed error message.\n\nI\u0027m fine with either, though.",
+      "revId": "46d4dbe27dea037dc3971ada1cb414fe780d2fa1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
