@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f8c0bc2f_981f7b63",
+        "filename": "xerrors/adaptor.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 5182
+      },
+      "writtenOn": "2019-01-25T12:12:03Z",
+      "side": 1,
+      "message": "I see now: s/err /f /",
+      "revId": "8403ffc0337904014b369d2c53b008a60b1f241c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
