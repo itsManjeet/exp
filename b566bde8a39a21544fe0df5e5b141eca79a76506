@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2226f4db_17e13b29",
+        "filename": "errors/wrap.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 9735
+      },
+      "writtenOn": "2019-02-03T22:42:32Z",
+      "side": 1,
+      "message": "This seems overly restrictive. See https://github.com/golang/go/issues/29934#issuecomment-460091613 and the following comments.\n\nShould this be:\n\n  if reflect.TypeOf(err).AssignableTo(targetType)\n\ninstead?\n\nThis allows you to match against interfaces.",
+      "revId": "b566bde8a39a21544fe0df5e5b141eca79a76506",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
