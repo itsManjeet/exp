@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "9347c400_a6fd8e63",
+        "filename": "notary/internal/notedb/db.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2019-02-08T21:15:25Z",
+      "side": 1,
+      "message": "Done, thanks.",
+      "parentUuid": "4fb3ad40_d436f7a9",
+      "range": {
+        "startLine": 173,
+        "startChar": 9,
+        "endLine": 173,
+        "endChar": 12
+      },
+      "revId": "9d1f980c9fd839a27cfe828ace9622c74a665626",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2ca369ee_7546fe20",
         "filename": "notary/internal/notedb/db.go",
         "patchSetId": 1
@@ -39,6 +63,24 @@
       "revId": "9d1f980c9fd839a27cfe828ace9622c74a665626",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3e49a7f_25847796",
+        "filename": "notary/internal/notedb/db.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2019-02-08T21:15:25Z",
+      "side": 1,
+      "message": "Done, thanks.",
+      "parentUuid": "2ca369ee_7546fe20",
+      "revId": "9d1f980c9fd839a27cfe828ace9622c74a665626",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
