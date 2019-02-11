@@ -5,6 +5,7 @@
 package tlog
 
 import (
+	"bytes"
 	"fmt"
 	"testing"
 )
@@ -36,13 +37,16 @@ func TestTree(t *testing.T) {
 	var trees []Hash
 	var leafhashes []Hash
 	var storage testHashStorage
-	for i := int64(0); i < 10; i++ {
+	tiles := make(map[Tile][]byte)
+	const testH = 2
+	for i := int64(0); i < 100; i++ {
 		data := []byte(fmt.Sprintf("leaf %d", i))
 		hashes, err := StoredHashes(i, data, storage)
 		if err != nil {
 			t.Fatal(err)
 		}
 		leafhashes = append(leafhashes, RecordHash(data))
+		oldStorage := len(storage)
 		storage = append(storage, hashes...)
 		if count := StoredHashCount(i + 1); count != int64(len(storage)) {
 			t.Errorf("StoredHashCount(%d) = %d, have %d StoredHashes", i+1, count, len(storage))
@@ -51,6 +55,56 @@ func TestTree(t *testing.T) {
 		if err != nil {
 			t.Fatal(err)
 		}
+
+		for _, tile := range NewTiles(testH, i, i+1) {
+			data, err := ReadTileData(tile, storage)
+			if err != nil {
+				t.Fatal(err)
+			}
+			old := Tile{H: tile.H, L: tile.L, N: tile.N, W: tile.W - 1}
+			oldData := tiles[old]
+			if len(oldData) != len(data)-HashSize || !bytes.Equal(oldData, data[:len(oldData)]) {
+				t.Fatalf("tile %v not extending earlier tile %v", tile.Path(), old.Path())
+			}
+			tiles[tile] = data
+		}
+		for _, tile := range NewTiles(testH, 0, i+1) {
+			data, err := ReadTileData(tile, storage)
+			if err != nil {
+				t.Fatal(err)
+			}
+			if !bytes.Equal(tiles[tile], data) {
+				t.Fatalf("mismatch at %+v", tile)
+			}
+		}
+		for _, tile := range NewTiles(testH, i/2, i+1) {
+			data, err := ReadTileData(tile, storage)
+			if err != nil {
+				t.Fatal(err)
+			}
+			if !bytes.Equal(tiles[tile], data) {
+				t.Fatalf("mismatch at %+v", tile)
+			}
+		}
+
+		// Check that all the new hashes are readable from their tiles.
+		for j := oldStorage; j < len(storage); j++ {
+			tile := TileForIndex(testH, int64(j))
+			data, ok := tiles[tile]
+			if !ok {
+				t.Log(NewTiles(testH, 0, i+1))
+				t.Fatalf("TileForIndex(%d, %d) = %v, not yet stored (i=%d, stored %d)", testH, j, tile.Path(), i, len(storage))
+				continue
+			}
+			h, err := HashFromTile(tile, data, int64(j))
+			if err != nil {
+				t.Fatal(err)
+			}
+			if h != storage[j] {
+				t.Errorf("HashFromTile(%v, %d) = %v, want %v", tile.Path(), int64(j), h, storage[j])
+			}
+		}
+
 		trees = append(trees, th)
 
 		// Check that leaf proofs work, for all trees and leaves so far.
