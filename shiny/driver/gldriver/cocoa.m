@@ -271,12 +271,24 @@ uintptr_t doNewWindow(int width, int height, char* title) {
 				backing:NSBackingStoreBuffered
 				defer:NO];
 		window.styleMask |= NSWindowStyleMaskResizable;
-		window.styleMask |= NSWindowStyleMaskMiniaturizable;
-		window.styleMask |= NSWindowStyleMaskClosable;
+		if(title[0] != 0) {
+			window.styleMask |= NSWindowStyleMaskMiniaturizable;
+			window.styleMask |= NSWindowStyleMaskClosable;
+		}
 		window.title = name;
+		if(title[0] == 0) {
+			window.styleMask |= NSFullSizeContentViewWindowMask;
+			window.styleMask |= NSWindowStyleMaskBorderless;
+			window.titlebarAppearsTransparent = YES;
+		}
 		window.displaysWhenScreenProfileChanges = YES;
 		[window cascadeTopLeftFromPoint:NSMakePoint(20,20)];
 		[window setAcceptsMouseMovedEvents:YES];
+		if(title[0] == 0) {
+			[[window standardWindowButton:NSWindowCloseButton] setHidden:YES];
+			[[window standardWindowButton:NSWindowMiniaturizeButton] setHidden:YES];
+			[[window standardWindowButton:NSWindowZoomButton] setHidden:YES];
+		}
 
 		NSOpenGLPixelFormatAttribute attr[] = {
 			NSOpenGLPFAOpenGLProfile, NSOpenGLProfileVersion3_2Core,
