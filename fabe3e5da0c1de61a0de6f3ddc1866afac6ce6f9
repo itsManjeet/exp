@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c07f1a33_7a5d6d39",
+        "filename": "notary/internal/tlog/tlog.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-02-28T06:51:54Z",
+      "side": 1,
+      "message": "There\u0027s a TestCertificateTransparency, but no Example.",
+      "range": {
+        "startLine": 13,
+        "startChar": 7,
+        "endLine": 13,
+        "endChar": 37
+      },
+      "revId": "fabe3e5da0c1de61a0de6f3ddc1866afac6ce6f9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7cf72bd1_3a688607",
+        "filename": "notary/internal/tlog/tlog.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-02-28T06:51:54Z",
+      "side": 1,
+      "message": "This is because DecodedLen(44) is 33 as it can\u0027t assume there\u0027s any padding.\n\nInstead, you can strip the padding you already checked above, and use RawStdEncoding which will work directly into a Hash.",
+      "revId": "fabe3e5da0c1de61a0de6f3ddc1866afac6ce6f9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0acbd4f5_ee98a5f6",
+        "filename": "notary/internal/tlog/tlog.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-02-28T06:51:54Z",
+      "side": 1,
+      "message": "s/n/0/",
+      "range": {
+        "startLine": 237,
+        "startChar": 20,
+        "endLine": 237,
+        "endChar": 21
+      },
+      "revId": "fabe3e5da0c1de61a0de6f3ddc1866afac6ce6f9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "995e8a4f_43080437",
+        "filename": "notary/internal/tlog/tlog.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-02-28T06:51:54Z",
+      "side": 1,
+      "message": "Typo.",
+      "range": {
+        "startLine": 306,
+        "startChar": 12,
+        "endLine": 306,
+        "endChar": 18
+      },
+      "revId": "fabe3e5da0c1de61a0de6f3ddc1866afac6ce6f9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5fd20e47_0804e602",
+        "filename": "notary/internal/tlog/tlog.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 444,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-02-28T06:51:54Z",
+      "side": 1,
+      "message": "I\u0027d add\n\n  // RFC 6962 calls this a \"Merkle consistency proof.\"",
+      "revId": "fabe3e5da0c1de61a0de6f3ddc1866afac6ce6f9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
