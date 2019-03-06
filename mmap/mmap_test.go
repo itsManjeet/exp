@@ -8,10 +8,14 @@ import (
 	"bytes"
 	"io"
 	"io/ioutil"
+	"runtime"
 	"testing"
 )
 
 func TestOpen(t *testing.T) {
+	if runtime.GOOS == "android" {
+		t.Skipf("mmap_test.go not available on GOOS=%s", runtime.GOOS)
+	}
 	const filename = "mmap_test.go"
 	r, err := Open(filename)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"os"
 	"path/filepath"
 	"reflect"
+	"runtime"
 	"sort"
 	"strings"
 	"testing"
@@ -16,6 +17,9 @@ import (
 )
 
 func TestChanges(t *testing.T) {
+	if runtime.GOOS == "android" {
+		t.Skipf("the go tool is not available on GOOS=%s", runtime.GOOS)
+	}
 	dir, err := ioutil.TempDir("", "apidiff_test")
 	if err != nil {
 		t.Fatal(err)
@@ -124,6 +128,9 @@ func load(importPath, goPath string) (*packages.Package, error) {
 }
 
 func TestExportedFields(t *testing.T) {
+	if runtime.GOOS == "android" {
+		t.Skipf("the go tool is not available on GOOS=%s", runtime.GOOS)
+	}
 	pkg, err := load("golang.org/x/exp/apidiff/testdata/exported_fields", "")
 	if err != nil {
 		t.Fatal(err)
