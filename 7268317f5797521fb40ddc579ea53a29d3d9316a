@@ -1,0 +1,503 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "59c4961f_d20c4bd6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-12T21:45:46Z",
+      "side": 1,
+      "message": "This is not a signed statement anymore.",
+      "range": {
+        "startLine": 15,
+        "startChar": 23,
+        "endLine": 15,
+        "endChar": 64
+      },
+      "revId": "7268317f5797521fb40ddc579ea53a29d3d9316a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "be1e1577_ef8d9078",
+        "filename": "notary/internal/note/note.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-12T21:45:46Z",
+      "side": 1,
+      "message": "\"notary keys\", as we might have to rotate the key for the same notary.",
+      "range": {
+        "startLine": 10,
+        "startChar": 40,
+        "endLine": 10,
+        "endChar": 48
+      },
+      "revId": "7268317f5797521fb40ddc579ea53a29d3d9316a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01454bb2_8b1c7a77",
+        "filename": "notary/internal/note/note.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-12T21:45:46Z",
+      "side": 1,
+      "message": "I imagine there are restrictions on the characters allowed in the name. For example, I think a space, newline or a plus sign would be problematic. The alphabet for it should be documented.",
+      "range": {
+        "startLine": 14,
+        "startChar": 31,
+        "endLine": 14,
+        "endChar": 35
+      },
+      "revId": "7268317f5797521fb40ddc579ea53a29d3d9316a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79cda846_63a7844d",
+        "filename": "notary/internal/note/note.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-12T21:45:46Z",
+      "side": 1,
+      "message": "This feels like it\u0027s referring to an old iteration of the design.",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 31
+      },
+      "revId": "7268317f5797521fb40ddc579ea53a29d3d9316a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d4bd83b_4895873c",
+        "filename": "notary/internal/note/note.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-12T21:45:46Z",
+      "side": 1,
+      "message": "The format of this is unspecified.",
+      "range": {
+        "startLine": 23,
+        "startChar": 3,
+        "endLine": 23,
+        "endChar": 33
+      },
+      "revId": "7268317f5797521fb40ddc579ea53a29d3d9316a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe5f6dc5_50aa9131",
+        "filename": "notary/internal/note/note.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-12T21:45:46Z",
+      "side": 1,
+      "message": "Either \"allows verification of signatures by one notary public key\" or \"represents one notary public key\".",
+      "range": {
+        "startLine": 27,
+        "startChar": 3,
+        "endLine": 27,
+        "endChar": 59
+      },
+      "revId": "7268317f5797521fb40ddc579ea53a29d3d9316a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "480d50d1_5804d8a5",
+        "filename": "notary/internal/note/note.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-12T21:45:46Z",
+      "side": 1,
+      "message": "Weak opinion, but using a character from the base64 alphabet made it hard to figure out what was going on from the examples. How about \"-\"?",
+      "range": {
+        "startLine": 33,
+        "startChar": 40,
+        "endLine": 33,
+        "endChar": 41
+      },
+      "revId": "7268317f5797521fb40ddc579ea53a29d3d9316a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0670c3f5_4b6cdbf1",
+        "filename": "notary/internal/note/note.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-12T21:45:46Z",
+      "side": 1,
+      "message": "We defined the hash as the \"first\", not high 32 bits of the SHA-256 hash, which I think is correct, but then it does not make sense to talk about endianness when specifying another byte encoding.\n\nInstead, we should specify that the uint32 representation is the big-endian interpretation of those first 32 bits.",
+      "range": {
+        "startLine": 80,
+        "startChar": 26,
+        "endLine": 80,
+        "endChar": 38
+      },
+      "revId": "7268317f5797521fb40ddc579ea53a29d3d9316a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f5c9b2fb_47e51bd4",
+        "filename": "notary/internal/note/note.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-12T21:45:46Z",
+      "side": 1,
+      "message": "There are unfortunately a lot of different ways to encode an Ed25519 key. We should specify the encodings, if nothing else by referring to RFC 8032.",
+      "range": {
+        "startLine": 86,
+        "startChar": 31,
+        "endLine": 86,
+        "endChar": 38
+      },
+      "revId": "7268317f5797521fb40ddc579ea53a29d3d9316a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "baa9f4e3_55324138",
+        "filename": "notary/internal/note/note.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-12T21:45:46Z",
+      "side": 1,
+      "message": "Typo.",
+      "range": {
+        "startLine": 88,
+        "startChar": 21,
+        "endLine": 88,
+        "endChar": 35
+      },
+      "revId": "7268317f5797521fb40ddc579ea53a29d3d9316a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cbdb7d33_6256d1d1",
+        "filename": "notary/internal/note/note.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-12T21:45:46Z",
+      "side": 1,
+      "message": "Can we call this ID instead throughout, to disambiguate from a cryptographic hash, or a key fingerprint?",
+      "range": {
+        "startLine": 197,
+        "startChar": 0,
+        "endLine": 198,
+        "endChar": 14
+      },
+      "revId": "7268317f5797521fb40ddc579ea53a29d3d9316a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3612fc80_444d1063",
+        "filename": "notary/internal/note/note.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-12T21:45:46Z",
+      "side": 1,
+      "message": "nit: I\u0027m a fan of io.WriteString for writing strings to Hashes.",
+      "revId": "7268317f5797521fb40ddc579ea53a29d3d9316a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d5a0a284_59fe6b67",
+        "filename": "notary/internal/note/note.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-12T21:45:46Z",
+      "side": 1,
+      "message": "A zero-length name feels worth returning an error for.",
+      "revId": "7268317f5797521fb40ddc579ea53a29d3d9316a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c43fc637_91eb895d",
+        "filename": "notary/internal/note/note.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-12T21:45:46Z",
+      "side": 1,
+      "message": "Same, I\u0027d check for \"len(name) !\u003d 0\", too.",
+      "revId": "7268317f5797521fb40ddc579ea53a29d3d9316a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6646caf3_bfc79f05",
+        "filename": "notary/internal/note/note.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-12T21:45:46Z",
+      "side": 1,
+      "message": "algEd25519",
+      "range": {
+        "startLine": 325,
+        "startChar": 25,
+        "endLine": 325,
+        "endChar": 26
+      },
+      "revId": "7268317f5797521fb40ddc579ea53a29d3d9316a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a05fb4a3_d98626ac",
+        "filename": "notary/internal/note/note.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 363,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-12T21:45:46Z",
+      "side": 1,
+      "message": "Use priv.Seed.",
+      "range": {
+        "startLine": 363,
+        "startChar": 39,
+        "endLine": 363,
+        "endChar": 48
+      },
+      "revId": "7268317f5797521fb40ddc579ea53a29d3d9316a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d966ebb_8bfa547d",
+        "filename": "notary/internal/note/note.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-12T21:45:46Z",
+      "side": 1,
+      "message": "s/Parse/Open/",
+      "range": {
+        "startLine": 381,
+        "startChar": 7,
+        "endLine": 381,
+        "endChar": 12
+      },
+      "revId": "7268317f5797521fb40ddc579ea53a29d3d9316a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18a059e7_6f6a4b8b",
+        "filename": "notary/internal/note/note.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-12T21:45:46Z",
+      "side": 1,
+      "message": "We should check that there are no overlapping keys here, as it\u0027s trivial to generate two verifier keys with the same short hash, and the result would be confusing at best.\n\nThis way if we get a result saying \"valid signature by Name (Hash)\" we know it\u0027s referring to the one and only \"Name (Hash)\" we expected, even if for some reason we accepted other verifier keys from untrusted source.",
+      "revId": "7268317f5797521fb40ddc579ea53a29d3d9316a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "300c5fef_7f7ebabf",
+        "filename": "notary/internal/note/note.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-12T21:45:46Z",
+      "side": 1,
+      "message": "Instead of mixing verified and unverified notes in Note.Sigs, I\u0027d prefer to have two separate fields, so there\u0027s no chance for an application to mistake \"len(note.Sigs) \u003d\u003d 2\" to mean it has two valid signatures.",
+      "revId": "7268317f5797521fb40ddc579ea53a29d3d9316a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f311cbb5_5738cd78",
+        "filename": "notary/internal/note/note.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 469,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-12T21:45:46Z",
+      "side": 1,
+      "message": "This is way too dangerous. A valid note and a counterfeit one return extremely similar values, and the application has to reach deep into Note.Sigs to check for Name vs UnverifiedName.\n\nInstead, if none of the known verifiers accept the note, an error should be returned, so that the most common trust policy (where all and only the known notaries keys are trusted) can be safely implemented with a straightforward \"if err !\u003d nil\".",
+      "range": {
+        "startLine": 467,
+        "startChar": 0,
+        "endLine": 469,
+        "endChar": 75
+      },
+      "revId": "7268317f5797521fb40ddc579ea53a29d3d9316a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e76887b8_9503b483",
+        "filename": "notary/internal/note/note.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-12T21:45:46Z",
+      "side": 1,
+      "message": "I think we should ignore multiple signatures from the same Verifier, I can\u0027t see why they would be useful, and I can see them confusing a \"N out of M\" quorum trust policy implementation.",
+      "range": {
+        "startLine": 498,
+        "startChar": 1,
+        "endLine": 498,
+        "endChar": 32
+      },
+      "revId": "7268317f5797521fb40ddc579ea53a29d3d9316a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "73e8711b_63736383",
+        "filename": "notary/internal/note/note.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-12T21:45:46Z",
+      "side": 1,
+      "message": "This seems like it could use chop().",
+      "range": {
+        "startLine": 510,
+        "startChar": 0,
+        "endLine": 514,
+        "endChar": 51
+      },
+      "revId": "7268317f5797521fb40ddc579ea53a29d3d9316a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8434ba92_963537a3",
+        "filename": "notary/internal/note/note.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-12T21:45:46Z",
+      "side": 1,
+      "message": "This should include the hash, as it\u0027s too short to be self-authenticating. And the more fields are verified the better.\n\nAlso, this needs documenting in the package docs.",
+      "range": {
+        "startLine": 531,
+        "startChar": 0,
+        "endLine": 535,
+        "endChar": 69
+      },
+      "revId": "7268317f5797521fb40ddc579ea53a29d3d9316a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
