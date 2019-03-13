@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3555e347_921b33a7",
+        "filename": "notary/internal/tlog/note.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-13T03:17:57Z",
+      "side": 1,
+      "message": "It would be good to have the format somewhere in the godocs.",
+      "range": {
+        "startLine": 32,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 27
+      },
+      "revId": "0c347f66fb598b6ffec826e9c0287d1a659815c2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "59b32691_814bc580",
+        "filename": "notary/internal/tlog/note.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-13T03:17:57Z",
+      "side": 1,
+      "message": "Just thinking out loud: usually there is also a \"critical\" flag so that a new field can be added which the clients have to understand for verification to succeed, intentionally breaking older clients. In our case, we would probably handle those cases by moving to a new key instead. The only issue is that then we can\u0027t sign the same Tree with both the old and the new key, but if the point is for it not to be valid for older clients, then why would we want to do that. So this looks good.",
+      "range": {
+        "startLine": 38,
+        "startChar": 4,
+        "endLine": 38,
+        "endChar": 80
+      },
+      "revId": "0c347f66fb598b6ffec826e9c0287d1a659815c2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8ea85972_bd900462",
+        "filename": "notary/internal/tlog/note.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-13T03:17:57Z",
+      "side": 1,
+      "message": "This will actually reject extra lines.",
+      "range": {
+        "startLine": 40,
+        "startChar": 42,
+        "endLine": 40,
+        "endChar": 78
+      },
+      "revId": "0c347f66fb598b6ffec826e9c0287d1a659815c2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fe138c4c_d2afe73a",
+        "filename": "notary/internal/tlog/note.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-13T03:17:57Z",
+      "side": 1,
+      "message": "Why the constraint here? I can imagine (with some effort, but that\u0027s the point of forwards compatibility) extra data we might want to put in here that pushes us close to 1K. Hashing is relatively cheap compared to the actual public key operations involved in verifying the signature, so a limit of 1M would probably be just as good and not a concern.",
+      "range": {
+        "startLine": 40,
+        "startChar": 82,
+        "endLine": 40,
+        "endChar": 98
+      },
+      "revId": "0c347f66fb598b6ffec826e9c0287d1a659815c2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a2437cf5_7280d1e9",
+        "filename": "notary/internal/tlog/note.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-13T03:17:57Z",
+      "side": 1,
+      "message": "BTW, comparing with the re-encoding is a really elegant way to backstop a number of malleability issues, and something I/everyone should be doing more often in security contexts.",
+      "range": {
+        "startLine": 50,
+        "startChar": 27,
+        "endLine": 50,
+        "endChar": 63
+      },
+      "revId": "0c347f66fb598b6ffec826e9c0287d1a659815c2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5ea1ec2e_65374c2b",
+        "filename": "notary/internal/tlog/note_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-13T03:17:57Z",
+      "side": 1,
+      "message": "This should add a newline, both because it\u0027s how we would use it, and because notes without a trailing newline are invalid. (And this is why it\u0027s not catching the bug on line 40 of note.go.)",
+      "range": {
+        "startLine": 29,
+        "startChar": 30,
+        "endLine": 29,
+        "endChar": 40
+      },
+      "revId": "0c347f66fb598b6ffec826e9c0287d1a659815c2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
