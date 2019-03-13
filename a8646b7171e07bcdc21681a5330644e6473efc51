@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "93c9919b_f56f59b6",
+        "filename": "notary/internal/noteweb/web.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-13T17:50:34Z",
+      "side": 1,
+      "message": "Handler actually invokes this with \"module version\". I don\u0027t have a preference either way, but they should match.",
+      "range": {
+        "startLine": 30,
+        "startChar": 53,
+        "endLine": 30,
+        "endChar": 69
+      },
+      "revId": "a8646b7171e07bcdc21681a5330644e6473efc51",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7428c9c_dbbfda34",
+        "filename": "notary/internal/noteweb/web.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-13T17:50:34Z",
+      "side": 1,
+      "message": "Is a version that end with \"-\" valid? If not, this should be a \"+\".",
+      "range": {
+        "startLine": 61,
+        "startChar": 71,
+        "endLine": 61,
+        "endChar": 72
+      },
+      "revId": "a8646b7171e07bcdc21681a5330644e6473efc51",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bad36a78_6d384c3a",
+        "filename": "notary/internal/noteweb/web.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-13T17:50:34Z",
+      "side": 1,
+      "message": "This feels weird, the client can recompute this easily, but now the body of the response does not match the record and it requires (trivial) parsing.",
+      "revId": "a8646b7171e07bcdc21681a5330644e6473efc51",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c17ee037_9d7459a2",
+        "filename": "notary/internal/noteweb/web.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-13T17:50:34Z",
+      "side": 1,
+      "message": "https://go.googlesource.com/proposal/+/master/design/25530-notary.md#notary-server calls this /latest and I think I prefer that name.",
+      "revId": "a8646b7171e07bcdc21681a5330644e6473efc51",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dbecdb74_4c3608ac",
+        "filename": "notary/internal/noteweb/web.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-13T17:50:34Z",
+      "side": 1,
+      "message": "This should probably handle the case where the tile is not found and return an appropriate http.StatusNotFound.",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 3
+      },
+      "revId": "a8646b7171e07bcdc21681a5330644e6473efc51",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
