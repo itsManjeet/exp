@@ -1,0 +1,250 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "93f937e9_8bbcc87c",
+        "filename": "notary/internal/notecheck/main.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-13T18:57:26Z",
+      "side": 1,
+      "message": "It would be nice if this exited with a non-zero exit code if any entry did not check out. Some of the error messages can look very innocuous, and it would make it possible to easily run this in CI.",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 13
+      },
+      "revId": "89d5e2e13120e2132d616e92fafa772bdc5f7116",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eceb6960_57d918cc",
+        "filename": "notary/internal/notecheck/main.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-13T18:57:26Z",
+      "side": 1,
+      "message": "\"latest\" to follow https://go.googlesource.com/proposal/+/master/design/25530-notary.md#notary-server",
+      "range": {
+        "startLine": 56,
+        "startChar": 54,
+        "endLine": 56,
+        "endChar": 60
+      },
+      "revId": "89d5e2e13120e2132d616e92fafa772bdc5f7116",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ce90045c_1800f6e7",
+        "filename": "notary/internal/notecheck/main.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-13T18:57:26Z",
+      "side": 1,
+      "message": "This is not checking that the note was signed by a known notary key. That is, all signatures might have an UnverifiedName and UnverifiedHash. An attacker could completely fake the response.\n\nnote.Open really needs to return an error if no valid signatures from known verifiers are found.",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 51
+      },
+      "revId": "89d5e2e13120e2132d616e92fafa772bdc5f7116",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "14859697_907a4b8f",
+        "filename": "notary/internal/notecheck/main.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-13T18:57:26Z",
+      "side": 1,
+      "message": "I am definitely uneasy with the fact that a verified HashReader and an unverified HashReader are the same type. checkGoSum is only secure if thr is checking the hashes it returns, but there is nothing in the function type definition that requires that, so it can be easily misused, and requires the reviewer to trace all uses.",
+      "range": {
+        "startLine": 91,
+        "startChar": 49,
+        "endLine": 91,
+        "endChar": 68
+      },
+      "revId": "89d5e2e13120e2132d616e92fafa772bdc5f7116",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b42245a9_3e952999",
+        "filename": "notary/internal/notecheck/main.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-13T18:57:26Z",
+      "side": 1,
+      "message": "Missing \"continue\".",
+      "revId": "89d5e2e13120e2132d616e92fafa772bdc5f7116",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b367bfbc_dd1e7340",
+        "filename": "notary/internal/notecheck/main.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-13T18:57:26Z",
+      "side": 1,
+      "message": "Missing \"continue\".",
+      "revId": "89d5e2e13120e2132d616e92fafa772bdc5f7116",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db83730c_d25676b2",
+        "filename": "notary/internal/notecheck/main.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-13T18:57:26Z",
+      "side": 1,
+      "message": "If the notary intentionally inserted in the tree an all-zeroes hash, this condition can be true but no error will have been printed, and the go.sum entry will be skipped without checking, looking like it was valid.\n\nIt would of course not match any possible record, but that check is after this, so it would not be reached.",
+      "revId": "89d5e2e13120e2132d616e92fafa772bdc5f7116",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7002e024_2f2315b6",
+        "filename": "notary/internal/notecheck/main.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-13T18:57:26Z",
+      "side": 1,
+      "message": "On the open Internet, use an http.Client with a Timeout (unless you are streaming the Body). golang.org/issue/24138",
+      "range": {
+        "startLine": 151,
+        "startChar": 14,
+        "endLine": 151,
+        "endChar": 22
+      },
+      "revId": "89d5e2e13120e2132d616e92fafa772bdc5f7116",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "85481058_680c9ea2",
+        "filename": "notary/internal/notecheck/main.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-13T18:57:26Z",
+      "side": 1,
+      "message": "An alternative implementation without the goto which I would find more readable:\n\n    defer wg.Done()\n    data, err :\u003d httpGet(r.url + tile.Path())\n    if err !\u003d nil \u0026\u0026 tile.W !\u003d 1\u003c\u003cuint(tile.H) {\n    \tfullTile :\u003d tile\n    \tfullTile.W \u003d 1 \u003c\u003c uint(tile.H)\n    \tif fullData, err1 :\u003d httpGet(r.url + fullTile.Path()); err1 \u003d\u003d nil {\n    \t\tdata \u003d fullData[:tile.W*tlog.HashSize]\n    \t\terr \u003d nil\n    \t}\n    }\n    if err !\u003d nil {\n    \terrs[i] \u003d err\n    \treturn\n    }\n    r.cacheMu.Lock()\n    r.cache[tile] \u003d data\n    r.cacheMu.Unlock()\n    out[i] \u003d data",
+      "revId": "89d5e2e13120e2132d616e92fafa772bdc5f7116",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6458c0d2_b7f05cd6",
+        "filename": "notary/internal/notecheck/main.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-13T18:57:26Z",
+      "side": 1,
+      "message": "This should be \"err \u003d\u003d nil\".",
+      "range": {
+        "startLine": 204,
+        "startChar": 51,
+        "endLine": 204,
+        "endChar": 61
+      },
+      "revId": "89d5e2e13120e2132d616e92fafa772bdc5f7116",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4e4f85f2_bea775dd",
+        "filename": "notary/internal/notecheck/main.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-13T18:57:26Z",
+      "side": 1,
+      "message": "This is logic that all applications would want to apply, so it would probably be useful in tlog.",
+      "range": {
+        "startLine": 201,
+        "startChar": 4,
+        "endLine": 208,
+        "endChar": 5
+      },
+      "revId": "89d5e2e13120e2132d616e92fafa772bdc5f7116",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f1312a4_919facee",
+        "filename": "notary/internal/notecheck/main.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-13T18:57:26Z",
+      "side": 1,
+      "message": "If the retry-for-full-tile logic is hit, this ends up caching the partial data under the full tile key.",
+      "revId": "89d5e2e13120e2132d616e92fafa772bdc5f7116",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
