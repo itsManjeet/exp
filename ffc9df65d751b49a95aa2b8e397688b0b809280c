@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a3d125e0_a048af24",
+        "filename": "notary/internal/noteweb/web.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-14T19:56:31Z",
+      "side": 1,
+      "message": "Should also surface StatusNotExists.",
+      "revId": "ffc9df65d751b49a95aa2b8e397688b0b809280c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c316441c_64977ab2",
+        "filename": "notary/internal/noteweb/web.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-14T19:56:31Z",
+      "side": 1,
+      "message": "Now that the record data is returned by /lookup, who is this endpoint for? If it\u0027s for mirrors and auditors, it should take a range instead.",
+      "revId": "ffc9df65d751b49a95aa2b8e397688b0b809280c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c3b406ef_31b9cdd4",
+        "filename": "notary/internal/noteweb/web.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-14T19:56:31Z",
+      "side": 1,
+      "message": "Should also surface StatusNotExists.",
+      "revId": "ffc9df65d751b49a95aa2b8e397688b0b809280c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1547acda_1c5d3863",
+        "filename": "notary/internal/noteweb/web.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-14T19:56:31Z",
+      "side": 1,
+      "message": "s/data/err/",
+      "range": {
+        "startLine": 127,
+        "startChar": 20,
+        "endLine": 127,
+        "endChar": 24
+      },
+      "revId": "ffc9df65d751b49a95aa2b8e397688b0b809280c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
