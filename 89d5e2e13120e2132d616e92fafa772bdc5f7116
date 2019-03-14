@@ -194,6 +194,30 @@
     },
     {
       "key": {
+        "uuid": "734dca96_db0dba1d",
+        "filename": "notary/internal/notecheck/main.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2019-03-14T03:02:01Z",
+      "side": 1,
+      "message": "Aha. From your comments on CL 161903, it seems that\nyou mean *TileReader* not *HashReader* here.\nI agree about TileReader being confusing,\nand I\u0027ll address that on CL 161903 and update\nthis code accordingly when that happens.",
+      "parentUuid": "28f2d6ac_70ab19a1",
+      "range": {
+        "startLine": 91,
+        "startChar": 49,
+        "endLine": 91,
+        "endChar": 68
+      },
+      "revId": "89d5e2e13120e2132d616e92fafa772bdc5f7116",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b42245a9_3e952999",
         "filename": "notary/internal/notecheck/main.go",
         "patchSetId": 2
