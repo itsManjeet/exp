@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "101df6c4_62b58c14",
+        "filename": "notary/internal/note/note.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-14T19:44:00Z",
+      "side": 1,
+      "message": "Unfinished sentence.",
+      "revId": "ec8726e7355e91abc4eb8feb31e46f7f04d964b9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4bbfcb04_d3971787",
+        "filename": "notary/internal/note/note.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-14T19:44:00Z",
+      "side": 1,
+      "message": "This is now handled via UnverifiedSigs, not via UnverifiedName and UnverifiedHash.",
+      "revId": "ec8726e7355e91abc4eb8feb31e46f7f04d964b9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f572291d_966594c8",
+        "filename": "notary/internal/note/note.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-14T19:44:00Z",
+      "side": 1,
+      "message": "Weak opinion, but this might make more sense moved above the UnverifiedSigs append block (and known.Verifier call). It feels weird for Sigs to be deduplicated while UnverifiedSigs is not.",
+      "range": {
+        "startLine": 585,
+        "startChar": 2,
+        "endLine": 589,
+        "endChar": 35
+      },
+      "revId": "ec8726e7355e91abc4eb8feb31e46f7f04d964b9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "039333a4_35a7ce09",
+        "filename": "notary/internal/note/note_test.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-14T19:44:00Z",
+      "side": 1,
+      "message": "Would be worth to also check the \"multiple signatures from the same verifier\" case.",
+      "range": {
+        "startLine": 242,
+        "startChar": 5,
+        "endLine": 242,
+        "endChar": 13
+      },
+      "revId": "ec8726e7355e91abc4eb8feb31e46f7f04d964b9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}

@@ -1091,6 +1091,30 @@
       "revId": "7268317f5797521fb40ddc579ea53a29d3d9316a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eaeb134b_a91196a7",
+        "filename": "notary/internal/note/note.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 535,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-03-14T19:44:00Z",
+      "side": 1,
+      "message": "What raised a flag here is that there is no strong binding between public key and signature, that is, it\u0027s possible to generate a public key for which an existing signature is valid. This regularly trips up protocol designers and broke an early version of ACME. So the fact that it\u0027s an input to the verification does not mean it\u0027s verified itself.\n\nIn fact, it\u0027s often possible to generate degenerate public keys for which all signatures verify. (I haven\u0027t looked into if that\u0027s the case for Ed25519.) That defeats any kind of check based on adding content to the signed message, of course, but I can\u0027t actually think of anything an attacker would gain by \"stealing a signature\" anyway.\n\nIn conclusion, upon thinking about this more, I don\u0027t understand the threat this is defending against. If it\u0027s just a defense in depth for something we might not be foreseeing, adding the public key feels like it\u0027s just more of that, and it feels better to add the entire tuple we are looking up the public key by to the verification, rather than only a piece of it. However, I suspect the system would be solid also without adding the name, so there can\u0027t be any strong argument to add the public key, just like there is no strong argument to add the name.",
+      "parentUuid": "3a166cfb_415966d0",
+      "range": {
+        "startLine": 531,
+        "startChar": 0,
+        "endLine": 535,
+        "endChar": 69
+      },
+      "revId": "7268317f5797521fb40ddc579ea53a29d3d9316a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
     }
   ]
 }
