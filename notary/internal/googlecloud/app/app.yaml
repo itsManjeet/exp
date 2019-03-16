@@ -1,0 +1,13 @@
+runtime: go111
+# env: flex
+
+automatic_scaling:
+  max_concurrent_requests: 30
+
+handlers:
+- url: /(latest|lookup|record|tile)(/.*)?
+  script: auto
+- url: /.*
+  script: auto
+  secure: always
+  login: admin
