@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3b81db33_4bad5145",
+        "filename": "notary/internal/tlog/tile.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2019-03-16T01:36:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfd5e997_83fe561b",
+      "range": {
+        "startLine": 40,
+        "startChar": 42,
+        "endLine": 40,
+        "endChar": 47
+      },
+      "revId": "0c57779b942cf2cd5650e76edf422e43aca7ae82",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "028625c2_080f93e9",
         "filename": "notary/internal/tlog/tile.go",
         "patchSetId": 3
@@ -45,6 +69,30 @@
       "revId": "0c57779b942cf2cd5650e76edf422e43aca7ae82",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e0bd2fcd_be281d60",
+        "filename": "notary/internal/tlog/tile.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2019-03-16T01:36:40Z",
+      "side": 1,
+      "message": "Sounds right. Done.",
+      "parentUuid": "028625c2_080f93e9",
+      "range": {
+        "startLine": 157,
+        "startChar": 26,
+        "endLine": 157,
+        "endChar": 38
+      },
+      "revId": "0c57779b942cf2cd5650e76edf422e43aca7ae82",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -71,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "f51354f4_f014c174",
+        "filename": "notary/internal/tlog/tile.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2019-03-16T01:36:40Z",
+      "side": 1,
+      "message": "Added a TODO.",
+      "parentUuid": "dd4ab5b2_8b945464",
+      "range": {
+        "startLine": 232,
+        "startChar": 0,
+        "endLine": 235,
+        "endChar": 18
+      },
+      "revId": "0c57779b942cf2cd5650e76edf422e43aca7ae82",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c3dee606_c114f2c9",
         "filename": "notary/internal/tlog/tile.go",
         "patchSetId": 3
@@ -91,6 +163,30 @@
       "revId": "0c57779b942cf2cd5650e76edf422e43aca7ae82",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e8f4113e_39ffa171",
+        "filename": "notary/internal/tlog/tile.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2019-03-16T01:36:40Z",
+      "side": 1,
+      "message": "HashReaders are always authenticated.\n*TileReaders* are unauthenticated.\nSo the type system distinction you asked for exists.\nBut I agree that even TileReaders should have a way to validate\na Tile before saving it to the local on-disk cache. \nThat\u0027s what the TODO I added says.",
+      "parentUuid": "c3dee606_c114f2c9",
+      "range": {
+        "startLine": 245,
+        "startChar": 46,
+        "endLine": 245,
+        "endChar": 56
+      },
+      "revId": "0c57779b942cf2cd5650e76edf422e43aca7ae82",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -117,6 +213,30 @@
     },
     {
       "key": {
+        "uuid": "8bb824b4_23ab138b",
+        "filename": "notary/internal/tlog/tile.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 387,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2019-03-16T01:36:40Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "121d685e_17382360",
+      "range": {
+        "startLine": 386,
+        "startChar": 0,
+        "endLine": 387,
+        "endChar": 57
+      },
+      "revId": "0c57779b942cf2cd5650e76edf422e43aca7ae82",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5b49a67a_ca6bd4ec",
         "filename": "notary/internal/tlog/tlog_test.go",
         "patchSetId": 3
@@ -134,6 +254,24 @@
     },
     {
       "key": {
+        "uuid": "35799d2e_ce23d9aa",
+        "filename": "notary/internal/tlog/tlog_test.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2019-03-16T01:36:40Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5b49a67a_ca6bd4ec",
+      "revId": "0c57779b942cf2cd5650e76edf422e43aca7ae82",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9cb5aedb_9775ba1b",
         "filename": "notary/internal/tlog/tlog_test.go",
         "patchSetId": 3
@@ -148,6 +286,24 @@
       "revId": "0c57779b942cf2cd5650e76edf422e43aca7ae82",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d8597ebf_e828455a",
+        "filename": "notary/internal/tlog/tlog_test.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2019-03-16T01:36:40Z",
+      "side": 1,
+      "message": "Added TODO.",
+      "parentUuid": "9cb5aedb_9775ba1b",
+      "revId": "0c57779b942cf2cd5650e76edf422e43aca7ae82",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
