@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7d8a65ab_f4f34786",
+        "filename": "notary/internal/note/note.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 28759
+      },
+      "writtenOn": "2019-03-21T20:55:39Z",
+      "side": 1,
+      "message": "worth saying what the size should be instead? I found that particularly helpful when I was messing around with this and looking at debug logs.\nSo something like this instead:\n\nfmt.Errorf(\"invalid public key size %d, expected %d\", len(pub), ed25519.PublicKeySize)",
+      "range": {
+        "startLine": 388,
+        "startChar": 14,
+        "endLine": 388,
+        "endChar": 44
+      },
+      "revId": "314d4a58a4530eaaa3a566ab80b8f6ed8c42dad3",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
