@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "26cd59e9_e80c6be4",
+        "filename": "notary/internal/noteweb/web.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 28759
+      },
+      "writtenOn": "2019-04-04T20:23:54Z",
+      "side": 1,
+      "message": "re our discussion today: this should also serve some STH that contains the record.\n\nside note, maybe this should be structured json instead of newline separated?",
+      "range": {
+        "startLine": 94,
+        "startChar": 2,
+        "endLine": 95,
+        "endChar": 0
+      },
+      "revId": "854af4028b33d573faa2be47e70fc0e3ab8c277e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83edef33_5f1c1211",
+        "filename": "notary/internal/noteweb/web.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 28759
+      },
+      "writtenOn": "2019-04-04T20:23:54Z",
+      "side": 1,
+      "message": "The proposal says that \"/latest will serve a signed tree size and hash for the latest log\". So shouldn\u0027t this serve the tree size as well?",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 15
+      },
+      "revId": "854af4028b33d573faa2be47e70fc0e3ab8c277e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
