@@ -1,0 +1,197 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8b586e5c_ae1908be",
+        "filename": "shiny/driver/mtldriver/internal/ca/ca.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2019-04-10T06:48:52Z",
+      "side": 1,
+      "message": "Gofmt doesn\u0027t care, but the gerrit review UI would look a little nicer if you wrapped comments like these at 80 chars.\n\nDitto for ns.go.",
+      "range": {
+        "startLine": 7,
+        "startChar": 12,
+        "endLine": 7,
+        "endChar": 13
+      },
+      "revId": "605e7f486b3a169d1d29277513a754be9e5e7186",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a15937f0_d35dd346",
+        "filename": "shiny/driver/mtldriver/internal/ca/ca.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2019-04-10T06:48:52Z",
+      "side": 1,
+      "message": "Perhaps \"coreanim\" is a better name than \"ca\"?",
+      "revId": "605e7f486b3a169d1d29277513a754be9e5e7186",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "013e3c14_eb814e3b",
+        "filename": "shiny/driver/mtldriver/internal/ca/ca.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2019-04-10T06:48:52Z",
+      "side": 1,
+      "message": "Do you expect to have any Layer implementations other than MetalLayer?",
+      "revId": "605e7f486b3a169d1d29277513a754be9e5e7186",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c407f45f_2d306ac1",
+        "filename": "shiny/driver/mtldriver/internal/ca/ca.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2019-04-10T06:48:52Z",
+      "side": 1,
+      "message": "I\u0027d write this as an if-else, or define a helper btoi function.",
+      "revId": "605e7f486b3a169d1d29277513a754be9e5e7186",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1b2896d5_fd7cf6ce",
+        "filename": "shiny/driver/mtldriver/internal/ca/ca.m",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2019-04-10T06:48:52Z",
+      "side": 1,
+      "message": "Is Cocoa style really to say \"void * foo\" instead of either \"void *foo\" or \"void* foo\"?",
+      "revId": "605e7f486b3a169d1d29277513a754be9e5e7186",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9dbb59b2_1c639951",
+        "filename": "shiny/driver/mtldriver/internal/ns/ns.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2019-04-10T06:48:52Z",
+      "side": 1,
+      "message": "Perhaps \"appkit\" is a better name than \"ns\"?",
+      "revId": "605e7f486b3a169d1d29277513a754be9e5e7186",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7787789_f09a6b01",
+        "filename": "shiny/driver/mtldriver/internal/ns/ns.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2019-04-10T06:48:52Z",
+      "side": 1,
+      "message": "I\u0027d write this as an if-else, or define a helper btoi function.",
+      "revId": "605e7f486b3a169d1d29277513a754be9e5e7186",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1aadbb98_554a3fc5",
+        "filename": "shiny/driver/mtldriver/screen.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2019-04-10T06:48:52Z",
+      "side": 1,
+      "message": "How do you know that 8 is enough? Could this cause a deadlock where the SetFramebufferSizeCallback (on the main thread) is blocked on the w.eventCh send (blocked on a buffered but full channel), but the main thread can\u0027t drain eventCh because it is in the SetFramebufferSizeCallback callback?\n\nI think you should use an event.Deque instead.",
+      "revId": "605e7f486b3a169d1d29277513a754be9e5e7186",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "261242ae_6d56032e",
+        "filename": "shiny/driver/mtldriver/window.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2019-04-10T06:48:52Z",
+      "side": 1,
+      "message": "I don\u0027t know glfw very well. Is it legit to call PostEmptyEvent or PollEvents outside of the main thread? screen.EventDeque methods (and screen.Window is a screen.EventDeque) like Send and NextEvent aren\u0027t necessarily called on the main thread.\n\nDitto for other screen.Window methods like Publish.",
+      "revId": "605e7f486b3a169d1d29277513a754be9e5e7186",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed6b1ad5_0d8b3ade",
+        "filename": "shiny/driver/mtldriver/window.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2019-04-10T06:48:52Z",
+      "side": 1,
+      "message": "What happens if there\u0027s more than one event in w.eventCh? Do we still just only read one here?",
+      "revId": "605e7f486b3a169d1d29277513a754be9e5e7186",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c87124ef_a074a1d1",
+        "filename": "shiny/driver/mtldriver/window.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2019-04-10T06:48:52Z",
+      "side": 1,
+      "message": "Does this mean that, if we get here, we can\u0027t respond to any eventCh events until we get at least one glfw event?",
+      "revId": "605e7f486b3a169d1d29277513a754be9e5e7186",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
