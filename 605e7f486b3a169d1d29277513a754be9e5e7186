@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3dad71bb_006e80a3",
+        "filename": "shiny/driver/mtldriver/internal/ca/ca.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2019-04-10T07:44:42Z",
+      "side": 1,
+      "message": "I take it you meant godoc, not gofmt.\n\nI\u0027ve personally configured Gerrit diff width to 120 characters, but I agree keeping lines between 60~100 is more readable.\n\nWill do this.",
+      "parentUuid": "8b586e5c_ae1908be",
+      "range": {
+        "startLine": 7,
+        "startChar": 12,
+        "endLine": 7,
+        "endChar": 13
+      },
+      "revId": "605e7f486b3a169d1d29277513a754be9e5e7186",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "a15937f0_d35dd346",
         "filename": "shiny/driver/mtldriver/internal/ca/ca.go",
         "patchSetId": 5
@@ -36,6 +60,24 @@
       "writtenOn": "2019-04-10T06:48:52Z",
       "side": 1,
       "message": "Perhaps \"coreanim\" is a better name than \"ca\"?",
+      "revId": "605e7f486b3a169d1d29277513a754be9e5e7186",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1a07ac8_046f1794",
+        "filename": "shiny/driver/mtldriver/internal/ca/ca.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2019-04-10T07:44:42Z",
+      "side": 1,
+      "message": "The way this package name was originally chosen was by using the prefix of all Core Animation functions, which is \"CA\". E.g., \"CALayer\" becomes ca.Layer, \"CAMetalDrawable\" is \"ca.MetalDrawable\", etc.\n\nUnless one is very closely familiar with Apple\u0027s Objective-C/Swift APIs, staying so close to the original name is unlikely to be helpful, and \"coreanim\" is a much more readable Go package name.\n\nWill change it.",
+      "parentUuid": "a15937f0_d35dd346",
       "revId": "605e7f486b3a169d1d29277513a754be9e5e7186",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "ac30d674_0bda6c8d",
+        "filename": "shiny/driver/mtldriver/internal/ca/ca.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2019-04-10T07:44:42Z",
+      "side": 1,
+      "message": "I don\u0027t know.\n\nFor the needs of shiny\u0027s mtldriver, more likely not, unless a future version of Apple APIs happens to add another viable one. But we can change code if/when that happens.\n\nFor general purpose Core Animation API needs, there is certainly more than one implementation of the CALayer interface, and various functions accept the interface rather than a specific implementation.",
+      "parentUuid": "013e3c14_eb814e3b",
+      "revId": "605e7f486b3a169d1d29277513a754be9e5e7186",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c407f45f_2d306ac1",
         "filename": "shiny/driver/mtldriver/internal/ca/ca.go",
         "patchSetId": 5
@@ -70,6 +130,24 @@
       "writtenOn": "2019-04-10T06:48:52Z",
       "side": 1,
       "message": "I\u0027d write this as an if-else, or define a helper btoi function.",
+      "revId": "605e7f486b3a169d1d29277513a754be9e5e7186",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "34357c81_f531bbf1",
+        "filename": "shiny/driver/mtldriver/internal/ca/ca.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2019-04-10T07:44:42Z",
+      "side": 1,
+      "message": "I like switches better, but will use if/else since more people prefer them.",
+      "parentUuid": "c407f45f_2d306ac1",
       "revId": "605e7f486b3a169d1d29277513a754be9e5e7186",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
@@ -93,6 +171,24 @@
     },
     {
       "key": {
+        "uuid": "00f86fc2_c4e3e9f5",
+        "filename": "shiny/driver/mtldriver/internal/ca/ca.m",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2019-04-10T07:44:42Z",
+      "side": 1,
+      "message": "No, this is my personal invented style, not related to Cocoa.\n\nI spent some years writing \"void* foo\", then some years \"void *foo\". Neither felt better than the other. Then I iterated towards \"void * foo\" because it was symmetrical.\n\nHappy to change this to another style if there\u0027s precedent.\n\n(Also very happy that this problem was solved for me when I switched to Go, thanks to its gofmt making the style decision.)",
+      "parentUuid": "1b2896d5_fd7cf6ce",
+      "revId": "605e7f486b3a169d1d29277513a754be9e5e7186",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9dbb59b2_1c639951",
         "filename": "shiny/driver/mtldriver/internal/ns/ns.go",
         "patchSetId": 5
@@ -104,6 +200,24 @@
       "writtenOn": "2019-04-10T06:48:52Z",
       "side": 1,
       "message": "Perhaps \"appkit\" is a better name than \"ns\"?",
+      "revId": "605e7f486b3a169d1d29277513a754be9e5e7186",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff1e860b_4eb401e6",
+        "filename": "shiny/driver/mtldriver/internal/ns/ns.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2019-04-10T07:44:42Z",
+      "side": 1,
+      "message": "This name was originally chosen for the same reason as package ca, so \"NSWindow\" is \"ns.Window\", etc.\n\nAgreed that \"appkit\" is a better Go name and will change it.",
+      "parentUuid": "9dbb59b2_1c639951",
       "revId": "605e7f486b3a169d1d29277513a754be9e5e7186",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
@@ -144,6 +258,24 @@
     },
     {
       "key": {
+        "uuid": "3164fbdc_20904d1a",
+        "filename": "shiny/driver/mtldriver/screen.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2019-04-10T07:44:42Z",
+      "side": 1,
+      "message": "\u003e How do you know that 8 is enough?\n\nI picked a small number and tested all examples with it.\n\n\u003e Could this cause a deadlock where the SetFramebufferSizeCallback (on the main thread) is blocked on the w.eventCh send (blocked on a buffered but full channel), but the main thread can\u0027t drain eventCh because it is in the SetFramebufferSizeCallback callback?\n\nI think it is possible to deadlock, at least in theory. It was happening during development, but I made changes to prevent it from happening in practice.\n\nFor example, an earlier version of SetFramebufferSizeCallback just sent events to the channel, but there were too many of them being sent and the the rest of the event processing code was blocked and not taking any events off the channel.\n\nThe current version of SetFramebufferSizeCallback does not send any new events to the channel, it updates the w.size field to a non-nil value. When w.size is not nil, windowImpl.NextEvent turns sends a fixed number (2) of events.\n\n\u003e I think you should use an event.Deque instead.\n\nI\u0027d like to, and it\u0027s one of the TODO comments.\n\nThe reason I wasn\u0027t able to start using it yet is because I didn\u0027t find a way to preserve the following nice property of the current windowImpl.NextEvent implementation: when there are no OS events, it blocks on glfw.WaitEvents rather than doing a busy wait loop waiting for more events. I haven\u0027t found a way to accomplish that with event.Deque yet.",
+      "parentUuid": "1aadbb98_554a3fc5",
+      "revId": "605e7f486b3a169d1d29277513a754be9e5e7186",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "261242ae_6d56032e",
         "filename": "shiny/driver/mtldriver/window.go",
         "patchSetId": 5
@@ -155,6 +287,24 @@
       "writtenOn": "2019-04-10T06:48:52Z",
       "side": 1,
       "message": "I don\u0027t know glfw very well. Is it legit to call PostEmptyEvent or PollEvents outside of the main thread? screen.EventDeque methods (and screen.Window is a screen.EventDeque) like Send and NextEvent aren\u0027t necessarily called on the main thread.\n\nDitto for other screen.Window methods like Publish.",
+      "revId": "605e7f486b3a169d1d29277513a754be9e5e7186",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7bec9c27_df21cb5b",
+        "filename": "shiny/driver/mtldriver/window.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2019-04-10T07:44:42Z",
+      "side": 1,
+      "message": "PostEmptyEvent is safe to call from any thread (it would be much less useful for its main purpose otherwise).\n\n(For reference, GLFW documents this at https://www.glfw.org/docs/latest/group__window.html, and go-gl mirrors the documentation at https://godoc.org/github.com/go-gl/glfw/v3.2/glfw.)\n\nPollEvents and WaitEvents, on the other hand, must only be called from the main thread. That means the current implementation isn\u0027t safe, since NextEvents calls both of these methods and as you say, screen.EventDeque methods can be called from non-main threads.\n\nSo windowImpl.NextEvent will need to be reworked accordingly.\n\nTo my knowledge, all operations performed in windowImpl.Publish are okay to do from any thread.",
+      "parentUuid": "261242ae_6d56032e",
       "revId": "605e7f486b3a169d1d29277513a754be9e5e7186",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
@@ -178,6 +328,24 @@
     },
     {
       "key": {
+        "uuid": "875cc659_b866088a",
+        "filename": "shiny/driver/mtldriver/window.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2019-04-10T07:44:42Z",
+      "side": 1,
+      "message": "Yes.\n\nThis was how I understood the NextEvent method was supposed to be implemented: it should return a single next event, and block if needed. So if there happen to be multiple events already available, successive calls to NextEvent would return them. If the caller doesn\u0027t call NextEvent, they\u0027ll just stay in the channel waiting. As I understand, all shiny programs are expected to call NextEvent regularly. If that\u0027s not the case, this will fail (because glfw.PollEvents needs to be called regularly to allow for OS events such as moving the window to be processed).\n\nBased on  windowImpl.Send discussion above, I expect the event polling/processing will need to be factored out into a separate goroutine that\u0027s arranged to run on the main thread, and not rely on NextEvent to be called regularly.",
+      "parentUuid": "ed6b1ad5_0d8b3ade",
+      "revId": "605e7f486b3a169d1d29277513a754be9e5e7186",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "c87124ef_a074a1d1",
         "filename": "shiny/driver/mtldriver/window.go",
         "patchSetId": 5
@@ -189,6 +357,24 @@
       "writtenOn": "2019-04-10T06:48:52Z",
       "side": 1,
       "message": "Does this mean that, if we get here, we can\u0027t respond to any eventCh events until we get at least one glfw event?",
+      "revId": "605e7f486b3a169d1d29277513a754be9e5e7186",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ca2afa4_1f559e68",
+        "filename": "shiny/driver/mtldriver/window.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2019-04-10T07:44:42Z",
+      "side": 1,
+      "message": "It does not, because of the glfw.PostEmptyEvent calls in Send and SendFirst. Calling glfw.PostEmptyEvent causes glfw.WaitEvents to return, and the eventCh channel to be read from.\n\nWhat you said would be true if the glfw.PostEmptyEvent were to be removed from Send/SendFirst.",
+      "parentUuid": "c87124ef_a074a1d1",
       "revId": "605e7f486b3a169d1d29277513a754be9e5e7186",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
