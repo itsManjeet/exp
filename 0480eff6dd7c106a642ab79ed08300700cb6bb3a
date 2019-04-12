@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "a7552abf_e0192960",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2019-04-12T22:20:38Z",
+      "side": 1,
+      "message": "Thank you for providing your example.\n\nI think you use golang.org/x/exp/shiny/driver.Main incorrectly. I think it is intended to be called in your program only once. See https://godoc.org/golang.org/x/exp/shiny/driver\n```\nMain is called by the program\u0027s main function to run the graphical application.\n```\n\nI think you change should be reverted.",
+      "parentUuid": "5109ebaa_0c0e6ec8",
+      "range": {
+        "startLine": 7,
+        "startChar": 29,
+        "endLine": 7,
+        "endChar": 91
+      },
+      "revId": "0480eff6dd7c106a642ab79ed08300700cb6bb3a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "01e12603_66d5ff1c",
         "filename": "shiny/driver/internal/win32/zsyscall_windows.go",
         "patchSetId": 2
@@ -78,6 +102,24 @@
       "side": 1,
       "message": "Ooops! You\u0027re right. I forgot the change to syscall_windows.go - how can I append the missing commit to the change? Do I have to create a new pull request?",
       "parentUuid": "01e12603_66d5ff1c",
+      "revId": "0480eff6dd7c106a642ab79ed08300700cb6bb3a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ea776123_b068ed54",
+        "filename": "shiny/driver/internal/win32/zsyscall_windows.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2019-04-12T22:20:38Z",
+      "side": 1,
+      "message": "Your change is already submitted to master branch. You need to create new pull request.",
+      "parentUuid": "a51bbcee_cd327906",
       "revId": "0480eff6dd7c106a642ab79ed08300700cb6bb3a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
