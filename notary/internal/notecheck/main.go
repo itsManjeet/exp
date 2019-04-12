@@ -73,7 +73,10 @@ func main() {
 	}
 	tree, err := tlog.ParseTree([]byte(treeNote.Text))
 	if err != nil {
-		log.Fatal(err)
+		tree, err = tlog.ParseTree(bytes.Replace([]byte(treeNote.Text), []byte("go notary tree"), []byte("go.sum database tree"), -1))
+		if err != nil {
+			log.Fatalf("parsing tree: %v\ntree:\n%s", err, treeNote.Text)
+		}
 	}
 
 	if *vflag {
@@ -132,6 +135,12 @@ func checkGoSum(data []byte, verifierURL string, thr tlog.HashReader) {
 			continue
 		}
 		ldata := data[j+1:]
+		j = bytes.Index(ldata, []byte("\n\n"))
+		var sth []byte
+		if j >= 0 {
+			ldata, sth = ldata[:j+1], ldata[j+2:]
+		}
+		_ = sth
 
 		c := make(chan *tlog.Hash, 1)
 		go func() {
@@ -205,8 +214,8 @@ func (r *tileReader) Height() int {
 	return *height
 }
 
-func (r *tileReader) Reject(tile tlog.Tile) {
-	log.Printf("tile rejected: %v", tile.Path())
+func (r *tileReader) SaveTiles(tiles []tlog.Tile, data [][]byte) {
+	// no on-disk cache here
 }
 
 // TODO(rsc): Move some variant of this to package tlog
