@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "9084eae4_4a8eb9d8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 31814
+      },
+      "writtenOn": "2019-04-13T10:11:41Z",
+      "side": 1,
+      "message": "It is only called once per graphical application. Main has an infinite loop to render the content of the window. As long as the window is open. As soon as you close the window or call window.Close() the loop stops and the window should get closed correctly. That includes unregistering the class as the API documentation of Microsoft says. So I don\u0027t see any incorrect usage.\n\nWhy in your opinion shouldn\u0027t there be any unregistration of the registered classes?",
+      "parentUuid": "a7552abf_e0192960",
+      "range": {
+        "startLine": 7,
+        "startChar": 29,
+        "endLine": 7,
+        "endChar": 91
+      },
+      "revId": "0480eff6dd7c106a642ab79ed08300700cb6bb3a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "01e12603_66d5ff1c",
         "filename": "shiny/driver/internal/win32/zsyscall_windows.go",
         "patchSetId": 2
@@ -123,6 +147,24 @@
       "revId": "0480eff6dd7c106a642ab79ed08300700cb6bb3a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc7c8878_9e6b9290",
+        "filename": "shiny/driver/internal/win32/zsyscall_windows.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 31814
+      },
+      "writtenOn": "2019-04-13T10:11:41Z",
+      "side": 1,
+      "message": "Thanks. Never used gerrit before.",
+      "parentUuid": "ea776123_b068ed54",
+      "revId": "0480eff6dd7c106a642ab79ed08300700cb6bb3a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
