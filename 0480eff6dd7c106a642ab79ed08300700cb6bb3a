@@ -97,6 +97,30 @@
     },
     {
       "key": {
+        "uuid": "13ac084f_2fac48bb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2019-04-14T08:23:14Z",
+      "side": 1,
+      "message": "\u003e It is only called once per graphical application.\n\nNot true. Your program https://play.golang.org/p/BrBkLbfq6Vb calls golang.org/x/exp/shiny/driver.Main twice. You call openWindow function in your program twice from your main - on line 14 and 17, your openWindow function calls wndSettings.Main on line 30, and wndSettings.Main calls golang.org/x/exp/shiny/driver.Main.\n\nSo your use of golang.org/x/exp/shiny/driver.Main is wrong and unsupported.\n\n\u003e Main has an infinite loop to render the content of the window. As long as the window is open. As soon as you close the window or call window.Close() the loop stops and the window should get closed correctly.\n\nI am not sure what window.Close you are talking about. golang.org/x/exp/shiny/driver.Main is designed to run your whole GUI interaction from beginning to the end. The loop won\u0027t exit, unless you tell it to exit. Some programs require more than one window - these programs do not exit immediately once you close one of their windows.\n\n\u003e That includes unregistering the class as the API documentation of Microsoft says. So I don\u0027t see any incorrect usage.\n\u003e \n\u003e Why in your opinion shouldn\u0027t there be any unregistration of the registered classes?\n\nWhat does calling UnregisterClass achieves? We already registered \"shiny_ScreenWindow\" class once. What is the point of deregistering it and registering it again? The reason why your program happen to call RegisterClass twice is because you called golang.org/x/exp/shiny/driver.Main twice. And you should not be doing that - it is against the design of this package, and it has been documented.\n\nDo you still against me reverting your change?",
+      "parentUuid": "9084eae4_4a8eb9d8",
+      "range": {
+        "startLine": 7,
+        "startChar": 29,
+        "endLine": 7,
+        "endChar": 91
+      },
+      "revId": "0480eff6dd7c106a642ab79ed08300700cb6bb3a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "01e12603_66d5ff1c",
         "filename": "shiny/driver/internal/win32/zsyscall_windows.go",
         "patchSetId": 2
