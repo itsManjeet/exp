@@ -169,6 +169,30 @@
     },
     {
       "key": {
+        "uuid": "137e610c_2cd7c985",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 31814
+      },
+      "writtenOn": "2019-04-15T09:26:53Z",
+      "side": 1,
+      "message": "\u003e That is not what I said, I said that calling golang.org/x/exp/shiny/driver.Main multiple times in single program is unexpected. See my reply to you from April 13 for documentation reference.\n\u003e \n\n\"Main is called by the program\u0027s main function to run the graphical application.\nIt calls f on the Screen, possibly in a separate goroutine, as some OS- specific libraries require being on \u0027the main thread\u0027. It returns when f returns.\"\n\nThat is a cite of your mentioned documentation. There is absolutely no word that you are only allowed to call that function once. No warning that opening the GUI multiple times is unsupported or anything that you claim here. Sorry. So please give me a reasonable reference. Like this you are actually not helpful.\n\n\u003e \u003e Or do you have a working example for me with multiple screens?\n\u003e \n\u003e I don\u0027t.\n\nSo you *guess* that my change *could* be a problem?\nSorry but I don\u0027t get the problem. You tell me that I may not call the driver.Main twice. My change only affects (as you can see in the diff: \"defer\"!) leaving the function. When *you* only call the function \"correctly\" once, you are not affected by this change while running your GUI - only when closing the GUI (leaving the driver.Main function). But then the process exits anyway.\n\n\u003e What does calling UnregisterClass achieves? We already registered \"shiny_ScreenWindow\" class once. What is the point of deregistering it and registering it again? The reason why your program happen to call RegisterClass twice is because you called golang.org/x/exp/shiny/driver.Main twice. And you should not be doing that - it is against the design of this package, and it has been documented.\n\n\"shiny_ScreenWindow\" is the screen, not the window! \"shiny_Window\" would be the window!\nhttps://docs.microsoft.com/en-us/windows/desktop/api/winuser/nf-winuser-unregisterclassw\nYou can simply register the class and at the end just exit the process. As you can see in the linked API doc of microsoft this implicitely unregisters the class. But the clean way is to clean up explicitely: unregister the class when you don\u0027t need it anymore. The dirty way before caused exactly the unspecific behavior you mentioned when calling driver.Main twice. But this change fixes (one of) the problem(s) that caused an unspecific behavior of driver.Main when calling it twice. Btw: there was already a TODO that I replaced with my implementation saying \"unregister the classes\". So it was not just my idea, I just implemented it. ;-)",
+      "parentUuid": "a3d8c350_79f57757",
+      "range": {
+        "startLine": 7,
+        "startChar": 29,
+        "endLine": 7,
+        "endChar": 91
+      },
+      "revId": "0480eff6dd7c106a642ab79ed08300700cb6bb3a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "01e12603_66d5ff1c",
         "filename": "shiny/driver/internal/win32/zsyscall_windows.go",
         "patchSetId": 2
