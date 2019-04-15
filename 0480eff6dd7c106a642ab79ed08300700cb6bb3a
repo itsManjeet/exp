@@ -145,6 +145,30 @@
     },
     {
       "key": {
+        "uuid": "a3d8c350_79f57757",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5070
+      },
+      "writtenOn": "2019-04-15T08:11:44Z",
+      "side": 1,
+      "message": "\u003e \u003e So your use of golang.org/x/exp/shiny/driver.Main is wrong and unsupported.\n\u003e \u003e \n\u003e \n\u003e Why? I didn\u0027t find any documentation that prohibits closing the GUI and reopening it. Do you have a link for me?\n\nThat is not what I said, I said that calling golang.org/x/exp/shiny/driver.Main multiple times in single program is unexpected. See my reply to you from April 13 for documentation reference.\n\n\u003e I don\u0027t know if you are talking about a \"window\" or the \"screen\" (see my first paragraph). But I doubt you are talking about a \"screen\", because that would cause exactly the same error as closing the screen and reopening it. \n\nI am talking about Windows windows.\n\n\u003e Or do you have a working example for me with multiple screens?\n\nI don\u0027t.\n\n\u003e Where?\n\nSee my reply to you from April 13 for documentation reference.\n\n\u003e And my application doesn\u0027t have a permanent GUI. It only opens a GUI when it requires it. The rest of the time it runs in the background. And it requires to show and hide the GUI from time to time.\n\nThat is fine to hide and show you window / windows as your program progress. But you don\u0027t need to exit out of golang.org/x/exp/shiny/driver.Main for that.\n\nPlease reply to my questions in my previous message.\n\nThank you.",
+      "parentUuid": "b7eaee4b_3fc1da32",
+      "range": {
+        "startLine": 7,
+        "startChar": 29,
+        "endLine": 7,
+        "endChar": 91
+      },
+      "revId": "0480eff6dd7c106a642ab79ed08300700cb6bb3a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "01e12603_66d5ff1c",
         "filename": "shiny/driver/internal/win32/zsyscall_windows.go",
         "patchSetId": 2
