@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "04d4a2cc_0180c7a8",
+        "filename": "notary/internal/notecheck/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-16T17:33:31Z",
+      "side": 1,
+      "message": "Not the right CL for this change, move to CL 171977.",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 3
+      },
+      "revId": "835919fd55ac7817b5bef689c07f117063a17b22",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ee0e118e_9c06e0bc",
+        "filename": "notary/internal/notecheck/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-16T17:33:31Z",
+      "side": 1,
+      "message": "Also feels out of place. I have a larger CL to actually use this STH in notecheck, so it can happen there.",
+      "range": {
+        "startLine": 138,
+        "startChar": 0,
+        "endLine": 143,
+        "endChar": 9
+      },
+      "revId": "835919fd55ac7817b5bef689c07f117063a17b22",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e12600c4_93132e92",
+        "filename": "notary/internal/tlog/tile.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-16T17:33:31Z",
+      "side": 1,
+      "message": "tiles",
+      "range": {
+        "startLine": 234,
+        "startChar": 11,
+        "endLine": 234,
+        "endChar": 15
+      },
+      "revId": "835919fd55ac7817b5bef689c07f117063a17b22",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c28a9198_db0ad620",
+        "filename": "notary/internal/tlog/tile.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-16T17:33:31Z",
+      "side": 1,
+      "message": "Do we still need this block, since we don\u0027t care about which tiles are valid and which ones are not?",
+      "range": {
+        "startLine": 367,
+        "startChar": 0,
+        "endLine": 382,
+        "endChar": 2
+      },
+      "revId": "835919fd55ac7817b5bef689c07f117063a17b22",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
