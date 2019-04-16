@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2bc86d32_7eb9da66",
+        "filename": "notary/internal/note/note.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-16T17:47:36Z",
+      "side": 1,
+      "message": "This doesn\u0027t read well. The verifier key is the public key, and every other reference to a \"verifier key\" after these two paragraphs is in the context of NewVerifier. It then switches to calling them public keys, like \"A given server may have multiple public keys\".\n\nI would use \"server key\" here, and in the next two occurrences.",
+      "revId": "093d69e4c620b8a646d20be5cdf387aea2944eac",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "743f904d_6f018be9",
+        "filename": "notary/internal/note/note.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-16T17:47:36Z",
+      "side": 1,
+      "message": "Same. \"server key\" because it\u0027s in the context of \"signed by\", while verifier key makes sense on KeyHash.",
+      "revId": "093d69e4c620b8a646d20be5cdf387aea2944eac",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d7ed0785_52e421f0",
+        "filename": "notary/internal/note/note.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-16T17:47:36Z",
+      "side": 1,
+      "message": "Same.",
+      "revId": "093d69e4c620b8a646d20be5cdf387aea2944eac",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41f9d6db_02e6751c",
+        "filename": "notary/internal/note/note.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 477,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-16T17:47:36Z",
+      "side": 1,
+      "message": "Same, or \"the verifier key used to verify the signature\".",
+      "revId": "093d69e4c620b8a646d20be5cdf387aea2944eac",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2ad31f65_449ea644",
+        "filename": "notary/internal/note/note.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-16T17:47:36Z",
+      "side": 1,
+      "message": "\"with known verifiers\" or \"from known servers\".",
+      "revId": "093d69e4c620b8a646d20be5cdf387aea2944eac",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
