@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8591227b_3e203928",
+        "filename": "notary/internal/noteweb/web.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-17T17:31:18Z",
+      "side": 1,
+      "message": "nit: \"start\"?",
+      "range": {
+        "startLine": 122,
+        "startChar": 3,
+        "endLine": 122,
+        "endChar": 5
+      },
+      "revId": "bfbc54f67f117184a3734b1d18748066f245a4b0",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6604ee72_e373773d",
+        "filename": "notary/internal/noteweb/web.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-17T17:31:18Z",
+      "side": 1,
+      "message": "Would be nice to verify that there are no \\n\\n in the data and that it ends with \\n.\n\nIt would be too late to fix it, but at least it would make it easy to diagnose. (And this file is also the reference implementation, so it\u0027s a way to formalize the requirement.)",
+      "revId": "bfbc54f67f117184a3734b1d18748066f245a4b0",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "80def354_45bd1976",
+        "filename": "notary/internal/noteweb/web.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-17T17:31:18Z",
+      "side": 1,
+      "message": "Why the record number?",
+      "revId": "bfbc54f67f117184a3734b1d18748066f245a4b0",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad2caac8_4ee1866c",
+        "filename": "notary/internal/noteweb/web.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-17T17:31:18Z",
+      "side": 1,
+      "message": "With newline separation we are committing to textual records, might as well make that explicit in the Content-Type.",
+      "revId": "bfbc54f67f117184a3734b1d18748066f245a4b0",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
