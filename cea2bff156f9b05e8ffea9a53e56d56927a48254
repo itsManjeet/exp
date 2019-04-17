@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fba0668f_a1ecbf98",
+        "filename": "shiny/driver/internal/x11key/x11key.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2019-04-17T04:33:38Z",
+      "side": 1,
+      "message": "Unlike the other tables here, I\u0027d say that this one is too large to verify manually.\n\nAs it is derived from X11/keysymdef.h, can you write a \"gen.go\" program so that running \"go generate\" in this directory produces this table (in \"table.go\"), based on parsing that .h file?\n\nAs a bonus, it would be nice to sort this table by key, and perhaps add \"// XK_Wcircumflex: U+0174 LATIN CAPITAL LETTER W WITH CIRCUMFLEX\" comments. You might find the golang.org/x/text/unicode/runenames package useful for the latter.\n\nSee e.g. shiny/materialdesign/colornames/gen.go for inspiration.",
+      "revId": "cea2bff156f9b05e8ffea9a53e56d56927a48254",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "24f1ab31_afe93883",
+        "filename": "shiny/driver/internal/x11key/x11key.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2019-04-17T04:33:38Z",
+      "side": 1,
+      "message": "Naming this \"fooKeycodes\" is misleading. Neither the map key type or the map value type are keycodes (i.e. the key.Code type). Instead, this maps from X11 keysym to Unicode code point.\n\nI think the variable should be called keysymCodePoints.",
+      "revId": "cea2bff156f9b05e8ffea9a53e56d56927a48254",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
