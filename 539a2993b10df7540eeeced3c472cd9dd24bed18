@@ -22,6 +22,53 @@
       "revId": "539a2993b10df7540eeeced3c472cd9dd24bed18",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5a035a08_cad0c0e2",
+        "filename": "notary/internal/tlog/tile.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-17T18:20:12Z",
+      "side": 1,
+      "message": "Yeah, but also s/H/L/.",
+      "parentUuid": "09d2e785_865062e5",
+      "range": {
+        "startLine": 38,
+        "startChar": 28,
+        "endLine": 38,
+        "endChar": 41
+      },
+      "revId": "539a2993b10df7540eeeced3c472cd9dd24bed18",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e344ed95_30fc13a1",
+        "filename": "notary/internal/tlog/tile.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-17T18:20:12Z",
+      "side": 1,
+      "message": "While at it, \"unbounded, 0-indexed\"?",
+      "range": {
+        "startLine": 39,
+        "startChar": 33,
+        "endLine": 39,
+        "endChar": 42
+      },
+      "revId": "539a2993b10df7540eeeced3c472cd9dd24bed18",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
     }
   ]
 }
