@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bb71c6c3_45a4ed36",
+        "filename": "notary/internal/notecheck/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-17T21:07:01Z",
+      "side": 1,
+      "message": "This is going to be too low for modules that are not in the server cache.",
+      "revId": "db149e2c36c8bc4e8535c0394fd9d33a6d51a46a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ee8cd9f_071f63f8",
+        "filename": "notary/internal/notecheck/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-17T21:07:01Z",
+      "side": 1,
+      "message": "This and the /latest fetch above are not necessary anymore (nor useful, since they might be out of date). Indeed, checkGoSum doesn\u0027t use the thr argument at all.",
+      "revId": "db149e2c36c8bc4e8535c0394fd9d33a6d51a46a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e22b8af_2474315d",
+        "filename": "notary/internal/notecheck/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-17T21:07:01Z",
+      "side": 1,
+      "message": "A go.sum file can (and often will) have a /go.mod line without the corresponding zip line.",
+      "revId": "db149e2c36c8bc4e8535c0394fd9d33a6d51a46a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2c522389_d0f3fe21",
+        "filename": "notary/internal/notecheck/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-17T21:07:01Z",
+      "side": 1,
+      "message": "I\u0027m thinking this should not be optional. There isn\u0027t really a way to make a real-world system work reliably without it, and it\u0027s not any harder to serve. Even a filesystem-based proxy can just hardcode a old-but-not-too-old STH and will never have to change it.\n\nAlso, this code doesn\u0027t work without it because there is no other updateLatest call.",
+      "revId": "db149e2c36c8bc4e8535c0394fd9d33a6d51a46a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2c9f80f_c7d4a4cd",
+        "filename": "notary/internal/notecheck/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-17T21:07:01Z",
+      "side": 1,
+      "message": "I\u0027m not convinced this is useful.\n\nOnce there are two signed notes which can\u0027t be reconciled, that\u0027s already proof of misbehavior. If auditors already have a tree larger than the new note, they will be able to see that one is fake easily, otherwise, a refusal of the tree to produce enough records to verify the new note would amount to an admission of guilt (and the tree can\u0027t grow without eventually delivering proof). The tree proof doesn\u0027t really add much.\n\nIncluding h and its TreeProof makes the evidence self-contained, true, but also extends the window for the attacker to cause an error rather than a warning.\n\nAnd, if we don\u0027t do it, I think we can rip TreeProofs out of the entire system, because with tiles the way new trees are verified is simply TreeHash(older.N, TileHashReader(newer)) \u003d\u003d older.Hash. I like dropping that complexity compared to the CT design.",
+      "revId": "db149e2c36c8bc4e8535c0394fd9d33a6d51a46a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "18a1832c_7cf64706",
+        "filename": "notary/internal/notecheck/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-17T21:07:01Z",
+      "side": 1,
+      "message": "The difference between this warning and a less alarming error is not very robust: an attacker can always inject failures to cause an error instead of the loud warning, and a malicious attacker would be naive not to do that. Still, I don\u0027t think there\u0027s a way around it.",
+      "revId": "db149e2c36c8bc4e8535c0394fd9d33a6d51a46a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d7ea3e8c_e74092ea",
+        "filename": "notary/internal/notecheck/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 312,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-17T21:07:01Z",
+      "side": 1,
+      "message": "Double Unlock.",
+      "revId": "db149e2c36c8bc4e8535c0394fd9d33a6d51a46a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
