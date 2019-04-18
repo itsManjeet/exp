@@ -1,0 +1,112 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e284ccd5_3ea14526",
+        "filename": "shiny/driver/internal/x11key/gen.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2019-04-18T06:22:27Z",
+      "side": 1,
+      "message": "A \"must\" function isn\u0027t really great Go style. I\u0027d rather have if checks at the call sites.",
+      "revId": "5a390029cdab9caba3dc823ce6e7aa7b5e1450e8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed2bdb01_28de93bc",
+        "filename": "shiny/driver/internal/x11key/gen.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2019-04-18T06:22:27Z",
+      "side": 1,
+      "message": "This won\u0027t be necessary if you use a regexp (see below).",
+      "revId": "5a390029cdab9caba3dc823ce6e7aa7b5e1450e8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "08bb3c40_ead8471a",
+        "filename": "shiny/driver/internal/x11key/gen.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2019-04-18T06:22:27Z",
+      "side": 1,
+      "message": "s/maps xproto.Keysym to/maps xproto.Keysym values to/",
+      "range": {
+        "startLine": 54,
+        "startChar": 20,
+        "endLine": 54,
+        "endChar": 41
+      },
+      "revId": "5a390029cdab9caba3dc823ce6e7aa7b5e1450e8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bd252675_919e9057",
+        "filename": "shiny/driver/internal/x11key/gen.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2019-04-18T06:22:27Z",
+      "side": 1,
+      "message": "Splitting on \" \", then skipping empty splits, then calling strings.Join later on is awkward. I think it\u0027d be easier if you used a regexp:\n\n    re :\u003d regexp.MustCompile(`^#define (XK_[^ ]*) *0x([[:xdigit:]]+) .*U\\+([[:xdigit:]]+) (.+)(?: |\\))\\*/$`)\n    s :\u003d bufio.NewScanner(f)\n    for s.Scan() {\n        m :\u003d re.FindStringSubmatch(strings.TrimSpace(s.Text()))\n        if m \u003d\u003d nil {\n            continue\n        }\n        // Do stuff with m[1], m[2], m[3] and m[4].\n    }",
+      "revId": "5a390029cdab9caba3dc823ce6e7aa7b5e1450e8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "732296e5_7133da20",
+        "filename": "shiny/driver/internal/x11key/gen.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2019-04-18T06:22:27Z",
+      "side": 1,
+      "message": "s/isseen/isSeen/",
+      "revId": "5a390029cdab9caba3dc823ce6e7aa7b5e1450e8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "66ebe120_08341204",
+        "filename": "shiny/driver/internal/x11key/gen.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2019-04-18T06:22:27Z",
+      "side": 1,
+      "message": "Just call the file table.go.",
+      "revId": "5a390029cdab9caba3dc823ce6e7aa7b5e1450e8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
