@@ -263,6 +263,7 @@ func NewVerifier(vkey string) (Verifier, error) {
 	v := &verifier{
 		name: name,
 		hash: uint32(hash),
+		key:  key,
 	}
 
 	alg, key := key[0], key[1:]
@@ -297,12 +298,17 @@ func chop(s, sep string) (before, after string) {
 type verifier struct {
 	name   string
 	hash   uint32
+	key    []byte
 	verify func([]byte, []byte) bool
 }
 
 func (v *verifier) Name() string                { return v.name }
 func (v *verifier) KeyHash() uint32             { return v.hash }
 func (v *verifier) Verify(msg, sig []byte) bool { return v.verify(msg, sig) }
+
+func (v *verifier) String() string {
+	return fmt.Sprintf("%s+%x+%s", v.name, v.hash, base64.StdEncoding.EncodeToString(v.key))
+}
 
 // NewSigner constructs a new Signer from an encoded signer key.
 func NewSigner(skey string) (Signer, error) {
@@ -384,17 +390,20 @@ func GenerateKey(rand io.Reader, name string) (skey, vkey string, err error) {
 
 // NewVerifierFromEd25519PublicKey constructs a new verifier from a server name
 // and a golang.org/x/crypto/ed25519 public key.
+//
+// The returned verifier is also a fmt.Stringer that returns an encoded key.
 func NewVerifierFromEd25519PublicKey(name string, pub ed25519.PublicKey) (Verifier, error) {
 	if len(pub) != ed25519.PublicKeySize {
 		return nil, fmt.Errorf("invalid public key size %d, expected %d", len(pub), ed25519.PublicKeySize)
 	}
 
-	pubkey := append([]byte{algEd25519}, pub...)
-	hash := keyHash(name, pubkey)
+	key := append([]byte{algEd25519}, pub...)
+	hash := keyHash(name, key)
 
 	v := &verifier{
 		name: name,
 		hash: uint32(hash),
+		key:  key,
 		verify: func(msg, sig []byte) bool {
 			return ed25519.Verify(pub, msg, sig)
 		},

@@ -154,6 +154,14 @@ func TestFromEd25519(t *testing.T) {
 
 	testSignerAndVerifier(t, Name, signer, verifier)
 
+	// Check that the string encoding is valid.
+	vkey := verifier.(fmt.Stringer).String()
+	v, err := NewVerifier(vkey)
+	if err != nil {
+		t.Fatalf("invalid verifier.String() %q: %v", vkey, err)
+	}
+	testSignerAndVerifier(t, Name, signer, v)
+
 	// Check that wrong key sizes return errors.
 	_, err = newSignerFromEd25519Seed(Name, priv)
 	if err == nil {
@@ -296,10 +304,6 @@ type errSigner struct {
 
 func (e *errSigner) Sign([]byte) ([]byte, error) {
 	return nil, errSurprise
-}
-
-func fmtSig(s Signature) string {
-	return fmt.Sprintf("{%q %#08x %s}", s.Name, s.Hash, s.Base64)
 }
 
 func TestOpen(t *testing.T) {
