@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "62866080_13476e3f",
+        "filename": "notary/internal/noteweb/web.go",
+        "patchSetId": 8
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-19T14:21:14Z",
+      "side": 1,
+      "message": "ReadRecords",
+      "range": {
+        "startLine": 132,
+        "startChar": 52,
+        "endLine": 132,
+        "endChar": 63
+      },
+      "revId": "4041088bfbbdf0d2e228849508feec6aa38d7ddb",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
