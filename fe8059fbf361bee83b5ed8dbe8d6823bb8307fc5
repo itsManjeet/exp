@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fe23f21d_1db6e02f",
+        "filename": "notary/internal/note/note.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2019-04-20T00:07:28Z",
+      "side": 1,
+      "message": "It\u0027s always a red flag for me when you have to document\nmethods being guaranteed explicitly on a constructor.\nShould we add Key() string to to the Verifier interface?\n\nUsing String for the rationale given in the CL seems pretty magical.",
+      "revId": "fe8059fbf361bee83b5ed8dbe8d6823bb8307fc5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
