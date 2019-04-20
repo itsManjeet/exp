@@ -16,6 +16,24 @@
       "revId": "fe8059fbf361bee83b5ed8dbe8d6823bb8307fc5",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7d95baa_f33f7219",
+        "filename": "notary/internal/note/note.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2019-04-20T00:21:10Z",
+      "side": 1,
+      "message": "Now that I think more about this, the problem is not the Verifier interface\nbut this API, which is biting off too much functionality. \nIf this API is changed to:\n\n    // NewEd25519VerifierKey returns an encoded verifier key\n    // using the given name and Ed25519 public key. \n    func NewEd25519VerifierKey(name string, key ed25519.PublicKey) (string, error)\n\nThen the user of the API gets the string (for use however is needed)\nand can use NewVerifier to turn that string into an actual Verifier\nimplementation.",
+      "parentUuid": "fe23f21d_1db6e02f",
+      "revId": "fe8059fbf361bee83b5ed8dbe8d6823bb8307fc5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
     }
   ]
 }
