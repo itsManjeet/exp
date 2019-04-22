@@ -52,6 +52,24 @@
       "revId": "fe8059fbf361bee83b5ed8dbe8d6823bb8307fc5",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b6fc750_03bb2a75",
+        "filename": "notary/internal/note/note.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-22T18:27:23Z",
+      "side": 1,
+      "message": "Yep, that\u0027s better.\n\nhttps://go-review.googlesource.com/c/exp/+/173337",
+      "parentUuid": "39fb4bf8_61454dae",
+      "revId": "fe8059fbf361bee83b5ed8dbe8d6823bb8307fc5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
     }
   ]
 }
