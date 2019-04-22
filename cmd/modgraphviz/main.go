@@ -3,66 +3,55 @@
 // license that can be found in the LICENSE file.
 
 // The modgraphviz command translates the output for go mod graph into .dot
-// notation, which can then be parsed by `dot` into visual graphs.
+// notation, which can then be parsed by graphviz into visual graphs.
 //
-// Usage: GO111MODULE=on go mod graph | modgraphviz | dot -Tpng -o outfile.png
+// Requires graphviz and the graphviz dot cli to be installed.
+//
+// Usage: GO111MODULE=on go mod graph | modgraphviz [--pathsTo] | dot -Tpng -o outfile.png
 package main
 
 import (
-	"bufio"
 	"bytes"
 	"flag"
-	"fmt"
-	"io"
 	"log"
 	"os"
-	"strings"
 )
+
+var pathsTo = flag.String("pathsTo", "", "Only show the graph of the path(s) to a module. ex: --pathsTo foo.com/bar@1.2.3")
 
 func main() {
 	flag.Usage = func() {
-		log.Println("Usage: GO111MODULE=on go mod graph | modgraphviz | dot -Tpng -o outfile.png")
+		// TODO add usage instructions for pathsTo
+		log.Println("Usage: GO111MODULE=on go mod graph | modgraphviz [--pathsTo] | dot -Tpng -o outfile.png")
 	}
 	flag.Parse()
 
 	var out bytes.Buffer
 
-	if err := Run(os.Stdin, &out); err != nil {
+	g, err := newGraph(os.Stdin)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	if _, err := out.Write([]byte("digraph gomodgraph {\n")); err != nil {
+		log.Fatal(err)
+	}
+
+	if *pathsTo != "" {
+		if err := g.printPathsTo(&out, *pathsTo); err != nil {
+			log.Fatal(err)
+		}
+	} else {
+		if err := g.print(&out); err != nil {
+			log.Fatal(err)
+		}
+	}
+
+	if _, err := out.Write([]byte("}\n")); err != nil {
 		log.Fatal(err)
 	}
 
 	if _, err := out.WriteTo(os.Stdout); err != nil {
 		log.Fatal(err)
 	}
-}
-
-func Run(in io.Reader, out io.Writer) error {
-	if _, err := out.Write([]byte("digraph gomodgraph {\n")); err != nil {
-		return err
-	}
-
-	r := bufio.NewScanner(in)
-	for {
-		if !r.Scan() {
-			if r.Err() != nil {
-				return r.Err()
-			}
-			break
-		}
-
-		parts := strings.Fields(r.Text())
-		if len(parts) != 2 {
-			continue
-		}
-
-		if _, err := fmt.Fprintf(out, "\t%q -> %q\n", parts[0], parts[1]); err != nil {
-			return err
-		}
-	}
-
-	if _, err := out.Write([]byte("}\n")); err != nil {
-		return err
-	}
-
-	return nil
 }
