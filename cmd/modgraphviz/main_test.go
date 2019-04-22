@@ -11,21 +11,132 @@ import (
 
 func TestRun(t *testing.T) {
 	in := bytes.NewBuffer([]byte(`
-test.com/A test.com/B@v1.2.3
-test.com/B test.com/C@v4.5.6
+test.com/A test.com/B
+test.com/B test.com/C
 `))
 	out := bytes.Buffer{}
 
-	if err := Run(in, &out); err != nil {
+	g, err := newGraph(in)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if err := g.print(&out); err != nil {
 		t.Fatal(err)
 	}
 
-	want := `digraph gomodgraph {
-	"test.com/A" -> "test.com/B@v1.2.3"
-	"test.com/B" -> "test.com/C@v4.5.6"
-}
+	want := `	"test.com/A" -> "test.com/B"
+	"test.com/B" -> "test.com/C"
 `
 	if out.String() != want {
 		t.Fatalf("\ngot: %s\nwant: %s", out.String(), want)
+	}
+}
+
+func TestRun_Cycles(t *testing.T) {
+	in := bytes.NewBuffer([]byte(`
+test.com/A test.com/B
+test.com/B test.com/A
+`))
+	out := bytes.Buffer{}
+
+	g, err := newGraph(in)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if err := g.print(&out); err != nil {
+		t.Fatal(err)
+	}
+
+	want := `	"test.com/A" -> "test.com/B"
+	"test.com/B" -> "test.com/A"
+`
+	if out.String() != want {
+		t.Fatalf("\ngot: %s\nwant: %s", out.String(), want)
+	}
+}
+
+func TestRun_PathTo(t *testing.T) {
+	in := bytes.NewBuffer([]byte(`
+test.com/A test.com/B
+test.com/A test.com/C
+`))
+	out := bytes.Buffer{}
+
+	g, err := newGraph(in)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if err := g.printPathsTo(&out, "test.com/B"); err != nil {
+		t.Fatal(err)
+	}
+
+	want := `	"test.com/A" -> "test.com/B"
+`
+	if out.String() != want {
+		t.Fatalf("\ngot: %s\nwant: %s", out.String(), want)
+	}
+}
+
+func TestRun_PathTo_Long(t *testing.T) {
+	in := bytes.NewBuffer([]byte(`
+test.com/A test.com/B
+test.com/B test.com/C
+`))
+	out := bytes.Buffer{}
+
+	g, err := newGraph(in)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if err := g.printPathsTo(&out, "test.com/C"); err != nil {
+		t.Fatal(err)
+	}
+
+	want := `	"test.com/A" -> "test.com/B"
+	"test.com/B" -> "test.com/C"
+`
+	if out.String() != want {
+		t.Fatalf("\ngot: %s\nwant: %s", out.String(), want)
+	}
+}
+
+func TestRun_PathTo_DupePath(t *testing.T) {
+	in := bytes.NewBuffer([]byte(`
+test.com/A test.com/B
+test.com/B test.com/C
+test.com/C test.com/E
+test.com/B test.com/D
+test.com/D test.com/E
+`))
+	out := bytes.Buffer{}
+
+	g, err := newGraph(in)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if err := g.printPathsTo(&out, "test.com/E"); err != nil {
+		t.Fatal(err)
+	}
+
+	want := `	"test.com/A" -> "test.com/B"
+	"test.com/B" -> "test.com/C"
+	"test.com/C" -> "test.com/E"
+	"test.com/B" -> "test.com/D"
+	"test.com/D" -> "test.com/E"
+`
+	if out.String() != want {
+		t.Fatalf("\ngot: %s\nwant: %s", out.String(), want)
+	}
+}
+
+func TestRun_PathTo_NoPath(t *testing.T) {
+	out := bytes.Buffer{}
+
+	g, err := newGraph(&bytes.Buffer{})
+	if err != nil {
+		t.Fatal(err)
+	}
+	if err := g.printPathsTo(&out, "test.com/biscuit"); err == nil {
+		t.Fatal("expected but did not receive fatal error: path not found")
 	}
 }
