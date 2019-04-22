@@ -34,6 +34,24 @@
       "revId": "fe8059fbf361bee83b5ed8dbe8d6823bb8307fc5",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "39fb4bf8_61454dae",
+        "filename": "notary/internal/note/note.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 28759
+      },
+      "writtenOn": "2019-04-22T18:08:53Z",
+      "side": 1,
+      "message": "That seems fine to me.",
+      "parentUuid": "b7d95baa_f33f7219",
+      "revId": "fe8059fbf361bee83b5ed8dbe8d6823bb8307fc5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
     }
   ]
 }
