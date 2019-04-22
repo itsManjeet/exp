@@ -9,60 +9,47 @@
 package main
 
 import (
-	"bufio"
 	"bytes"
 	"flag"
-	"fmt"
-	"io"
 	"log"
 	"os"
-	"strings"
 )
+
+var pathTo = flag.String("pathTo", "", "Only show the graph of the path(s) to a module. ex: --pathTo foo.com/bar@1.2.3")
 
 func main() {
 	flag.Usage = func() {
-		log.Println("Usage: GO111MODULE=on go mod graph | modgraphviz | dot -Tpng -o outfile.png")
+		// TODO add usage instructions for pathTo
+		log.Println("Usage: GO111MODULE=on go mod graph | modgraphviz [--pathTo] | dot -Tpng -o outfile.png")
 	}
 	flag.Parse()
 
 	var out bytes.Buffer
 
-	if err := Run(os.Stdin, &out); err != nil {
+	g, err := newGraph(os.Stdin)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	if _, err := out.Write([]byte("digraph gomodgraph {\n")); err != nil {
+		log.Fatal(err)
+	}
+
+	if *pathTo != "" {
+		if err := g.printPathTo(&out, nil, nil, nil, *pathTo); err != nil {
+			log.Fatal(err)
+		}
+	} else {
+		if err := g.print(&out, nil, nil); err != nil {
+			log.Fatal(err)
+		}
+	}
+
+	if _, err := out.Write([]byte("}\n")); err != nil {
 		log.Fatal(err)
 	}
 
 	if _, err := out.WriteTo(os.Stdout); err != nil {
 		log.Fatal(err)
 	}
-}
-
-func Run(in io.Reader, out io.Writer) error {
-	if _, err := out.Write([]byte("digraph gomodgraph {\n")); err != nil {
-		return err
-	}
-
-	r := bufio.NewScanner(in)
-	for {
-		if !r.Scan() {
-			if r.Err() != nil {
-				return r.Err()
-			}
-			break
-		}
-
-		parts := strings.Fields(r.Text())
-		if len(parts) != 2 {
-			continue
-		}
-
-		if _, err := fmt.Fprintf(out, "\t%q -> %q\n", parts[0], parts[1]); err != nil {
-			return err
-		}
-	}
-
-	if _, err := out.Write([]byte("}\n")); err != nil {
-		return err
-	}
-
-	return nil
 }
