@@ -22,6 +22,30 @@
       "revId": "ec1078f9b231348858c6c5e32a7a2d64f34aadca",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fd6a754b_467e1f10",
+        "filename": "old/netchan/netchan_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 5065
+      },
+      "writtenOn": "2019-04-22T15:02:30Z",
+      "side": 1,
+      "message": "I don\u0027t tend to use plain Skip or Log ever, as Skipf/Logf are more common and most Skip/Log turn into Skipf/Logf over time. So leaving a plain Skip/Log is just waiting for a vet error later when people add parameters and don\u0027t notice that it\u0027s not a Foof method.",
+      "parentUuid": "dd13a383_4bb967f9",
+      "range": {
+        "startLine": 236,
+        "startChar": 4,
+        "endLine": 236,
+        "endChar": 9
+      },
+      "revId": "ec1078f9b231348858c6c5e32a7a2d64f34aadca",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
     }
   ]
 }
