@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb18c48a_ae3b20e5",
+        "filename": "notary/internal/sumweb/client.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 28759
+      },
+      "writtenOn": "2019-04-23T16:57:50Z",
+      "side": 1,
+      "message": "I found the logic in the function to be a bit hard to follow, but it does seem to work based on your test cases, and I\u0027m not immediately coming up with something simpler. Maybe just updating the \"Pretend to find the final slash at the end of the target.\" to something like \"Stop checking the rest of the target string.\"",
+      "range": {
+        "startLine": 188,
+        "startChar": 2,
+        "endLine": 201,
+        "endChar": 48
+      },
+      "revId": "c1c6870fc9b1c9483c42727966c0657bde95179a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
