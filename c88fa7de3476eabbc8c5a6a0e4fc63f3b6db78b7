@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5e448f7b_f770f69d",
+        "filename": "sumdb/internal/database/db.go",
+        "patchSetId": 17
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 5065
+      },
+      "writtenOn": "2019-04-24T15:55:26Z",
+      "side": 1,
+      "message": "strings.Builder was added way back in Go 1.10.",
+      "revId": "c88fa7de3476eabbc8c5a6a0e4fc63f3b6db78b7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
