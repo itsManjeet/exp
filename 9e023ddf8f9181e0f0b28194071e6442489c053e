@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8103fc14_0c1b3e30",
+        "filename": "notary/internal/sumweb/client.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 28759
+      },
+      "writtenOn": "2019-04-24T15:59:55Z",
+      "side": 1,
+      "message": "Maybe just a comment stating that prefix starts with the entire target, and gets trimmed down to the same number of slashes as the glob.",
+      "range": {
+        "startLine": 188,
+        "startChar": 2,
+        "endLine": 188,
+        "endChar": 18
+      },
+      "revId": "9e023ddf8f9181e0f0b28194071e6442489c053e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b008305f_ad407e4d",
+        "filename": "notary/internal/sumweb/client.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 28759
+      },
+      "writtenOn": "2019-04-24T15:59:55Z",
+      "side": 1,
+      "message": "can this and the following if statement use target instead of prefix?",
+      "range": {
+        "startLine": 189,
+        "startChar": 22,
+        "endLine": 189,
+        "endChar": 28
+      },
+      "revId": "9e023ddf8f9181e0f0b28194071e6442489c053e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b5dafe66_ae2549e0",
+        "filename": "notary/internal/sumweb/client.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 28759
+      },
+      "writtenOn": "2019-04-24T15:59:55Z",
+      "side": 1,
+      "message": "another possibility, which might be slightly more readable, piggybacking off of your changes:\n\nn :\u003d strings.Count(glob, \"/\")\nprefix :\u003d target\ni :\u003d 0\nfor {\n  i :\u003d strings.Index(target, \"/\")\n  if i \u003d\u003d -1 {\n    break // no more slashes remaining in the target\n  }\n  if n \u003d\u003d 0 {  // no more slashes remaining in the glob\n    prefix \u003d prefix[:i]  // don\u0027t need to match the remaining target\n    break\n  }\n  n--\n}\nif n \u003e 0 {\n   ..........",
+      "range": {
+        "startLine": 189,
+        "startChar": 2,
+        "endLine": 197,
+        "endChar": 3
+      },
+      "revId": "9e023ddf8f9181e0f0b28194071e6442489c053e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}

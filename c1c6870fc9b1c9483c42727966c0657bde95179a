@@ -47,6 +47,30 @@
       "revId": "c1c6870fc9b1c9483c42727966c0657bde95179a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c65fd276_10bc674b",
+        "filename": "notary/internal/sumweb/client.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 28759
+      },
+      "writtenOn": "2019-04-24T15:59:55Z",
+      "side": 1,
+      "message": "Yeah definitely better now. Thanks.\nIt\u0027s fine as is, but I made one other suggested edit in case you like that one better (I didn\u0027t test it).",
+      "parentUuid": "0920924b_d938dfa4",
+      "range": {
+        "startLine": 188,
+        "startChar": 2,
+        "endLine": 201,
+        "endChar": 48
+      },
+      "revId": "c1c6870fc9b1c9483c42727966c0657bde95179a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
