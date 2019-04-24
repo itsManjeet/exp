@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "6d519b58_ac71e881",
+        "filename": "notary/internal/sumweb/client.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 28759
+      },
+      "writtenOn": "2019-04-24T16:00:20Z",
+      "side": 1,
+      "message": "NVM, that\u0027s covered in your previous comment :)",
+      "parentUuid": "8103fc14_0c1b3e30",
+      "range": {
+        "startLine": 188,
+        "startChar": 2,
+        "endLine": 188,
+        "endChar": 18
+      },
+      "revId": "9e023ddf8f9181e0f0b28194071e6442489c053e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b008305f_ad407e4d",
         "filename": "notary/internal/sumweb/client.go",
         "patchSetId": 5
