@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "27b22869_e2521db1",
+        "filename": "notary/internal/sumweb/client.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-25T21:24:58Z",
+      "side": 1,
+      "message": "Would be better to change in CL 173539, but probably not worth a rebase.",
+      "range": {
+        "startLine": 86,
+        "startChar": 1,
+        "endLine": 86,
+        "endChar": 8
+      },
+      "revId": "1c4dd42c00679691a30e124bf74d447451527b92",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d53d45c1_ad91785c",
+        "filename": "notary/internal/sumweb/client.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-25T21:24:58Z",
+      "side": 1,
+      "message": "I have a mild preference for keeping globs a []string. It is better to have the splitting functionality in here, but it seems like it makes it easy to misuse hasGlobsPathPrefix by inverting the arguments.",
+      "range": {
+        "startLine": 185,
+        "startChar": 24,
+        "endLine": 185,
+        "endChar": 44
+      },
+      "revId": "1c4dd42c00679691a30e124bf74d447451527b92",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
