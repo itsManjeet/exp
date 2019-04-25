@@ -19,6 +19,29 @@
     },
     {
       "key": {
+        "uuid": "3f8ddff6_c1a8f62e",
+        "filename": "notary/internal/notecheck/main.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-25T21:07:55Z",
+      "side": 1,
+      "message": "The first go.sum is being skipped here. It\u0027s fixed in CL 172966, but would be better to do here.",
+      "range": {
+        "startLine": 68,
+        "startChar": 32,
+        "endLine": 68,
+        "endChar": 36
+      },
+      "revId": "7b3466072cf7bb14682af47ef0915b09698e7997",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "d448d570_1e41f6af",
         "filename": "notary/internal/sumweb/client.go",
         "patchSetId": 5
