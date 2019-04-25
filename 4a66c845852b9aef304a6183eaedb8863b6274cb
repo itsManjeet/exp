@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f4dedd40_e2498627",
+        "filename": "notary/internal/sumweb/client.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-25T21:16:51Z",
+      "side": 1,
+      "message": "panic if c.tileHeight is already set?",
+      "revId": "4a66c845852b9aef304a6183eaedb8863b6274cb",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
