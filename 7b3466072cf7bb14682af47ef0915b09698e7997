@@ -1,0 +1,285 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bc3780da_2a8555ec",
+        "filename": "notary/internal/notecheck/main.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-25T21:02:57Z",
+      "side": 1,
+      "message": "sum.golang.org+033de0ae+Ac4zctda0e5eza+HJyk9SxEdh+s3Ux18htTTAD8OuAn8",
+      "revId": "7b3466072cf7bb14682af47ef0915b09698e7997",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d448d570_1e41f6af",
+        "filename": "notary/internal/sumweb/client.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-25T21:02:57Z",
+      "side": 1,
+      "message": "I don\u0027t understand why these two are separate caches.\n\nIt took me a bit to see that even if tileCache caches a failure, tileFetch will cache a success and all future invocations will fail on tileCache (even if the cached tile exists) but then succeed on tileFetch.\n\nIt does work as-is, but it feels like caching the whole readTile operation would be simpler.",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 70
+      },
+      "revId": "7b3466072cf7bb14682af47ef0915b09698e7997",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86f7cb9f_2221a187",
+        "filename": "notary/internal/sumweb/client.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-25T21:02:57Z",
+      "side": 1,
+      "message": "lines[0] is TrimSpace\u0027d, lines[1] is not. No strong preference, but should be consistent.",
+      "range": {
+        "startLine": 132,
+        "startChar": 35,
+        "endLine": 132,
+        "endChar": 52
+      },
+      "revId": "7b3466072cf7bb14682af47ef0915b09698e7997",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b0e85d57_95b75d73",
+        "filename": "notary/internal/sumweb/client.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-25T21:02:57Z",
+      "side": 1,
+      "message": "panic if c.tileHeight is already set?",
+      "range": {
+        "startLine": 158,
+        "startChar": 15,
+        "endLine": 158,
+        "endChar": 28
+      },
+      "revId": "7b3466072cf7bb14682af47ef0915b09698e7997",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a4af5eec_f99a54d0",
+        "filename": "notary/internal/sumweb/client.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-25T21:02:57Z",
+      "side": 1,
+      "message": "I\u0027d document that the /go.mod suffix is part of the version.",
+      "revId": "7b3466072cf7bb14682af47ef0915b09698e7997",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d6bb5fa_447e5a2b",
+        "filename": "notary/internal/sumweb/client.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-25T21:02:57Z",
+      "side": 1,
+      "message": "SecurityError (here and two lines below).",
+      "range": {
+        "startLine": 246,
+        "startChar": 61,
+        "endLine": 246,
+        "endChar": 66
+      },
+      "revId": "7b3466072cf7bb14682af47ef0915b09698e7997",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "28185669_90950fe2",
+        "filename": "notary/internal/sumweb/client.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-25T21:02:57Z",
+      "side": 1,
+      "message": "It\u0027s unclear what the behavior for \"file not found\" is. The code would tolerate an empty message but not an error AFAICT, but returning an empty value for not found values is not in the ReadConfig contract.",
+      "range": {
+        "startLine": 269,
+        "startChar": 14,
+        "endLine": 269,
+        "endChar": 33
+      },
+      "revId": "7b3466072cf7bb14682af47ef0915b09698e7997",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5ccd5769_fdd44490",
+        "filename": "notary/internal/sumweb/client.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-25T21:02:57Z",
+      "side": 1,
+      "message": "Since they move across functions, I would use constants like newBeforeOld, newSameAsOld and newAfterOld or msgPast, msgPresent and msgFuture.",
+      "range": {
+        "startLine": 299,
+        "startChar": 0,
+        "endLine": 301,
+        "endChar": 76
+      },
+      "revId": "7b3466072cf7bb14682af47ef0915b09698e7997",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "988a378c_a6ae402a",
+        "filename": "notary/internal/sumweb/client.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-25T21:02:57Z",
+      "side": 1,
+      "message": "I don\u0027t really understand what \"rederiving the prefix\" means.",
+      "range": {
+        "startLine": 504,
+        "startChar": 7,
+        "endLine": 504,
+        "endChar": 28
+      },
+      "revId": "7b3466072cf7bb14682af47ef0915b09698e7997",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2d5291c0_cc72499a",
+        "filename": "notary/internal/sumweb/client.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-25T21:02:57Z",
+      "side": 1,
+      "message": "A failure to write the cache file will not be retried, as tileSaved will be marked. That seems fine, but making sure it\u0027s intentional.",
+      "range": {
+        "startLine": 577,
+        "startChar": 12,
+        "endLine": 577,
+        "endChar": 22
+      },
+      "revId": "7b3466072cf7bb14682af47ef0915b09698e7997",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c46a4281_8cfd5fa6",
+        "filename": "notary/internal/sumweb/client_test.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-25T21:02:57Z",
+      "side": 1,
+      "message": "It would be good to test the path where the URL is not the name.",
+      "revId": "7b3466072cf7bb14682af47ef0915b09698e7997",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "65227ebd_61cb5d4c",
+        "filename": "notary/internal/sumweb/client_test.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-25T21:02:57Z",
+      "side": 1,
+      "message": "sampler",
+      "range": {
+        "startLine": 45,
+        "startChar": 57,
+        "endLine": 45,
+        "endChar": 63
+      },
+      "revId": "7b3466072cf7bb14682af47ef0915b09698e7997",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "460c4cca_22fd42e8",
+        "filename": "notary/internal/sumweb/client_test.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-25T21:02:57Z",
+      "side": 1,
+      "message": "I\u0027m ok with this going in with a TODO, just making sure you didn\u0027t miss it.",
+      "range": {
+        "startLine": 334,
+        "startChar": 5,
+        "endLine": 334,
+        "endChar": 9
+      },
+      "revId": "7b3466072cf7bb14682af47ef0915b09698e7997",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
