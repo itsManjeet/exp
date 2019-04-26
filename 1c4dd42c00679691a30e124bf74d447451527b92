@@ -45,6 +45,30 @@
       "revId": "1c4dd42c00679691a30e124bf74d447451527b92",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9e24ad45_daba3b07",
+        "filename": "notary/internal/sumweb/client.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2019-04-26T00:43:41Z",
+      "side": 1,
+      "message": "Going to leave it as is. It comes as a string from the environment and otherwise I have to cache the list somewhere. The order here is the same as in path.Match, regexp.MatchString, and so on.",
+      "parentUuid": "d53d45c1_ad91785c",
+      "range": {
+        "startLine": 185,
+        "startChar": 24,
+        "endLine": 185,
+        "endChar": 44
+      },
+      "revId": "1c4dd42c00679691a30e124bf74d447451527b92",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
