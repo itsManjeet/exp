@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8a7142b8_d7784024",
+        "filename": "sumdb/gosumcheck/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-26T17:43:25Z",
+      "side": 1,
+      "message": "This should still use the url flag if set, right?",
+      "revId": "29f91d3443002f2c9b99e79b47e4009e1a5b3daf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9022ae3_76841a55",
+        "filename": "sumdb/internal/sumweb/client.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-26T17:43:25Z",
+      "side": 1,
+      "message": "I did think about a reason to have a granular cache: if two partial versions of the same tile are read, and the first one is derived from the full one, the second one will cache miss (as both caches will only keep the partial one).\n\nUp to you if that\u0027s worth the complexity, I suspect not.",
+      "revId": "29f91d3443002f2c9b99e79b47e4009e1a5b3daf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3496231_0aa2f749",
+        "filename": "sumdb/internal/sumweb/client.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-04-26T17:43:25Z",
+      "side": 1,
+      "message": "I was suggesting to use c.tileHeight as an indication that a Lookup had already been made, which would mean the API is misused.",
+      "revId": "29f91d3443002f2c9b99e79b47e4009e1a5b3daf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
