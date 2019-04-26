@@ -28,9 +28,9 @@ type Server interface {
 	// ReadRecords returns the content for the n records id through id+n-1.
 	ReadRecords(ctx context.Context, id, n int64) ([][]byte, error)
 
-	// FindKey looks up a record by its associated key ("module@version"),
+	// Lookup looks up a record by its associated key ("module@version"),
 	// returning the record ID.
-	FindKey(ctx context.Context, key string) (int64, error)
+	Lookup(ctx context.Context, key string) (int64, error)
 
 	// ReadTileData reads the content of tile t.
 	// It is only invoked for hash tiles (t.L ≥ 0).
@@ -79,7 +79,7 @@ func (h *Handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		// TODO(rsc): Decide whether to !-decode here.
-		id, err := h.Server.FindKey(ctx, mod)
+		id, err := h.Server.Lookup(ctx, mod)
 		if err != nil {
 			reportError(w, r, err)
 			return
