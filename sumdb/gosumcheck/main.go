@@ -54,7 +54,7 @@ func usage() {
 
 var (
 	height = flag.Int("h", 8, "tile height")
-	vkey   = flag.String("k", "rsc-goog.appspot.com+eecb1dec+AbTy1QXWdqYd1TTpuaUqsk6u7p+n4AqLiLB8SBwoB831", "key") // TODO: Replace with real key.
+	vkey   = flag.String("k", "sum.golang.org+033de0ae+Ac4zctda0e5eza+HJyk9SxEdh+s3Ux18htTTAD8OuAn8", "key")
 	url    = flag.String("u", "", "url to server (overriding name)")
 	vflag  = flag.Bool("v", false, "enable verbose output")
 )
@@ -149,7 +149,7 @@ type client struct{}
 
 func (*client) ReadConfig(file string) ([]byte, error) {
 	if file == "key" {
-		return []byte(*vkey + "\n" + *url), nil
+		return []byte(*vkey), nil
 	}
 	if strings.HasSuffix(file, "/latest") {
 		// Looking for cached latest tree head.
@@ -184,8 +184,13 @@ func init() {
 	http.DefaultClient.Timeout = 1 * time.Minute
 }
 
-func (*client) GetURL(url string) ([]byte, error) {
+func (*client) ReadRemote(path string) ([]byte, error) {
+	name := *vkey
+	if i := strings.Index(name, "+"); i >= 0 {
+		name = name[:i]
+	}
 	start := time.Now()
+	url := "https://" + name + path
 	resp, err := http.Get(url)
 	if err != nil {
 		return nil, err
