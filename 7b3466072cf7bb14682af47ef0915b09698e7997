@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "4f0481a3_d67054bb",
+        "filename": "notary/internal/notecheck/main.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2019-04-26T00:40:08Z",
+      "side": 1,
+      "message": "Done (in a followup CL).",
+      "parentUuid": "bc3780da_2a8555ec",
+      "revId": "7b3466072cf7bb14682af47ef0915b09698e7997",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3f8ddff6_c1a8f62e",
         "filename": "notary/internal/notecheck/main.go",
         "patchSetId": 5
@@ -39,6 +57,30 @@
       "revId": "7b3466072cf7bb14682af47ef0915b09698e7997",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0381956f_4f334cc2",
+        "filename": "notary/internal/notecheck/main.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2019-04-26T00:40:08Z",
+      "side": 1,
+      "message": "It\u0027s too much work to get back to this CL. I will apply fixes in a new CL on top, and this one is already fixed.",
+      "parentUuid": "3f8ddff6_c1a8f62e",
+      "range": {
+        "startLine": 68,
+        "startChar": 32,
+        "endLine": 68,
+        "endChar": 36
+      },
+      "revId": "7b3466072cf7bb14682af47ef0915b09698e7997",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "e3e13d56_51cd1587",
+        "filename": "notary/internal/sumweb/client.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2019-04-26T00:40:08Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "d448d570_1e41f6af",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 70
+      },
+      "revId": "7b3466072cf7bb14682af47ef0915b09698e7997",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "86f7cb9f_2221a187",
         "filename": "notary/internal/sumweb/client.go",
         "patchSetId": 5
@@ -85,6 +151,30 @@
       "revId": "7b3466072cf7bb14682af47ef0915b09698e7997",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6b6fcc85_56ef0091",
+        "filename": "notary/internal/sumweb/client.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2019-04-26T00:40:08Z",
+      "side": 1,
+      "message": "I removed this entirely. In the Client interface I replaced GetURL(url)\nwith ReadRemote(path), and now this code doesn\u0027t have any idea what\nthe base URL is at all. That will work better in the go command anyway.",
+      "parentUuid": "86f7cb9f_2221a187",
+      "range": {
+        "startLine": 132,
+        "startChar": 35,
+        "endLine": 132,
+        "endChar": 52
+      },
+      "revId": "7b3466072cf7bb14682af47ef0915b09698e7997",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "0547375b_d69c8f3b",
+        "filename": "notary/internal/sumweb/client.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2019-04-26T00:40:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0e85d57_95b75d73",
+      "range": {
+        "startLine": 158,
+        "startChar": 15,
+        "endLine": 158,
+        "endChar": 28
+      },
+      "revId": "7b3466072cf7bb14682af47ef0915b09698e7997",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a4af5eec_f99a54d0",
         "filename": "notary/internal/sumweb/client.go",
         "patchSetId": 5
@@ -125,6 +239,24 @@
       "revId": "7b3466072cf7bb14682af47ef0915b09698e7997",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "26516383_6759a17a",
+        "filename": "notary/internal/sumweb/client.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2019-04-26T00:40:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a4af5eec_f99a54d0",
+      "revId": "7b3466072cf7bb14682af47ef0915b09698e7997",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -151,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "bbffb0c6_43206b85",
+        "filename": "notary/internal/sumweb/client.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2019-04-26T00:40:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d6bb5fa_447e5a2b",
+      "range": {
+        "startLine": 246,
+        "startChar": 61,
+        "endLine": 246,
+        "endChar": 66
+      },
+      "revId": "7b3466072cf7bb14682af47ef0915b09698e7997",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28185669_90950fe2",
         "filename": "notary/internal/sumweb/client.go",
         "patchSetId": 5
@@ -171,6 +327,30 @@
       "revId": "7b3466072cf7bb14682af47ef0915b09698e7997",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d0bdde3e_cb1c6044",
+        "filename": "notary/internal/sumweb/client.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2019-04-26T00:40:08Z",
+      "side": 1,
+      "message": "Documented.",
+      "parentUuid": "28185669_90950fe2",
+      "range": {
+        "startLine": 269,
+        "startChar": 14,
+        "endLine": 269,
+        "endChar": 33
+      },
+      "revId": "7b3466072cf7bb14682af47ef0915b09698e7997",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -197,6 +377,30 @@
     },
     {
       "key": {
+        "uuid": "f1c95db3_6f48ff8d",
+        "filename": "notary/internal/sumweb/client.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2019-04-26T00:40:08Z",
+      "side": 1,
+      "message": "Done (msgPast, msgNow, msgFuture).",
+      "parentUuid": "5ccd5769_fdd44490",
+      "range": {
+        "startLine": 299,
+        "startChar": 0,
+        "endLine": 301,
+        "endChar": 76
+      },
+      "revId": "7b3466072cf7bb14682af47ef0915b09698e7997",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "988a378c_a6ae402a",
         "filename": "notary/internal/sumweb/client.go",
         "patchSetId": 5
@@ -220,6 +424,30 @@
     },
     {
       "key": {
+        "uuid": "efdae171_f47840ff",
+        "filename": "notary/internal/sumweb/client.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2019-04-26T00:40:08Z",
+      "side": 1,
+      "message": "Changed to \"recreating the prefix\". It just means slicing off the end to get the prefix.",
+      "parentUuid": "988a378c_a6ae402a",
+      "range": {
+        "startLine": 504,
+        "startChar": 7,
+        "endLine": 504,
+        "endChar": 28
+      },
+      "revId": "7b3466072cf7bb14682af47ef0915b09698e7997",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2d5291c0_cc72499a",
         "filename": "notary/internal/sumweb/client.go",
         "patchSetId": 5
@@ -240,6 +468,30 @@
       "revId": "7b3466072cf7bb14682af47ef0915b09698e7997",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b58dcc0_d94a48e7",
+        "filename": "notary/internal/sumweb/client.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 577,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2019-04-26T00:40:08Z",
+      "side": 1,
+      "message": "Yes, commented.",
+      "parentUuid": "2d5291c0_cc72499a",
+      "range": {
+        "startLine": 577,
+        "startChar": 12,
+        "endLine": 577,
+        "endChar": 22
+      },
+      "revId": "7b3466072cf7bb14682af47ef0915b09698e7997",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
