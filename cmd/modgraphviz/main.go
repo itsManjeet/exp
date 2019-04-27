@@ -7,27 +7,42 @@
 //
 // Requires graphviz and the graphviz dot cli to be installed.
 //
-// Usage: GO111MODULE=on go mod graph | modgraphviz [--pathsTo] | dot -Tpng -o outfile.png
+// Usage: GO111MODULE=on go mod graph | modgraphviz [-simple] [-pathsTo] | dot -Tpng -o outfile.png
 package main
 
 import (
 	"bytes"
 	"flag"
+	"fmt"
 	"log"
 	"os"
 )
 
-var pathsTo = flag.String("pathsTo", "", "Only show the graph of the path(s) to a module. ex: --pathsTo foo.com/bar@1.2.3")
+var pathsTo = flag.String("pathsTo", "", "Only show the graph of the path(s) to a module. ex: -pathsTo foo.com/bar@1.2.3")
+var simple = flag.Bool("simple", false, "Only show the modules without their versions.")
 
 func main() {
 	flag.Usage = func() {
-		log.Println("Usage: GO111MODULE=on go mod graph | modgraphviz [--pathsTo] | dot -Tpng -o outfile.png")
+		fmt.Println(`modgraphviz [-simple] [-pathsTo]
+
+Example usage: 
+	GO111MODULE=on go mod graph | \
+	modgraphviz [-simple] [-pathsTo] | \
+	dot -Tpng -o outfile.png
+
+modgraphviz prints the mod graph in a graphviz format. Graphviz and the graphviz
+dot CLI should be installed.
+
+-simple strips module versions and only prints module names.
+
+-pathsTo prints the paths from the root module to the specified module. pathsTo
+accepts a string: ex -pathsTo foo.com/bar@1.2.3.`)
 	}
 	flag.Parse()
 
 	var out bytes.Buffer
 
-	g, err := newGraph(os.Stdin)
+	g, err := newGraph(os.Stdin, *simple)
 	if err != nil {
 		log.Fatal(err)
 	}
