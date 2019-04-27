@@ -18,16 +18,17 @@ import (
 )
 
 var pathsTo = flag.String("pathsTo", "", "Only show the graph of the path(s) to a module. ex: --pathsTo foo.com/bar@1.2.3")
+var simple = flag.Bool("simple", false, "Only show the modules without their versions.")
 
 func main() {
 	flag.Usage = func() {
-		log.Println("Usage: GO111MODULE=on go mod graph | modgraphviz [--pathsTo] | dot -Tpng -o outfile.png")
+		log.Println("Usage: GO111MODULE=on go mod graph | modgraphviz [ --simple --pathsTo] | dot -Tpng -o outfile.png")
 	}
 	flag.Parse()
 
 	var out bytes.Buffer
 
-	g, err := newGraph(os.Stdin)
+	g, err := newGraph(os.Stdin, *simple)
 	if err != nil {
 		log.Fatal(err)
 	}

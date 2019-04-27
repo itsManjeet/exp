@@ -9,134 +9,202 @@ import (
 	"testing"
 )
 
-func TestRun(t *testing.T) {
-	in := bytes.NewBuffer([]byte(`
+func TestPrint(t *testing.T) {
+	for _, tc := range []struct {
+		name string
+		in   string
+		want string
+	}{
+		{
+			name: "Basic",
+			in: `
 test.com/A test.com/B
 test.com/B test.com/C
-`))
-	out := bytes.Buffer{}
-
-	g, err := newGraph(in)
-	if err != nil {
-		t.Fatal(err)
-	}
-	if err := g.print(&out); err != nil {
-		t.Fatal(err)
-	}
-
-	want := `	"test.com/A" -> "test.com/B"
+`,
+			want: `	"test.com/A" -> "test.com/B"
 	"test.com/B" -> "test.com/C"
-`
-	if out.String() != want {
-		t.Fatalf("\ngot: %s\nwant: %s", out.String(), want)
-	}
-}
-
-func TestRun_Cycles(t *testing.T) {
-	in := bytes.NewBuffer([]byte(`
+`,
+		},
+		{
+			name: "Cycles",
+			in: `
 test.com/A test.com/B
 test.com/B test.com/A
-`))
-	out := bytes.Buffer{}
-
-	g, err := newGraph(in)
-	if err != nil {
-		t.Fatal(err)
-	}
-	if err := g.print(&out); err != nil {
-		t.Fatal(err)
-	}
-
-	want := `	"test.com/A" -> "test.com/B"
+`,
+			want: `	"test.com/A" -> "test.com/B"
 	"test.com/B" -> "test.com/A"
-`
-	if out.String() != want {
-		t.Fatalf("\ngot: %s\nwant: %s", out.String(), want)
+`,
+		},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			in := bytes.NewBuffer([]byte(tc.in))
+			out := &bytes.Buffer{}
+			g, err := newGraph(in, false)
+			if err != nil {
+				t.Fatal(err)
+			}
+			if err := g.print(out); err != nil {
+				t.Fatal(err)
+			}
+
+			if out.String() != tc.want {
+				t.Fatalf("\ngot: %s\nwant: %s", out.String(), tc.want)
+			}
+		})
 	}
 }
 
-func TestRun_PathTo(t *testing.T) {
-	in := bytes.NewBuffer([]byte(`
-test.com/A test.com/B
-test.com/A test.com/C
-`))
-	out := bytes.Buffer{}
-
-	g, err := newGraph(in)
-	if err != nil {
-		t.Fatal(err)
-	}
-	if err := g.printPathsTo(&out, "test.com/B"); err != nil {
-		t.Fatal(err)
-	}
-
-	want := `	"test.com/A" -> "test.com/B"
-`
-	if out.String() != want {
-		t.Fatalf("\ngot: %s\nwant: %s", out.String(), want)
-	}
-}
-
-func TestRun_PathTo_Long(t *testing.T) {
-	in := bytes.NewBuffer([]byte(`
+func TestPathsTo(t *testing.T) {
+	for _, tc := range []struct {
+		name   string
+		in     string
+		want   string
+		pathTo string
+	}{
+		{
+			name: "Basic",
+			in: `
 test.com/A test.com/B
 test.com/B test.com/C
-`))
-	out := bytes.Buffer{}
-
-	g, err := newGraph(in)
-	if err != nil {
-		t.Fatal(err)
-	}
-	if err := g.printPathsTo(&out, "test.com/C"); err != nil {
-		t.Fatal(err)
-	}
-
-	want := `	"test.com/A" -> "test.com/B"
+`,
+			want: `	"test.com/A" -> "test.com/B"
+`,
+			pathTo: "test.com/B",
+		},
+		{
+			name: "Long",
+			in: `
+test.com/A test.com/B
+test.com/B test.com/C
+`,
+			want: `	"test.com/A" -> "test.com/B"
 	"test.com/B" -> "test.com/C"
-`
-	if out.String() != want {
-		t.Fatalf("\ngot: %s\nwant: %s", out.String(), want)
-	}
-}
-
-func TestRun_PathTo_DupePath(t *testing.T) {
-	in := bytes.NewBuffer([]byte(`
+`,
+			pathTo: "test.com/C",
+		},
+		{
+			name: "DuplicatePaths",
+			in: `
 test.com/A test.com/B
 test.com/B test.com/C
 test.com/C test.com/E
 test.com/B test.com/D
 test.com/D test.com/E
-`))
-	out := bytes.Buffer{}
-
-	g, err := newGraph(in)
-	if err != nil {
-		t.Fatal(err)
-	}
-	if err := g.printPathsTo(&out, "test.com/E"); err != nil {
-		t.Fatal(err)
-	}
-
-	want := `	"test.com/A" -> "test.com/B"
+`,
+			want: `	"test.com/A" -> "test.com/B"
 	"test.com/B" -> "test.com/C"
 	"test.com/C" -> "test.com/E"
 	"test.com/B" -> "test.com/D"
 	"test.com/D" -> "test.com/E"
-`
-	if out.String() != want {
-		t.Fatalf("\ngot: %s\nwant: %s", out.String(), want)
+`,
+			pathTo: "test.com/E",
+		},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			in := bytes.NewBuffer([]byte(tc.in))
+			out := bytes.Buffer{}
+
+			g, err := newGraph(in, false)
+			if err != nil {
+				t.Fatal(err)
+			}
+			if err := g.printPathsTo(&out, tc.pathTo); err != nil {
+				t.Fatal(err)
+			}
+
+			if out.String() != tc.want {
+				t.Fatalf("\ngot: %s\nwant: %s", out.String(), tc.want)
+			}
+		})
 	}
 }
 
-func TestRun_PathTo_NoPath(t *testing.T) {
+func TestPathsTo_NoPath(t *testing.T) {
 	out := bytes.Buffer{}
 
-	g, err := newGraph(&bytes.Buffer{})
+	g, err := newGraph(&bytes.Buffer{}, false)
 	if err != nil {
 		t.Fatal(err)
 	}
 	if err := g.printPathsTo(&out, "test.com/biscuit"); err == nil {
 		t.Fatal("expected but did not receive fatal error: path not found")
+	}
+}
+
+func TestSimple(t *testing.T) {
+	for _, tc := range []struct {
+		name string
+		in   string
+		want string
+	}{
+		{
+			name: "Basic",
+			in: `
+test.com/A@v1.0.0-de3113 test.com/B@v1.0.0-d31415
+test.com/B@v1.0.0-d31415 test.com/C@v2.0.0=bfdf31e
+`,
+			want: `	"test.com/A" -> "test.com/B"
+	"test.com/B" -> "test.com/C"
+`,
+		},
+		{
+			name: "NoVersion",
+			in: `
+test.com/A test.com/B@v1.0.0-d31415
+test.com/B@v1.0.0-d31415 test.com/C/v2@v2.0.0=bfdf31e
+`,
+			want: `	"test.com/A" -> "test.com/B"
+	"test.com/B" -> "test.com/C/v2"
+`,
+		},
+		{
+			name: "NoVersionAnywhere",
+			in: `
+test.com/A test.com/B
+test.com/B test.com/C
+`,
+			want: `	"test.com/A" -> "test.com/B"
+	"test.com/B" -> "test.com/C"
+`,
+		},
+		{
+			name: "DedupesWithinMajor",
+			in: `
+test.com/A@v1.2.3 test.com/B/v2@v2.3.4
+test.com/B/v2@v2.3.4 test.com/C/v3@v3.4.5
+test.com/C/v3@v3.4.5 test.com/B/v2@v2.9.7
+`,
+			want: `	"test.com/A" -> "test.com/B/v2"
+	"test.com/B/v2" -> "test.com/C/v3"
+	"test.com/C/v3" -> "test.com/B/v2"
+`,
+		},
+		{
+			name: "DoesNotDedupeMajors",
+			in: `
+test.com/A@v1.2.3 test.com/B/v2@v2.3.4
+test.com/A@v1.2.3 test.com/B/v3@v3.4.5
+`,
+			want: `	"test.com/A" -> "test.com/B/v2"
+	"test.com/A" -> "test.com/B/v3"
+`,
+		},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			in := bytes.NewBuffer([]byte(tc.in))
+			out := bytes.Buffer{}
+
+			g, err := newGraph(in, true)
+			if err != nil {
+				t.Fatal(err)
+			}
+			if err := g.print(&out); err != nil {
+				t.Fatal(err)
+			}
+
+			if out.String() != tc.want {
+				t.Fatalf("\ngot: %s\nwant: %s", out.String(), tc.want)
+			}
+		})
 	}
 }
