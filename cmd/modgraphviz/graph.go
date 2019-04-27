@@ -20,7 +20,7 @@ type vertex struct {
 // newGraph builds a graph from a Reader that has data formatted in the format:
 // A B
 // Where A has a directed edge to B.
-func newGraph(in io.Reader) (*graph, error) {
+func newGraph(in io.Reader, simple bool) (*graph, error) {
 	vertexMap := map[string]*vertex{}
 	var root string
 	r := bufio.NewScanner(in)
@@ -42,11 +42,18 @@ func newGraph(in io.Reader) (*graph, error) {
 		}
 
 		fromName := parts[0]
+		if simple {
+			fromName = strings.Split(fromName, "@")[0]
+		}
 		if root == "" {
 			root = fromName
 		}
 
 		toName := parts[1]
+		if simple {
+			toName = strings.Split(toName, "@")[0]
+		}
+
 		fromVertex, fromVertexFound := vertexMap[fromName]
 		if !fromVertexFound {
 			// fromVertex is nil - we couldn't find it. This could happen if

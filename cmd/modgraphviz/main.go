@@ -18,6 +18,7 @@ import (
 )
 
 var pathsTo = flag.String("pathsTo", "", "Only show the graph of the path(s) to a module. ex: --pathsTo foo.com/bar@1.2.3")
+var simple = flag.Bool("simple", false, "Only show the modules without their versions.")
 
 func main() {
 	flag.Usage = func() {
@@ -27,7 +28,7 @@ func main() {
 
 	var out bytes.Buffer
 
-	g, err := newGraph(os.Stdin)
+	g, err := newGraph(os.Stdin, *simple)
 	if err != nil {
 		log.Fatal(err)
 	}
