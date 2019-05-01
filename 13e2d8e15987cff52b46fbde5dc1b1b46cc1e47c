@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3ca256e7_3a4dbdcf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 21
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-05-01T00:47:34Z",
+      "side": 1,
+      "message": "Is that worth the complexity of sub-modules? With the proxy it only adds /go.mod fetches to builds that don\u0027t use the spanner package, but it makes sense to me for it to be versioned along with the rest of sumdb.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 63
+      },
+      "revId": "13e2d8e15987cff52b46fbde5dc1b1b46cc1e47c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d3cd7595_028a0e19",
+        "filename": "sumdb/internal/googlecloud/go.mod",
+        "patchSetId": 21
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-05-01T00:47:34Z",
+      "side": 1,
+      "message": "?\n\nI see the replace, but what if this is not the main module?",
+      "range": {
+        "startLine": 8,
+        "startChar": 24,
+        "endLine": 8,
+        "endChar": 58
+      },
+      "revId": "13e2d8e15987cff52b46fbde5dc1b1b46cc1e47c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
