@@ -1,0 +1,222 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5848fca9_2115b3b9",
+        "filename": "sumdb/internal/database/db.go",
+        "patchSetId": 21
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-05-01T00:43:45Z",
+      "side": 1,
+      "message": "\u003ckey\u003e I assume",
+      "range": {
+        "startLine": 28,
+        "startChar": 11,
+        "endLine": 28,
+        "endChar": 14
+      },
+      "revId": "0b5d4b5b7773cc20d5da2f9d19b54e1872ace85d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1d00d683_015a0468",
+        "filename": "sumdb/internal/database/db.go",
+        "patchSetId": 21
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-05-01T00:43:45Z",
+      "side": 1,
+      "message": "ctx is unused here.",
+      "range": {
+        "startLine": 125,
+        "startChar": 28,
+        "endLine": 125,
+        "endChar": 47
+      },
+      "revId": "0b5d4b5b7773cc20d5da2f9d19b54e1872ace85d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a6c526b1_302e4ff3",
+        "filename": "sumdb/internal/database/db.go",
+        "patchSetId": 21
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-05-01T00:43:45Z",
+      "side": 1,
+      "message": "Hah, we were going to do something similar with Katie for sum.golang.org, but then solved our problem with a recursive HashReader (which recurses to the two underlying nodes until it hits known hashes) IIRC.",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 147,
+        "endChar": 33
+      },
+      "revId": "0b5d4b5b7773cc20d5da2f9d19b54e1872ace85d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cc84746_e28904a0",
+        "filename": "sumdb/internal/database/db.go",
+        "patchSetId": 21
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-05-01T00:43:45Z",
+      "side": 1,
+      "message": "I find it confusing to use the HashReader type here, as it\u0027s not actually used for its logger properties, it\u0027s just a map. (Right?)",
+      "range": {
+        "startLine": 173,
+        "startChar": 14,
+        "endLine": 173,
+        "endChar": 27
+      },
+      "revId": "0b5d4b5b7773cc20d5da2f9d19b54e1872ace85d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98ce69dc_91c41f85",
+        "filename": "sumdb/internal/database/db.go",
+        "patchSetId": 21
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-05-01T00:43:45Z",
+      "side": 1,
+      "message": "Likewise.",
+      "range": {
+        "startLine": 177,
+        "startChar": 12,
+        "endLine": 177,
+        "endChar": 19
+      },
+      "revId": "0b5d4b5b7773cc20d5da2f9d19b54e1872ace85d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ceb3aeb2_5058dc6d",
+        "filename": "sumdb/internal/database/db.go",
+        "patchSetId": 21
+      },
+      "lineNbr": 354,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-05-01T00:43:45Z",
+      "side": 1,
+      "message": "I don\u0027t understand what this means.",
+      "range": {
+        "startLine": 354,
+        "startChar": 35,
+        "endLine": 354,
+        "endChar": 60
+      },
+      "revId": "0b5d4b5b7773cc20d5da2f9d19b54e1872ace85d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c30d594_ced82901",
+        "filename": "sumdb/internal/database/db.go",
+        "patchSetId": 21
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-05-01T00:43:45Z",
+      "side": 1,
+      "message": "I... suppose that would be weird, but it suggests something went wrong elsewhere (one of the two keys is wrong), so I\u0027m not sure I\u0027d check it here.",
+      "range": {
+        "startLine": 360,
+        "startChar": 35,
+        "endLine": 360,
+        "endChar": 71
+      },
+      "revId": "0b5d4b5b7773cc20d5da2f9d19b54e1872ace85d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c9a84be_7d9113e2",
+        "filename": "sumdb/internal/database/db.go",
+        "patchSetId": 21
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-05-01T00:43:45Z",
+      "side": 1,
+      "message": "Looks like we go ahead and write the first entry anyway. Sounds reasonable, but might be worth a comment.",
+      "revId": "0b5d4b5b7773cc20d5da2f9d19b54e1872ace85d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cafd589f_37a7771b",
+        "filename": "sumdb/internal/database/db.go",
+        "patchSetId": 21
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-05-01T00:43:45Z",
+      "side": 1,
+      "message": "This is going to wipe the \"different content for preexisting record\" error of duplicates.",
+      "revId": "0b5d4b5b7773cc20d5da2f9d19b54e1872ace85d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c1dc8dc_e4edb9c3",
+        "filename": "sumdb/internal/database/dbtest/test.go",
+        "patchSetId": 21
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-05-01T00:43:45Z",
+      "side": 1,
+      "message": "Feels worth adding a test for duplicate records, with and without the same content.",
+      "range": {
+        "startLine": 20,
+        "startChar": 5,
+        "endLine": 20,
+        "endChar": 16
+      },
+      "revId": "0b5d4b5b7773cc20d5da2f9d19b54e1872ace85d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
