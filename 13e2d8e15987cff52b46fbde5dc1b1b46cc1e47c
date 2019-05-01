@@ -45,6 +45,57 @@
       "revId": "13e2d8e15987cff52b46fbde5dc1b1b46cc1e47c",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b1f73e7f_94938627",
+        "filename": "sumdb/internal/googlecloud/spanner/spanner.go",
+        "patchSetId": 21
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-05-01T19:07:21Z",
+      "side": 1,
+      "message": "Looks like this field is unused.",
+      "revId": "13e2d8e15987cff52b46fbde5dc1b1b46cc1e47c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bec5cf92_2db2288c",
+        "filename": "sumdb/internal/googlecloud/spanner/spanner.go",
+        "patchSetId": 21
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-05-01T19:07:21Z",
+      "side": 1,
+      "message": "Any reason not to move this to a _test file?",
+      "revId": "13e2d8e15987cff52b46fbde5dc1b1b46cc1e47c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83b59ace_77548a57",
+        "filename": "sumdb/internal/googlecloud/spanner/spanner.go",
+        "patchSetId": 21
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-05-01T19:07:21Z",
+      "side": 1,
+      "message": "I believe this is documented to panic, not return an error.",
+      "revId": "13e2d8e15987cff52b46fbde5dc1b1b46cc1e47c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
     }
   ]
 }
