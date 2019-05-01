@@ -43,7 +43,7 @@ test.com/B test.com/A
 			if err != nil {
 				t.Fatal(err)
 			}
-			if err := g.print(out); err != nil {
+			if err := g.print(out, false); err != nil {
 				t.Fatal(err)
 			}
 
@@ -198,7 +198,7 @@ test.com/A@v1.2.3 test.com/B/v3@v3.4.5
 			if err != nil {
 				t.Fatal(err)
 			}
-			if err := g.print(&out); err != nil {
+			if err := g.print(&out, false); err != nil {
 				t.Fatal(err)
 			}
 
@@ -208,3 +208,5 @@ test.com/A@v1.2.3 test.com/B/v3@v3.4.5
 		})
 	}
 }
+
+// TODO(deklerk) tests for colourBuild

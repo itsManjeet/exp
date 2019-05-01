@@ -5,11 +5,14 @@ import (
 	"fmt"
 	"io"
 	"strings"
+
+	"golang.org/x/exp/cmd/modgraphviz/internal"
 )
 
 type graph struct {
-	root     *vertex
-	vertices map[string]*vertex
+	root         *vertex
+	vertices     map[string]*vertex
+	mvsBuildList []internal.Version
 }
 
 type vertex struct {
@@ -25,6 +28,11 @@ type vertex struct {
 func newGraph(in io.Reader, simple bool) (*graph, error) {
 	vertexMap := map[string]*vertex{}
 	var root string
+	var rootVersion internal.Version
+	var buildList []internal.Version
+	buildReq := make(internal.ReqsMap)
+	paths := map[string]bool{}
+
 	r := bufio.NewScanner(in)
 	for {
 		if !r.Scan() {
@@ -47,13 +55,38 @@ func newGraph(in io.Reader, simple bool) (*graph, error) {
 		if simple {
 			fromName = strings.Split(fromName, "@")[0]
 		}
+
+		fromNameParts := strings.Split(fromName, "@")
+		var fromVersion internal.Version
+		fromVersion.Path = fromNameParts[0]
+		if len(fromNameParts) > 1 {
+			fromVersion.Version = fromNameParts[1]
+		}
+
 		if root == "" {
 			root = fromName
+			rootVersion = fromVersion
 		}
 
 		toName := parts[1]
 		if simple {
 			toName = strings.Split(toName, "@")[0]
+		}
+
+		toNameParts := strings.Split(toName, "@")
+		toVersion := internal.Version{Path: toNameParts[0], Version: toNameParts[1]}
+
+		buildList = append(buildList, fromVersion)
+		paths[fromVersion.Path] = true
+		buildList = append(buildList, toVersion)
+		paths[toVersion.Path] = true
+		if req, ok := buildReq[fromVersion]; ok {
+			req = append(req, toVersion)
+		} else {
+			buildReq[fromVersion] = []internal.Version{toVersion}
+		}
+		if _, ok := buildReq[toVersion]; !ok {
+			buildReq[toVersion] = []internal.Version{}
 		}
 
 		fromVertex, fromVertexFound := vertexMap[fromName]
@@ -73,15 +106,35 @@ func newGraph(in io.Reader, simple bool) (*graph, error) {
 		fromVertex.edges = append(fromVertex.edges, toVertex)
 	}
 
+	mvsList, err := internal.Req(rootVersion, buildList, keysAsList(paths), buildReq)
+	if err != nil {
+		return nil, err
+	}
+
 	return &graph{
-		root:     vertexMap[root],
-		vertices: vertexMap,
+		root:         vertexMap[root],
+		vertices:     vertexMap,
+		mvsBuildList: mvsList,
 	}, nil
 }
 
+func keysAsList(in map[string]bool) []string {
+	var out []string
+	for k := range in {
+		out = append(out, k)
+	}
+	return out
+}
+
 // print prints the graph.
-func (g *graph) print(out io.Writer) error {
-	return g.printDFS(out, map[string]bool{}, g.root)
+func (g *graph) print(out io.Writer, colourBuild bool) error {
+	if err := g.printDFS(out, map[string]bool{}, g.root); err != nil {
+		return err
+	}
+	if colourBuild {
+		return g.printColours(out)
+	}
+	return nil
 }
 
 // printDFS traverses the graph depth first, printing each edge.
@@ -99,6 +152,19 @@ func (g *graph) printDFS(out io.Writer, visited map[string]bool, cursor *vertex)
 		}
 	}
 
+	return nil
+}
+
+func (g *graph) printColours(out io.Writer) error {
+	for _, v := range g.mvsBuildList {
+		var reconstructedName = v.Path
+		if v.Version != "" {
+			reconstructedName += "@" + v.Version
+		}
+		if _, err := fmt.Fprintf(out, "\t%q [style = filled, fillcolor = green]\n", reconstructedName); err != nil {
+			return err
+		}
+	}
 	return nil
 }
 
