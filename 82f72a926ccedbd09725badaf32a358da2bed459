@@ -1,0 +1,124 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0347bb5b_1148e21d",
+        "filename": "sumdb/internal/googlecloud/app/app.go",
+        "patchSetId": 14
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-05-01T19:17:14Z",
+      "side": 1,
+      "message": "2019?",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "82f72a926ccedbd09725badaf32a358da2bed459",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e4223cb5_7baa3aed",
+        "filename": "sumdb/internal/googlecloud/app/app.go",
+        "patchSetId": 14
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-05-01T19:17:14Z",
+      "side": 1,
+      "message": "Do we want to check this in unparametrized?",
+      "revId": "82f72a926ccedbd09725badaf32a358da2bed459",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79fb06ec_a80da997",
+        "filename": "sumdb/internal/googlecloud/app/app.go",
+        "patchSetId": 14
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-05-01T19:17:14Z",
+      "side": 1,
+      "message": "I assume this is a GCE thing, but otherwise it should probably be a flag.",
+      "revId": "82f72a926ccedbd09725badaf32a358da2bed459",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "8f234d58_47ce1011",
+        "filename": "sumdb/internal/googlecloud/app/app.go",
+        "patchSetId": 14
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-05-01T19:17:14Z",
+      "side": 1,
+      "message": "Not sure how strong a password you picked, but scrypt would be good security hygiene here.",
+      "range": {
+        "startLine": 146,
+        "startChar": 12,
+        "endLine": 146,
+        "endChar": 76
+      },
+      "revId": "82f72a926ccedbd09725badaf32a358da2bed459",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "60829fbc_8b931155",
+        "filename": "sumdb/internal/googlecloud/app/app.go",
+        "patchSetId": 14
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-05-01T19:17:14Z",
+      "side": 1,
+      "message": "This is usually handled in JS by setting textContent on the element you are creating.",
+      "revId": "82f72a926ccedbd09725badaf32a358da2bed459",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bc5983c8_88fe4a6d",
+        "filename": "sumdb/internal/googlecloud/app/app.yaml",
+        "patchSetId": 14
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 11715
+      },
+      "writtenOn": "2019-05-01T19:17:14Z",
+      "side": 1,
+      "message": "/record is gone",
+      "range": {
+        "startLine": 8,
+        "startChar": 23,
+        "endLine": 8,
+        "endChar": 29
+      },
+      "revId": "82f72a926ccedbd09725badaf32a358da2bed459",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
