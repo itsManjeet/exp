@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "751e23a4_95d92e41",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2019-05-08T06:20:31Z",
+      "side": 1,
+      "message": "Drop the \"exp/\".",
+      "range": {
+        "startLine": 7,
+        "startChar": 4,
+        "endLine": 7,
+        "endChar": 9
+      },
+      "revId": "48b347813f9dbe695ddcd6005a021b5e87347888",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9ce4f582_b13687d5",
+        "filename": "shiny/driver/internal/x11key/x11key.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2019-05-08T06:20:31Z",
+      "side": 1,
+      "message": "Should this instead be\n\nif state\u0026(LockMask|ShiftMask) !\u003d 0 { etc }\n\nand revert the changes below??",
+      "revId": "48b347813f9dbe695ddcd6005a021b5e87347888",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
