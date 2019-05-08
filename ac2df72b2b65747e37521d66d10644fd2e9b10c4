@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "320a5cc1_69790985",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5821
+      },
+      "writtenOn": "2019-05-08T13:44:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "687b4b52_26826f5c",
+      "range": {
+        "startLine": 7,
+        "startChar": 10,
+        "endLine": 7,
+        "endChar": 11
+      },
+      "revId": "ac2df72b2b65747e37521d66d10644fd2e9b10c4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d4dcf1f4_37860b17",
         "filename": "shiny/driver/internal/x11key/x11key.go",
         "patchSetId": 3
@@ -36,6 +60,24 @@
       "writtenOn": "2019-05-08T06:20:12Z",
       "side": 1,
       "message": "This assignment to r overwrites the one above. Is that what we always want to do (whether Num-Lock is on or off)??",
+      "revId": "ac2df72b2b65747e37521d66d10644fd2e9b10c4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "15ebbbd5_b67a5338",
+        "filename": "shiny/driver/internal/x11key/x11key.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 5821
+      },
+      "writtenOn": "2019-05-08T13:44:04Z",
+      "side": 1,
+      "message": "Yes, the assignment above selects the keysym and writes it in \u0027r\u0027, this series of ifs converts the keysym into a rune (also in \u0027r\u0027). Really the problem is when none of the if-else conditions applies and the keysym gets returned as a rune. I\u0027ve been thinking that maybe it would be better to add an \u0027else\u0027 branch and zero \u0027r\u0027, but maybe somebody relies on some keysyms leaking here, IDK.",
+      "parentUuid": "d4dcf1f4_37860b17",
       "revId": "ac2df72b2b65747e37521d66d10644fd2e9b10c4",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "d6f72645_7f20b446",
+        "filename": "shiny/driver/internal/x11key/x11key.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 5821
+      },
+      "writtenOn": "2019-05-08T13:44:04Z",
+      "side": 1,
+      "message": "I believe so.",
+      "parentUuid": "eef5008c_a17d689f",
+      "revId": "ac2df72b2b65747e37521d66d10644fd2e9b10c4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e2219e1_7014c7f6",
         "filename": "shiny/driver/x11driver/screen.go",
         "patchSetId": 3
@@ -76,6 +136,24 @@
     },
     {
       "key": {
+        "uuid": "72dd4483_92fc4fd1",
+        "filename": "shiny/driver/x11driver/screen.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 5821
+      },
+      "writtenOn": "2019-05-08T13:44:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e2219e1_7014c7f6",
+      "revId": "ac2df72b2b65747e37521d66d10644fd2e9b10c4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a633eba_975bdedf",
         "filename": "shiny/driver/x11driver/screen.go",
         "patchSetId": 3
@@ -87,6 +165,30 @@
       "writtenOn": "2019-05-08T06:20:12Z",
       "side": 1,
       "message": "Is this just:\n\nif s.keysyms[mm.Keycodes[modifier*int(mm.KeycodesPerModifier)+i]][0] \u003d\u003d key.CodeKeypadNumLock {",
+      "range": {
+        "startLine": 496,
+        "startChar": 3,
+        "endLine": 496,
+        "endChar": 126
+      },
+      "revId": "ac2df72b2b65747e37521d66d10644fd2e9b10c4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ac7d25da_9704ab46",
+        "filename": "shiny/driver/x11driver/screen.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 5821
+      },
+      "writtenOn": "2019-05-08T13:44:04Z",
+      "side": 1,
+      "message": "No, because s.keysyms maps keycodes to X11 keysyms, so it would be \n\n s.keysyms[mm.Keycodes[modifier*int(mm.KeycodesPerModifier)+i]][0] \u003d\u003d x11key.xkNumLock\n\nbut x11key.xkNumLock isn\u0027t exported.",
+      "parentUuid": "9a633eba_975bdedf",
       "range": {
         "startLine": 496,
         "startChar": 3,
