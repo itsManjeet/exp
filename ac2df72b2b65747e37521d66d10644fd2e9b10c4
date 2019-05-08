@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "687b4b52_26826f5c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2019-05-08T06:20:12Z",
+      "side": 1,
+      "message": "Drop the \"exp/\".",
+      "range": {
+        "startLine": 7,
+        "startChar": 10,
+        "endLine": 7,
+        "endChar": 11
+      },
+      "revId": "ac2df72b2b65747e37521d66d10644fd2e9b10c4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4dcf1f4_37860b17",
+        "filename": "shiny/driver/internal/x11key/x11key.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2019-05-08T06:20:12Z",
+      "side": 1,
+      "message": "This assignment to r overwrites the one above. Is that what we always want to do (whether Num-Lock is on or off)??",
+      "revId": "ac2df72b2b65747e37521d66d10644fd2e9b10c4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eef5008c_a17d689f",
+        "filename": "shiny/driver/internal/x11key/x11key.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2019-05-08T06:20:12Z",
+      "side": 1,
+      "message": "Is this done?",
+      "revId": "ac2df72b2b65747e37521d66d10644fd2e9b10c4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e2219e1_7014c7f6",
+        "filename": "shiny/driver/x11driver/screen.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2019-05-08T06:20:12Z",
+      "side": 1,
+      "message": "Please add a full stop so that the comment is a complete sentence.",
+      "revId": "ac2df72b2b65747e37521d66d10644fd2e9b10c4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a633eba_975bdedf",
+        "filename": "shiny/driver/x11driver/screen.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2019-05-08T06:20:12Z",
+      "side": 1,
+      "message": "Is this just:\n\nif s.keysyms[mm.Keycodes[modifier*int(mm.KeycodesPerModifier)+i]][0] \u003d\u003d key.CodeKeypadNumLock {",
+      "range": {
+        "startLine": 496,
+        "startChar": 3,
+        "endLine": 496,
+        "endChar": 126
+      },
+      "revId": "ac2df72b2b65747e37521d66d10644fd2e9b10c4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}

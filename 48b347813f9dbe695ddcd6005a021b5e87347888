@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "207fa4b8_c58188d9",
+        "filename": "shiny/driver/internal/x11key/x11key.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2019-05-08T06:20:12Z",
+      "side": 0,
+      "message": "What is the value of unshifted when you hit the number-pad \u00272\u0027 key, with or without Num-Lock?",
+      "revId": "48b347813f9dbe695ddcd6005a021b5e87347888",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
