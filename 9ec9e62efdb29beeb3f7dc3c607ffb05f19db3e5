@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "f9523869_284548b9",
+        "filename": "cmd/modgraphviz/graph.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2019-05-13T16:17:45Z",
+      "side": 1,
+      "message": "Done\n\nSimplified even further to just map[string]bool, since we only use it for name lookups.",
+      "parentUuid": "0aea74df_0bad6d4d",
+      "revId": "9ec9e62efdb29beeb3f7dc3c607ffb05f19db3e5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fbe963f4_89dd2876",
         "filename": "cmd/modgraphviz/graph.go",
         "patchSetId": 5
@@ -39,6 +57,30 @@
       "revId": "9ec9e62efdb29beeb3f7dc3c607ffb05f19db3e5",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7a18bc16_b2e8361b",
+        "filename": "cmd/modgraphviz/graph.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2019-05-13T16:17:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fbe963f4_89dd2876",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 3
+      },
+      "revId": "9ec9e62efdb29beeb3f7dc3c607ffb05f19db3e5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "443bb1cb_e48f0f55",
+        "filename": "cmd/modgraphviz/graph.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2019-05-13T16:17:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ddb678dc_c9289f0e",
+      "range": {
+        "startLine": 50,
+        "startChar": 14,
+        "endLine": 50,
+        "endChar": 29
+      },
+      "revId": "9ec9e62efdb29beeb3f7dc3c607ffb05f19db3e5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4b058e8a_39a127ea",
         "filename": "cmd/modgraphviz/graph.go",
         "patchSetId": 5
@@ -85,6 +151,30 @@
       "revId": "9ec9e62efdb29beeb3f7dc3c607ffb05f19db3e5",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7fc94778_e3c299dc",
+        "filename": "cmd/modgraphviz/graph.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2019-05-13T16:17:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b058e8a_39a127ea",
+      "range": {
+        "startLine": 54,
+        "startChar": 38,
+        "endLine": 54,
+        "endChar": 58
+      },
+      "revId": "9ec9e62efdb29beeb3f7dc3c607ffb05f19db3e5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "118157f0_d959f6ae",
+        "filename": "cmd/modgraphviz/graph.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2019-05-13T16:17:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5938e6ac_59750ea6",
+      "range": {
+        "startLine": 60,
+        "startChar": 34,
+        "endLine": 60,
+        "endChar": 54
+      },
+      "revId": "9ec9e62efdb29beeb3f7dc3c607ffb05f19db3e5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a16bd61_8a645168",
         "filename": "cmd/modgraphviz/graph.go",
         "patchSetId": 5
@@ -122,6 +236,30 @@
       "writtenOn": "2019-05-02T21:37:11Z",
       "side": 1,
       "message": "Odd name. How about `v`?",
+      "range": {
+        "startLine": 79,
+        "startChar": 65,
+        "endLine": 79,
+        "endChar": 71
+      },
+      "revId": "9ec9e62efdb29beeb3f7dc3c607ffb05f19db3e5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "724b0c0a_acb1dc63",
+        "filename": "cmd/modgraphviz/graph.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2019-05-13T16:17:45Z",
+      "side": 1,
+      "message": "We\u0027ve used it fairly extensively throughout to imply \"thing that moves through a graph\". I\u0027ve seen this used in graph and tree traversal - let me know if it still seems weird to you though.",
+      "parentUuid": "9a16bd61_8a645168",
       "range": {
         "startLine": 79,
         "startChar": 65,
@@ -151,6 +289,24 @@
     },
     {
       "key": {
+        "uuid": "c2102844_8e594325",
+        "filename": "cmd/modgraphviz/graph.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2019-05-13T16:17:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26340a78_8e7015a9",
+      "revId": "9ec9e62efdb29beeb3f7dc3c607ffb05f19db3e5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6e8f7b8e_996259b6",
         "filename": "cmd/modgraphviz/graph.go",
         "patchSetId": 5
@@ -174,6 +330,30 @@
     },
     {
       "key": {
+        "uuid": "abd1c3f3_b6002a23",
+        "filename": "cmd/modgraphviz/graph.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2019-05-13T16:17:45Z",
+      "side": 1,
+      "message": "Done\n\nRenamed to edge, since we called the slice edges.",
+      "parentUuid": "6e8f7b8e_996259b6",
+      "range": {
+        "startLine": 84,
+        "startChar": 8,
+        "endLine": 84,
+        "endChar": 12
+      },
+      "revId": "9ec9e62efdb29beeb3f7dc3c607ffb05f19db3e5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "6755780e_e6c97352",
         "filename": "cmd/modgraphviz/graph.go",
         "patchSetId": 5
@@ -191,6 +371,24 @@
     },
     {
       "key": {
+        "uuid": "22d35d6c_6384a0de",
+        "filename": "cmd/modgraphviz/graph.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2019-05-13T16:17:45Z",
+      "side": 1,
+      "message": "Done\n\nWe had talked about this and kind of waffled on which way to go. Your review comment prompted us just to go ahead and do that change. This ended up revealing several bugs (for which we\u0027ve added tests and fixes). Thanks, good suggestion.",
+      "parentUuid": "6755780e_e6c97352",
+      "revId": "9ec9e62efdb29beeb3f7dc3c607ffb05f19db3e5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c6586e0d_d71be6ff",
         "filename": "cmd/modgraphviz/graph.go",
         "patchSetId": 5
@@ -205,6 +403,24 @@
       "revId": "9ec9e62efdb29beeb3f7dc3c607ffb05f19db3e5",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b7698520_a6118b51",
+        "filename": "cmd/modgraphviz/graph.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2019-05-13T16:17:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6586e0d_d71be6ff",
+      "revId": "9ec9e62efdb29beeb3f7dc3c607ffb05f19db3e5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -228,6 +444,30 @@
       "revId": "9ec9e62efdb29beeb3f7dc3c607ffb05f19db3e5",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d976c2e9_e290ca95",
+        "filename": "cmd/modgraphviz/graph.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2019-05-13T16:17:45Z",
+      "side": 1,
+      "message": "Ack\n\n(this code was rewritten)",
+      "parentUuid": "d7afaed3_469e8476",
+      "range": {
+        "startLine": 116,
+        "startChar": 2,
+        "endLine": 120,
+        "endChar": 4
+      },
+      "revId": "9ec9e62efdb29beeb3f7dc3c607ffb05f19db3e5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -278,6 +518,30 @@
     },
     {
       "key": {
+        "uuid": "be5b28d5_f28160ca",
+        "filename": "cmd/modgraphviz/main.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2019-05-13T16:17:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c3d87a6_aab80dd9",
+      "range": {
+        "startLine": 20,
+        "startChar": 27,
+        "endLine": 20,
+        "endChar": 34
+      },
+      "revId": "9ec9e62efdb29beeb3f7dc3c607ffb05f19db3e5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "435e6442_a1afd8b3",
         "filename": "cmd/modgraphviz/main_test.go",
         "patchSetId": 5
@@ -292,6 +556,24 @@
       "revId": "9ec9e62efdb29beeb3f7dc3c607ffb05f19db3e5",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "64407ff5_26111005",
+        "filename": "cmd/modgraphviz/main_test.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2019-05-13T16:17:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "435e6442_a1afd8b3",
+      "revId": "9ec9e62efdb29beeb3f7dc3c607ffb05f19db3e5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -335,6 +617,48 @@
     },
     {
       "key": {
+        "uuid": "e5fd55da_964bf3fe",
+        "filename": "cmd/modgraphviz/main_test.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2019-05-13T16:17:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2523e75c_21a48cfa",
+      "range": {
+        "startLine": 35,
+        "startChar": 5,
+        "endLine": 35,
+        "endChar": 19
+      },
+      "revId": "9ec9e62efdb29beeb3f7dc3c607ffb05f19db3e5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f11f3d85_ad1e2b61",
+        "filename": "cmd/modgraphviz/main_test.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2019-05-13T16:17:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50d42a67_90aa3002",
+      "revId": "9ec9e62efdb29beeb3f7dc3c607ffb05f19db3e5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "298ef040_5a707730",
         "filename": "cmd/modgraphviz/main_test.go",
         "patchSetId": 5
@@ -349,6 +673,24 @@
       "revId": "9ec9e62efdb29beeb3f7dc3c607ffb05f19db3e5",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8bffd714_65a0f0ed",
+        "filename": "cmd/modgraphviz/main_test.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2019-05-13T16:17:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "298ef040_5a707730",
+      "revId": "9ec9e62efdb29beeb3f7dc3c607ffb05f19db3e5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -372,6 +714,30 @@
       "revId": "9ec9e62efdb29beeb3f7dc3c607ffb05f19db3e5",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4423b3f4_82ef4381",
+        "filename": "cmd/modgraphviz/main_test.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2019-05-13T16:17:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bfaa96c_a01596cd",
+      "range": {
+        "startLine": 103,
+        "startChar": 5,
+        "endLine": 103,
+        "endChar": 28
+      },
+      "revId": "9ec9e62efdb29beeb3f7dc3c607ffb05f19db3e5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
