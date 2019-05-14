@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "69922a5a_7aa83ceb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 21
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2019-05-14T15:59:17Z",
+      "side": 1,
+      "message": "Yes, I believe it is. This is a good use of a submodule - completely isolate the basic sumdb dependency tree from any changes made in the (really far too large) dependency pulled in by using the Google Cloud APIs.\n\nYou should be able to write a sumdb-using client without even needing to think about the fact that Google Cloud API libraries exist.",
+      "parentUuid": "3ca256e7_3a4dbdcf",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 63
+      },
+      "revId": "13e2d8e15987cff52b46fbde5dc1b1b46cc1e47c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d3cd7595_028a0e19",
         "filename": "sumdb/internal/googlecloud/go.mod",
         "patchSetId": 21
@@ -36,6 +60,30 @@
       "writtenOn": "2019-05-01T00:47:34Z",
       "side": 1,
       "message": "?\n\nI see the replace, but what if this is not the main module?",
+      "range": {
+        "startLine": 8,
+        "startChar": 24,
+        "endLine": 8,
+        "endChar": 58
+      },
+      "revId": "13e2d8e15987cff52b46fbde5dc1b1b46cc1e47c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e65e5829_0e319c7a",
+        "filename": "sumdb/internal/googlecloud/go.mod",
+        "patchSetId": 21
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2019-05-14T15:59:17Z",
+      "side": 1,
+      "message": "Re the ?, this is what the go command adds automatically when the replaced copy is the only thing that has ever been used.\n\nI will update this to a real version later.",
+      "parentUuid": "d3cd7595_028a0e19",
       "range": {
         "startLine": 8,
         "startChar": 24,
