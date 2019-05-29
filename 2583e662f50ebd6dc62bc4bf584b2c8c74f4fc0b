@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3f68c076_b04a8217",
+        "filename": "cmd/modgraphviz/graph.go",
+        "patchSetId": 9
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2019-05-29T15:39:29Z",
+      "side": 1,
+      "message": "I think this can be optimized to an algorithm with better complexity. Currently, it can visit a node multiple times when it\u0027s reachable along multiple paths.\n\nIt should be possible to visit each vertex only once with a depth first search. Keep a set of vertices from which needle is reachable. In post-order, a vertex should be added to this set if it is needle or if one of its neighbors is in the set. After the traversal, you can construct the new graph with that set of vertices and the edges between those vertices.",
+      "revId": "2583e662f50ebd6dc62bc4bf584b2c8c74f4fc0b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1429d8ea_0e4ed3b4",
+        "filename": "cmd/modgraphviz/main_test.go",
+        "patchSetId": 9
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2019-05-29T15:39:29Z",
+      "side": 1,
+      "message": "The alignment doesn\u0027t look quite right -- I think we have different tab width settings. Maybe change to // comments and use spaces for alignment?",
+      "revId": "2583e662f50ebd6dc62bc4bf584b2c8c74f4fc0b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
