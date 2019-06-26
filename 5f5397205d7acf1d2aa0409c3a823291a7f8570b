@@ -2,6 +2,57 @@
   "comments": [
     {
       "key": {
+        "uuid": "a5dd31a3_1fd5a647",
+        "filename": "cmd/modgraphviz/graph.go",
+        "patchSetId": 13
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2019-06-26T21:08:53Z",
+      "side": 1,
+      "message": "There is no blank line above this one.\nThat will make the copyright notice appear as a doc comment\n(try \u0027go doc\u0027).\nThere should be a blank line.",
+      "revId": "5f5397205d7acf1d2aa0409c3a823291a7f8570b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "db2978eb_f0ba0480",
+        "filename": "cmd/modgraphviz/graph.go",
+        "patchSetId": 13
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2019-06-26T21:08:53Z",
+      "side": 1,
+      "message": "Can I suggest that you use:\n\n    type graph []edge\n\n    type edge struct {\n        from, to string\n    }\n\nThat will preserve the order and be trivial to construct and turn back into text.\nAlgorithms can build whatever other representations they want easily enough.\n\nAlso, I think probably instead of -to m@v the operation should be -focus m@v,\nlike in pprof, where it narrows the graph to all paths that pass through\nthe target. That makes it useful for both seeing \"how do I get to m@v\"\n(all the paths leading up to m@v) and also \"what does m@v pull in?\"\n(all the paths coming out from m@v). In the display, dot will put m@v\nin the middle, with an hourglass-shaped graph around it.",
+      "revId": "5f5397205d7acf1d2aa0409c3a823291a7f8570b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ff853d12_b4d21f1c",
+        "filename": "cmd/modgraphviz/graph.go",
+        "patchSetId": 13
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2019-06-26T21:08:53Z",
+      "side": 1,
+      "message": "I don\u0027t fully follow this code, but if you use the representation I suggested above, here is much simpler code to implement the \u0027focus\u0027 operation I mentioned\nby flooding in reverse and forward from the target.\n\n\tfunc focus(g graph, target string) []edge {\n\t\tkeep :\u003d make(map[edge]bool)\n\n\t\t// Keep edges reachable in reverse flood from target.\n\t\trev :\u003d make(map[string][]edge)\n\t\tfor _, e :\u003d range g {\n\t\t\trev[e.to] \u003d append(rev[e.to], e)\n\t\t}\n\t\tvisited :\u003d map[string]bool{target: true}\n\t\tq :\u003d rev[target]\n\t\tfor i :\u003d 0; i \u003c len(q); i++ {\n\t\t\te :\u003d q[i]\n\t\t\tkeep[e] \u003d true\n\t\t\tif !visited[e.from] {\n\t\t\t\tvisited[e.from] \u003d true\n\t\t\t\tq \u003d append(q, rev[e.from]...)\n\t\t\t}\n\t\t}\n\t\n\t\t// Also keep edges reachable in forward flood from target.\n\t\tfwd :\u003d make(map[string][]edge)\n\t\tfor _, e :\u003d range g {\n\t\t\tfwd[e.from] \u003d append(fwd[e.from], e)\n\t\t}\n\t\tvisited \u003d map[string]bool{target: true}\n\t\tq \u003d fwd[target]\n\t\tfor i :\u003d 0; i \u003c len(q); i++ {\n\t\t\te :\u003d q[i]\n\t\t\tkeep[e] \u003d true\n\t\t\tif !visited[e.to] {\n\t\t\t\tvisited[e.to] \u003d true\n\t\t\t\tq \u003d append(q, fwd[e.to]...)\n\t\t\t}\n\t\t}\n\t\n\t\t// Filter graph to just the edges we want to keep.\n\t\tvar out graph\n\t\tfor _, e :\u003d range g {\n\t\t\tif keep[e] {\n\t\t\t\tout \u003d append(out, e)\n\t\t\t}\n\t\t}\n\t\treturn out\n\t}",
+      "revId": "5f5397205d7acf1d2aa0409c3a823291a7f8570b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "ec56d782_b5014dfd",
         "filename": "cmd/modgraphviz/main.go",
         "patchSetId": 13
@@ -47,6 +98,23 @@
       "writtenOn": "2019-06-26T19:39:18Z",
       "side": 1,
       "message": "This is more an example than a usage. Once you have an actual flag it\u0027s time to have a real usage message, which would be:\n\nUsage: modgraphviz [-to module@vers]\n\nfollowed by calling flag.PrintDefaults() and leave the examples for `go doc modgraphviz`.",
+      "revId": "5f5397205d7acf1d2aa0409c3a823291a7f8570b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5bd4c689_b8e95473",
+        "filename": "cmd/modgraphviz/main_test.go",
+        "patchSetId": 13
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2019-06-26T21:08:53Z",
+      "side": 1,
+      "message": "The blank line above this one should not have been deleted.",
       "revId": "5f5397205d7acf1d2aa0409c3a823291a7f8570b",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
