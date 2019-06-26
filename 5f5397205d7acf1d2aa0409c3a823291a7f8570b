@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ec56d782_b5014dfd",
+        "filename": "cmd/modgraphviz/main.go",
+        "patchSetId": 13
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2019-06-26T19:39:18Z",
+      "side": 1,
+      "message": "Go treats -flag and --flag identically, and it is idiomatic to write -flag, not --flag.\nWhen showing a flag that takes an argument, show the argument.\nSo \"[-to path]\".",
+      "revId": "5f5397205d7acf1d2aa0409c3a823291a7f8570b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b216464c_b1fbd075",
+        "filename": "cmd/modgraphviz/main.go",
+        "patchSetId": 13
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2019-06-26T19:39:18Z",
+      "side": 1,
+      "message": "var to \u003d flag.String(\"to\", \"\", \"show only the subgraph leading to `module@version`\")\n\nThe backquote syntax makes the flag look nice in flag.PrintDefaults\n(see \u0027go doc flag.PrintDefaults\u0027).",
+      "revId": "5f5397205d7acf1d2aa0409c3a823291a7f8570b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "519522c9_a7eb02ea",
+        "filename": "cmd/modgraphviz/main.go",
+        "patchSetId": 13
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2019-06-26T19:39:18Z",
+      "side": 1,
+      "message": "This is more an example than a usage. Once you have an actual flag it\u0027s time to have a real usage message, which would be:\n\nUsage: modgraphviz [-to module@vers]\n\nfollowed by calling flag.PrintDefaults() and leave the examples for `go doc modgraphviz`.",
+      "revId": "5f5397205d7acf1d2aa0409c3a823291a7f8570b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
