@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ed684f34_53965eda",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2019-06-26T19:08:11Z",
+      "side": 1,
+      "message": "Remove this, that way way the commit message will begin with a verb (per golang.org/wiki/CommitMessage).",
+      "range": {
+        "startLine": 7,
+        "startChar": 17,
+        "endLine": 7,
+        "endChar": 28
+      },
+      "revId": "c30efd51b9a4df416f3a275614447c5e45035c82",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a3fcd6df_fb3e6df3",
+        "filename": "cmd/modgraphviz/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2019-06-26T19:08:11Z",
+      "side": 1,
+      "message": "The name and signature of this function alone doesn\u0027t communicate what is being converted, so a short comment might be helpful:\n\n   // convert reads “go mod graph” output from r\n   // and converts it to Graphviz\u0027s DOT language.",
+      "revId": "c30efd51b9a4df416f3a275614447c5e45035c82",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
