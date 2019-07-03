@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-// +build !android
+// +build cgo,!android
 
 // Package glwidget provides a widget containing a GL ES framebuffer.
 package glwidget
