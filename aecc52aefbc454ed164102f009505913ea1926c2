@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d30239f_d511f75a",
+        "filename": "cmd/modgraphviz/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2019-07-12T17:40:38Z",
+      "side": 1,
+      "message": "Consider rephrasing a bit, here and below:\n\nFor each module, the node representing the greatest version (i.e., the version chosen by Go\u0027s minimal version selection algorithm) is colored green. Other nodes are colored grey.",
+      "revId": "aecc52aefbc454ed164102f009505913ea1926c2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cce95c61_3967ad5f",
+        "filename": "cmd/modgraphviz/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2019-07-12T17:40:38Z",
+      "side": 1,
+      "message": "Avoid mentioning color in this function\u0027s name or documentation. We may want to change the style later. If we decide next week to make the MVS-chosen nodes yellow and bold instead of green, we should be able to just edit a style string. We shouldn\u0027t need to rename anything.\n\nInstead, just return a map[string]bool of the module versions MVS would choose.\n\nOne other nit: use \"color\" instead of \"colour\" for consistency. There are many occurrences of \"color\" in the Go code base, but not one instance of \"colour\".",
+      "revId": "aecc52aefbc454ed164102f009505913ea1926c2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "383bf171_e3a5060d",
+        "filename": "cmd/modgraphviz/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2019-07-12T17:40:38Z",
+      "side": 1,
+      "message": "If you\u0027re just returning a map[string]bool, this can be simplified quite a bit:\n\nlatest :\u003d make(map[string]string) // module path -\u003e greatest version\nfor node in nodes\n  split path and version\n  if semver.Compare(latest[path], version) \u003c 0\n    latest[path] \u003d version\n...",
+      "revId": "aecc52aefbc454ed164102f009505913ea1926c2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3c2e3bc8_f5178fe9",
+        "filename": "cmd/modgraphviz/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2019-07-12T17:40:38Z",
+      "side": 1,
+      "message": "Use golang.org/x/mod/semver for parsing and comparing versions. Doing this manually is surprisingly error-prone. For example, strconv.Atoi will return an error if the version number is too large be an int.",
+      "revId": "aecc52aefbc454ed164102f009505913ea1926c2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
