@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "28a25bc4_2d659a1f",
+        "filename": "cmd/modgraphviz/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2019-07-17T23:27:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "83186788_711eaa1f",
+      "revId": "e7496f954a0db97faf48af97dfafefa0f688c55d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "48470f0f_59afd88a",
         "filename": "cmd/modgraphviz/main.go",
         "patchSetId": 3
@@ -33,6 +51,24 @@
       "revId": "e7496f954a0db97faf48af97dfafefa0f688c55d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df30387c_ff6736d5",
+        "filename": "cmd/modgraphviz/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2019-07-17T23:27:46Z",
+      "side": 1,
+      "message": "Done\n\nI choose the latter and turned it into a graph, since we need that in the next CL (cycle detection). WDYT?",
+      "parentUuid": "48470f0f_59afd88a",
+      "revId": "e7496f954a0db97faf48af97dfafefa0f688c55d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "4ff63be5_f346fb28",
+        "filename": "cmd/modgraphviz/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2019-07-17T23:27:46Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "81fdbc6b_3ec18451",
+      "revId": "e7496f954a0db97faf48af97dfafefa0f688c55d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "63f73cd0_24244fb5",
         "filename": "cmd/modgraphviz/main.go",
         "patchSetId": 3
@@ -67,6 +121,24 @@
       "revId": "e7496f954a0db97faf48af97dfafefa0f688c55d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "235255e4_22283b76",
+        "filename": "cmd/modgraphviz/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2019-07-17T23:27:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63f73cd0_24244fb5",
+      "revId": "e7496f954a0db97faf48af97dfafefa0f688c55d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -87,6 +159,24 @@
     },
     {
       "key": {
+        "uuid": "22eecd5e_602a5c99",
+        "filename": "cmd/modgraphviz/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2019-07-17T23:27:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eaeba235_2285e6ec",
+      "revId": "e7496f954a0db97faf48af97dfafefa0f688c55d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df34e246_37280135",
         "filename": "cmd/modgraphviz/main.go",
         "patchSetId": 3
@@ -104,6 +194,24 @@
     },
     {
       "key": {
+        "uuid": "a386317b_143648cd",
+        "filename": "cmd/modgraphviz/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2019-07-17T23:27:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df34e246_37280135",
+      "revId": "e7496f954a0db97faf48af97dfafefa0f688c55d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "35673ac9_03cb51b0",
         "filename": "cmd/modgraphviz/main.go",
         "patchSetId": 3
@@ -118,6 +226,24 @@
       "revId": "e7496f954a0db97faf48af97dfafefa0f688c55d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d1c0c09a_5657d182",
+        "filename": "cmd/modgraphviz/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2019-07-17T23:27:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35673ac9_03cb51b0",
+      "revId": "e7496f954a0db97faf48af97dfafefa0f688c55d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
