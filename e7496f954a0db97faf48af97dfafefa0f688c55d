@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "83186788_711eaa1f",
+        "filename": "cmd/modgraphviz/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2019-07-17T17:11:28Z",
+      "side": 1,
+      "message": "I wonder if this can be made even simpler?\n\n* Keep a map[string]string with the latest version of each module, and a map[string]struct{} with all versions.\n* For each line of stdin, add to the set of all versions and update the latest version if \"from\" or \"to\" nodes have a greater version, according to semver.Compare.\n* At the end of stdin, iterate over all versions and print colors, depending on whether they\u0027re in the latest set or not.",
+      "revId": "e7496f954a0db97faf48af97dfafefa0f688c55d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48470f0f_59afd88a",
+        "filename": "cmd/modgraphviz/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2019-07-17T17:11:28Z",
+      "side": 1,
+      "message": "This function operates at multiple levels of abstraction: it parses r, and it returns []byte (formatted output) and []string (representation of content). It would be better to either a) have a function that parses the input and formats the output in one pass without returning any other representation or b) have separate functions for parsing input and formatting output with some named type for the representation.",
+      "revId": "e7496f954a0db97faf48af97dfafefa0f688c55d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81fdbc6b_3ec18451",
+        "filename": "cmd/modgraphviz/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2019-07-17T17:11:28Z",
+      "side": 1,
+      "message": "Nit: use named return values when returning multiple values of the same type.",
+      "revId": "e7496f954a0db97faf48af97dfafefa0f688c55d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "63f73cd0_24244fb5",
+        "filename": "cmd/modgraphviz/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2019-07-17T17:11:28Z",
+      "side": 1,
+      "message": "Nit: this can be simplified to:\n\nnodes \u003d make([]string, 0, len(nodeSet))\nfor n :\u003d range nodeSet {\n  nodes \u003d append(nodes, n)\n}",
+      "revId": "e7496f954a0db97faf48af97dfafefa0f688c55d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eaeba235_2285e6ec",
+        "filename": "cmd/modgraphviz/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2019-07-17T17:11:28Z",
+      "side": 1,
+      "message": "Instead of using multiple levels of maps, define a struct type for the key and just use one level. The type may be inline in the function. This is more readable (no need for the comment), and it\u0027s more efficient (less allocation, less pointer chasing).",
+      "revId": "e7496f954a0db97faf48af97dfafefa0f688c55d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df34e246_37280135",
+        "filename": "cmd/modgraphviz/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2019-07-17T17:11:28Z",
+      "side": 1,
+      "message": "Nit: when there are just two parts, I think a better idiom is:\n\nvar module, version string\nif i :\u003d strings.IndexByte(n, \u0027@\u0027); i \u003e\u003d 0 {\n  module, version \u003d n[:i], n[i+1:]\n} else {\n  module \u003d n\n  // Root node doesn\u0027t have a version.\n}\n\nThis means you don\u0027t need to allocate a slice, and you don\u0027t have to check len(parts) \u003e 2.",
+      "revId": "e7496f954a0db97faf48af97dfafefa0f688c55d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35673ac9_03cb51b0",
+        "filename": "cmd/modgraphviz/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2019-07-17T17:11:28Z",
+      "side": 1,
+      "message": "Why handle the major version at all? Modules with different major versions will have different module paths, so they\u0027ll already be tracked separately.",
+      "revId": "e7496f954a0db97faf48af97dfafefa0f688c55d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
