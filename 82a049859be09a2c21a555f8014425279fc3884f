@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "64a54c2f_4fce6fb2",
+        "filename": "cmd/modgraphviz/main.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2019-07-18T20:07:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc415076_cd7d2d48",
+      "revId": "82a049859be09a2c21a555f8014425279fc3884f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "d997b501_8455ed8a",
         "filename": "cmd/modgraphviz/main.go",
         "patchSetId": 5
@@ -33,6 +51,24 @@
       "revId": "82a049859be09a2c21a555f8014425279fc3884f",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d6653012_874174f3",
+        "filename": "cmd/modgraphviz/main.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2019-07-18T20:07:13Z",
+      "side": 1,
+      "message": "Ack\n\nIt is deterministic since there\u0027s no map involved. I had to reorder a couple of test assertions but nothing major. I figured avoiding the extra sort was a nice-to-have.",
+      "parentUuid": "d997b501_8455ed8a",
+      "revId": "82a049859be09a2c21a555f8014425279fc3884f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
