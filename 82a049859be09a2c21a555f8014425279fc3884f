@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bc415076_cd7d2d48",
+        "filename": "cmd/modgraphviz/main.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2019-07-18T18:06:35Z",
+      "side": 1,
+      "message": "Tiny nit: This is correct, but \u0027semver.Compare(maxV, v) \u003c 0\u0027 would be slightly more idiomatic. It makes it clear that this is like the \u003c operator. Also, it supports functions that don\u0027t specifically return +1 or -1 (for example, you might compare two integers a, b by returning a - b).",
+      "revId": "82a049859be09a2c21a555f8014425279fc3884f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d997b501_8455ed8a",
+        "filename": "cmd/modgraphviz/main.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2019-07-18T18:06:35Z",
+      "side": 1,
+      "message": "Should g.mvsUnpicked also be sorted? I think this is all deterministic, but it might be hard to write a test for without sorting these.",
+      "revId": "82a049859be09a2c21a555f8014425279fc3884f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
