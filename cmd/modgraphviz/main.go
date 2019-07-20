@@ -71,6 +71,7 @@ func modgraphviz(in io.Reader, out io.Writer) error {
 	}
 
 	fmt.Fprintf(out, "digraph gomodgraph {\n")
+	fmt.Fprintf(out, "\tnode [ shape=rectangle fontsize=12 ]\n")
 	out.Write(graph.edgesAsDOT())
 	for _, n := range graph.mvsPicked {
 		fmt.Fprintf(out, "\t%q [style = filled, fillcolor = green]\n", n)
@@ -107,8 +108,8 @@ func convert(r io.Reader) (*graph, error) {
 		if len(parts) != 2 {
 			return nil, fmt.Errorf("expected 2 words in line, but got %d: %s", len(parts), l)
 		}
-		from := parts[0]
-		to := parts[1]
+		from := strings.Replace(parts[0], "@", "\n@", 1)
+		to := strings.Replace(parts[1], "@", "\n@", 1)
 		g.edges = append(g.edges, edge{from: from, to: to})
 
 		for _, node := range []string{from, to} {
@@ -152,7 +153,6 @@ func convert(r io.Reader) (*graph, error) {
 
 	// Make this function deterministic.
 	sort.Strings(g.mvsPicked)
-
 	return &g, nil
 }
 
