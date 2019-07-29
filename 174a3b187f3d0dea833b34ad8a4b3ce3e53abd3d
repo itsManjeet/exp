@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "84f379cd_e5f5140c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2019-07-29T15:45:51Z",
+      "side": 1,
+      "message": "could you add a link to a picture of what the new graph looks like?",
+      "revId": "174a3b187f3d0dea833b34ad8a4b3ce3e53abd3d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4bbee8c7_0fab9e5f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2019-07-29T15:45:51Z",
+      "side": 1,
+      "message": "I think that until digraph supports partial string matching, this will make it harder to grok/use. I think users will try things like,\n\n```\ngo mod graph |\\\ndigraph allpaths myproject github.com/foo/bar |\\\nmodgraphviz \n```\n\nWhich won\u0027t work, because they didn\u0027t give a version to github.com/foo/bar. That is: there\u0027s no node github.com/foo/bar, though there may be github.com/foo/bar@v1.0.0 or whatever.",
+      "range": {
+        "startLine": 14,
+        "startChar": 1,
+        "endLine": 14,
+        "endChar": 57
+      },
+      "revId": "174a3b187f3d0dea833b34ad8a4b3ce3e53abd3d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
