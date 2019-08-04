@@ -1,0 +1,8 @@
+cloud.google.com/go google.golang.org/api@v0.7.0
+cloud.google.com/go google.golang.org/grpc@v1.21.1
+cloud.google.com/go github.com/google/btree@v1.0.0
+github.com/google/btree@v1.0.0 foo@v1.2.3
+github.com/google/btree@v1.0.0 bar@v1.2.3
+github.com/google/btree@v1.0.0 gaz@v1.2.3
+foo@v1.2.3 gaz@v1.2.0
+gaz@v1.2.0 foo@v1.0.0
