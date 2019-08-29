@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7ef66c06_ce04d572",
+        "filename": "shiny/driver/gldriver/other.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2019-08-29T14:46:24Z",
+      "side": 1,
+      "message": "Maybe add \" or cgo disabled\", otherwise the error message can be confusing when compiling on a supported platform with cgo disabled:\n\n    $ go version\n    go version go1.12.9 darwin/amd64\n    $ CGO_ENABLED\u003d0 go run -tags\u003d\u0027example\u0027 ./shiny/example/basic\n    2019/08/29 10:40:43 gldriver: unsupported GOOS/GOARCH darwin/amd64\n    exit status 1",
+      "range": {
+        "startLine": 22,
+        "startChar": 43,
+        "endLine": 22,
+        "endChar": 72
+      },
+      "revId": "a69ab2e90a64f013684906278d48709dfde8f4bc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
