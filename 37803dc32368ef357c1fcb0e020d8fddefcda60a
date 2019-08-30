@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "af22d592_7b81cfb6",
+        "filename": "shiny/driver/mtldriver/mtldriver.go",
+        "patchSetId": 9
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2019-08-30T02:18:07Z",
+      "side": 1,
+      "message": "This blocks, right? Does that mean that, even if f returns, Main won\u0027t actually return until we get some UI event (e.g. mouse over)?\n\nI don\u0027t know glfw that well. Is there a way to add a dummy event (from another thread) that will make glfw.WaitEvents return?",
+      "revId": "37803dc32368ef357c1fcb0e020d8fddefcda60a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a431353a_15821f3c",
+        "filename": "shiny/driver/mtldriver/texture.go",
+        "patchSetId": 9
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2019-08-30T02:18:07Z",
+      "side": 1,
+      "message": "sr.Add(dp)\nshould be\nsr.Sub(sr.Min).Add(dp)",
+      "revId": "37803dc32368ef357c1fcb0e020d8fddefcda60a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "788daf5b_10185c68",
+        "filename": "shiny/driver/mtldriver/window.go",
+        "patchSetId": 9
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2019-08-30T02:18:07Z",
+      "side": 1,
+      "message": "You\u0027re calling a w.ml method off the main/UI thread. I don\u0027t know Metal well enough to know if that\u0027s problematic.",
+      "revId": "37803dc32368ef357c1fcb0e020d8fddefcda60a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e174dd7_17820faa",
+        "filename": "shiny/driver/mtldriver/window.go",
+        "patchSetId": 9
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2019-08-30T02:18:07Z",
+      "side": 1,
+      "message": "Again, these are Metal calls off the main/UI thread.\n\nAn alternative would be to do the request/response thing into \"func main\"\u0027s loop, to run metal calls on the main/UI thread. You could have \"func main\" explicitly do this bit of code, or you could post a closure from here to main. You might then also need a \"dummy event\" as per the comment in mtldriver.go.",
+      "revId": "37803dc32368ef357c1fcb0e020d8fddefcda60a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9a6e4820_c380a406",
+        "filename": "shiny/driver/mtldriver/window.go",
+        "patchSetId": 9
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2019-08-30T02:18:07Z",
+      "side": 1,
+      "message": "sr.Add(dp)\nshould be\nsr.Sub(sr.Min).Add(dp)",
+      "revId": "37803dc32368ef357c1fcb0e020d8fddefcda60a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
