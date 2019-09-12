@@ -146,6 +146,24 @@
     },
     {
       "key": {
+        "uuid": "851304b5_0d116a2f",
+        "filename": "shiny/driver/mtldriver/window.go",
+        "patchSetId": 9
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2019-09-12T07:32:09Z",
+      "side": 1,
+      "message": "\u003e It will be very helpful for me to know which of the screen.{Window,Screen} interface methods are allowed to run concurrently.\n\nYeah, it\u0027s not well documented, and I\u0027ve forgotten the details. IIRC it\u0027s possible that nothing is safe to call concurrently, other than e.g. EventDeque\u0027s SendXxx methods...\n\nI mean, it might be valid to muck about with a Buffer\u0027s RGBA buffer concurrently, but even so, you might have to call Upload in \"the main func\", being the func passed to driver.Main...",
+      "parentUuid": "a6b4d223_0330c512",
+      "revId": "37803dc32368ef357c1fcb0e020d8fddefcda60a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "9a6e4820_c380a406",
         "filename": "shiny/driver/mtldriver/window.go",
         "patchSetId": 9

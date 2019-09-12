@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fc3506bb_aa264b2d",
+        "filename": "shiny/driver/mtldriver/window.go",
+        "patchSetId": 10
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2019-09-12T07:32:09Z",
+      "side": 1,
+      "message": "I don\u0027t know Metal at all, and this isn\u0027t necessarily something to fix in this CL, but out of curiosity... do you have to explicitly release old textures (or other resources? Command buffers??), or are they garbage collected somehow?",
+      "revId": "d4ff5000c6ea3e3fcbe6ee26f0bdf1b6fa586999",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
