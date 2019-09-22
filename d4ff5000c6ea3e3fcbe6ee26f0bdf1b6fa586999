@@ -16,6 +16,24 @@
       "revId": "d4ff5000c6ea3e3fcbe6ee26f0bdf1b6fa586999",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "06bba18d_564feaaf",
+        "filename": "shiny/driver/mtldriver/window.go",
+        "patchSetId": 10
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2019-09-22T01:04:10Z",
+      "side": 1,
+      "message": "I don\u0027t know yet. It\u0027s a TODO for me to learn and understand this subject better.\n\nI\u0027ve been developing http://dmitri.shuralyov.com/gpu/mtl in my spare time, one milestone at a time. Each milestone had a concrete goal with payoff, and I did the minimum viable work to achieve the goal.\n\n1. Milestone 1 was just being able to enumerate GPU devices via Metal API using Go. Achieved at https://twitter.com/dmitshur/status/1005497073028878336.\n2. Milestone 2 was being able to render a single colored triangle via Metal API and save the result in a .png on disk. Achieved at https://twitter.com/dmitshur/status/1008036078375202816.\n3. Milestone 3 was being able to open a window with a Metal-backed context, and render a moving triangle at 60 FPS (with v-sync on). Achieved at https://twitter.com/dmitshur/status/1054604519542272000.\n\nMemory management hasn\u0027t become a blocker yet. I suspect reaching the next milestone (rendering a more complex scene at 60+ FPS) will require figuring it out, so I\u0027ll do it as part of that. I didn\u0027t want to do it until I had a test case.\n\nHajime Hoshi (/cc\u0027ed) has started using a Metal driver in the ebiten game engine, and I suspect he has had to think about this more. E.g., see mentions of NSAutoreleasePool in https://github.com/hajimehoshi/ebiten/blob/79b32c7601083ff4fa3350537a0743cc2af3902b/internal/graphicsdriver/metal/driver.go. Maybe he\u0027ll be able to say more on this topic.",
+      "parentUuid": "fc3506bb_aa264b2d",
+      "revId": "d4ff5000c6ea3e3fcbe6ee26f0bdf1b6fa586999",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }

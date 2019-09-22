@@ -38,6 +38,24 @@
     },
     {
       "key": {
+        "uuid": "8fd63ab3_748b98d8",
+        "filename": "shiny/driver/mtldriver/mtldriver.go",
+        "patchSetId": 9
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2019-09-22T01:04:10Z",
+      "side": 1,
+      "message": "Marking resolved.",
+      "parentUuid": "251351cb_2f1d7084",
+      "revId": "37803dc32368ef357c1fcb0e020d8fddefcda60a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "a431353a_15821f3c",
         "filename": "shiny/driver/mtldriver/texture.go",
         "patchSetId": 9
@@ -110,6 +128,24 @@
     },
     {
       "key": {
+        "uuid": "184af82f_845658fc",
+        "filename": "shiny/driver/mtldriver/window.go",
+        "patchSetId": 9
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2019-09-22T01:04:10Z",
+      "side": 1,
+      "message": "Marking resolved.",
+      "parentUuid": "c213253b_deb8849d",
+      "revId": "37803dc32368ef357c1fcb0e020d8fddefcda60a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e174dd7_17820faa",
         "filename": "shiny/driver/mtldriver/window.go",
         "patchSetId": 9
@@ -161,6 +197,24 @@
       "revId": "37803dc32368ef357c1fcb0e020d8fddefcda60a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6612cfb_8c6b3fbb",
+        "filename": "shiny/driver/mtldriver/window.go",
+        "patchSetId": 9
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2019-09-22T01:04:10Z",
+      "side": 1,
+      "message": "Acknowledged.",
+      "parentUuid": "851304b5_0d116a2f",
+      "revId": "37803dc32368ef357c1fcb0e020d8fddefcda60a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
