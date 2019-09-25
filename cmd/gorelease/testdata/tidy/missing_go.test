@@ -1,0 +1,9 @@
+mod=example.com/tidy
+base=v0.0.1
+success=0
+-- want --
+go.mod is incomplete. Run 'go mod tidy'.
+-- go.mod --
+module example.com/tidy
+-- tidy.go --
+package tidy
