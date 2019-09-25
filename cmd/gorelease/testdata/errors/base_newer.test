@@ -1,0 +1,5 @@
+base=v0.2.0
+version=v0.1.0
+error=1
+---
+base version ("v0.2.0") must be older than release version ("v0.1.0")

@@ -1,0 +1,6 @@
+revision=pathsub
+dir=x
+base=v0.0.0
+error=true
+---
+example.com/y: module path must end with "x", since it is in subdirectory "x"

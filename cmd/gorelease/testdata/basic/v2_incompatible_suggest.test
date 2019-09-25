@@ -1,0 +1,17 @@
+revision=v2.1.2
+base=v2.1.1
+success=false
+---
+example.com/basic/v2/a
+----------------------
+Incompatible changes:
+- A2: removed
+
+example.com/basic/v2/b
+----------------------
+Incompatible changes:
+- package removed
+
+Incompatible changes detected, so no version will be suggested.
+Use -version=v3.0.0 to verify a new major version.
+Avoid creating new major versions if possible though.

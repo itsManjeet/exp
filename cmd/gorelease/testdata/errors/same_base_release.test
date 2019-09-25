@@ -1,0 +1,5 @@
+base=v0.1.0
+version=v0.1.0
+error=1
+---
+base and release versions must be different
