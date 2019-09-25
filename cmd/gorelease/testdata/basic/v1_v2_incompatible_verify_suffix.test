@@ -1,0 +1,6 @@
+revision=v2.1.2
+base=v1.1.1
+version=v2.0.0
+error=1
+---
+can't compare major versions: base version v1.1.1 does not belong to module example.com/basic/v2

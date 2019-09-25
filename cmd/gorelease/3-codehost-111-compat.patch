@@ -1,0 +1,24 @@
+diff -urN a/internal/codehost/codehost.go b/internal/codehost/codehost.go
+--- a/internal/codehost/codehost.go	2019-08-20 15:50:39.000000000 -0400
++++ b/internal/codehost/codehost.go	2019-08-20 15:51:45.000000000 -0400
+@@ -234,7 +234,7 @@
+ 	text := e.Cmd + ": " + e.Err.Error()
+ 	stderr := bytes.TrimRight(e.Stderr, "\n")
+ 	if len(stderr) > 0 {
+-		text += ":\n\t" + strings.ReplaceAll(string(stderr), "\n", "\n\t")
++		text += ":\n\t" + strings.Replace(string(stderr), "\n", "\n\t", -1)
+ 	}
+ 	if len(e.HelpText) > 0 {
+ 		text += "\n" + e.HelpText
+diff -urN a/internal/codehost/git.go b/internal/codehost/git.go
+--- a/internal/codehost/git.go	2019-08-20 15:50:39.000000000 -0400
++++ b/internal/codehost/git.go	2019-08-20 15:58:23.000000000 -0400
+@@ -807,7 +807,7 @@
+ 	if err == nil {
+ 		return true, nil
+ 	}
+-	if ee, ok := err.(*RunError).Err.(*exec.ExitError); ok && ee.ExitCode() == 1 {
++	if ee, ok := err.(*RunError).Err.(*exec.ExitError); ok && ee.Exited() {
+ 		return false, nil
+ 	}
+ 	return false, err

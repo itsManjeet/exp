@@ -1,0 +1,15 @@
+diff -urN a/internal/filelock/filelock_windows.go b/internal/filelock/filelock_windows.go
+--- a/internal/filelock/filelock_windows.go	2019-10-01 12:41:12.000000000 -0400
++++ b/internal/filelock/filelock_windows.go	2019-10-01 12:38:25.000000000 -0400
+@@ -7,9 +7,10 @@
+ package filelock
+ 
+ import (
+-	"internal/syscall/windows"
+ 	"os"
+ 	"syscall"
++
++	"golang.org/x/sys/windows"
+ )
+ 
+ type lockType uint32

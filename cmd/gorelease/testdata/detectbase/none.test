@@ -1,0 +1,5 @@
+revision=none
+error=1
+---
+could not detect base version.
+Use the -base flag to set it explicitly.

@@ -1,0 +1,5 @@
+short=1
+revision=empty_sum
+success=0
+---
+go.sum is missing one or more hashes. Run 'go mod tidy'.
