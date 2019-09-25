@@ -1,0 +1,16 @@
+mod=example.com/tidy
+base=v0.0.1
+success=0
+-- want --
+go.sum is missing one or more hashes. Run 'go mod tidy'.
+-- go.mod --
+module example.com/tidy
+
+go 1.12
+
+require rsc.io/quote v1.5.2
+-- go.sum --
+-- tidy.go --
+package tidy
+
+import _ "rsc.io/quote"

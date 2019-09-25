@@ -1,0 +1,7 @@
+mod=example.com/errors
+base=master
+error=true
+
+-- want --
+base version "master" is not a valid semantic version
+For more information, run gorelease -h
