@@ -8,7 +8,8 @@ require (
 	github.com/go-gl/glfw/v3.3/glfw v0.0.0-20191125211704-12ad95a8df72
 	golang.org/x/image v0.0.0-20190802002840-cff245a6509b
 	golang.org/x/mobile v0.0.0-20190719004257-d2bd2a29d028
-	golang.org/x/mod v0.1.0
-	golang.org/x/sys v0.0.0-20190412213103-97732733099d
-	golang.org/x/tools v0.0.0-20191012152004-8de300cfc20a
+	golang.org/x/mod v0.1.1-0.20191107180719-034126e5016b
+	golang.org/x/sys v0.0.0-20191001151750-bb3f8db39f24
+	golang.org/x/tools v0.0.0-20191119224855-298f0cb1881e
+	golang.org/x/xerrors v0.0.0-20191011141410-1b5146add898
 )
