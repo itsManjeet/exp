@@ -9,6 +9,6 @@ require (
 	golang.org/x/image v0.0.0-20190802002840-cff245a6509b
 	golang.org/x/mobile v0.0.0-20190719004257-d2bd2a29d028
 	golang.org/x/mod v0.1.0
-	golang.org/x/sys v0.0.0-20190412213103-97732733099d
+	golang.org/x/sys v0.0.0-20191001151750-bb3f8db39f24
 	golang.org/x/tools v0.0.0-20190925164712-ae58c0ff6b32
 )

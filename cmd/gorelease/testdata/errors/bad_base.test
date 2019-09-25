@@ -1,0 +1,4 @@
+base=master
+error=1
+---
+base version "master" is not a canonical version

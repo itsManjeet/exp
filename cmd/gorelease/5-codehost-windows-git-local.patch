@@ -1,0 +1,16 @@
+diff -urN a/internal/codehost/git.go b/internal/codehost/git.go
+--- a/internal/codehost/git.go	2019-10-01 12:41:12.000000000 -0400
++++ b/internal/codehost/git.go	2019-10-01 12:38:25.000000000 -0400
+@@ -92,9 +92,9 @@
+ 		// Disallow colon (not in ://) because sometimes
+ 		// that's rcp-style host:path syntax and sometimes it's not (c:\work).
+ 		// The go command has always insisted on URL syntax for ssh.
+-		if strings.Contains(remote, ":") {
+-			return nil, fmt.Errorf("git remote cannot use host:path syntax")
+-		}
++		// if strings.Contains(remote, ":") {
++		// 	return nil, fmt.Errorf("git remote cannot use host:path syntax")
++		// }
+ 		if !localOK {
+ 			return nil, fmt.Errorf("git remote must not be local directory")
+ 		}

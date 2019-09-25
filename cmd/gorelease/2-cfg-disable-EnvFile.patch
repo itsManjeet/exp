@@ -1,0 +1,39 @@
+diff -urN a/internal/cfg/cfg.go b/internal/cfg/cfg.go
+--- a/internal/cfg/cfg.go	2019-09-25 14:33:36.000000000 -0400
++++ b/internal/cfg/cfg.go	2019-09-25 14:33:50.000000000 -0400
+@@ -145,20 +145,21 @@
+ 
+ // EnvFile returns the name of the Go environment configuration file.
+ func EnvFile() (string, error) {
+-	if file := os.Getenv("GOENV"); file != "" {
+-		if file == "off" {
+-			return "", fmt.Errorf("GOENV=off")
+-		}
+-		return file, nil
+-	}
+-	dir, err := os.UserConfigDir()
+-	if err != nil {
+-		return "", err
+-	}
+-	if dir == "" {
+-		return "", fmt.Errorf("missing user-config dir")
+-	}
+-	return filepath.Join(dir, "go/env"), nil
++	return "", fmt.Errorf("GOENV=off")
++	// if file := os.Getenv("GOENV"); file != "" {
++	// 	if file == "off" {
++	// 		return "", fmt.Errorf("GOENV=off")
++	// 	}
++	// 	return file, nil
++	// }
++	// dir, err := os.UserConfigDir()
++	// if err != nil {
++	// 	return "", err
++	// }
++	// if dir == "" {
++	// 	return "", fmt.Errorf("missing user-config dir")
++	// }
++	// return filepath.Join(dir, "go/env"), nil
+ }
+ 
+ func initEnvCache() {

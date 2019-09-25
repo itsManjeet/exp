@@ -1,0 +1,15 @@
+diff -urN a/internal/codehost/git.go b/internal/codehost/git.go
+--- a/internal/codehost/git.go	2019-08-07 17:58:44.000000000 -0400
++++ b/internal/codehost/git.go	2019-08-07 18:00:08.000000000 -0400
+@@ -712,7 +712,11 @@
+ 	}
+ 
+ 	// Git didn't find a version tag preceding the requested rev.
++	// If this is a remote repository, we may be missing some of the history.
+ 	// See whether any plausible tag exists.
++	if r.local {
++		return "", nil
++	}
+ 	tags, err := r.Tags(prefix + "v")
+ 	if err != nil {
+ 		return "", err

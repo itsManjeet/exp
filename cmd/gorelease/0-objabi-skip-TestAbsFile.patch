@@ -1,0 +1,13 @@
+diff -urN a/internal/objabi/line_test.go b/internal/objabi/line_test.go
+--- a/internal/objabi/line_test.go	2019-07-11 15:53:04.000000000 -0400
++++ b/internal/objabi/line_test.go	2019-07-11 15:54:35.000000000 -0400
+@@ -40,6 +40,9 @@
+ }
+ 
+ func TestAbsFile(t *testing.T) {
++	// Requires objabi.defaultGOROOT to be set by the linker.
++	// This doesn't seem related to gorelease, so skipping the test.
++	t.Skip()
+ 	for _, tt := range absFileTests {
+ 		abs := filepath.FromSlash(AbsFile(filepath.FromSlash(tt.dir), filepath.FromSlash(tt.file), tt.rewrites))
+ 		want := filepath.FromSlash(tt.abs)
