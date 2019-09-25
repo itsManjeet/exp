@@ -1,0 +1,18 @@
+mod=example.com/basic
+version=v1.1.2
+base=v1.1.1
+success=false
+-- want --
+example.com/basic/a
+-------------------
+Incompatible changes:
+- A2: removed
+
+example.com/basic/b
+-------------------
+Incompatible changes:
+- package removed
+
+Incompatible changes detected, so no version will be suggested.
+Use -version=v2.0.0 to verify a new major version.
+Avoid creating new major versions if possible though.
