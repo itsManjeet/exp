@@ -1,0 +1,6 @@
+revision=valid-b
+error=1
+---
+module path changed in go.mod
+from: example.com/a (at revision v0.0.1)
+  to: example.com/b

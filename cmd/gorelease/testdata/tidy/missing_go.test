@@ -1,0 +1,4 @@
+revision=missing_go
+success=0
+---
+go.mod is not tidy. Run 'go mod tidy'.

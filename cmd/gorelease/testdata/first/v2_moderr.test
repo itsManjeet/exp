@@ -1,0 +1,7 @@
+revision=v0
+version=v2.0.0
+success=0
+---
+v2.0.0 is not a valid semantic version for this release.
+The module path does not end with the major version suffix /v2,
+which is required for major versions v2 or greater.

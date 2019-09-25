@@ -1,0 +1,9 @@
+revision=v2_err
+version=v2.0.0
+success=0
+skip=packages.Load gives error with extra "-: " prefix
+---
+example.com/first
+-----------------
+errors in new version:
+	p.go:1:9: illegal character U+003F '?'

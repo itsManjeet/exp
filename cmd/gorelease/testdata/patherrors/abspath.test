@@ -1,0 +1,6 @@
+revision=abspath
+base=v0.0.0
+error=true
+---
+module path "/home/gopher/go/src/mymod" may not be an absolute path.
+It must be an address where your module may be found.

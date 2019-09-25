@@ -1,0 +1,15 @@
+revision=v0.1.2
+base=v0.1.1
+version=v1.0.0
+---
+example.com/basic/a
+-------------------
+Incompatible changes:
+- A2: removed
+
+example.com/basic/b
+-------------------
+Incompatible changes:
+- package removed
+
+v1.0.0 is a valid semantic version for this release.

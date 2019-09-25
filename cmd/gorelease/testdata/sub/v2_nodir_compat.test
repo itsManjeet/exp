@@ -1,0 +1,9 @@
+revision=v2.1.0
+base=v2.0.1
+---
+example.com/sub/v2
+------------------
+Compatible changes:
+- B: added
+
+Suggested version: v2.1.0
