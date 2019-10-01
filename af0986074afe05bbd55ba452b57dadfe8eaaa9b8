@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "eb3787d3_1df22c5e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 5137
+      },
+      "writtenOn": "2019-10-01T05:20:17Z",
+      "side": 1,
+      "message": "Please also apply the optimization from CL 191538 for the globalRand too\n\nand then at the end of this file add the Fixes #NNNN as per\n\nFixes golang/go#34614.",
+      "revId": "af0986074afe05bbd55ba452b57dadfe8eaaa9b8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
