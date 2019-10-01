@@ -217,15 +217,20 @@ func (r *Rand) Read(p []byte) (n int, err error) {
 	if lk, ok := r.src.(*LockedSource); ok {
 		return lk.Read(p, &r.readVal, &r.readPos)
 	}
-	return read(p, r.Uint64, &r.readVal, &r.readPos)
+	return read(p, r.src, &r.readVal, &r.readPos)
 }
 
-func read(p []byte, uint64 func() uint64, readVal *uint64, readPos *int8) (n int, err error) {
+func read(p []byte, src Source, readVal *uint64, readPos *int8) (n int, err error) {
 	pos := *readPos
 	val := *readVal
+	rng, _ := src.(*PCGSource)
 	for n = 0; n < len(p); n++ {
 		if pos == 0 {
-			val = uint64()
+			if rng != nil {
+				val = rng.Uint64()
+			} else {
+				val = src.Uint64()
+			}
 			pos = 8
 		}
 		p[n] = byte(val)
@@ -357,7 +362,7 @@ func (s *LockedSource) seedPos(seed uint64, readPos *int8) {
 // Read implements Read for a LockedSource.
 func (s *LockedSource) Read(p []byte, readVal *uint64, readPos *int8) (n int, err error) {
 	s.lk.Lock()
-	n, err = read(p, s.src.Uint64, readVal, readPos)
+	n, err = read(p, s.src, readVal, readPos)
 	s.lk.Unlock()
 	return
 }
