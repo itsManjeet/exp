@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9bd49306_2349adc0",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2019-10-06T21:53:56Z",
+      "side": 1,
+      "message": "The apidiff has the ability to use an exportdata file, rather than checking out a commit. That is convenient, but it does have the problem that export data doesn\u0027t include comments, so we wouldn\u0027t be able to detect stability comments (see #34409).\n\nSo no action here, but I just wanted to mention it.",
+      "range": {
+        "startLine": 180,
+        "startChar": 3,
+        "endLine": 180,
+        "endChar": 13
+      },
+      "revId": "14fcac7e0d26621681daf1b85d55644dfb9cb546",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b4a696fc_acb7bf40",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2019-10-06T21:53:56Z",
+      "side": 1,
+      "message": "nit: \"Has\" suggests a boolean result; maybe call this \"checkRepoPendingChanges\".\n\nIf this is how Go tools do it, then ignore.",
+      "range": {
+        "startLine": 218,
+        "startChar": 11,
+        "endLine": 218,
+        "endChar": 32
+      },
+      "revId": "14fcac7e0d26621681daf1b85d55644dfb9cb546",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "825517ad_88d28cbe",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2019-10-06T21:53:56Z",
+      "side": 1,
+      "message": "Why this restriction?",
+      "range": {
+        "startLine": 222,
+        "startChar": 31,
+        "endLine": 222,
+        "endChar": 93
+      },
+      "revId": "14fcac7e0d26621681daf1b85d55644dfb9cb546",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4f01f7e0_3f22965b",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2019-10-06T21:53:56Z",
+      "side": 1,
+      "message": "delete",
+      "range": {
+        "startLine": 673,
+        "startChar": 26,
+        "endLine": 673,
+        "endChar": 27
+      },
+      "revId": "14fcac7e0d26621681daf1b85d55644dfb9cb546",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eb5c4cbd_7abb2017",
+        "filename": "cmd/gorelease/import_internal_pkgs.bash",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2019-10-06T21:53:56Z",
+      "side": 1,
+      "message": "Add some doc.",
+      "revId": "14fcac7e0d26621681daf1b85d55644dfb9cb546",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "33027286_10bd8318",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2019-10-06T21:53:56Z",
+      "side": 1,
+      "message": "You don\u0027t just want to print this out. You should also explain that it requires a change to the module path. And there should probably be some cautionary language about things like maintaining two versions forever, getting the word out about the new version, etc.",
+      "range": {
+        "startLine": 185,
+        "startChar": 2,
+        "endLine": 187,
+        "endChar": 13
+      },
+      "revId": "14fcac7e0d26621681daf1b85d55644dfb9cb546",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a664ac6a_3e069f0c",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2019-10-06T21:53:56Z",
+      "side": 1,
+      "message": "Wouldn\u0027t it be easier to convert to an int, ++, then sprint?",
+      "range": {
+        "startLine": 213,
+        "startChar": 5,
+        "endLine": 213,
+        "endChar": 15
+      },
+      "revId": "14fcac7e0d26621681daf1b85d55644dfb9cb546",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
