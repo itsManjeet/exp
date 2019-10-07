@@ -71,6 +71,30 @@
     },
     {
       "key": {
+        "uuid": "8223eb5c_98ab8812",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2019-10-07T14:45:12Z",
+      "side": 1,
+      "message": "It\u0027s a requirement at the moment because gorelease checks out the base version from the current git repository, so the module must be inside a git repository.\n\nI\u0027m planning to remove that requirement by adding module packing code to x/mod. That would let us pack the code in the current module root directory into a .zip, then extract it into a temporary directory (analogous to Checkout now). At the same time, we\u0027ll be able to detect problems that prevent module zips from being created like invalid file names and case folding collisions. We won\u0027t need any connection with the repository anymore, and most of the imported packages can be deleted.",
+      "parentUuid": "825517ad_88d28cbe",
+      "range": {
+        "startLine": 222,
+        "startChar": 31,
+        "endLine": 222,
+        "endChar": 93
+      },
+      "revId": "14fcac7e0d26621681daf1b85d55644dfb9cb546",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "4f01f7e0_3f22965b",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 4
@@ -145,6 +169,30 @@
       "writtenOn": "2019-10-06T21:53:56Z",
       "side": 1,
       "message": "Wouldn\u0027t it be easier to convert to an int, ++, then sprint?",
+      "range": {
+        "startLine": 213,
+        "startChar": 5,
+        "endLine": 213,
+        "endChar": 15
+      },
+      "revId": "14fcac7e0d26621681daf1b85d55644dfb9cb546",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ba6c54a0_9a6a1ddc",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2019-10-07T14:45:12Z",
+      "side": 1,
+      "message": "We don\u0027t have any limit on version size, so it might overflow. math/big.Int might simplify this though.",
+      "parentUuid": "a664ac6a_3e069f0c",
       "range": {
         "startLine": 213,
         "startChar": 5,
