@@ -1,0 +1,46 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+svg {
+    height: 60%;
+    width: 100%;
+}
+
+g {
+    height: 100%;
+    width: 100%;
+}
+
+.node rect, .node circle, .node ellipse, .node polygon {
+    stroke: #333;
+    fill: #fff;
+    stroke-width: 1.5px;
+}
+
+#bottom {
+    display: flex;
+    height: 40%;
+}
+
+#edgeList {
+    width: 50%;
+    overflow-y: scroll;
+}
+
+#shoppingCart {
+    width: 50%;
+    overflow-y: scroll;
+}
+
+.edgePath path.path {
+    stroke: #333;
+    fill: none;
+    stroke-width: 1.5px;
+}
+
+.left, .right {
+    display: inline;
+}
