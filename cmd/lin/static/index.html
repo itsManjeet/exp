@@ -1,0 +1,54 @@
+{{define "page"}}
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Linguini</title>
+    <link rel="stylesheet" href="static/index.css">
+</head>
+
+<body>
+    <h1>Hello from linguini</h1>
+    <div id="graph"></div>
+    <div id="edges">
+        Hello world
+    </div>
+</body>
+
+<script src="static/svg-pan-zoom.min.js"></script>
+<script src="static/viz.js"></script>
+<script src="static/full.render.js"></script>
+<script>
+var viz = new Viz();
+
+fetch('/graph').then(function(resp) {
+    resp.text().then(function (text) {
+        viz.renderSVGElement(text).then(function(element) {
+            document.getElementById('graph').appendChild(element)
+            svgPanZoom(element)
+        }).catch(err => {
+            viz = new Viz()
+            console.error(err)
+        })
+    })
+}).catch(function(err) {
+    console.error(err)
+})
+
+fetch('/edges').then(function(resp) {
+    resp.json().then(function (edges) {
+        edges.forEach(e => {
+            const n = document.createElement('div')
+            n.innerHTML = `${e.From} ${e.To}`
+            document.getElementById('edges').appendChild(n)
+        })
+    }).catch(err => {
+        console.error(err)
+    })
+}).catch(function(err) {
+    console.error(err)
+})
+</script>
+</html>
+{{end}}
