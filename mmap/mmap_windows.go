@@ -10,6 +10,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"reflect"
 	"runtime"
 	"syscall"
 	"unsafe"
@@ -108,7 +109,13 @@ func Open(filename string) (*ReaderAt, error) {
 	if err != nil {
 		return nil, err
 	}
-	data := (*[maxBytes]byte)(unsafe.Pointer(ptr))[:size]
+
+	header := &reflect.SliceHeader{
+		Data: ptr,
+		Len:  int(size),
+		Cap:  int(size),
+	}
+	data := *(*[]byte)(unsafe.Pointer(header))
 
 	r := &ReaderAt{data: data}
 	if debug {
