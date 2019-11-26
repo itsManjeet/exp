@@ -17,7 +17,7 @@ import (
 	"unsafe"
 
 	"dmitri.shuralyov.com/gpu/mtl"
-	"github.com/go-gl/glfw/v3.2/glfw"
+	"github.com/go-gl/glfw/v3.3/glfw"
 	"golang.org/x/exp/shiny/driver/internal/errscreen"
 	"golang.org/x/exp/shiny/driver/mtldriver/internal/appkit"
 	"golang.org/x/exp/shiny/driver/mtldriver/internal/coreanim"
@@ -67,18 +67,37 @@ func main(f func(screen.Screen)) error {
 		close(done)
 		glfw.PostEmptyEvent() // Break main loop out of glfw.WaitEvents so it can receive on done.
 	}()
+	var windows int
 	for {
-		select {
-		case <-done:
-			return nil
-		case req := <-newWindowCh:
-			w, err := newWindow(device, releaseWindowCh, req.opts)
-			req.respCh <- newWindowResp{w, err}
-		case req := <-releaseWindowCh:
-			req.window.Destroy()
-			req.respCh <- struct{}{}
-		default:
-			glfw.WaitEvents()
+		if windows == 0 {
+			// Can't use glfw.WaitEvents when there aren't any windows open.
+			select {
+			case <-done:
+				return nil
+			case req := <-newWindowCh:
+				w, err := newWindow(device, releaseWindowCh, req.opts)
+				if err == nil {
+					windows++
+				}
+				req.respCh <- newWindowResp{w, err}
+			}
+		} else {
+			select {
+			case <-done:
+				return nil
+			case req := <-newWindowCh:
+				w, err := newWindow(device, releaseWindowCh, req.opts)
+				if err == nil {
+					windows++
+				}
+				req.respCh <- newWindowResp{w, err}
+			case req := <-releaseWindowCh:
+				req.window.Destroy()
+				windows--
+				req.respCh <- struct{}{}
+			default:
+				glfw.WaitEvents()
+			}
 		}
 	}
 }
