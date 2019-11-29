@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7bd193df_722e2be2",
+        "filename": "rand/rand_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2019-11-29T05:39:57Z",
+      "side": 1,
+      "message": "For extra surety, use dst to generate a few numbers and then do the unmarshal.",
+      "revId": "de725cc620b544825f8b81565623d8411d380d22",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
