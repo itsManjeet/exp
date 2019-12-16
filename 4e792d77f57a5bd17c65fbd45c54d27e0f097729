@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3c47224c_60306040",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2019-12-16T20:16:20Z",
+      "side": 1,
+      "message": "Check whether this is still necessary; add comment if it is.",
+      "revId": "4e792d77f57a5bd17c65fbd45c54d27e0f097729",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e1541851_20d1419e",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2019-12-16T20:16:20Z",
+      "side": 1,
+      "message": "Don\u0027t load packages with replace and exclude directives in place. If there are errors loading packages, try adding replace and exclude back in and report them as a possible cause.",
+      "revId": "4e792d77f57a5bd17c65fbd45c54d27e0f097729",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d4b21b20_0b127527",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2019-12-16T20:16:20Z",
+      "side": 1,
+      "message": "Move verbose text to package documentation.\n\nHelp text should be brief description of flags.",
+      "revId": "4e792d77f57a5bd17c65fbd45c54d27e0f097729",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8c0a7b7c_d388b4a6",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2019-12-16T20:16:20Z",
+      "side": 1,
+      "message": "Internal directories may be relevant to submodules (golang.org/x/tools/internal is imported by gopls).\n\nUser needs to be able to specify which packages to compare. Or give a list of nested modules.\n\nWe could find a default list of nested modules by searching for go.mod files under the module root.",
+      "revId": "4e792d77f57a5bd17c65fbd45c54d27e0f097729",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
