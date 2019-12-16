@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "0b39ca2d_525cac33",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2019-12-16T20:51:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c47224c_60306040",
+      "revId": "4e792d77f57a5bd17c65fbd45c54d27e0f097729",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e1541851_20d1419e",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 5
@@ -33,6 +51,24 @@
       "revId": "4e792d77f57a5bd17c65fbd45c54d27e0f097729",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2960bb9b_00bb3a33",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2019-12-16T20:51:41Z",
+      "side": 1,
+      "message": "Added TODO.",
+      "parentUuid": "e1541851_20d1419e",
+      "revId": "4e792d77f57a5bd17c65fbd45c54d27e0f097729",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -53,6 +89,24 @@
     },
     {
       "key": {
+        "uuid": "1d95225a_c4930a55",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2019-12-16T20:51:41Z",
+      "side": 1,
+      "message": "Done. \u0027gorelease -h\u0027 now just prints a single line of usage text and recommends running \u0027go doc golang.org/x/exp/cmd/gorelease\u0027.",
+      "parentUuid": "d4b21b20_0b127527",
+      "revId": "4e792d77f57a5bd17c65fbd45c54d27e0f097729",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8c0a7b7c_d388b4a6",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 5
@@ -67,6 +121,24 @@
       "revId": "4e792d77f57a5bd17c65fbd45c54d27e0f097729",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "da7d0bf7_a80e9e5c",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2019-12-16T20:51:41Z",
+      "side": 1,
+      "message": "Added in the IDEAS comment above. Needs some thought and experimentation.",
+      "parentUuid": "8c0a7b7c_d388b4a6",
+      "revId": "4e792d77f57a5bd17c65fbd45c54d27e0f097729",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
