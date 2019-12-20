@@ -1,0 +1,164 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9f10e478_b3fd3c24",
+        "filename": "cmd/gorelease/errors.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2019-12-20T16:15:08Z",
+      "side": 1,
+      "message": "Should we also include usageText for other flag parsing errors?\n\n(I think that would also suggest the name `usageError` rather than `helpError`, which seems appropriate: a usageError is an error that includes a usage note.)",
+      "revId": "773e24db815928011a9a048074a08c2b80698fad",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f1ed1cbe_ac17776c",
+        "filename": "cmd/gorelease/errors.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2019-12-20T16:15:08Z",
+      "side": 1,
+      "message": "I think this will look a bit weird if msg happens to span multiple lines. (We\u0027ll put the first line inline, but subsequent lines on new lines.)",
+      "revId": "773e24db815928011a9a048074a08c2b80698fad",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "286273c9_1a5a5cbe",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2019-12-20T16:15:08Z",
+      "side": 1,
+      "message": "gorelease also allows a non-suggest mode of usage, which we should probably mention on an equal footing.\n\nHow about:\n\n―\n\ngorelease reports whether a proposed version tag would\nviolate semantic versioning requirements due to incompatible changes\nin the public API.\n\nIf no specific version is proposed, gorelease proposes one based on\nthe presence or absence of changes in the exported API.",
+      "range": {
+        "startLine": 8,
+        "startChar": 13,
+        "endLine": 8,
+        "endChar": 54
+      },
+      "revId": "773e24db815928011a9a048074a08c2b80698fad",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "df7d129c_619fdda3",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2019-12-20T16:15:08Z",
+      "side": 1,
+      "message": "Updating the `go` version should not be an incompatible change, since it will not cause consumers to fail to build (provided that they are using a recent enough toolchain) even if their module is still on an older version of the spec.\n\nHowever, updating the `go` version should probably imply a new minor version.",
+      "revId": "773e24db815928011a9a048074a08c2b80698fad",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b3559a1_1b1d7663",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2019-12-20T16:15:08Z",
+      "side": 1,
+      "message": "This should not be an error in general — it may be intentional.\n\nThere may be specific error cases that we can detect, though.",
+      "revId": "773e24db815928011a9a048074a08c2b80698fad",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bba31e77_54eaa430",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2019-12-20T16:15:08Z",
+      "side": 1,
+      "message": "I think we should attempt to derive a default `base` — there is usually an obvious default given the proposed release version.\n\n• For version `vX.Y.Z` with Z ≥ 1, we should verify that `go list -m $(go list -m)@\u003cvX.(Y+1).0` resolves to `vX.Y.(Z-1)` and default to that.\n\n• For version `vX.Y.0` with Y ≥ 1, we should verify that `go list -m $(go list -m)@\u003cv(X+1).0.0` resolves to some `vX.(Y-1).Z` and default to that.\n\n• For version `vX.0.0`, we should verify that `go list -m $(go list -m)@\u003cv(X+1).0.0` resolves to a pre-release version and default to `none`.\n\nFor pre-releases, we should use the same default base as for the final release.\n\nHowever, we should still allow overriding by flag (so that, for example, users can check whether any new breaking changes have occurred in between `v1.2.0-alpha.1` and `v1.2.0-beta.1`).\n\nWe may also want to consider allowing the base version to be an arbitrary tag, which we could then resolve to an appropriate pseudo-version. (For example, someone might want to check for breaking changes vs. an existing development branch that already has users in the wild.)\n\n\nThis would all be fine as a TODO comment to be resolved in a followup CL.",
+      "range": {
+        "startLine": 146,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 2
+      },
+      "revId": "773e24db815928011a9a048074a08c2b80698fad",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4610341d_200cfcbe",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2019-12-20T16:15:08Z",
+      "side": 1,
+      "message": "s/valid/canonical/, unless it also isn\u0027t even valid.\n\n(If someone proposes \u0027v1.2.0+ponies`, we should give them the correct reason not to do that.)",
+      "range": {
+        "startLine": 156,
+        "startChar": 57,
+        "endLine": 156,
+        "endChar": 62
+      },
+      "revId": "773e24db815928011a9a048074a08c2b80698fad",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2782386_53567dc0",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2019-12-20T16:15:08Z",
+      "side": 1,
+      "message": "I think I\u0027m missing something here.\n\nThis looks like it should fail if prefix is the empty string, which I think is always the case if we are not in a version-control repo. But as far as I can tell, none of the tests are in a version-control repo — why don\u0027t they fail the hasFilePathPrefix check?",
+      "range": {
+        "startLine": 467,
+        "startChar": 76,
+        "endLine": 467,
+        "endChar": 34
+      },
+      "revId": "773e24db815928011a9a048074a08c2b80698fad",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
