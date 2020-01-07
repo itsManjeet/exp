@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "80a61b76_fac7597b",
+        "filename": "cmd/gorelease/errors.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-01-07T23:07:09Z",
+      "side": 1,
+      "message": "I\u0027m ambivalent on including the usage text, but more information is probably better.\n\nRenamed to usageError as well.",
+      "parentUuid": "9f10e478_b3fd3c24",
+      "revId": "773e24db815928011a9a048074a08c2b80698fad",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f1ed1cbe_ac17776c",
         "filename": "cmd/gorelease/errors.go",
         "patchSetId": 7
@@ -36,6 +54,24 @@
     },
     {
       "key": {
+        "uuid": "79b472e4_7393a0dc",
+        "filename": "cmd/gorelease/errors.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-01-07T23:07:09Z",
+      "side": 1,
+      "message": "I changed this to add a newline if the wrapped error contains any newlines. If you\u0027d rather just have a newline if it\u0027s an exec.ExitError, I can do that instead.",
+      "parentUuid": "f1ed1cbe_ac17776c",
+      "revId": "773e24db815928011a9a048074a08c2b80698fad",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "286273c9_1a5a5cbe",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 7
@@ -47,6 +83,30 @@
       "writtenOn": "2019-12-20T16:15:08Z",
       "side": 1,
       "message": "gorelease also allows a non-suggest mode of usage, which we should probably mention on an equal footing.\n\nHow about:\n\n―\n\ngorelease reports whether a proposed version tag would\nviolate semantic versioning requirements due to incompatible changes\nin the public API.\n\nIf no specific version is proposed, gorelease proposes one based on\nthe presence or absence of changes in the exported API.",
+      "range": {
+        "startLine": 8,
+        "startChar": 13,
+        "endLine": 8,
+        "endChar": 54
+      },
+      "revId": "773e24db815928011a9a048074a08c2b80698fad",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ad69d6a5_af889f6e",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-01-07T23:07:09Z",
+      "side": 1,
+      "message": "I added a sentence at the end of this paragraph calling out the -version flag. Let me know what you think.\n\nIt\u0027s hard to prevent these two modes on equal footing in this description. We\u0027re almost defining semantic versioning in the paragraphs below. I think it\u0027s a bit easier to say what happens by default, then say how -version is different.",
+      "parentUuid": "286273c9_1a5a5cbe",
       "range": {
         "startLine": 8,
         "startChar": 13,
@@ -76,6 +136,24 @@
     },
     {
       "key": {
+        "uuid": "46d4e471_07713a6f",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-01-07T23:07:09Z",
+      "side": 1,
+      "message": "I agree updating the `go` version should not be an incompatible change, similar to how using a new feature in a dependency is not an incompatible change.\n\nIs that why updating the `go` version should imply a minor version bump? If you update a dependency to a new minor version, that may expose new features to dependents (especially if types from the dependency appear in your API).",
+      "parentUuid": "df7d129c_619fdda3",
+      "revId": "773e24db815928011a9a048074a08c2b80698fad",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2b3559a1_1b1d7663",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 7
@@ -90,6 +168,24 @@
       "revId": "773e24db815928011a9a048074a08c2b80698fad",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b91ffcc9_3d469277",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-01-07T23:07:09Z",
+      "side": 1,
+      "message": "Added a note here.\n\nAs with any static analysis, there\u0027s a tradeoff to be made about false negatives and positives. False positives are annoying to deal with, especially with gorelease because there\u0027s no way to suppress them.\n\nMy prior here is that when this happens, it\u0027s nearly always unintentional: the module path was updated without updating all the imports.",
+      "parentUuid": "2b3559a1_1b1d7663",
+      "revId": "773e24db815928011a9a048074a08c2b80698fad",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -116,6 +212,30 @@
     },
     {
       "key": {
+        "uuid": "ac540367_ab1c2378",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-01-07T23:07:09Z",
+      "side": 1,
+      "message": "Added a TODO at the top of the list (and a separate one for -base being a tag).",
+      "parentUuid": "bba31e77_54eaa430",
+      "range": {
+        "startLine": 146,
+        "startChar": 0,
+        "endLine": 148,
+        "endChar": 2
+      },
+      "revId": "773e24db815928011a9a048074a08c2b80698fad",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4610341d_200cfcbe",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 7
@@ -139,6 +259,30 @@
     },
     {
       "key": {
+        "uuid": "35f5ce32_f9c4b5c2",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-01-07T23:07:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4610341d_200cfcbe",
+      "range": {
+        "startLine": 156,
+        "startChar": 57,
+        "endLine": 156,
+        "endChar": 62
+      },
+      "revId": "773e24db815928011a9a048074a08c2b80698fad",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b2782386_53567dc0",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 7
@@ -159,6 +303,30 @@
       "revId": "773e24db815928011a9a048074a08c2b80698fad",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "99e8b37b_50e055db",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-01-07T23:07:09Z",
+      "side": 1,
+      "message": "It might have worked because p[0] \u003d\u003d os.PathSeparator was true, since the first argument is an absolute path. Not sure if TryBots test on windows here.\n\nIn any case, the implementations of these functions in cmd/go/internal/str seem more robust, so I\u0027ve copied them here.",
+      "parentUuid": "b2782386_53567dc0",
+      "range": {
+        "startLine": 467,
+        "startChar": 76,
+        "endLine": 467,
+        "endChar": 34
+      },
+      "revId": "773e24db815928011a9a048074a08c2b80698fad",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
