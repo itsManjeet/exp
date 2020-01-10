@@ -16,6 +16,24 @@
       "revId": "0358b54894f47ee8a9b146e05a090a20bcac62a3",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0b2c4b60_6bebe4bf",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 34781
+      },
+      "writtenOn": "2020-01-10T11:23:40Z",
+      "side": 1,
+      "message": "yes, fixes.\nThe regular pixmap can draw to screen even from remote server.",
+      "parentUuid": "2f7db884_93ac9533",
+      "revId": "0358b54894f47ee8a9b146e05a090a20bcac62a3",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
     }
   ]
 }
