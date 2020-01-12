@@ -154,6 +154,24 @@
     },
     {
       "key": {
+        "uuid": "c77eb564_be1d484d",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2020-01-12T22:13:54Z",
+      "side": 1,
+      "message": "The general question of whether updating a dependency to a new minor version is worth a minor version bump is an interesting one. I think the answer is, generally, no.\n\nSay we have two packages, `a` and its dependency `b`. If function a.F returns type b.T, and T changes compatibly (say, gets a new field or method), is that a change to `a`? I\u0027d argue no: whatever the caller of a.F does with b.T is between the caller and package `b`; `a` is just the go-between. You could argue that the API of `a` has nonetheless changed in some way, and I agree. I think the change is worth a patch-version bump. \n\nThe situation is different if some type S of `a` embeds b.T. Then a.S has changed, and the minor version should be bumped.\n\napidiff gets both of these cases right: when b.T changes compatibly, it reports no change to `func F() b.T` but a compatible change to `type S struct { b.T }`.\n\nThere are certainly exceptions to this that only a person could notice, where, as you said, `a` gets more behavior because of the change to `b`. But the tool can\u0027t and shouldn\u0027t try to report on these.",
+      "parentUuid": "46d4e471_07713a6f",
+      "revId": "773e24db815928011a9a048074a08c2b80698fad",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2b3559a1_1b1d7663",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 7
@@ -327,6 +345,29 @@
       "revId": "773e24db815928011a9a048074a08c2b80698fad",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c10e3605_63d08a6c",
+        "filename": "cmd/gorelease/proxy_test.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2020-01-12T22:13:54Z",
+      "side": 1,
+      "message": "You don\u0027t use `d` in the function.\n\nCouldn\u0027t this just be\n\n  defer func() { ... body as is ...}()\n\n?",
+      "range": {
+        "startLine": 32,
+        "startChar": 1,
+        "endLine": 37,
+        "endChar": 0
+      },
+      "revId": "773e24db815928011a9a048074a08c2b80698fad",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
     }
   ]
 }
