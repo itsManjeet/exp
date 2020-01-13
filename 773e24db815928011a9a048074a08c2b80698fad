@@ -172,6 +172,24 @@
     },
     {
       "key": {
+        "uuid": "de536d3a_48217fc4",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-01-13T21:00:37Z",
+      "side": 1,
+      "message": "I think I\u0027m inclined to agree: gorelease should report compatibility changes based on apidiff only. Module dependencies don\u0027t actually give us much additional information. At least not reliable information. For example, if b is a test-only dependency that doesn\u0027t affect a\u0027s API, that doesn\u0027t really matter to downstream dependencies.\n\nStill not certain about go version though. If we think of the language and standard library as just another dependency, taking advantage of a new feature in the language is like calling a new function in a package: it shouldn\u0027t affect downstream dependencies. We don\u0027t have MVS for the language version though. So if you start using binary-only literals or errors.As, it breaks downstream 1.12 users.",
+      "parentUuid": "c77eb564_be1d484d",
+      "revId": "773e24db815928011a9a048074a08c2b80698fad",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "2b3559a1_1b1d7663",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 7
@@ -368,6 +386,30 @@
       "revId": "773e24db815928011a9a048074a08c2b80698fad",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fff8e699_24349abe",
+        "filename": "cmd/gorelease/proxy_test.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-01-13T21:00:37Z",
+      "side": 1,
+      "message": "Good catch. It should be proxyDir.\n\nMy intent here is to remove proxyDir if err !\u003d nil, but in every place where we return an error, we set proxyDir to \"\". That was the reason for the parameter.",
+      "parentUuid": "c10e3605_63d08a6c",
+      "range": {
+        "startLine": 32,
+        "startChar": 1,
+        "endLine": 37,
+        "endChar": 0
+      },
+      "revId": "773e24db815928011a9a048074a08c2b80698fad",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
