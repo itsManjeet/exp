@@ -1,0 +1,129 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "b298fde7_e62544b3",
+        "filename": "shiny/driver/x11driver/buffer_fallback.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2020-01-19T04:32:52Z",
+      "side": 1,
+      "message": "Please add a copyright comment above this. Copy/paste from another file in this directory, but update the year to 2020.",
+      "revId": "86772f375efe306af1daccedf1ce7ba588312f1b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e35e1cbc_3666db59",
+        "filename": "shiny/driver/x11driver/buffer_fallback.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2020-01-19T04:32:52Z",
+      "side": 1,
+      "message": "https://github.com/golang/go/wiki/CodeReviewComments#comment-sentences says that \"Comments should begin with the name of the thing being described and end in a period\". Thus:\n\n// putImage issues xproto.PutImage requests in batches.",
+      "revId": "86772f375efe306af1daccedf1ce7ba588312f1b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "978d6493_6bedab07",
+        "filename": "shiny/driver/x11driver/buffer_fallback.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2020-01-19T04:32:52Z",
+      "side": 1,
+      "message": "You wouldn\u0027t need these \"var\" lines if you use \":\u003d\" inside the loop. For example:\n\ndata :\u003d b.buf[start:end]",
+      "revId": "86772f375efe306af1daccedf1ce7ba588312f1b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3f121eb8_5e2563a3",
+        "filename": "shiny/driver/x11driver/buffer_fallback.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2020-01-19T04:32:52Z",
+      "side": 1,
+      "message": "heightPerReq \u003d len(data) / (widthPerReq * 4)",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 115,
+        "endChar": 44
+      },
+      "revId": "86772f375efe306af1daccedf1ce7ba588312f1b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "68e25dd4_eb2dbf4a",
+        "filename": "shiny/driver/x11driver/buffer_fallback.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2020-01-19T04:32:52Z",
+      "side": 1,
+      "message": "I don\u0027t think this comment adds much. I\u0027d just delete it.",
+      "revId": "86772f375efe306af1daccedf1ce7ba588312f1b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8300d987_312e845d",
+        "filename": "shiny/driver/x11driver/screen.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2020-01-19T04:32:52Z",
+      "side": 1,
+      "message": "I\u0027d move the useShm bool up here, so it\u0027s more obvious that it\u0027s not related to the mu sync.Mutex.",
+      "revId": "86772f375efe306af1daccedf1ce7ba588312f1b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "10ff2fd1_7206fcee",
+        "filename": "shiny/driver/x11driver/screen.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2020-01-19T04:32:52Z",
+      "side": 1,
+      "message": "Capitalize the \"if\" as \"If\", so that the comment forms a complete sentence.",
+      "revId": "86772f375efe306af1daccedf1ce7ba588312f1b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
