@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4e53083f_5d625a8a",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 9
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-23T21:18:34Z",
+      "side": 1,
+      "message": "Does it suggest a tag, or a version?\n\n(If the module is not at the repo root, the two may differ.)",
+      "range": {
+        "startLine": 200,
+        "startChar": 0,
+        "endLine": 201,
+        "endChar": 30
+      },
+      "revId": "3fc69e170677af7c64805e983ba477330f082883",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9e8490f_4b9a154b",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 9
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-23T21:18:34Z",
+      "side": 1,
+      "message": "(doc) Is repoRoot allowed to be empty?",
+      "range": {
+        "startLine": 205,
+        "startChar": 0,
+        "endLine": 206,
+        "endChar": 11
+      },
+      "revId": "3fc69e170677af7c64805e983ba477330f082883",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a837d321_aba77405",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 9
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-23T21:18:34Z",
+      "side": 1,
+      "message": "Would modfile.ModulePath suffice for this? It\u0027s a bit faster, and it already exists.",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 238,
+        "endChar": 2
+      },
+      "revId": "3fc69e170677af7c64805e983ba477330f082883",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}

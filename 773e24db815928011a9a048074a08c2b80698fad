@@ -119,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "ab5a45ec_4f8cf8d5",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-23T21:18:34Z",
+      "side": 1,
+      "message": "Hmm. That\u0027s an improvement, but it could still be confusing. (If someone merely skims the documentation — as most of us do from time to time — they may come away with a mistaken impression of what the tool can do.)\n\nMoreover, I think if we\u0027re going to present the modes asymmetrically, we should prefer the “verify” mode over the “suggest” mode. I think it\u0027s a better default for two reasons:\n\n1. It prompts the user to think about whether their changes are significant enough to merit a minor-version bump even if the exported API and dependencies haven\u0027t changed.\n\n2. It provides the same workflow for both pre-releases and releases. (I think the “suggest” mode, by suggesting only release versions, will bias users toward issuing fewer pre-releases, and if anything I would rather bias toward *more* pre-releases.)\n\n\nSo maybe:\n\n―\n\ngorelease analyzes changes in the public API and dependencies of the main module.\n\nGiven a proposed version tag to apply to the current revision, it reports whether the changes from a previous version (by default the preceding release) would be consistent with semantic versioning.\n\nGiven instead a base version to compare against, gorelease reports the lowest release version tag for which the changes would be consistent with semantic versioning.",
+      "parentUuid": "ad69d6a5_af889f6e",
+      "range": {
+        "startLine": 8,
+        "startChar": 13,
+        "endLine": 8,
+        "endChar": 54
+      },
+      "revId": "773e24db815928011a9a048074a08c2b80698fad",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "df7d129c_619fdda3",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 7
@@ -184,6 +208,24 @@
       "side": 1,
       "message": "I think I\u0027m inclined to agree: gorelease should report compatibility changes based on apidiff only. Module dependencies don\u0027t actually give us much additional information. At least not reliable information. For example, if b is a test-only dependency that doesn\u0027t affect a\u0027s API, that doesn\u0027t really matter to downstream dependencies.\n\nStill not certain about go version though. If we think of the language and standard library as just another dependency, taking advantage of a new feature in the language is like calling a new function in a package: it shouldn\u0027t affect downstream dependencies. We don\u0027t have MVS for the language version though. So if you start using binary-only literals or errors.As, it breaks downstream 1.12 users.",
       "parentUuid": "c77eb564_be1d484d",
+      "revId": "773e24db815928011a9a048074a08c2b80698fad",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "550e5781_26133dde",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-23T21:18:34Z",
+      "side": 1,
+      "message": "\u003e Is that why updating the `go` version should imply a minor version bump? If you update a dependency to a new minor version, that may expose new features to dependents (especially if types from the dependency appear in your API).\n\nIdeally, `go get -u\u003dpatch ./...` should be something that users can expect to do in CI (such as in a push-on-green configuration). If some dependency starts requiring a new `go` release that might not succeed until someone updates the CI environment, so updating the `go` version should imply a minor-version bump.\n\nSimilarly, updating a dependency _that provides a non-test import_ should imply a minor-version bump, since the dependency may include non-urgent “compatible” changes that nonetheless require intervention to incorporate. (For example, the dependency may have changed a previously-unspecified or explicitly-unstable behavior such as an error string, or started populating an additional field in a struct used as a map key.)\n\nThis case is explicitly covered in https://semver.org/#spec-item-7:\n\n\u003e Minor version Y … MAY be incremented if substantial new functionality or improvements are introduced within the private code.",
+      "parentUuid": "46d4e471_07713a6f",
       "revId": "773e24db815928011a9a048074a08c2b80698fad",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
