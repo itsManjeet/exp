@@ -22,9 +22,13 @@ type report struct {
 	modulePath string
 
 	// baseVersion is the "old" version of the module to compare against.
-	// It may be empty if there is no base version (for example, if this is
-	// the first release).
+	// It may be "none" if there is no base version (for example, if this is
+	// the first release). It may not be "".
 	baseVersion string
+
+	// baseVersionInferred is true if the base version was determined
+	// automatically (not specified with -base).
+	baseVersionInferred bool
 
 	// releaseVersion is the proposed version of the module. It may be empty
 	// if no version was proposed.
@@ -64,6 +68,12 @@ type report struct {
 func (r *report) Text(w io.Writer) error {
 	for _, p := range r.packages {
 		if err := p.Text(w); err != nil {
+			return err
+		}
+	}
+
+	if r.baseVersionInferred {
+		if _, err := fmt.Fprintf(w, "Inferred base version: %s\n", r.baseVersion); err != nil {
 			return err
 		}
 	}
@@ -231,6 +241,27 @@ func incDecimal(decimal string) string {
 		// digits is all zeros
 		digits[0] = '1'
 		digits = append(digits, '0')
+	}
+	return string(digits)
+}
+
+// decDecimal returns the decimal string decremented by 1, or the empty string
+// if the decimal is all zeroes.
+func decDecimal(decimal string) string {
+	// Scan right to left turning 0s to 9s until you find a digit to decrement.
+	digits := []byte(decimal)
+	i := len(digits) - 1
+	for ; i >= 0 && digits[i] == '0'; i-- {
+		digits[i] = '9'
+	}
+	if i < 0 {
+		// decimal is all zeros
+		return ""
+	}
+	if i == 0 && digits[i] == '1' && len(digits) > 1 {
+		digits = digits[1:]
+	} else {
+		digits[i]--
 	}
 	return string(digits)
 }
