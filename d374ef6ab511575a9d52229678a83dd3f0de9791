@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "75086d50_85ceef4f",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 10
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-23T22:18:00Z",
+      "side": 1,
+      "message": "Should we also verify that there isn\u0027t also a conflicting go.mod file with the same path in the other possible location? (It\u0027s an unlikely failure mode, but I think it is enforced by the `go` command.)",
+      "range": {
+        "startLine": 268,
+        "startChar": 0,
+        "endLine": 278,
+        "endChar": 4
+      },
+      "revId": "d374ef6ab511575a9d52229678a83dd3f0de9791",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dc7923e7_e6027d98",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 10
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-23T22:18:00Z",
+      "side": 1,
+      "message": "All this indexing is a bit difficult for me to follow.\n\nCould we make loadPackages return a map rather than a slice, and then sort the keys of the map(s) (in the usual way) to produce a combined slice to iterate over? I realize that\u0027s O(N log N) rather than O(N), but N is small here and it would be easier for my brain to process in manageable chunks.\n\nBarring that, could we at least split this into a section of “zip the two lists of packages pairwise” and, separately, “diff the packages in the pairwise list”?",
+      "revId": "d374ef6ab511575a9d52229678a83dd3f0de9791",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7519d1b4_dca2a78e",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 10
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-23T22:18:00Z",
+      "side": 1,
+      "message": "The only caller for this is in a different file. Maybe move this into the caller\u0027s file?",
+      "revId": "d374ef6ab511575a9d52229678a83dd3f0de9791",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
