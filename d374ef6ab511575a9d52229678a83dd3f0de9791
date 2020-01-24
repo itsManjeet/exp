@@ -116,6 +116,132 @@
       "revId": "d374ef6ab511575a9d52229678a83dd3f0de9791",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "d1871875_d72ca67b",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 10
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-24T20:34:20Z",
+      "side": 1,
+      "message": "I always find sequential defers a bit tricky to reason about. (For example, the sequence here will invoke os.Remove before zipFile.Close, but that\u0027s not immediately obvious to me as a reader.)\n\nPerhaps combine into a single deferred call instead?\n\ndefer func() {\n\tzipFile.Close()\n\tos.Remove(zipFile.Name()) // Might need to come after Close on Windows?\n}()",
+      "range": {
+        "startLine": 569,
+        "startChar": 0,
+        "endLine": 570,
+        "endChar": 32
+      },
+      "revId": "d374ef6ab511575a9d52229678a83dd3f0de9791",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f6739667_2eb084dc",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 10
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-24T20:34:20Z",
+      "side": 1,
+      "message": "Given that we are passing an explicit path@version, `go mod download` should not fail due to any problem with the main module\u0027s go.mod file.\n\n(Emphasis on the “should”. If you find that is not the case, please file an issue and link to it here.)",
+      "range": {
+        "startLine": 604,
+        "startChar": 0,
+        "endLine": 606,
+        "endChar": 47
+      },
+      "revId": "d374ef6ab511575a9d52229678a83dd3f0de9791",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7763b97f_b9a072fe",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 10
+      },
+      "lineNbr": 652,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-24T20:34:20Z",
+      "side": 1,
+      "message": "Given that we\u0027re setting this to the `go` command\u0027s default version anyway, we could just leave it out. (It will be populated automatically with the current version at the next `go` invocation.)\n\nThat would also potentially result in a higher version, if the `gorelease` binary was build from an older toolchain than what is currently installed.",
+      "revId": "d374ef6ab511575a9d52229678a83dd3f0de9791",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "48f8f16c_33b8551f",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 10
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-24T20:34:20Z",
+      "side": 1,
+      "message": "What happens if the module attempts to import a nonexistent package with modPath as a prefix?\n\nSince we\u0027re passing `-e`, it\u0027s not implausible for such a package to be listed (with an error), but it might have a nil Module field.",
+      "range": {
+        "startLine": 730,
+        "startChar": 32,
+        "endLine": 730,
+        "endChar": 44
+      },
+      "revId": "d374ef6ab511575a9d52229678a83dd3f0de9791",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2e979fb7_eb0b820f",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 10
+      },
+      "lineNbr": 788,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-24T20:34:20Z",
+      "side": 1,
+      "message": "This check doesn\u0027t seem to have anything to do with loading packages. Could it go in a separate function?",
+      "range": {
+        "startLine": 772,
+        "startChar": 0,
+        "endLine": 788,
+        "endChar": 2
+      },
+      "revId": "d374ef6ab511575a9d52229678a83dd3f0de9791",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0feefee5_6dc98f46",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 10
+      },
+      "lineNbr": 807,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-24T20:34:20Z",
+      "side": 1,
+      "message": "https://golang.org/issue/33008 may cause spurious errors here.",
+      "revId": "d374ef6ab511575a9d52229678a83dd3f0de9791",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
     }
   ]
 }
