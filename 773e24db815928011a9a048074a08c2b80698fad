@@ -143,6 +143,30 @@
     },
     {
       "key": {
+        "uuid": "2e2a2564_15e7b488",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-01-24T19:24:48Z",
+      "side": 1,
+      "message": "This wording makes it sound like -version and -base are mutually exclusive. It\u0027s okay to use both or neither though. I agree that we should emphasize using -version as the common mode of operation though.\n\nI\u0027ve reworded the first couple paragraphs, using some of this phrasing. Also added a note about v0 and a link to semver.org.\n\nI realized while writing this that gorelease currently accepts version that increment the minor or patch versions by more than one or increment the minor version without zeroing the patch version. Added a TODO below to take care of that.\n\nLet me know what you think.",
+      "parentUuid": "ab5a45ec_4f8cf8d5",
+      "range": {
+        "startLine": 8,
+        "startChar": 13,
+        "endLine": 8,
+        "endChar": 54
+      },
+      "revId": "773e24db815928011a9a048074a08c2b80698fad",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "df7d129c_619fdda3",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 7
@@ -229,6 +253,24 @@
       "revId": "773e24db815928011a9a048074a08c2b80698fad",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2f94d086_56e7cb76",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-01-24T19:24:48Z",
+      "side": 1,
+      "message": "I think we\u0027re all in agreement, so I\u0027ve moved this item from the IDEAS section to TODO.",
+      "parentUuid": "550e5781_26133dde",
+      "revId": "773e24db815928011a9a048074a08c2b80698fad",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {

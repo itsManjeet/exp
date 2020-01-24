@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a888e30f_53e7d69a",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 10
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-01-24T19:24:48Z",
+      "side": 1,
+      "message": "Good idea, done.\n\nAlso, changed all these errors to diagnostics. We don\u0027t need to exit early for these.",
+      "parentUuid": "75086d50_85ceef4f",
+      "range": {
+        "startLine": 268,
+        "startChar": 0,
+        "endLine": 278,
+        "endChar": 4
+      },
+      "revId": "d374ef6ab511575a9d52229678a83dd3f0de9791",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "dc7923e7_e6027d98",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 10
@@ -42,6 +66,24 @@
     },
     {
       "key": {
+        "uuid": "6b8ec233_e051a851",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 10
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-01-24T19:24:48Z",
+      "side": 1,
+      "message": "I\u0027ve extracted the zipping code into a separate function that returns a sorted list of pairs. It seems more readable now: don\u0027t need to worry about the zipping logic and the pairwise comparison at the same time.\n\nI suspect that using maps here would only slightly simpler. I\u0027d like the entries in the report to be sorted, which means we need a list of pairs in any case.",
+      "parentUuid": "dc7923e7_e6027d98",
+      "revId": "d374ef6ab511575a9d52229678a83dd3f0de9791",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7519d1b4_dca2a78e",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 10
@@ -56,6 +98,24 @@
       "revId": "d374ef6ab511575a9d52229678a83dd3f0de9791",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "35194712_54b07249",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 10
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-01-24T19:24:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7519d1b4_dca2a78e",
+      "revId": "d374ef6ab511575a9d52229678a83dd3f0de9791",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
