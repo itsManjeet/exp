@@ -142,6 +142,30 @@
     },
     {
       "key": {
+        "uuid": "7e54dd25_49762cd2",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 10
+      },
+      "lineNbr": 570,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-01-27T23:19:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1871875_d72ca67b",
+      "range": {
+        "startLine": 569,
+        "startChar": 0,
+        "endLine": 570,
+        "endChar": 32
+      },
+      "revId": "d374ef6ab511575a9d52229678a83dd3f0de9791",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f6739667_2eb084dc",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 10
@@ -165,6 +189,30 @@
     },
     {
       "key": {
+        "uuid": "9f1d51c3_383c1d78",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 10
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-01-27T23:19:04Z",
+      "side": 1,
+      "message": "Not the case, opened golang.org/issue/36812 and added a TODO.",
+      "parentUuid": "f6739667_2eb084dc",
+      "range": {
+        "startLine": 604,
+        "startChar": 0,
+        "endLine": 606,
+        "endChar": 47
+      },
+      "revId": "d374ef6ab511575a9d52229678a83dd3f0de9791",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7763b97f_b9a072fe",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 10
@@ -179,6 +227,24 @@
       "revId": "d374ef6ab511575a9d52229678a83dd3f0de9791",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fab146cd_f58233b4",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 10
+      },
+      "lineNbr": 652,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-01-27T23:19:04Z",
+      "side": 1,
+      "message": "Done. I originally put this in so that we could compare go.mod using byte equality before and after loading packages. Perhaps that\u0027s unnecessarily brittle, so I\u0027ve changed it to compare requirements, which are the only changes that matter.\n\nThe actual go version should not matter. The main module is synthetic, and we\u0027re always loading packages in another module, so the language version should be set from there.\n\nCome to think of it, I doubt go/types gets the language version. We will need to expose that if we ever make backward incompatible language changes.",
+      "parentUuid": "7763b97f_b9a072fe",
+      "revId": "d374ef6ab511575a9d52229678a83dd3f0de9791",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -205,6 +271,30 @@
     },
     {
       "key": {
+        "uuid": "92c43f86_9ccc3485",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 10
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-01-27T23:19:04Z",
+      "side": 1,
+      "message": "Done, good catch. Let me know if there\u0027s a better way to express this though.",
+      "parentUuid": "48f8f16c_33b8551f",
+      "range": {
+        "startLine": 730,
+        "startChar": 32,
+        "endLine": 730,
+        "endChar": 44
+      },
+      "revId": "d374ef6ab511575a9d52229678a83dd3f0de9791",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "2e979fb7_eb0b820f",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 10
@@ -228,6 +318,30 @@
     },
     {
       "key": {
+        "uuid": "5150843d_2288eecb",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 10
+      },
+      "lineNbr": 788,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-01-27T23:19:04Z",
+      "side": 1,
+      "message": "Done, moved to makeReleaseReport and partially reverted the earlier change to use modfile.ModulePath instead of fully parsing the file. If it\u0027s already parsed, it\u0027s convenient to check the version there.",
+      "parentUuid": "2e979fb7_eb0b820f",
+      "range": {
+        "startLine": 772,
+        "startChar": 0,
+        "endLine": 788,
+        "endChar": 2
+      },
+      "revId": "d374ef6ab511575a9d52229678a83dd3f0de9791",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "0feefee5_6dc98f46",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 10
@@ -242,6 +356,24 @@
       "revId": "d374ef6ab511575a9d52229678a83dd3f0de9791",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "83709615_c983fbf3",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 10
+      },
+      "lineNbr": 807,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-01-27T23:19:04Z",
+      "side": 1,
+      "message": "Not sure if I follow?\n\nThis diagnostic is reported when go.sum is modified after loading packages. That should only happen if sums were missing and were added by \u0027go list\u0027.\n\nhttps://golang.org/issue/33008 seems like a problem with unneeded sums not being removed after \u0027go mod tidy\u0027. Unneeded sums should not trigger this diagnostic though.",
+      "parentUuid": "0feefee5_6dc98f46",
+      "revId": "d374ef6ab511575a9d52229678a83dd3f0de9791",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }

@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "d0dfa993_ddbeb1d3",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-01-27T23:19:04Z",
+      "side": 1,
+      "message": "Not checked anymore.",
+      "parentUuid": "b4a696fc_acb7bf40",
+      "range": {
+        "startLine": 218,
+        "startChar": 11,
+        "endLine": 218,
+        "endChar": 32
+      },
+      "revId": "14fcac7e0d26621681daf1b85d55644dfb9cb546",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "825517ad_88d28cbe",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 4
@@ -95,6 +119,30 @@
     },
     {
       "key": {
+        "uuid": "5208149a_16193653",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-01-27T23:19:04Z",
+      "side": 1,
+      "message": "This has been done: we now use zip.CreateFromDir and zip.Unzip to pack and repack the release version of this module.\n\nHowever, I still think this restriction is important. The most likely cause of this error would be a module that spans git submodules. I don\u0027t think the go command can download such a module.",
+      "parentUuid": "8223eb5c_98ab8812",
+      "range": {
+        "startLine": 222,
+        "startChar": 31,
+        "endLine": 222,
+        "endChar": 93
+      },
+      "revId": "14fcac7e0d26621681daf1b85d55644dfb9cb546",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4f01f7e0_3f22965b",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 4
@@ -118,6 +166,30 @@
     },
     {
       "key": {
+        "uuid": "83f4c8b7_41c58012",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 673,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-01-27T23:19:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f01f7e0_3f22965b",
+      "range": {
+        "startLine": 673,
+        "startChar": 26,
+        "endLine": 673,
+        "endChar": 27
+      },
+      "revId": "14fcac7e0d26621681daf1b85d55644dfb9cb546",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "eb5c4cbd_7abb2017",
         "filename": "cmd/gorelease/import_internal_pkgs.bash",
         "patchSetId": 4
@@ -132,6 +204,24 @@
       "revId": "14fcac7e0d26621681daf1b85d55644dfb9cb546",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0a3b2944_eb612a26",
+        "filename": "cmd/gorelease/import_internal_pkgs.bash",
+        "patchSetId": 4
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-01-27T23:19:04Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "eb5c4cbd_7abb2017",
+      "revId": "14fcac7e0d26621681daf1b85d55644dfb9cb546",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -155,6 +245,30 @@
       "revId": "14fcac7e0d26621681daf1b85d55644dfb9cb546",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87131c65_63a97d1f",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-01-27T23:19:04Z",
+      "side": 1,
+      "message": "This isn\u0027t suggested directly. See testdata/basic/v1_incompatible_suggest.test. The summary looks like this:\n\nIncompatible changes detected, so no version will be suggested.\nUse -version\u003dv2.0.0 to verify a new major version.\nAvoid creating new major versions if possible though.\n\nI\u0027m not quite happy with the wording in all these messages, but I\u0027d like to revise them all later on when there\u0027s HTML documentation to point to for more details. There\u0027s a TODO for that in the big list.",
+      "parentUuid": "33027286_10bd8318",
+      "range": {
+        "startLine": 185,
+        "startChar": 2,
+        "endLine": 187,
+        "endChar": 13
+      },
+      "revId": "14fcac7e0d26621681daf1b85d55644dfb9cb546",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -202,6 +316,30 @@
       "revId": "14fcac7e0d26621681daf1b85d55644dfb9cb546",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88d165f5_edc699cc",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-01-27T23:19:04Z",
+      "side": 1,
+      "message": "Resolved.",
+      "parentUuid": "ba6c54a0_9a6a1ddc",
+      "range": {
+        "startLine": 213,
+        "startChar": 5,
+        "endLine": 213,
+        "endChar": 15
+      },
+      "revId": "14fcac7e0d26621681daf1b85d55644dfb9cb546",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
