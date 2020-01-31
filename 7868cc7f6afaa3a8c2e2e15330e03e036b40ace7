@@ -42,6 +42,138 @@
     },
     {
       "key": {
+        "uuid": "e24d4e67_4500560f",
+        "filename": "cmd/gorelease/gorelease_test.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-31T20:30:31Z",
+      "side": 1,
+      "message": "Since the contents of the module cache are read-only by default, this may not succeed in removing the directory.\n\nPerhaps also set `GOFLAGS\u003d-modcacherw`, or else explicitly `Chmod` the tree or execute `go clean -modcache` instead?",
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "94f6cebc_b3a07a01",
+        "filename": "cmd/gorelease/gorelease_test.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-31T20:30:31Z",
+      "side": 1,
+      "message": "These options are nice, but they took me a little bit of thinking to understand because they don\u0027t directly correspond to anything on the gorelease command line.\n\nBut, I wonder if they should! We could have a mode in which it accepts them as flags, too: as in, “I\u0027m looking at the GitHub UI for github.com/bcmills/whatever and thinking about tagging commit HHHHHH (or v1.2.0-alpha.1) as v1.2.0-beta.1. Is that reasonable?”",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 15
+      },
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "01271bc5_1e1a613e",
+        "filename": "cmd/gorelease/gorelease_test.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-31T20:30:31Z",
+      "side": 1,
+      "message": "(nit) the `else` is redundant here given the unconditional `t.Fatalf` above.",
+      "range": {
+        "startLine": 281,
+        "startChar": 6,
+        "endLine": 281,
+        "endChar": 10
+      },
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "886e29ab_1baf3c2f",
+        "filename": "cmd/gorelease/gorelease_test.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-31T20:30:31Z",
+      "side": 1,
+      "message": "Why strings.Contains rather than strict equality?\n\n(Given the -u flag, isn\u0027t it pretty easy to maintain strict equality anyway?)",
+      "range": {
+        "startLine": 281,
+        "startChar": 13,
+        "endLine": 281,
+        "endChar": 63
+      },
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88f6c056_7942082d",
+        "filename": "cmd/gorelease/gorelease_test.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-31T20:30:31Z",
+      "side": 1,
+      "message": "(nit) The `else` is redundant here given the `return`.",
+      "range": {
+        "startLine": 290,
+        "startChar": 4,
+        "endLine": 291,
+        "endChar": 9
+      },
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "86943dbb_f6f2bcf5",
+        "filename": "cmd/gorelease/gorelease_test.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-31T20:30:31Z",
+      "side": 1,
+      "message": "This can be written platform-independently:\n\nif filepath.Separator !\u003d \u0027/\u0027 {\n  got \u003d bytes.ReplaceAll(got, []byte{filepath.Separator}, []byte{\u0027/\u0027})\n}",
+      "range": {
+        "startLine": 296,
+        "startChar": 6,
+        "endLine": 296,
+        "endChar": 31
+      },
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "79b74d32_9a05c9ec",
         "filename": "cmd/gorelease/report.go",
         "patchSetId": 12
