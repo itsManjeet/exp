@@ -19,6 +19,58 @@
     },
     {
       "key": {
+        "uuid": "39aede2d_f95bc8a7",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-31T21:58:58Z",
+      "side": 1,
+      "message": "Another refinement along these lines: introducing a C dependency into a formerly pure-Go implementation without also adding a corresponding \"!cgo\" implementation is, technically speaking, a breaking change.",
+      "parentUuid": "5dce504f_a707320d",
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "03cddae2_b6723423",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-31T21:58:58Z",
+      "side": 1,
+      "message": "One more idea: we should explicitly support splits and joins of nested modules.\n\nFor example, if we are proposing to tag a particular commit as both cloud.google.com/go v0.46.2 and cloud.google.com/go/storage v1.0.0, we should ensure that the sets of packages provided by those modules are disjoint, and we should not report the packages moved from one to the other as an incompatible change (since the APIs are still compatible, just with a different module split).",
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "4cf9f967_be6fe917",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-31T21:58:58Z",
+      "side": 1,
+      "message": "One more idea: for all packages (including main packages), scan the list of registered flags.\n\n• Adding a flag is a compatible change.\n• Removing a flag is an incompatible change.\n• Changing the type of a flag between `string` and any non-boolean type (in either direction) is potentially a compatible change.\n• Changing the boolean-ness of a flag is an incompatible change.\n• etc.",
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "87e3cbdf_d24f0a89",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 12
@@ -328,6 +380,194 @@
       "writtenOn": "2020-01-31T19:48:23Z",
       "side": 1,
       "message": "If the base is a pre-release, then we should suggest the corresponding release version.\n\nI think the trimming here will cause us to instead suggest the release _after_ the corresponding release version.\n\n(This should have a test case either way.)",
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cd544a73_c4858c7b",
+        "filename": "cmd/gorelease/testdata/basic/v0_nobase_suggest.test",
+        "patchSetId": 12
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-31T21:58:58Z",
+      "side": 1,
+      "message": "v0.1.0, per https://semver.org/#how-should-i-deal-with-revisions-in-the-0yz-initial-development-phase?",
+      "range": {
+        "startLine": 5,
+        "startChar": 19,
+        "endLine": 5,
+        "endChar": 25
+      },
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e3dd900c_f7fbdbe1",
+        "filename": "cmd/gorelease/testdata/basic/v1_incompatible_suggest.test",
+        "patchSetId": 12
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-31T21:58:58Z",
+      "side": 1,
+      "message": "If we suggest that the user re-run with a different flag, there should be a corresponding test-case that is identical except for that flag.\n\nv1_v2_incompatible_verify seems to be such a case, but gorelease also rejects that tag, which suggests to me that we should not make this recommendation in this case.",
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f243282e_b43ded46",
+        "filename": "cmd/gorelease/testdata/basic/v1_v2_incompatible_verify_suffix.test",
+        "patchSetId": 12
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-31T21:58:58Z",
+      "side": 1,
+      "message": "I suspect that we could provide some more useful behavior here — wanting to see what changed from v1 to v2 is still a useful thing to do, especially if v1 and v2 are actually compatible.\n\nI can think of two (not necessarily mutually-exclusive) ways to do that.\n\n1. If there is a module example.com/basic at v1, it may include packages with the suffix `/v2`. We should compare those packages directly, since they really are drop-in replacements. (This is a special case of the more general “nested modules” case.)\n\n2. If the module author is expecting users to migrate by (say) running an automatic refactoring tool, they might want to know which parts of the API the tool will need to cover. In that case, we should align the packages by dropping a prefix from both modules and then display the diff of the remaining API.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 96
+      },
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "32e6f7d9_b2ac5d64",
+        "filename": "cmd/gorelease/testdata/cgo/cgo.test",
+        "patchSetId": 12
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-31T21:58:58Z",
+      "side": 1,
+      "message": "It would be interesting to see a related version of this test in an environment (or on a platform) where cgo is disabled.\n\nWould we successfully report API changes in a cgo-only source file? (I suspect not...)",
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b05ef7b4_0418f302",
+        "filename": "cmd/gorelease/testdata/errors/bad_base.test",
+        "patchSetId": 12
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-31T21:58:58Z",
+      "side": 1,
+      "message": "I don\u0027t think that the testdata is set up in a way that will cause this test to fail if and when `gorelease` starts supporting non-semver version strings.\n\n(It\u0027s fine to check in a test for the failure, but we should ensure that there actually is a master.info file in the GOPROXY tree.)",
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3dbb36c3_5379374e",
+        "filename": "cmd/gorelease/testdata/errors/errors.test",
+        "patchSetId": 12
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-31T21:58:58Z",
+      "side": 1,
+      "message": "I would like to see tests for some related scenarios.\n\nBaseline:\n\n• v0.1.0 has an error in example.com/errors/fixed, but perhaps the error is only detected on certain platforms — for example, it might use a feature that was removed in a later version of the Go language that the `gorelease` user\u0027s toolchain does not yet support, or it might have accidentally relied on a bug in the compiler.\n\nScenarios:\n\n• The new version fixes the error without otherwise changing the exported API.\n• The new version fixes the error and also makes a compatible change in some other package.\n• The new version fixes the error but also makes an incompatible change in some other package.\n• The new version fixes the error and also makes a compatible change in the package containing the error.\n• The new version fixes the error but also makes an incompatible change in the same package.",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 42
+      },
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "994e4a3a_ad0db5e2",
+        "filename": "cmd/gorelease/testdata/first/v0_1_0.test",
+        "patchSetId": 12
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-31T21:58:58Z",
+      "side": 1,
+      "message": "Please also add a test with a pre-release for v0.1.0, like v0.1.0-alpha.1",
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "dcf7c92a_ea0de9ea",
+        "filename": "cmd/gorelease/testdata/nomod/README.txt",
+        "patchSetId": 12
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-31T21:58:58Z",
+      "side": 1,
+      "message": "Please also add a case illustrating what happens if the pre-`go.mod` version has a package that contains an \"// import\" comment, but the `go.mod` file specifies a different canonical path.",
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "cb58f09e_4aa7a26e",
+        "filename": "cmd/gorelease/testdata/patherrors/pathsub.test",
+        "patchSetId": 12
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-31T21:58:58Z",
+      "side": 1,
+      "message": "I don\u0027t think this necessarily holds for nested modules used as replacements for other modules.",
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16997d07_b8785393",
+        "filename": "cmd/gorelease/testdata/tidy/missing_req.test",
+        "patchSetId": 12
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-31T21:58:58Z",
+      "side": 1,
+      "message": "Perhaps also add a test that illustrates what happens if the go.mod file has complete-but-misleading requirements?\n\n(For example, if it says “require example.com/foo v0.1.0\" but has a transitive requirement on v0.2.0 via some other dependency.)",
       "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
