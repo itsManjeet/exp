@@ -167,6 +167,30 @@
     },
     {
       "key": {
+        "uuid": "4c43702c_9b3df453",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-31T19:48:23Z",
+      "side": 1,
+      "message": "LGTM.",
+      "parentUuid": "2e2a2564_15e7b488",
+      "range": {
+        "startLine": 8,
+        "startChar": 13,
+        "endLine": 8,
+        "endChar": 54
+      },
+      "revId": "773e24db815928011a9a048074a08c2b80698fad",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "df7d129c_619fdda3",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 7

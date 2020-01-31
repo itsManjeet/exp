@@ -1,0 +1,204 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5dce504f_a707320d",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-31T19:48:23Z",
+      "side": 1,
+      "message": "Another idea to consider: verify that the exported API is independent of build tags, or perhaps that platform-dependent packages have the name of the platform in their import path.\n\n(Or, instead of “independent of”, perhaps “compatible with”: platforms may omit parts of the API, but an identifier than is available on two different platforms should have compatible usage across those platforms.)",
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "87e3cbdf_d24f0a89",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-31T19:48:23Z",
+      "side": 1,
+      "message": "If we apply these policies uniformly, we should not need to explicitly check the go version of each dependency.\n\n(If the minor version has been increased for any dependency that provides an imported package, we should already be suggesting a minor-version bump, and if the dependency bumps their go version they should have already incremented the minor version.)",
+      "range": {
+        "startLine": 108,
+        "startChar": 26,
+        "endLine": 110,
+        "endChar": 60
+      },
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79b74d32_9a05c9ec",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-31T19:48:23Z",
+      "side": 1,
+      "message": "For parallelism with validateVersion, this branch (and the incompatible-change branch) should arguably be incorporated into the suggestVersion method, which could return `(string, error)` instead of just `string`.",
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0c7d08eb_6bb0432e",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-31T19:48:23Z",
+      "side": 1,
+      "message": "Perhaps clarify why the errors prevent us from suggesting a version.\n\nMaybe:\n\"Could not load packages to compare API, so …”",
+      "range": {
+        "startLine": 85,
+        "startChar": 13,
+        "endLine": 85,
+        "endChar": 33
+      },
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e5a284fd_294fce07",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-31T19:48:23Z",
+      "side": 1,
+      "message": "I don\u0027t think that `-version` alone would be sufficient to verify a new major version: the user would need to update the module path and any internal import paths, and I don\u0027t see anything in zipPackage that corrects for major-version prefixes.\n\nProbably we should add a TODO, and for now we should truncate this to just the first sentence.",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 20
+      },
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "737f6b49_ab4e2a49",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-31T19:48:23Z",
+      "side": 1,
+      "message": "https://semver.org/#how-should-i-deal-with-revisions-in-the-0yz-initial-development-phase recommends starting at v0.1.0 rather than v0.0.1.\n\n(We should _accept_ v0.0.0 and v0.0.1 if the user requests it explicitly, but probably we should _suggest_ v0.1.0.)",
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fc219797_6bf62e98",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-31T19:48:23Z",
+      "side": 1,
+      "message": "The structure here seems odd to me — why is validateVersion computed lazily while the rest of the report is computed up-front? The result of validateVersion is deterministic given the other (pre-initialized) fields.\n\n(This is OK to TODO for later cleanup.)",
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71d939b3_468f338b",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-31T19:48:23Z",
+      "side": 1,
+      "message": "Please use “base” and “release” consistently here (instead of “old” and “new”).\n\nWhen I read the use of these fields above, I thought that `newErrors` referred to errors present in the proposed release but not in the base, but now I see that it includes any errors present in the release (regardless of whether they are pre-existing).",
+      "range": {
+        "startLine": 241,
+        "startChar": 1,
+        "endLine": 241,
+        "endChar": 21
+      },
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "059dcb0b_9479f7eb",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-31T19:48:23Z",
+      "side": 1,
+      "message": "(nit) I find `io.WriteString(w, \"\\n\")` a bit clearer. (Not a big deal either way, though.)",
+      "range": {
+        "startLine": 260,
+        "startChar": 14,
+        "endLine": 260,
+        "endChar": 36
+      },
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f0486bb3_9fb08945",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-01-31T19:48:23Z",
+      "side": 1,
+      "message": "If the base is a pre-release, then we should suggest the corresponding release version.\n\nI think the trimming here will cause us to instead suggest the release _after_ the corresponding release version.\n\n(This should have a test case either way.)",
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
