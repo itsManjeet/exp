@@ -71,6 +71,47 @@
     },
     {
       "key": {
+        "uuid": "21a413ac_fb7aff8a",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2020-02-01T20:53:09Z",
+      "side": 1,
+      "message": "The list of registered flags is a runtime property, hence undecidable. In practice, of course, we could visit the ast for calls to the flag.TYPE and flag.VarTYPE functions and be right most of the time.",
+      "parentUuid": "4cf9f967_be6fe917",
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52847177_aef77dee",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2020-02-01T20:53:09Z",
+      "side": 1,
+      "message": "The proxy and discovery site are about to share a library for this, which is in the process of being battle-tested. (People keep complaining that their licenses aren\u0027t recognized, and we tweak the algorithm.)",
+      "range": {
+        "startLine": 84,
+        "startChar": 5,
+        "endLine": 85,
+        "endChar": 59
+      },
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "87e3cbdf_d24f0a89",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 12
