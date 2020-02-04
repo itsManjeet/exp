@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4e3c63f0_7978abf2",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-04T23:44:12Z",
+      "side": 1,
+      "message": "Clarified the wording a bit.\n\ngorelease will report API changes whether or not they\u0027re consistent with the version. However, at major version 0, it will exit with status 0 even when there are incompatible changes.",
+      "parentUuid": "cc77242a_fa0b16d4",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 26
+      },
+      "revId": "4f80e6bc9607b7bbe76d5da04b431927f874f958",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "4e130c39_f67c0ee2",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 11
@@ -45,6 +69,30 @@
       "revId": "4f80e6bc9607b7bbe76d5da04b431927f874f958",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98a8b38a_bb0a46ef",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-04T23:44:12Z",
+      "side": 1,
+      "message": "Noted. Perhaps the important thing is what other versions exist, not what the base version is.",
+      "parentUuid": "4e130c39_f67c0ee2",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 63
+      },
+      "revId": "4f80e6bc9607b7bbe76d5da04b431927f874f958",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -92,6 +140,30 @@
       "revId": "4f80e6bc9607b7bbe76d5da04b431927f874f958",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "50a97f4d_442b343b",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-04T23:44:12Z",
+      "side": 1,
+      "message": "Opened golang.org/issues/37003.\n\nI think this should be fixed on the apidiff side instead of here.",
+      "parentUuid": "8f274836_3c7c336c",
+      "range": {
+        "startLine": 421,
+        "startChar": 38,
+        "endLine": 421,
+        "endChar": 89
+      },
+      "revId": "4f80e6bc9607b7bbe76d5da04b431927f874f958",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {

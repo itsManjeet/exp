@@ -37,6 +37,42 @@
     },
     {
       "key": {
+        "uuid": "eb01fe4f_0a82999d",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-04T23:44:12Z",
+      "side": 1,
+      "message": "Added to IDEAS section together with other cross-platform testing.\n\nNot sure I agree it\u0027s a breaking change. It\u0027s like adding a new dependency, but on a C compiler rather than a package.",
+      "parentUuid": "39aede2d_f95bc8a7",
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a4eb693c_15caf21c",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-04T23:44:12Z",
+      "side": 1,
+      "message": "Added to IDEAS.",
+      "parentUuid": "39aede2d_f95bc8a7",
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "03cddae2_b6723423",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 12
@@ -51,6 +87,42 @@
       "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "643e0522_9494acec",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-04T23:44:12Z",
+      "side": 1,
+      "message": "Added to IDEAS.",
+      "parentUuid": "03cddae2_b6723423",
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fbf1b5a4_6d1223d5",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-04T23:44:12Z",
+      "side": 1,
+      "message": "Added to IDEAS.",
+      "parentUuid": "03cddae2_b6723423",
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -89,6 +161,24 @@
     },
     {
       "key": {
+        "uuid": "793f6b00_c93c534f",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-04T23:44:12Z",
+      "side": 1,
+      "message": "These changes would be interesting to track, but don\u0027t think we could do it accurately enough to report in gorelease. For example, if someone changes flag.String calls from the package top-level to flag.FlagSet.StringVar calls in a RegisterFlags function in a common package, it would be hard for us to track that.",
+      "parentUuid": "21a413ac_fb7aff8a",
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "52847177_aef77dee",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 12
@@ -100,6 +190,30 @@
       "writtenOn": "2020-02-01T20:53:09Z",
       "side": 1,
       "message": "The proxy and discovery site are about to share a library for this, which is in the process of being battle-tested. (People keep complaining that their licenses aren\u0027t recognized, and we tweak the algorithm.)",
+      "range": {
+        "startLine": 84,
+        "startChar": 5,
+        "endLine": 85,
+        "endChar": 59
+      },
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c5797352_c2bb4925",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-04T23:44:12Z",
+      "side": 1,
+      "message": "Would much prefer to use this than to write my own :) Is there a tracking issue I could link here?",
+      "parentUuid": "52847177_aef77dee",
       "range": {
         "startLine": 84,
         "startChar": 5,
@@ -135,6 +249,30 @@
     },
     {
       "key": {
+        "uuid": "f8ab0e46_b849056a",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-04T23:44:12Z",
+      "side": 1,
+      "message": "That assumes well-behaved dependencies though. I expect people will occasionally update the go version without tagging a minor release. A lot of modules aren\u0027t tagging releases at all, so you could easily pick up a go version update in a dependency after updating to a new v0.0.0 pseudo-version.",
+      "parentUuid": "87e3cbdf_d24f0a89",
+      "range": {
+        "startLine": 108,
+        "startChar": 26,
+        "endLine": 110,
+        "endChar": 60
+      },
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e24d4e67_4500560f",
         "filename": "cmd/gorelease/gorelease_test.go",
         "patchSetId": 12
@@ -152,6 +290,24 @@
     },
     {
       "key": {
+        "uuid": "cb9c1777_7c898541",
+        "filename": "cmd/gorelease/gorelease_test.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-04T23:44:12Z",
+      "side": 1,
+      "message": "Done, good catch. There was an error, and I was ignoring it.",
+      "parentUuid": "e24d4e67_4500560f",
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "94f6cebc_b3a07a01",
         "filename": "cmd/gorelease/gorelease_test.go",
         "patchSetId": 12
@@ -163,6 +319,30 @@
       "writtenOn": "2020-01-31T20:30:31Z",
       "side": 1,
       "message": "These options are nice, but they took me a little bit of thinking to understand because they don\u0027t directly correspond to anything on the gorelease command line.\n\nBut, I wonder if they should! We could have a mode in which it accepts them as flags, too: as in, “I\u0027m looking at the GitHub UI for github.com/bcmills/whatever and thinking about tagging commit HHHHHH (or v1.2.0-alpha.1) as v1.2.0-beta.1. Is that reasonable?”",
+      "range": {
+        "startLine": 82,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 15
+      },
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9db1bc87_090f1c81",
+        "filename": "cmd/gorelease/gorelease_test.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-04T23:44:12Z",
+      "side": 1,
+      "message": "There\u0027s something like that in the IDEAS section.\n\n    \u0027gorelease path1@version1 path2@version2\u0027 should compare two arbitrary\n    modules. Useful for comparing differences in forks.\n\nI think \u0027gorelease -base path1@version1 -version path2@version2\u0027 might be more realistic if positional arguments are packages to test in the future. So tests could set baseVersion and releaseVersion to cover that.\n\nEven if that\u0027s implemented, it\u0027s still useful for the test framework to be able to copy something from the test proxy into the current directory so runRelease can be invoked \"locally\". That\u0027s equivalent to specifying all the package files in the test txtar, but many tests share the same files and try different -base and -version flags.",
+      "parentUuid": "94f6cebc_b3a07a01",
       "range": {
         "startLine": 82,
         "startChar": 0,
@@ -221,6 +401,54 @@
     },
     {
       "key": {
+        "uuid": "511e1e65_8ca176ba",
+        "filename": "cmd/gorelease/gorelease_test.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-04T23:44:12Z",
+      "side": 1,
+      "message": "Changed to strict equality. I don\u0027t think there was a good reason, and nothing seemed to rely on it.",
+      "parentUuid": "886e29ab_1baf3c2f",
+      "range": {
+        "startLine": 281,
+        "startChar": 13,
+        "endLine": 281,
+        "endChar": 63
+      },
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3dfcabb6_ee32fd64",
+        "filename": "cmd/gorelease/gorelease_test.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-04T23:44:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01271bc5_1e1a613e",
+      "range": {
+        "startLine": 281,
+        "startChar": 6,
+        "endLine": 281,
+        "endChar": 10
+      },
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "88f6c056_7942082d",
         "filename": "cmd/gorelease/gorelease_test.go",
         "patchSetId": 12
@@ -241,6 +469,30 @@
       "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8144a600_e70e6b05",
+        "filename": "cmd/gorelease/gorelease_test.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-04T23:44:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88f6c056_7942082d",
+      "range": {
+        "startLine": 290,
+        "startChar": 4,
+        "endLine": 291,
+        "endChar": 9
+      },
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -267,6 +519,30 @@
     },
     {
       "key": {
+        "uuid": "5eff197e_3148c023",
+        "filename": "cmd/gorelease/gorelease_test.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-04T23:44:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86943dbb_f6f2bcf5",
+      "range": {
+        "startLine": 296,
+        "startChar": 6,
+        "endLine": 296,
+        "endChar": 31
+      },
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "79b74d32_9a05c9ec",
         "filename": "cmd/gorelease/report.go",
         "patchSetId": 12
@@ -281,6 +557,24 @@
       "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "74d749e5_aa3f94d8",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-04T23:44:12Z",
+      "side": 1,
+      "message": "Done. Both functions now return a versionError.",
+      "parentUuid": "79b74d32_9a05c9ec",
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -307,6 +601,30 @@
     },
     {
       "key": {
+        "uuid": "4e49e1b1_1f90a0f8",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-04T23:44:12Z",
+      "side": 1,
+      "message": "I don\u0027t think more context necessarily helps. The module should not be released if there are errors in the release version. We may not even be comparing packages (-base\u003dnone).\n\nFor errors in the base version specifically, there\u0027s a new message: \"Errors were found in the base version. Not all API changes may be reported.\". Let me know if I should say more.",
+      "parentUuid": "0c7d08eb_6bb0432e",
+      "range": {
+        "startLine": 85,
+        "startChar": 13,
+        "endLine": 85,
+        "endChar": 33
+      },
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e5a284fd_294fce07",
         "filename": "cmd/gorelease/report.go",
         "patchSetId": 12
@@ -330,6 +648,30 @@
     },
     {
       "key": {
+        "uuid": "bceb8ada_120d52b5",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-04T23:44:12Z",
+      "side": 1,
+      "message": "Truncated for now, and moved to suggestVersion.\n\nThere\u0027s a TODO for comparing other modules, which would be needed across major versions.",
+      "parentUuid": "e5a284fd_294fce07",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 20
+      },
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "737f6b49_ab4e2a49",
         "filename": "cmd/gorelease/report.go",
         "patchSetId": 12
@@ -347,6 +689,24 @@
     },
     {
       "key": {
+        "uuid": "28094733_95b9e1d2",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-04T23:44:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "737f6b49_ab4e2a49",
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "fc219797_6bf62e98",
         "filename": "cmd/gorelease/report.go",
         "patchSetId": 12
@@ -361,6 +721,24 @@
       "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8dd1200b_4113510a",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-04T23:44:12Z",
+      "side": 1,
+      "message": "This is now done by makeReleaseVersion, which calls validateVersion or suggestVersion. The error is stored in versionErr.",
+      "parentUuid": "fc219797_6bf62e98",
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -387,6 +765,30 @@
     },
     {
       "key": {
+        "uuid": "deb55e5a_3b7a16d6",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-04T23:44:12Z",
+      "side": 1,
+      "message": "Done, sorry about that. The original draft used \"old\" and \"new\", looks like I didn\u0027t rename everything.",
+      "parentUuid": "71d939b3_468f338b",
+      "range": {
+        "startLine": 241,
+        "startChar": 1,
+        "endLine": 241,
+        "endChar": 21
+      },
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "059dcb0b_9479f7eb",
         "filename": "cmd/gorelease/report.go",
         "patchSetId": 12
@@ -410,6 +812,30 @@
     },
     {
       "key": {
+        "uuid": "703c2ebd_6e422985",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-04T23:44:12Z",
+      "side": 1,
+      "message": "Done. Also started writing to a buffer to avoid checking errors after every call. Same in report.Text.",
+      "parentUuid": "059dcb0b_9479f7eb",
+      "range": {
+        "startLine": 260,
+        "startChar": 14,
+        "endLine": 260,
+        "endChar": 36
+      },
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "f0486bb3_9fb08945",
         "filename": "cmd/gorelease/report.go",
         "patchSetId": 12
@@ -424,6 +850,24 @@
       "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "298e9f44_1438e9cc",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-04T23:44:12Z",
+      "side": 1,
+      "message": "Done. Tested in TestRelease/basic/v1_pre_suggest.\n\nWe\u0027ll still report an error for incompatible changes after v1. However, compatible changes are okay.",
+      "parentUuid": "f0486bb3_9fb08945",
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -450,6 +894,30 @@
     },
     {
       "key": {
+        "uuid": "3ae433b1_cc69d515",
+        "filename": "cmd/gorelease/testdata/basic/v0_nobase_suggest.test",
+        "patchSetId": 12
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-04T23:44:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd544a73_c4858c7b",
+      "range": {
+        "startLine": 5,
+        "startChar": 19,
+        "endLine": 5,
+        "endChar": 25
+      },
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "e3dd900c_f7fbdbe1",
         "filename": "cmd/gorelease/testdata/basic/v1_incompatible_suggest.test",
         "patchSetId": 12
@@ -464,6 +932,24 @@
       "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "81c6e51a_78e4b947",
+        "filename": "cmd/gorelease/testdata/basic/v1_incompatible_suggest.test",
+        "patchSetId": 12
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-04T23:44:12Z",
+      "side": 1,
+      "message": "Removed the recommendation for now. We\u0027ll need to be able to compare modules with different paths for this to work, and we\u0027ll need better documentation.",
+      "parentUuid": "e3dd900c_f7fbdbe1",
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -490,6 +976,30 @@
     },
     {
       "key": {
+        "uuid": "94bda8db_6a2f7f18",
+        "filename": "cmd/gorelease/testdata/basic/v1_v2_incompatible_verify_suffix.test",
+        "patchSetId": 12
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-04T23:44:12Z",
+      "side": 1,
+      "message": "Agree this is important, but I\u0027d like to keep it in TODOs for now. In general, we need to be able to compare two versions from two different modules.\n\nI think (2) should be the default behavior. (1) seems like it would make sense, but I don\u0027t think I\u0027ve seen any modules do that.",
+      "parentUuid": "f243282e_b43ded46",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 96
+      },
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "32e6f7d9_b2ac5d64",
         "filename": "cmd/gorelease/testdata/cgo/cgo.test",
         "patchSetId": 12
@@ -507,6 +1017,24 @@
     },
     {
       "key": {
+        "uuid": "81deceac_6b920969",
+        "filename": "cmd/gorelease/testdata/cgo/cgo.test",
+        "patchSetId": 12
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-04T23:44:12Z",
+      "side": 1,
+      "message": "I\u0027ve included that in the IDEAS bullet about build constraints and platforms.\n\nFor now, gorelease will only load sources for the target platform. Other platforms can be tested by setting GOOS, GOARCH, and friends, but it has to be on a separate run.\n\nNot sure if that\u0027s the right long-term behavior, but I think it\u0027s okay for an MVP.",
+      "parentUuid": "32e6f7d9_b2ac5d64",
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "b05ef7b4_0418f302",
         "filename": "cmd/gorelease/testdata/errors/bad_base.test",
         "patchSetId": 12
@@ -521,6 +1049,24 @@
       "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0ccd48cb_768380d9",
+        "filename": "cmd/gorelease/testdata/errors/bad_base.test",
+        "patchSetId": 12
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-04T23:44:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b05ef7b4_0418f302",
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -547,6 +1093,30 @@
     },
     {
       "key": {
+        "uuid": "82e21a75_2629734d",
+        "filename": "cmd/gorelease/testdata/errors/errors.test",
+        "patchSetId": 12
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-04T23:44:12Z",
+      "side": 1,
+      "message": "Really good point. Now tested in testdata/fix.\n\nWhen there are errors, we\u0027ll still get type information, but it may be incomplete or wrong. The base version in the test has a function with an unknown return type. apidiff reports the change from an unknown type to int as being incompatible.\n\nSo now, gorelease will report API changes in packages with errors, but they won\u0027t cause version verification to fail. gorelease will exit non-zero and will not suggest a version when there are errors in either version (too easy to get it wrong). Either way, a message will be printed indicating the API change list may be incomplete.",
+      "parentUuid": "3dbb36c3_5379374e",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 42
+      },
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "994e4a3a_ad0db5e2",
         "filename": "cmd/gorelease/testdata/first/v0_1_0.test",
         "patchSetId": 12
@@ -561,6 +1131,24 @@
       "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1fdc116e_d1e952c7",
+        "filename": "cmd/gorelease/testdata/first/v0_1_0.test",
+        "patchSetId": 12
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-04T23:44:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "994e4a3a_ad0db5e2",
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -581,6 +1169,24 @@
     },
     {
       "key": {
+        "uuid": "9e001e94_0c11a132",
+        "filename": "cmd/gorelease/testdata/nomod/README.txt",
+        "patchSetId": 12
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-04T23:44:12Z",
+      "side": 1,
+      "message": "Added an import comment to example.com/nomod to check that nothing happens.\n\nIs this the right behavior? The go command ignores import comments in module mode. But using a different module path can still break downstream users. Of course, that\u0027s true anyway without an import comment.",
+      "parentUuid": "dcf7c92a_ea0de9ea",
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "cb58f09e_4aa7a26e",
         "filename": "cmd/gorelease/testdata/patherrors/pathsub.test",
         "patchSetId": 12
@@ -592,6 +1198,24 @@
       "writtenOn": "2020-01-31T21:58:58Z",
       "side": 1,
       "message": "I don\u0027t think this necessarily holds for nested modules used as replacements for other modules.",
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ddae540_969cf1e4",
+        "filename": "cmd/gorelease/testdata/patherrors/pathsub.test",
+        "patchSetId": 12
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-04T23:44:12Z",
+      "side": 1,
+      "message": "That\u0027s true. Should I remove this diagnostic?\n\nI expect the situation you describe would be quite rare. Even if you have a short-term fork, I expect you\u0027d fork the whole repo, preserving module locations within the repo.\n\nOn the other hand, I expect most people seeing this error won\u0027t be working on a fork and have assumed they can put the module anywhere within the repo.",
+      "parentUuid": "cb58f09e_4aa7a26e",
       "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
@@ -612,6 +1236,24 @@
       "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "41215e05_9070a2c7",
+        "filename": "cmd/gorelease/testdata/tidy/missing_req.test",
+        "patchSetId": 12
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-04T23:44:12Z",
+      "side": 1,
+      "message": "Added misleading_req.\n\nA little tricky to test, since we module being tested is not loaded as the main module. I\u0027ve copied its requirements to the temporary release module, so upgrades will show up there.",
+      "parentUuid": "16997d07_b8785393",
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
