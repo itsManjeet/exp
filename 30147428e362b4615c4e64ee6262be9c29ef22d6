@@ -1,0 +1,176 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1844a8d4_f319909f",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 13
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-02-11T21:27:20Z",
+      "side": 1,
+      "message": "Because many readers skim documentation by reading only the first sentence of each paragraph, I would prefer to avoid describing exceptions later on in the paragraph — can we instead make the first sentence more precise?\n\nPerhaps:\n\n// If there are incompatible API differences for a proposed major version above 0,\n// gorelease will exit with a non-zero status.\n// …\n// For a proposed version with major version 0, which allows incompatible changes,\n// gorelease will describe any incompatible changes, but they will not affect its exit status.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 45
+      },
+      "revId": "30147428e362b4615c4e64ee6262be9c29ef22d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ed1bf7b6_e1c7fa24",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 13
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-02-11T21:27:20Z",
+      "side": 1,
+      "message": "This function appears to be unused in this CL.",
+      "revId": "30147428e362b4615c4e64ee6262be9c29ef22d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97fc1637_256af786",
+        "filename": "cmd/gorelease/proxy_test.go",
+        "patchSetId": 13
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-02-11T21:27:20Z",
+      "side": 1,
+      "message": "I\u0027m having trouble parsing this clause. (Missing verb?)",
+      "range": {
+        "startLine": 70,
+        "startChar": 60,
+        "endLine": 70,
+        "endChar": 86
+      },
+      "revId": "30147428e362b4615c4e64ee6262be9c29ef22d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5438ccc0_c9a99a58",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 13
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-02-11T21:27:20Z",
+      "side": 1,
+      "message": "(minor) rephrase with a positive verb?\n\n“Some API changes may be omitted.”",
+      "range": {
+        "startLine": 107,
+        "startChar": 60,
+        "endLine": 107,
+        "endChar": 96
+      },
+      "revId": "30147428e362b4615c4e64ee6262be9c29ef22d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ae761aec_54f158ab",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 13
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-02-11T21:27:20Z",
+      "side": 1,
+      "message": "This comment took me a minute to grok: it seems to describe the (elided) `else` branch.\n\nPerhaps invert the first sentence, or invert the branch?\n\n\tif … {\n\t\t// Only count … if there were no errors.\n\t\t// Otherwise, …\n\t\tfor …\n\t}\n\nor\n\n\tif len(p.baseErrors) \u003e 0 || len(p.releaseErrors \u003e 0 {\n\t\t// Don\u0027t …\n\t} else {\n\t\tfor …\n\t}",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 39
+      },
+      "revId": "30147428e362b4615c4e64ee6262be9c29ef22d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "71078800_7bcc475d",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 13
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-02-11T21:27:20Z",
+      "side": 1,
+      "message": "(style)\n\nErrors encoded in the `error` type are conventionally only sentence fragments.\n\nPerhaps use a different type, or return fragments here and complete the sentences on the caller side?",
+      "revId": "30147428e362b4615c4e64ee6262be9c29ef22d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "23c17950_1ec8746f",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 13
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-02-11T21:27:20Z",
+      "side": 1,
+      "message": "Re-reading the test cases, for some reason I had trouble parsing this message.\n\nPerhaps we can focus it more directly on the minor version?\n\n“There are compatible changes, but the minor version is not incremented over the base version (%s).”",
+      "range": {
+        "startLine": 183,
+        "startChar": 21,
+        "endLine": 184,
+        "endChar": 36
+      },
+      "revId": "30147428e362b4615c4e64ee6262be9c29ef22d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "262950f2_1ae91645",
+        "filename": "cmd/gorelease/testdata/fix/README.txt",
+        "patchSetId": 13
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-02-11T21:27:20Z",
+      "side": 1,
+      "message": "Incomplete sentence?",
+      "range": {
+        "startLine": 4,
+        "startChar": 50,
+        "endLine": 4,
+        "endChar": 51
+      },
+      "revId": "30147428e362b4615c4e64ee6262be9c29ef22d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
