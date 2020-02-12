@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "28e364bd_d3d29a06",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 13
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-12T23:05:49Z",
+      "side": 1,
+      "message": "Done, with slight rewording.",
+      "parentUuid": "1844a8d4_f319909f",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 45
+      },
+      "revId": "30147428e362b4615c4e64ee6262be9c29ef22d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ed1bf7b6_e1c7fa24",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 13
@@ -39,6 +63,24 @@
       "revId": "30147428e362b4615c4e64ee6262be9c29ef22d6",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d2542621_281eebe0",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 13
+      },
+      "lineNbr": 515,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-12T23:05:49Z",
+      "side": 1,
+      "message": "Oops, moved to the following CL.",
+      "parentUuid": "ed1bf7b6_e1c7fa24",
+      "revId": "30147428e362b4615c4e64ee6262be9c29ef22d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -65,6 +107,30 @@
     },
     {
       "key": {
+        "uuid": "b83a3297_f597cc49",
+        "filename": "cmd/gorelease/proxy_test.go",
+        "patchSetId": 13
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-12T23:05:49Z",
+      "side": 1,
+      "message": "Added \"contained\". Non-canonical versions should just have .info redirecting to a canonical version. No other files allowed.",
+      "parentUuid": "97fc1637_256af786",
+      "range": {
+        "startLine": 70,
+        "startChar": 60,
+        "endLine": 70,
+        "endChar": 86
+      },
+      "revId": "30147428e362b4615c4e64ee6262be9c29ef22d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "5438ccc0_c9a99a58",
         "filename": "cmd/gorelease/report.go",
         "patchSetId": 13
@@ -85,6 +151,30 @@
       "revId": "30147428e362b4615c4e64ee6262be9c29ef22d6",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d67bc71_8718f293",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 13
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-12T23:05:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5438ccc0_c9a99a58",
+      "range": {
+        "startLine": 107,
+        "startChar": 60,
+        "endLine": 107,
+        "endChar": 96
+      },
+      "revId": "30147428e362b4615c4e64ee6262be9c29ef22d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -111,6 +201,30 @@
     },
     {
       "key": {
+        "uuid": "dd69d681_49ba022c",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 13
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-12T23:05:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae761aec_54f158ab",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 39
+      },
+      "revId": "30147428e362b4615c4e64ee6262be9c29ef22d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "71078800_7bcc475d",
         "filename": "cmd/gorelease/report.go",
         "patchSetId": 13
@@ -125,6 +239,24 @@
       "revId": "30147428e362b4615c4e64ee6262be9c29ef22d6",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d5cf99f_99891a9c",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 13
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-12T23:05:49Z",
+      "side": 1,
+      "message": "Changed the type to versionMessage. It no longer wraps an error.\n\nAlso, validateVersion and suggestVersion now return nothing and set r.versionInvalid, r.releaseVersion, and r.releaseVersionInferred. The caller is no longer responsible for this.",
+      "parentUuid": "71078800_7bcc475d",
+      "revId": "30147428e362b4615c4e64ee6262be9c29ef22d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -151,6 +283,30 @@
     },
     {
       "key": {
+        "uuid": "b0aa7ad7_c8ddca03",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 13
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-12T23:05:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23c17950_1ec8746f",
+      "range": {
+        "startLine": 183,
+        "startChar": 21,
+        "endLine": 184,
+        "endChar": 36
+      },
+      "revId": "30147428e362b4615c4e64ee6262be9c29ef22d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "262950f2_1ae91645",
         "filename": "cmd/gorelease/testdata/fix/README.txt",
         "patchSetId": 13
@@ -171,6 +327,30 @@
       "revId": "30147428e362b4615c4e64ee6262be9c29ef22d6",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5892c0c8_675f87ec",
+        "filename": "cmd/gorelease/testdata/fix/README.txt",
+        "patchSetId": 13
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-12T23:05:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "262950f2_1ae91645",
+      "range": {
+        "startLine": 4,
+        "startChar": 50,
+        "endLine": 4,
+        "endChar": 51
+      },
+      "revId": "30147428e362b4615c4e64ee6262be9c29ef22d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }

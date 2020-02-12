@@ -179,6 +179,24 @@
     },
     {
       "key": {
+        "uuid": "aa89a3b0_30383551",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-12T23:05:49Z",
+      "side": 1,
+      "message": "Marking resolved. If it seems like this will be viable, let\u0027s open an issue later.",
+      "parentUuid": "793f6b00_c93c534f",
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "52847177_aef77dee",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 12
@@ -247,6 +265,30 @@
       "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "97421447_68b16437",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-12T23:05:49Z",
+      "side": 1,
+      "message": "Leaving in the IDEAS list for now.",
+      "parentUuid": "6f1ce232_757819f4",
+      "range": {
+        "startLine": 84,
+        "startChar": 5,
+        "endLine": 85,
+        "endChar": 59
+      },
+      "revId": "7868cc7f6afaa3a8c2e2e15330e03e036b40ace7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
