@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8f86dbdb_0f48c7f3",
+        "filename": "cmd/gorelease/errors.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-02-24T19:30:23Z",
+      "side": 1,
+      "message": "From this function\u0027s name, I would expect it to return a `[]byte` or `string` rather than an `error` — the output of `stderr` is not usually a well-formatted Go error message, and the caller is just converting it back to a string anyway.",
+      "range": {
+        "startLine": 62,
+        "startChar": 5,
+        "endLine": 62,
+        "endChar": 24
+      },
+      "revId": "61b931503351f918ac01f0168964bf9c393238d4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "61aa469b_1efb03c4",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-02-24T19:30:23Z",
+      "side": 1,
+      "message": "This does not always preserve semantic ordering.\n\n(Consider the sequence [`v1.1.0`, …, `v1.9.0`, `v1.10.0`].)",
+      "revId": "61b931503351f918ac01f0168964bf9c393238d4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52f9a8e1_a454a0cd",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-02-24T19:30:23Z",
+      "side": 1,
+      "message": "Um... I only see one call to loadVersions. Why do we need to guard it in a singleflight? (And why a singleflight rather than a sync.Once?)",
+      "revId": "61b931503351f918ac01f0168964bf9c393238d4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "67b35106_3d72ab30",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-02-24T19:30:23Z",
+      "side": 1,
+      "message": "I don\u0027t see any calls to this function — is this left over from an earlier draft, or accidentally added to this CL instead of a later one?",
+      "revId": "61b931503351f918ac01f0168964bf9c393238d4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
