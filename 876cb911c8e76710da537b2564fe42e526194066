@@ -16,6 +16,24 @@
       "revId": "876cb911c8e76710da537b2564fe42e526194066",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "648bee6a_2634eabe",
+        "filename": "shiny/driver/mtldriver/mtldriver.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2020-02-24T16:07:59Z",
+      "side": 1,
+      "message": "I don\u0027t like it either, but without it, it\u0027s hard to tell what \"Delete this\" refers to.\n\nIf this code were to stay permanently, I\u0027d resolve the problem by adding blank lines for separation. But given it\u0027s temporary, I\u0027d rather just add this block for now, and delete it when the workaround can be removed.\n\nSince you said this comment is optional, I\u0027ll keep it.",
+      "parentUuid": "73a70e18_51c4a17a",
+      "revId": "876cb911c8e76710da537b2564fe42e526194066",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
