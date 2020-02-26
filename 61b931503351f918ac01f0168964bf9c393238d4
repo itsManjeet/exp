@@ -102,6 +102,24 @@
     },
     {
       "key": {
+        "uuid": "935868a2_5330f466",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-26T22:15:09Z",
+      "side": 1,
+      "message": "Ah, I wasn\u0027t sure if that was always true.\n\nIn any case, I\u0027d rather be defensive here. Sorting should be cheap compared with running the command.",
+      "parentUuid": "d2a8c0b7_8c0a85bd",
+      "revId": "61b931503351f918ac01f0168964bf9c393238d4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "52f9a8e1_a454a0cd",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 5
