@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "4a29d7c7_1852ecc0",
+        "filename": "cmd/gorelease/errors.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-26T22:09:32Z",
+      "side": 1,
+      "message": "Added a comment to clarify the usage. Also moved one of the calls to where downloadError is constructed.\n\nBasically, this is trying to avoid an error message like \"exit status 1\" from \"go mod download\" and \"go list -m -versions\". Both have well-formatted error messages, so I\u0027d like to preserve them.",
+      "parentUuid": "8f86dbdb_0f48c7f3",
+      "range": {
+        "startLine": 62,
+        "startChar": 5,
+        "endLine": 62,
+        "endChar": 24
+      },
+      "revId": "61b931503351f918ac01f0168964bf9c393238d4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "61aa469b_1efb03c4",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 5
@@ -39,6 +63,24 @@
       "revId": "61b931503351f918ac01f0168964bf9c393238d4",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "79f44780_1985e3c7",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-26T22:09:32Z",
+      "side": 1,
+      "message": "Good catch.",
+      "parentUuid": "61aa469b_1efb03c4",
+      "revId": "61b931503351f918ac01f0168964bf9c393238d4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "716d2faa_73499a93",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-26T22:09:32Z",
+      "side": 1,
+      "message": "I don\u0027t remember why I did this. :P Removed.",
+      "parentUuid": "52f9a8e1_a454a0cd",
+      "revId": "61b931503351f918ac01f0168964bf9c393238d4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "67b35106_3d72ab30",
         "filename": "cmd/gorelease/report.go",
         "patchSetId": 5
@@ -73,6 +133,24 @@
       "revId": "61b931503351f918ac01f0168964bf9c393238d4",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "870f69c9_8f71a2e4",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-26T22:09:32Z",
+      "side": 1,
+      "message": "Left over from an earlier draft. Removed.",
+      "parentUuid": "67b35106_3d72ab30",
+      "revId": "61b931503351f918ac01f0168964bf9c393238d4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
