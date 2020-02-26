@@ -84,6 +84,24 @@
     },
     {
       "key": {
+        "uuid": "d2a8c0b7_8c0a85bd",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-02-26T22:10:16Z",
+      "side": 1,
+      "message": "Actually, we may not need to sort these at all: https://tip.golang.org/cmd/go/#hdr-List_packages_or_modules claims that `cmd/go` already sorts them semantically.",
+      "parentUuid": "61aa469b_1efb03c4",
+      "revId": "61b931503351f918ac01f0168964bf9c393238d4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "52f9a8e1_a454a0cd",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 5
