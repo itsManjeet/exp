@@ -138,6 +138,24 @@
     },
     {
       "key": {
+        "uuid": "5f9d0f74_666e77e0",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-02-28T21:08:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e119d3b_a4cdee34",
+      "revId": "61b931503351f918ac01f0168964bf9c393238d4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "52f9a8e1_a454a0cd",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 5
