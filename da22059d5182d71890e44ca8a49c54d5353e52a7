@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f6b3831a_48d1b2e8",
+        "filename": "cmd/gorelease/errors.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-02-28T16:27:56Z",
+      "side": 1,
+      "message": "I think we should probably do this only if the trimmed stderr content is non-empty.\n\n(If it is empty, an opaque exit code is still more useful than an empty error message.)",
+      "revId": "da22059d5182d71890e44ca8a49c54d5353e52a7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
