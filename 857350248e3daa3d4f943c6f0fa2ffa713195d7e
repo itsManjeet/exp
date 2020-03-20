@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fd46c81d_a72a3d24",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 875,
+      "author": {
+        "id": 10033
+      },
+      "writtenOn": "2020-03-20T17:36:10Z",
+      "side": 1,
+      "message": "This line is an implementation detail that could change: we might do other postprocessing that alters the order. Maybe we should remove this line from the comment?",
+      "range": {
+        "startLine": 875,
+        "startChar": 0,
+        "endLine": 875,
+        "endChar": 77
+      },
+      "revId": "857350248e3daa3d4f943c6f0fa2ffa713195d7e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
