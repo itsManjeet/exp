@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "04e07f8f_6eda723e",
+        "filename": "ebnflint/ebnflint_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-03-31T19:00:50Z",
+      "side": 1,
+      "message": "Perhaps `os.IsNotExist(err)`?",
+      "revId": "a155e4b7c4b271d7f5347790e580f2edd8a2bb54",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
