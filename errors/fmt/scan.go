@@ -604,7 +604,7 @@ func (s *ss) scanRune(bitSize int) int64 {
 	n := uint(bitSize)
 	x := (r << (64 - n)) >> (64 - n)
 	if x != r {
-		s.errorString("overflow on character value " + string(r))
+		s.errorString("overflow on character value " + string(rune(r)))
 	}
 	return r
 }
