@@ -16,6 +16,24 @@
       "revId": "ef7f46c465e531e084812cc857aaa076f1214f6d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ca4b9a7_8c7f3660",
+        "filename": "errors/fmt/scan.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 5065
+      },
+      "writtenOn": "2020-05-13T19:06:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "901fa390_865554e7",
+      "revId": "ef7f46c465e531e084812cc857aaa076f1214f6d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
