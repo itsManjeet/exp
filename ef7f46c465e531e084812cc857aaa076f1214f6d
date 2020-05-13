@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "901fa390_865554e7",
+        "filename": "errors/fmt/scan.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2020-05-13T19:03:00Z",
+      "side": 1,
+      "message": "For more sanity, let\u0027s do this like the corresponding code in fmt/scan.go in the standard library:\n\tr :\u003d s.getRune()\n\tn :\u003d uint(bitSize)\n\tx :\u003d (int64(r) \u003c\u003c (64 - n)) \u003e\u003e (64 - n)\n\tif x !\u003d int64(r) {\n\t\ts.errorString(\"overflow on character value \" + string(r))\n\t}\n\treturn int64(r)",
+      "revId": "ef7f46c465e531e084812cc857aaa076f1214f6d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
