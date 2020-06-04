@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2fc39d86_db1ddda9",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-06-04T20:21:42Z",
+      "side": 0,
+      "message": "I removed everything here that has an issue filed.\n\nRemaining items aren\u0027t yet well-defined enough for an issue.",
+      "revId": "00229845015e38294862ecd9909318241789d41c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "cb097ff2_1184e588",
+        "filename": "go.mod",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-06-04T20:21:42Z",
+      "side": 0,
+      "message": "Removed by \u0027go mod tidy\u0027",
+      "revId": "00229845015e38294862ecd9909318241789d41c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
