@@ -65,10 +65,14 @@ func (r *report) Text(w io.Writer) error {
 		}
 	}
 
+	baseVersion := r.base.version
+	if r.base.modPath != r.release.modPath {
+		baseVersion = r.base.modPath + "@" + baseVersion
+	}
 	if r.base.versionInferred {
-		fmt.Fprintf(buf, "Inferred base version: %s\n", r.base.version)
+		fmt.Fprintf(buf, "Inferred base version: %s\n", baseVersion)
 	} else if r.base.versionQuery != "" {
-		fmt.Fprintf(buf, "Base version: %s (%s)\n", r.base.version, r.base.versionQuery)
+		fmt.Fprintf(buf, "Base version: %s (%s)\n", baseVersion, r.base.versionQuery)
 	}
 
 	if len(r.release.diagnostics) > 0 {
@@ -170,7 +174,7 @@ which is required for major versions v2 or greater.`, major)
 	}
 
 	// Check that compatible / incompatible changes are consistent.
-	if semver.Major(r.base.version) == "v0" {
+	if semver.Major(r.base.version) == "v0" || r.base.modPath != r.release.modPath {
 		return
 	}
 	if r.haveIncompatibleChanges {
@@ -195,6 +199,11 @@ func (r *report) suggestVersion() {
 	setVersion := func(v string) {
 		r.release.version = v
 		r.release.versionInferred = true
+	}
+
+	if r.base.modPath != r.release.modPath {
+		setNotValid("Base module path is different from release.")
+		return
 	}
 
 	if r.haveReleaseErrors || r.haveBaseErrors {
