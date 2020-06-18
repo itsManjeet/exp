@@ -1,0 +1,7 @@
+mod=example.com/internalcompat/b
+version=v1.0.0
+release=v1.0.0
+base=example.com/internalcompat/a@v1.0.0
+
+-- want --
+v1.0.0 is a valid semantic version for this release.
