@@ -1,0 +1,16 @@
+-- go.mod --
+module example.com/internalcompat/b
+
+go 1.15
+
+-- p/p.go --
+package p
+
+import "example.com/internalcompat/b/internal/q"
+
+var V q.Q
+
+-- internal/q/q.go --
+package q
+
+type Q struct{}
