@@ -42,8 +42,11 @@
 // "latest", or "none". If the version is "none", gorelease will not compare the
 // current version against any previous version; it will only validate the
 // current version. This is useful for checking the first release of a new major
-// version. If -base is not specified, gorelease will attempt to infer a base
-// version from the -version flag and available released versions.
+// version. The version may be preceded by a different module path and an '@',
+// like -base=example.com/mod/v2@v2.5.2. This is useful for comparing against
+// an earlier major version or a fork. If -base is not specified, gorelease will
+// attempt to infer a base version from the -version flag and available released
+// versions.
 //
 // -version=version: The proposed version to be released. If specified,
 // gorelease will confirm whether this version is consistent with changes made
@@ -138,8 +141,8 @@ func runRelease(w io.Writer, dir string, args []string) (success bool, err error
 	fs := flag.NewFlagSet("gorelease", flag.ContinueOnError)
 	fs.Usage = func() {}
 	fs.SetOutput(ioutil.Discard)
-	var baseVersion, releaseVersion string
-	fs.StringVar(&baseVersion, "base", "", "previous version to compare against")
+	var baseOpt, releaseVersion string
+	fs.StringVar(&baseOpt, "base", "", "previous version to compare against")
 	fs.StringVar(&releaseVersion, "version", "", "proposed version to be released")
 	if err := fs.Parse(args); err != nil {
 		return false, &usageError{err: err}
@@ -148,17 +151,32 @@ func runRelease(w io.Writer, dir string, args []string) (success bool, err error
 	if len(fs.Args()) > 0 {
 		return false, usageErrorf("no arguments allowed")
 	}
+
 	if releaseVersion != "" {
 		if c := semver.Canonical(releaseVersion); c != releaseVersion {
 			return false, usageErrorf("release version %q is not a canonical semantic version", releaseVersion)
 		}
 	}
-	if baseVersion != "" && semver.Canonical(baseVersion) == baseVersion && releaseVersion != "" {
-		if cmp := semver.Compare(baseVersion, releaseVersion); cmp == 0 {
-			return false, usageErrorf("-base and -version must be different")
-		} else if cmp > 0 {
-			return false, usageErrorf("base version (%q) must be lower than release version (%q)", baseVersion, releaseVersion)
+
+	var baseModPath, baseVersion string
+	if at := strings.Index(baseOpt, "@"); at >= 0 {
+		baseModPath = baseOpt[:at]
+		baseVersion = baseOpt[at+1:]
+	} else if dot, slash := strings.Index(baseOpt, "."), strings.Index(baseOpt, "/"); dot >= 0 && slash >= 0 && dot < slash {
+		baseModPath = baseOpt
+	} else {
+		baseVersion = baseOpt
+	}
+	if baseModPath == "" {
+		if baseVersion != "" && semver.Canonical(baseVersion) == baseVersion && releaseVersion != "" {
+			if cmp := semver.Compare(baseOpt, releaseVersion); cmp == 0 {
+				return false, usageErrorf("-base and -version must be different")
+			} else if cmp > 0 {
+				return false, usageErrorf("base version (%q) must be lower than release version (%q)", baseVersion, releaseVersion)
+			}
 		}
+	} else if baseModPath != "" && baseVersion == "none" {
+		return false, usageErrorf(`base version (%q) cannot have version "none" with explicit module path`, baseOpt)
 	}
 
 	// Find the local module and repository root directories.
@@ -176,8 +194,12 @@ func runRelease(w io.Writer, dir string, args []string) (success bool, err error
 
 	// Find the base version if there is one, download it, and load packages from
 	// the module cache.
-	baseModPath := release.modPath // TODO(#39666): allow different module path
-	base, err := loadDownloadedModule(baseModPath, baseVersion, releaseVersion)
+	var max string
+	if baseModPath == "" {
+		baseModPath = release.modPath
+		max = releaseVersion
+	}
+	base, err := loadDownloadedModule(baseModPath, baseVersion, max)
 	if err != nil {
 		return false, err
 	}
@@ -430,18 +452,12 @@ func loadDownloadedModule(modPath, version, max string) (m moduleInfo, err error
 // version control tag to use (with an appropriate prefix, for modules not
 // in the repository root directory).
 func makeReleaseReport(base, release moduleInfo) (report, error) {
-	if base.modPath != release.modPath {
-		// TODO(#39666): allow base and release path to be different.
-		panic(fmt.Sprintf("base module path %q is different than release module path %q", base.modPath, release.modPath))
-	}
-	modPath := release.modPath
-
 	// Compare each pair of packages.
 	// Ignore internal packages.
 	// If we don't have a base version to compare against,
 	// just check the new packages for errors.
 	shouldCompare := base.version != "none"
-	isInternal := func(pkgPath string) bool {
+	isInternal := func(modPath, pkgPath string) bool {
 		if !hasPathPrefix(pkgPath, modPath) {
 			panic(fmt.Sprintf("package %s not in module %s", pkgPath, modPath))
 		}
@@ -457,17 +473,17 @@ func makeReleaseReport(base, release moduleInfo) (report, error) {
 		base:    base,
 		release: release,
 	}
-	for _, pair := range zipPackages(base.pkgs, release.pkgs) {
+	for _, pair := range zipPackages(base.modPath, base.pkgs, release.modPath, release.pkgs) {
 		basePkg, releasePkg := pair.base, pair.release
 		switch {
 		case releasePkg == nil:
 			// Package removed
-			if !isInternal(basePkg.PkgPath) || len(basePkg.Errors) > 0 {
+			if !isInternal(base.modPath, basePkg.PkgPath) || len(basePkg.Errors) > 0 {
 				pr := packageReport{
 					path:       basePkg.PkgPath,
 					baseErrors: basePkg.Errors,
 				}
-				if !isInternal(basePkg.PkgPath) {
+				if !isInternal(base.modPath, basePkg.PkgPath) {
 					pr.Report = apidiff.Report{
 						Changes: []apidiff.Change{{
 							Message:    "package removed",
@@ -480,12 +496,12 @@ func makeReleaseReport(base, release moduleInfo) (report, error) {
 
 		case basePkg == nil:
 			// Package added
-			if !isInternal(releasePkg.PkgPath) && shouldCompare || len(releasePkg.Errors) > 0 {
+			if !isInternal(release.modPath, releasePkg.PkgPath) && shouldCompare || len(releasePkg.Errors) > 0 {
 				pr := packageReport{
 					path:          releasePkg.PkgPath,
 					releaseErrors: releasePkg.Errors,
 				}
-				if !isInternal(releasePkg.PkgPath) && shouldCompare {
+				if !isInternal(release.modPath, releasePkg.PkgPath) && shouldCompare {
 					// If we aren't comparing against a base version, don't say
 					// "package added". Only report packages with errors.
 					pr.Report = apidiff.Report{
@@ -500,7 +516,7 @@ func makeReleaseReport(base, release moduleInfo) (report, error) {
 
 		default:
 			// Matched packages
-			if !isInternal(basePkg.PkgPath) && basePkg.Name != "main" && releasePkg.Name != "main" {
+			if !isInternal(base.modPath, basePkg.PkgPath) && basePkg.Name != "main" && releasePkg.Name != "main" {
 				pr := packageReport{
 					path:          basePkg.PkgPath,
 					baseErrors:    basePkg.Errors,
@@ -988,24 +1004,27 @@ type packagePair struct {
 // If a package is in one list but not the other (because it was added or
 // removed between releases), a pair will be returned with a nil
 // base or release field.
-func zipPackages(basePkgs, releasePkgs []*packages.Package) []packagePair {
+func zipPackages(baseModPath string, basePkgs []*packages.Package, releaseModPath string, releasePkgs []*packages.Package) []packagePair {
 	baseIndex, releaseIndex := 0, 0
 	var pairs []packagePair
 	for baseIndex < len(basePkgs) || releaseIndex < len(releasePkgs) {
 		var basePkg, releasePkg *packages.Package
+		var baseSuffix, releaseSuffix string
 		if baseIndex < len(basePkgs) {
 			basePkg = basePkgs[baseIndex]
+			baseSuffix = trimPathPrefix(basePkg.PkgPath, baseModPath)
 		}
 		if releaseIndex < len(releasePkgs) {
 			releasePkg = releasePkgs[releaseIndex]
+			releaseSuffix = trimPathPrefix(releasePkg.PkgPath, releaseModPath)
 		}
 
 		var pair packagePair
-		if basePkg != nil && (releasePkg == nil || basePkg.PkgPath < releasePkg.PkgPath) {
+		if basePkg != nil && (releasePkg == nil || baseSuffix < releaseSuffix) {
 			// Package removed
 			pair = packagePair{basePkg, nil}
 			baseIndex++
-		} else if releasePkg != nil && (basePkg == nil || releasePkg.PkgPath < basePkg.PkgPath) {
+		} else if releasePkg != nil && (basePkg == nil || releaseSuffix < baseSuffix) {
 			// Package added
 			pair = packagePair{nil, releasePkg}
 			releaseIndex++
