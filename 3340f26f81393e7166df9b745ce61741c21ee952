@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "902e4615_600b08da",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-08-17T18:38:28Z",
+      "side": 1,
+      "message": "We should probably reject @upgrade and @patch here. Those terms have meaning in the module where gorelease is run, but we run \u0027go list -m\u0027 below in a temporary directory where they are just equivalent to @latest.",
+      "revId": "3340f26f81393e7166df9b745ce61741c21ee952",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
