@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0e249c7a_29615776",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 1007,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-08-17T18:41:19Z",
+      "side": 1,
+      "message": "When comparing packages in two distinct modules, what happens if a package imports an internal package and returns a type from there? It\u0027s not a compatible difference, but warning about that may be different because separate modules aren\u0027t usually expected to be compatible.\n\nThere isn\u0027t an obvious right answer here, but we should decide the behavior we want, test it, and document it.",
+      "revId": "50c7ad4b3a6534ef3edfff58d891ff02e345c233",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
