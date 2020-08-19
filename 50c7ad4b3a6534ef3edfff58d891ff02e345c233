@@ -16,6 +16,24 @@
       "revId": "50c7ad4b3a6534ef3edfff58d891ff02e345c233",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a9b9767_4857828a",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 1007,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-08-19T20:42:56Z",
+      "side": 1,
+      "message": "TestRelease/internalcompat/internalcompat now tests this.\n\nIt looks like apidiff does not report a difference between the corresponding internal types of a definition in a non-internal package. I think that\u0027s the right behavior. If it did report a difference, I think we would need to suppress that since those differences aren\u0027t going to be interesting to anyone comparing forks or major versions.",
+      "parentUuid": "0e249c7a_29615776",
+      "revId": "50c7ad4b3a6534ef3edfff58d891ff02e345c233",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
