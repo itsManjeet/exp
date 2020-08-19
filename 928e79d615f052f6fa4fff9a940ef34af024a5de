@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6318e45a_24a02e43",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-08-19T19:12:05Z",
+      "side": 1,
+      "message": "The remaining TryBot failure seems to be from (unrelated) CL 248759.",
+      "revId": "928e79d615f052f6fa4fff9a940ef34af024a5de",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
