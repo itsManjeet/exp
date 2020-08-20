@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e9cb87f2_cc29fb6f",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-08-20T19:13:07Z",
+      "side": 1,
+      "message": "(nit) s/for comparing/to compare/\n\n(prefer verbs for actions)",
+      "range": {
+        "startLine": 46,
+        "startChar": 56,
+        "endLine": 46,
+        "endChar": 69
+      },
+      "revId": "79b58a00d07f1f8b602f4cc97bd702c13a10e730",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "320b44d2_5d6d5147",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-08-20T19:13:07Z",
+      "side": 1,
+      "message": "I think we\u0027re missing something here for replacement modules.\n\nIf I\u0027m comparing, say, example.com/x and github.com/examplecom/fork-of-x, then I need to know whether fork-of-x declares its module path to be `example.com/x` (intending to be used via a `replace` directive) or `github.com/examplecom/fork-of-x` (intending to be used by swapping out `import` statements).\n\nThat determines not only which packages should be interpreted as “within the module”, but also whether the types exported by those packages are technically distinct.",
+      "range": {
+        "startLine": 378,
+        "startChar": 16,
+        "endLine": 378,
+        "endChar": 32
+      },
+      "revId": "79b58a00d07f1f8b602f4cc97bd702c13a10e730",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "9b66d931_bf5a2919",
+        "filename": "cmd/gorelease/testdata/basic/v1_fork_base_modpath_version_verify.test",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-08-20T19:13:07Z",
+      "side": 1,
+      "message": "If the proposed version does not satisfy maybeFirstVersion and is not v0.Y.0, then I don\u0027t think we should judge its validity when comparing to a different module path.\n\n(If we didn\u0027t even examine example.com/basicfork@v1.1.1, we don\u0027t know whether v1.1.2 is appropriate for it.)",
+      "revId": "79b58a00d07f1f8b602f4cc97bd702c13a10e730",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ef63651c_c170c2e1",
+        "filename": "cmd/gorelease/testdata/basic/v1_v2_base_modpath_verify.test",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-08-20T19:13:07Z",
+      "side": 1,
+      "message": "Here\u0027s an interesting question: if we\u0027re comparing example.com/basic/v2 to example.com/basic@latest and they turn out to be *compatible*, should we reject v2.0.0 due to a lack of breaking changes? 🤔",
+      "revId": "79b58a00d07f1f8b602f4cc97bd702c13a10e730",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "757d02bb_091ced9d",
+        "filename": "cmd/gorelease/testdata/internalcompat/README.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-08-20T19:13:07Z",
+      "side": 1,
+      "message": "The use of an `internal/` path isn\u0027t strictly necessary for this test: the same considerations apply when the exposed type is from a non-internal package.\n\n(The important property is that we are considering two packages that reside within the same module.)",
+      "range": {
+        "startLine": 2,
+        "startChar": 14,
+        "endLine": 4,
+        "endChar": 0
+      },
+      "revId": "79b58a00d07f1f8b602f4cc97bd702c13a10e730",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "0cfb8e5b_05e3f8d5",
+        "filename": "cmd/gorelease/testdata/internalcompat/README.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-08-20T19:13:07Z",
+      "side": 1,
+      "message": "I thought about this some more, and I think it\u0027s correct but for fairly subtle reasons.\n\nThere are three use-cases to consider:\n\n1. One module substitutes for the other via a `replace` directive. But if we use the declared module path from the go.mod file for each module, those package paths will actually be identical, so there is no different in the exposed types anyway.\n\n2. One module substitutes for the other by rewriting `import` statements globally. In that case, the difference in types is not a breaking change because all references to the original type will become references to the rewritten type.\n\n3. One module substitutes for the other by rewriting `import` statements locally (within a specific consumer package). In that case, *any* type from the substitute module that is itself exposed by the consumer will become a breaking change, regardless of which package it originates in. So if we consider the types directly defined by `p` to be equivalent (which we should), then we should also consider types defined by `p/q` to be equivalent. So we should consider the types from corresponding packages to be equivalent.",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 12
+      },
+      "revId": "79b58a00d07f1f8b602f4cc97bd702c13a10e730",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
