@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "00073102_143464ee",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-08-20T18:25:12Z",
+      "side": 1,
+      "message": "With the baseVersion logic factored out, the version argument is now a pass-through parameter: its only role as an input is to appear unmodified in the output.\n\nBut I wonder whether that should still be the case. In prepareLoadDirForLocalModule, we are currently using a synthetic version and replacing it with the actual directory, but perhaps we would get better diagnostics out of subcommands if we used the actual proposed version instead.",
+      "revId": "aa9833f5691247e940833aca4459b4706b6cee88",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3ac8ef80_9216d2d9",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 835,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-08-20T18:25:12Z",
+      "side": 1,
+      "message": "Looking at these two `prepare` functions again, I wonder if it would be simpler to combine them.\n\nAs far as I can see, the major differences are:\n\n* Downloaded uses the actual version, while Local uses `vX.0.0-gorelease`.\n\n   * I think we could feasibly use the actual version for both.\n\n* Downloaded emits only a Require directive, while Local emits a Require plus a Replace plus all of the explicit requirements from the go.mod file.\n\n   * Are the duplicated explicit requirements actually necessary? If we omitted them, could we also eliminate the modFile argument from the Local variant?\n\n   * Is the use of fmt.Fprintf vs. a modfile.File only due to the difference in content, or is there a more fundamental reason for it?",
+      "revId": "aa9833f5691247e940833aca4459b4706b6cee88",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b971a47e_d7f59ce0",
+        "filename": "cmd/gorelease/path_test.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-08-20T18:25:12Z",
+      "side": 1,
+      "message": "Maybe also test with an absolute path and empty prefix?\n\n(I think the `if prefix \u003d\u003d \"\"` special-case in the implementation only has an observable effect for absolute paths.)",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 125,
+        "endChar": 5
+      },
+      "revId": "aa9833f5691247e940833aca4459b4706b6cee88",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
