@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e07a50ae_51ad43e8",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-08-20T03:43:29Z",
+      "side": 1,
+      "message": "This has kind of a weird non-reproducibility for commit hashes.\n\nEach commit may have multiple valid pseudo-versions: one of the form vX.0.0-0.*, and an additional pseudo-version for each ancestor tag. By default, a commit resolves to its highest valid pseudo-version, so a commit that was previously accepted as a base may be rejected after an ancestor is tagged.\n\nI\u0027m not sure there\u0027s really anything to be done about that, but it may be worth considering further.",
+      "revId": "8e801996b32a530649a2aff613e387a575487b40",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "582facfa_bc666beb",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2020-08-20T03:43:29Z",
+      "side": 1,
+      "message": "s/current version/consumer\u0027s go.mod requirements/ or something along those lines?\n\n(In prose, “current” is a lot like “latest”, and “latest” is valid.)",
+      "range": {
+        "startLine": 544,
+        "startChar": 43,
+        "endLine": 544,
+        "endChar": 50
+      },
+      "revId": "8e801996b32a530649a2aff613e387a575487b40",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
