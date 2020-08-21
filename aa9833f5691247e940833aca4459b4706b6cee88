@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "e2ac170d_745e6831",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-08-21T18:54:43Z",
+      "side": 1,
+      "message": "The fake version shouldn\u0027t appear in the output, but you\u0027re right, it may produce better error messages when we have one. Fixed.",
+      "parentUuid": "00073102_143464ee",
+      "revId": "aa9833f5691247e940833aca4459b4706b6cee88",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3ac8ef80_9216d2d9",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 3
@@ -33,6 +51,24 @@
       "revId": "aa9833f5691247e940833aca4459b4706b6cee88",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "90da85cd_4eff8aad",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 835,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-08-21T18:54:43Z",
+      "side": 1,
+      "message": "Combined. There are a couple important differences, but I suppose this helps decouple from the base\u003dcache, release\u003dlocal assumptions.\n\nWe must have a valid version for a module in the cache (otherwise we can\u0027t require it), but we can use a fake for a local module. We might not have a valid version in the local case (user might not propose a version or might propose an invalid version), so now we\u0027ll use a fake if the given version is invalid.\n\nDuplicate requirements are necessary to detect when a module directly requires something but a newer version is indirectly required. \u0027go list\u0027 will update the requirement, and we\u0027ll detect the change and emit a diagnostic.",
+      "parentUuid": "3ac8ef80_9216d2d9",
+      "revId": "aa9833f5691247e940833aca4459b4706b6cee88",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -56,6 +92,30 @@
       "revId": "aa9833f5691247e940833aca4459b4706b6cee88",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "52df78d6_f1f0e361",
+        "filename": "cmd/gorelease/path_test.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-08-21T18:54:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b971a47e_d7f59ce0",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 125,
+        "endChar": 5
+      },
+      "revId": "aa9833f5691247e940833aca4459b4706b6cee88",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
