@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "3f27658b_bfe8afd5",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-08-21T18:43:27Z",
+      "side": 1,
+      "message": "Added a TODO for now. It\u0027s difficult to fix at this point in the stack without causing extra merge conflicts.",
+      "parentUuid": "e07a50ae_51ad43e8",
+      "revId": "8e801996b32a530649a2aff613e387a575487b40",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "582facfa_bc666beb",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 4
@@ -39,6 +57,30 @@
       "revId": "8e801996b32a530649a2aff613e387a575487b40",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b51eb3bd_6906731d",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-08-21T18:43:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "582facfa_bc666beb",
+      "range": {
+        "startLine": 544,
+        "startChar": 43,
+        "endLine": 544,
+        "endChar": 50
+      },
+      "revId": "8e801996b32a530649a2aff613e387a575487b40",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
