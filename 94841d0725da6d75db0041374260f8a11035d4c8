@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "54a89683_3466c190",
+        "filename": "cmd/gorelease/path.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 10033
+      },
+      "writtenOn": "2020-08-24T19:07:25Z",
+      "side": 1,
+      "message": "component",
+      "range": {
+        "startLine": 56,
+        "startChar": 68,
+        "endLine": 56,
+        "endChar": 77
+      },
+      "revId": "94841d0725da6d75db0041374260f8a11035d4c8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
