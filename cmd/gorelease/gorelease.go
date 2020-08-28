@@ -5,6 +5,14 @@
 // gorelease is an experimental tool that helps module authors avoid common
 // problems before releasing a new version of a module.
 //
+// Usage:
+//
+//	# Check a version for compatibility.
+//	gorelease -base=v1.2.3 -version=1.3.0
+//
+//	# Suggest a next version.
+//	gorelease -base=v1.2.3
+//
 // gorelease analyzes changes in the public API and dependencies of the main
 // module. It compares a base version (set with -base) with the currently
 // checked out revision. Given a proposed version to release (set with
