@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "d46b9abf_a2a6cacd",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-08-31T22:34:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c30f91c_abbdf869",
+      "revId": "f9899c4840e1baaa93d9e00eb73f16b4a62fdb80",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1b5e7ad1_bfa1d326",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 2
@@ -33,6 +51,24 @@
       "revId": "f9899c4840e1baaa93d9e00eb73f16b4a62fdb80",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7d66c440_f53d90e7",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-08-31T22:34:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b5e7ad1_bfa1d326",
+      "revId": "f9899c4840e1baaa93d9e00eb73f16b4a62fdb80",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -56,6 +92,30 @@
       "revId": "f9899c4840e1baaa93d9e00eb73f16b4a62fdb80",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b2a17c1c_a6c29156",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-08-31T22:34:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7350ff4c_983b6d1d",
+      "range": {
+        "startLine": 11,
+        "startChar": 35,
+        "endLine": 11,
+        "endChar": 40
+      },
+      "revId": "f9899c4840e1baaa93d9e00eb73f16b4a62fdb80",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
