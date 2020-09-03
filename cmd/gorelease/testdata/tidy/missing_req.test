@@ -2,8 +2,9 @@ mod=example.com/tidy
 base=v0.0.1
 success=false
 -- want --
-go.mod: requirements are incomplete.
-Run 'go mod tidy' to add missing requirements.
+go.mod: requirements are incomplete (- needs to be removed, + needs to be added):
+	+ example.com/basic@v1.1.2
+Run 'go mod tidy' to resolve incomplete requirements.
 -- go.mod --
 module example.com/tidy
 
