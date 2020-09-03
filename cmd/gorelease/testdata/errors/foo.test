@@ -1,0 +1,13 @@
+mod=example.com/tidy
+base=none
+-- go.mod --
+module example.com/tidy
+
+go 1.12
+-- go.sum --
+-- tidy.go --
+package tidy
+
+import _ "example.com/tidy/b"
+-- want --
+foo
