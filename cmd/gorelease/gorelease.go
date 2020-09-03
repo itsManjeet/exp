@@ -73,6 +73,7 @@
 package main
 
 import (
+	"bufio"
 	"bytes"
 	"encoding/json"
 	"errors"
@@ -985,7 +986,7 @@ func loadPackages(modPath, modRoot, loadDir string, goModData, goSumData []byte)
 
 	goModChanged := oldReqs != newReqs
 	if goModChanged {
-		diagnostics = append(diagnostics, "go.mod: requirements are incomplete.\nRun 'go mod tidy' to add missing requirements.")
+		diagnostics = append(diagnostics, fmt.Sprintf("go.mod: requirements are incomplete (- needs to be removed, + needs to be added):\n%sRun 'go mod tidy' to resolve incomplete requirements.", diffLines(oldReqs, newReqs)))
 	}
 
 	if !goModChanged {
@@ -999,6 +1000,36 @@ func loadPackages(modPath, modRoot, loadDir string, goModData, goSumData []byte)
 	}
 
 	return pkgs, diagnostics, nil
+}
+
+// diffLines compares a to b looking for lines missing (represented as -) and
+// added (represented as +).
+func diffLines(a, b string) string {
+	mapLines := func(s string) map[string]bool {
+		m := make(map[string]bool)
+		scanner := bufio.NewScanner(strings.NewReader(s))
+		for scanner.Scan() {
+			m[scanner.Text()] = true
+		}
+		return m
+	}
+
+	am := mapLines(a)
+	bm := mapLines(b)
+
+	var out string
+	for al := range am {
+		if _, ok := bm[al]; !ok {
+			out += fmt.Sprintf("\t- %s\n", al)
+		}
+	}
+	for bl := range bm {
+		if _, ok := am[bl]; !ok {
+			out += fmt.Sprintf("\t+ %s\n", bl)
+		}
+	}
+
+	return out
 }
 
 type packagePair struct {
