@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "3959b766_54f79065",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-09-03T18:58:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ad458e9e_9b0216d5",
+      "range": {
+        "startLine": 748,
+        "startChar": 14,
+        "endLine": 748,
+        "endChar": 16
+      },
+      "revId": "4e8adab28c1194586a5a88e473a7afd15489db04",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "bae1ef30_cdbedde7",
         "filename": "cmd/gorelease/testdata/errors/multiple_errors.test",
         "patchSetId": 1
@@ -39,6 +63,24 @@
       "revId": "4e8adab28c1194586a5a88e473a7afd15489db04",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5685bf0d_3892281e",
+        "filename": "cmd/gorelease/testdata/errors/multiple_errors.test",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-09-03T18:58:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bae1ef30_cdbedde7",
+      "revId": "4e8adab28c1194586a5a88e473a7afd15489db04",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -59,6 +101,24 @@
     },
     {
       "key": {
+        "uuid": "78ac6074_cc083072",
+        "filename": "cmd/gorelease/testdata/errors/multiple_errors.test",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-09-03T18:58:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "931ee046_61f27038",
+      "revId": "4e8adab28c1194586a5a88e473a7afd15489db04",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "19356074_ebc50c27",
         "filename": "cmd/gorelease/testdata/errors/multiple_errors.test",
         "patchSetId": 1
@@ -73,6 +133,24 @@
       "revId": "4e8adab28c1194586a5a88e473a7afd15489db04",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5d16306f_2d65d0b1",
+        "filename": "cmd/gorelease/testdata/errors/multiple_errors.test",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-09-03T18:58:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19356074_ebc50c27",
+      "revId": "4e8adab28c1194586a5a88e473a7afd15489db04",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     },
     {
       "key": {
@@ -93,6 +171,24 @@
     },
     {
       "key": {
+        "uuid": "d3c8b234_9fffc34d",
+        "filename": "go.mod",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-09-03T18:58:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6aa4289f_1e4eab29",
+      "revId": "4e8adab28c1194586a5a88e473a7afd15489db04",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "7772c849_4f47d4be",
         "filename": "go.sum",
         "patchSetId": 1
@@ -107,6 +203,24 @@
       "revId": "4e8adab28c1194586a5a88e473a7afd15489db04",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a62c7144_7c0fdaab",
+        "filename": "go.sum",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-09-03T18:58:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7772c849_4f47d4be",
+      "revId": "4e8adab28c1194586a5a88e473a7afd15489db04",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
