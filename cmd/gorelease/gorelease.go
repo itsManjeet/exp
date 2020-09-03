@@ -73,6 +73,7 @@
 package main
 
 import (
+	"bufio"
 	"bytes"
 	"encoding/json"
 	"errors"
@@ -957,17 +958,17 @@ func loadPackages(modPath, modRoot, loadDir string, goModData, goSumData []byte)
 
 	// Report new requirements in go.mod.
 	goModPath := filepath.Join(loadDir, "go.mod")
-	loadReqs := func(data []byte) (string, error) {
+	loadReqs := func(data []byte) ([]string, error) {
 		modFile, err := modfile.ParseLax(goModPath, data, nil)
 		if err != nil {
-			return "", err
+			return nil, err
 		}
 		lines := make([]string, len(modFile.Require))
 		for i, req := range modFile.Require {
 			lines[i] = req.Mod.String()
 		}
 		sort.Strings(lines)
-		return strings.Join(lines, "\n"), nil
+		return lines, nil
 	}
 
 	oldReqs, err := loadReqs(goModData)
@@ -983,22 +984,51 @@ func loadPackages(modPath, modRoot, loadDir string, goModData, goSumData []byte)
 		return nil, nil, err
 	}
 
-	goModChanged := oldReqs != newReqs
-	if goModChanged {
-		diagnostics = append(diagnostics, "go.mod: requirements are incomplete.\nRun 'go mod tidy' to add missing requirements.")
+	oldMap := make(map[string]bool)
+	for _, req := range oldReqs {
+		oldMap[req] = true
+	}
+	var missing []string
+	for _, req := range newReqs {
+		if !oldMap[req] {
+			missing = append(missing, req)
+		}
 	}
 
-	if !goModChanged {
-		newGoSumData, err := ioutil.ReadFile(filepath.Join(loadDir, "go.sum"))
-		if err != nil && !os.IsNotExist(err) {
-			return nil, nil, err
-		}
-		if !bytes.Equal(goSumData, newGoSumData) {
-			diagnostics = append(diagnostics, "go.sum: one or more sums are missing.\nRun 'go mod tidy' to add missing sums.")
-		}
+	if len(missing) > 0 {
+		diagnostics = append(diagnostics, fmt.Sprintf("go.mod: requirements are incomplete\n\t%s\nRun 'go mod tidy' to add missing requirements.", strings.Join(missing, "\n\t")))
+		return pkgs, diagnostics, nil
+	}
+
+	newGoSumData, err := ioutil.ReadFile(filepath.Join(loadDir, "go.sum"))
+	if err != nil && !os.IsNotExist(err) {
+		return nil, nil, err
+	}
+	if !bytes.Equal(goSumData, newGoSumData) {
+		diagnostics = append(diagnostics, "go.sum: one or more sums are missing.\nRun 'go mod tidy' to add missing sums.")
 	}
 
 	return pkgs, diagnostics, nil
+}
+
+// diffLines compares a to b looking for lines missing (represented as -) and
+// added (represented as +).
+func diffLines(a, b string) []string {
+	am := make(map[string]bool)
+	aScanner := bufio.NewScanner(strings.NewReader(a))
+	for aScanner.Scan() {
+		req := aScanner.Text()
+		am[req] = true
+	}
+	var missing []string
+	bScanner := bufio.NewScanner(strings.NewReader(b))
+	for bScanner.Scan() {
+		req := bScanner.Text()
+		if !am[req] {
+			missing = append(missing, req)
+		}
+	}
+	return missing
 }
 
 type packagePair struct {
