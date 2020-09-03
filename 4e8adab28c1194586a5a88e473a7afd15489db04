@@ -1,0 +1,112 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ad458e9e_9b0216d5",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-09-03T13:31:23Z",
+      "side": 1,
+      "message": "Nit: return e instead of \u0026e. Both FileErrorList and *FileErrorList satisfy error, but it\u0027s a little surprising to return the same pointer passed to errors.As.",
+      "range": {
+        "startLine": 748,
+        "startChar": 14,
+        "endLine": 748,
+        "endChar": 16
+      },
+      "revId": "4e8adab28c1194586a5a88e473a7afd15489db04",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "bae1ef30_cdbedde7",
+        "filename": "cmd/gorelease/testdata/errors/multiple_errors.test",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-09-03T13:31:23Z",
+      "side": 1,
+      "message": "Nit: Rename to bad_filenames.test. I think that would be a little more descriptive.",
+      "revId": "4e8adab28c1194586a5a88e473a7afd15489db04",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "931ee046_61f27038",
+        "filename": "cmd/gorelease/testdata/errors/multiple_errors.test",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-09-03T13:31:23Z",
+      "side": 1,
+      "message": "The .mod file can be dropped. That would only be needed in archives in testdata/mod that don\u0027t have go.mod files. .mod is served for proxy requests like example.com/x/@v/v1.0.0.mod. When the .mod file isn\u0027t there, proxy_test.go will serve the go.mod file.",
+      "revId": "4e8adab28c1194586a5a88e473a7afd15489db04",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "19356074_ebc50c27",
+        "filename": "cmd/gorelease/testdata/errors/multiple_errors.test",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-09-03T13:31:23Z",
+      "side": 1,
+      "message": "It might be interesting to add x/y/go.mod and x/y/submodule_bad_filename\u0027.txt.\n\nThen we could verify that errors in submodules are not reported.",
+      "revId": "4e8adab28c1194586a5a88e473a7afd15489db04",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6aa4289f_1e4eab29",
+        "filename": "go.mod",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-09-03T13:31:23Z",
+      "side": 1,
+      "message": "Remove",
+      "revId": "4e8adab28c1194586a5a88e473a7afd15489db04",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "7772c849_4f47d4be",
+        "filename": "go.sum",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-09-03T13:31:23Z",
+      "side": 1,
+      "message": "Make sure to run \u0027go mod tidy\u0027 again to remove the v0.3.0 sums.",
+      "revId": "4e8adab28c1194586a5a88e473a7afd15489db04",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
