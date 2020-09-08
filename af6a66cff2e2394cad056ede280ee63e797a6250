@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "869ae270_81e78f5f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-09-08T22:16:06Z",
+      "side": 1,
+      "message": "Jay - not sure what kind of format you\u0027re looking for. I took a shot - let me know if it\u0027s different than you were thinking!\n\nAlso - seems like the two test cases I\u0027ve modified cover the usecase already. Let me know if i\u0027ve missed a usecase though and I\u0027ll add tests.",
+      "revId": "af6a66cff2e2394cad056ede280ee63e797a6250",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    }
+  ]
+}
