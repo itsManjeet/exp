@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dfd73ab4_80f460c7",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-09-10T13:45:05Z",
+      "side": 1,
+      "message": "Optional, but your test cases bring up an interesting distinction: perhaps we should have different messages for incomplete requirements vs inconsistent requirements?\n\nIf so, loadReqs can return ([]module.Version, error), and diffLines (maybe rename to diffReqs?) could return a list of missing modules and a list of modules with changed versions.",
+      "range": {
+        "startLine": 989,
+        "startChar": 74,
+        "endLine": 989,
+        "endChar": 84
+      },
+      "revId": "1bb090e25803bf96ee2d3cd73dd5f855e3a16923",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2b527581_925cada6",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-09-10T13:45:05Z",
+      "side": 1,
+      "message": "It\u0027s not necessarily a bad thing if a module has extra requirements. They might be used for tools or other packages that \u0027go mod tidy\u0027 wouldn\u0027t know about. So let\u0027s only list requirements that are missing.\n\nWe can rephrase this message, too:\n\n    \"go.mod: requirements are incomplete\\n\\t%s\\nRun \u0027go mod tidy\u0027 to add missing requirements.\"",
+      "range": {
+        "startLine": 989,
+        "startChar": 85,
+        "endLine": 989,
+        "endChar": 129
+      },
+      "revId": "1bb090e25803bf96ee2d3cd73dd5f855e3a16923",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "612f7551_8dd2cf1b",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 1007,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-09-10T13:45:05Z",
+      "side": 1,
+      "message": "Instead of splitting lines here, let\u0027s have loadReqs return ([]string, error).\n\nWe may be able to simplify this a bit, too, since we can assume both lists are sorted, and we only need to report added lines in the second list. It\u0027s probably best to return []string here and have the caller worry about the formatting.\n\n    am :\u003d make(map[string]bool)\n    for _, req :\u003d range a {\n      am[req] \u003d true\n    }\n    var missing []string\n    for _, req :\u003d range b {\n      if !am[req] {\n        missing \u003d append(missing, req)\n      }\n    }\n    return missing",
+      "revId": "1bb090e25803bf96ee2d3cd73dd5f855e3a16923",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
