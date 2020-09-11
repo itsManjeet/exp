@@ -144,6 +144,54 @@
     },
     {
       "key": {
+        "uuid": "5be443e9_e188583b",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 15955
+      },
+      "writtenOn": "2020-09-11T18:25:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a25de31f_929ecf25",
+      "range": {
+        "startLine": 989,
+        "startChar": 85,
+        "endLine": 989,
+        "endChar": 129
+      },
+      "revId": "1bb090e25803bf96ee2d3cd73dd5f855e3a16923",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ed4b4e86_0965d511",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 15955
+      },
+      "writtenOn": "2020-09-11T18:25:49Z",
+      "side": 1,
+      "message": "Hmmm... I played a bit around with this, but it gets a bit confusing for the user I think.\n\nI think this case is a subset of the \"missing requirements\" case, except here the \"missing\" requirements are higher versions of some existing requirements. How about we just emit the \"missing\" message and leave it at that? I think that this will be enough to help users debug, and I expect most (all?) users will run tidy either way.\n\nWDYT?",
+      "parentUuid": "c9ddabea_6e1d4d5b",
+      "range": {
+        "startLine": 989,
+        "startChar": 74,
+        "endLine": 989,
+        "endChar": 84
+      },
+      "revId": "1bb090e25803bf96ee2d3cd73dd5f855e3a16923",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "612f7551_8dd2cf1b",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 3
