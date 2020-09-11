@@ -48,6 +48,54 @@
     },
     {
       "key": {
+        "uuid": "ec2a3b90_c3db2ca7",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 15955
+      },
+      "writtenOn": "2020-09-11T00:36:13Z",
+      "side": 1,
+      "message": "Ah, this is a great idea. How would you imagine we display that information, though? Something like,\n\nrequirements are complete\n  missing: foo\n  missing: bar\n  changed: gaz\nplease run go mod tidy\n\n?",
+      "parentUuid": "dfd73ab4_80f460c7",
+      "range": {
+        "startLine": 989,
+        "startChar": 74,
+        "endLine": 989,
+        "endChar": 84
+      },
+      "revId": "1bb090e25803bf96ee2d3cd73dd5f855e3a16923",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "fdecd644_f08631d7",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 15955
+      },
+      "writtenOn": "2020-09-11T00:36:13Z",
+      "side": 1,
+      "message": "Done\n\nThe sentence reads a bit funky to me, though:\n\n\"requirements are incomplete. thing, thing, thing. run command to add missing requirements\"\n\nYou kind of have to guess that thing, thing, thing are missing, which causes requirements to be \"incomplete\". I feel like it should be:\n\n\"requirements are incomplete. the following are missing: thing, thing, thing. run command to add missing requirements\"\n\nWDYT?",
+      "parentUuid": "2b527581_925cada6",
+      "range": {
+        "startLine": 989,
+        "startChar": 85,
+        "endLine": 989,
+        "endChar": 129
+      },
+      "revId": "1bb090e25803bf96ee2d3cd73dd5f855e3a16923",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "612f7551_8dd2cf1b",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 3
@@ -62,6 +110,24 @@
       "revId": "1bb090e25803bf96ee2d3cd73dd5f855e3a16923",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f3727603_9b2df818",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 1007,
+      "author": {
+        "id": 15955
+      },
+      "writtenOn": "2020-09-11T00:36:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "612f7551_8dd2cf1b",
+      "revId": "1bb090e25803bf96ee2d3cd73dd5f855e3a16923",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
