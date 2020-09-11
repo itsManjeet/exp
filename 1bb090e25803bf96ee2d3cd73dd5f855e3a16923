@@ -216,6 +216,54 @@
     },
     {
       "key": {
+        "uuid": "b1358330_9ae31ac0",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-09-11T18:33:22Z",
+      "side": 1,
+      "message": "Right on!",
+      "parentUuid": "bd11d5c3_e74230d2",
+      "range": {
+        "startLine": 989,
+        "startChar": 74,
+        "endLine": 989,
+        "endChar": 84
+      },
+      "revId": "1bb090e25803bf96ee2d3cd73dd5f855e3a16923",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1cf80d96_faebde58",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-09-11T18:33:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b527581_925cada6",
+      "range": {
+        "startLine": 989,
+        "startChar": 85,
+        "endLine": 989,
+        "endChar": 129
+      },
+      "revId": "1bb090e25803bf96ee2d3cd73dd5f855e3a16923",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "612f7551_8dd2cf1b",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 3
@@ -242,6 +290,24 @@
         "id": 15955
       },
       "writtenOn": "2020-09-11T00:36:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "612f7551_8dd2cf1b",
+      "revId": "1bb090e25803bf96ee2d3cd73dd5f855e3a16923",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "c6a8e8a9_2e017163",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 1007,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-09-11T18:33:22Z",
       "side": 1,
       "message": "Done",
       "parentUuid": "612f7551_8dd2cf1b",
