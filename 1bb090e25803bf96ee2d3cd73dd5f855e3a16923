@@ -96,6 +96,54 @@
     },
     {
       "key": {
+        "uuid": "a25de31f_929ecf25",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-09-11T17:43:12Z",
+      "side": 1,
+      "message": "That sounds good. Or \"the following module requirements are needed: thing thing thing. Run \u0027go mod tidy\u0027 to add missing requirements\".",
+      "parentUuid": "fdecd644_f08631d7",
+      "range": {
+        "startLine": 989,
+        "startChar": 85,
+        "endLine": 989,
+        "endChar": 129
+      },
+      "revId": "1bb090e25803bf96ee2d3cd73dd5f855e3a16923",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c9ddabea_6e1d4d5b",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-09-11T17:43:12Z",
+      "side": 1,
+      "message": "Maybe we should keep separate lists, then emit two different diagnostics? How about this for the second message:\n\n    the following modules are indirectly required at higher versions:\n        example.com/a v1.0.0 -\u003e v1.5.0\n        example.com/b v1.1.0 -\u003e v1.6.0\n    Run \u0027go mod tidy\u0027 to fix inconsistent requirements.",
+      "parentUuid": "ec2a3b90_c3db2ca7",
+      "range": {
+        "startLine": 989,
+        "startChar": 74,
+        "endLine": 989,
+        "endChar": 84
+      },
+      "revId": "1bb090e25803bf96ee2d3cd73dd5f855e3a16923",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "612f7551_8dd2cf1b",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 3
