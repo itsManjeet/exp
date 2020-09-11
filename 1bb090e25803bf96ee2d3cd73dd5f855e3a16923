@@ -192,6 +192,30 @@
     },
     {
       "key": {
+        "uuid": "bd11d5c3_e74230d2",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-09-11T18:31:50Z",
+      "side": 1,
+      "message": "I think emitting the missing message only is fine.\n\nThis may be moot after 1.16: we\u0027re planning to make -mod\u003dreadonly the default, so both of these conditions will hard errors, so they should be pretty rare.",
+      "parentUuid": "ed4b4e86_0965d511",
+      "range": {
+        "startLine": 989,
+        "startChar": 74,
+        "endLine": 989,
+        "endChar": 84
+      },
+      "revId": "1bb090e25803bf96ee2d3cd73dd5f855e3a16923",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "612f7551_8dd2cf1b",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 3
