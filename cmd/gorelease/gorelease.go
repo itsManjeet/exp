@@ -437,6 +437,10 @@ func loadDownloadedModule(modPath, version, max string) (m moduleInfo, err error
 	if m.pkgs, _, err = loadPackages(modPath, m.modRoot, tmpLoadDir, tmpGoModData, tmpGoSumData); err != nil {
 		return moduleInfo{}, err
 	}
+	m.goModFile, err = modfile.ParseLax(m.goModPath, m.goModData, nil)
+	if err != nil {
+		return moduleInfo{}, err
+	}
 
 	return m, nil
 }

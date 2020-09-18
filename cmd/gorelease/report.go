@@ -231,13 +231,48 @@ func (r *report) suggestVersion() {
 
 	if pre != "" {
 		// suggest non-prerelease version
-	} else if r.haveCompatibleChanges || (r.haveIncompatibleChanges && major == "0") {
+	} else if r.haveCompatibleChanges || (r.haveIncompatibleChanges && major == "0") || r.requirementsChanged() {
 		minor = incDecimal(minor)
 		patch = "0"
 	} else {
 		patch = incDecimal(patch)
 	}
 	setVersion(fmt.Sprintf("v%s.%s.%s", major, minor, patch))
+}
+
+// requirementsChanged reports whether requirements have changed from base to
+// version.
+func (r *report) requirementsChanged() bool {
+	// TODO(deklerk): Can r.base.goModFile or r.release.goModFile ever be nil?
+
+	// baseReqs is a map of module path used for quick lookup. It holds the
+	// versions of the base module.
+	baseReqs := make(map[string]bool)
+	for _, r := range r.base.goModFile.Require {
+		baseReqs[r.Mod.String()] = true
+	}
+
+	// releaseReqs is a map of module path used for quick lookup. It holds the
+	// versions of the release module.
+	releaseReqs := make(map[string]bool)
+	for _, r := range r.release.goModFile.Require {
+		if _, ok := baseReqs[r.Mod.String()]; !ok {
+			// A module@version was added to the "require" block between base
+			// and release.
+			return true
+		}
+		releaseReqs[r.Mod.String()] = true
+	}
+
+	for _, r := range r.base.goModFile.Require {
+		if _, ok := releaseReqs[r.Mod.String()]; !ok {
+			// A module@version was removed from the "require" block between
+			// base and release.
+			return true
+		}
+	}
+
+	return false
 }
 
 // isSuccessful returns true the module appears to be safe to release at the
