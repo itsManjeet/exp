@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "a72de983_d75d5dd4",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-09-21T23:35:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a110752_e6f2d727",
+      "range": {
+        "startLine": 246,
+        "startChar": 19,
+        "endLine": 246,
+        "endChar": 75
+      },
+      "revId": "6f1fa64accd36ec299236f196875dab713d05e0b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3e6bc900_1af52815",
         "filename": "cmd/gorelease/report.go",
         "patchSetId": 2
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "c4628792_328647c9",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-09-21T23:35:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e6bc900_1af52815",
+      "range": {
+        "startLine": 250,
+        "startChar": 29,
+        "endLine": 250,
+        "endChar": 33
+      },
+      "revId": "6f1fa64accd36ec299236f196875dab713d05e0b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "091e355c_582ff035",
         "filename": "cmd/gorelease/report.go",
         "patchSetId": 2
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "1106546a_4a6c5056",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-09-21T23:35:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "091e355c_582ff035",
+      "revId": "6f1fa64accd36ec299236f196875dab713d05e0b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "3a7cf6dc_bda409a6",
         "filename": "cmd/gorelease/report.go",
         "patchSetId": 2
@@ -79,6 +145,24 @@
       "revId": "6f1fa64accd36ec299236f196875dab713d05e0b",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eddbe460_0e6a512e",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-09-21T23:35:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a7cf6dc_bda409a6",
+      "revId": "6f1fa64accd36ec299236f196875dab713d05e0b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
