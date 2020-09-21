@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a110752_e6f2d727",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-09-21T15:53:16Z",
+      "side": 1,
+      "message": "Not after your change in gorelease.go.\n\nFor a local (release) module, it\u0027s a hard error if go.mod is missing or contains syntax errors. We won\u0027t get this far.\n\nFor a downloaded (base) module, there will always be a .mod file in the cache. If the original module didn\u0027t have a go.mod file, the go command will synthesize one that just contains the module path and no requirements.",
+      "range": {
+        "startLine": 246,
+        "startChar": 19,
+        "endLine": 246,
+        "endChar": 75
+      },
+      "revId": "6f1fa64accd36ec299236f196875dab713d05e0b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3e6bc900_1af52815",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-09-21T15:53:16Z",
+      "side": 1,
+      "message": "For the comment below, you may want to track the required version instead. https://pkg.go.dev/golang.org/x/mod/semver#MajorMinor can give you the relevant part.",
+      "range": {
+        "startLine": 250,
+        "startChar": 29,
+        "endLine": 250,
+        "endChar": 33
+      },
+      "revId": "6f1fa64accd36ec299236f196875dab713d05e0b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "091e355c_582ff035",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-09-21T15:53:16Z",
+      "side": 1,
+      "message": "I think this loop can be removed, and above, we can iterate over the list instead of building a map.\n\nIt\u0027s okay if a requirement is deleted or downgraded.\n\nThe main thing we want to guard against is adding a new requirement or upgrading to a new minor version. That might force dependent modules that have the same dependency to upgrade.",
+      "revId": "6f1fa64accd36ec299236f196875dab713d05e0b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "3a7cf6dc_bda409a6",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-09-21T15:53:16Z",
+      "side": 1,
+      "message": "Let\u0027s also check whether there\u0027s a higher go version.\n\nThe go version is kind of like a requirement on the Go toolchain itself. If a module depends on new language features, that forces dependent modules to upgrade.",
+      "revId": "6f1fa64accd36ec299236f196875dab713d05e0b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
