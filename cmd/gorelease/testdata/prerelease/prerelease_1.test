@@ -1,0 +1,11 @@
+mod=example.com/prerelease
+release=v0.0.0-1
+-- want --
+Inferred base version: none
+v0.0.0-1 is a valid semantic version for this release. But, it sorts lower in
+MVS than pseudo-versions, which may be unexpected for users, so it may be better
+to choose a different suffix.
+-- go.mod --
+module example.com/prerelease
+
+go 1.12
