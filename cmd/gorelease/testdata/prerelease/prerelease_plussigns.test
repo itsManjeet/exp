@@ -1,0 +1,10 @@
+mod=example.com/prerelease
+release=v1.0.0-alpha+001
+-- want --
+Inferred base version: none
+v1.0.0-alpha+001 is a valid semantic version for this release. But, Go does not
+recommend using plus signs. Instead, we recommend using a hyphen.
+-- go.mod --
+module example.com/prerelease
+
+go 1.12
