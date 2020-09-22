@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1865e1b1_d912d5c6",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-09-22T19:48:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "724b02b1_f15ada54",
+      "revId": "98e54faccce2ebe491b8e9815cb89142ee888ba8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "c499fa96_6b91d168",
         "filename": "cmd/gorelease/report.go",
         "patchSetId": 3
@@ -42,6 +60,30 @@
     },
     {
       "key": {
+        "uuid": "96c98f21_ff4336d3",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-09-22T19:48:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c499fa96_6b91d168",
+      "range": {
+        "startLine": 247,
+        "startChar": 25,
+        "endLine": 247,
+        "endChar": 43
+      },
+      "revId": "98e54faccce2ebe491b8e9815cb89142ee888ba8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "ddcc7883_02cc47f7",
         "filename": "cmd/gorelease/report.go",
         "patchSetId": 3
@@ -53,6 +95,30 @@
       "writtenOn": "2020-09-22T15:24:39Z",
       "side": 1,
       "message": "Simplify:\n\n  if base, ok :\u003d baseReqs[r.Mod.Path]; !ok || semver.Compare(r.Mod.Version, base) \u003e 0 {\n    return true\n  }",
+      "range": {
+        "startLine": 268,
+        "startChar": 5,
+        "endLine": 268,
+        "endChar": 39
+      },
+      "revId": "98e54faccce2ebe491b8e9815cb89142ee888ba8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "2bcf8b5c_a4c2c8d7",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-09-22T19:48:04Z",
+      "side": 1,
+      "message": "Two downsides to this:\n\n1. Comments that explain each condition become more incomprehensible, since the two cases are not well separated.\n2. The semver.Compare change requires additionally adding semver.MajorMinor to each arg, which makes the line very long. Adding in the map index, the line is \u003e100 char.\n\nPutting the two together this makes for more terse code, but quite a large comprehensibility hit. I argue for keeping as-is. WDYT?",
+      "parentUuid": "ddcc7883_02cc47f7",
       "range": {
         "startLine": 268,
         "startChar": 5,
@@ -85,6 +151,30 @@
       "revId": "98e54faccce2ebe491b8e9815cb89142ee888ba8",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "16954fe1_b3e28cf6",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-09-22T19:48:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45a24873_c2da05fb",
+      "range": {
+        "startLine": 273,
+        "startChar": 38,
+        "endLine": 273,
+        "endChar": 39
+      },
+      "revId": "98e54faccce2ebe491b8e9815cb89142ee888ba8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
