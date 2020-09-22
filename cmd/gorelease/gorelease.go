@@ -167,6 +167,11 @@ func runRelease(w io.Writer, dir string, args []string) (success bool, err error
 		return false, usageErrorf("no arguments allowed")
 	}
 	if releaseVersion != "" {
+		if strings.Contains(releaseVersion, "+") {
+			w.Write([]byte(fmt.Sprintf(`release version %q is not a canonical semantic version: build
+metadata is not supported by the Go command`, releaseVersion)))
+			return true, nil
+		}
 		if c := semver.Canonical(releaseVersion); c != releaseVersion {
 			return false, usageErrorf("release version %q is not a canonical semantic version", releaseVersion)
 		}
