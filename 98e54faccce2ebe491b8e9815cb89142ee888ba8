@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "724b02b1_f15ada54",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-09-22T15:24:39Z",
+      "side": 1,
+      "message": "We should probably report an error if the file exists, but we couldn\u0027t read it (err !\u003d nil \u0026\u0026 !os.IsNotExist(err))",
+      "revId": "98e54faccce2ebe491b8e9815cb89142ee888ba8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "c499fa96_6b91d168",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-09-22T15:24:39Z",
+      "side": 1,
+      "message": "Nit: was upgraded to a higher minor version",
+      "range": {
+        "startLine": 247,
+        "startChar": 25,
+        "endLine": 247,
+        "endChar": 43
+      },
+      "revId": "98e54faccce2ebe491b8e9815cb89142ee888ba8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "ddcc7883_02cc47f7",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-09-22T15:24:39Z",
+      "side": 1,
+      "message": "Simplify:\n\n  if base, ok :\u003d baseReqs[r.Mod.Path]; !ok || semver.Compare(r.Mod.Version, base) \u003e 0 {\n    return true\n  }",
+      "range": {
+        "startLine": 268,
+        "startChar": 5,
+        "endLine": 268,
+        "endChar": 39
+      },
+      "revId": "98e54faccce2ebe491b8e9815cb89142ee888ba8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "45a24873_c2da05fb",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-09-22T15:24:39Z",
+      "side": 1,
+      "message": "Always use semver.Compare to compare versions. Comparing strings can give the wrong result. For example, \"v1.11.0\" compares less than \"v1.9.0\".",
+      "range": {
+        "startLine": 273,
+        "startChar": 38,
+        "endLine": 273,
+        "endChar": 39
+      },
+      "revId": "98e54faccce2ebe491b8e9815cb89142ee888ba8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
