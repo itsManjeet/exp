@@ -74,6 +74,7 @@ func (w *windowImpl) Draw(src2dst f64.Aff3, src screen.Texture, sr image.Rectang
 		texture: src.(*textureImpl).bitmap,
 		sr:      sr,
 		op:      op,
+		opts:    opts,
 	})
 }
 
@@ -91,7 +92,7 @@ func (w *windowImpl) DrawUniform(src2dst f64.Aff3, src color.Color, sr image.Rec
 	})
 }
 
-func drawWindow(dc syscall.Handle, src2dst f64.Aff3, src interface{}, sr image.Rectangle, op draw.Op) (retErr error) {
+func drawWindow(dc syscall.Handle, src2dst f64.Aff3, src interface{}, sr image.Rectangle, op draw.Op, opts *screen.DrawOptions) (retErr error) {
 	var dr image.Rectangle
 	if src2dst[1] != 0 || src2dst[3] != 0 {
 		// general drawing
@@ -150,7 +151,7 @@ func drawWindow(dc syscall.Handle, src2dst f64.Aff3, src interface{}, sr image.R
 	}
 	switch s := src.(type) {
 	case syscall.Handle:
-		return copyBitmapToDC(dc, dr, s, sr, op)
+		return copyBitmapToDC(dc, dr, s, sr, op, opts)
 	case color.Color:
 		return fill(dc, dr, s, op)
 	}
@@ -227,6 +228,7 @@ type cmd struct {
 	op      draw.Op
 	texture syscall.Handle
 	buffer  *bufferImpl
+	opts    *screen.DrawOptions
 }
 
 const (
@@ -257,7 +259,7 @@ func handleCmd(hwnd syscall.Handle, uMsg uint32, wParam, lParam uintptr) {
 
 	switch c.id {
 	case cmdDraw:
-		c.err = drawWindow(dc, c.src2dst, c.texture, c.sr, c.op)
+		c.err = drawWindow(dc, c.src2dst, c.texture, c.sr, c.op, c.opts)
 	case cmdDrawUniform:
 		c.err = drawWindow(dc, c.src2dst, c.color, c.sr, c.op)
 	case cmdFill:
@@ -265,7 +267,7 @@ func handleCmd(hwnd syscall.Handle, uMsg uint32, wParam, lParam uintptr) {
 	case cmdUpload:
 		// TODO: adjust if dp is outside dst bounds, or sr is outside buffer bounds.
 		dr := c.sr.Add(c.dp.Sub(c.sr.Min))
-		c.err = copyBitmapToDC(dc, dr, c.buffer.hbitmap, c.sr, draw.Src)
+		c.err = copyBitmapToDC(dc, dr, c.buffer.hbitmap, c.sr, draw.Src, c.opts)
 	default:
 		c.err = fmt.Errorf("unknown command id=%d", c.id)
 	}

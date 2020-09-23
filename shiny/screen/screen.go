@@ -347,8 +347,17 @@ const (
 	Src  = draw.Src
 )
 
+// ScalerAlgo is an image scaling algorithm.
+type ScalerAlgo int
+
+const (
+	NearestNeighbor = iota
+	BiLinear
+)
+
 // DrawOptions are optional arguments to Draw.
 type DrawOptions struct {
+	Scaler ScalerAlgo
+
 	// TODO: transparency in [0x0000, 0xffff]?
-	// TODO: scaler (nearest neighbor vs linear)?
 }

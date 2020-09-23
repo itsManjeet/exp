@@ -100,8 +100,6 @@ func (s *screenImpl) NewTexture(size image.Point) (screen.Texture, error) {
 
 	glctx.BindTexture(gl.TEXTURE_2D, t.id)
 	glctx.TexImage2D(gl.TEXTURE_2D, 0, gl.RGBA, size.X, size.Y, gl.RGBA, gl.UNSIGNED_BYTE, nil)
-	glctx.TexParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR)
-	glctx.TexParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR)
 	glctx.TexParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE)
 	glctx.TexParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE)
 

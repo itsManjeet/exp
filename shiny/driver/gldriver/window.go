@@ -300,6 +300,14 @@ func (w *windowImpl) Draw(src2dst f64.Aff3, src screen.Texture, sr image.Rectang
 
 	w.glctx.ActiveTexture(gl.TEXTURE0)
 	w.glctx.BindTexture(gl.TEXTURE_2D, t.id)
+
+	scaler := gl.NEAREST
+	if opts.Scaler == screen.BiLinear {
+		scaler = gl.LINEAR
+	}
+	w.glctx.TexParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, scaler)
+	w.glctx.TexParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, scaler)
+
 	w.glctx.Uniform1i(w.s.texture.sample, 0)
 
 	w.glctx.BindBuffer(gl.ARRAY_BUFFER, w.s.texture.quad)

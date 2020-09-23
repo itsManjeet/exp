@@ -13,6 +13,8 @@ import (
 	"image/draw"
 	"syscall"
 	"unsafe"
+
+	"golang.org/x/exp/shiny/screen"
 )
 
 func mkbitmap(size image.Point) (syscall.Handle, *byte, error) {
@@ -43,7 +45,7 @@ var blendOverFunc = _BLENDFUNCTION{
 	AlphaFormat:         _AC_SRC_ALPHA, // premultiplied
 }
 
-func copyBitmapToDC(dc syscall.Handle, dr image.Rectangle, src syscall.Handle, sr image.Rectangle, op draw.Op) (retErr error) {
+func copyBitmapToDC(dc syscall.Handle, dr image.Rectangle, src syscall.Handle, sr image.Rectangle, op draw.Op, opts *screen.DrawOptions) (retErr error) {
 	memdc, err := _CreateCompatibleDC(dc)
 	if err != nil {
 		return err
@@ -70,6 +72,31 @@ func copyBitmapToDC(dc syscall.Handle, dr image.Rectangle, src syscall.Handle, s
 
 	switch op {
 	case draw.Src:
+		// Microsoft documents HALFTONE as "The average color over the
+		// destination block of pixels approximates the color of the
+		// source pixels," which describes bilinear interpolation.
+		//
+		// Microsoft does not document the upscaling behavior of
+		// COLORONCOLOR, but empirically, it appears to be
+		// nearest-neighbor interpolation.
+		//
+		// See also:
+		// https://sourceforge.net/p/dxwnd/discussion/general/thread/5df3f48e?page=7
+		// https://reddit.com/comments/2n8r6b
+		if opts.Scaler == screen.BiLinear {
+			if _, err = _SetStretchBltMode(dc, _HALFTONE); err != nil {
+				return err
+			}
+			// SetBrushOrgEx is required after setting HALFTONE, per
+			// the docs.
+			if err = _SetBrushOrgEx(dc, 0, 0, nil); err != nil {
+				return err
+			}
+		} else {
+			if _, err = _SetStretchBltMode(dc, _COLORONCOLOR); err != nil {
+				return err
+			}
+		}
 		return _StretchBlt(dc, int32(dr.Min.X), int32(dr.Min.Y), int32(dr.Dx()), int32(dr.Dy()),
 			memdc, int32(sr.Min.X), int32(sr.Min.Y), int32(sr.Dx()), int32(sr.Dy()), _SRCCOPY)
 	case draw.Over:

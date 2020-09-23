@@ -102,12 +102,20 @@ func (w *windowImpl) Fill(dr image.Rectangle, src color.Color, op draw.Op) {
 	draw.Draw(w.rgba, dr, &image.Uniform{src}, image.Point{}, op)
 }
 
-func (w *windowImpl) Draw(src2dst f64.Aff3, src screen.Texture, sr image.Rectangle, op draw.Op, _ *screen.DrawOptions) {
-	draw.NearestNeighbor.Transform(w.rgba, src2dst, src.(*textureImpl).rgba, sr, op, nil)
+func (w *windowImpl) Draw(src2dst f64.Aff3, src screen.Texture, sr image.Rectangle, op draw.Op, opts *screen.DrawOptions) {
+	interpolator := draw.NearestNeighbor
+	if opts.Scaler == screen.BiLinear {
+		interpolator = draw.BiLinear
+	}
+	interpolator.Transform(w.rgba, src2dst, src.(*textureImpl).rgba, sr, op, nil)
 }
 
-func (w *windowImpl) DrawUniform(src2dst f64.Aff3, src color.Color, sr image.Rectangle, op draw.Op, _ *screen.DrawOptions) {
-	draw.NearestNeighbor.Transform(w.rgba, src2dst, &image.Uniform{src}, sr, op, nil)
+func (w *windowImpl) DrawUniform(src2dst f64.Aff3, src color.Color, sr image.Rectangle, op draw.Op, opts *screen.DrawOptions) {
+	interpolator := draw.NearestNeighbor
+	if opts.Scaler == screen.BiLinear {
+		interpolator = draw.BiLinear
+	}
+	interpolator.Transform(w.rgba, src2dst, &image.Uniform{src}, sr, op, nil)
 }
 
 func (w *windowImpl) Copy(dp image.Point, src screen.Texture, sr image.Rectangle, op draw.Op, opts *screen.DrawOptions) {

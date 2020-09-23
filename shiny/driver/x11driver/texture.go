@@ -95,6 +95,14 @@ func (t *textureImpl) draw(xp render.Picture, src2dst *f64.Aff3, sr image.Rectan
 	t.renderMu.Lock()
 	defer t.renderMu.Unlock()
 
+	// Scaler names are defined by the X Render extension; see
+	// https://www.x.org/releases/X11R7.7/doc/renderproto/renderproto.txt.
+	filter := "nearest"
+	if opts.Scaler == screen.BiLinear {
+		filter = "bilinear"
+	}
+	render.SetPictureFilter(t.s.xc, t.xp, uint16(len(filter)), filter, nil)
+
 	// For simple copies and scales, the inverse matrix is trivial to compute,
 	// and we do not need the "Src becomes OutReverse plus Over" dance (see
 	// below). Thus, draw can be one render.SetPictureTransform call and then

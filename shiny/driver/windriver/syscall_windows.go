@@ -145,6 +145,22 @@ func _HIWORD(l uintptr) uint16 {
 	return uint16(uint32(l >> 16))
 }
 
+const (
+	_BLACKONWHITE        = 1
+	_WHITEONBLACK        = 2
+	_COLORONCOLOR        = 3
+	_HALFTONE            = 4
+	_STRETCH_ANDSCANS    = _BLACKONWHITE
+	_STRETCH_ORSCANS     = _WHITEONBLACK
+	_STRETCH_DELETESCANS = _COLORONCOLOR
+	_STRETCH_HALFTONE    = _HALFTONE
+)
+
+type _POINT struct {
+	X int32
+	Y int32
+}
+
 // notes to self
 // UINT = uint32
 // callbacks = uintptr
@@ -161,7 +177,9 @@ func _HIWORD(l uintptr) uint16 {
 //sys	_FillRect(dc syscall.Handle, rc *_RECT, brush syscall.Handle) (err error) = user32.FillRect
 //sys	_ModifyWorldTransform(dc syscall.Handle, x *_XFORM, mode uint32) (err error) = gdi32.ModifyWorldTransform
 //sys	_SelectObject(dc syscall.Handle, gdiobj syscall.Handle) (newobj syscall.Handle, err error) = gdi32.SelectObject
+//sys	_SetBrushOrgEx(dc syscall.Handle, x int32, y int32, prev *_POINT) (err error) = gdi32.SetBrushOrgEx
 //sys	_SetGraphicsMode(dc syscall.Handle, mode int32) (oldmode int32, err error) = gdi32.SetGraphicsMode
+//sys	_SetStretchBltMode(dc syscall.Handle, mode int32) (oldmode int32, err error) = gdi32.SetStretchBltMode
 //sys	_SetWorldTransform(dc syscall.Handle, x *_XFORM) (err error) = gdi32.SetWorldTransform
 //sys	_StretchBlt(dcdest syscall.Handle, xdest int32, ydest int32, wdest int32, hdest int32, dcsrc syscall.Handle, xsrc int32, ysrc int32, wsrc int32, hsrc int32, rop uint32) (err error) = gdi32.StretchBlt
 //sys	_GetDeviceCaps(dc syscall.Handle, index int32) (ret int32) = gdi32.GetDeviceCaps
