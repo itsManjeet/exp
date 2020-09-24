@@ -131,6 +131,30 @@
     },
     {
       "key": {
+        "uuid": "4881ea31_d4d33e25",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-09-24T19:47:37Z",
+      "side": 1,
+      "message": "Sounds good.",
+      "parentUuid": "2bcf8b5c_a4c2c8d7",
+      "range": {
+        "startLine": 268,
+        "startChar": 5,
+        "endLine": 268,
+        "endChar": 39
+      },
+      "revId": "98e54faccce2ebe491b8e9815cb89142ee888ba8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "45a24873_c2da05fb",
         "filename": "cmd/gorelease/report.go",
         "patchSetId": 3
