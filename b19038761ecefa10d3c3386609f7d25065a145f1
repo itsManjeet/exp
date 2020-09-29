@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "50f7e92e_8f450016",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-09-29T21:05:17Z",
+      "side": 1,
+      "message": "semver.Build(releaseVersion) !\u003d \"\"",
+      "range": {
+        "startLine": 170,
+        "startChar": 5,
+        "endLine": 170,
+        "endChar": 42
+      },
+      "revId": "b19038761ecefa10d3c3386609f7d25065a145f1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8d9387b8_8f6086b5",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-09-29T21:05:17Z",
+      "side": 1,
+      "message": "Nit: drop this clause. Other parts of the ecosystem probably don\u0027t support it either.\n\nLet\u0027s avoid the newline, too. It\u0027s okay if we go a little over 80 columns.",
+      "range": {
+        "startLine": 172,
+        "startChar": 25,
+        "endLine": 172,
+        "endChar": 43
+      },
+      "revId": "b19038761ecefa10d3c3386609f7d25065a145f1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b108db75_d3a25fe1",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-09-29T21:05:17Z",
+      "side": 1,
+      "message": "Why write the error to w and return true here? I think it would be better to return false and a usageErrorf, like on L176.",
+      "revId": "b19038761ecefa10d3c3386609f7d25065a145f1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "43fcaea6_7cb436f6",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-09-29T21:05:17Z",
+      "side": 1,
+      "message": "Instead of saying this in the report, let\u0027s add a diagnostic in loadLocalModule. Let\u0027s add it near the top, before loading the go.mod file.\n\nDiagnostics are problems we find that aren\u0027t specific to any package. They aren\u0027t necessarily fatal, but the user should fix them before releasing (and we\u0027ll exit non-zero).\n\nWe may want to rephrase this a bit: MVS isn\u0027t needed; \"most pseudo-versions\" since they\u0027re not always based on v0.0.0; and let\u0027s suggest a specific version.\n\n     Version v0.0.0-0 is lower than most pseudo-versions. Consider releasing v0.1.0-0 instead.\n\n(The second string can be \"v0.1.0-\" + semver.Prerelease(r.release.version))",
+      "revId": "b19038761ecefa10d3c3386609f7d25065a145f1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}
