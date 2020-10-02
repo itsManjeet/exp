@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "edfdfb42_a2531e4e",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-10-02T18:03:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50f7e92e_8f450016",
+      "range": {
+        "startLine": 170,
+        "startChar": 5,
+        "endLine": 170,
+        "endChar": 42
+      },
+      "revId": "b19038761ecefa10d3c3386609f7d25065a145f1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "8d9387b8_8f6086b5",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 3
@@ -36,6 +60,30 @@
       "writtenOn": "2020-09-29T21:05:17Z",
       "side": 1,
       "message": "Nit: drop this clause. Other parts of the ecosystem probably don\u0027t support it either.\n\nLet\u0027s avoid the newline, too. It\u0027s okay if we go a little over 80 columns.",
+      "range": {
+        "startLine": 172,
+        "startChar": 25,
+        "endLine": 172,
+        "endChar": 43
+      },
+      "revId": "b19038761ecefa10d3c3386609f7d25065a145f1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1c2739f8_6b3b58e5",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-10-02T18:03:14Z",
+      "side": 1,
+      "message": "Done, but how will people know what\u0027s invalid about it without something to point at the build metadata?\n\nI expect users will see invalid, scratch their heads, try again (wasting time), see another invalid message, etc.\n\n(I\u0027ve added a note in the godoc in the latest revision, but don\u0027t believe it to be sufficient)",
+      "parentUuid": "8d9387b8_8f6086b5",
       "range": {
         "startLine": 172,
         "startChar": 25,
@@ -65,6 +113,24 @@
     },
     {
       "key": {
+        "uuid": "3dfde3d2_56316f9c",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-10-02T18:03:14Z",
+      "side": 1,
+      "message": "Because it\u0027s not the usage of the tool that\u0027s wrong: it\u0027s the version that\u0027s provided by the correct usage.",
+      "parentUuid": "b108db75_d3a25fe1",
+      "revId": "b19038761ecefa10d3c3386609f7d25065a145f1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "43fcaea6_7cb436f6",
         "filename": "cmd/gorelease/report.go",
         "patchSetId": 3
@@ -79,6 +145,24 @@
       "revId": "b19038761ecefa10d3c3386609f7d25065a145f1",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "88329761_bd1348a0",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-10-02T18:03:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43fcaea6_7cb436f6",
+      "revId": "b19038761ecefa10d3c3386609f7d25065a145f1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": false
     }
   ]
 }
