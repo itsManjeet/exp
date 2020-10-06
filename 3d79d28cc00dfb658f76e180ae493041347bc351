@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dedadbc1_f44f5e7d",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-10-06T15:53:38Z",
+      "side": 1,
+      "message": "Let\u0027s add a quick example: \"... does not accept build metadata in releases (like v1.0.0+debug)\"",
+      "revId": "3d79d28cc00dfb658f76e180ae493041347bc351",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    }
+  ]
+}

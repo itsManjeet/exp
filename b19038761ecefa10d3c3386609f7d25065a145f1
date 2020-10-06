@@ -96,6 +96,30 @@
     },
     {
       "key": {
+        "uuid": "bb97b912_6a02ff5e",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-10-06T15:53:38Z",
+      "side": 1,
+      "message": "I meant to say just drop \"by the Go command\". It\u0027s good to say \"build metadata is not supported\".",
+      "parentUuid": "1c2739f8_6b3b58e5",
+      "range": {
+        "startLine": 172,
+        "startChar": 25,
+        "endLine": 172,
+        "endChar": 43
+      },
+      "revId": "b19038761ecefa10d3c3386609f7d25065a145f1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "b108db75_d3a25fe1",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 3
@@ -125,6 +149,24 @@
       "side": 1,
       "message": "Because it\u0027s not the usage of the tool that\u0027s wrong: it\u0027s the version that\u0027s provided by the correct usage.",
       "parentUuid": "b108db75_d3a25fe1",
+      "revId": "b19038761ecefa10d3c3386609f7d25065a145f1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "6c1683f1_10c3155e",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-10-06T15:53:38Z",
+      "side": 1,
+      "message": "I\u0027d argue we should still treat it like a usage error like on L178. It\u0027s better to fail early because we can\u0027t check if API changes are consistent without a canonical version. Now we\u0027re just printing a more descriptive error than we did before. (Note that `semver.Canonical(\"v1.2.3+build\")` is `v1.2.3`)\n\nFYI, `w.Write([]byte(fmt.Sprintf(\"format\", args)))` can be simplified to `fmt.Fprintf(w, \"format\", args)`.",
+      "parentUuid": "3dfde3d2_56316f9c",
       "revId": "b19038761ecefa10d3c3386609f7d25065a145f1",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
       "unresolved": true
