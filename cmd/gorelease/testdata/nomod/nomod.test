@@ -3,4 +3,9 @@ version=v0.0.2
 base=v0.0.1
 release=v0.0.2
 -- want --
+example.com/nomod/p
+-------------------
+Compatible changes:
+- package added
+
 v0.0.2 is a valid semantic version for this release.
