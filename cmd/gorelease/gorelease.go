@@ -203,6 +203,11 @@ func runRelease(w io.Writer, dir string, args []string) (success bool, err error
 	// the module cache.
 	baseModPath := release.modPath // TODO(golang.org/issue/39666): allow different module path
 	base, err := loadDownloadedModule(baseModPath, baseVersion, releaseVersion)
+	if base.goModFile == nil {
+		// If we were unable to get a go.mod for base, it's not worth comparing
+		// packages.
+		release.pkgs = []*packages.Package{}
+	}
 	if err != nil {
 		return false, err
 	}
@@ -349,7 +354,7 @@ func loadLocalModule(modRoot, repoRoot, version string) (m moduleInfo, err error
 			err = fmt.Errorf("removing temporary module directory: %v", rerr)
 		}
 	}()
-	tmpLoadDir, tmpGoModData, tmpGoSumData, err := prepareLoadDir(m.goModFile, m.modPath, tmpModRoot, version, false)
+	tmpLoadDir, tmpGoModData, tmpGoSumData, err := prepareLoadDir(m.goModFile, m.modPath, tmpModRoot, version)
 	if err != nil {
 		return moduleInfo{}, err
 	}
@@ -358,6 +363,71 @@ func loadLocalModule(modRoot, repoRoot, version string) (m moduleInfo, err error
 			err = fmt.Errorf("removing temporary load directory: %v", rerr)
 		}
 	}()
+
+	// Fetch missing modules.
+	cmd := exec.Command("go", "get", "-d", ".")
+	cmd.Dir = tmpLoadDir
+	if _, err := cmd.Output(); err != nil {
+		return moduleInfo{}, fmt.Errorf("error running `go get`: %v", cleanCmdError(err))
+	}
+
+	// Report new requirements in go.mod.
+	goModPath := filepath.Join(tmpLoadDir, "go.mod")
+	loadReqs := func(data []byte) ([]string, error) {
+		modFile, err := modfile.ParseLax(goModPath, data, nil)
+		if err != nil {
+			return nil, fmt.Errorf("error running ParseLax: %v", err)
+		}
+		lines := make([]string, len(modFile.Require))
+		for i, req := range modFile.Require {
+			lines[i] = req.Mod.String()
+		}
+		sort.Strings(lines)
+		return lines, nil
+	}
+
+	oldReqs, err := loadReqs(tmpGoModData)
+	if err != nil {
+		return moduleInfo{}, fmt.Errorf("error loading reqs of goModData: %v", err)
+	}
+	newGoModData, err := ioutil.ReadFile(goModPath)
+	if err != nil {
+		return moduleInfo{}, fmt.Errorf("error reading %q: %v", goModPath, err)
+	}
+	newReqs, err := loadReqs(newGoModData)
+	if err != nil {
+		return moduleInfo{}, fmt.Errorf("error loading reqs of newGoModData: %v", err)
+	}
+
+	oldMap := make(map[string]bool)
+	for _, req := range oldReqs {
+		oldMap[req] = true
+	}
+	var missing []string
+	for _, req := range newReqs {
+		if !oldMap[req] {
+			missing = append(missing, req)
+		}
+	}
+
+	if len(missing) > 0 {
+		return moduleInfo{}, fmt.Errorf("go.mod: the following requirements are needed\n\t%s\nRun 'go mod tidy' to add missing requirements.", strings.Join(missing, "\n\t"))
+	}
+
+	// Check whether sum data changed. Report error if so.
+	goSumPath := filepath.Join(tmpLoadDir, "go.sum")
+	newGoSumData, err := ioutil.ReadFile(goSumPath)
+	if err != nil {
+		if !os.IsNotExist(err) { // Treat "no go.sum" as "empty go.sum".
+			return moduleInfo{}, fmt.Errorf("error reading %q: %v", newGoSumData, err)
+		}
+	}
+
+	if bytes.Compare(tmpGoSumData, newGoSumData) != 0 {
+		return moduleInfo{}, errors.New("go.sum: one or more sums are missing. Run 'go mod tidy' to add missing sums.")
+	}
+
+	// Actually load the packages.
 	var loadDiagnostics []string
 	m.pkgs, loadDiagnostics, err = loadPackages(m.modPath, tmpModRoot, tmpLoadDir, tmpGoModData, tmpGoSumData)
 	if err != nil {
@@ -437,7 +507,7 @@ func loadDownloadedModule(modPath, version, max string) (m moduleInfo, err error
 	if m.modRoot, err = downloadModule(v); err != nil {
 		return moduleInfo{}, err
 	}
-	tmpLoadDir, tmpGoModData, tmpGoSumData, err := prepareLoadDir(nil, modPath, m.modRoot, m.version, true)
+	tmpLoadDir, tmpGoModData, tmpGoSumData, err := prepareLoadDir(nil, modPath, m.modRoot, m.version)
 	if err != nil {
 		return moduleInfo{}, err
 	}
@@ -866,7 +936,7 @@ func downloadModule(m module.Version) (modRoot string, err error) {
 // cached indicates whether the module is being loaded from the module cache.
 // If true, the module can be referenced with a simple requirement.
 // If false, the module will be referenced with a local replace directive.
-func prepareLoadDir(modFile *modfile.File, modPath, modRoot, version string, cached bool) (dir string, goModData, goSumData []byte, err error) {
+func prepareLoadDir(modFile *modfile.File, modPath, modRoot, version string) (dir string, goModData, goSumData []byte, err error) {
 	if module.Check(modPath, version) != nil {
 		// If no version is proposed or if the version isn't valid, use a fake
 		// version that matches the module's major version suffix. If the version
@@ -885,9 +955,7 @@ func prepareLoadDir(modFile *modfile.File, modPath, modRoot, version string, cac
 	f := &modfile.File{}
 	f.AddModuleStmt("gorelease-load-module")
 	f.AddRequire(modPath, version)
-	if !cached {
-		f.AddReplace(modPath, version, modRoot, "")
-	}
+	f.AddReplace(modPath, version, modRoot, "")
 	if modFile != nil {
 		if modFile.Go != nil {
 			f.AddGoStmt(modFile.Go.Version)
@@ -912,7 +980,72 @@ func prepareLoadDir(modFile *modfile.File, modPath, modRoot, version string, cac
 		return "", nil, nil, err
 	}
 
+	// Add a .go file with requirements, so that `go mod tidy` won't blat
+	// require statements.
+	fakeImports := []string{}
+	for _, imp := range collectImports(modRoot) {
+		fakeImports = append(fakeImports, fmt.Sprintf("import _ %q", imp))
+	}
+	tmpGoFileContents := []byte("package tmp\n" + strings.Join(fakeImports, "\n"))
+	if err := ioutil.WriteFile(filepath.Join(dir, "tmp.go"), tmpGoFileContents, 0666); err != nil {
+		return "", nil, nil, err
+	}
+
 	return dir, goModData, goSumData, nil
+}
+
+type GoListImportsOutput struct {
+	Imports []string `json:"Imports"`
+}
+
+// collectImports visits the given root and traverses its folder structure
+// recursively, collecting import paths in all the .go files in the tree
+// starting at root.
+//
+// TODO(deklerk): Stop at any discovered submodule. Make sure a test exists that
+// asserts that behavior.
+func collectImports(root string) (imports []string) {
+	seen := map[string]bool{}
+	if err := filepath.Walk(root, func(path string, fi os.FileInfo, err error) error {
+		if err != nil {
+			return err
+		}
+
+		// Avoid .foo, _foo, and testdata subdirectory trees.
+		_, elem := filepath.Split(path)
+		if strings.HasPrefix(elem, ".") || strings.HasPrefix(elem, "_") || elem == "testdata" {
+			return nil
+		}
+
+		// TODO(deklerk): Run this in a goroutine with some serialisation in
+		// order to speed this up significantly.
+		cmd := exec.Command("go", "list", "-json", "-f", "{{.Imports}}", ".")
+		cmd.Dir = path
+		out, err := cmd.Output()
+		if err != nil {
+			// go list didn't work: probably no Go files. We don't really care
+			// about the error, since we assume it will work in any relevant
+			// directory.
+			return nil
+		}
+		jsonOut := GoListImportsOutput{}
+		if err := json.Unmarshal(out, &jsonOut); err != nil {
+			return fmt.Errorf("error unmarshaling go list output:\n%s\ngot err: %w", string(out), err)
+		}
+		for _, imp := range jsonOut.Imports {
+			if _, ok := seen[imp]; ok {
+				return nil // Ignore things we've seen already.
+			}
+			seen[imp] = true
+			imports = append(imports, imp)
+		}
+
+		return nil
+	}); err != nil {
+		log.Fatal(cleanCmdError(err))
+	}
+
+	return imports
 }
 
 // loadPackages returns a list of all packages in the module modPath, sorted by
@@ -935,23 +1068,19 @@ func loadPackages(modPath, modRoot, loadDir string, goModData, goSumData []byte)
 	// in nested modules. We also can't filter packages from the output of
 	// packages.Load, since it doesn't tell us which module they came from.
 	//
-	// TODO(golang.org/issue/41456): this command fails in -mod=readonly mode
-	// if sums are missing, which they always are for downloaded modules. In
-	// Go 1.16, -mod=readonly is the default, and -mod=mod may eventually be
-	// removed, so we should avoid -mod=mod here. Lazy loading may also require
-	// changes to temporary module requirements.
-	//
 	// Instead of running this command, we should make a list of importable
 	// packages by walking the directory tree. With such a list,
 	// in prepareLoadDir, we could generate a temporary package that imports
 	// all of them, then 'go get -d' that package to ensure no requirements
 	// or sums are missing.
 	format := fmt.Sprintf(`{{if .Module}}{{if eq .Module.Path %q}}{{.ImportPath}}{{end}}{{end}}`, modPath)
-	cmd := exec.Command("go", "list", "-mod=mod", "-e", "-f", format, "--", modPath+"/...")
+	cmd := exec.Command("go", "list", "-mod=readonly", "-e", "-f", format, "--", modPath+"/...")
 	cmd.Dir = loadDir
 	out, err := cmd.Output()
 	if err != nil {
-		return nil, nil, cleanCmdError(err)
+		// If we can't run go list, it likely means a mod file is missing.
+		// (nomod test) That's ok: we'll continue gracefully.
+		return nil, nil, nil
 	}
 	var pkgPaths []string
 	for len(out) > 0 {
@@ -990,58 +1119,6 @@ func loadPackages(modPath, modRoot, loadDir string, goModData, goSumData []byte)
 		for i := range pkg.Errors {
 			pkg.Errors[i].Pos = strings.TrimPrefix(pkg.Errors[i].Pos, prefix)
 		}
-	}
-
-	// Report new requirements in go.mod.
-	goModPath := filepath.Join(loadDir, "go.mod")
-	loadReqs := func(data []byte) ([]string, error) {
-		modFile, err := modfile.ParseLax(goModPath, data, nil)
-		if err != nil {
-			return nil, err
-		}
-		lines := make([]string, len(modFile.Require))
-		for i, req := range modFile.Require {
-			lines[i] = req.Mod.String()
-		}
-		sort.Strings(lines)
-		return lines, nil
-	}
-
-	oldReqs, err := loadReqs(goModData)
-	if err != nil {
-		return nil, nil, err
-	}
-	newGoModData, err := ioutil.ReadFile(goModPath)
-	if err != nil {
-		return nil, nil, err
-	}
-	newReqs, err := loadReqs(newGoModData)
-	if err != nil {
-		return nil, nil, err
-	}
-
-	oldMap := make(map[string]bool)
-	for _, req := range oldReqs {
-		oldMap[req] = true
-	}
-	var missing []string
-	for _, req := range newReqs {
-		if !oldMap[req] {
-			missing = append(missing, req)
-		}
-	}
-
-	if len(missing) > 0 {
-		diagnostics = append(diagnostics, fmt.Sprintf("go.mod: the following requirements are needed\n\t%s\nRun 'go mod tidy' to add missing requirements.", strings.Join(missing, "\n\t")))
-		return pkgs, diagnostics, nil
-	}
-
-	newGoSumData, err := ioutil.ReadFile(filepath.Join(loadDir, "go.sum"))
-	if err != nil && !os.IsNotExist(err) {
-		return nil, nil, err
-	}
-	if !bytes.Equal(goSumData, newGoSumData) {
-		diagnostics = append(diagnostics, "go.sum: one or more sums are missing.\nRun 'go mod tidy' to add missing sums.")
 	}
 
 	return pkgs, diagnostics, nil
