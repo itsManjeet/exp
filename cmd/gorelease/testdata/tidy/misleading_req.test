@@ -1,6 +1,6 @@
 mod=example.com/tidy
 base=none
-success=false
+error=true
 -- go.mod --
 module example.com/tidy
 
@@ -22,6 +22,6 @@ package tidy
 import _ "example.com/tidy/a"
 import _ "example.com/tidy/b"
 -- want --
-go.mod: the following requirements are needed
+preparing to load packages for example.com/tidy: go.mod: the following requirements are needed
 	example.com/tidy/b@v0.2.0
 Run 'go mod tidy' to add missing requirements.

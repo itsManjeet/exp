@@ -1,8 +1,8 @@
 mod=example.com/tidy
 base=v0.0.1
-success=false
+error=true
 -- want --
-go.mod: the following requirements are needed
+preparing to load packages for example.com/tidy: go.mod: the following requirements are needed
 	example.com/basic@v1.1.2
 Run 'go mod tidy' to add missing requirements.
 -- go.mod --
