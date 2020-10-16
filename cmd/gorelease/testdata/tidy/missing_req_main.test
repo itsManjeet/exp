@@ -1,6 +1,6 @@
 mod=example.com/tidy
 base=v0.0.1
-success=false
+error=true
 -- want --
 go.mod: the following requirements are needed
 	example.com/basic@v1.1.2
@@ -9,7 +9,11 @@ Run 'go mod tidy' to add missing requirements.
 module example.com/tidy
 
 go 1.12
--- tidy.go --
-package tidy
+-- subdir/tidy.go --
+package subpkg
 
 import _ "example.com/basic/a"
+-- main.go --
+package main
+
+import _ "example.com/basic/v2/a"
