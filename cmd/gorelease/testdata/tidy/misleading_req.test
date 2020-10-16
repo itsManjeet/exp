@@ -1,6 +1,6 @@
 mod=example.com/tidy
 base=none
-success=false
+error=true
 -- go.mod --
 module example.com/tidy
 
