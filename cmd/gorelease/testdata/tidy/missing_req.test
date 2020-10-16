@@ -1,6 +1,6 @@
 mod=example.com/tidy
 base=v0.0.1
-success=false
+error=true
 -- want --
 go.mod: the following requirements are needed
 	example.com/basic@v1.1.2
