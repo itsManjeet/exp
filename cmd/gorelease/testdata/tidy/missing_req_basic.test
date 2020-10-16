@@ -7,13 +7,13 @@ example.com/tidy
 Incompatible changes:
 - package removed
 
-go.sum: one or more sums are missing. Run 'go mod tidy' to add missing sums.
+go.mod: the following requirements are needed
+	example.com/basic@v1.1.2
+Run 'go mod tidy' to add missing requirements.
 -- go.mod --
 module example.com/tidy
 
 go 1.12
-
-require example.com/basic v1.1.2
 -- tidy.go --
 package tidy
 
