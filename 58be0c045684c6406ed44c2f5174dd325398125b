@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6357ea55_d9715972",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-11-09T20:20:13Z",
+      "side": 1,
+      "message": "Sorry for the delayed review. I\u0027m back now.\n\nHappy to discuss over chat or VC any time if you\u0027d prefer.",
+      "revId": "58be0c045684c6406ed44c2f5174dd325398125b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62eb9bd5_9bb48d88",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 8
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-11-09T20:20:13Z",
+      "side": 1,
+      "message": "I don\u0027t think this should be needed: loadDownloadedModule should always find a go.mod file for a module in the cache. If the original version didn\u0027t have a go.mod, the go command will synthesize a .mod file that just contains the module path and no requirements. It will be in $GOMODCACHE/$modpath@$version.mod.",
+      "revId": "58be0c045684c6406ed44c2f5174dd325398125b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc17b76a_d0601d0a",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 8
+      },
+      "lineNbr": 926,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-11-09T20:20:13Z",
+      "side": 1,
+      "message": "This won\u0027t work for modules without packages in the root directories. For example, there\u0027s no package golang.org/x/tools.\n\nInstead, I think we need to walk the directory tree and list all importable packages. We can copy and simplify the matchPackages function from cmd/go/internal/modload: https://go.googlesource.com/go/+/refs/heads/master/src/cmd/go/internal/modload/search.go#33\n\nEssentially:\n\n* When walking the tree, ignore files and directories named \"testdata\" or whose names start with \".\" or \"_\".\n* Ignore directories containing a file named \"go.mod\".\n* Don\u0027t follow symbolic links.\n* If a directory contains a package (see cmd/go/internal/internal/imports.ScanDir), add it to the list of importable packages.\n\nWith that list, we can write the imports.go file, then run \u0027go get -d .\u0027 to fill in missing sums and requirements.",
+      "revId": "58be0c045684c6406ed44c2f5174dd325398125b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2dc42654_71b1f488",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 8
+      },
+      "lineNbr": 957,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-11-09T20:20:13Z",
+      "side": 1,
+      "message": "Remove this paragraph, too: it\u0027s part of the TODO.",
+      "revId": "58be0c045684c6406ed44c2f5174dd325398125b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "746ce506_543df65f",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 8
+      },
+      "lineNbr": 1029,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-11-09T20:20:13Z",
+      "side": 1,
+      "message": "Is this context necessary for users? I don\u0027t think it will make sense if they\u0027re not familiar with the implementation.",
+      "revId": "58be0c045684c6406ed44c2f5174dd325398125b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
