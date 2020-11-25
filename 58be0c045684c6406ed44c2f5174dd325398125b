@@ -35,6 +35,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da5cbcac_08224fbe",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 8
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-11-25T17:14:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62eb9bd5_9bb48d88",
+      "revId": "58be0c045684c6406ed44c2f5174dd325398125b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bc17b76a_d0601d0a",
@@ -48,6 +66,24 @@
       "writtenOn": "2020-11-09T20:20:13Z",
       "side": 1,
       "message": "This won\u0027t work for modules without packages in the root directories. For example, there\u0027s no package golang.org/x/tools.\n\nInstead, I think we need to walk the directory tree and list all importable packages. We can copy and simplify the matchPackages function from cmd/go/internal/modload: https://go.googlesource.com/go/+/refs/heads/master/src/cmd/go/internal/modload/search.go#33\n\nEssentially:\n\n* When walking the tree, ignore files and directories named \"testdata\" or whose names start with \".\" or \"_\".\n* Ignore directories containing a file named \"go.mod\".\n* Don\u0027t follow symbolic links.\n* If a directory contains a package (see cmd/go/internal/internal/imports.ScanDir), add it to the list of importable packages.\n\nWith that list, we can write the imports.go file, then run \u0027go get -d .\u0027 to fill in missing sums and requirements.",
+      "revId": "58be0c045684c6406ed44c2f5174dd325398125b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e899674b_2970b2cc",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 8
+      },
+      "lineNbr": 926,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-11-25T17:14:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc17b76a_d0601d0a",
       "revId": "58be0c045684c6406ed44c2f5174dd325398125b",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -69,6 +105,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a11cad7d_55b679aa",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 8
+      },
+      "lineNbr": 957,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-11-25T17:14:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2dc42654_71b1f488",
+      "revId": "58be0c045684c6406ed44c2f5174dd325398125b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "746ce506_543df65f",
@@ -82,6 +136,24 @@
       "writtenOn": "2020-11-09T20:20:13Z",
       "side": 1,
       "message": "Is this context necessary for users? I don\u0027t think it will make sense if they\u0027re not familiar with the implementation.",
+      "revId": "58be0c045684c6406ed44c2f5174dd325398125b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45928850_e623ee91",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 8
+      },
+      "lineNbr": 1029,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-11-25T17:14:23Z",
+      "side": 1,
+      "message": "We don\u0027t generally sanitise errors, right? Like, there isn\u0027t a curated set of errors that we give users, including perhaps a kitchen sink UNKNOWN.\n\nIf that assertion is right: we\u0027re already giving users useless errors that they\u0027re just going to copy paste into a golang/go/issues. So, if that\u0027s the case, I figure it\u0027s useful for debuggers like ourselves to have well annotated errors that are easy to hunt down.\n\nThat\u0027s just me explaning my reasoning, though - please let me know if you disagree!",
+      "parentUuid": "746ce506_543df65f",
       "revId": "58be0c045684c6406ed44c2f5174dd325398125b",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
