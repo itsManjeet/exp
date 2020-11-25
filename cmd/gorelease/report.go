@@ -191,6 +191,11 @@ which is required for major versions v2 or greater.`, major)
 over the base version (%s).`, r.base.version)
 		return
 	}
+
+	if r.release.latestTransitiveVersion != "" && semver.Compare(r.release.latestTransitiveVersion, r.release.version) > 0 {
+		setNotValid(`%s already exists and is included in the transitive dependency
+graph, so new versions should be greater than that.`, r.release.latestTransitiveVersion)
+	}
 }
 
 // suggestReleaseVersion suggests a new version consistent with observed
@@ -219,8 +224,13 @@ func (r *report) suggestReleaseVersion() {
 
 	var major, minor, patch, pre string
 	if r.base.version != "none" {
+		minVersion := r.base.version
+		if r.release.latestTransitiveVersion != "" && semver.Compare(r.release.latestTransitiveVersion, minVersion) > 0 {
+			minVersion = r.release.latestTransitiveVersion
+		}
+
 		var err error
-		major, minor, patch, pre, _, err = parseVersion(r.base.version)
+		major, minor, patch, pre, _, err = parseVersion(minVersion)
 		if err != nil {
 			panic(fmt.Sprintf("could not parse base version: %v", err))
 		}
