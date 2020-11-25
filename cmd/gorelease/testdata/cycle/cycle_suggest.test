@@ -1,0 +1,6 @@
+mod=example.com/cycle
+base=v1.0.0
+version=v1.0.0
+error=true
+-- want --
+the base version is "v1.0.0", but the latest transitive version is greater ("v1.5.0"). please select a version greater than "v1.5.0"

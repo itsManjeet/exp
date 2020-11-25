@@ -191,11 +191,16 @@ which is required for major versions v2 or greater.`, major)
 over the base version (%s).`, r.base.version)
 		return
 	}
+
+	if r.release.highestTransitiveVersion != "" && semver.Compare(r.release.highestTransitiveVersion, r.release.version) > 0 {
+		setNotValid(`%s already exists and is included in the transitive dependency
+graph, so new versions should be greater than that.`, r.release.highestTransitiveVersion)
+	}
 }
 
 // suggestReleaseVersion suggests a new version consistent with observed
 // changes.
-func (r *report) suggestReleaseVersion() {
+func (r *report) suggestReleaseVersion() error {
 	setNotValid := func(format string, args ...interface{}) {
 		r.versionInvalid = &versionMessage{
 			message: "Cannot suggest a release version.",
@@ -209,39 +214,46 @@ func (r *report) suggestReleaseVersion() {
 
 	if r.base.modPath != r.release.modPath {
 		setNotValid("Base module path is different from release.")
-		return
+		return nil
 	}
 
 	if r.haveReleaseErrors || r.haveBaseErrors {
 		setNotValid("Errors were found.")
-		return
+		return nil
 	}
 
 	var major, minor, patch, pre string
 	if r.base.version != "none" {
+		minVersion := r.base.version
+		if r.release.highestTransitiveVersion != "" && semver.Compare(r.release.highestTransitiveVersion, minVersion) > 0 {
+			return fmt.Errorf("the base version is %q, but the latest transitive version is greater (%q). please select a version greater than %q", r.base.version, r.release.highestTransitiveVersion, r.release.highestTransitiveVersion)
+		}
+
 		var err error
-		major, minor, patch, pre, _, err = parseVersion(r.base.version)
+		major, minor, patch, pre, _, err = parseVersion(minVersion)
 		if err != nil {
+			// TODO(deklerk): return err?
 			panic(fmt.Sprintf("could not parse base version: %v", err))
 		}
 	}
 
 	if r.haveIncompatibleChanges && r.base.version != "none" && pre == "" && major != "0" {
 		setNotValid("Incompatible changes were detected.")
-		return
+		return nil
 		// TODO(jayconrod): briefly explain how to prepare major version releases
 		// and link to documentation.
 	}
 
 	if r.base.version == "none" {
 		if _, pathMajor, ok := module.SplitPathVersion(r.release.modPath); !ok {
+			// TODO(deklerk): return err?
 			panic(fmt.Sprintf("could not parse module path %q", r.release.modPath))
 		} else if pathMajor == "" {
 			setVersion("v0.1.0")
 		} else {
 			setVersion(pathMajor[1:] + ".0.0")
 		}
-		return
+		return nil
 	}
 
 	if pre != "" {
@@ -253,6 +265,7 @@ func (r *report) suggestReleaseVersion() {
 		patch = incDecimal(patch)
 	}
 	setVersion(fmt.Sprintf("v%s.%s.%s", major, minor, patch))
+	return nil
 }
 
 // canVerifyReleaseVersion returns true if we can safely suggest a new version

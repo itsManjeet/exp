@@ -80,6 +80,7 @@
 package main
 
 import (
+	"bufio"
 	"bytes"
 	"encoding/json"
 	"errors"
@@ -241,14 +242,15 @@ func runRelease(w io.Writer, dir string, args []string) (success bool, err error
 }
 
 type moduleInfo struct {
-	modRoot         string // module root directory
-	repoRoot        string // repository root directory (may be "")
-	modPath         string // module path in go.mod
-	version         string // resolved version or "none"
-	versionQuery    string // a query like "latest" or "dev-branch", if specified
-	versionInferred bool   // true if the version was unspecified and inferred
-	modPathMajor    string // major version suffix like "/v3" or ".v2"
-	tagPrefix       string // prefix for version tags if module not in repo root
+	modRoot                  string // module root directory
+	repoRoot                 string // repository root directory (may be "")
+	modPath                  string // module path in go.mod
+	version                  string // resolved version or "none"
+	versionQuery             string // a query like "latest" or "dev-branch", if specified
+	versionInferred          bool   // true if the version was unspecified and inferred
+	highestTransitiveVersion string // version of the latest transitive self-dependency (cycle)
+	modPathMajor             string // major version suffix like "/v3" or ".v2"
+	tagPrefix                string // prefix for version tags if module not in repo root
 
 	goModPath string        // file path to go.mod
 	goModData []byte        // content of go.mod
@@ -386,6 +388,19 @@ func loadLocalModule(modRoot, repoRoot, version string) (m moduleInfo, err error
 		return moduleInfo{}, err
 	}
 	m.diagnostics = append(m.diagnostics, loadDiagnostics...)
+
+	latestVersion, err := findSelectedVersion(tmpLoadDir, m.modPath)
+	if err != nil {
+		return moduleInfo{}, err
+	}
+
+	if latestVersion != "" {
+		// A version of the module is included in the transitive dependencies.
+		// Add it to the moduleInfo so that the release report stage can use it
+		// in verifying the version or suggestion a new version, depending on
+		// whether the user provided a version already.
+		m.highestTransitiveVersion = latestVersion
+	}
 
 	return m, nil
 }
@@ -581,7 +596,9 @@ func makeReleaseReport(base, release moduleInfo) (report, error) {
 
 	if r.canVerifyReleaseVersion() {
 		if release.version == "" {
-			r.suggestReleaseVersion()
+			if err := r.suggestReleaseVersion(); err != nil {
+				return r, err
+			}
 		} else {
 			r.validateReleaseVersion()
 		}
@@ -1114,4 +1131,30 @@ func zipPackages(baseModPath string, basePkgs []*packages.Package, releaseModPat
 		pairs = append(pairs, pair)
 	}
 	return pairs
+}
+
+// findSelectedVersion returns the latest version of the given modPath, if a
+// cycle exists, based on an invocation of `go mod graph` at modDir. modDir
+// should be a writable directory containing the go.mod for modPath.
+func findSelectedVersion(modDir, modPath string) (latestVersion string, err error) {
+	cmd := exec.Command("go", "list", "-m", modPath)
+	cmd.Dir = modDir
+	out, err := cmd.Output()
+	if err != nil {
+		return "", cleanCmdError(err)
+	}
+	scanner := bufio.NewScanner(strings.NewReader(string(out)))
+	for scanner.Scan() {
+		line := scanner.Text()
+		parts := strings.Split(line, " ")
+		if len(parts) != 2 {
+			continue
+		}
+		version := parts[1]
+		if semver.Compare(latestVersion, version) > 0 {
+			continue
+		}
+		latestVersion = version
+	}
+	return
 }

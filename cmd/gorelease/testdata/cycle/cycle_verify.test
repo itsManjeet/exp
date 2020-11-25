@@ -1,0 +1,9 @@
+mod=example.com/cycle
+base=v1.0.0
+version=v1.0.0
+release=v1.0.1
+success=false
+-- want --
+v1.0.1 is not a valid semantic version for this release.
+v1.5.0 already exists and is included in the transitive dependency
+graph, so new versions should be greater than that.
