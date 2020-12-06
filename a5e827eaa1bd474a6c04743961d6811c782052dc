@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fd88e3c_2d98f0cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-12-06T23:07:30Z",
+      "side": 1,
+      "message": "Sorry for the slow response, gopls has been taking my 20%. Back now. \u003d)\n\nTook a whack at some of the easier comments. Will return this week for reals.",
+      "revId": "a5e827eaa1bd474a6c04743961d6811c782052dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2d22c946_d6188e4e",
@@ -31,6 +48,30 @@
       "writtenOn": "2020-11-30T21:22:37Z",
       "side": 1,
       "message": "\"Fetch\" isn\u0027t quite the right verb: maybe instead \"Add missing requirements\"?",
+      "range": {
+        "startLine": 362,
+        "startChar": 4,
+        "endLine": 362,
+        "endChar": 9
+      },
+      "revId": "a5e827eaa1bd474a6c04743961d6811c782052dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "baacca7c_b984a94a",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-12-06T23:07:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81bab196_90c9e8a0",
       "range": {
         "startLine": 362,
         "startChar": 4,
@@ -75,6 +116,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdf9e95c_530f5e86",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-12-06T23:07:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c94831eb_8b54a198",
+      "revId": "a5e827eaa1bd474a6c04743961d6811c782052dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b1fb3b50_f2c55db0",
@@ -92,6 +151,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "040d13eb_a8d164b7",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-12-06T23:07:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1fb3b50_f2c55db0",
+      "revId": "a5e827eaa1bd474a6c04743961d6811c782052dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "45d56243_9087af1a",
@@ -105,6 +182,24 @@
       "writtenOn": "2020-11-30T21:22:37Z",
       "side": 1,
       "message": "Use filepath.Base instead of Split",
+      "revId": "a5e827eaa1bd474a6c04743961d6811c782052dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0dd3b0d5_22612819",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 1017,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-12-06T23:07:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45d56243_9087af1a",
       "revId": "a5e827eaa1bd474a6c04743961d6811c782052dc",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -173,6 +268,24 @@
       "writtenOn": "2020-11-30T21:22:37Z",
       "side": 1,
       "message": "This is a little jarring since the assignment to err takes multiple lines. Better split that into a separate statement, then have a simple if statement here.",
+      "revId": "a5e827eaa1bd474a6c04743961d6811c782052dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "879f1fea_2d832ac6",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 1046,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-12-06T23:07:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd98a35e_db0150c9",
       "revId": "a5e827eaa1bd474a6c04743961d6811c782052dc",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
