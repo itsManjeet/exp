@@ -84,6 +84,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ec8409c8_f27ceff3",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-12-07T00:02:39Z",
+      "side": 1,
+      "message": "So, tricky thing here is that we only want to do this for the local module case, not the downloaded module.\n\nNotes:\n\n- I don\u0027t _fulllly_ understand the difference between the two, and imagine that we could consolidate to prepareLoadDir/loadPackages and do it for both, but...\n- TestRelease/nomod/nomod breaks if we try to do it for the downloaded module case with \"[...]/go.mod: no such file or directory\". I didn\u0027t fully understand that error _either_ (a lot of edge cases to try to mentally work through heh), so maybe it\u0027s something to solve generally.\n\nAny thoughts on the above as to why the difference is relevant to nomod, why the test fails for nomod, and whether it\u0027s something to solve or not?\n\nI had thought about solving this by creating a go.mod in the nomod case but figured it was odd to go put go.mod files in modules we\u0027ve downloaded. It\u0027s sketchy enough as it is to do so for the local module, but yeah, the downloaded ones seem more \"keep as-is\".\n\nAnyways, that\u0027s as far as my thinking got on this, let me know which direction you think best. Also happy to just make this blob into its own function if we\u0027re mostly concerned about not making loadLocalModule not too huge.",
+      "parentUuid": "2d22c946_d6188e4e",
+      "revId": "a5e827eaa1bd474a6c04743961d6811c782052dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2f7fdf96_9a88212c",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 11
