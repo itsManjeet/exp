@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45f48371_ede7bb0b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-12-08T15:23:24Z",
+      "side": 1,
+      "message": "Resurrecting this old CL. Sorry to let so much time pass.",
+      "revId": "dacf873c1bca89e9a30b12b2956f9de061779e42",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}

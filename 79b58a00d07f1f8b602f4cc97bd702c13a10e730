@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": true,
       "key": {
         "uuid": "e9cb87f2_cc29fb6f",
         "filename": "cmd/gorelease/gorelease.go",
@@ -20,10 +21,34 @@
         "endChar": 69
       },
       "revId": "79b58a00d07f1f8b602f4cc97bd702c13a10e730",
-      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
-      "unresolved": true
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3c415d2_8938c4ab",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-12-08T15:23:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9cb87f2_cc29fb6f",
+      "range": {
+        "startLine": 46,
+        "startChar": 56,
+        "endLine": 46,
+        "endChar": 69
+      },
+      "revId": "79b58a00d07f1f8b602f4cc97bd702c13a10e730",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "320b44d2_5d6d5147",
         "filename": "cmd/gorelease/gorelease.go",
@@ -43,10 +68,34 @@
         "endChar": 32
       },
       "revId": "79b58a00d07f1f8b602f4cc97bd702c13a10e730",
-      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
-      "unresolved": true
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2891d1f3_3b045e09",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-12-08T15:23:24Z",
+      "side": 1,
+      "message": "This is a really good point. This will require some changes in the way packages are loaded, and I\u0027d like Jean\u0027s CL 263178 to land first. For now, I\u0027ve added a TODO and marked this CL as not completely fixing the issue.",
+      "parentUuid": "320b44d2_5d6d5147",
+      "range": {
+        "startLine": 378,
+        "startChar": 16,
+        "endLine": 378,
+        "endChar": 32
+      },
+      "revId": "79b58a00d07f1f8b602f4cc97bd702c13a10e730",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "9b66d931_bf5a2919",
         "filename": "cmd/gorelease/testdata/basic/v1_fork_base_modpath_version_verify.test",
@@ -60,10 +109,28 @@
       "side": 1,
       "message": "If the proposed version does not satisfy maybeFirstVersion and is not v0.Y.0, then I don\u0027t think we should judge its validity when comparing to a different module path.\n\n(If we didn\u0027t even examine example.com/basicfork@v1.1.1, we don\u0027t know whether v1.1.2 is appropriate for it.)",
       "revId": "79b58a00d07f1f8b602f4cc97bd702c13a10e730",
-      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
-      "unresolved": true
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6f3892e_f47337dd",
+        "filename": "cmd/gorelease/testdata/basic/v1_fork_base_modpath_version_verify.test",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-12-08T15:23:24Z",
+      "side": 1,
+      "message": "I wonder if we should print a different message instead?\n\nWith this CL, module path is different, we follow the same validation rules as at v0: there is no semver guarantee across modules, so compatible and incompatible changes are allowed, even at patch versions. We also allow the base version to be higher than the release version (for example, we might fork a v2 module without the /v2 suffix).\n\nWe also print this same message when there is no base version and no comparison is performed.\n\nSo maybe there should be a different message when there\u0027s no semver connection between base and release? We should indicate success somehow, since we\u0027ve at least found that packages can load, and there aren\u0027t any problems with go.mod or go.sum.",
+      "parentUuid": "9b66d931_bf5a2919",
+      "revId": "79b58a00d07f1f8b602f4cc97bd702c13a10e730",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
       "key": {
         "uuid": "ef63651c_c170c2e1",
         "filename": "cmd/gorelease/testdata/basic/v1_v2_base_modpath_verify.test",
@@ -77,10 +144,28 @@
       "side": 1,
       "message": "Here\u0027s an interesting question: if we\u0027re comparing example.com/basic/v2 to example.com/basic@latest and they turn out to be *compatible*, should we reject v2.0.0 due to a lack of breaking changes? 🤔",
       "revId": "79b58a00d07f1f8b602f4cc97bd702c13a10e730",
-      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
-      "unresolved": false
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "92f7c9d3_a276d986",
+        "filename": "cmd/gorelease/testdata/basic/v1_v2_base_modpath_verify.test",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-12-08T15:23:24Z",
+      "side": 1,
+      "message": "There could always be breaking changes in behavior that aren\u0027t visible to apidiff.",
+      "parentUuid": "ef63651c_c170c2e1",
+      "revId": "79b58a00d07f1f8b602f4cc97bd702c13a10e730",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
       "key": {
         "uuid": "757d02bb_091ced9d",
         "filename": "cmd/gorelease/testdata/internalcompat/README.txt",
@@ -100,10 +185,34 @@
         "endChar": 0
       },
       "revId": "79b58a00d07f1f8b602f4cc97bd702c13a10e730",
-      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
-      "unresolved": true
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8eff64e5_43d88def",
+        "filename": "cmd/gorelease/testdata/internalcompat/README.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-12-08T15:23:24Z",
+      "side": 1,
+      "message": "Done, good point.",
+      "parentUuid": "757d02bb_091ced9d",
+      "range": {
+        "startLine": 2,
+        "startChar": 14,
+        "endLine": 4,
+        "endChar": 0
+      },
+      "revId": "79b58a00d07f1f8b602f4cc97bd702c13a10e730",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
       "key": {
         "uuid": "0cfb8e5b_05e3f8d5",
         "filename": "cmd/gorelease/testdata/internalcompat/README.txt",
@@ -123,8 +232,31 @@
         "endChar": 12
       },
       "revId": "79b58a00d07f1f8b602f4cc97bd702c13a10e730",
-      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705",
-      "unresolved": false
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1781d3d7_a9c933c7",
+        "filename": "cmd/gorelease/testdata/internalcompat/README.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-12-08T15:23:24Z",
+      "side": 1,
+      "message": "I rephrased this a bit and added it to this README.\n\nThe important property is correspondence. If both modules are part of a build, even if there are no changes in their types, the types are not interchangeable.",
+      "parentUuid": "0cfb8e5b_05e3f8d5",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 12
+      },
+      "revId": "79b58a00d07f1f8b602f4cc97bd702c13a10e730",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
