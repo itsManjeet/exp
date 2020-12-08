@@ -120,6 +120,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "89669efe_af910e39",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-12-08T16:33:19Z",
+      "side": 1,
+      "message": "GVC set up!",
+      "parentUuid": "c0c7c004_09501564",
+      "revId": "a5e827eaa1bd474a6c04743961d6811c782052dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2f7fdf96_9a88212c",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 11
@@ -131,6 +149,24 @@
       "writtenOn": "2020-11-30T21:22:37Z",
       "side": 1,
       "message": "I don\u0027t think this will be meaningful for users; mentioning \u0027go get\u0027 may be misleading.\n\nPerhaps instead \"error loading packages for \"module %s@%s: %v\"? \n\ndownloadError in errors.go is similar. Maybe add a new error type in that file or adapt that one?",
+      "revId": "a5e827eaa1bd474a6c04743961d6811c782052dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e499789_daa67031",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-12-08T16:33:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f7fdf96_9a88212c",
       "revId": "a5e827eaa1bd474a6c04743961d6811c782052dc",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -257,6 +293,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9818625_d462aa05",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 1018,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-12-08T16:33:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9920d1ad_2e2e10e5",
+      "revId": "a5e827eaa1bd474a6c04743961d6811c782052dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "231c923b_0388ef55",
@@ -270,6 +324,24 @@
       "writtenOn": "2020-11-30T21:22:37Z",
       "side": 1,
       "message": "No need to run \u0027go list\u0027 here. We only need to list the packages in the main module, not anything they import. It could fail anyway if it needs to update go.mod or go.sum.\n\nSo this function will need to take two strings, modPath and modRoot. In each directory, we\u0027ll file the relative path from modRoot to path, then join that with modPath to give us an import path.\n\nWe\u0027ll need to test whether a directory is a package or not. go/build.ImportDir is the best tool for that: it will return an error if a directory can\u0027t be imported. We can also check that p.Name !\u003d \"main\": we can\u0027t import main packages, and they don\u0027t affect the module\u0027s public API.",
+      "revId": "a5e827eaa1bd474a6c04743961d6811c782052dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1311e543_523d2168",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 1024,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-12-08T16:33:19Z",
+      "side": 1,
+      "message": "Two questions:\n\n1.\n\n\u003e We only need to list the packages in the main module,\n\nCould you elaborate? My understanding:\n\nGiven somemod, we are trying to augment its go.mod by creating a temp.go file with all the imports in (the real version of) somemod and then running `go get . -d`.\n\nI think you\u0027re saying, we only need to import each package within somemod rather than its packages\u0027 imports. Is that right?\n\n2. If so: what if main imports a bunch of stuff? Since we can\u0027t import main itself, would we not have to add all of main\u0027s imports?",
+      "parentUuid": "231c923b_0388ef55",
       "revId": "a5e827eaa1bd474a6c04743961d6811c782052dc",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
