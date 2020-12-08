@@ -132,6 +132,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "71d6a22f_8b9bb0d4",
+        "filename": "cmd/gorelease/testdata/basic/v1_fork_base_modpath_version_verify.test",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-12-08T21:51:57Z",
+      "side": 1,
+      "message": "Decided not to print the \"valid semantic version\" message if the base and release module paths are different (ignoring major version suffix).\n\nWill re-evaluated when replacements are supported.",
+      "parentUuid": "d6f3892e_f47337dd",
+      "revId": "79b58a00d07f1f8b602f4cc97bd702c13a10e730",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ef63651c_c170c2e1",
         "filename": "cmd/gorelease/testdata/basic/v1_v2_base_modpath_verify.test",
         "patchSetId": 3
