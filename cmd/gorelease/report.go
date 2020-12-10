@@ -87,7 +87,7 @@ func (r *report) Text(w io.Writer) error {
 		} else {
 			fmt.Fprintf(buf, "Suggested version: %[1]s (with tag %[2]s%[1]s)\n", r.release.version, r.release.tagPrefix)
 		}
-	} else if r.release.version != "" && r.similarModPaths() {
+	} else if r.release.version != "" && r.canVerifyVersion() {
 		if r.release.tagPrefix == "" {
 			fmt.Fprintf(buf, "%s is a valid semantic version for this release.\n", r.release.version)
 
@@ -254,9 +254,13 @@ func (r *report) suggestVersion() {
 	setVersion(fmt.Sprintf("v%s.%s.%s", major, minor, patch))
 }
 
-// similarModPaths returns true if r.base and r.release are versions of the same
-// module or different major versions of the same module.
-func (r *report) similarModPaths() bool {
+// canVerifyVersion returns true if we can safely suggest a new version or if
+// we can verify the version passed in with -version is safe to tag.
+func (r *report) canVerifyVersion() bool {
+	// For now, return true if the base and release module paths are the same,
+	// ignoring the major version suffix.
+	// TODO(#37562, #39192, #39666, #40267): there are many more situations when
+	// we can't verify a new version.
 	basePath := strings.TrimSuffix(r.base.modPath, r.base.modPathMajor)
 	releasePath := strings.TrimSuffix(r.release.modPath, r.release.modPathMajor)
 	return basePath == releasePath
