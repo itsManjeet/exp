@@ -136,6 +136,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "35f7f954_331ae831",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-12-13T21:08:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89669efe_af910e39",
+      "revId": "a5e827eaa1bd474a6c04743961d6811c782052dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2f7fdf96_9a88212c",
@@ -348,6 +366,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "facefe03_0f336915",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 1024,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-12-13T21:08:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1311e543_523d2168",
+      "revId": "a5e827eaa1bd474a6c04743961d6811c782052dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b3db2f2b_efbb90dc",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 11
@@ -359,6 +395,24 @@
       "writtenOn": "2020-11-30T21:22:37Z",
       "side": 1,
       "message": "FYI, the -json and -f flags can\u0027t be used together. If you\u0027re using \u0027-f {{.Imports}}\u0027, it would print one package path per line.",
+      "revId": "a5e827eaa1bd474a6c04743961d6811c782052dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ebfddf7_b950b8d6",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 1034,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-12-13T21:08:20Z",
+      "side": 1,
+      "message": "Ack, tyvm",
+      "parentUuid": "b3db2f2b_efbb90dc",
       "revId": "a5e827eaa1bd474a6c04743961d6811c782052dc",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -411,6 +465,24 @@
       "writtenOn": "2020-11-30T21:22:37Z",
       "side": 1,
       "message": "If we list the importable packages in collectImports, we can pass that list in as a parameter. Then we can delete everything down to L1091.",
+      "revId": "a5e827eaa1bd474a6c04743961d6811c782052dc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6a2d08f_0e8ff66e",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 1068,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-12-13T21:08:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "664ef85d_3332fb4b",
       "revId": "a5e827eaa1bd474a6c04743961d6811c782052dc",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
