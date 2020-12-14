@@ -1,0 +1,208 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4970fa5_362ba9b3",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 14
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-12-14T22:05:38Z",
+      "side": 1,
+      "message": "Not sure I understand this change: base.goModData could be empty if there was no go.mod in the base version. We still want to compare the package APIs in that case though.",
+      "revId": "0a05ff4e129ba17d788ef54b090b1f432f278461",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "830d1f5a_bdc8dfe1",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 14
+      },
+      "lineNbr": 913,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-12-14T22:05:38Z",
+      "side": 1,
+      "message": "Instead of adding a comment here, let\u0027s augment the first paragraph of the function doc comment. Something like:\n\nprepareLoadDir creates ... copied if present. This temporary module is useful for two reasons. First, replace and exclude directives from the target module aren\u0027t applied, so we have the same view as a dependent module. Second, we can run commands like \u0027go get\u0027 without modifying the original go.mod and go.sum files.",
+      "revId": "0a05ff4e129ba17d788ef54b090b1f432f278461",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8493bb80_e9b4aed1",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 14
+      },
+      "lineNbr": 922,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-12-14T22:05:38Z",
+      "side": 1,
+      "message": "We can\u0027t safely use a directory replace directive for modules in the cache, so the cached flag is still important. It\u0027s better to just refer to them by version.\n\nA replacement directory must have a go.mod file, but a download module might not have one. The go command synthesizes go.mod files for modules that don\u0027t have them, but they are stored outside the tree (in $GOMODCACHE/cache/download/$module/@v/$version.mod).",
+      "revId": "0a05ff4e129ba17d788ef54b090b1f432f278461",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "764e1f60_b9b781ba",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 14
+      },
+      "lineNbr": 949,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-12-14T22:05:38Z",
+      "side": 1,
+      "message": "Nit: use a strings.Builder instead of fakeImports. Then you can fmt.Fprintf to it directly.",
+      "revId": "0a05ff4e129ba17d788ef54b090b1f432f278461",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c18cdb1_8655bb2f",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 14
+      },
+      "lineNbr": 952,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-12-14T22:05:38Z",
+      "side": 1,
+      "message": "In most of these cases, I think it\u0027s better to just return err instead of wrapping it. For example, in this case, collectImports could say something like \"listing importable packages: %w\", but we shouldn\u0027t be responsible for saying that here.\n\nPerhaps instead, at the top of prepareLoadDir, you could add:\n\n  defer func() {\n    if err !\u003d nil {\n      if cached {\n        err \u003d fmt.Errorf(\"preparing to load packages for %s@%s: %w\", modPath, version, err)\n      } else {\n        err \u003d fmt.Errorf(\"preparing to load packages for %s in %s: %w\", modPath, modRoot, err)\n      }\n    }\n  }()\n\nThis adds the same context for all errors returned by this function.",
+      "revId": "0a05ff4e129ba17d788ef54b090b1f432f278461",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d4daf2f_213ba466",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 14
+      },
+      "lineNbr": 975,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-12-14T22:05:38Z",
+      "side": 1,
+      "message": "We should return this error. Use cleanCmdError to clean up the output. Might be good to wrap with a message like \"looking for missing dependencies: %w\"",
+      "revId": "0a05ff4e129ba17d788ef54b090b1f432f278461",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45966317_c46d9308",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 14
+      },
+      "lineNbr": 1019,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-12-14T22:05:38Z",
+      "side": 1,
+      "message": "For the go.mod and go.sum differences, let\u0027s return a list of diagnostics instead of an error. These aren\u0027t hard failures, and for the base version, we won\u0027t even report these.",
+      "revId": "0a05ff4e129ba17d788ef54b090b1f432f278461",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec140bef_1f49f6a0",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 14
+      },
+      "lineNbr": 1044,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-12-14T22:05:38Z",
+      "side": 1,
+      "message": "I think this type is unused now.",
+      "revId": "0a05ff4e129ba17d788ef54b090b1f432f278461",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8efb9f7a_b233a008",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 14
+      },
+      "lineNbr": 1093,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-12-14T22:05:38Z",
+      "side": 1,
+      "message": "build.ImportDir is equivalent and a little shorter.\n\nI think the build.IgnoreVendor flag only applies to build.Import in GOPATH mode, so just pass 0 for the mode here.",
+      "revId": "0a05ff4e129ba17d788ef54b090b1f432f278461",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e40f616_86dfd347",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 14
+      },
+      "lineNbr": 1094,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-12-14T22:05:38Z",
+      "side": 1,
+      "message": "Let\u0027s check for build.NoGoError here:\n\n    if nogoErr :\u003d (*build.NoGoError)(nil); errors.As(err, \u0026nogoErr) { ... }\n\nIf we find that, return nil. For all other errors, treat it like a regular importable package. \u0027go get -d .\u0027 should succeed. We\u0027ll find the error when loading packages, and we\u0027ll report it together with syntax and type errors.",
+      "revId": "0a05ff4e129ba17d788ef54b090b1f432f278461",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9329879f_2589fa3b",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 14
+      },
+      "lineNbr": 1101,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-12-14T22:05:38Z",
+      "side": 1,
+      "message": "Replace is a little unclear since it implies the replacement could be anywhere in the string.\n\nInstead, let\u0027s assume root is an absolute path, then add trimFilePathPrefix to path.go (we\u0027ll probably need it later) to remove that prefix.",
+      "revId": "0a05ff4e129ba17d788ef54b090b1f432f278461",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9707fa06_eb31b79c",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 14
+      },
+      "lineNbr": 1105,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-12-14T22:05:38Z",
+      "side": 1,
+      "message": "This probably isn\u0027t needed. I can\u0027t think of a case where we\u0027d see the same path multiple times.",
+      "revId": "0a05ff4e129ba17d788ef54b090b1f432f278461",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}

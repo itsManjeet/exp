@@ -156,6 +156,24 @@
       "parentUuid": "746ce506_543df65f",
       "revId": "58be0c045684c6406ed44c2f5174dd325398125b",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab072dfa_0e0750c0",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 8
+      },
+      "lineNbr": 1029,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-12-14T22:05:38Z",
+      "side": 1,
+      "message": "We don\u0027t have a finite set of errors, but we should try to make errors useful to users. For debugging, panics are better, but we should only panic in a situation that\u0027s a bug with gorelease or cmd/go.\n\nAs guidelines:\n\n* If a function creates an error, it should say what went wrong and possibly a hint on how to fix it. It should include relevant context (usually arguments) but shouldn\u0027t be more specific than is useful (e.g., don\u0027t include variable names).\n* If a function wraps an error, it should include additional context without redundancy (don\u0027t repeat arguments passed to the function that just returned the error).\n* It\u0027s not always useful to wrap an error. If the function that created the error has enough context to provide a useful message, then just return it.\n\nSome resources:\n\n* Effective Go on errors: https://golang.org/doc/effective_go.html#errors\n* A Google internal doc on wrapping errors: http://go/go-error-redundancy",
+      "parentUuid": "45928850_e623ee91",
+      "revId": "58be0c045684c6406ed44c2f5174dd325398125b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
