@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0979ecda_3e9d4c75",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-12-14T22:28:25Z",
+      "side": 1,
+      "message": "I thought that too when I wrote this... but if version is \"none\" either explicitly or because we couldn\u0027t infer a base version, we\u0027ll return without reading go.mod (L425, L434).\n\nI thought about copy assignments to m.modPath there or returning a literal, but it seemed too easy to miss something important. Initially, I had separate fields for the downloaded and actual module paths (modPath, dlModPath), but dlModPath wasn\u0027t useful for anything else, so i remove that.\n\nLet me know if you see a way to make this clearer.",
+      "parentUuid": "b40f8c2c_4eb981af",
+      "range": {
+        "startLine": 410,
+        "startChar": 16,
+        "endLine": 410,
+        "endChar": 32
+      },
+      "revId": "7afa5dc7bd889c72e971e6afec92f93a7fb5e027",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0182b0b6_33a5b13b",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 3
@@ -37,6 +61,30 @@
       "writtenOn": "2020-12-13T21:41:23Z",
       "side": 1,
       "message": "For my curiousity, why does version verification gate suggestion/validation?",
+      "range": {
+        "startLine": 582,
+        "startChar": 1,
+        "endLine": 582,
+        "endChar": 26
+      },
+      "revId": "7afa5dc7bd889c72e971e6afec92f93a7fb5e027",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c305ede9_ba422aff",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-12-14T22:28:25Z",
+      "side": 1,
+      "message": "This was based on some comments in CL 238839. I\u0027m not sure I understand the correct behavior yet.\n\nThe main use case for gorelease is that we\u0027re preparing to release a new version of an existing module, and we want to either verify a proposed version (-version) or suggest a new version based on the API changes.\n\nWe\u0027re approaching a new use case though: comparing modules with different paths, perhaps neither under the author\u0027s control. In this use case, we probably just want to show the API differences without making a judgment about whether the version should have been released.\n\nThe TODO in canVerifyVersion lists issues with more situations where we won\u0027t want to make a judgment. We\u0027ll need to think carefully about these. For now, I thought it was better to stick the logic in a method, so we can tune that later.",
+      "parentUuid": "0182b0b6_33a5b13b",
       "range": {
         "startLine": 582,
         "startChar": 1,
@@ -95,6 +143,54 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e3b3e97d_033e61ab",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-12-14T22:28:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7849ecc_f364133d",
+      "range": {
+        "startLine": 583,
+        "startChar": 21,
+        "endLine": 583,
+        "endChar": 23
+      },
+      "revId": "7afa5dc7bd889c72e971e6afec92f93a7fb5e027",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07bcb915_80e182e2",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-12-14T22:28:25Z",
+      "side": 1,
+      "message": "Within gorelease, the two versions to compare are \"base\" and \"release\". So release.version is the version set with -version.\n\nNot sure that\u0027s the best terminology though, given the above comment: we might not always be preparing a release, though that is the main use case. Let me know if you have suggestions (either for the terminology in code or the CLI).\n\n(Initially it was \"old\" and \"new\"; that was even more baffling though).",
+      "parentUuid": "126040db_42f70898",
+      "range": {
+        "startLine": 582,
+        "startChar": 1,
+        "endLine": 583,
+        "endChar": 1
+      },
+      "revId": "7afa5dc7bd889c72e971e6afec92f93a7fb5e027",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ad6d066c_591ed105",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 3
@@ -129,6 +225,30 @@
       "writtenOn": "2020-12-13T21:41:23Z",
       "side": 1,
       "message": "if",
+      "range": {
+        "startLine": 260,
+        "startChar": 24,
+        "endLine": 260,
+        "endChar": 25
+      },
+      "revId": "7afa5dc7bd889c72e971e6afec92f93a7fb5e027",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f6b8bbb_3aa7222f",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-12-14T22:28:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25784f89_d49c6efd",
       "range": {
         "startLine": 260,
         "startChar": 24,
