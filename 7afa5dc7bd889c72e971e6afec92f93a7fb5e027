@@ -263,6 +263,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "d450d0fb_432e829f",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2020-12-15T15:02:55Z",
+      "side": 1,
+      "message": "Ah, that\u0027s a good idea. Makes sense for methods of report. Done.",
+      "parentUuid": "cf5ce1ad_b7333d7e",
+      "range": {
+        "startLine": 582,
+        "startChar": 1,
+        "endLine": 583,
+        "endChar": 1
+      },
+      "revId": "7afa5dc7bd889c72e971e6afec92f93a7fb5e027",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ad6d066c_591ed105",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 3
