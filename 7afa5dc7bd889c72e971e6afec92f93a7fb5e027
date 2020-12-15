@@ -48,6 +48,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8bbc58e_e65949c7",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-12-15T01:25:20Z",
+      "side": 1,
+      "message": "Ohhhh! Gosh, that is a little bit subtle. Thanks for clearing that up!\n\nI played with it a bit but didn\u0027t see any obvious ways to make it clearer.",
+      "parentUuid": "0979ecda_3e9d4c75",
+      "range": {
+        "startLine": 410,
+        "startChar": 16,
+        "endLine": 410,
+        "endChar": 32
+      },
+      "revId": "7afa5dc7bd889c72e971e6afec92f93a7fb5e027",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0182b0b6_33a5b13b",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "This was based on some comments in CL 238839. I\u0027m not sure I understand the correct behavior yet.\n\nThe main use case for gorelease is that we\u0027re preparing to release a new version of an existing module, and we want to either verify a proposed version (-version) or suggest a new version based on the API changes.\n\nWe\u0027re approaching a new use case though: comparing modules with different paths, perhaps neither under the author\u0027s control. In this use case, we probably just want to show the API differences without making a judgment about whether the version should have been released.\n\nThe TODO in canVerifyVersion lists issues with more situations where we won\u0027t want to make a judgment. We\u0027ll need to think carefully about these. For now, I thought it was better to stick the logic in a method, so we can tune that later.",
       "parentUuid": "0182b0b6_33a5b13b",
+      "range": {
+        "startLine": 582,
+        "startChar": 1,
+        "endLine": 582,
+        "endChar": 26
+      },
+      "revId": "7afa5dc7bd889c72e971e6afec92f93a7fb5e027",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3580a163_5f9e4cad",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-12-15T01:25:20Z",
+      "side": 1,
+      "message": "\u003e This was based on some comments in CL 238839. I\u0027m not sure I understand the correct behavior yet.\n\u003e \n\u003e The main use case for gorelease is that we\u0027re preparing to release a new version of an existing module, and we want to either verify a proposed version (-version) or suggest a new version based on the API changes.\n\u003e \n\u003e We\u0027re approaching a new use case though: comparing modules with different paths, perhaps neither under the author\u0027s control. In this use case, we probably just want to show the API differences without making a judgment about whether the version should have been released.\n\u003e \n\u003e The TODO in canVerifyVersion lists issues with more situations where we won\u0027t want to make a judgment. We\u0027ll need to think carefully about these. For now, I thought it was better to stick the logic in a method, so we can tune that later.\n\nThank you for the context and clarification!",
+      "parentUuid": "c305ede9_ba422aff",
       "range": {
         "startLine": 582,
         "startChar": 1,
@@ -179,6 +227,30 @@
       "side": 1,
       "message": "Within gorelease, the two versions to compare are \"base\" and \"release\". So release.version is the version set with -version.\n\nNot sure that\u0027s the best terminology though, given the above comment: we might not always be preparing a release, though that is the main use case. Let me know if you have suggestions (either for the terminology in code or the CLI).\n\n(Initially it was \"old\" and \"new\"; that was even more baffling though).",
       "parentUuid": "126040db_42f70898",
+      "range": {
+        "startLine": 582,
+        "startChar": 1,
+        "endLine": 583,
+        "endChar": 1
+      },
+      "revId": "7afa5dc7bd889c72e971e6afec92f93a7fb5e027",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf5ce1ad_b7333d7e",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-12-15T01:25:20Z",
+      "side": 1,
+      "message": "releaseVersion makes a lot more sense to me, and is consistent with other comments and names in the code.\n\nIf you decide to pursue this, I think that means,\n\n```\nr.canVerifyReleaseVersion()\nr.validateReleaseVersion()\nr.suggestReleaseVersion()\n```\n\nReminder this is (super!) nit, so don\u0027t feel obliged to act on this. \u003d)",
+      "parentUuid": "07bcb915_80e182e2",
       "range": {
         "startLine": 582,
         "startChar": 1,

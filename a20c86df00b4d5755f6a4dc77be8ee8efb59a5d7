@@ -46,6 +46,30 @@
       },
       "revId": "a20c86df00b4d5755f6a4dc77be8ee8efb59a5d7",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "334a3ce1_4f772b29",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 478,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-12-15T01:25:20Z",
+      "side": 0,
+      "message": "AH! Thank you.",
+      "parentUuid": "da7ce5c7_6bdd16b0",
+      "range": {
+        "startLine": 478,
+        "startChar": 1,
+        "endLine": 478,
+        "endChar": 47
+      },
+      "revId": "a20c86df00b4d5755f6a4dc77be8ee8efb59a5d7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
