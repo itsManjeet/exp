@@ -50,6 +50,40 @@
       "message": "TRY\u003ddarwin-arm64, darwin-amd64",
       "revId": "77ae6ef79d43ac0b2844e0c0489748a6aae45768",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78b003e7_8ae8d1af",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2020-12-20T11:04:07Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "77ae6ef79d43ac0b2844e0c0489748a6aae45768",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0774403_bd49044f",
+        "filename": "shiny/iconvg/doc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2020-12-20T11:04:07Z",
+      "side": 1,
+      "message": "I\u0027d put the new sentence here (and re-write \"tries to guarantee\"):\n\n----\nnot expected to be perceptible to the naked eye.\n\nThe encoder aims to emit byte-identical output for the same input, independent\nof the platform (and specifically its floating-point hardware).\n\n\nStructure\n----",
+      "revId": "77ae6ef79d43ac0b2844e0c0489748a6aae45768",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
