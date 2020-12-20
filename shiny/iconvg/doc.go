@@ -19,7 +19,8 @@ objects. Instead, the anticipated workflow is that artists use other tools and
 authoring formats like Inkscape and SVG, or commercial equivalents, and export
 IconVG versions of their assets, the same way that they would produce PNG
 versions of their vector art. It is not a goal to be able to recover the
-original SVG from a derived IconVG.
+original SVG from a derived IconVG. However, the encoder tries to guarantee
+that the same input results in byte-identical encoding across all platforms.
 
 It is not a pixel-exact format. Different implementations may produce slightly
 different renderings, due to implementation-specific rounding errors in the
@@ -474,7 +475,7 @@ Example
 
 The production version of the "action/info" icon from the Material Design icon
 set is defined by the following SVG, also available at
-https://github.com/google/material-design-icons/blob/master/action/svg/production/ic_info_48px.svg:
+https://github.com/google/material-design-icons/blob/3.0.2/action/svg/production/ic_info_48px.svg:
 
 	<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
 	<path d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4z
