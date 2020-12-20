@@ -33,6 +33,23 @@
       "message": "The linux-{arm,arm64}-aws builders failed because they don\u0027t have GLES3 installed, which the golang.org/x/mobile/gl package needs (I don\u0027t think it\u0027s very important to fix, since those builders are not configured to test the x/mobile nor x/exp repositories). The iconvg tests passed on them.",
       "revId": "77ae6ef79d43ac0b2844e0c0489748a6aae45768",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e62aa960_275f0bb4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2020-12-20T03:14:36Z",
+      "side": 1,
+      "message": "TRY\u003ddarwin-arm64, darwin-amd64",
+      "revId": "77ae6ef79d43ac0b2844e0c0489748a6aae45768",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
