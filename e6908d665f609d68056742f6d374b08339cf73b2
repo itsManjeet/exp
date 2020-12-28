@@ -16,6 +16,23 @@
       "message": "\u003e Patch Set 16: TryBot-Result-1\n\u003e \n\u003e 4 of 4 TryBots failed:\n\u003e Failed on linux-amd64: https://storage.googleapis.com/go-build-log/4fd94558/linux-amd64_7ec136b8.log\n\u003e Failed on windows-amd64-2016: https://storage.googleapis.com/go-build-log/4fd94558/windows-amd64-2016_0f0ff18e.log\n\u003e Failed on linux-amd64-race: https://storage.googleapis.com/go-build-log/4fd94558/linux-amd64-race_a09b91d2.log\n\u003e Failed on windows-386-2008: https://storage.googleapis.com/go-build-log/4fd94558/windows-386-2008_3973a32c.log\n\u003e \n\u003e Consult https://build.golang.org/ to see whether they are new failures. Keep in mind that TryBots currently test *exactly* your git commit, without rebasing. If your commit\u0027s git parent is old, the failure might\u0027ve already been fixed.\n\n",
       "revId": "e6908d665f609d68056742f6d374b08339cf73b2",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23e6682f_09bccadf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-12-28T20:57:10Z",
+      "side": 1,
+      "message": "\u003e Patch Set 17: TryBot-Result-1\n\u003e \n\u003e 4 of 4 TryBots failed:\n\u003e Failed on windows-amd64-2016: https://storage.googleapis.com/go-build-log/4fd94558/windows-amd64-2016_7476d61d.log\n\u003e Failed on linux-amd64: https://storage.googleapis.com/go-build-log/4fd94558/linux-amd64_ab816ec1.log\n\u003e Failed on linux-amd64-race: https://storage.googleapis.com/go-build-log/4fd94558/linux-amd64-race_589bd1d8.log\n\u003e Failed on windows-386-2008: https://storage.googleapis.com/go-build-log/4fd94558/windows-386-2008_4cb3fdbb.log\n\u003e \n\u003e Consult https://build.golang.org/ to see whether they are new failures. Keep in mind that TryBots currently test *exactly* your git commit, without rebasing. If your commit\u0027s git parent is old, the failure might\u0027ve already been fixed.\n\nThe two windows builds fail with a path error (something about \\\\). I was unable to repro on my local windows machine. I suspect it\u0027s got to do with the strings.TrimPrefix. Will investigate further later: probably requires some deeper understanding of strings.TrimPrefix.\n\nThe two linux builds are failing due to a missing go.sum. Much less sure about where that one is happening. Also unable to repro.",
+      "revId": "e6908d665f609d68056742f6d374b08339cf73b2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
