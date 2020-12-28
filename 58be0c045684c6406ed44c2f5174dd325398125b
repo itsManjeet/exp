@@ -174,6 +174,24 @@
       "parentUuid": "45928850_e623ee91",
       "revId": "58be0c045684c6406ed44c2f5174dd325398125b",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f0c6380_addbd515",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 8
+      },
+      "lineNbr": 1029,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-12-28T19:13:32Z",
+      "side": 1,
+      "message": "Done\n\nTYVM! And for the article I saw you post.",
+      "parentUuid": "ab072dfa_0e0750c0",
+      "revId": "58be0c045684c6406ed44c2f5174dd325398125b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }

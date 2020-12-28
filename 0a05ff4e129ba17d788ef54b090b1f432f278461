@@ -18,6 +18,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e502ed56_ea703cdc",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 14
+      },
+      "lineNbr": 509,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-12-28T19:13:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4970fa5_362ba9b3",
+      "revId": "0a05ff4e129ba17d788ef54b090b1f432f278461",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "830d1f5a_bdc8dfe1",
@@ -31,6 +49,24 @@
       "writtenOn": "2020-12-14T22:05:38Z",
       "side": 1,
       "message": "Instead of adding a comment here, let\u0027s augment the first paragraph of the function doc comment. Something like:\n\nprepareLoadDir creates ... copied if present. This temporary module is useful for two reasons. First, replace and exclude directives from the target module aren\u0027t applied, so we have the same view as a dependent module. Second, we can run commands like \u0027go get\u0027 without modifying the original go.mod and go.sum files.",
+      "revId": "0a05ff4e129ba17d788ef54b090b1f432f278461",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3dc5ba48_2d74887c",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 14
+      },
+      "lineNbr": 913,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-12-28T19:13:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "830d1f5a_bdc8dfe1",
       "revId": "0a05ff4e129ba17d788ef54b090b1f432f278461",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -52,6 +88,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed7ac77a_7251cfd9",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 14
+      },
+      "lineNbr": 922,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-12-28T19:13:32Z",
+      "side": 1,
+      "message": "Done\n\nAdded a bit of logic below to the go.sum check (since it appears as though the go.sum is not synthesized in the cached case). PTAL",
+      "parentUuid": "8493bb80_e9b4aed1",
+      "revId": "0a05ff4e129ba17d788ef54b090b1f432f278461",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "764e1f60_b9b781ba",
@@ -65,6 +119,24 @@
       "writtenOn": "2020-12-14T22:05:38Z",
       "side": 1,
       "message": "Nit: use a strings.Builder instead of fakeImports. Then you can fmt.Fprintf to it directly.",
+      "revId": "0a05ff4e129ba17d788ef54b090b1f432f278461",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d66e124f_498bd8c4",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 14
+      },
+      "lineNbr": 949,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-12-28T19:13:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "764e1f60_b9b781ba",
       "revId": "0a05ff4e129ba17d788ef54b090b1f432f278461",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -86,6 +158,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1021f229_5d2f048b",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 14
+      },
+      "lineNbr": 952,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-12-28T19:13:32Z",
+      "side": 1,
+      "message": "Done\n\n(removed the file, though, since it makes it harder to write tests and I expect is not useful to users - i think it\u0027ll be deleted)",
+      "parentUuid": "2c18cdb1_8655bb2f",
+      "revId": "0a05ff4e129ba17d788ef54b090b1f432f278461",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4d4daf2f_213ba466",
@@ -99,6 +189,24 @@
       "writtenOn": "2020-12-14T22:05:38Z",
       "side": 1,
       "message": "We should return this error. Use cleanCmdError to clean up the output. Might be good to wrap with a message like \"looking for missing dependencies: %w\"",
+      "revId": "0a05ff4e129ba17d788ef54b090b1f432f278461",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19416473_46c90f1a",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 14
+      },
+      "lineNbr": 975,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-12-28T19:13:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d4daf2f_213ba466",
       "revId": "0a05ff4e129ba17d788ef54b090b1f432f278461",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -122,6 +230,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1b654db1_975eeed1",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 14
+      },
+      "lineNbr": 1019,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-12-28T19:13:32Z",
+      "side": 1,
+      "message": "Happy to.\n\nEngineering note: AFAICT this function does not have a way to plumb diagnostics back to its caller. Were you thinking another return `diagnostics []string` in order to accomplish this?",
+      "parentUuid": "45966317_c46d9308",
+      "revId": "0a05ff4e129ba17d788ef54b090b1f432f278461",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ec140bef_1f49f6a0",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 14
@@ -133,6 +259,24 @@
       "writtenOn": "2020-12-14T22:05:38Z",
       "side": 1,
       "message": "I think this type is unused now.",
+      "revId": "0a05ff4e129ba17d788ef54b090b1f432f278461",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0519bc7e_dc90b104",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 14
+      },
+      "lineNbr": 1044,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-12-28T19:13:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ec140bef_1f49f6a0",
       "revId": "0a05ff4e129ba17d788ef54b090b1f432f278461",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -154,6 +298,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8b6598e_25967b63",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 14
+      },
+      "lineNbr": 1093,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-12-28T19:13:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8efb9f7a_b233a008",
+      "revId": "0a05ff4e129ba17d788ef54b090b1f432f278461",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7e40f616_86dfd347",
@@ -167,6 +329,24 @@
       "writtenOn": "2020-12-14T22:05:38Z",
       "side": 1,
       "message": "Let\u0027s check for build.NoGoError here:\n\n    if nogoErr :\u003d (*build.NoGoError)(nil); errors.As(err, \u0026nogoErr) { ... }\n\nIf we find that, return nil. For all other errors, treat it like a regular importable package. \u0027go get -d .\u0027 should succeed. We\u0027ll find the error when loading packages, and we\u0027ll report it together with syntax and type errors.",
+      "revId": "0a05ff4e129ba17d788ef54b090b1f432f278461",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0369970d_f4109a97",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 14
+      },
+      "lineNbr": 1094,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-12-28T19:13:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e40f616_86dfd347",
       "revId": "0a05ff4e129ba17d788ef54b090b1f432f278461",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -188,6 +368,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e575a3c_3896903f",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 14
+      },
+      "lineNbr": 1101,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-12-28T19:13:32Z",
+      "side": 1,
+      "message": "TIL path.go - thanks!\n\nOnce I started investigating that file, it quickly seemed like what I wanted was strings.TrimPrefix. (based on a clue in the godoc for trimPathPrefix) Tried it out and it seems to work well here. Let me know if you prefer not though.",
+      "parentUuid": "9329879f_2589fa3b",
+      "revId": "0a05ff4e129ba17d788ef54b090b1f432f278461",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9707fa06_eb31b79c",
@@ -201,6 +399,24 @@
       "writtenOn": "2020-12-14T22:05:38Z",
       "side": 1,
       "message": "This probably isn\u0027t needed. I can\u0027t think of a case where we\u0027d see the same path multiple times.",
+      "revId": "0a05ff4e129ba17d788ef54b090b1f432f278461",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3fc853f_ecbabd9f",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 14
+      },
+      "lineNbr": 1105,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2020-12-28T19:13:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9707fa06_eb31b79c",
       "revId": "0a05ff4e129ba17d788ef54b090b1f432f278461",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
