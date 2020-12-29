@@ -164,8 +164,10 @@ func runRelease(w io.Writer, dir string, args []string) (success bool, err error
 	fs.Usage = func() {}
 	fs.SetOutput(ioutil.Discard)
 	var baseOpt, releaseVersion string
+	var json bool
 	fs.StringVar(&baseOpt, "base", "", "previous version to compare against")
 	fs.StringVar(&releaseVersion, "version", "", "proposed version to be released")
+	fs.BoolVar(&json, "json", false, "print output as json")
 	if err := fs.Parse(args); err != nil {
 		return false, &usageError{err: err}
 	}
@@ -234,8 +236,14 @@ func runRelease(w io.Writer, dir string, args []string) (success bool, err error
 	if err != nil {
 		return false, err
 	}
-	if err := report.Text(w); err != nil {
-		return false, err
+	if json {
+		if err := report.JSON(w); err != nil {
+			return false, err
+		}
+	} else {
+		if err := report.Text(w); err != nil {
+			return false, err
+		}
 	}
 	return report.isSuccessful(), nil
 }

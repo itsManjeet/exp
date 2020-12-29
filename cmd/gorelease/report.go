@@ -108,6 +108,17 @@ unexpected for users. So, it may be better to choose a different suffix.`, r.rel
 	return err
 }
 
+type jsonOutput struct {
+	BaseVersion      string   `json:"base_version"`
+	SuggestedVersion string   `json:"suggested_version"`
+	Errors           []string `json:"errors"`
+}
+
+// JSON formats and writes a report to w in JSON format. Besides format, it is
+// identical in functionality to Text.
+func (r *report) JSON(w io.Writer) error {
+}
+
 func (r *report) addPackage(p packageReport) {
 	r.packages = append(r.packages, p)
 	if len(p.baseErrors) == 0 && len(p.releaseErrors) == 0 {
