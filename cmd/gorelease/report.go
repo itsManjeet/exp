@@ -6,6 +6,7 @@ package main
 
 import (
 	"bytes"
+	"encoding/json"
 	"fmt"
 	"io"
 	"strings"
@@ -106,6 +107,48 @@ unexpected for users. So, it may be better to choose a different suffix.`, r.rel
 
 	_, err := io.Copy(w, buf)
 	return err
+}
+
+type jsonOutput struct {
+	BaseVersion      string          `json:"base_version"`
+	SuggestedVersion string          `json:"suggested_version"`
+	Packages         []packageReport `json:"packages"`
+	Errors           []string        `json:"errors"`
+}
+
+// JSON formats and writes a report to w in JSON format. Besides format, it is
+// identical in functionality to Text.
+func (r *report) JSON(w io.Writer) error {
+	baseVersion := r.base.version
+	if r.base.modPath != r.release.modPath {
+		baseVersion = r.base.modPath + "@" + baseVersion
+	}
+
+	o := jsonOutput{
+		BaseVersion: baseVersion,
+		Packages:    r.packages,
+	}
+
+	if len(r.release.diagnostics) > 0 {
+		o.Errors = r.release.diagnostics
+	} else if r.versionInvalid != nil {
+		o.Errors = append(o.Errors, r.versionInvalid.String())
+	} else if r.release.versionInferred {
+		// TODO(deklerk): Should we include details about the tag prefix as above?
+		o.SuggestedVersion = r.release.version
+	} else if r.release.version != "" && r.canVerifyReleaseVersion() {
+		// TODO(deklerk): Should we include details about the tag prefix as above?
+		o.SuggestedVersion = r.release.version
+	}
+
+	out, err := json.Marshal(&o)
+	if err != nil {
+		return err
+	}
+	if _, err := w.Write(out); err != nil {
+		return err
+	}
+	return nil
 }
 
 func (r *report) addPackage(p packageReport) {

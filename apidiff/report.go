@@ -8,13 +8,13 @@ import (
 
 // Report describes the changes detected by Changes.
 type Report struct {
-	Changes []Change
+	Changes []Change `json:"changes"`
 }
 
 // A Change describes a single API change.
 type Change struct {
-	Message    string
-	Compatible bool
+	Message    string `json:"message"`
+	Compatible bool   `json:"compatible"`
 }
 
 func (r Report) messages(compatible bool) []string {
