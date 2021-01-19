@@ -86,6 +86,40 @@
       "parentUuid": "1d34f0c9_d41d5591",
       "revId": "e6908d665f609d68056742f6d374b08339cf73b2",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5cf1d66_05949d03",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-01-19T21:25:48Z",
+      "side": 1,
+      "message": "Sorry to take so long to review! I\u0027m finally catching up.\n\nI was able to reproduce the linux-amd64 test failure on TestRelease/main/remove with 1.16beta1 but not 1.15.6. The error is from \u0027go list\u0027 when -mod\u003dreadonly is used (which it is by default). It\u0027s saying that the sum for the base version of the module is missing. Normally, the earlier \u0027go go -d .\u0027 would add that sum; however, the base version only had a main package which we can\u0027t import. Because we didn\u0027t import anything, \u0027go get -d .\u0027 did nothing.\n\nI think the simplest way to fix this would be to treat main and non-main packages the same and import them both from tmp.go. Technically this is not allowed, and tmp.go would not be buildable. However, \u0027go get -d\u0027 doesn\u0027t enforce that requirement, so I think we\u0027ll get away with it.",
+      "revId": "e6908d665f609d68056742f6d374b08339cf73b2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d06b184_ebadba47",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 17
+      },
+      "lineNbr": 1045,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-01-19T21:25:48Z",
+      "side": 1,
+      "message": "Right, it\u0027s outside the user\u0027s control. The go command ignores it anyway, so if one of your dependencies has missing or incorrect hashes in their go.sum file, it doesn\u0027t cause you any problems (security or otherwise).\n\nAt some point, we talked about checking hashes in go.sum files of downloaded modules, but the behavior and security benefit isn\u0027t really clear. The sumdb mostly makes that obsolete.",
+      "revId": "e6908d665f609d68056742f6d374b08339cf73b2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
