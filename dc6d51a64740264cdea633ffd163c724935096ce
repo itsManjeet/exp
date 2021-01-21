@@ -16,6 +16,103 @@
       "message": "Feels like this should have more tests. PTAL and let me know if you can think of some!",
       "revId": "dc6d51a64740264cdea633ffd163c724935096ce",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "102971cc_f25f00ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-01-21T15:59:56Z",
+      "side": 1,
+      "message": "Sorry again to be so slow to review. I\u0027m mostly caught up now and should be more responsive going forward.",
+      "revId": "dc6d51a64740264cdea633ffd163c724935096ce",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "255c8e47_4b2f8eee",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-01-21T15:59:56Z",
+      "side": 1,
+      "message": "Nit: use \"highest\" instead of \"latest\".\n\nBryan asked me to make that change in the module reference documentation. \"Latest\" suggests the chronologically most recent version, but chronological order isn\u0027t necessarily the same as semver order. \"Highest\" is unambiguous.",
+      "range": {
+        "startLine": 251,
+        "startChar": 1,
+        "endLine": 251,
+        "endChar": 24
+      },
+      "revId": "dc6d51a64740264cdea633ffd163c724935096ce",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6ecfa58_52c43ab1",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 1137,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-01-21T15:59:56Z",
+      "side": 1,
+      "message": "Rename to findSelectedVersion or something similar?\n\nCycle doesn\u0027t quite describe what\u0027s going on. The vertices in the module graph are individual versions, so there can be a path to a higher version of the main module without a cycle being present. Cycles are allowed in the module graph, and they\u0027re not necessarily bad.",
+      "range": {
+        "startLine": 1137,
+        "startChar": 5,
+        "endLine": 1137,
+        "endChar": 13
+      },
+      "revId": "dc6d51a64740264cdea633ffd163c724935096ce",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49e93cd6_efcf3b14",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 1138,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-01-21T15:59:56Z",
+      "side": 1,
+      "message": "Run `go list -m $modPath` instead. That should just print the module path and the selected version, separated by a space. This function should return the selected version.",
+      "revId": "dc6d51a64740264cdea633ffd163c724935096ce",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5dd7453f_0329c715",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-01-21T15:59:56Z",
+      "side": 1,
+      "message": "I think if the version we would normally suggest is lower than the selected version, we should report an error (through setNotValid) instead of suggesting a higher version.\n\nSince we\u0027re not comparing the API of the selected version, we don\u0027t know whether there are incompatible changes. Even if there aren\u0027t, I don\u0027t think it will be clear to the user why we\u0027re suggesting a version that\u0027s potentially much higher than the base.",
+      "revId": "dc6d51a64740264cdea633ffd163c724935096ce",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
