@@ -264,6 +264,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccb7a9b6_9ab48f13",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 14
+      },
+      "lineNbr": 1019,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-01-22T23:58:40Z",
+      "side": 1,
+      "message": "Done\n\nNote: PTAL the tidy tests: they have the ---- incompatible changes stanzas. These aren\u0027t particularly easy to disambiguate from the \"requirements are needed\" stanzas, and read strangly together but don\u0027t flow together.\n\nLet me know if you\u0027d like some more formatting done there, or some other way to address.\n\nAlso give a shout if any more tests needed here.",
+      "parentUuid": "10a1198e_4d7da50b",
+      "revId": "0a05ff4e129ba17d788ef54b090b1f432f278461",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ec140bef_1f49f6a0",
@@ -418,6 +436,24 @@
       "side": 1,
       "message": "I\u0027m not sure this will work on Windows. p.Dir should not end with a trailing separator (/ or \\), which means pathFromRoot will have a leading separator. That\u0027s fine everywhere except Windows, where it will be a backslash.\n\nI think this would be a little more robust. path.Join does separator conversion automatically.\n\n  importPath :\u003d path.Join(modPath, trimFilePathPrefix(p.Dir, root))",
       "parentUuid": "5e575a3c_3896903f",
+      "revId": "0a05ff4e129ba17d788ef54b090b1f432f278461",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6cef760_1455cb8c",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 14
+      },
+      "lineNbr": 1101,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-01-22T23:58:40Z",
+      "side": 1,
+      "message": "Thank you! This is a good avenue to explore. Still working on this - will mark done once I sort out all the tests.",
+      "parentUuid": "08159c9f_66a8f252",
       "revId": "0a05ff4e129ba17d788ef54b090b1f432f278461",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
