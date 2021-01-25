@@ -300,6 +300,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2d99439_30e6e4a9",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 14
+      },
+      "lineNbr": 1019,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-01-25T22:21:04Z",
+      "side": 1,
+      "message": "Done\n\nWasn\u0027t returning enough things along with diagnostics in prepareLoadDir, so the pkg differ thought numerous release packages didn\u0027t exist!",
+      "parentUuid": "dd912f5a_89add0d8",
+      "revId": "0a05ff4e129ba17d788ef54b090b1f432f278461",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ec140bef_1f49f6a0",
