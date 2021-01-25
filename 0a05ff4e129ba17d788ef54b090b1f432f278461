@@ -284,6 +284,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dd912f5a_89add0d8",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 14
+      },
+      "lineNbr": 1019,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-01-25T18:54:18Z",
+      "side": 1,
+      "message": "Hmm, I\u0027m not sure why these incompatible changes are coming up. The example.com/tidy package should be present in both and release version. Do you know what\u0027s causing the difference?\n\n(Totally agree that the formatting is not very easy to read in general. We should fix that in another CL.)",
+      "parentUuid": "ccb7a9b6_9ab48f13",
+      "revId": "0a05ff4e129ba17d788ef54b090b1f432f278461",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ec140bef_1f49f6a0",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 14
