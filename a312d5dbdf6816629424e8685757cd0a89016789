@@ -1,0 +1,187 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46999e32_d5d4a14c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-01-26T15:40:07Z",
+      "side": 1,
+      "message": "This is looking good, thanks for working on it! A few more comments, mostly small stuff.\n\nYou might find this interesting: a couple weeks ago, I wrote a blog post on error handling in Go, inspired by work in gorelease and cmd/go. It talks about when to use sentinel values, errors, and panics; how to format errors; how and when to wrap errors. https://jayconrod.com/posts/116/error-handling-guidelines-for-go",
+      "revId": "a312d5dbdf6816629424e8685757cd0a89016789",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06020d27_cbf29d7c",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-01-26T15:40:07Z",
+      "side": 1,
+      "message": "s/latest/highest/",
+      "range": {
+        "startLine": 251,
+        "startChar": 51,
+        "endLine": 251,
+        "endChar": 57
+      },
+      "revId": "a312d5dbdf6816629424e8685757cd0a89016789",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b289d0d_6bfe42c9",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-01-26T15:40:07Z",
+      "side": 1,
+      "message": "s/latestVersion/highestVersion/\n\nselectedVersion would also be fine.",
+      "range": {
+        "startLine": 392,
+        "startChar": 1,
+        "endLine": 392,
+        "endChar": 14
+      },
+      "revId": "a312d5dbdf6816629424e8685757cd0a89016789",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b00dbd76_494929b7",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 1140,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-01-26T15:40:07Z",
+      "side": 1,
+      "message": "Might be able to simplify this a little more by setting the output format so that it only includes the version. Something like:\n\n  cmd :\u003d exec.Command(\"go\", \"list\", \"-m\", \"-f\", \"{{.Version}}\", \"--\", modPath)\n  cmd.Dir \u003d modDir\n  out, err :\u003d cmd.Output()\n  if err !\u003d nil {\n    return \"\", cleanCmdError(err)\n  }\n  return string(out), nil",
+      "revId": "a312d5dbdf6816629424e8685757cd0a89016789",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c65bee8_f7546c3d",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-01-26T15:40:07Z",
+      "side": 1,
+      "message": "Rephrase:\n\n  Module indirectly depends on a higher version of itself (%s).\n\nI\u0027m not sure we should recommend releasing a higher version. If higher versions already exist, the user is probably trying to patch an old release branch, so releasing a higher version might be possible. They probably need to cut the dependency instead, but it\u0027s not easy for us to say what to do, so let\u0027s just describe the problem.",
+      "range": {
+        "startLine": 196,
+        "startChar": 15,
+        "endLine": 197,
+        "endChar": 51
+      },
+      "revId": "a312d5dbdf6816629424e8685757cd0a89016789",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6dd2ea1_771835d7",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-01-26T15:40:07Z",
+      "side": 1,
+      "message": "Let\u0027s call setNotValid instead of returning an error. We\u0027ll call setNotValid in general if it\u0027s not appropriate to suggest a new version.",
+      "range": {
+        "startLine": 203,
+        "startChar": 41,
+        "endLine": 203,
+        "endChar": 46
+      },
+      "revId": "a312d5dbdf6816629424e8685757cd0a89016789",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20e8c1bd_008f58ae",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-01-26T15:40:07Z",
+      "side": 1,
+      "message": "Rephrase: \n\n  Module indirectly depends on a higher version of itself (%s) than the base version (%s).",
+      "range": {
+        "startLine": 229,
+        "startChar": 22,
+        "endLine": 229,
+        "endChar": 136
+      },
+      "revId": "a312d5dbdf6816629424e8685757cd0a89016789",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12391215_73436154",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-01-26T15:40:07Z",
+      "side": 1,
+      "message": "panic is okay. The base version should have been validated before this point, so this acts as an assertion.",
+      "revId": "a312d5dbdf6816629424e8685757cd0a89016789",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bd4671a_bcccd6e5",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-01-26T15:40:07Z",
+      "side": 1,
+      "message": "Same deal: panic is okay because we should have validate the module path before this point.",
+      "revId": "a312d5dbdf6816629424e8685757cd0a89016789",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
