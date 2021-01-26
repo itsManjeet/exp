@@ -1,0 +1,222 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bb6dc8c_3be9d27a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 22
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-01-26T15:16:17Z",
+      "side": 1,
+      "message": "This is looking really good. I have a few more comments, but it\u0027s mostly small cosmetic stuff.",
+      "revId": "4c1b43389b5244ce526af0bc6d0de783caa5ae7f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ce14e14_f537c571",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 22
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-01-26T15:16:17Z",
+      "side": 1,
+      "message": "Nit: let\u0027s either drop this comment or change the one on L361-365 to clarify the difference.",
+      "range": {
+        "startLine": 385,
+        "startChar": 1,
+        "endLine": 385,
+        "endChar": 31
+      },
+      "revId": "4c1b43389b5244ce526af0bc6d0de783caa5ae7f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "710f9114_bff7d87b",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 22
+      },
+      "lineNbr": 904,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-01-26T15:16:17Z",
+      "side": 1,
+      "message": "This isn\u0027t quite accurate. modRoot is the module\u0027s root directory in either case.\n\nIf cached is true, then the module lives in the cache at $GOMODCACHE/$modPath@$version/. Its go.mod file is at $GOMODCACHE/cache/download/$modPath/@v/$version.mod. It must be referenced with a simple requirement. A replace directive won\u0027t work because it may not have a go.mod file in modRoot.\n\nIf cached is false, then modRoot is somewhere outside the module cache. We\u0027ll reference it with a local replace directive. It must have a go.mod file in modRoot.",
+      "range": {
+        "startLine": 900,
+        "startChar": 0,
+        "endLine": 904,
+        "endChar": 34
+      },
+      "revId": "4c1b43389b5244ce526af0bc6d0de783caa5ae7f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "511cc366_00b7c41b",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 22
+      },
+      "lineNbr": 919,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-01-26T15:16:17Z",
+      "side": 1,
+      "message": "Let\u0027s combine this description with the first paragraph. Better to explain what the function does first, then give details on the parameters and return values afterward.",
+      "range": {
+        "startLine": 914,
+        "startChar": 0,
+        "endLine": 919,
+        "endChar": 67
+      },
+      "revId": "4c1b43389b5244ce526af0bc6d0de783caa5ae7f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4476899_d5e43775",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 22
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-01-26T15:16:17Z",
+      "side": 1,
+      "message": "Is this still needed? It looks like collectImportPaths won\u0027t return empty strings.",
+      "range": {
+        "startLine": 985,
+        "startChar": 2,
+        "endLine": 989,
+        "endChar": 3
+      },
+      "revId": "4c1b43389b5244ce526af0bc6d0de783caa5ae7f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b069874_558d6a6f",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 22
+      },
+      "lineNbr": 990,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-01-26T15:16:17Z",
+      "side": 1,
+      "message": "\\n at the end here.",
+      "range": {
+        "startLine": 990,
+        "startChar": 39,
+        "endLine": 990,
+        "endChar": 40
+      },
+      "revId": "4c1b43389b5244ce526af0bc6d0de783caa5ae7f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8141c6c9_2d79fd0f",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 22
+      },
+      "lineNbr": 1049,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-01-26T15:16:17Z",
+      "side": 1,
+      "message": "Let\u0027s change the comment to `// Check if \u0027go get\u0027 added new hashes to go.sum.`.\n\nIf it doesn\u0027t cause any problems, let\u0027s do this comparison regardless of whether cached is true. The caller can (and does) ignore diagnostics for modules outside the user\u0027s control.",
+      "range": {
+        "startLine": 1047,
+        "startChar": 1,
+        "endLine": 1049,
+        "endChar": 12
+      },
+      "revId": "4c1b43389b5244ce526af0bc6d0de783caa5ae7f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1e697f0_4f4fed8f",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 22
+      },
+      "lineNbr": 1056,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-01-26T15:16:17Z",
+      "side": 1,
+      "message": "Just return err here. ioutil.ReadFile already returns an error containing the path.",
+      "range": {
+        "startLine": 1056,
+        "startChar": 35,
+        "endLine": 1056,
+        "endChar": 88
+      },
+      "revId": "4c1b43389b5244ce526af0bc6d0de783caa5ae7f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43e87351_794c2750",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 22
+      },
+      "lineNbr": 1064,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-01-26T15:16:17Z",
+      "side": 1,
+      "message": "Let\u0027s fall through to the return on L1068 instead of returning here.\n\nI think the return on L1044 was necessary because if requirements were missing, then sums were almost always missing, too, so it didn\u0027t really help to report the missing sum diagnostic.",
+      "revId": "4c1b43389b5244ce526af0bc6d0de783caa5ae7f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a1239fb_378713fa",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 22
+      },
+      "lineNbr": 1115,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-01-26T15:16:17Z",
+      "side": 1,
+      "message": "Change to: fmt.Errorf(\"listing packages in %s: %v\", root, err)\n\n\"listing packages in\" explains better what we\u0027re doing. No need to use cleanCmdError since we\u0027re not invoking a command anymore.",
+      "range": {
+        "startLine": 1115,
+        "startChar": 14,
+        "endLine": 1115,
+        "endChar": 99
+      },
+      "revId": "4c1b43389b5244ce526af0bc6d0de783caa5ae7f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
