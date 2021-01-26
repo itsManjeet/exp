@@ -35,6 +35,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed0f03eb_a347af72",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-01-26T06:05:46Z",
+      "side": 1,
+      "message": "No problem at all, thanks for the review!",
+      "parentUuid": "102971cc_f25f00ca",
+      "revId": "dc6d51a64740264cdea633ffd163c724935096ce",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "255c8e47_4b2f8eee",
@@ -48,6 +66,30 @@
       "writtenOn": "2021-01-21T15:59:56Z",
       "side": 1,
       "message": "Nit: use \"highest\" instead of \"latest\".\n\nBryan asked me to make that change in the module reference documentation. \"Latest\" suggests the chronologically most recent version, but chronological order isn\u0027t necessarily the same as semver order. \"Highest\" is unambiguous.",
+      "range": {
+        "startLine": 251,
+        "startChar": 1,
+        "endLine": 251,
+        "endChar": 24
+      },
+      "revId": "dc6d51a64740264cdea633ffd163c724935096ce",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "139a941d_481c946d",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-01-26T06:05:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "255c8e47_4b2f8eee",
       "range": {
         "startLine": 251,
         "startChar": 1,
@@ -83,6 +125,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d56bf3c7_67902a6d",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 1137,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-01-26T06:05:46Z",
+      "side": 1,
+      "message": "See comments elsewhere about what \"selected version\" means :)",
+      "parentUuid": "a6ecfa58_52c43ab1",
+      "range": {
+        "startLine": 1137,
+        "startChar": 5,
+        "endLine": 1137,
+        "endChar": 13
+      },
+      "revId": "dc6d51a64740264cdea633ffd163c724935096ce",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "49e93cd6_efcf3b14",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 3
@@ -100,6 +166,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "81d02fb5_20beb0d3",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 1138,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-01-26T06:05:46Z",
+      "side": 1,
+      "message": "Done\n\nBut, what do you mean by \"selected version\"? It\u0027s trying to find the latest version, no? We don\u0027t appear to have prior knowledge of the version.\n\nAnd, your command does not appear to include a version, which confuses me too. :)",
+      "parentUuid": "49e93cd6_efcf3b14",
+      "revId": "dc6d51a64740264cdea633ffd163c724935096ce",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5dd7453f_0329c715",
         "filename": "cmd/gorelease/report.go",
         "patchSetId": 3
@@ -111,6 +195,24 @@
       "writtenOn": "2021-01-21T15:59:56Z",
       "side": 1,
       "message": "I think if the version we would normally suggest is lower than the selected version, we should report an error (through setNotValid) instead of suggesting a higher version.\n\nSince we\u0027re not comparing the API of the selected version, we don\u0027t know whether there are incompatible changes. Even if there aren\u0027t, I don\u0027t think it will be clear to the user why we\u0027re suggesting a version that\u0027s potentially much higher than the base.",
+      "revId": "dc6d51a64740264cdea633ffd163c724935096ce",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36687ec1_e143c28d",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-01-26T06:05:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5dd7453f_0329c715",
       "revId": "dc6d51a64740264cdea633ffd163c724935096ce",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
