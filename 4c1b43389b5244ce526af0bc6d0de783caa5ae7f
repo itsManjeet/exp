@@ -41,6 +41,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5dbb2a5c_c73f2e5e",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 22
+      },
+      "lineNbr": 385,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-01-26T15:45:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ce14e14_f537c571",
+      "range": {
+        "startLine": 385,
+        "startChar": 1,
+        "endLine": 385,
+        "endChar": 31
+      },
+      "revId": "4c1b43389b5244ce526af0bc6d0de783caa5ae7f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "710f9114_bff7d87b",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-01-26T15:16:17Z",
       "side": 1,
       "message": "This isn\u0027t quite accurate. modRoot is the module\u0027s root directory in either case.\n\nIf cached is true, then the module lives in the cache at $GOMODCACHE/$modPath@$version/. Its go.mod file is at $GOMODCACHE/cache/download/$modPath/@v/$version.mod. It must be referenced with a simple requirement. A replace directive won\u0027t work because it may not have a go.mod file in modRoot.\n\nIf cached is false, then modRoot is somewhere outside the module cache. We\u0027ll reference it with a local replace directive. It must have a go.mod file in modRoot.",
+      "range": {
+        "startLine": 900,
+        "startChar": 0,
+        "endLine": 904,
+        "endChar": 34
+      },
+      "revId": "4c1b43389b5244ce526af0bc6d0de783caa5ae7f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "429a8b37_5f3aac71",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 22
+      },
+      "lineNbr": 904,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-01-26T15:45:14Z",
+      "side": 1,
+      "message": "Done\n\nThis is great - thanks!",
+      "parentUuid": "710f9114_bff7d87b",
       "range": {
         "startLine": 900,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "91c03426_0b395f96",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 22
+      },
+      "lineNbr": 919,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-01-26T15:45:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "511cc366_00b7c41b",
+      "range": {
+        "startLine": 914,
+        "startChar": 0,
+        "endLine": 919,
+        "endChar": 67
+      },
+      "revId": "4c1b43389b5244ce526af0bc6d0de783caa5ae7f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d4476899_d5e43775",
@@ -100,6 +172,30 @@
       "writtenOn": "2021-01-26T15:16:17Z",
       "side": 1,
       "message": "Is this still needed? It looks like collectImportPaths won\u0027t return empty strings.",
+      "range": {
+        "startLine": 985,
+        "startChar": 2,
+        "endLine": 989,
+        "endChar": 3
+      },
+      "revId": "4c1b43389b5244ce526af0bc6d0de783caa5ae7f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48459972_e798d277",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 22
+      },
+      "lineNbr": 989,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-01-26T15:45:14Z",
+      "side": 1,
+      "message": "Done\n\nGood spot!",
+      "parentUuid": "d4476899_d5e43775",
       "range": {
         "startLine": 985,
         "startChar": 2,
@@ -133,6 +229,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cb22f29_da5c8641",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 22
+      },
+      "lineNbr": 990,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-01-26T15:45:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b069874_558d6a6f",
+      "range": {
+        "startLine": 990,
+        "startChar": 39,
+        "endLine": 990,
+        "endChar": 40
+      },
+      "revId": "4c1b43389b5244ce526af0bc6d0de783caa5ae7f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8141c6c9_2d79fd0f",
@@ -146,6 +266,30 @@
       "writtenOn": "2021-01-26T15:16:17Z",
       "side": 1,
       "message": "Let\u0027s change the comment to `// Check if \u0027go get\u0027 added new hashes to go.sum.`.\n\nIf it doesn\u0027t cause any problems, let\u0027s do this comparison regardless of whether cached is true. The caller can (and does) ignore diagnostics for modules outside the user\u0027s control.",
+      "range": {
+        "startLine": 1047,
+        "startChar": 1,
+        "endLine": 1049,
+        "endChar": 12
+      },
+      "revId": "4c1b43389b5244ce526af0bc6d0de783caa5ae7f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "807cbaab_8f762761",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 22
+      },
+      "lineNbr": 1049,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-01-26T15:45:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8141c6c9_2d79fd0f",
       "range": {
         "startLine": 1047,
         "startChar": 1,
@@ -179,6 +323,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "37abcf54_6cca4ad8",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 22
+      },
+      "lineNbr": 1056,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-01-26T15:45:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1e697f0_4f4fed8f",
+      "range": {
+        "startLine": 1056,
+        "startChar": 35,
+        "endLine": 1056,
+        "endChar": 88
+      },
+      "revId": "4c1b43389b5244ce526af0bc6d0de783caa5ae7f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "43e87351_794c2750",
@@ -196,6 +364,42 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f86b30aa_97887723",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 22
+      },
+      "lineNbr": 1064,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-01-26T15:45:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43e87351_794c2750",
+      "revId": "4c1b43389b5244ce526af0bc6d0de783caa5ae7f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a2efac9_014f0f08",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 22
+      },
+      "lineNbr": 1064,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-01-26T15:45:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43e87351_794c2750",
+      "revId": "4c1b43389b5244ce526af0bc6d0de783caa5ae7f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a1239fb_378713fa",
@@ -209,6 +413,30 @@
       "writtenOn": "2021-01-26T15:16:17Z",
       "side": 1,
       "message": "Change to: fmt.Errorf(\"listing packages in %s: %v\", root, err)\n\n\"listing packages in\" explains better what we\u0027re doing. No need to use cleanCmdError since we\u0027re not invoking a command anymore.",
+      "range": {
+        "startLine": 1115,
+        "startChar": 14,
+        "endLine": 1115,
+        "endChar": 99
+      },
+      "revId": "4c1b43389b5244ce526af0bc6d0de783caa5ae7f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37bc4818_3c3e14c1",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 22
+      },
+      "lineNbr": 1115,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-01-26T15:45:14Z",
+      "side": 1,
+      "message": "Done\n\nGood spot, thanks!",
+      "parentUuid": "6a1239fb_378713fa",
       "range": {
         "startLine": 1115,
         "startChar": 14,
