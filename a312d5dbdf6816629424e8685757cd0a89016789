@@ -18,6 +18,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "62140c4b_32e13fb4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-01-26T16:38:10Z",
+      "side": 1,
+      "message": "Thank you! I had skimmed it before, but took more time to carefully read it this time. The switch at the top is very useful.",
+      "parentUuid": "46999e32_d5d4a14c",
+      "revId": "a312d5dbdf6816629424e8685757cd0a89016789",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "06020d27_cbf29d7c",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-01-26T15:40:07Z",
       "side": 1,
       "message": "s/latest/highest/",
+      "range": {
+        "startLine": 251,
+        "startChar": 51,
+        "endLine": 251,
+        "endChar": 57
+      },
+      "revId": "a312d5dbdf6816629424e8685757cd0a89016789",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e717e67_dc98da7f",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-01-26T16:38:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06020d27_cbf29d7c",
       "range": {
         "startLine": 251,
         "startChar": 51,
@@ -64,6 +106,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "365d6b38_6b5f90d0",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-01-26T16:38:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b289d0d_6bfe42c9",
+      "range": {
+        "startLine": 392,
+        "startChar": 1,
+        "endLine": 392,
+        "endChar": 14
+      },
+      "revId": "a312d5dbdf6816629424e8685757cd0a89016789",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b00dbd76_494929b7",
@@ -83,6 +149,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8128a5fe_2e7673f9",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 1140,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-01-26T16:38:10Z",
+      "side": 1,
+      "message": "Played around with this a bit. Just to clarify: does it always give the highest version of `modPath` in the dependency graph, or exit code 1 if not in the graph?",
+      "parentUuid": "b00dbd76_494929b7",
+      "revId": "a312d5dbdf6816629424e8685757cd0a89016789",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0c65bee8_f7546c3d",
         "filename": "cmd/gorelease/report.go",
         "patchSetId": 4
@@ -94,6 +178,30 @@
       "writtenOn": "2021-01-26T15:40:07Z",
       "side": 1,
       "message": "Rephrase:\n\n  Module indirectly depends on a higher version of itself (%s).\n\nI\u0027m not sure we should recommend releasing a higher version. If higher versions already exist, the user is probably trying to patch an old release branch, so releasing a higher version might be possible. They probably need to cut the dependency instead, but it\u0027s not easy for us to say what to do, so let\u0027s just describe the problem.",
+      "range": {
+        "startLine": 196,
+        "startChar": 15,
+        "endLine": 197,
+        "endChar": 51
+      },
+      "revId": "a312d5dbdf6816629424e8685757cd0a89016789",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8e4ebaf_60dfac25",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-01-26T16:38:10Z",
+      "side": 1,
+      "message": "Done\n\nGood call. I do expect some confusion around this, but waiting to see what users want is probably prudent.",
+      "parentUuid": "0c65bee8_f7546c3d",
       "range": {
         "startLine": 196,
         "startChar": 15,
@@ -127,6 +235,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "edb8f272_a7fe082c",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-01-26T16:38:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6dd2ea1_771835d7",
+      "range": {
+        "startLine": 203,
+        "startChar": 41,
+        "endLine": 203,
+        "endChar": 46
+      },
+      "revId": "a312d5dbdf6816629424e8685757cd0a89016789",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "20e8c1bd_008f58ae",
@@ -140,6 +272,30 @@
       "writtenOn": "2021-01-26T15:40:07Z",
       "side": 1,
       "message": "Rephrase: \n\n  Module indirectly depends on a higher version of itself (%s) than the base version (%s).",
+      "range": {
+        "startLine": 229,
+        "startChar": 22,
+        "endLine": 229,
+        "endChar": 136
+      },
+      "revId": "a312d5dbdf6816629424e8685757cd0a89016789",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f4c227e_ef2b4b0f",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-01-26T16:38:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20e8c1bd_008f58ae",
       "range": {
         "startLine": 229,
         "startChar": 22,
@@ -167,6 +323,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "31603401_2d2ead3a",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-01-26T16:38:10Z",
+      "side": 1,
+      "message": "Ack\n\nThanks for the reasoning!",
+      "parentUuid": "12391215_73436154",
+      "revId": "a312d5dbdf6816629424e8685757cd0a89016789",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0bd4671a_bcccd6e5",
@@ -180,6 +354,24 @@
       "writtenOn": "2021-01-26T15:40:07Z",
       "side": 1,
       "message": "Same deal: panic is okay because we should have validate the module path before this point.",
+      "revId": "a312d5dbdf6816629424e8685757cd0a89016789",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f54931f1_dafb8f2a",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-01-26T16:38:10Z",
+      "side": 1,
+      "message": "Ack\n\nThanks for the reasoning!",
+      "parentUuid": "0bd4671a_bcccd6e5",
       "revId": "a312d5dbdf6816629424e8685757cd0a89016789",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
