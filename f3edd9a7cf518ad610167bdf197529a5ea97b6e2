@@ -16,6 +16,24 @@
       "message": "This still repeats a lot from the L883-884. Maybe just delete the first paragraph? This one is good on its own.",
       "revId": "f3edd9a7cf518ad610167bdf197529a5ea97b6e2",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d14bb500_49ed84b3",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 23
+      },
+      "lineNbr": 886,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-01-26T15:58:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "43b76494_0a8c1d91",
+      "revId": "f3edd9a7cf518ad610167bdf197529a5ea97b6e2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
