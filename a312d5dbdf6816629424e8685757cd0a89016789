@@ -167,6 +167,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7c862fca_c741b6f9",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 1140,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-01-26T18:31:59Z",
+      "side": 1,
+      "message": "It should always give the highest version in the dependency graph. It would exit 1 if it\u0027s not in the graph, but since we\u0027re always directly requiring some version that should never happen. So the question is whether it returns the version we required or a higher version.",
+      "parentUuid": "8128a5fe_2e7673f9",
+      "revId": "a312d5dbdf6816629424e8685757cd0a89016789",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0c65bee8_f7546c3d",
         "filename": "cmd/gorelease/report.go",
         "patchSetId": 4
