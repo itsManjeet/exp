@@ -134,7 +134,7 @@ func (r *report) addPackage(p packageReport) {
 // validateReleaseVersion checks whether r.release.version is valid.
 // If r.release.version is not valid, an error is returned explaining why.
 // r.release.version must be set.
-func (r *report) validateReleaseVersion() {
+func (r *report) validateReleaseVersion(existingVersions []string) {
 	if r.release.version == "" {
 		panic("validateVersion called without version")
 	}
@@ -196,11 +196,17 @@ over the base version (%s).`, r.base.version)
 		setNotValid(`Module indirectly depends on a higher version of itself (%s).
 		`, r.release.highestTransitiveVersion)
 	}
+
+	for _, v := range existingVersions {
+		if semver.Compare(v, r.release.version) == 0 {
+			setNotValid("version %s already exists", v)
+		}
+	}
 }
 
 // suggestReleaseVersion suggests a new version consistent with observed
 // changes.
-func (r *report) suggestReleaseVersion() {
+func (r *report) suggestReleaseVersion(existingVersions []string) {
 	setNotValid := func(format string, args ...interface{}) {
 		r.versionInvalid = &versionMessage{
 			message: "Cannot suggest a release version.",
@@ -242,6 +248,24 @@ func (r *report) suggestReleaseVersion() {
 		return
 		// TODO(jayconrod): briefly explain how to prepare major version releases
 		// and link to documentation.
+	}
+
+	// Check whether we're comparing to the latest version of base.
+	//
+	// This could happen further up, but we want the more pressing errors above
+	// to take precedence.
+	var latestForBaseMajor string
+	for _, v := range existingVersions {
+		if semver.Major(v) != semver.Major(r.base.version) {
+			continue
+		}
+		if latestForBaseMajor == "" || semver.Compare(latestForBaseMajor, v) < 0 {
+			latestForBaseMajor = v
+		}
+	}
+	if latestForBaseMajor != "" && latestForBaseMajor != r.base.version {
+		setNotValid(fmt.Sprintf("Can only suggest a release version when compared against the most recent version of this major: %s.", latestForBaseMajor))
+		return
 	}
 
 	if r.base.version == "none" {
