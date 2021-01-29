@@ -6,6 +6,7 @@ package main
 
 import (
 	"bytes"
+	"context"
 	"flag"
 	"fmt"
 	"io/ioutil"
@@ -16,10 +17,12 @@ import (
 	"strings"
 	"testing"
 
+	"golang.org/x/mod/module"
 	"golang.org/x/tools/txtar"
 )
 
 var workDir string
+var defaultContext context.Context
 
 var (
 	testwork     = flag.Bool("testwork", false, "preserve work directory")
@@ -37,41 +40,56 @@ func TestMain(m *testing.M) {
 
 	flag.Parse()
 
-	proxyDir, proxyURL, err := buildProxyDir()
+	var cleanup func()
+	defaultContext, cleanup = prepareProxy(nil)
+	defer cleanup()
+
+	status = m.Run()
+}
+
+// prepareProxy creates a proxy dir and returns an associated ctx.
+//
+// proxyVersions must be a map of module version to true. If proxyVersions is
+// empty, all modules in mod/ will be included in the proxy list. If proxy
+// versions is non-empty, only those modules in mod/ that match an entry in
+// proxyVersions will be included.
+//
+// ctx must be used in runRelease.
+// cleanup must be called when the relevant tests are finished.
+func prepareProxy(proxyVersions map[module.Version]bool) (ctx context.Context, cleanup func()) {
+	env := append(os.Environ(), "GO11MODULE=on", "GOSUMDB=off")
+
+	proxyDir, proxyURL, err := buildProxyDir(proxyVersions)
 	if err != nil {
-		fmt.Fprintln(os.Stderr, err)
-		return
+		fmt.Fprintln(os.Stderr, fmt.Errorf("error building proxy dir: %v", err))
+		os.Exit(1)
 	}
-	os.Setenv("GOPROXY", proxyURL)
-	if *testwork {
-		fmt.Fprintf(os.Stderr, "test proxy dir: %s\ntest proxy URL: %s\n", proxyDir, proxyURL)
-	} else {
-		defer os.RemoveAll(proxyDir)
-	}
+	env = append(env, fmt.Sprintf("GOPROXY=%s", proxyURL))
 
 	cacheDir, err := ioutil.TempDir("", "gorelease_test-gocache")
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err)
-		return
+		os.Exit(1)
 	}
-	os.Setenv("GOPATH", cacheDir)
-	if *testwork {
-		fmt.Fprintf(os.Stderr, "test cache dir: %s\n", cacheDir)
-	} else {
-		defer func() {
-			if err := exec.Command("go", "clean", "-modcache").Run(); err != nil {
-				fmt.Fprintln(os.Stderr, err)
+	env = append(env, fmt.Sprintf("GOPATH=%s", cacheDir))
+
+	return context.WithValue(context.Background(), "env", env), func() {
+		if *testwork {
+			fmt.Fprintf(os.Stderr, "test cache dir: %s\n", cacheDir)
+			fmt.Fprintf(os.Stderr, "test proxy dir: %s\ntest proxy URL: %s\n", proxyDir, proxyURL)
+		} else {
+			cmd := exec.Command("go", "clean", "-modcache")
+			cmd.Env = env
+			if err := cmd.Run(); err != nil {
+				fmt.Fprintln(os.Stderr, fmt.Errorf("error running go clean: %v", err))
 			}
-			if err := os.RemoveAll(cacheDir); err != nil {
-				fmt.Fprintln(os.Stderr, err)
-			}
-		}()
+
+			// TODO(deklerk): These can fail with permission denied errors.
+			// Should we print those? Should we care?
+			os.RemoveAll(cacheDir)
+			os.RemoveAll(proxyDir)
+		}
 	}
-
-	os.Setenv("GO111MODULE", "on")
-	os.Setenv("GOSUMDB", "off")
-
-	status = m.Run()
 }
 
 // test describes an individual test case, written as a .test file in the
@@ -126,6 +144,13 @@ type test struct {
 
 	// want is set to the contents of the file named "want" in the txtar archive.
 	want []byte
+
+	// proxyVersions is used to set the exact contents of the GOPROXY.
+	//
+	// If empty, all of testadata/mod/ will be included in the proxy.
+	// If it is not empty, each entry must be of the form <modpath>@v<version>
+	// and exist in testdata/mod/.
+	proxyVersions map[module.Version]bool
 }
 
 // readTest reads and parses a .test file with the given name.
@@ -180,6 +205,22 @@ func readTest(testPath string) (*test, error) {
 			if err != nil {
 				return nil, fmt.Errorf("%s:%d: %v", testPath, lineNum, err)
 			}
+		case "proxyVersions":
+			parts := strings.Split(value, ",")
+			proxyVersions := make(map[module.Version]bool)
+			for _, modpathWithVersion := range parts {
+				vParts := strings.Split(modpathWithVersion, "@")
+				if len(vParts) != 2 {
+					return nil, fmt.Errorf("proxyVersions entry %s is invalid: it should be of the format <modpath>@v<semver> (ex: github.com/foo/bar@v1.2.3)", modpathWithVersion)
+				}
+				modPath, version := vParts[0], vParts[1]
+				mv := module.Version{
+					Path:    modPath,
+					Version: version,
+				}
+				proxyVersions[mv] = true
+			}
+			t.proxyVersions = proxyVersions
 		default:
 			return nil, fmt.Errorf("%s:%d: unknown key: %q", testPath, lineNum, key)
 		}
@@ -237,7 +278,7 @@ func TestRelease(t *testing.T) {
 		testPath := testPath
 		testName := strings.TrimSuffix(strings.TrimPrefix(filepath.ToSlash(testPath), "testdata/"), ".test")
 		t.Run(testName, func(t *testing.T) {
-			t.Parallel()
+			ctx := defaultContext
 
 			test, err := readTest(testPath)
 			if err != nil {
@@ -246,6 +287,14 @@ func TestRelease(t *testing.T) {
 
 			if test.skip != "" {
 				t.Skip(test.skip)
+			}
+
+			t.Parallel()
+
+			if len(test.proxyVersions) > 0 {
+				var cleanup func()
+				ctx, cleanup = prepareProxy(test.proxyVersions)
+				defer cleanup()
 			}
 
 			// Extract the files in the release version. They may be part of the
@@ -286,7 +335,7 @@ func TestRelease(t *testing.T) {
 			}
 			buf := &bytes.Buffer{}
 			releaseDir := filepath.Join(testDir, test.dir)
-			success, err := runRelease(buf, releaseDir, args)
+			success, err := runRelease(ctx, buf, releaseDir, args)
 			if err != nil {
 				if !test.wantError {
 					t.Fatalf("unexpected error: %v", err)
