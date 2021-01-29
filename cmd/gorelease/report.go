@@ -200,7 +200,7 @@ over the base version (%s).`, r.base.version)
 
 // suggestReleaseVersion suggests a new version consistent with observed
 // changes.
-func (r *report) suggestReleaseVersion() {
+func (r *report) suggestReleaseVersion(existingVersions []string) {
 	setNotValid := func(format string, args ...interface{}) {
 		r.versionInvalid = &versionMessage{
 			message: "Cannot suggest a release version.",
@@ -242,6 +242,24 @@ func (r *report) suggestReleaseVersion() {
 		return
 		// TODO(jayconrod): briefly explain how to prepare major version releases
 		// and link to documentation.
+	}
+
+	// Check whether we're comparing to the latest version of base.
+	//
+	// This could happen further up, but we want the more pressing errors above
+	// to take precedence.
+	var latestForBaseMajor string
+	for _, v := range existingVersions {
+		if semver.Major(v) != semver.Major(r.base.version) {
+			continue
+		}
+		if latestForBaseMajor == "" || semver.Compare(latestForBaseMajor, v) < 0 {
+			latestForBaseMajor = v
+		}
+	}
+	if latestForBaseMajor != "" && latestForBaseMajor != r.base.version {
+		setNotValid(fmt.Sprintf("Can only suggest a release version when compared against the most recent version of this major: %s.", latestForBaseMajor))
+		return
 	}
 
 	if r.base.version == "none" {
