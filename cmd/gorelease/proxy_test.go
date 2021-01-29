@@ -24,7 +24,7 @@ import (
 // buildProxyDir constructs a temporary directory suitable for use as a
 // module proxy with a file:// URL. The caller is responsible for deleting
 // the directory when it's no longer needed.
-func buildProxyDir() (proxyDir, proxyURL string, err error) {
+func buildProxyDir(discludeFromProxy []string) (proxyDir, proxyURL string, err error) {
 	proxyDir, err = ioutil.TempDir("", "gorelease-proxy")
 	if err != nil {
 		return "", "", err
@@ -121,6 +121,11 @@ func buildProxyDir() (proxyDir, proxyURL string, err error) {
 		}
 	}
 
+	discludeSet := map[string]bool{}
+	for _, v := range discludeFromProxy {
+		discludeSet[v] = true
+	}
+
 	buf := &bytes.Buffer{}
 	for modPath, versions := range versionLists {
 		outPath := filepath.Join(proxyDir, modPath, "@v", "list")
@@ -128,6 +133,9 @@ func buildProxyDir() (proxyDir, proxyURL string, err error) {
 			return semver.Compare(versions[i], versions[j]) < 0
 		})
 		for _, v := range versions {
+			if discludeSet[v] {
+				continue
+			}
 			fmt.Fprintln(buf, v)
 		}
 		if err := ioutil.WriteFile(outPath, buf.Bytes(), 0666); err != nil {

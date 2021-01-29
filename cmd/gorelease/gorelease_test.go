@@ -16,10 +16,24 @@ import (
 	"strings"
 	"testing"
 
+	"golang.org/x/mod/semver"
 	"golang.org/x/tools/txtar"
 )
 
+func setProxyURL(proxyURL, proxyDir string) func() {
+	os.Setenv("GOPROXY", proxyURL)
+	return func() {
+		if *testwork {
+			fmt.Fprintf(os.Stderr, "test proxy dir: %s\ntest proxy URL: %s\n", proxyDir, proxyURL)
+		} else {
+			os.RemoveAll(proxyDir)
+		}
+		os.Setenv("GOPROXY", defaultProxyURL)
+	}
+}
+
 var workDir string
+var defaultProxyURL string
 
 var (
 	testwork     = flag.Bool("testwork", false, "preserve work directory")
@@ -37,17 +51,13 @@ func TestMain(m *testing.M) {
 
 	flag.Parse()
 
-	proxyDir, proxyURL, err := buildProxyDir()
+	proxyDir, proxyURL, err := buildProxyDir(nil)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err)
 		return
 	}
-	os.Setenv("GOPROXY", proxyURL)
-	if *testwork {
-		fmt.Fprintf(os.Stderr, "test proxy dir: %s\ntest proxy URL: %s\n", proxyDir, proxyURL)
-	} else {
-		defer os.RemoveAll(proxyDir)
-	}
+	defaultProxyURL = proxyURL
+	defer setProxyURL(proxyURL, proxyDir)()
 
 	cacheDir, err := ioutil.TempDir("", "gorelease_test-gocache")
 	if err != nil {
@@ -126,6 +136,8 @@ type test struct {
 
 	// want is set to the contents of the file named "want" in the txtar archive.
 	want []byte
+
+	discludeFromProxy []string
 }
 
 // readTest reads and parses a .test file with the given name.
@@ -180,6 +192,14 @@ func readTest(testPath string) (*test, error) {
 			if err != nil {
 				return nil, fmt.Errorf("%s:%d: %v", testPath, lineNum, err)
 			}
+		case "discludeFromProxy":
+			parts := strings.Split(value, ",")
+			for _, p := range parts {
+				if !semver.IsValid(p) {
+					return nil, fmt.Errorf("%s is not a valid version", p)
+				}
+			}
+			t.discludeFromProxy = parts
 		default:
 			return nil, fmt.Errorf("%s:%d: unknown key: %q", testPath, lineNum, key)
 		}
@@ -237,8 +257,6 @@ func TestRelease(t *testing.T) {
 		testPath := testPath
 		testName := strings.TrimSuffix(strings.TrimPrefix(filepath.ToSlash(testPath), "testdata/"), ".test")
 		t.Run(testName, func(t *testing.T) {
-			t.Parallel()
-
 			test, err := readTest(testPath)
 			if err != nil {
 				t.Fatal(err)
@@ -246,6 +264,16 @@ func TestRelease(t *testing.T) {
 
 			if test.skip != "" {
 				t.Skip(test.skip)
+			}
+
+			if len(test.discludeFromProxy) == 0 {
+				t.Parallel()
+			} else {
+				proxyDir, proxyURL, err := buildProxyDir(test.discludeFromProxy)
+				if err != nil {
+					t.Fatal(err)
+				}
+				defer setProxyURL(proxyURL, proxyDir)()
 			}
 
 			// Extract the files in the release version. They may be part of the

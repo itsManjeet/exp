@@ -3,6 +3,7 @@ version=v2.1.2
 base=v2.1.1
 success=false
 release=v2.1.2
+discludeFromProxy=v2.1.2
 -- want --
 example.com/basic/v2/a
 ----------------------

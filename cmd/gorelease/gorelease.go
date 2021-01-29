@@ -606,6 +606,26 @@ func makeReleaseReport(base, release moduleInfo) (report, error) {
 		}
 	}
 
+	type listVersions struct {
+		Versions []string `json: "Versions"`
+	}
+	cmd2 := exec.Command("go", "list", "-json", "-m", "-versions", base.modPath)
+	cmd2.Dir = base.modRoot
+	out2, err := cmd2.Output()
+	if err != nil {
+		fmt.Println(cleanCmdError(err))
+	} else {
+		var lv listVersions
+		if err := json.Unmarshal(out2, &lv); err != nil {
+			panic(err)
+		}
+		for _, v := range lv.Versions {
+			if semver.Compare(v, r.release.version) == 0 {
+				r.release.diagnostics = append(r.release.diagnostics, fmt.Sprintf("the version %s is already a thing", v))
+			}
+		}
+	}
+
 	return r, nil
 }
 

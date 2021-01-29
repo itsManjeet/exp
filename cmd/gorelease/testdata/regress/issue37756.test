@@ -3,6 +3,7 @@
 mod=example.com/issue37756
 version=v1.1.0
 base=v1.0.0
+discludeFromProxy=v1.1.0
 -- want --
 example.com/issue37756/a
 ------------------------
