@@ -1,5 +1,6 @@
 mod=example.com/require
 base=v0.0.1
+discludeFromProxy=v0.1.0
 -- want --
 Suggested version: v0.1.0
 -- go.mod --

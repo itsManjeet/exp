@@ -1,6 +1,7 @@
 mod=example.com/basic/v2
 version=v2.1.0
 base=v2.0.1
+discludeFromProxy=v2.1.0
 -- want --
 example.com/basic/v2/a
 ----------------------
