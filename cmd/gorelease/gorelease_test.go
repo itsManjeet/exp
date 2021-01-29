@@ -6,6 +6,7 @@ package main
 
 import (
 	"bytes"
+	"context"
 	"flag"
 	"fmt"
 	"io/ioutil"
@@ -16,10 +17,12 @@ import (
 	"strings"
 	"testing"
 
+	"golang.org/x/mod/semver"
 	"golang.org/x/tools/txtar"
 )
 
 var workDir string
+var defaultContext context.Context
 
 var (
 	testwork     = flag.Bool("testwork", false, "preserve work directory")
@@ -37,41 +40,45 @@ func TestMain(m *testing.M) {
 
 	flag.Parse()
 
-	proxyDir, proxyURL, err := buildProxyDir()
+	var cleanup func()
+	defaultContext, cleanup = makeCtx(nil)
+	defer cleanup()
+
+	status = m.Run()
+}
+
+func makeCtx(discludeFromProxy []string) (context.Context, func()) {
+	env := []string{"GO11MODULE=on", "GOSUMDB=off"}
+
+	proxyDir, proxyURL, err := buildProxyDir(discludeFromProxy)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err)
-		return
+		os.Exit(1)
 	}
-	os.Setenv("GOPROXY", proxyURL)
-	if *testwork {
-		fmt.Fprintf(os.Stderr, "test proxy dir: %s\ntest proxy URL: %s\n", proxyDir, proxyURL)
-	} else {
-		defer os.RemoveAll(proxyDir)
-	}
+	env = append(env, fmt.Sprintf("GOPROXY=%s", proxyURL))
 
 	cacheDir, err := ioutil.TempDir("", "gorelease_test-gocache")
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err)
-		return
+		os.Exit(1)
 	}
-	os.Setenv("GOPATH", cacheDir)
-	if *testwork {
-		fmt.Fprintf(os.Stderr, "test cache dir: %s\n", cacheDir)
-	} else {
-		defer func() {
+	env = append(env, fmt.Sprintf("GOPATH=%s", cacheDir))
+	env = append(env, fmt.Sprintf("GOCACHE=%s", cacheDir))
+
+	return context.WithValue(context.Background(), "env", env), func() {
+		if *testwork {
+			fmt.Fprintf(os.Stderr, "test cache dir: %s\n", cacheDir)
+			fmt.Fprintf(os.Stderr, "test proxy dir: %s\ntest proxy URL: %s\n", proxyDir, proxyURL)
+		} else {
 			if err := exec.Command("go", "clean", "-modcache").Run(); err != nil {
 				fmt.Fprintln(os.Stderr, err)
 			}
 			if err := os.RemoveAll(cacheDir); err != nil {
 				fmt.Fprintln(os.Stderr, err)
 			}
-		}()
+			os.RemoveAll(proxyDir)
+		}
 	}
-
-	os.Setenv("GO111MODULE", "on")
-	os.Setenv("GOSUMDB", "off")
-
-	status = m.Run()
 }
 
 // test describes an individual test case, written as a .test file in the
@@ -126,6 +133,8 @@ type test struct {
 
 	// want is set to the contents of the file named "want" in the txtar archive.
 	want []byte
+
+	discludeFromProxy []string
 }
 
 // readTest reads and parses a .test file with the given name.
@@ -180,6 +189,14 @@ func readTest(testPath string) (*test, error) {
 			if err != nil {
 				return nil, fmt.Errorf("%s:%d: %v", testPath, lineNum, err)
 			}
+		case "discludeFromProxy":
+			parts := strings.Split(value, ",")
+			for _, p := range parts {
+				if !semver.IsValid(p) {
+					return nil, fmt.Errorf("%s is not a valid version", p)
+				}
+			}
+			t.discludeFromProxy = parts
 		default:
 			return nil, fmt.Errorf("%s:%d: unknown key: %q", testPath, lineNum, key)
 		}
@@ -237,7 +254,7 @@ func TestRelease(t *testing.T) {
 		testPath := testPath
 		testName := strings.TrimSuffix(strings.TrimPrefix(filepath.ToSlash(testPath), "testdata/"), ".test")
 		t.Run(testName, func(t *testing.T) {
-			t.Parallel()
+			ctx := defaultContext
 
 			test, err := readTest(testPath)
 			if err != nil {
@@ -246,6 +263,12 @@ func TestRelease(t *testing.T) {
 
 			if test.skip != "" {
 				t.Skip(test.skip)
+			}
+
+			t.Parallel()
+
+			if len(test.discludeFromProxy) > 0 {
+				ctx, _ = makeCtx(test.discludeFromProxy)
 			}
 
 			// Extract the files in the release version. They may be part of the
@@ -286,7 +309,7 @@ func TestRelease(t *testing.T) {
 			}
 			buf := &bytes.Buffer{}
 			releaseDir := filepath.Join(testDir, test.dir)
-			success, err := runRelease(buf, releaseDir, args)
+			success, err := runRelease(ctx, buf, releaseDir, args)
 			if err != nil {
 				if !test.wantError {
 					t.Fatalf("unexpected error: %v", err)
