@@ -16,6 +16,24 @@
       "message": "Nit: reflow commit message so it\u0027s easier to read in Gerrit and other tools. I think the recommendation is to keep it under 76 columns.",
       "revId": "2066e0b340bae0e210c6ddb862da2a0b59d9da99",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b19a8fc_12f4e80c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-02-01T13:11:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17cf6387_9aede7c8",
+      "revId": "2066e0b340bae0e210c6ddb862da2a0b59d9da99",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
