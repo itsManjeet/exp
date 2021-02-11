@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ded1050d_821ca766",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2021-02-11T04:04:54Z",
+      "side": 1,
+      "message": "I like the decision to skip drawing as the fix. LGTM, minor optional comments.",
+      "revId": "0afb865ff4a114cc3434fba8a92b3d8a8c2cf094",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "796ad819_47897378",
+        "filename": "shiny/iconvg/decode_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2021-02-11T04:04:54Z",
+      "side": 1,
+      "message": "Maybe add a comment along the lines of \"see issue 39526\", since there\u0027s helpful background available there. (Someone determined can still find it via blame, but a comment would increase visibility.)",
+      "revId": "0afb865ff4a114cc3434fba8a92b3d8a8c2cf094",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90ba0597_0a716c15",
+        "filename": "shiny/iconvg/decode_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2021-02-11T04:04:54Z",
+      "side": 1,
+      "message": "I\u0027ll note that code above has many 0.0 and 1.0 constants that could all be written without the \".0\" suffix, which seems slightly simpler to me. It\u0027s fine not to make any changes, especially if you prefer to include \".0\" to indicate that the const is a float is.",
+      "revId": "0afb865ff4a114cc3434fba8a92b3d8a8c2cf094",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
