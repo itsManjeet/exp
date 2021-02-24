@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+//go:build windows
 // +build windows
 
 // Package winfsnotify allows the user to receive
@@ -345,8 +346,9 @@ func (w *Watcher) startRead(watch *watch) error {
 // Entry point to the I/O thread.
 func (w *Watcher) readEvents() {
 	var (
-		n, key uint32
-		ov     *syscall.Overlapped
+		n   uint32
+		key uintptr
+		ov  *syscall.Overlapped
 	)
 	runtime.LockOSThread()
 
