@@ -69,6 +69,24 @@
       "parentUuid": "af5c3ceb_4ca82234",
       "revId": "fc015b3ed913e349bc40f1021c03bac10d6460c6",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb574a44_7d3d9107",
+        "filename": "winfsnotify/winfsnotify.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 20556
+      },
+      "writtenOn": "2021-02-24T21:52:54Z",
+      "side": 1,
+      "message": "There was never any mystery about this breaking compatibility when Ian approved the main-repo change.",
+      "parentUuid": "8df6419a_914cf099",
+      "revId": "fc015b3ed913e349bc40f1021c03bac10d6460c6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
