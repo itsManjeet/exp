@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d8d121a_29f4e671",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 20556
+      },
+      "writtenOn": "2021-02-24T20:32:29Z",
+      "side": 1,
+      "message": "I\u0027m not sure when the best time is to actually submit this. Perhaps closer to 1.17 release? Or we backport the change to 1.16 and 1.15, and do it then? (It is security-sensitive, after all.) Or we wait for the related change in x/sys/windows to land (CL 295174), and then port x/benchmarks to use the function from there?",
+      "revId": "fc015b3ed913e349bc40f1021c03bac10d6460c6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
