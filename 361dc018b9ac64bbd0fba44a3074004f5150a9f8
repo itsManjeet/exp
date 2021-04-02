@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fbe98e1a_a24e5706",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-04-02T22:55:03Z",
+      "side": 1,
+      "message": "This probably needs more work, but it\u0027s now at least in a place where I think it\u0027s ready for review. Did my best to polish, but I have a couple of sticky questions, and it\u0027d be good to get a sense of whether this should go in a totally different direction. (hope not, but we\u0027ll see!)\n\n-------------\n\nTwo questions at the moment for you, Jay:\n\n1. TestRelease/cgo/cgo fails with a very obscure \"could not import C (no metadata for C)\" with this change. I have noooo idea how cgo works, or what\u0027s going on with this error. I did some googling and found a similar question from you in https://github.com/golang/go/issues/36441 with the exact same error. Any idea what\u0027s up with this?\n\n2. When I run `go test`, I consistently get three downloads* - any idea what\u0027s causing that? It\u0027s almost certainly not supposed to be happening. Also makes it hard to work on this without an internet connection. \u003d)\n\n* Specifically:\n\n```\ngo: downloading golang.org/x/mod v0.4.2\ngo: downloading golang.org/x/tools v0.0.0-20200207183749-b753a1ba74fa\ngo: downloading golang.org/x/xerrors v0.0.0-20191011141410-1b5146add898\n```",
+      "revId": "361dc018b9ac64bbd0fba44a3074004f5150a9f8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
