@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e016eee_e798e5c8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2021-04-02T22:27:18Z",
+      "side": 1,
+      "message": "\u0027x/\u0027 prefix is for issue titles, no need in CL subjects.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 2
+      },
+      "revId": "1d8d8701befb1a6739b74e492c7334d38ae4cd92",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf171bb5_c4742225",
+        "filename": "go.mod",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2021-04-02T22:27:18Z",
+      "side": 1,
+      "message": "I can\u0027t reproduce this with go mod tidy, using Go 1.16.3. When I run \u0027go mod tidy\u0027 on commit 85be41e4509f417cbf99006a027aef75deb8afd1, it makes no changes. Even with a fresh GOPATH (to reset my module cache).\n\nAre you sure this didn\u0027t include a \u0027go get -d golang.org/x/mod@v0.4.2\u0027 before \u0027go mod tidy\u0027?",
+      "revId": "1d8d8701befb1a6739b74e492c7334d38ae4cd92",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
