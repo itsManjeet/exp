@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c36bed43_c95bb960",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-04-05T17:08:01Z",
+      "side": 1,
+      "message": "Looks good, sorry for the delayed review.",
+      "revId": "f658ce106798b71b91a066e63857592b3c618c98",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35b1defa_575acc8b",
+        "filename": "cmd/gorelease/testdata/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-04-05T17:08:01Z",
+      "side": 1,
+      "message": "Nit: use ### for these headings, since the next level up is ##.",
+      "revId": "f658ce106798b71b91a066e63857592b3c618c98",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
