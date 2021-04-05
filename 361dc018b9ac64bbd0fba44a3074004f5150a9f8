@@ -34,6 +34,24 @@
       "parentUuid": "fbe98e1a_a24e5706",
       "revId": "361dc018b9ac64bbd0fba44a3074004f5150a9f8",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e7e8db4_f83c8060",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-04-05T18:37:52Z",
+      "side": 1,
+      "message": "\u003e This is looking really good! Thanks for working on this.\n\nApologies again for being so slow on this. I thankfully am starting to get quite comfortable with the codebase at this point, which is at least something. :)\n\nWill take another pass through this at or before Friday.\n\n\u003e \n\u003e ---\n\u003e \n\u003e For the questions, I did a bit of debugging and left separate comments. Here\u0027s what I found:\n\u003e \n\u003e 1. I think the root cause of this is PATH is not set in the environment when invoking packages.Load, so it can\u0027t find a C compiler. Append to os.Environ() rather than creating the test environment from scratch. Not sure why that message is reported though.\n\u003e \n\u003e 2. There\u0027s a bug in the test cleanup function: it\u0027s running \u0027go clean -modcache\u0027 without the test GOPATH set in the environment. So it clears your module cache instead of the test\u0027s temporary module cache.\n\nThank you very much, this helps a lot. TIL about the packages.Load C compiler thing. The module cache clearing - doh \u003e_\u003c.",
+      "parentUuid": "675832f4_3bccdf67",
+      "revId": "361dc018b9ac64bbd0fba44a3074004f5150a9f8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
