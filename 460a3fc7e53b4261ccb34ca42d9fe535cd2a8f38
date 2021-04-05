@@ -1,0 +1,226 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea5c2ac4_edfcf14d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 18
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-04-05T18:26:42Z",
+      "side": 1,
+      "message": "Nit: for CL title lines, specify the package within the repo without the \"x/exp\" prefix.\n\nThis is different than issue titles, which are supposed to have the \"x/exp/\" prefix. I guess that\u0027s because each CL is attached to a particular repo, but issues are all on the same tracker.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 6
+      },
+      "revId": "460a3fc7e53b4261ccb34ca42d9fe535cd2a8f38",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56968e18_eb8d57b9",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 18
+      },
+      "lineNbr": 602,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-04-05T18:26:42Z",
+      "side": 1,
+      "message": "I think this should be \u0027release.modPath, release.modRoot\u0027. The release module path might be different, e.g., when we\u0027re preparing to release a new major version.",
+      "range": {
+        "startLine": 602,
+        "startChar": 29,
+        "endLine": 602,
+        "endChar": 55
+      },
+      "revId": "460a3fc7e53b4261ccb34ca42d9fe535cd2a8f38",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9311f53c_a964f80d",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 18
+      },
+      "lineNbr": 602,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-04-05T18:26:42Z",
+      "side": 1,
+      "message": "Let\u0027s store the version list in a new field r.release instead of passing it as an argument to {suggest,validate}ReleaseVersion. The version list is really a property of a module, so I think it makes sense there.",
+      "range": {
+        "startLine": 602,
+        "startChar": 1,
+        "endLine": 602,
+        "endChar": 3
+      },
+      "revId": "460a3fc7e53b4261ccb34ca42d9fe535cd2a8f38",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "655aa44c_6c0a5fbb",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 18
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-04-05T18:26:42Z",
+      "side": 1,
+      "message": "Let\u0027s have this function return ([]string, error). If \u0027go list\u0027 fails, use cleanCmdError for the error message. Return the json error instead of panicking. Wrap the error with something like this:\n\n  defer func() {\n    if err !\u003d nil {\n      err \u003d fmt.Errorf(\"listing versions of %s: %w\", modPath, err)\n    }\n  }()\n\nAll things being equal, I think it\u0027s better for functions to return errors and let their callers decide what to do with them. It probably does make sense for gorelease not to report an error if it can\u0027t list versions, but this function shouldn\u0027t make assumptions about why it\u0027s being called.",
+      "revId": "460a3fc7e53b4261ccb34ca42d9fe535cd2a8f38",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9866d067_6b5d3f72",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 18
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-04-05T18:26:42Z",
+      "side": 1,
+      "message": "Better set GO111MODULE\u003don here too, since Go versions before 1.16 are still pretty widely used.\n\nSince this is needed in a few places, might be better to wrap exec.CommandContext and cmd.Output in a function that handles this. It can use cleanCmdError, too.",
+      "revId": "460a3fc7e53b4261ccb34ca42d9fe535cd2a8f38",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94381121_87149545",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 18
+      },
+      "lineNbr": 1186,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-04-05T18:26:42Z",
+      "side": 1,
+      "message": "Also set cfg.Context.",
+      "revId": "460a3fc7e53b4261ccb34ca42d9fe535cd2a8f38",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d9f8e62_7c1cc695",
+        "filename": "cmd/gorelease/gorelease_test.go",
+        "patchSetId": 18
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-04-05T18:26:42Z",
+      "side": 1,
+      "message": "Let\u0027s move the proxy setup / teardown into TestRelease. That will enable some simplifications. We should actually be able to delete TestMain.\n\n* Since we\u0027re passing the environment through Context, there\u0027s no more need for global state (os.Setenv) outside of TestRelease.\n* Flags will get parsed automatically.\n* If we hit an error setting up the proxy or the work directory, we can call T.Fatal, which is much cleaner than os.Exit.\n* We can defer cleanup functions or pass them to T.Cleanup.\n* Directories created with T.TempDir get removed automatically (but we might still need to run \u0027go clean -modcache\u0027 because some directories will be readonly.",
+      "revId": "460a3fc7e53b4261ccb34ca42d9fe535cd2a8f38",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "404e9d14_64b95ba6",
+        "filename": "cmd/gorelease/gorelease_test.go",
+        "patchSetId": 18
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-04-05T18:26:42Z",
+      "side": 1,
+      "message": "Append to os.Environ() rather than creating a new slice.\n\nThere are some environment variables like PATH, CC, and CFLAGS that we\u0027ll need to preserve. Better to just override the ones we care about than starting from scratch. (And there\u0027s no need to remove earlier settings in the list; the last one in the list wins)",
+      "revId": "460a3fc7e53b4261ccb34ca42d9fe535cd2a8f38",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fa2acee_f9211ed3",
+        "filename": "cmd/gorelease/gorelease_test.go",
+        "patchSetId": 18
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-04-05T18:26:42Z",
+      "side": 1,
+      "message": "There should be no need to set GOCACHE. It\u0027s only used for the build cache, not the module cache. gorelease shouldn\u0027t build anything, so that should have no effect.",
+      "revId": "460a3fc7e53b4261ccb34ca42d9fe535cd2a8f38",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3dfab66d_ac176826",
+        "filename": "cmd/gorelease/gorelease_test.go",
+        "patchSetId": 18
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-04-05T18:26:42Z",
+      "side": 1,
+      "message": "I think this is the cause of the \"downloading\" messages you were seeing. This is run without the context, so it removes your actual module cache instead of cacheDir.",
+      "revId": "460a3fc7e53b4261ccb34ca42d9fe535cd2a8f38",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d9610c0_4aa46fc1",
+        "filename": "cmd/gorelease/gorelease_test.go",
+        "patchSetId": 18
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-04-05T18:26:42Z",
+      "side": 1,
+      "message": "This is likely happening because the go command creates read-only directories in the module cache to prevent accidental modification. Two options to get around that: 1) run \u0027go clean -modcache\u0027, or 2) set \u0027GOFLAGS\u003d-modcacherw\u0027. That tells the go command to create read-write directories.",
+      "revId": "460a3fc7e53b4261ccb34ca42d9fe535cd2a8f38",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e312f5b1_8757b636",
+        "filename": "cmd/gorelease/gorelease_test.go",
+        "patchSetId": 18
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-04-05T18:26:42Z",
+      "side": 1,
+      "message": "I don\u0027t think there\u0027s a simpler way to parse a list of versions.\n\nThat said, golang.org/x/mod/module.Version is the type for representing path@version pairs. Using map[module.Version]bool instead of map[string]map[string]bool would be clearer IMO. Nested maps break my brain.",
+      "revId": "460a3fc7e53b4261ccb34ca42d9fe535cd2a8f38",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
