@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c51ea5d7_6636631e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9711
+      },
+      "writtenOn": "2021-04-08T03:54:20Z",
+      "side": 1,
+      "message": "Most of the new events package to start playing with.\nThe think I am least happy with is the Log/Log1/Log2 pattern, but I cannot find any way to have an easy to use pattern that keeps to 0 allocations.",
+      "revId": "ba1d714fbfb2c7b171d1ba16986bce1d5f86aa74",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
