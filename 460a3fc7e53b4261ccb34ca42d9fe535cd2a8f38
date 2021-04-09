@@ -231,6 +231,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7d64f705_1d59a678",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 18
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-04-09T23:39:54Z",
+      "side": 1,
+      "message": "Ah, are we talking about the non-test case?\n\nShould we just set append(os.Environ(), \"GO111MODULE\u003don\") on the ctx?\n\n(happy to go either way, just trying to get a feel for the reasoning for one solution to the other!)",
+      "parentUuid": "84937e1a_fca33962",
+      "revId": "460a3fc7e53b4261ccb34ca42d9fe535cd2a8f38",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "94381121_87149545",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 18
