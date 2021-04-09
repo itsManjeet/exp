@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c5e288af_273854ff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 18
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-04-09T21:05:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea5c2ac4_edfcf14d",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 6
+      },
+      "revId": "460a3fc7e53b4261ccb34ca42d9fe535cd2a8f38",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "3fd37d51_68fc5f87",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 18
@@ -87,6 +111,54 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5197bad6_94e4e6a2",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 18
+      },
+      "lineNbr": 602,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-04-09T21:05:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56968e18_eb8d57b9",
+      "range": {
+        "startLine": 602,
+        "startChar": 29,
+        "endLine": 602,
+        "endChar": 55
+      },
+      "revId": "460a3fc7e53b4261ccb34ca42d9fe535cd2a8f38",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ba19a22_81cef0b0",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 18
+      },
+      "lineNbr": 602,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-04-09T21:05:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9311f53c_a964f80d",
+      "range": {
+        "startLine": 602,
+        "startChar": 1,
+        "endLine": 602,
+        "endChar": 3
+      },
+      "revId": "460a3fc7e53b4261ccb34ca42d9fe535cd2a8f38",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "655aa44c_6c0a5fbb",
@@ -100,6 +172,24 @@
       "writtenOn": "2021-04-05T18:26:42Z",
       "side": 1,
       "message": "Let\u0027s have this function return ([]string, error). If \u0027go list\u0027 fails, use cleanCmdError for the error message. Return the json error instead of panicking. Wrap the error with something like this:\n\n  defer func() {\n    if err !\u003d nil {\n      err \u003d fmt.Errorf(\"listing versions of %s: %w\", modPath, err)\n    }\n  }()\n\nAll things being equal, I think it\u0027s better for functions to return errors and let their callers decide what to do with them. It probably does make sense for gorelease not to report an error if it can\u0027t list versions, but this function shouldn\u0027t make assumptions about why it\u0027s being called.",
+      "revId": "460a3fc7e53b4261ccb34ca42d9fe535cd2a8f38",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9659dbd0_85e55c02",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 18
+      },
+      "lineNbr": 615,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-04-09T21:05:36Z",
+      "side": 1,
+      "message": "Done\n\nWow. I clearly left this stuff in a WIP state. So sorry you had to see that. 😨\n\nNote: I had to make a couple other changes to enable this, since it exposed a few errors. Namely:\n\n- testdata/mod/example.com_cycle_v1.0.0.txt has an extraneous import removed, since \"go list\" would report the error \"listing versions of example.com/cycle: go: updates to go.mod needed\"\n\n- I added the defer you mentioned to a few other places we\u0027re doing \"go list -m\", because it\u0027s quite hard to debug without knowing _which_ go list is mucking up\n\n- Ignore cyclic requires in \"missing go.mod entries\" check, since we should never have to ask users to require their own module, even when there\u0027s a cycle. (please double check me on this one! i\u0027m not 100% certain how that slipped previous review - maybe i should add a test case...)\n\n- Pipe a goSumMissing variable from prepareLoadDir, which if true informs us not to try running \"go list\" later, since it\u0027s guaranteed to blow up",
+      "parentUuid": "655aa44c_6c0a5fbb",
       "revId": "460a3fc7e53b4261ccb34ca42d9fe535cd2a8f38",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -123,6 +213,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "84937e1a_fca33962",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 18
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-04-09T21:05:36Z",
+      "side": 1,
+      "message": "I don\u0027t follow: shouldn\u0027t the GO111MODULE\u003don from gorelease_test.go propagate to here? (why is this cmd special?)",
+      "parentUuid": "9866d067_6b5d3f72",
+      "revId": "460a3fc7e53b4261ccb34ca42d9fe535cd2a8f38",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "94381121_87149545",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 18
@@ -134,6 +242,24 @@
       "writtenOn": "2021-04-05T18:26:42Z",
       "side": 1,
       "message": "Also set cfg.Context.",
+      "revId": "460a3fc7e53b4261ccb34ca42d9fe535cd2a8f38",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "163b0a7e_6ba81fb8",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 18
+      },
+      "lineNbr": 1186,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-04-09T21:05:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94381121_87149545",
       "revId": "460a3fc7e53b4261ccb34ca42d9fe535cd2a8f38",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -155,6 +281,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb5c50f7_4f6539c0",
+        "filename": "cmd/gorelease/gorelease_test.go",
+        "patchSetId": 18
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-04-09T21:05:36Z",
+      "side": 1,
+      "message": "Done\n\nTIL t.Cleanup. I had actually tried merging main in before, but cleanup functions were killing files too quickly. t.Cleanup fixes that - thank you!",
+      "parentUuid": "7d9f8e62_7c1cc695",
+      "revId": "460a3fc7e53b4261ccb34ca42d9fe535cd2a8f38",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "404e9d14_64b95ba6",
@@ -168,6 +312,24 @@
       "writtenOn": "2021-04-05T18:26:42Z",
       "side": 1,
       "message": "Append to os.Environ() rather than creating a new slice.\n\nThere are some environment variables like PATH, CC, and CFLAGS that we\u0027ll need to preserve. Better to just override the ones we care about than starting from scratch. (And there\u0027s no need to remove earlier settings in the list; the last one in the list wins)",
+      "revId": "460a3fc7e53b4261ccb34ca42d9fe535cd2a8f38",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d710cc47_8390b0ef",
+        "filename": "cmd/gorelease/gorelease_test.go",
+        "patchSetId": 18
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-04-09T21:05:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "404e9d14_64b95ba6",
       "revId": "460a3fc7e53b4261ccb34ca42d9fe535cd2a8f38",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -189,6 +351,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f01ec980_70fd7096",
+        "filename": "cmd/gorelease/gorelease_test.go",
+        "patchSetId": 18
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-04-09T21:05:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7fa2acee_f9211ed3",
+      "revId": "460a3fc7e53b4261ccb34ca42d9fe535cd2a8f38",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3dfab66d_ac176826",
@@ -202,6 +382,24 @@
       "writtenOn": "2021-04-05T18:26:42Z",
       "side": 1,
       "message": "I think this is the cause of the \"downloading\" messages you were seeing. This is run without the context, so it removes your actual module cache instead of cacheDir.",
+      "revId": "460a3fc7e53b4261ccb34ca42d9fe535cd2a8f38",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c606b70_29d87fe5",
+        "filename": "cmd/gorelease/gorelease_test.go",
+        "patchSetId": 18
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-04-09T21:05:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3dfab66d_ac176826",
       "revId": "460a3fc7e53b4261ccb34ca42d9fe535cd2a8f38",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -223,6 +421,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "19b1c27d_aa2cd018",
+        "filename": "cmd/gorelease/gorelease_test.go",
+        "patchSetId": 18
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-04-09T21:05:36Z",
+      "side": 1,
+      "message": "Done\n\nStrangely, I got no permission errors this time around. Weird.",
+      "parentUuid": "1d9610c0_4aa46fc1",
+      "revId": "460a3fc7e53b4261ccb34ca42d9fe535cd2a8f38",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e312f5b1_8757b636",
@@ -236,6 +452,24 @@
       "writtenOn": "2021-04-05T18:26:42Z",
       "side": 1,
       "message": "I don\u0027t think there\u0027s a simpler way to parse a list of versions.\n\nThat said, golang.org/x/mod/module.Version is the type for representing path@version pairs. Using map[module.Version]bool instead of map[string]map[string]bool would be clearer IMO. Nested maps break my brain.",
+      "revId": "460a3fc7e53b4261ccb34ca42d9fe535cd2a8f38",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d424b977_45f5aa9d",
+        "filename": "cmd/gorelease/gorelease_test.go",
+        "patchSetId": 18
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-04-09T21:05:36Z",
+      "side": 1,
+      "message": "Done\n\nThank you, I was hoping you\u0027d have this kind of insight into types. Still learning the module / semver ecosystem of packages. 😊",
+      "parentUuid": "e312f5b1_8757b636",
       "revId": "460a3fc7e53b4261ccb34ca42d9fe535cd2a8f38",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
