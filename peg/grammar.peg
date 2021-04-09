@@ -1,0 +1,22 @@
+# Copyright 2020 The Go Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style
+# license that can be found in the LICENSE file.
+
+PEG        <- Line* _ :$
+Line       <- !$ _ Rule? _ Comment? :('\n' / $)
+Comment    <- "#" '(.*)'
+Rule       <- Identifier _ :"<-" _ Expression
+Lookup     <- Identifier !(_ "<-")
+Expression <- Choice
+Choice     <- Sequence (_ "/" _ :Sequence)*
+Sequence   <- Compound (_ Compound)*
+Compound   <- (Prefix :Atom / Atom) Postfix
+Prefix     <- '([&!:]+)'
+Atom       <- Literal / Pattern / EOF / Lookup / Group
+Postfix    <- '([+*?]*)'?
+Literal    <- '"((?:\\.|[^"\\])*)"'
+Pattern    <- '\'((?:\\.|[^\'\\])*)\''
+EOF        <- "$"
+Group      <- "(" _ Expression? _ :")"
+Identifier <- '(\w+)'
+_          <- '[ \t]*'?
