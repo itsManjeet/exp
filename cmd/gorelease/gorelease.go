@@ -80,6 +80,7 @@
 package main
 
 import (
+	"bufio"
 	"bytes"
 	"context"
 	"encoding/json"
@@ -1137,7 +1138,24 @@ func prepareLoadDir(ctx context.Context, modFile *modfile.File, modPath, modRoot
 			// "empty go.sum".
 		}
 
-		if bytes.Compare(goSumData, newGoSumData) != 0 {
+		var oldSum, newSum string
+		scanner := bufio.NewScanner(bytes.NewReader(goSumData))
+		for scanner.Scan() {
+			line := scanner.Text()
+			if strings.Contains(line, modPath) {
+				continue
+			}
+			oldSum += line
+		}
+		scanner = bufio.NewScanner(bytes.NewReader(newGoSumData))
+		for scanner.Scan() {
+			line := scanner.Text()
+			if strings.Contains(line, modPath) {
+				continue
+			}
+			newSum += line
+		}
+		if newSum != oldSum {
 			diagnostics = append(diagnostics, "go.sum: one or more sums are missing. Run 'go mod tidy' to add missing sums.")
 		}
 	}
