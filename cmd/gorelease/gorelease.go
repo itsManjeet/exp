@@ -80,6 +80,7 @@
 package main
 
 import (
+	"bytes"
 	"context"
 	"encoding/json"
 	"errors"
@@ -95,6 +96,7 @@ import (
 	"path/filepath"
 	"sort"
 	"strings"
+	"unicode"
 
 	"golang.org/x/exp/apidiff"
 	"golang.org/x/mod/modfile"
@@ -408,6 +410,16 @@ func loadLocalModule(ctx context.Context, modRoot, repoRoot, version string) (m 
 		// in verifying the version or suggestion a new version, depending on
 		// whether the user provided a version already.
 		m.highestTransitiveVersion = highestVersion
+	}
+
+	retracted, err := loadRetractions(ctx, tmpLoadDir)
+	if err != nil {
+		return moduleInfo{}, err
+	}
+	if retraction := retracted; len(retraction) > 0 {
+		for _, retraction := range retraction {
+			m.diagnostics = append(m.diagnostics, fmt.Sprintf("Retraction error: %s relies on %s.\n", m.modPath, retraction))
+		}
 	}
 
 	return m, nil
@@ -1362,4 +1374,65 @@ func findSelectedVersion(ctx context.Context, modDir, modPath string) (latestVer
 		return "", cleanCmdError(err)
 	}
 	return strings.TrimSpace(string(out)), nil
+}
+
+// loadRetractions lists all retracted deps found at the modRoot.
+func loadRetractions(ctx context.Context, modRoot string) ([]string, error) {
+	cmd := exec.CommandContext(ctx, "go", "list", "-json", "-m", "-u", "all")
+	if env, ok := ctx.Value("env").([]string); ok {
+		cmd.Env = env
+	}
+	cmd.Dir = modRoot
+	out, err := cmd.Output()
+	if err != nil {
+		return nil, cleanCmdError(err)
+	}
+
+	var retracted []string
+	type message struct {
+		Path      string
+		Version   string
+		Retracted []string
+	}
+
+	dec := json.NewDecoder(bytes.NewBuffer(out))
+	for {
+		var m message
+		if err := dec.Decode(&m); err == io.EOF {
+			break
+		} else if err != nil {
+			return nil, err
+		}
+		if len(m.Retracted) > 0 {
+			retracted = append(retracted, fmt.Sprintf("%s@%s (%s)", m.Path, m.Version, ShortRetractionRationale(m.Retracted)))
+		}
+	}
+
+	return retracted, nil
+}
+
+// ShortRetractionRationale returns a retraction rationale string that is safe
+// to print in a terminal. It returns hard-coded strings if the rationale
+// is empty, too long, or contains non-printable characters.
+func ShortRetractionRationale(rationales []string) string {
+	rationale := strings.Join(rationales, " ")
+
+	const maxRationaleBytes = 500
+	if i := strings.Index(rationale, "\n"); i >= 0 {
+		rationale = rationale[:i]
+	}
+	rationale = strings.TrimSpace(rationale)
+	if rationale == "" || rationale == "retracted by module author" {
+		return "retracted by module author"
+	}
+	if len(rationale) > maxRationaleBytes {
+		return "retracted by module author. rationale omitted: too long"
+	}
+	for _, r := range rationale {
+		if !unicode.IsGraphic(r) && !unicode.IsSpace(r) {
+			return "retracted by module author. rationale omitted: contains non-printable characters)"
+		}
+	}
+	// NOTE: the go.mod parser rejects invalid UTF-8, so we don't check that here.
+	return fmt.Sprintf("retracted by module author: %s", rationale)
 }
