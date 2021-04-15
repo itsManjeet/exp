@@ -1,0 +1,12 @@
+-- go.sum --
+example.com/cycledep/v2 v2.0.0 h1:B8tgq8pxH4IbvvozFpGx7k+HUeLoAPcmCixOXPZiuTE=example.com/cycledep/v2 v2.0.0/go.mod h1:wBHRfgrlyovU4csu71ja8ySemxEOKOr8PpAiMU82nLw=
+-- go.mod --
+module example.com/cycle/v2
+
+go 1.12
+
+require example.com/cycledep/v2 v2.0.0
+-- a.go --
+package a
+
+import _ "example.com/cycledep/v2"
