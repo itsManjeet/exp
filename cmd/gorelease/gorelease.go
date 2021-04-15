@@ -80,7 +80,6 @@
 package main
 
 import (
-	"bytes"
 	"context"
 	"encoding/json"
 	"errors"
@@ -1068,6 +1067,9 @@ func prepareLoadDir(ctx context.Context, modFile *modfile.File, modPath, modRoot
 		cmd.Env = env
 	}
 	cmd.Dir = dir
+	// fmt.Println(cmd.Env)
+	// fmt.Println(dir)
+	// time.Sleep(time.Hour)
 	if _, err := cmd.Output(); err != nil {
 		return "", nil, nil, nil, nil, fmt.Errorf("looking for missing dependencies: %w", cleanCmdError(err))
 	}
@@ -1137,12 +1139,54 @@ func prepareLoadDir(ctx context.Context, modFile *modfile.File, modPath, modRoot
 			// "empty go.sum".
 		}
 
-		if bytes.Compare(goSumData, newGoSumData) != 0 {
+		if !sumsMatchIgnoringPath(string(goSumData), string(newGoSumData), modPath) {
 			diagnostics = append(diagnostics, "go.sum: one or more sums are missing. Run 'go mod tidy' to add missing sums.")
 		}
 	}
 
 	return dir, goModData, goSumData, imps, diagnostics, nil
+}
+
+// sumsMatchIgnoringPath checks whether the two sums match. It ignores any lines
+// which contains the given modPath.
+func sumsMatchIgnoringPath(sum1, sum2, modPathToIgnore string) bool {
+	lines1 := make(map[string]bool)
+	for _, line := range strings.Split(string(sum1), "\n") {
+		lines1[line] = true
+	}
+	for _, line := range strings.Split(string(sum2), "\n") {
+		parts := strings.Split(line, " ")
+		if len(parts) < 1 {
+			panic(fmt.Sprintf("go.sum malformed: unexpected line %s", line))
+		}
+		if parts[0] == modPathToIgnore {
+			continue
+		}
+
+		if !lines1[line] {
+			return false
+		}
+	}
+
+	lines2 := make(map[string]bool)
+	for _, line := range strings.Split(string(sum2), "\n") {
+		lines2[line] = true
+	}
+	for _, line := range strings.Split(string(sum1), "\n") {
+		parts := strings.Split(line, " ")
+		if len(parts) < 1 {
+			panic(fmt.Sprintf("go.sum malformed: unexpected line %s", line))
+		}
+		if parts[0] == modPathToIgnore {
+			continue
+		}
+
+		if !lines2[line] {
+			return false
+		}
+	}
+
+	return true
 }
 
 // collectImportPaths visits the given root and traverses its directories
