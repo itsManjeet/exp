@@ -80,6 +80,8 @@
 package main
 
 import (
+	"bufio"
+	"bytes"
 	"context"
 	"encoding/json"
 	"errors"
@@ -408,6 +410,16 @@ func loadLocalModule(ctx context.Context, modRoot, repoRoot, version string) (m 
 		// in verifying the version or suggestion a new version, depending on
 		// whether the user provided a version already.
 		m.highestTransitiveVersion = highestVersion
+	}
+
+	retracted, err := loadRetractions(ctx, tmpLoadDir)
+	if err != nil {
+		return moduleInfo{}, err
+	}
+	if deps := retracted; len(deps) > 0 {
+		for _, dep := range deps {
+			m.diagnostics = append(m.diagnostics, fmt.Sprintf("Retraction error: %s relies on %s, which is retracted.\n", m.modPath, dep))
+		}
 	}
 
 	return m, nil
@@ -1362,4 +1374,27 @@ func findSelectedVersion(ctx context.Context, modDir, modPath string) (latestVer
 		return "", cleanCmdError(err)
 	}
 	return strings.TrimSpace(string(out)), nil
+}
+
+// loadRetractions lists all retracted deps found at the modRoot.
+func loadRetractions(ctx context.Context, modRoot string) ([]string, error) {
+	cmd := exec.CommandContext(ctx, "go", "list", "-f", "{{if .Retracted}}{{.Path}}@{{.Version}}{{end}}", "-m", "-u", "all")
+	if env, ok := ctx.Value("env").([]string); ok {
+		cmd.Env = env
+	}
+	cmd.Dir = modRoot
+	out, err := cmd.Output()
+	if err != nil {
+		return nil, cleanCmdError(err)
+	}
+
+	var retracted []string
+
+	s := bufio.NewScanner(bytes.NewReader(out))
+	s.Split(bufio.ScanLines)
+	for s.Scan() {
+		retracted = append(retracted, s.Text())
+	}
+
+	return retracted, nil
 }
