@@ -1,0 +1,12 @@
+-- go.mod --
+module example.com/retractdep
+
+go 1.12
+
+retract {
+    v1.0.0
+}
+-- a.go --
+package a
+
+const A = "a"
