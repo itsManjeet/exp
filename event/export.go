@@ -42,19 +42,13 @@ func WithExporter(ctx context.Context, e Exporter) context.Context {
 // FromContext returns the exporter and parent event set on the supplied
 // context.
 func FromContext(ctx context.Context) (Exporter, uint64) {
-	v := get(ctx)
-	return v.exporter, v.parent
+	b := To(ctx)
+	e, p := b.Exporter, b.Event.Parent
+	eventPool.Put(b.Event)
+	return e, p
 }
 
-// get is used by all code paths that get the exporter or span from the context.
-// it contains the shortcut behavior.
-func get(ctx context.Context) contextValue {
-	if atomic.LoadInt32(&activeExporters) == 0 {
-		return contextValue{}
-	}
-	v := ctx.Value(contextKey{})
-	if v == nil {
-		return contextValue{}
-	}
-	return v.(contextValue)
+// Disable turns off the exporters, until the next WithExporter call.
+func Disable() {
+	atomic.StoreInt32(&activeExporters, 0)
 }

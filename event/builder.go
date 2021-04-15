@@ -23,9 +23,16 @@ var eventPool = sync.Pool{New: func() interface{} { return &Event{} }}
 
 // To initializes a builder from the values stored in a context.
 func To(ctx context.Context) Builder {
-	v := get(ctx)
-	b := Builder{Context: ctx, Exporter: v.exporter}
-	if v.exporter != nil {
+	b := Builder{Context: ctx}
+	if atomic.LoadInt32(&activeExporters) == 0 {
+		return b
+	}
+	v, ok := ctx.Value(contextKey{}).(contextValue)
+	if !ok {
+		return b
+	}
+	b.Exporter = v.exporter
+	if b.Exporter != nil {
 		b.Event = eventPool.Get().(*Event)
 		*b.Event = Event{
 			Parent: v.parent,
