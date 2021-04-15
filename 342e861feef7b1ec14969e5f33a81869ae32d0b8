@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6def3e77_b76be36e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-04-15T04:02:43Z",
+      "side": 1,
+      "message": "Not 100% sure this is the best solution, but I can\u0027t think of a case where `go mod tidy` would add some-module@vX as a require statement to itself. If there are no such cases, I don\u0027t see a downside to this.\n\nLet me know if there\u0027s a more elegant way though!",
+      "revId": "342e861feef7b1ec14969e5f33a81869ae32d0b8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
