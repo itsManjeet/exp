@@ -1,0 +1,9 @@
+# TODO(deklerk): better description
+# when a retracted version is transitively depended upon
+mod=example.com/retracttransitive
+version=v0.0.1
+success=false
+-- want --
+Inferred base version: v0.0.1
+Retraction errors:
+  - example.com/retracttransitive relies on example.com/retractdep@v1.0.0, which is retracted.
