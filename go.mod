@@ -7,6 +7,8 @@ require (
 	github.com/BurntSushi/xgb v0.0.0-20160522181843-27f122750802
 	github.com/go-gl/glfw/v3.3/glfw v0.0.0-20200222043503-6f7a984d4dc4
 	github.com/google/go-cmp v0.5.5
+	github.com/go-kit/kit v0.10.0 // indirect
+	github.com/go-logr/logr v0.4.0 // indirect
 	github.com/rs/zerolog v1.21.0
 	github.com/sirupsen/logrus v1.8.1
 	go.uber.org/multierr v1.6.0 // indirect
