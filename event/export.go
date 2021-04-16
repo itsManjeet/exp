@@ -43,7 +43,11 @@ func WithExporter(ctx context.Context, e Exporter) context.Context {
 // context.
 func FromContext(ctx context.Context) (Exporter, uint64) {
 	b := To(ctx)
-	e, p := b.Exporter, b.Event.Parent
+	e := b.Exporter
+	var p uint64
+	if b.Event != nil {
+		p = b.Event.Parent
+	}
 	eventPool.Put(b.Event)
 	return e, p
 }
