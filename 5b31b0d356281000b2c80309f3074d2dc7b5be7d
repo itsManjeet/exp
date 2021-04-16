@@ -50,6 +50,58 @@
       "message": "It\u0027s late-ish on a friday, so I\u0027ll halt debugging for now. But, here are my results:\n\nFailing tests:\n\nTestRelease/first/v0_1_0-alpha.1\nTestRelease/first/v0_0_1\nTestRelease/first/v1_0_0\nTestRelease/first/v2_moderr\nTestRelease/first/v0_1_0\nTestRelease/first/v0_0_0\nTestRelease/patherrors/pathsubv2\nTestRelease/patherrors/pathsub\nTestRelease/patherrors/gopkginsub\nTestRelease/patherrors/dup_roots_ok\nTestRelease/patherrors/dup_roots_dir\nTestRelease/patherrors/dup_roots_branch\nTestRelease/basic/v1_v2_base_modpath_query_verify\nTestRelease/basic/v1_fork_base_modpath_version_verify\nTestRelease/basic/v1_v2_base_modpath_version_verify\nTestRelease/basic/v1_v2_base_modpath_verify\nTestRelease/cgo/cgo\n\nAll are failing due to the new `go list` failing to find the `list` file. Ex:\n\n```\n        gorelease_test.go:329: unexpected error: listing versions of example.com/basic/v2: go list -m: module example.com/basic/v2: reading file:///C:%5CUsers%5Cgopher%5CAppData%5CLocal%5CTemp%5C1%5Cgorelease-proxy1274586095/example.com/basic/v2/@v/list: open C:\\Users\\gopher\\AppData\\Local\\Temp\\1\\gorelease-proxy1274586095\\example.com\\basic\\v2\\@v\\list: The system cannot find the path specified.\n```\n\nIs it possible we\u0027re not supplying enough information to the new list command? But, that can\u0027t be right, because we do another almost identical `go list` in findSelectedVersion, which happens right before the new existingVersions. (although it\u0027s operating on tmpLoadDir, and existingVersions is operating on m.modPath)\n\nAh well, a mystery for another friday. :) ",
       "revId": "5b31b0d356281000b2c80309f3074d2dc7b5be7d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51d73af6_4285a5b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 24
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-04-16T21:07:29Z",
+      "side": 1,
+      "message": "I think this means we need to create that @v/list file for each module. It should just contain a list of versions, one per line. https://golang.org/ref/mod#goproxy-protocol has the full protocol. For an example, https://proxy.golang.org/golang.org/x/mod/@v/list.",
+      "parentUuid": "59093832_88257e59",
+      "revId": "5b31b0d356281000b2c80309f3074d2dc7b5be7d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a14c348b_9c3ffb85",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 24
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-04-16T21:07:29Z",
+      "side": 1,
+      "message": "This is looking really good. It will take a bit more work to make the tests happy. I\u0027ll +2 this though, since I\u0027m going to be out for the next two weeks, and I don\u0027t want to block you more than I already have.",
+      "revId": "5b31b0d356281000b2c80309f3074d2dc7b5be7d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2258086_0990f840",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 24
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-04-16T21:07:29Z",
+      "side": 1,
+      "message": "Oh, this is an annoying bug in \u0027go list\u0027. Instead of skipping the check, let\u0027s work around it by running the command in tmpLoadDir instead of m.modRoot. Ideally, it shouldn\u0027t matter where we run that from.\n\nThe bug is #41297 by the way. CL 309191 should fix it in Go 1.17.",
+      "revId": "5b31b0d356281000b2c80309f3074d2dc7b5be7d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }

@@ -249,6 +249,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c1c9e95e_4ca79033",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 18
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-04-16T21:07:29Z",
+      "side": 1,
+      "message": "Yes, for the non-test case.\n\nAnd appended to the context in the environment is perfect.",
+      "parentUuid": "7d64f705_1d59a678",
+      "revId": "460a3fc7e53b4261ccb34ca42d9fe535cd2a8f38",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "94381121_87149545",
         "filename": "cmd/gorelease/gorelease.go",
         "patchSetId": 18
@@ -313,6 +331,24 @@
       "side": 1,
       "message": "Done\n\nTIL t.Cleanup. I had actually tried merging main in before, but cleanup functions were killing files too quickly. t.Cleanup fixes that - thank you!",
       "parentUuid": "7d9f8e62_7c1cc695",
+      "revId": "460a3fc7e53b4261ccb34ca42d9fe535cd2a8f38",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ba7d971_e2b5eeb4",
+        "filename": "cmd/gorelease/gorelease_test.go",
+        "patchSetId": 18
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-04-16T21:07:29Z",
+      "side": 1,
+      "message": "It\u0027s new in 1.16 I think. There\u0027s been a lot of good new stuff in the testing package.",
+      "parentUuid": "fb5c50f7_4f6539c0",
       "revId": "460a3fc7e53b4261ccb34ca42d9fe535cd2a8f38",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
