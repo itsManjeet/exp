@@ -16,6 +16,40 @@
       "message": "Not 100% sure this is the best solution, but I can\u0027t think of a case where `go mod tidy` would add some-module@vX as a require statement to itself. If there are no such cases, I don\u0027t see a downside to this.\n\nLet me know if there\u0027s a more elegant way though!",
       "revId": "342e861feef7b1ec14969e5f33a81869ae32d0b8",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72fd688b_fe160c8c",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 950,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-04-16T21:25:44Z",
+      "side": 1,
+      "message": "I wonder if there\u0027s another way to fix this.\n\nWithin the go command, the main module has version \"\" (the empty string). Only the main module is allowed to have that version. It\u0027s considered higher than all other versions, which prevents a lower version from being selected.\n\nWe\u0027re simulating the main module here, so perhaps rather than using a low version like vN.0.0-gorelease, we should pick a high version like vN.9999999999.9999999999-gorelease, where vN is either v1 or pathMajor below. WDYT?\n\n(There\u0027s no way to write the highest possible version, since we don\u0027t represent versions as ints; any non-negative integer works. 9999999999 should be high enough for people who use dates like 20210417 as minor versions. Feel free to add more nines though.)",
+      "revId": "342e861feef7b1ec14969e5f33a81869ae32d0b8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5804142c_929273dd",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 1079,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-04-16T21:25:44Z",
+      "side": 1,
+      "message": "This will be O(n^2), both for appending to the string and searching an ever-lengthening string.\n\nMaybe there\u0027s a simpler way though? I\u0027d suggest using strings.Split(string(goSumData), \"\\n\") to get the lines, putting them in a map[string]bool, then iterating over lines in newGoSumData, again using strings.Split.",
+      "revId": "342e861feef7b1ec14969e5f33a81869ae32d0b8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
