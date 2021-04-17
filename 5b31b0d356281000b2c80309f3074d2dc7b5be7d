@@ -87,6 +87,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "876688cb_cbb77c58",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 24
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-04-17T00:51:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51d73af6_4285a5b7",
+      "revId": "5b31b0d356281000b2c80309f3074d2dc7b5be7d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e2258086_0990f840",
@@ -100,6 +118,24 @@
       "writtenOn": "2021-04-16T21:07:29Z",
       "side": 1,
       "message": "Oh, this is an annoying bug in \u0027go list\u0027. Instead of skipping the check, let\u0027s work around it by running the command in tmpLoadDir instead of m.modRoot. Ideally, it shouldn\u0027t matter where we run that from.\n\nThe bug is #41297 by the way. CL 309191 should fix it in Go 1.17.",
+      "revId": "5b31b0d356281000b2c80309f3074d2dc7b5be7d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6b6cde3_f1790829",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 24
+      },
+      "lineNbr": 413,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-04-17T00:51:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2258086_0990f840",
       "revId": "5b31b0d356281000b2c80309f3074d2dc7b5be7d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }

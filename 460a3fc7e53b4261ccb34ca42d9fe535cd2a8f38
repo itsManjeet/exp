@@ -265,6 +265,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa839f9c_d577bc3b",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 18
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-04-17T00:51:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1c9e95e_4ca79033",
+      "revId": "460a3fc7e53b4261ccb34ca42d9fe535cd2a8f38",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "94381121_87149545",
