@@ -285,6 +285,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ab380a50_0672dd58",
+        "filename": "event/export.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-04-19T12:39:37Z",
+      "side": 1,
+      "message": "OK, I guess we\u0027ll see if this turns out to be a bottleneck.",
+      "parentUuid": "54ec8f26_83a7eaf5",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 12
+      },
+      "revId": "8832e8e269c5804f42e52df3ffd9d0e0c75400c3",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cc536eb5_c4d8d1e4",
         "filename": "event/severity/severity.go",
         "patchSetId": 1
