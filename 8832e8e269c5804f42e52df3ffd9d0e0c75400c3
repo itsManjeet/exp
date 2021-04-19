@@ -24,6 +24,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ebf7a53_5ac0272f",
+        "filename": "event/builder.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 9711
+      },
+      "writtenOn": "2021-04-19T01:08:06Z",
+      "side": 1,
+      "message": "b is already on the heap so it is fine.",
+      "parentUuid": "7ede787a_62609ffd",
+      "range": {
+        "startLine": 88,
+        "startChar": 26,
+        "endLine": 88,
+        "endChar": 35
+      },
+      "revId": "8832e8e269c5804f42e52df3ffd9d0e0c75400c3",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fa361aa8_c6b1fe85",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-04-18T13:00:56Z",
       "side": 1,
       "message": "obsolete?",
+      "range": {
+        "startLine": 12,
+        "startChar": 42,
+        "endLine": 13,
+        "endChar": 11
+      },
+      "revId": "8832e8e269c5804f42e52df3ffd9d0e0c75400c3",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca5950c3_5612b145",
+        "filename": "event/eventtest/eventtest.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 9711
+      },
+      "writtenOn": "2021-04-19T01:08:06Z",
+      "side": 1,
+      "message": "Yup, although we should still discuss if there should be a global fallback exporter allowed, I don\u0027t really like the idea and would discourage it\u0027s use, but it might be a practical necessity for legacy code.",
+      "parentUuid": "fa361aa8_c6b1fe85",
       "range": {
         "startLine": 12,
         "startChar": 42,
@@ -93,6 +141,54 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7bf45fd_cad7c394",
+        "filename": "event/export.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 9711
+      },
+      "writtenOn": "2021-04-19T01:08:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0e7403e_d79f3124",
+      "range": {
+        "startLine": 38,
+        "startChar": 43,
+        "endLine": 38,
+        "endChar": 45
+      },
+      "revId": "8832e8e269c5804f42e52df3ffd9d0e0c75400c3",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25b5831e_2607283b",
+        "filename": "event/export.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 9711
+      },
+      "writtenOn": "2021-04-19T01:08:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99c96896_5dbe7aa7",
+      "range": {
+        "startLine": 38,
+        "startChar": 32,
+        "endLine": 38,
+        "endChar": 42
+      },
+      "revId": "8832e8e269c5804f42e52df3ffd9d0e0c75400c3",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f15bab2c_3e1411f5",
@@ -118,6 +214,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "04dcacbc_be558db8",
+        "filename": "event/export.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 9711
+      },
+      "writtenOn": "2021-04-19T01:08:06Z",
+      "side": 1,
+      "message": "Only used in tests, and probably no use outside that, should probably die.\nBut first we should discuss if the main atomic off switch is even useful, the saving in the benchmarks is negligible, but it might be higher for large context stacks where you have to walk the entire chain to discover a value is not present?",
+      "parentUuid": "f15bab2c_3e1411f5",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 60,
+        "endChar": 1
+      },
+      "revId": "8832e8e269c5804f42e52df3ffd9d0e0c75400c3",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3f636905_e4bf21d6",
         "filename": "event/export.go",
         "patchSetId": 1
@@ -129,6 +249,30 @@
       "writtenOn": "2021-04-18T13:00:56Z",
       "side": 1,
       "message": "I think I liked it better before when each exporter handled its own synchronization. I don\u0027t see why a metrics exporter should wait for a log message to be written. Also, high-performance exporters are likely to write the event to a channel and return, making this mutex redundant.",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 12
+      },
+      "revId": "8832e8e269c5804f42e52df3ffd9d0e0c75400c3",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54ec8f26_83a7eaf5",
+        "filename": "event/export.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 9711
+      },
+      "writtenOn": "2021-04-19T01:08:06Z",
+      "side": 1,
+      "message": "Because every singe handler I wrote ended up with it\u0027s own identical mutex, and when you start combining them you end up doing a lot of pointless mutex work.\nI am not sure that I agree with you about handlers writing events to channels, my conclusion so far is that you basically never want to do that, you want to do all processing inline and only go asynchronous if you are hitting a potentially blocking function (like a file or socket write) because otherwise you just end up with extra overhead and complex flow control that saves you nothing relevant in the common case.",
+      "parentUuid": "3f636905_e4bf21d6",
       "range": {
         "startLine": 75,
         "startChar": 0,
@@ -175,6 +319,30 @@
       "writtenOn": "2021-04-18T13:00:56Z",
       "side": 1,
       "message": "Add link to https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/logs/data-model.md#severity-fields.",
+      "range": {
+        "startLine": 13,
+        "startChar": 70,
+        "endLine": 13,
+        "endChar": 84
+      },
+      "revId": "8832e8e269c5804f42e52df3ffd9d0e0c75400c3",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df1c0546_61905976",
+        "filename": "event/severity/severity.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 9711
+      },
+      "writtenOn": "2021-04-19T01:08:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdc82747_b7d2112e",
       "range": {
         "startLine": 13,
         "startChar": 70,
