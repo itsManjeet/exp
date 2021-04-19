@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "173bbf41_d60b8b7b",
+        "filename": "event/keys/keys.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-04-19T17:31:49Z",
+      "side": 1,
+      "message": "Do you think we really need all of these? Can\u0027t people get by with float64, int64, uint64, string and bool?",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 16
+      },
+      "revId": "d2f5820360fe557e4f3f7da1e5ee5865bac9b2d9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01c82f37_52dbf366",
+        "filename": "event/keys/keys.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-04-19T17:31:49Z",
+      "side": 1,
+      "message": "nit: Bool",
+      "range": {
+        "startLine": 190,
+        "startChar": 5,
+        "endLine": 190,
+        "endChar": 12
+      },
+      "revId": "d2f5820360fe557e4f3f7da1e5ee5865bac9b2d9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3fff26ce_10b0149d",
+        "filename": "event/label.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-04-19T17:31:49Z",
+      "side": 1,
+      "message": "OfValue\n\nalthough I actually prefer what you have, since event.OfValue reads wrong.",
+      "range": {
+        "startLine": 41,
+        "startChar": 49,
+        "endLine": 41,
+        "endChar": 61
+      },
+      "revId": "d2f5820360fe557e4f3f7da1e5ee5865bac9b2d9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
