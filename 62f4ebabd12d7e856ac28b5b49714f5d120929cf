@@ -72,6 +72,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b328b113_797d62a8",
+        "filename": "event/builder.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-04-20T09:27:28Z",
+      "side": 1,
+      "message": "I like that all uses of the pool are near its declaration, but I\u0027m fine your way too. Done.",
+      "parentUuid": "71d949c1_d5e4ee32",
+      "revId": "62f4ebabd12d7e856ac28b5b49714f5d120929cf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "23a04ebf_7891720b",
@@ -85,6 +103,24 @@
       "writtenOn": "2021-04-20T01:41:36Z",
       "side": 1,
       "message": "I don\u0027t think this assumption holds, if someone uses WithAll for instance.\nIs it worth using unsafe to avoid the copy?",
+      "revId": "62f4ebabd12d7e856ac28b5b49714f5d120929cf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c930256_092c9854",
+        "filename": "event/builder.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-04-20T09:27:28Z",
+      "side": 1,
+      "message": "I rewrote to avoid the need to check for aliasing.",
+      "parentUuid": "23a04ebf_7891720b",
       "revId": "62f4ebabd12d7e856ac28b5b49714f5d120929cf",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -106,6 +142,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c1680f2_61dfcb96",
+        "filename": "event/builder_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-04-20T09:27:28Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "be880692_2041ce61",
+      "revId": "62f4ebabd12d7e856ac28b5b49714f5d120929cf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "df05ae4c_5bb96aea",
@@ -119,6 +173,24 @@
       "writtenOn": "2021-04-20T01:41:36Z",
       "side": 1,
       "message": "Should we also check that the builders do not refer to the same label slice?",
+      "revId": "62f4ebabd12d7e856ac28b5b49714f5d120929cf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cdea6ce_77a98f0e",
+        "filename": "event/builder_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-04-20T09:27:28Z",
+      "side": 1,
+      "message": "Now that I made the Clone logic more obviously correct, I\u0027m not even sure that this test is necessary. I left it in anyway. I think establishing that b1 doesn\u0027t change contents is sufficient.",
+      "parentUuid": "df05ae4c_5bb96aea",
       "revId": "62f4ebabd12d7e856ac28b5b49714f5d120929cf",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -146,6 +218,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "52fbb7ff_2ff3853c",
+        "filename": "event/event.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-04-20T09:27:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3144c5d1_b0dc4083",
+      "range": {
+        "startLine": 14,
+        "startChar": 3,
+        "endLine": 14,
+        "endChar": 5
+      },
+      "revId": "62f4ebabd12d7e856ac28b5b49714f5d120929cf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "121db8bc_0e218ae2",
@@ -159,6 +255,30 @@
       "writtenOn": "2021-04-20T01:41:36Z",
       "side": 1,
       "message": "comment is now wrong",
+      "range": {
+        "startLine": 24,
+        "startChar": 20,
+        "endLine": 24,
+        "endChar": 31
+      },
+      "revId": "62f4ebabd12d7e856ac28b5b49714f5d120929cf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba3534a1_01133e7c",
+        "filename": "event/event.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-04-20T09:27:28Z",
+      "side": 1,
+      "message": "Removed. I think the field is now self-explanatory.",
+      "parentUuid": "121db8bc_0e218ae2",
       "range": {
         "startLine": 24,
         "startChar": 20,
