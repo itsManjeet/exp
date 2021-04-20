@@ -13,9 +13,9 @@ import (
 
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
+	"golang.org/x/exp/elogging/internal"
 	"golang.org/x/exp/event"
 	"golang.org/x/exp/event/keys"
-	"golang.org/x/exp/log-adapters/internal"
 )
 
 type core struct {

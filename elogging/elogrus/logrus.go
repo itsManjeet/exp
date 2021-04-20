@@ -13,9 +13,9 @@ package elogrus
 
 import (
 	"github.com/sirupsen/logrus"
+	"golang.org/x/exp/elogging/internal"
 	"golang.org/x/exp/event"
 	"golang.org/x/exp/event/keys"
-	"golang.org/x/exp/log-adapters/internal"
 )
 
 type formatter struct {

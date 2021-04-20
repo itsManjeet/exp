@@ -8,9 +8,9 @@ import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
+	"golang.org/x/exp/elogging/internal"
 	"golang.org/x/exp/event"
 	"golang.org/x/exp/event/keys"
-	"golang.org/x/exp/log-adapters/internal"
 )
 
 func TestInfo(t *testing.T) {

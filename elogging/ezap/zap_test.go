@@ -2,33 +2,36 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-package egokit
+package ezap
 
 import (
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
+	"go.uber.org/zap"
+	"golang.org/x/exp/elogging/internal"
 	"golang.org/x/exp/event"
 	"golang.org/x/exp/event/keys"
-	"golang.org/x/exp/log-adapters/internal"
 )
 
 func Test(t *testing.T) {
 	e, h := internal.NewTestExporter()
-	log := NewLogger(e)
-	log.Log("msg", "mess", "level", 1, "name", "n/m", "traceID", 17, "resource", "R")
+	log := zap.New(NewCore(e), zap.Fields(zap.Int("traceID", 17), zap.String("resource", "R")))
+	log = log.Named("n/m")
+	log.Info("mess", zap.Float64("pi", 3.14))
 	want := &event.Event{
 		Kind:    event.LogKind,
 		ID:      1,
-		At:      internal.TestAt,
 		Message: "mess",
 		Labels: []event.Label{
-			keys.Value("level").Of(1),
-			keys.Value("name").Of("n/m"),
-			keys.Value("traceID").Of(17),
-			keys.Value("resource").Of("R"),
+			keys.UInt64("traceID").Of(17),
+			keys.String("resource").Of("R"),
+			internal.LevelKey.Of(0),
+			internal.NameKey.Of("n/m"),
+			keys.Float64("pi").Of(3.14),
 		},
 	}
+	h.Got.At = want.At
 	if diff := cmp.Diff(want, &h.Got, internal.CmpOptions...); diff != "" {
 		t.Errorf("mismatch (-want, +got):\n%s", diff)
 	}

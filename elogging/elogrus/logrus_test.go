@@ -12,9 +12,9 @@ import (
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
 	"github.com/sirupsen/logrus"
+	"golang.org/x/exp/elogging/internal"
 	"golang.org/x/exp/event"
 	"golang.org/x/exp/event/keys"
-	"golang.org/x/exp/log-adapters/internal"
 )
 
 func Test(t *testing.T) {
