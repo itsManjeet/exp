@@ -21,8 +21,7 @@ type Event struct {
 	Parent  uint64    // id of the parent event for this event
 	At      time.Time // time at which the event is delivered to the exporter.
 	Message string
-	Static  [4]Label // inline storage for the first few labels
-	Dynamic []Label  // dynamically sized storage for remaining labels
+	Labels  []Label // dynamically sized storage for remaining labels
 }
 
 // Kind indicates the type of event.
@@ -46,12 +45,7 @@ const (
 // Find searches the labels of an event to see if one of them has the
 // supplied key.
 func (ev Event) Find(key string) Label {
-	for _, l := range ev.Static {
-		if l.Key() == key {
-			return l
-		}
-	}
-	for _, l := range ev.Dynamic {
+	for _, l := range ev.Labels {
 		if l.Key() == key {
 			return l
 		}

@@ -65,11 +65,7 @@ func Disable() {
 }
 
 // Builder returns a new builder for the exporter.
-func (e *Exporter) Builder() *Builder {
-	b := builderPool.Get().(*Builder)
-	b.exporter = e
-	return b
-}
+func (e *Exporter) Builder() *Builder { return newBuilder(e) }
 
 // To initializes a builder from the values stored in a context.
 func To(ctx context.Context) *Builder {
