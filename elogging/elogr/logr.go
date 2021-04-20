@@ -7,6 +7,7 @@ package elogr
 
 import (
 	"github.com/go-logr/logr"
+	"golang.org/x/exp/elogging"
 	"golang.org/x/exp/elogging/internal"
 	"golang.org/x/exp/event"
 	"golang.org/x/exp/event/keys"
@@ -23,6 +24,9 @@ type logger struct {
 var _ logr.Logger = (*logger)(nil)
 
 func NewLogger(e *event.Exporter, nameSep string) logr.Logger {
+	if e == nil {
+		e = elogging.Exporter()
+	}
 	return &logger{
 		exporter: e,
 		builder:  e.Builder(),

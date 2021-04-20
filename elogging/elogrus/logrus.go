@@ -8,11 +8,15 @@
 //   logrus.SetOutput(io.Discard)
 // and for a Logger instance:
 //   logger.SetFormatter(elogrus.NewFormatter(exporter))
-//   loggee.SetOutput(io.Discard)
+//   logger.SetOutput(io.Discard)
+//
+// If you call elogging.SetExporter, then you can pass nil
+// for the exporter above and it will use the global one.
 package elogrus
 
 import (
 	"github.com/sirupsen/logrus"
+	"golang.org/x/exp/elogging"
 	"golang.org/x/exp/elogging/internal"
 	"golang.org/x/exp/event"
 	"golang.org/x/exp/event/keys"
@@ -23,6 +27,9 @@ type formatter struct {
 }
 
 func NewFormatter(e *event.Exporter) logrus.Formatter {
+	if e == nil {
+		e = elogging.Exporter()
+	}
 	return &formatter{exporter: e}
 }
 

@@ -9,6 +9,7 @@ import (
 	"fmt"
 
 	"github.com/go-kit/kit/log"
+	"golang.org/x/exp/elogging"
 	"golang.org/x/exp/event"
 	"golang.org/x/exp/event/keys"
 )
@@ -17,7 +18,12 @@ type logger struct {
 	exporter *event.Exporter
 }
 
+// NewLogger returns a logger that outputs to the given exporter. If
+// the argument is nil, elogging.Exporter is used.
 func NewLogger(e *event.Exporter) log.Logger {
+	if e == nil {
+		e = elogging.Exporter()
+	}
 	return &logger{exporter: e}
 }
 

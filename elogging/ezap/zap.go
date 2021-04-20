@@ -3,6 +3,11 @@
 // license that can be found in the LICENSE file.
 
 // ezap provides an implementation of zapcore.Core for events.
+// To use globally:
+//     zap.ReplaceGlobals(zap.New(NewCore(exporter)))
+//
+// If you call elogging.SetExporter, then you can pass nil
+// for the exporter above and it will use the global one.
 package ezap
 
 import (
@@ -13,6 +18,7 @@ import (
 
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
+	"golang.org/x/exp/elogging"
 	"golang.org/x/exp/elogging/internal"
 	"golang.org/x/exp/event"
 	"golang.org/x/exp/event/keys"
@@ -26,6 +32,9 @@ type core struct {
 var _ zapcore.Core = (*core)(nil)
 
 func NewCore(e *event.Exporter) zapcore.Core {
+	if e == nil {
+		e = elogging.Exporter()
+	}
 	return &core{
 		exporter: e,
 		builder:  e.Builder(),
