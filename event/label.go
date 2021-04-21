@@ -6,135 +6,190 @@ package event
 
 import (
 	"fmt"
+	"math"
 	"reflect"
 	"strconv"
 	"unsafe"
 )
 
-// ValueHandler is used to safely unpack unknown labels.
-type ValueHandler interface {
-	String(v string)
-	Quote(v string)
-	Int(v int64)
-	Uint(v uint64)
-	Float(v float64)
-	Value(v interface{})
+// Value holds any value in an efficient way that avoids allocations for
+// most types.
+type Value struct {
+	packed  uint64
+	untyped interface{}
 }
-
-// LabelDispatcher is used as the identity of a Label.
-type LabelDispatcher func(h ValueHandler, l Label)
 
 // Label holds a key and value pair.
-// It is normally used when passing around lists of labels.
 type Label struct {
-	key      string
-	dispatch LabelDispatcher
-	packed   uint64
-	untyped  interface{}
+	Key   string
+	Value Value
 }
 
-// OfValue creates a new label from the key and value.
-// This method is for implementing new key types, label creation should
-// normally be done with the Of method of the key.
-func OfValue(k string, d LabelDispatcher, value interface{}) Label {
-	return Label{key: k, dispatch: d, untyped: value}
-}
-
-// UnpackValue assumes the label was built using LabelOfValue and returns the value
-// that was passed to that constructor.
-// This method is for implementing new key types, for type safety normal
-// access should be done with the From method of the key.
-func (l Label) UnpackValue() interface{} { return l.untyped }
-
-// Of64 creates a new label from a key and a uint64. This is often
-// used for non uint64 values that can be packed into a uint64.
-// This method is for implementing new key types, label creation should
-// normally be done with the Of method of the key.
-func Of64(k string, d LabelDispatcher, v uint64) Label {
-	return Label{key: k, dispatch: d, packed: v}
-}
-
-// Unpack64 assumes the label was built using LabelOf64 and returns the value that
-// was passed to that constructor.
-// This method is for implementing new key types, for type safety normal
-// access should be done with the From method of the key.
-func (l Label) Unpack64() uint64 { return l.packed }
-
+// stringptr is used in untyped when the Value is a string
 type stringptr unsafe.Pointer
 
-// OfString creates a new label from a key and a string.
-// This method is for implementing new key types, label creation should
-// normally be done with the Of method of the key.
-func OfString(k string, d LabelDispatcher, v string) Label {
-	hdr := (*reflect.StringHeader)(unsafe.Pointer(&v))
-	return Label{
-		key:      k,
-		dispatch: d,
-		packed:   uint64(hdr.Len),
-		untyped:  stringptr(hdr.Data),
-	}
+// int64Kind is used in untyped when the Value is a signed integer
+type int64Kind struct{}
+
+// uint64Kind is used in untyped when the Value is an unsigned integer
+type uint64Kind struct{}
+
+// float64Kind is used in untyped when the Value is a floating point number
+type float64Kind struct{}
+
+// boolKind is used in untyped when the Value is a boolean
+type boolKind struct{}
+
+// Format prints the value in a standard form.
+func (l *Label) Format(f fmt.State, verb rune) {
+	buf := bufPool.Get().(*buffer)
+	l.format(f.(writer), verb, buf.data[:0])
+	bufPool.Put(buf)
 }
 
-// UnpackString assumes the label was built using LabelOfString and returns the
-// value that was passed to that constructor.
-// This method is for implementing new key types, for type safety normal
-// access should be done with the From method of the key.
-func (l Label) UnpackString() string {
-	var v string
-	hdr := (*reflect.StringHeader)(unsafe.Pointer(&v))
-	hdr.Data = uintptr(l.untyped.(stringptr))
-	hdr.Len = int(l.packed)
-	return v
+func (l *Label) format(w writer, verb rune, buf []byte) {
+	w.Write(strconv.AppendQuote(buf[:0], l.Key))
+	w.WriteString(":")
+	l.Value.format(w, verb, buf)
 }
 
 // Valid returns true if the Label is a valid one (it has a key).
-func (l Label) Valid() bool { return l.key != "" }
+func (l *Label) Valid() bool { return l.Key != "" }
 
-// Key returns the key of this Label.
-func (l Label) Key() string { return l.key }
+// Format prints the value in a standard form.
+func (v *Value) Format(f fmt.State, verb rune) {
+	buf := bufPool.Get().(*buffer)
+	v.format(f.(writer), verb, buf.data[:0])
+	bufPool.Put(buf)
+}
 
-// Apply calls the appropriate method of h on the label's value.
-func (l Label) Apply(h ValueHandler) {
-	if l.dispatch != nil {
-		l.dispatch(h, l)
+func (v *Value) format(w writer, verb rune, buf []byte) {
+	//TODO: we should obey verb or remove it from all the format methods
+	switch {
+	case v.IsString():
+		w.Write(strconv.AppendQuote(buf[:0], v.String()))
+	case v.IsInt64():
+		w.Write(strconv.AppendInt(buf[:0], v.Int64(), 10))
+	case v.IsUint64():
+		w.Write(strconv.AppendUint(buf[:0], v.Uint64(), 10))
+	case v.IsFloat64():
+		w.Write(strconv.AppendFloat(buf[:0], v.Float64(), 'E', -1, 32))
+	case v.IsBool():
+		if v.Bool() {
+			w.WriteString("true")
+		} else {
+			w.WriteString("false")
+		}
+	default:
+		fmt.Fprint(w, v.Interface())
 	}
 }
 
-//////////////////////////////////////////////////////////////////////
+func (v *Value) HasValue() bool { return v.untyped != nil }
 
-// These are more demos of what Apply can do, rather than things we'd
-// necessarily want here.
-
-// Value is an expensive but general way to get a label's value.
-func (l Label) Value() interface{} {
-	var v interface{}
-	l.Apply(vhandler{&v})
-	return v
+// SetInterface the value to an interface{} value.
+func (v *Value) SetInterface(value interface{}) {
+	v.untyped = value
 }
 
-type vhandler struct {
-	pv *interface{}
+func (v *Value) Interface() interface{} {
+	//TODO: should we check it is not one of the other types here?
+	return v.untyped
 }
 
-func (h vhandler) String(v string)     { *h.pv = v }
-func (h vhandler) Quote(v string)      { *h.pv = strconv.Quote(v) }
-func (h vhandler) Int(v int64)         { *h.pv = v }
-func (h vhandler) Uint(v uint64)       { *h.pv = v }
-func (h vhandler) Float(v float64)     { *h.pv = v }
-func (h vhandler) Value(v interface{}) { *h.pv = v }
-
-// AppendValue appends the value of l to *dst as text.
-func (l Label) AppendValue(dst *[]byte) {
-	l.Apply(ahandler{dst})
+// SetString sets the value to a string form.
+func (v *Value) SetString(s string) {
+	hdr := (*reflect.StringHeader)(unsafe.Pointer(&s))
+	v.packed = uint64(hdr.Len)
+	v.untyped = stringptr(hdr.Data)
 }
 
-type ahandler struct {
-	b *[]byte
+// String returns the value as a string.
+// It panics if the value was not built with SetString.
+func (v Value) String() string {
+	var s string
+	hdr := (*reflect.StringHeader)(unsafe.Pointer(&s))
+	hdr.Data = uintptr(v.untyped.(stringptr))
+	hdr.Len = int(v.packed)
+	return s
 }
 
-func (h ahandler) String(v string)     { *h.b = append(*h.b, v...) }
-func (h ahandler) Quote(v string)      { *h.b = strconv.AppendQuote(*h.b, v) }
-func (h ahandler) Int(v int64)         { *h.b = strconv.AppendInt(*h.b, v, 10) }
-func (h ahandler) Uint(v uint64)       { *h.b = strconv.AppendUint(*h.b, v, 10) }
-func (h ahandler) Float(v float64)     { *h.b = strconv.AppendFloat(*h.b, v, 'E', -1, 32) }
-func (h ahandler) Value(v interface{}) { *h.b = append(*h.b, fmt.Sprint(v)...) }
+func (v Value) IsString() bool {
+	_, ok := v.untyped.(stringptr)
+	return ok
+}
+
+// SetInt64 sets the value to a signed integer.
+func (v *Value) SetInt64(u int64) {
+	v.packed = uint64(u)
+	v.untyped = int64Kind{}
+}
+
+// Int64
+func (v Value) Int64() int64 {
+	//TODO: panic if v.untyped is not uintKind
+	return int64(v.packed)
+}
+
+func (v Value) IsInt64() bool {
+	_, ok := v.untyped.(int64Kind)
+	return ok
+}
+
+// SetUint64 sets the value to an unsigned integer.
+func (v *Value) SetUint64(u uint64) {
+	v.packed = u
+	v.untyped = uint64Kind{}
+}
+
+// Uint64
+func (v Value) Uint64() uint64 {
+	//TODO: panic if v.untyped is not uintKind
+	return v.packed
+}
+
+func (v Value) IsUint64() bool {
+	_, ok := v.untyped.(uint64Kind)
+	return ok
+}
+
+// SetFloat64 sets the value to an unsigned integer.
+func (v *Value) SetFloat64(f float64) {
+	v.packed = math.Float64bits(f)
+	v.untyped = float64Kind{}
+}
+
+// Float64
+func (v Value) Float64() float64 {
+	//TODO: panic if v.untyped is not floatKind
+	return math.Float64frombits(v.packed)
+}
+
+func (v Value) IsFloat64() bool {
+	_, ok := v.untyped.(float64Kind)
+	return ok
+}
+
+// SetBool sets the value to an unsigned integer.
+func (v *Value) SetBool(b bool) {
+	if b {
+		v.packed = 1
+	} else {
+		v.packed = 0
+	}
+	v.untyped = boolKind{}
+}
+
+// Bool
+func (v Value) Bool() bool {
+	//TODO: panic if v.untyped is not boolKind
+	if v.packed != 0 {
+		return true
+	}
+	return false
+}
+
+func (v Value) IsBool() bool {
+	_, ok := v.untyped.(boolKind)
+	return ok
+}

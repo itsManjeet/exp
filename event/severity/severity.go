@@ -50,18 +50,16 @@ var (
 	Fatal = Of(FatalLevel)
 )
 
-func dispatchSeverity(h event.ValueHandler, l event.Label) {
-	h.String(Level(l.Unpack64()).String())
-}
-
 // Of creates a new Label with this key and the supplied value.
-func Of(l Level) event.Label {
-	return event.Of64(Key, dispatchSeverity, uint64(l))
+func Of(v Level) event.Label {
+	l := event.Label{Key: Key}
+	l.Value.SetInterface(v)
+	return l
 }
 
 // From can be used to get a value from a Label.
 func From(t event.Label) Level {
-	return Level(t.Unpack64())
+	return t.Value.Interface().(Level)
 }
 
 func (l Level) Class() Level {
