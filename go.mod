@@ -9,6 +9,10 @@ require (
 	github.com/google/go-cmp v0.5.5
 	github.com/rs/zerolog v1.21.0
 	github.com/sirupsen/logrus v1.8.1
+	go.opentelemetry.io/otel v0.20.0 // indirect
+	go.opentelemetry.io/otel/exporters/stdout v0.20.0 // indirect
+	go.opentelemetry.io/otel/sdk v0.20.0 // indirect
+	go.opentelemetry.io/otel/trace v0.20.0 // indirect
 	go.uber.org/multierr v1.6.0 // indirect
 	go.uber.org/zap v1.16.0
 	golang.org/x/image v0.0.0-20190802002840-cff245a6509b
