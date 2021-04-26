@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af52f0f4_6b4114dc",
+        "filename": "event/severity/severity.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-04-26T12:02:06Z",
+      "side": 1,
+      "message": "nit: \"level\" is the more common term",
+      "range": {
+        "startLine": 36,
+        "startChar": 13,
+        "endLine": 36,
+        "endChar": 21
+      },
+      "revId": "e8413f773e3380e3545515342234b4a5debb0e98",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45bc55d9_98500d3b",
+        "filename": "event/severity/severity.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-04-26T12:02:06Z",
+      "side": 1,
+      "message": "I would omit. It only encourages O(n) behavior.\n\nBased on my logging adapter work, most of the time the exporter will have to loop through all labels anyway, in which case it can just pick off this one when it comes to it.",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 1
+      },
+      "revId": "e8413f773e3380e3545515342234b4a5debb0e98",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
