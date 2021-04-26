@@ -53,6 +53,24 @@
       "message": "Yeah, this was the original API. It got changed because I was trying to keep it consistent, but I think that is not the right way to go and we should return to this\nIt does cause an extra allocation, but Start already does a few allocations, so one more is probably not an issue. Anybody wanting a low overhead call will need to generate the event and deliver it without creating a context.\nI think we should remove Builder.End as well though.\nThe other problem is it is hard to build a start event with extra labels right now, I think Start should also take a ...Label and have a WithAll call. If people use it, it will also cause allocations, but my previous argument about allocations holds for this as well.",
       "revId": "1eb746a97b7cb85228ab1fc682a723691c88a781",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c061c893_2a6d853e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-04-26T12:12:12Z",
+      "side": 1,
+      "message": "I\u0027ll do those in the next CL.",
+      "parentUuid": "15bf0a3b_8dcd49a4",
+      "revId": "1eb746a97b7cb85228ab1fc682a723691c88a781",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
