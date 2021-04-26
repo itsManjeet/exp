@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e3e5dcb_c6280e63",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9711
+      },
+      "writtenOn": "2021-04-26T04:58:11Z",
+      "side": 1,
+      "message": "This is most of the value changes I was talking about, along with changing the printer to being normal Format methods (which requires the use of a sync.Pool to avoid allocations for primitives) and changing the default format to a single line form (still open to discussion about what the best default print form is).",
+      "revId": "36241dd62229c1ea7b7ee22b832ddc3223783319",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
