@@ -16,6 +16,138 @@
       "message": "This is most of the value changes I was talking about, along with changing the printer to being normal Format methods (which requires the use of a sync.Pool to avoid allocations for primitives) and changing the default format to a single line form (still open to discussion about what the best default print form is).",
       "revId": "36241dd62229c1ea7b7ee22b832ddc3223783319",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "feb1b665_7f67bcde",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-04-26T11:59:52Z",
+      "side": 1,
+      "message": "LGTM, with some questions.",
+      "revId": "36241dd62229c1ea7b7ee22b832ddc3223783319",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24b95779_aee1ade4",
+        "filename": "event/event.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-04-26T11:59:52Z",
+      "side": 1,
+      "message": "Why do you need a struct?",
+      "range": {
+        "startLine": 145,
+        "startChar": 0,
+        "endLine": 145,
+        "endChar": 39
+      },
+      "revId": "36241dd62229c1ea7b7ee22b832ddc3223783319",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c06f0b72_1267bc71",
+        "filename": "event/label.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-04-26T11:59:52Z",
+      "side": 1,
+      "message": "Consider \u0027\u003d\u0027. See https://brandur.org/logfmt",
+      "range": {
+        "startLine": 52,
+        "startChar": 1,
+        "endLine": 52,
+        "endChar": 19
+      },
+      "revId": "36241dd62229c1ea7b7ee22b832ddc3223783319",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e5f9888_9c0f37cf",
+        "filename": "event/label.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-04-26T11:59:52Z",
+      "side": 1,
+      "message": "add a TODO to observe verb",
+      "range": {
+        "startLine": 66,
+        "startChar": 16,
+        "endLine": 66,
+        "endChar": 22
+      },
+      "revId": "36241dd62229c1ea7b7ee22b832ddc3223783319",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5be4f6ef_9845606f",
+        "filename": "event/label.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-04-26T11:59:52Z",
+      "side": 1,
+      "message": "I liked it better when they were immutable. But I guess it doesn\u0027t matter much.",
+      "range": {
+        "startLine": 99,
+        "startChar": 1,
+        "endLine": 103,
+        "endChar": 32
+      },
+      "revId": "36241dd62229c1ea7b7ee22b832ddc3223783319",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5792f39_2297c4d3",
+        "filename": "event/label.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-04-26T11:59:52Z",
+      "side": 1,
+      "message": "This is problematic: users will expect a String method to return a string regardless of the Value\u0027s type. That\u0027s why I used AsString, AsInt, etc.",
+      "range": {
+        "startLine": 106,
+        "startChar": 3,
+        "endLine": 107,
+        "endChar": 55
+      },
+      "revId": "36241dd62229c1ea7b7ee22b832ddc3223783319",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
