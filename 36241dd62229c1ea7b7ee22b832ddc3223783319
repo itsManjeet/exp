@@ -82,6 +82,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ae6a5cc_50ef810e",
+        "filename": "event/event.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-04-27T13:28:31Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9dea70be_c0859b29",
+      "range": {
+        "startLine": 145,
+        "startChar": 0,
+        "endLine": 145,
+        "endChar": 39
+      },
+      "revId": "36241dd62229c1ea7b7ee22b832ddc3223783319",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c06f0b72_1267bc71",
@@ -119,6 +143,30 @@
       "side": 1,
       "message": "Right now this mostly matches the zap format, happy to standardize on something else but we should discuss if logfmt is the right choice (I think it might be), We would have to pick standard names for the basic event fields (time, id, parent, kind and message).",
       "parentUuid": "c06f0b72_1267bc71",
+      "range": {
+        "startLine": 52,
+        "startChar": 1,
+        "endLine": 52,
+        "endChar": 19
+      },
+      "revId": "36241dd62229c1ea7b7ee22b832ddc3223783319",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2417e776_f1f625d1",
+        "filename": "event/label.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-04-27T13:28:31Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c59b6b93_da9dd25b",
       "range": {
         "startLine": 52,
         "startChar": 1,
@@ -260,6 +308,30 @@
       "side": 1,
       "message": "Yeah, I did the same originally, but As implies reinterpret, which this should not do, and all the things that do not mislead are far too verbose.",
       "parentUuid": "c5792f39_2297c4d3",
+      "range": {
+        "startLine": 106,
+        "startChar": 3,
+        "endLine": 107,
+        "endChar": 55
+      },
+      "revId": "36241dd62229c1ea7b7ee22b832ddc3223783319",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17e9d88c_c2e10918",
+        "filename": "event/label.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-04-27T13:28:31Z",
+      "side": 1,
+      "message": "I agree about \"As\". \"To\" has the same problem. \n\nBut if you have String you should follow the example of reflect.Value.String: \"String is a special case because of Go\u0027s String method convention. Unlike the other getters, it does not panic if v\u0027s Kind is not String. Instead, it returns a string of the form \"\u003cT value\u003e\" where T is v\u0027s type.\"",
+      "parentUuid": "6aadd5bb_00a67c60",
       "range": {
         "startLine": 106,
         "startChar": 3,
