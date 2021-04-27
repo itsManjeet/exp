@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9dea70be_c0859b29",
+        "filename": "event/event.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 9711
+      },
+      "writtenOn": "2021-04-27T04:50:43Z",
+      "side": 1,
+      "message": "because sync.Pool needs pointers and pointers to arrays lead to confusion and bugs 😊",
+      "parentUuid": "24b95779_aee1ade4",
+      "range": {
+        "startLine": 145,
+        "startChar": 0,
+        "endLine": 145,
+        "endChar": 39
+      },
+      "revId": "36241dd62229c1ea7b7ee22b832ddc3223783319",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c06f0b72_1267bc71",
         "filename": "event/label.go",
         "patchSetId": 1
@@ -83,6 +107,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c59b6b93_da9dd25b",
+        "filename": "event/label.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 9711
+      },
+      "writtenOn": "2021-04-27T04:50:43Z",
+      "side": 1,
+      "message": "Right now this mostly matches the zap format, happy to standardize on something else but we should discuss if logfmt is the right choice (I think it might be), We would have to pick standard names for the basic event fields (time, id, parent, kind and message).",
+      "parentUuid": "c06f0b72_1267bc71",
+      "range": {
+        "startLine": 52,
+        "startChar": 1,
+        "endLine": 52,
+        "endChar": 19
+      },
+      "revId": "36241dd62229c1ea7b7ee22b832ddc3223783319",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2e5f9888_9c0f37cf",
         "filename": "event/label.go",
         "patchSetId": 1
@@ -94,6 +142,30 @@
       "writtenOn": "2021-04-26T11:59:52Z",
       "side": 1,
       "message": "add a TODO to observe verb",
+      "range": {
+        "startLine": 66,
+        "startChar": 16,
+        "endLine": 66,
+        "endChar": 22
+      },
+      "revId": "36241dd62229c1ea7b7ee22b832ddc3223783319",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "efa9564e_42da4210",
+        "filename": "event/label.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 9711
+      },
+      "writtenOn": "2021-04-27T04:50:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e5f9888_9c0f37cf",
       "range": {
         "startLine": 66,
         "startChar": 16,
@@ -129,6 +201,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "133635d5_5ee2374b",
+        "filename": "event/label.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 9711
+      },
+      "writtenOn": "2021-04-27T04:50:43Z",
+      "side": 1,
+      "message": "Label has to embed Value by value, so we either expose setters or we use assignment to replace in bulk and global creators, I have changed my mind multiple times about which is the right answer, we should discuss in our next meeting.",
+      "parentUuid": "5be4f6ef_9845606f",
+      "range": {
+        "startLine": 99,
+        "startChar": 1,
+        "endLine": 103,
+        "endChar": 32
+      },
+      "revId": "36241dd62229c1ea7b7ee22b832ddc3223783319",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c5792f39_2297c4d3",
         "filename": "event/label.go",
         "patchSetId": 1
@@ -140,6 +236,30 @@
       "writtenOn": "2021-04-26T11:59:52Z",
       "side": 1,
       "message": "This is problematic: users will expect a String method to return a string regardless of the Value\u0027s type. That\u0027s why I used AsString, AsInt, etc.",
+      "range": {
+        "startLine": 106,
+        "startChar": 3,
+        "endLine": 107,
+        "endChar": 55
+      },
+      "revId": "36241dd62229c1ea7b7ee22b832ddc3223783319",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6aadd5bb_00a67c60",
+        "filename": "event/label.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 9711
+      },
+      "writtenOn": "2021-04-27T04:50:43Z",
+      "side": 1,
+      "message": "Yeah, I did the same originally, but As implies reinterpret, which this should not do, and all the things that do not mislead are far too verbose.",
+      "parentUuid": "c5792f39_2297c4d3",
       "range": {
         "startLine": 106,
         "startChar": 3,
