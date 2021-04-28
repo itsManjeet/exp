@@ -271,6 +271,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c29e4a7_9133ee06",
+        "filename": "event/label.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 9711
+      },
+      "writtenOn": "2021-04-28T04:50:45Z",
+      "side": 1,
+      "message": "Decided to do this anyway, it is just easier and more obvious.",
+      "parentUuid": "133635d5_5ee2374b",
+      "range": {
+        "startLine": 99,
+        "startChar": 1,
+        "endLine": 103,
+        "endChar": 32
+      },
+      "revId": "36241dd62229c1ea7b7ee22b832ddc3223783319",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c5792f39_2297c4d3",
@@ -332,6 +356,30 @@
       "side": 1,
       "message": "I agree about \"As\". \"To\" has the same problem. \n\nBut if you have String you should follow the example of reflect.Value.String: \"String is a special case because of Go\u0027s String method convention. Unlike the other getters, it does not panic if v\u0027s Kind is not String. Instead, it returns a string of the form \"\u003cT value\u003e\" where T is v\u0027s type.\"",
       "parentUuid": "6aadd5bb_00a67c60",
+      "range": {
+        "startLine": 106,
+        "startChar": 3,
+        "endLine": 107,
+        "endChar": 55
+      },
+      "revId": "36241dd62229c1ea7b7ee22b832ddc3223783319",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6dc4a2d9_febbdea8",
+        "filename": "event/label.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 9711
+      },
+      "writtenOn": "2021-04-28T04:50:45Z",
+      "side": 1,
+      "message": "Done, also fixed up interface and then some general cleanup and comments.",
+      "parentUuid": "17e9d88c_c2e10918",
       "range": {
         "startLine": 106,
         "startChar": 3,
