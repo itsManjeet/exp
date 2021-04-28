@@ -1,59 +1,24 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"os"
 	"sync"
 
 	"go.opentelemetry.io/otel/attribute"
 	"go.opentelemetry.io/otel/codes"
+	sdktrace "go.opentelemetry.io/otel/sdk/trace"
 	"go.opentelemetry.io/otel/trace"
 	"golang.org/x/exp/event"
 )
 
-type OtelTraceHandler struct {
-	Tracer trace.Tracer
-	mu     sync.Mutex
-	spans  map[uint64]*span // key is ID of Start event
-}
-
-func (h *OtelTraceHandler) Handle(e *event.Event) {
-	h.mu.Lock()
-	defer h.mu.Unlock()
-	switch e.Kind {
-	case event.StartKind:
-		if h.spans == nil {
-			h.spans = map[uint64]*span{}
-		}
-		h.spans[e.ID] = &span{}
-
-	case event.EndKind:
-		s := h.spans[e.Parent]
-		if s == nil {
-			fmt.Fprintf(os.Stderr, "Error: no span for parent ID %d", e.Parent)
-			return
-		}
-		s.End()
-
-	default:
-		panic("bad event kind")
-	}
-}
-
-type HandlerMux struct {
-	handlers [256]event.Handler
-}
-
-func (h *HandlerMux) Handle(e *event.Event) {
-	if kh := h.handlers[e.Kind]; kh != nil {
-		kh.Handle(e)
-		return
-	}
-	if kh := h.handlers[event.UnknownKind]; kh != nil {
-		kh.Handle(e)
-		return
-	}
-	fmt.Fprintf(os.Stderr, "no handler for event kind %s", e.Kind)
+// Exporter exports OpenTelemetry spans.
+type Exporter struct {
+	uploader           batchUploader
+	stopOnce           sync.Once
+	stopCh             chan struct{}
+	defaultServiceName string
 }
 
 func (h *HandlerMux) Register(k event.Kind, hh event.Handler) {
@@ -74,9 +39,73 @@ func (h *HandlerMux) Register(k event.Kind, hh event.Handler) {
 // 	}
 // }
 
+type OTelTraceHandler struct {
+	tracer         *tracer
+	mu             sync.Mutex
+	spanProcessors []sdktrace.SpanProcessor
+	spans          map[uint64]*span // key is ID of Start event
+}
+
+func NewOTelTraceHandler() event.Handler {
+	h := &OTelTraceHandler{
+		spans: map[uint64]*span{},
+	}
+	h.tracer = &tracer{h}
+	return h
+}
+
+func (h *OTelTraceHandler) RegisterSpanProcessor(sp sdktrace.SpanProcessor) {
+	h.mu.Lock()
+	defer h.mu.Unlock()
+	h.spanProcessors = append(h.spanProcessors, sp)
+}
+
+func (h *OTelTraceHandler) Handle(e *event.Event) {
+	h.mu.Lock()
+	defer h.mu.Unlock()
+	switch e.Kind {
+	case event.StartKind:
+		s := &span{
+			name:   e.Message,
+			tracer: h.tracer,
+		}
+		h.spans[e.ID] = s
+		for _, sp := range h.spanProcessors {
+			sp.OnStart(context.TODO(), s)
+		}
+
+	case event.AnnotateKind:
+		if s := h.getSpan(e.Parent); s != nil {
+			s.AddEvent(name)
+		}
+
+	case event.EndKind:
+		if s := h.getSpan(e.Parent); s != nil {
+			s.End()
+		}
+
+	default:
+		panic("bad event kind")
+	}
+}
+
+// Must be called with the lock held.
+func (h *OTelTraceHandler) getSpan(id uint64) *span {
+	s := h.spans[id]
+	if s == nil {
+		fmt.Fprintf(os.Stderr, "Error: no span for parent ID %d", id)
+	}
+	return s
+}
+
+type tracer struct {
+	handler *OTelTraceHander
+}
+
 type span struct {
 	name   string
-	tracer trace.Tracer
+	parent XXXX
+	tracer *tracer
 }
 
 var _ trace.Span = (*span)(nil)
@@ -88,6 +117,15 @@ func (s *span) Tracer() trace.Tracer { return s.tracer }
 // is called. Therefore, updates to the Span are not allowed after this
 // method has been called.
 func (s *span) End(options ...trace.SpanOption) {
+	et := getEndTime()
+	if !s.IsRecording() {
+		return
+	}
+	// TODO: call safely without lock (use atomic.Value?)
+	for _, sp := s.tracer.handler.spanProcessors {
+		sp.OnEnd(s)
+	}
+
 }
 
 // AddEvent adds an event with the provided name and options.
