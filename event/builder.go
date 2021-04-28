@@ -5,6 +5,7 @@
 package event
 
 import (
+	"context"
 	"fmt"
 	"sync"
 )
@@ -18,6 +19,7 @@ import (
 type Builder struct {
 	exporter *Exporter
 	Event    Event
+	ctx      context.Context
 	labels   [4]Label
 }
 
@@ -32,6 +34,7 @@ func (b *Builder) Clone() *Builder {
 	clone := builderPool.Get().(*Builder)
 	clone.exporter = b.exporter
 	clone.Event = b.Event
+	clone.ctx = b.ctx
 	n := len(b.Event.Labels)
 	if n <= len(b.labels) {
 		clone.Event.Labels = clone.labels[:n]
@@ -66,17 +69,25 @@ func (b *Builder) WithAll(labels ...Label) *Builder {
 	return b
 }
 
-// Deliver sends the constructed event to the exporter.
-func (b *Builder) Deliver(kind Kind, message string) uint64 {
+func (b *Builder) WithContext(ctx context.Context) *Builder {
 	if b == nil {
-		return 0
+		return nil
+	}
+	b.ctx = ctx
+	return b
+}
+
+// Deliver sends the constructed event to the exporter.
+func (b *Builder) Deliver(kind Kind, message string) (context.Context, uint64) {
+	if b == nil {
+		return nil, 0
 	}
 	b.Event.Kind = kind
 	b.Event.Message = message
-	id := b.exporter.Deliver(&b.Event)
+	ctx, id := b.exporter.Deliver(b.ctx, &b.Event)
 	*b = Builder{}
 	builderPool.Put(b)
-	return id
+	return ctx, id
 }
 
 // Log is a helper that calls Deliver with LogKind.

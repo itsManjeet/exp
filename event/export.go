@@ -14,7 +14,7 @@ import (
 // Handler is a the type for something that handles events as they occur.
 type Handler interface {
 	// Handle is called for each event delivered to the system.
-	Handle(*Event)
+	Handle(context.Context, *Event) context.Context
 }
 
 // Exporter synchronizes the delivery of events to handlers.
@@ -68,6 +68,7 @@ func Disable() {
 func (e *Exporter) Builder() *Builder {
 	b := builderPool.Get().(*Builder)
 	b.exporter = e
+	b.ctx = context.Background()
 	b.Event.Labels = b.labels[:0]
 	return b
 }
@@ -97,7 +98,7 @@ func Start(ctx context.Context, name string) (_ context.Context, end func()) {
 		return ctx, func() {}
 	}
 	v := contextValue{exporter: b.exporter}
-	v.parent = b.Deliver(StartKind, name)
+	ctx, v.parent = b.Deliver(StartKind, name)
 	return context.WithValue(ctx, contextKey{}, v), func() {
 		eb := v.exporter.Builder()
 		eb.Event.Parent = v.parent
@@ -110,7 +111,7 @@ func Start(ctx context.Context, name string) (_ context.Context, end func()) {
 // will be returned.
 // If the event does not have a timestamp, and the exporter has a Now function
 // then the timestamp will be updated.
-func (e *Exporter) Deliver(ev *Event) uint64 {
+func (e *Exporter) Deliver(ctx context.Context, ev *Event) (context.Context, uint64) {
 	e.mu.Lock()
 	defer e.mu.Unlock()
 	e.lastEvent++
@@ -119,6 +120,6 @@ func (e *Exporter) Deliver(ev *Event) uint64 {
 	if e.Now != nil && ev.At.IsZero() {
 		ev.At = e.Now()
 	}
-	e.handler.Handle(ev)
-	return id
+	ctx = e.handler.Handle(ctx, ev)
+	return ctx, id
 }
