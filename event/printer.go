@@ -5,6 +5,7 @@
 package event
 
 import (
+	"context"
 	"fmt"
 	"io"
 	"strconv"
@@ -35,7 +36,7 @@ type printer struct {
 	writer io.Writer
 }
 
-func (p *printer) Handle(ev *Event) {
+func (p *printer) Handle(ctx context.Context, ev *Event) context.Context {
 	const timeFormat = "2006/01/02 15:04:05"
 	if !ev.At.IsZero() {
 		p.writer.Write(ev.At.AppendFormat(p.buf[:0], timeFormat))
@@ -61,6 +62,7 @@ func (p *printer) Handle(ev *Event) {
 		p.Label(l)
 	}
 	io.WriteString(p.writer, "\n")
+	return ctx
 }
 
 func (p *printer) Label(l Label) {

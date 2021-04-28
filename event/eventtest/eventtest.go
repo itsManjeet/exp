@@ -31,15 +31,16 @@ type testHandler struct {
 	buf     strings.Builder
 }
 
-func (w *testHandler) Handle(ev *event.Event) {
+func (w *testHandler) Handle(ctx context.Context, ev *event.Event) context.Context {
 	// build our log message in buffer
 	w.buf.Reset()
-	w.printer.Handle(ev)
+	w.printer.Handle(ctx, ev)
 	// log to the testing.TB
 	msg := w.buf.String()
 	if len(msg) > 0 {
 		w.tb.Log(msg)
 	}
+	return ctx
 }
 
 func TestNow() func() time.Time {
