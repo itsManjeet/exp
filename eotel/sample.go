@@ -24,14 +24,14 @@ func main() {
 		log.Fatalf("failed to initialize stdout export pipeline: %v", err)
 	}
 
-	bsp := sdktrace.NewBatchSpanProcessor(exporter)
+	bsp := sdktrace.NewSimpleSpanProcessor(exporter)
 	tp := sdktrace.NewTracerProvider(sdktrace.WithSpanProcessor(bsp))
 	defer tp.Shutdown(ctx)
 
 	otel.SetTracerProvider(tp)
 
-	//	runOtel(ctx)
-	runEvents(ctx)
+	runOtel(ctx)
+	//runEvents(ctx)
 }
 
 func runOtel(ctx context.Context) {
@@ -64,10 +64,9 @@ func g(ctx context.Context) {
 
 func runEvents(ctx context.Context) {
 	hm := &HandlerMux{}
-	hm.Register(event.UnknownKind, event.NewPrinter(os.Stdout))
-	th := &OtelTraceHandler{Tracer: otel.Tracer("event")}
-	hm.Register(event.StartKind, th)
-	hm.Register(event.EndKind, th)
+	hm.Set(event.NewPrinter(os.Stdout), event.UnknownKind)
+	th := NewOTelTraceHandler(otel.Tracer("event"))
+	hm.Set(th, event.StartKind, event.EndKind, event.AnnotateKind)
 	exp := event.NewExporter(hm)
 	ctx = event.WithExporter(ctx, exp)
 	fe(ctx)
