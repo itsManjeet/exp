@@ -102,6 +102,30 @@
       },
       "revId": "e2f022ec40b8ebd070eb7a8fce6e90a3f37eef96",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f591214_8572acd5",
+        "filename": "event/export.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-04-28T11:35:44Z",
+      "side": 1,
+      "message": "Seems worth it to me. \nYou\u0027re going to need an alternative unsafe-free version for appengine, etc.\nBut this is fine for now.",
+      "parentUuid": "44cf2045_ad5b6a78",
+      "range": {
+        "startLine": 78,
+        "startChar": 8,
+        "endLine": 78,
+        "endChar": 20
+      },
+      "revId": "e2f022ec40b8ebd070eb7a8fce6e90a3f37eef96",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
