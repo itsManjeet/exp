@@ -78,6 +78,30 @@
       },
       "revId": "e2f022ec40b8ebd070eb7a8fce6e90a3f37eef96",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44cf2045_ad5b6a78",
+        "filename": "event/export.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 9711
+      },
+      "writtenOn": "2021-04-28T04:50:45Z",
+      "side": 1,
+      "message": "I could, why would it be better?\nI know it would mean we don\u0027t need unsafe, but it would also make the load slower and then require a type assertion.",
+      "parentUuid": "12fce0ee_18314f67",
+      "range": {
+        "startLine": 78,
+        "startChar": 8,
+        "endLine": 78,
+        "endChar": 20
+      },
+      "revId": "e2f022ec40b8ebd070eb7a8fce6e90a3f37eef96",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
