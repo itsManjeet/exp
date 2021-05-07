@@ -35,6 +35,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4cb2f3e_74409546",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 950,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-05-07T21:18:36Z",
+      "side": 1,
+      "message": "Done\n\nThis is very elegant!\n\nFor posterity, here is my experiment with this behavior. Note that go.sum does get a new entry, so we still need specific logic for go.sum.\n\nhttps://gist.github.com/jadekler/5f356aff87c9b7bf317e02ee3bdc2984",
+      "parentUuid": "72fd688b_fe160c8c",
+      "revId": "342e861feef7b1ec14969e5f33a81869ae32d0b8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5804142c_929273dd",
@@ -48,6 +66,24 @@
       "writtenOn": "2021-04-16T21:25:44Z",
       "side": 1,
       "message": "This will be O(n^2), both for appending to the string and searching an ever-lengthening string.\n\nMaybe there\u0027s a simpler way though? I\u0027d suggest using strings.Split(string(goSumData), \"\\n\") to get the lines, putting them in a map[string]bool, then iterating over lines in newGoSumData, again using strings.Split.",
+      "revId": "342e861feef7b1ec14969e5f33a81869ae32d0b8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddfdd29d_635d58d7",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 1079,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-05-07T21:18:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5804142c_929273dd",
       "revId": "342e861feef7b1ec14969e5f33a81869ae32d0b8",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
