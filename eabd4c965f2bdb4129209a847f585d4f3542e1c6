@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6ce690f_df394899",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 1152,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-05-10T15:52:29Z",
+      "side": 1,
+      "message": "Ignore \"\" in all these loops. The last line is usually blank.",
+      "revId": "eabd4c965f2bdb4129209a847f585d4f3542e1c6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbf78bf6_825a83e9",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 1155,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-05-10T15:52:29Z",
+      "side": 1,
+      "message": "Nit: use strings.Fields instead to be a bit more tolerant of extra spaces.",
+      "range": {
+        "startLine": 1155,
+        "startChar": 19,
+        "endLine": 1155,
+        "endChar": 24
+      },
+      "revId": "eabd4c965f2bdb4129209a847f585d4f3542e1c6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
