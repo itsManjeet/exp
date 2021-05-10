@@ -55,6 +55,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6922c996_94607386",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 1152,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-05-10T18:03:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6ce690f_df394899",
+      "revId": "eabd4c965f2bdb4129209a847f585d4f3542e1c6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bbf78bf6_825a83e9",
@@ -68,6 +86,30 @@
       "writtenOn": "2021-05-10T15:52:29Z",
       "side": 1,
       "message": "Nit: use strings.Fields instead to be a bit more tolerant of extra spaces.",
+      "range": {
+        "startLine": 1155,
+        "startChar": 19,
+        "endLine": 1155,
+        "endChar": 24
+      },
+      "revId": "eabd4c965f2bdb4129209a847f585d4f3542e1c6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "943c22d5_3df0e885",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 1155,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-05-10T18:03:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bbf78bf6_825a83e9",
       "range": {
         "startLine": 1155,
         "startChar": 19,
