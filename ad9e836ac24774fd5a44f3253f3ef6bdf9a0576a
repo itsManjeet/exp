@@ -53,6 +53,24 @@
       "message": "Not sure why this is necessary, I would have thought that straight struct comparison of all fields would be correct (in theory there are cases where packed is not set, but it should always be 0 in those cases, and the untyped thing should always be compared?",
       "revId": "ad9e836ac24774fd5a44f3253f3ef6bdf9a0576a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80ac8058_56f87446",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-05-11T04:09:44Z",
+      "side": 1,
+      "message": "If I\u0027m not mistaken:\n- float equality is not necessarily bitwise equality (certainly not for NaN)\n- String data is stored as unsafe.Pointer, so you\u0027d get pointer equality, not string equality.",
+      "parentUuid": "aad2d168_3c282dcc",
+      "revId": "ad9e836ac24774fd5a44f3253f3ef6bdf9a0576a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
