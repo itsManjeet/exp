@@ -19,7 +19,10 @@ type Exporter struct {
 	Now func() time.Time
 
 	mu        sync.Mutex
-	handler   Handler
+	log       LogHandler
+	metric    MetricHandler
+	annotate  AnnotateHandler
+	span      SpanHandler
 	lastEvent uint64
 }
 
@@ -42,11 +45,13 @@ var (
 // NewExporter creates an Exporter using the supplied handler.
 // Event delivery is serialized to enable safe atomic handling.
 // It also marks the event system as active.
-func NewExporter(h Handler) *Exporter {
-	return &Exporter{
-		Now:     time.Now,
-		handler: h,
-	}
+func NewExporter(handler interface{}) *Exporter {
+	e := &Exporter{Now: time.Now}
+	e.log, _ = handler.(LogHandler)
+	e.metric, _ = handler.(MetricHandler)
+	e.annotate, _ = handler.(AnnotateHandler)
+	e.span, _ = handler.(SpanHandler)
+	return e
 }
 
 func setDefaultExporter(e *Exporter) {
