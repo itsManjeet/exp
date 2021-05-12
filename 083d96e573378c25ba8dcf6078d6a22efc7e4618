@@ -63,6 +63,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3b178988_03a2657c",
+        "filename": "event/builder.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 9711
+      },
+      "writtenOn": "2021-05-12T17:30:17Z",
+      "side": 1,
+      "message": "I could not find any way to merge them that did not also fail to optimize out the Sprintf call when disabled.",
+      "parentUuid": "e954bbe7_4662cfe5",
+      "range": {
+        "startLine": 139,
+        "startChar": 1,
+        "endLine": 144,
+        "endChar": 9
+      },
+      "revId": "083d96e573378c25ba8dcf6078d6a22efc7e4618",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1c6acfac_9a830c55",
         "filename": "event/export.go",
         "patchSetId": 1
@@ -74,6 +98,30 @@
       "writtenOn": "2021-05-12T17:06:55Z",
       "side": 1,
       "message": "Obsolete.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 44
+      },
+      "revId": "083d96e573378c25ba8dcf6078d6a22efc7e4618",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab92aef7_7c8a2f7b",
+        "filename": "event/export.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 9711
+      },
+      "writtenOn": "2021-05-12T17:30:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c6acfac_9a830c55",
       "range": {
         "startLine": 44,
         "startChar": 0,
