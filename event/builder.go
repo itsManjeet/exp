@@ -122,11 +122,13 @@ func (b Builder) Log(message string) {
 	if b.data == nil {
 		return
 	}
-	b.data.exporter.mu.Lock()
-	defer b.data.exporter.mu.Unlock()
-	b.data.Event.Message = message
-	b.data.exporter.prepare(&b.data.Event)
-	b.data.exporter.handler.Log(b.data.ctx, &b.data.Event)
+	if b.data.exporter.log != nil {
+		b.data.exporter.mu.Lock()
+		defer b.data.exporter.mu.Unlock()
+		b.data.Event.Message = message
+		b.data.exporter.prepare(&b.data.Event)
+		b.data.exporter.log.Log(b.data.ctx, &b.data.Event)
+	}
 	b.done()
 }
 
@@ -136,11 +138,13 @@ func (b Builder) Logf(template string, args ...interface{}) {
 	if b.data == nil {
 		return
 	}
-	b.data.exporter.mu.Lock()
-	defer b.data.exporter.mu.Unlock()
-	b.data.Event.Message = fmt.Sprintf(template, args...)
-	b.data.exporter.prepare(&b.data.Event)
-	b.data.exporter.handler.Log(b.data.ctx, &b.data.Event)
+	if b.data.exporter.log != nil {
+		b.data.exporter.mu.Lock()
+		defer b.data.exporter.mu.Unlock()
+		b.data.Event.Message = fmt.Sprintf(template, args...)
+		b.data.exporter.prepare(&b.data.Event)
+		b.data.exporter.log.Log(b.data.ctx, &b.data.Event)
+	}
 	b.done()
 }
 
@@ -149,10 +153,12 @@ func (b Builder) Metric() {
 	if b.data == nil {
 		return
 	}
-	b.data.exporter.mu.Lock()
-	defer b.data.exporter.mu.Unlock()
-	b.data.exporter.prepare(&b.data.Event)
-	b.data.exporter.handler.Metric(b.data.ctx, &b.data.Event)
+	if b.data.exporter.metric != nil {
+		b.data.exporter.mu.Lock()
+		defer b.data.exporter.mu.Unlock()
+		b.data.exporter.prepare(&b.data.Event)
+		b.data.exporter.metric.Metric(b.data.ctx, &b.data.Event)
+	}
 	b.done()
 }
 
@@ -161,10 +167,12 @@ func (b Builder) Annotate() {
 	if b.data == nil {
 		return
 	}
-	b.data.exporter.mu.Lock()
-	defer b.data.exporter.mu.Unlock()
-	b.data.exporter.prepare(&b.data.Event)
-	b.data.exporter.handler.Annotate(b.data.ctx, &b.data.Event)
+	if b.data.exporter.annotate != nil {
+		b.data.exporter.mu.Lock()
+		defer b.data.exporter.mu.Unlock()
+		b.data.exporter.prepare(&b.data.Event)
+		b.data.exporter.annotate.Annotate(b.data.ctx, &b.data.Event)
+	}
 	b.done()
 }
 
@@ -173,10 +181,12 @@ func (b Builder) End() {
 	if b.data == nil {
 		return
 	}
-	b.data.exporter.mu.Lock()
-	defer b.data.exporter.mu.Unlock()
-	b.data.exporter.prepare(&b.data.Event)
-	b.data.exporter.handler.End(b.data.ctx, &b.data.Event)
+	if b.data.exporter.span != nil {
+		b.data.exporter.mu.Lock()
+		defer b.data.exporter.mu.Unlock()
+		b.data.exporter.prepare(&b.data.Event)
+		b.data.exporter.span.End(b.data.ctx, &b.data.Event)
+	}
 	b.done()
 }
 
@@ -217,21 +227,25 @@ func (b SpanBuilder) Start(name string) (context.Context, func()) {
 	if b.data == nil {
 		return b.ctx, func() {}
 	}
-	b.data.exporter.mu.Lock()
-	defer b.data.exporter.mu.Unlock()
-	b.data.exporter.prepare(&b.data.Event)
-	exporter, parent := b.data.exporter, b.data.Event.ID
-	b.data.Event.Message = name
-	ctx := newContext(b.ctx, exporter, parent)
-	ctx = b.data.exporter.handler.Start(ctx, &b.data.Event)
-	b.done()
-	return ctx, func() {
-		b := Builder{}
-		b.data = builderPool.Get().(*builder)
-		b.data.exporter = exporter
-		b.data.Event.Parent = parent
-		b.End()
+	ctx := b.ctx
+	end := func() {}
+	if b.data.exporter.span != nil {
+		b.data.exporter.mu.Lock()
+		defer b.data.exporter.mu.Unlock()
+		b.data.exporter.prepare(&b.data.Event)
+		// create the end builder
+		eb := Builder{}
+		eb.data = builderPool.Get().(*builder)
+		eb.data.exporter = b.data.exporter
+		eb.data.Event.Parent = b.data.Event.ID
+		end = eb.End
+		// and now deliver the start event
+		b.data.Event.Message = name
+		ctx = newContext(ctx, b.data.exporter, b.data.Event.ID)
+		b.data.exporter.span.Start(ctx, &b.data.Event)
 	}
+	b.done()
+	return ctx, end
 }
 
 func (b SpanBuilder) done() {

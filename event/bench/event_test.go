@@ -95,7 +95,7 @@ func eventNoop() context.Context {
 }
 
 func eventPrint(w io.Writer) context.Context {
-	e := event.NewExporter(logfmt.Printer(w))
+	e := event.NewExporter(logfmt.NewPrinter(w))
 	e.Now = eventtest.TestNow()
 	return event.WithExporter(context.Background(), e)
 }
@@ -126,7 +126,7 @@ func BenchmarkMetricEventNoop(b *testing.B) {
 
 type noopHandler struct{}
 
-func (noopHandler) Log(ctx context.Context, ev *event.Event)      {}
+func (noopHandler) Log_(ctx context.Context, ev *event.Event)     {}
 func (noopHandler) Metric(ctx context.Context, ev *event.Event)   {}
 func (noopHandler) Annotate(ctx context.Context, ev *event.Event) {}
 func (noopHandler) End(ctx context.Context, ev *event.Event)      {}
