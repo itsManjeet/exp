@@ -63,6 +63,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "398d4101_a5c9203a",
+        "filename": "event/event.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 9711
+      },
+      "writtenOn": "2021-05-13T03:24:42Z",
+      "side": 1,
+      "message": "Done, but I also had to change all the other span things that should have matching names.",
+      "parentUuid": "0f2d9502_b74c9e1c",
+      "range": {
+        "startLine": 42,
+        "startChar": 3,
+        "endLine": 42,
+        "endChar": 14
+      },
+      "revId": "246d1751b37adc08d74f3395d3c47216a7b0577c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0d39e493_6f73a4a6",
         "filename": "event/export.go",
         "patchSetId": 2
@@ -74,6 +98,30 @@
       "writtenOn": "2021-05-12T17:53:49Z",
       "side": 1,
       "message": "This is clever!\n\nYou should probably panic if none of the interfaces are satisfied, as a run-time type check.",
+      "range": {
+        "startLine": 49,
+        "startChar": 1,
+        "endLine": 52,
+        "endChar": 34
+      },
+      "revId": "246d1751b37adc08d74f3395d3c47216a7b0577c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1f313e6_51a7ce64",
+        "filename": "event/export.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 9711
+      },
+      "writtenOn": "2021-05-13T03:24:42Z",
+      "side": 1,
+      "message": "noopHandler implements none of the interfaces.\nAs we discussed, I am not convinced this is a great API, we should experiment here.",
+      "parentUuid": "0d39e493_6f73a4a6",
       "range": {
         "startLine": 49,
         "startChar": 1,
