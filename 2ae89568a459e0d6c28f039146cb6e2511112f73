@@ -55,6 +55,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb6a2913_e3a41ab1",
+        "filename": "event/builder.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-05-13T16:52:55Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "9e140f45_d6fcdbf6",
+      "revId": "2ae89568a459e0d6c28f039146cb6e2511112f73",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "638d45ed_86e61e38",
@@ -68,6 +86,24 @@
       "writtenOn": "2021-05-13T15:57:14Z",
       "side": 1,
       "message": "Did you check if this makes any difference to the benchmark results?\nI tried something like this a while ago, and it did (because neither the helper nor the outer Log call were inline-able due to cost). So much has changed that it might be okay now though.",
+      "revId": "2ae89568a459e0d6c28f039146cb6e2511112f73",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f33479d4_4ab75f6a",
+        "filename": "event/builder.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-05-13T16:52:55Z",
+      "side": 1,
+      "message": "I ran `go test -bench .` from `event/bench`. I saw no significant differences between this branch and master on the log benchmarks; they were all in the noise (i.e. similar to the deltas from two runs on master).",
+      "parentUuid": "638d45ed_86e61e38",
       "revId": "2ae89568a459e0d6c28f039146cb6e2511112f73",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
