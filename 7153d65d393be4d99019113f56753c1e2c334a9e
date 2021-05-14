@@ -72,6 +72,24 @@
       "message": "TODO(deklerk): So, all the implementation is already there. We just need to improve error message, and write a test for both the -none provided and -none not provided case.\n\nIn the -none not provided case, we should see an error message. That test is written \"no_base.test\". However, it\u0027s got an issue: when using it in gorelease tests locally, `go list -m -versions -- example.com/first` doesn\u0027t find the module at all and errors with \"no matching versions for query\". In some other environments, like trybots and when running the binary on a real project that exists in github, it finds the module and doesn\u0027t error, and instead reports back the module path without any version information.\n\nThe former results in a \"no matching versions for query\" error, the latter results in a \"no version found lower than \u003cversion\u003e\" error.\n\nSo we need to find a way to structure the test so that it always returns the same error.",
       "revId": "7153d65d393be4d99019113f56753c1e2c334a9e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51344abb_87a26fef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-05-14T21:56:11Z",
+      "side": 1,
+      "message": "Jay mentions:\n\nThat would probably work with a pseudo-version?\nPsuedo-versions aren\u0027t included in version lists. Proxies aren\u0027t supposed to serve them from the $modpath/@v/list endpoint, but if they do, the go command ignores pseudo-versions from there",
+      "parentUuid": "0e6ca688_ce3a095c",
+      "revId": "7153d65d393be4d99019113f56753c1e2c334a9e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
