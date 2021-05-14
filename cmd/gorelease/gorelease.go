@@ -799,7 +799,6 @@ func loadVersions(ctx context.Context, modPath string) (versions []string, err e
 		cmd.Env = env
 	}
 	cmd.Dir = tmpDir
-	cmd.Env = append(cmd.Env, "GO111MODULE=on")
 	out, err := cmd.Output()
 	if err != nil {
 		return nil, cleanCmdError(err)
