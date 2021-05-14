@@ -9,11 +9,14 @@ import (
 	"flag"
 	"fmt"
 	"os/exec"
+	"regexp"
 	"strings"
 
 	"golang.org/x/mod/module"
 	"golang.org/x/xerrors"
 )
+
+var modPathMajor = regexp.MustCompile(`\/v[0-9]+$`)
 
 type usageError struct {
 	err error
@@ -34,11 +37,19 @@ func (e *usageError) Error() string {
 }
 
 type baseVersionError struct {
-	err error
+	err     error
+	modPath string
 }
 
 func (e *baseVersionError) Error() string {
-	return fmt.Sprintf("could not find base version: %v", e.err)
+	firstVersion := "v0.1.0"
+	matches := modPathMajor.FindAllString(e.modPath, -1)
+	if len(matches) == 1 {
+		v := strings.Replace(matches[0], "/", "", -1)
+		firstVersion = fmt.Sprintf("%s.0.0", v)
+	}
+
+	return fmt.Sprintf("could not find base version. Consider setting -version=%s if this is a first release, or explicitly set -base=none: %v", firstVersion, e.err)
 }
 
 func (e *baseVersionError) Unwrap() error {

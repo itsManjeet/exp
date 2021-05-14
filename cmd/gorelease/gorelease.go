@@ -732,7 +732,7 @@ func checkModPath(modPath string) error {
 func inferBaseVersion(ctx context.Context, modPath, max string) (baseVersion string, err error) {
 	defer func() {
 		if err != nil {
-			err = &baseVersionError{err: err}
+			err = &baseVersionError{err: err, modPath: modPath}
 		}
 	}()
 
@@ -809,7 +809,6 @@ func loadVersions(ctx context.Context, modPath string) (versions []string, err e
 	cmd := exec.CommandContext(ctx, "go", "list", "-m", "-versions", "--", modPath)
 	cmd.Env = copyEnv(ctx, cmd.Env)
 	cmd.Dir = tmpDir
-	cmd.Env = append(cmd.Env, "GO111MODULE=on")
 	out, err := cmd.Output()
 	if err != nil {
 		return nil, cleanCmdError(err)
