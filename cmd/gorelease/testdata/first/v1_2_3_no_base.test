@@ -1,0 +1,18 @@
+# TODO(deklerk): Is there a way to simulate "no tagged version (in proxy, or
+# remote), but does exist in github"? Without the "exists in github" part,
+# `go list -m -versions` reports a "no matching versions for query" error. When
+# `go list` does find something in github (without versions), on the other hand,
+# it returns the mod path without any version.
+mod=example.com/first
+release=v1.2.3
+proxyVersions=
+success=false
+error=true
+-- want --
+could not find base version. consider using vX.0.0 if this is a first release, or explicitly set -base=none: could not load versions for example.com/first: go list -m: module example.com/first: no matching versions for query "latest"
+-- go.mod --
+module example.com/first
+
+go 1.12
+-- p.go --
+package p
