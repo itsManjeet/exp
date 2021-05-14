@@ -38,7 +38,7 @@ type baseVersionError struct {
 }
 
 func (e *baseVersionError) Error() string {
-	return fmt.Sprintf("could not find base version: %v", e.err)
+	return fmt.Sprintf("could not find base version. consider using vX.0.0 if this is a first release, or explicitly set -base=none: %v", e.err)
 }
 
 func (e *baseVersionError) Unwrap() error {
