@@ -1,0 +1,20 @@
+Page          <- Line* _ :$
+Line          <- !$ (Title / Statement / Description)? _ :('\n' / $)
+Title         <- _ '\n' Name ":" _ '[^\n]*'?
+Statement     <- "  " !" " :Expression ("  " Description)?
+Description   <- (Default / '[^[\]\n]+' / '[^\n]')+
+Default       <- "[default:" ' ?([^[\]\n]*)'? :"]"
+Name          <- '(\w[\w-.]*)'
+Expression    <- Sequence
+Sequence      <- Choice (" " !" " :Choice)*
+Choice        <- (Repeat / Atom) (' ?\| ?' :(Repeat / Atom))*
+Repeat        <- Atom "..."
+Atom          <- Optional / Group / Flag / Named / Literal
+Optional      <- "["  Expression?  :"]"
+Group         <- "("  Expression?  :")"
+Flag          <- "-" :Name FlagAlias* FlagParameter?
+FlagAlias     <- "," " "? :"-" :Name
+FlagParameter <- "=" " "? :Name
+Named         <- "<" :Name :">"
+Literal       <- Name
+_             <- '[ ]*'?
