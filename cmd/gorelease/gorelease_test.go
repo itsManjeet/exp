@@ -185,8 +185,11 @@ func readTest(testPath string) (*test, error) {
 				return nil, fmt.Errorf("%s:%d: %v", testPath, lineNum, err)
 			}
 		case "proxyVersions":
-			parts := strings.Split(value, ",")
 			proxyVersions := make(map[module.Version]bool)
+			if len(value) == 0 {
+				break
+			}
+			parts := strings.Split(value, ",")
 			for _, modpathWithVersion := range parts {
 				vParts := strings.Split(modpathWithVersion, "@")
 				if len(vParts) != 2 {
@@ -280,7 +283,7 @@ func TestRelease(t *testing.T) {
 
 			t.Parallel()
 
-			if len(test.proxyVersions) > 0 {
+			if test.proxyVersions != nil {
 				var cleanup func()
 				ctx, cleanup, err = prepareProxy(test.proxyVersions, tests)
 				if err != nil {
