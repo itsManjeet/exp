@@ -29,6 +29,8 @@ type LogHandler interface {
 // occur.
 type MetricHandler interface {
 	// Metric indicates a metric record event.
+	// The last three labels of the event will be the namespace, name and value
+	// of the metric, in that order.
 	Metric(context.Context, *Event)
 }
 
