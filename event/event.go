@@ -15,7 +15,7 @@ type Event struct {
 	ID      uint64    // unique for this process id of the event
 	Parent  uint64    // id of the parent event for this event
 	At      time.Time // time at which the event is delivered to the exporter.
-	Message string
+	Message string    // log message, span name or metric namespace
 	Labels  []Label
 }
 
@@ -29,6 +29,8 @@ type LogHandler interface {
 // occur.
 type MetricHandler interface {
 	// Metric indicates a metric record event.
+	// The last label in the event holds the name and value of the metric.
+	// The event's Message field holds the metric's namespace.
 	Metric(context.Context, *Event)
 }
 

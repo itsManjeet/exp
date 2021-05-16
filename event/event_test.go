@@ -72,12 +72,12 @@ time=2020-03-05T14:27:51 id=4 span=2 kind=end
 time=2020-03-05T14:27:52 id=5 span=1 kind=end
 `}, {
 		name:   "metric",
-		events: func(ctx context.Context) { event.To(ctx).With(l1).Metric() },
-		expect: `time=2020-03-05T14:27:48 id=1 kind=metric l1=1`,
+		events: func(ctx context.Context) { event.To(ctx).With(l1).IntMetric("test", "m1", 3) },
+		expect: `time=2020-03-05T14:27:48 id=1 kind=metric msg=test l1=1 m1=3`,
 	}, {
 		name:   "metric 2",
-		events: func(ctx context.Context) { event.To(ctx).With(l1).With(l2).Metric() },
-		expect: `time=2020-03-05T14:27:48 id=1 kind=metric l1=1 l2=2`,
+		events: func(ctx context.Context) { event.To(ctx).With(l1).With(l2).FloatMetric("test", "m2", 1.4) },
+		expect: `time=2020-03-05T14:27:48 id=1 kind=metric msg=test l1=1 l2=2 m2=1.4`,
 	}, {
 		name:   "annotate",
 		events: func(ctx context.Context) { event.To(ctx).With(l1).Annotate() },

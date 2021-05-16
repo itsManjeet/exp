@@ -156,18 +156,42 @@ func (b Builder) log(message string) {
 	b.data.exporter.log.Log(b.data.ctx, &b.data.Event)
 }
 
-// Metric is a helper that calls Deliver with MetricKind.
-func (b Builder) Metric() {
+// IntMetric records a metric with an int64 value.
+// The namespace and name arguments uniquely identify the metric.
+// The name should be short and descriptive, like "hit_count"
+// or "request_latency".
+// The namespace should be an import path, module path, or other
+// value that uniquely identifies the component recording the metric.
+// It must not be empty.
+// The standard library uses "std".
+func (b Builder) IntMetric(namespace, name string, value int64) {
 	if b.data == nil {
 		return
 	}
 	if b.data.exporter.metric != nil {
-		b.data.exporter.mu.Lock()
-		defer b.data.exporter.mu.Unlock()
-		b.data.exporter.prepare(&b.data.Event)
-		b.data.exporter.metric.Metric(b.data.ctx, &b.data.Event)
+		b.metric(namespace, name, Int64Of(value))
 	}
 	b.done()
+}
+
+// FloatMetric is like IntMetric, but for float64 values.
+func (b Builder) FloatMetric(namespace, name string, value float64) {
+	if b.data == nil {
+		return
+	}
+	if b.data.exporter.metric != nil {
+		b.metric(namespace, name, Float64Of(value))
+	}
+	b.done()
+}
+
+func (b Builder) metric(namespace, name string, value Value) {
+	b.data.Event.Message = namespace
+	b.data.Event.Labels = append(b.data.Event.Labels, Label{name, value})
+	b.data.exporter.mu.Lock()
+	defer b.data.exporter.mu.Unlock()
+	b.data.exporter.prepare(&b.data.Event)
+	b.data.exporter.metric.Metric(b.data.ctx, &b.data.Event)
 }
 
 // Annotate is a helper that calls Deliver with AnnotateKind.
