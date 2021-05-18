@@ -1,0 +1,34 @@
+gcloud config set project $PROJECT
+gcloud config set compute/zone $ZONE
+gcloud compute instances create allcode --machine-type=e2-standard-32
+GOOS=linux go build && gcloud compute scp allcode allcode:
+gcloud compute ssh allcode
+
+    $ sudo -s
+    # mkdir /mnt/allcode
+    # mount -t tmpfs -o size=100G allcode /mnt/allcode
+    # ./allcode /mnt/allcode
+    Fetching index... 4342113 / 4341985 [---------------------------------------------] 100.00% 1m5s
+    Fetching modules... 415759 / 415759 [--------------------------------------------] 100.00% 6m57s
+
+    Unique modules:        415759 -
+    Vendor paths:            5106 -
+    Invalid names:              1 -
+    Gone:                   84912 -
+    Invalid go.mod files:     224 -
+    Mismatching go.mod:     74582 -
+    GCS redirects:           6123 -
+    No .go files:           17125 -
+    No go.mod files:       117471 =
+                        -------
+                        116338
+
+    Downloaded 294922354713 bytes.
+    Wrote 4029224 Go files (42384890367 bytes).
+    # ls /mnt/allcode/filippo.io/
+    age@v1.0.0-rc.1.0.20210502224421-85763d390a45
+    cpace@v0.0.0-20210101143347-24d601e2e469
+    edwards25519@v1.0.0-beta.3.0.20210419044535-8e7780424d7c
+    mkcert@v1.4.3
+    mostly-harmless
+    yubikey-agent@v0.1.5-0.20210430161625-217b58a73aac
