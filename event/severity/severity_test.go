@@ -20,17 +20,18 @@ import (
 func TestPrint(t *testing.T) {
 	//TODO: print the textual form of severity
 	ctx := context.Background()
+	ns := event.NewNamespace("")
 	for _, test := range []struct {
 		name   string
 		events func(context.Context)
 		expect string
 	}{{
 		name:   "debug",
-		events: func(ctx context.Context) { event.To(ctx).With(severity.Debug).Log("a message") },
+		events: func(ctx context.Context) { ns.To(ctx).With(severity.Debug).Log("a message") },
 		expect: `time=2020-03-05T14:27:48 id=1 kind=log msg="a message" level=debug`,
 	}, {
 		name:   "info",
-		events: func(ctx context.Context) { event.To(ctx).With(severity.Info).Log("a message") },
+		events: func(ctx context.Context) { ns.To(ctx).With(severity.Info).Log("a message") },
 		expect: `time=2020-03-05T14:27:48 id=1 kind=log msg="a message" level=info`},
 	} {
 		buf := &strings.Builder{}

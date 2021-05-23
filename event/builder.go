@@ -9,9 +9,50 @@ package event
 import (
 	"context"
 	"fmt"
+	"runtime"
+	"strings"
 	"sync"
 	"time"
 )
+
+type Namespace struct {
+	Name   string
+	Labels []Label
+}
+
+func NewNamespace(name string) *Namespace {
+	if name == "" {
+		var pcs [1]uintptr
+		n := runtime.Callers(2 /* caller of NewNamespace */, pcs[:])
+		frames := runtime.CallersFrames(pcs[:n])
+		frame, _ := frames.Next()
+		// Function is the fully-qualified function name. The name itself may
+		// have dots (for a closure, for instance), but it can't have slashes.
+		// So the package path ends at the first dot after the last slash.
+		i := strings.LastIndexByte(frame.Function, '/')
+		if i < 0 {
+			i = 0
+		}
+		end := strings.IndexByte(frame.Function[i:], '.')
+		if end >= 0 {
+			end += i
+		} else {
+			end = len(frame.Function)
+		}
+		name = frame.Function[:end]
+	}
+	return &Namespace{Name: name}
+}
+
+func (n *Namespace) AddLabels(labels ...Label) {
+	n.Labels = append(n.Labels, labels...)
+}
+
+// To initializes a builder from the values stored in a context.
+func (n *Namespace) To(ctx context.Context) Builder {
+	b := Builder{ctx: ctx, data: newBuilder(ctx, n.Name)}
+	return b.WithAll(n.Labels...)
+}
 
 // Builder is a fluent builder for construction of new events.
 type Builder struct {
@@ -34,38 +75,17 @@ type builder struct {
 
 var builderPool = sync.Pool{New: func() interface{} { return &builder{} }}
 
-// To initializes a builder from the values stored in a context.
-func To(ctx context.Context) Builder {
-	return Builder{ctx: ctx, data: newBuilder(ctx)}
-}
-
-func newBuilder(ctx context.Context) *builder {
+func newBuilder(ctx context.Context, namespace string) *builder {
 	exporter, parent := fromContext(ctx)
 	if exporter == nil {
 		return nil
 	}
 	b := builderPool.Get().(*builder)
 	b.exporter = exporter
+	b.Event.Namespace = namespace
 	b.Event.Labels = b.labels[:0]
 	b.Event.Parent = parent
 	return b
-}
-
-// Clone returns a copy of this builder.
-// The two copies can be independently delivered.
-func (b Builder) Clone() Builder {
-	if b.data == nil {
-		return b
-	}
-	clone := Builder{ctx: b.ctx, data: builderPool.Get().(*builder)}
-	*clone.data = *b.data
-	if len(b.data.Event.Labels) == 0 || &b.data.labels[0] == &b.data.Event.Labels[0] {
-		clone.data.Event.Labels = clone.data.labels[:len(b.data.Event.Labels)]
-	} else {
-		clone.data.Event.Labels = make([]Label, len(b.data.Event.Labels))
-		copy(clone.data.Event.Labels, b.data.Event.Labels)
-	}
-	return clone
 }
 
 // With adds a new label to the event being constructed.

@@ -26,30 +26,31 @@ var (
 
 func TestPrint(t *testing.T) {
 	ctx := context.Background()
+	ns := event.NewNamespace("")
 	for _, test := range []struct {
 		name   string
 		events func(context.Context)
 		expect string
 	}{{
 		name:   "simple",
-		events: func(ctx context.Context) { event.To(ctx).Log("a message") },
+		events: func(ctx context.Context) { ns.To(ctx).Log("a message") },
 		expect: `time=2020-03-05T14:27:48 id=1 kind=log msg="a message"
 `}, {
 		name:   "log 1",
-		events: func(ctx context.Context) { event.To(ctx).With(l1).Log("a message") },
+		events: func(ctx context.Context) { ns.To(ctx).With(l1).Log("a message") },
 		expect: `time=2020-03-05T14:27:48 id=1 kind=log msg="a message" l1=1`,
 	}, {
 		name:   "log 2",
-		events: func(ctx context.Context) { event.To(ctx).With(l1).With(l2).Log("a message") },
+		events: func(ctx context.Context) { ns.To(ctx).With(l1).With(l2).Log("a message") },
 		expect: `time=2020-03-05T14:27:48 id=1 kind=log msg="a message" l1=1 l2=2`,
 	}, {
 		name:   "log 3",
-		events: func(ctx context.Context) { event.To(ctx).With(l1).With(l2).With(l3).Log("a message") },
+		events: func(ctx context.Context) { ns.To(ctx).With(l1).With(l2).With(l3).Log("a message") },
 		expect: `time=2020-03-05T14:27:48 id=1 kind=log msg="a message" l1=1 l2=2 l3=3`,
 	}, {
 		name: "span",
 		events: func(ctx context.Context) {
-			ctx, end := event.To(ctx).Start("span")
+			ctx, end := ns.To(ctx).Start("span")
 			end()
 		},
 		expect: `
@@ -58,11 +59,11 @@ time=2020-03-05T14:27:49 id=2 span=1 kind=end
 `}, {
 		name: "span nested",
 		events: func(ctx context.Context) {
-			ctx, end := event.To(ctx).Start("parent")
+			ctx, end := ns.To(ctx).Start("parent")
 			defer end()
-			child, end2 := event.To(ctx).Start("child")
+			child, end2 := ns.To(ctx).Start("child")
 			defer end2()
-			event.To(child).Log("message")
+			ns.To(child).Log("message")
 		},
 		expect: `
 time=2020-03-05T14:27:48 id=1 kind=start msg=parent
@@ -72,26 +73,26 @@ time=2020-03-05T14:27:51 id=4 span=2 kind=end
 time=2020-03-05T14:27:52 id=5 span=1 kind=end
 `}, {
 		name:   "metric",
-		events: func(ctx context.Context) { event.To(ctx).With(l1).Metric() },
+		events: func(ctx context.Context) { ns.To(ctx).With(l1).Metric() },
 		expect: `time=2020-03-05T14:27:48 id=1 kind=metric l1=1`,
 	}, {
 		name:   "metric 2",
-		events: func(ctx context.Context) { event.To(ctx).With(l1).With(l2).Metric() },
+		events: func(ctx context.Context) { ns.To(ctx).With(l1).With(l2).Metric() },
 		expect: `time=2020-03-05T14:27:48 id=1 kind=metric l1=1 l2=2`,
 	}, {
 		name:   "annotate",
-		events: func(ctx context.Context) { event.To(ctx).With(l1).Annotate() },
+		events: func(ctx context.Context) { ns.To(ctx).With(l1).Annotate() },
 		expect: `time=2020-03-05T14:27:48 id=1 kind=annotate l1=1`,
 	}, {
 		name:   "annotate 2",
-		events: func(ctx context.Context) { event.To(ctx).With(l1).With(l2).Annotate() },
+		events: func(ctx context.Context) { ns.To(ctx).With(l1).With(l2).Annotate() },
 		expect: `time=2020-03-05T14:27:48 id=1 kind=annotate l1=1 l2=2`,
 	}, {
 		name: "multiple events",
 		events: func(ctx context.Context) {
-			b := event.To(ctx)
-			b.Clone().With(keys.Int("myInt").Of(6)).Log("my event")
-			b.With(keys.String("myString").Of("some string value")).Log("string event")
+			b := event.NewNamespace("test")
+			b.To(ctx).With(keys.Int("myInt").Of(6)).Log("my event")
+			b.To(ctx).With(keys.String("myString").Of("some string value")).Log("string event")
 		},
 		expect: `
 time=2020-03-05T14:27:48 id=1 kind=log msg="my event" myInt=6
@@ -111,11 +112,12 @@ time=2020-03-05T14:27:49 id=2 kind=log msg="string event" myString="some string 
 }
 
 func ExampleLog() {
+	ns := event.NewNamespace("")
 	e := event.NewExporter(logfmt.NewPrinter(os.Stdout))
 	e.Now = eventtest.TestNow()
 	ctx := event.WithExporter(context.Background(), e)
-	event.To(ctx).With(keys.Int("myInt").Of(6)).Log("my event")
-	event.To(ctx).With(keys.String("myString").Of("some string value")).Log("error event")
+	ns.To(ctx).With(keys.Int("myInt").Of(6)).Log("my event")
+	ns.To(ctx).With(keys.String("myString").Of("some string value")).Log("error event")
 	// Output:
 	// time=2020-03-05T14:27:48 id=1 kind=log msg="my event" myInt=6
 	// time=2020-03-05T14:27:49 id=2 kind=log msg="error event" myString="some string value"

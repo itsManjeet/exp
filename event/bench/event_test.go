@@ -23,14 +23,16 @@ var (
 	bCount  = keys.Int64("B")
 	bLength = keys.Int("BLen")
 
+	ns = event.NewNamespace("bench")
+
 	eventLog = Hooks{
 		AStart: func(ctx context.Context, a int) context.Context {
-			event.To(ctx).With(aValue.Of(a)).Log(aMsg)
+			ns.To(ctx).With(aValue.Of(a)).Log(aMsg)
 			return ctx
 		},
 		AEnd: func(ctx context.Context) {},
 		BStart: func(ctx context.Context, b string) context.Context {
-			event.To(ctx).With(bValue.Of(b)).Log(bMsg)
+			ns.To(ctx).With(bValue.Of(b)).Log(bMsg)
 			return ctx
 		},
 		BEnd: func(ctx context.Context) {},
@@ -38,12 +40,12 @@ var (
 
 	eventLogf = Hooks{
 		AStart: func(ctx context.Context, a int) context.Context {
-			event.To(ctx).Logf(aMsgf, a)
+			ns.To(ctx).Logf(aMsgf, a)
 			return ctx
 		},
 		AEnd: func(ctx context.Context) {},
 		BStart: func(ctx context.Context, b string) context.Context {
-			event.To(ctx).Logf(bMsgf, b)
+			ns.To(ctx).Logf(bMsgf, b)
 			return ctx
 		},
 		BEnd: func(ctx context.Context) {},
@@ -51,33 +53,33 @@ var (
 
 	eventTrace = Hooks{
 		AStart: func(ctx context.Context, a int) context.Context {
-			ctx, _ = event.To(ctx).Start(aMsg)
-			event.To(ctx).With(aValue.Of(a)).Annotate()
+			ctx, _ = ns.To(ctx).Start(aMsg)
+			ns.To(ctx).With(aValue.Of(a)).Annotate()
 			return ctx
 		},
 		AEnd: func(ctx context.Context) {
-			event.To(ctx).End()
+			ns.To(ctx).End()
 		},
 		BStart: func(ctx context.Context, b string) context.Context {
-			ctx, _ = event.To(ctx).Start(bMsg)
-			event.To(ctx).With(bValue.Of(b)).Annotate()
+			ctx, _ = ns.To(ctx).Start(bMsg)
+			ns.To(ctx).With(bValue.Of(b)).Annotate()
 			return ctx
 		},
 		BEnd: func(ctx context.Context) {
-			event.To(ctx).End()
+			ns.To(ctx).End()
 		},
 	}
 
 	eventMetric = Hooks{
 		AStart: func(ctx context.Context, a int) context.Context {
-			event.To(ctx).With(aStat.Of(a)).Metric()
-			event.To(ctx).With(aCount.Of(1)).Metric()
+			ns.To(ctx).With(aStat.Of(a)).Metric()
+			ns.To(ctx).With(aCount.Of(1)).Metric()
 			return ctx
 		},
 		AEnd: func(ctx context.Context) {},
 		BStart: func(ctx context.Context, b string) context.Context {
-			event.To(ctx).With(bLength.Of(len(b))).Metric()
-			event.To(ctx).With(bCount.Of(1)).Metric()
+			ns.To(ctx).With(bLength.Of(len(b))).Metric()
+			ns.To(ctx).With(bCount.Of(1)).Metric()
 			return ctx
 		},
 		BEnd: func(ctx context.Context) {},
