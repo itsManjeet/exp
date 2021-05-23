@@ -23,14 +23,16 @@ var (
 	bCount  = keys.Int64("B")
 	bLength = keys.Int("BLen")
 
+	builder = event.NewBuilder("bench")
+
 	eventLog = Hooks{
 		AStart: func(ctx context.Context, a int) context.Context {
-			event.To(ctx).With(aValue.Of(a)).Log(aMsg)
+			builder.To(ctx).With(aValue.Of(a)).Log(aMsg)
 			return ctx
 		},
 		AEnd: func(ctx context.Context) {},
 		BStart: func(ctx context.Context, b string) context.Context {
-			event.To(ctx).With(bValue.Of(b)).Log(bMsg)
+			builder.To(ctx).With(bValue.Of(b)).Log(bMsg)
 			return ctx
 		},
 		BEnd: func(ctx context.Context) {},
@@ -38,12 +40,12 @@ var (
 
 	eventLogf = Hooks{
 		AStart: func(ctx context.Context, a int) context.Context {
-			event.To(ctx).Logf(aMsgf, a)
+			builder.To(ctx).Logf(aMsgf, a)
 			return ctx
 		},
 		AEnd: func(ctx context.Context) {},
 		BStart: func(ctx context.Context, b string) context.Context {
-			event.To(ctx).Logf(bMsgf, b)
+			builder.To(ctx).Logf(bMsgf, b)
 			return ctx
 		},
 		BEnd: func(ctx context.Context) {},
@@ -52,32 +54,32 @@ var (
 	eventTrace = Hooks{
 		AStart: func(ctx context.Context, a int) context.Context {
 			ctx, _ = event.Trace(ctx).Start(aMsg)
-			event.To(ctx).With(aValue.Of(a)).Annotate()
+			builder.To(ctx).With(aValue.Of(a)).Annotate()
 			return ctx
 		},
 		AEnd: func(ctx context.Context) {
-			event.To(ctx).End()
+			builder.To(ctx).End()
 		},
 		BStart: func(ctx context.Context, b string) context.Context {
 			ctx, _ = event.Trace(ctx).Start(bMsg)
-			event.To(ctx).With(bValue.Of(b)).Annotate()
+			builder.To(ctx).With(bValue.Of(b)).Annotate()
 			return ctx
 		},
 		BEnd: func(ctx context.Context) {
-			event.To(ctx).End()
+			builder.To(ctx).End()
 		},
 	}
 
 	eventMetric = Hooks{
 		AStart: func(ctx context.Context, a int) context.Context {
-			event.To(ctx).With(aStat.Of(a)).Metric()
-			event.To(ctx).With(aCount.Of(1)).Metric()
+			builder.To(ctx).With(aStat.Of(a)).Metric()
+			builder.To(ctx).With(aCount.Of(1)).Metric()
 			return ctx
 		},
 		AEnd: func(ctx context.Context) {},
 		BStart: func(ctx context.Context, b string) context.Context {
-			event.To(ctx).With(bLength.Of(len(b))).Metric()
-			event.To(ctx).With(bCount.Of(1)).Metric()
+			builder.To(ctx).With(bLength.Of(len(b))).Metric()
+			builder.To(ctx).With(bCount.Of(1)).Metric()
 			return ctx
 		},
 		BEnd: func(ctx context.Context) {},

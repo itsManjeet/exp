@@ -89,9 +89,9 @@ time=2020-03-05T14:27:52 id=5 span=1 kind=end
 	}, {
 		name: "multiple events",
 		events: func(ctx context.Context) {
-			b := event.To(ctx)
-			b.Clone().With(keys.Int("myInt").Of(6)).Log("my event")
-			b.With(keys.String("myString").Of("some string value")).Log("string event")
+			b := event.NewBuilder("test")
+			b.To(ctx).With(keys.Int("myInt").Of(6)).Log("my event")
+			b.To(ctx).With(keys.String("myString").Of("some string value")).Log("string event")
 		},
 		expect: `
 time=2020-03-05T14:27:48 id=1 kind=log msg="my event" myInt=6
