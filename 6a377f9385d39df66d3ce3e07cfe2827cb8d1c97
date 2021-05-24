@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a4f6b0d_64af2332",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-05-24T17:14:45Z",
+      "side": 1,
+      "message": "I think we should emit each retraction as a separate diagnostic, rather than combining them into a single diagnostic formatted as a section.\n\nThat should make this code a little simpler, too: no need to use a strings.Builder.",
+      "revId": "6a377f9385d39df66d3ce3e07cfe2827cb8d1c97",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0058c28_e4cace98",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 1382,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-05-24T17:14:45Z",
+      "side": 1,
+      "message": "Nit: maybe rename to loadRetractions? \"load\" makes it more clear to me that it\u0027s going to do some I/O work or run a command, rather than returning something that\u0027s already in memory.",
+      "range": {
+        "startLine": 1382,
+        "startChar": 3,
+        "endLine": 1382,
+        "endChar": 16
+      },
+      "revId": "6a377f9385d39df66d3ce3e07cfe2827cb8d1c97",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e58bb2dc_d44dd376",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 1384,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-05-24T17:14:45Z",
+      "side": 1,
+      "message": "Let\u0027s also return the module author\u0027s rationale for the retraction.\n\nI\u0027d suggest using the JSON output for that, rather than formatting and parsing strings, since retractions can include arbitrary characters (possibly unsafe for the terminal).\n\nWe may need to copy some code from cmd/go for formatting retraction errors. See ModuleRetractedError.Error in https://go.googlesource.com/go/+/refs/tags/go1.16.4/src/cmd/go/internal/modload/modfile.go#180. The Rationale []string field there is the same as the Retracted field here.",
+      "revId": "6a377f9385d39df66d3ce3e07cfe2827cb8d1c97",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb7aeea7_3c77728d",
+        "filename": "cmd/gorelease/testdata/mod/example.com_retractdep_v1.0.1.txt",
+        "patchSetId": 5
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-05-24T17:14:45Z",
+      "side": 1,
+      "message": "Rationale comments can be written right above the retract directive, or afterward on the same line. \u0027go get\u0027 and \u0027go list\u0027 can show them. gorelease probably should, too.",
+      "revId": "6a377f9385d39df66d3ce3e07cfe2827cb8d1c97",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
