@@ -9,6 +9,13 @@ import (
 	"time"
 )
 
+// preallocateLabels controls the space reserved for labels in a builder.
+// Storing the first few labels directly in builders can avoid an allocation at
+// all for the very common cases of simple events. The length needs to be large
+// enough to cope with the majority of events but no so large as to cause undue
+// stack pressure.
+const preallocateLabels = 4
+
 // Event holds the information about an event that occurred.
 // It combines the event metadata with the user supplied labels.
 type Event struct {
@@ -17,6 +24,7 @@ type Event struct {
 	At      time.Time // time at which the event is delivered to the exporter.
 	Message string
 	Labels  []Label
+	pLabels [preallocateLabels]Label
 }
 
 // LogHandler is a the type for something that handles log events as they occur.

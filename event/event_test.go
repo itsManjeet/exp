@@ -8,6 +8,7 @@ package event_test
 
 import (
 	"context"
+	"fmt"
 	"os"
 	"strings"
 	"testing"
@@ -90,24 +91,50 @@ time=2020-03-05T14:27:52 id=5 span=1 kind=end
 		name: "multiple events",
 		events: func(ctx context.Context) {
 			b := event.To(ctx)
-			b.Clone().With(keys.Int("myInt").Of(6)).Log("my event")
+			b.With(keys.Int("myInt").Of(6)).Log("my event")
 			b.With(keys.String("myString").Of("some string value")).Log("string event")
 		},
 		expect: `
 time=2020-03-05T14:27:48 id=1 kind=log msg="my event" myInt=6
 time=2020-03-05T14:27:49 id=2 kind=log msg="string event" myString="some string value"
 `}} {
-		buf := &strings.Builder{}
-		e := event.NewExporter(logfmt.NewPrinter(buf))
-		e.Now = eventtest.TestNow()
-		ctx := event.WithExporter(ctx, e)
-		test.events(ctx)
-		got := strings.TrimSpace(buf.String())
+		got := eventString(ctx, test.events)
 		expect := strings.TrimSpace(test.expect)
 		if got != expect {
 			t.Errorf("%s failed\ngot   : %s\nexpect: %s", test.name, got, expect)
 		}
 	}
+}
+
+// Verify code paths where there are more labels than the preallocated space
+// allows.
+// TODO: tie this test to the preallocateLabels constant.
+func TestManyLabels(t *testing.T) {
+	got := eventString(context.Background(), func(ctx context.Context) {
+		b := event.To(ctx)
+		for i := 0; i < 8; i++ {
+			b = b.With(keys.Int(fmt.Sprintf("k%d", i)).Of(i))
+		}
+		b.Log("many")
+		b.Log("more")
+	})
+	want := `
+time=2020-03-05T14:27:48 id=1 kind=log msg=many k0=0 k1=1 k2=2 k3=3 k4=4 k5=5 k6=6 k7=7
+time=2020-03-05T14:27:49 id=2 kind=log msg=more k0=0 k1=1 k2=2 k3=3 k4=4 k5=5 k6=6 k7=7
+`
+	want = strings.TrimSpace(want)
+	if got != want {
+		t.Errorf("got\n%s\n\nexpect\n%s", got, want)
+	}
+}
+
+func eventString(ctx context.Context, events func(context.Context)) string {
+	buf := &strings.Builder{}
+	e := event.NewExporter(logfmt.NewPrinter(buf))
+	e.Now = eventtest.TestNow()
+	ctx = event.WithExporter(ctx, e)
+	events(ctx)
+	return strings.TrimSpace(buf.String())
 }
 
 func ExampleLog() {

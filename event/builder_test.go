@@ -24,19 +24,19 @@ func TestClone(t *testing.T) {
 
 	ctx := event.WithExporter(context.Background(), event.NewExporter(nil))
 	b1 := event.To(ctx)
-	b1.With(labels[0]).With(labels[1])
+	b1 = b1.With(labels[0]).With(labels[1])
 	check(t, b1, labels[:2])
-	b2 := b1.Clone()
+	b2 := b1
 	check(t, b1, labels[:2])
 	check(t, b2, labels[:2])
 
-	b2.With(labels[2])
+	b2 = b2.With(labels[2])
 	check(t, b1, labels[:2])
 	check(t, b2, labels[:3])
 
 	// Force a new backing array for b.Event.Labels.
 	for i := 3; i < len(labels); i++ {
-		b2.With(labels[i])
+		b2 = b2.With(labels[i])
 	}
 	check(t, b1, labels[:2])
 	check(t, b2, labels)
@@ -46,14 +46,14 @@ func TestClone(t *testing.T) {
 	check(t, b1, labels[:2])
 	check(t, b2, []event.Label{})
 
-	b2.With(labels[3]).With(labels[4])
+	b2 = b2.With(labels[3]).With(labels[4])
 	check(t, b1, labels[:2])
 	check(t, b2, labels[3:5])
 }
 
 func check(t *testing.T, b event.Builder, want []event.Label) {
 	t.Helper()
-	if got := b.Event().Labels; !cmp.Equal(got, want, cmp.Comparer(valueEqual)) {
+	if got := b.Labels(); !cmp.Equal(got, want, cmp.Comparer(valueEqual)) {
 		t.Fatalf("got %v, want %v", got, want)
 	}
 }

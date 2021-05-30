@@ -15,173 +15,139 @@ import (
 
 // Builder is a fluent builder for construction of new events.
 type Builder struct {
-	ctx  context.Context
-	data *builder
-}
-
-// preallocateLabels controls the space reserved for labels in a builder.
-// Storing the first few labels directly in builders can avoid an allocation at
-// all for the very common cases of simple events. The length needs to be large
-// enough to cope with the majority of events but no so large as to cause undue
-// stack pressure.
-const preallocateLabels = 4
-
-type builder struct {
+	ctx      context.Context
 	exporter *Exporter
-	Event    Event
-	labels   [preallocateLabels]Label
+	parent   uint64
+	at       time.Time
+	nLabels  int                      // number of labels
+	pLabels  [preallocateLabels]Label // holds all labels when nLabels <= preallocateLabels
+	aLabels  []Label                  // holds all labels when nLabels > preallocateLabels
 }
-
-var builderPool = sync.Pool{New: func() interface{} { return &builder{} }}
 
 // To initializes a builder from the values stored in a context.
 func To(ctx context.Context) Builder {
-	return Builder{ctx: ctx, data: newBuilder(ctx)}
-}
-
-func newBuilder(ctx context.Context) *builder {
 	exporter, parent := fromContext(ctx)
 	if exporter == nil {
-		return nil
+		return Builder{ctx: ctx}
 	}
-	b := builderPool.Get().(*builder)
-	b.exporter = exporter
-	b.Event.Labels = b.labels[:0]
-	b.Event.Parent = parent
-	return b
+	return Builder{
+		ctx:      ctx,
+		exporter: exporter,
+		parent:   parent,
+	}
 }
 
-// Clone returns a copy of this builder.
-// The two copies can be independently delivered.
-func (b Builder) Clone() Builder {
-	if b.data == nil {
+// With adds a new label to the returned builder. All events delivered from it
+// will have the label. The receiver is unchanged.
+func (b Builder) With(l Label) Builder {
+	if b.exporter == nil {
 		return b
 	}
-	clone := Builder{ctx: b.ctx, data: builderPool.Get().(*builder)}
-	*clone.data = *b.data
-	if len(b.data.Event.Labels) == 0 || &b.data.labels[0] == &b.data.Event.Labels[0] {
-		clone.data.Event.Labels = clone.data.labels[:len(b.data.Event.Labels)]
+	if b.nLabels < len(b.pLabels) {
+		b.pLabels[b.nLabels] = l
 	} else {
-		clone.data.Event.Labels = make([]Label, len(b.data.Event.Labels))
-		copy(clone.data.Event.Labels, b.data.Event.Labels)
+		if b.nLabels == len(b.pLabels) {
+			// The line
+			//    b.labels = append(b.plabels[:], l)
+			// causes an allocation (presumably b escaping), even if it isn't
+			// reached. So do the append manually.
+			b.aLabels = make([]Label, len(b.pLabels), 2*len(b.pLabels))
+			copy(b.aLabels, b.pLabels[:])
+		}
+		b.aLabels = append(b.aLabels, l)
 	}
-	return clone
-}
-
-// With adds a new label to the event being constructed.
-func (b Builder) With(label Label) Builder {
-	if b.data != nil {
-		b.data.Event.Labels = append(b.data.Event.Labels, label)
-	}
+	b.nLabels++
 	return b
 }
 
 // WithAll adds all the supplied labels to the event being constructed.
 func (b Builder) WithAll(labels ...Label) Builder {
-	if b.data == nil || len(labels) == 0 {
+	if b.exporter == nil || len(labels) == 0 {
 		return b
 	}
-	if len(b.data.Event.Labels) == 0 {
-		b.data.Event.Labels = labels
-	} else {
-		b.data.Event.Labels = append(b.data.Event.Labels, labels...)
+	// TODO: optimize
+	for _, l := range labels {
+		b = b.With(l)
 	}
 	return b
 }
 
 func (b Builder) At(t time.Time) Builder {
-	if b.data != nil {
-		b.data.Event.At = t
+	if b.exporter == nil {
+		return b
 	}
+	b.at = t
 	return b
 }
 
 // Log is a helper that calls Deliver with LogKind.
 func (b Builder) Log(message string) {
-	if b.data == nil {
+	if b.exporter == nil || b.exporter.log == nil {
 		return
 	}
-	if b.data.exporter.log != nil {
-		b.log(message)
-	}
-	b.done()
+	b.log(message)
 }
 
 // Logf is a helper that uses fmt.Sprint to build the message and then
 // calls Deliver with LogKind.
 func (b Builder) Logf(template string, args ...interface{}) {
-	if b.data == nil {
+	if b.exporter == nil || b.exporter.log == nil {
 		return
 	}
-	if b.data.exporter.log != nil {
-		b.log(fmt.Sprintf(template, args...))
-	}
-	b.done()
+	b.log(fmt.Sprintf(template, args...))
 }
 
 func (b Builder) log(message string) {
-	b.data.exporter.mu.Lock()
-	defer b.data.exporter.mu.Unlock()
-	b.data.Event.Message = message
-	b.data.exporter.prepare(&b.data.Event)
-	b.data.exporter.log.Log(b.ctx, &b.data.Event)
+	e := newEvent(b.parent)
+	defer freeEvent(e)
+	e.Message = message
+	b.prepare(e)
+	b.exporter.mu.Lock()
+	defer b.exporter.mu.Unlock()
+	b.exporter.prepare(e)
+	b.exporter.log.Log(b.ctx, e)
 }
 
 // Metric is a helper that calls Deliver with MetricKind.
 func (b Builder) Metric() {
-	if b.data == nil {
+	if b.exporter == nil || b.exporter.metric == nil {
 		return
 	}
-	if b.data.exporter.metric != nil {
-		b.data.exporter.mu.Lock()
-		defer b.data.exporter.mu.Unlock()
-		b.data.exporter.prepare(&b.data.Event)
-		b.data.exporter.metric.Metric(b.ctx, &b.data.Event)
-	}
-	b.done()
+	e := newEvent(b.parent)
+	defer freeEvent(e)
+	b.prepare(e)
+	b.exporter.mu.Lock()
+	defer b.exporter.mu.Unlock()
+	b.exporter.prepare(e)
+	b.exporter.metric.Metric(b.ctx, e)
 }
 
 // Annotate is a helper that calls Deliver with AnnotateKind.
 func (b Builder) Annotate() {
-	if b.data == nil {
+	if b.exporter == nil || b.exporter.annotate == nil {
 		return
 	}
-	if b.data.exporter.annotate != nil {
-		b.data.exporter.mu.Lock()
-		defer b.data.exporter.mu.Unlock()
-		b.data.exporter.prepare(&b.data.Event)
-		b.data.exporter.annotate.Annotate(b.ctx, &b.data.Event)
-	}
-	b.done()
+	e := newEvent(b.parent)
+	defer freeEvent(e)
+	b.prepare(e)
+	b.exporter.mu.Lock()
+	defer b.exporter.mu.Unlock()
+	b.exporter.prepare(e)
+	b.exporter.annotate.Annotate(b.ctx, e)
 }
 
 // End is a helper that calls Deliver with EndKind.
 func (b Builder) End() {
-	if b.data == nil {
+	if b.exporter == nil || b.exporter.trace == nil {
 		return
 	}
-	if b.data.exporter.trace != nil {
-		b.data.exporter.mu.Lock()
-		defer b.data.exporter.mu.Unlock()
-		b.data.exporter.prepare(&b.data.Event)
-		b.data.exporter.trace.End(b.ctx, &b.data.Event)
-	}
-	b.done()
-}
-
-// Event returns a copy of the event currently being built.
-func (b Builder) Event() *Event {
-	clone := b.data.Event
-	if len(b.data.Event.Labels) > 0 {
-		clone.Labels = make([]Label, len(b.data.Event.Labels))
-		copy(clone.Labels, b.data.Event.Labels)
-	}
-	return &clone
-}
-
-func (b Builder) done() {
-	*b.data = builder{}
-	builderPool.Put(b.data)
+	e := newEvent(b.parent)
+	defer freeEvent(e)
+	b.prepare(e)
+	b.exporter.mu.Lock()
+	defer b.exporter.mu.Unlock()
+	b.exporter.prepare(e)
+	b.exporter.trace.End(b.ctx, e)
 }
 
 // Start delivers a start event with the given name and labels.
@@ -190,27 +156,81 @@ func (b Builder) done() {
 // All events created from the returned context will have this start event
 // as their parent.
 func (b Builder) Start(name string) (context.Context, func()) {
-	if b.data == nil {
+	if b.exporter == nil || b.exporter.trace == nil {
 		return b.ctx, func() {}
 	}
-	ctx := b.ctx
-	end := func() {}
-	if b.data.exporter.trace != nil {
-		b.data.exporter.mu.Lock()
-		defer b.data.exporter.mu.Unlock()
-		b.data.exporter.prepare(&b.data.Event)
-		// create the end builder
-		eb := Builder{}
-		eb.data = builderPool.Get().(*builder)
-		eb.data.exporter = b.data.exporter
-		eb.data.Event.Parent = b.data.Event.ID
-		// and now deliver the start event
-		b.data.Event.Message = name
-		ctx = newContext(ctx, b.data.exporter, b.data.Event.ID)
-		ctx = b.data.exporter.trace.Start(ctx, &b.data.Event)
-		eb.ctx = ctx
-		end = eb.End
+	exp := b.exporter
+	se := newEvent(b.parent)
+	defer freeEvent(se)
+	se.Message = name
+	b.prepare(se)
+	exp.mu.Lock()
+	defer exp.mu.Unlock()
+	exp.prepare(se)
+	ctx := newContext(b.ctx, exp, se.ID)
+	ctx = exp.trace.Start(ctx, se)
+	// Remember values to use in the end closure.
+	var (
+		pLabels [preallocateLabels]Label
+		labels  []Label
+	)
+	nLabels := b.nLabels
+	if nLabels <= len(b.pLabels) {
+		copy(pLabels[:], b.pLabels[:b.nLabels])
+	} else {
+		labels = b.aLabels
 	}
-	b.done()
+	parent := se.ID
+	end := func() {
+		exp.mu.Lock()
+		defer exp.mu.Unlock()
+		ee := newEvent(parent)
+		defer freeEvent(ee)
+		// Don't call b.prepare; we don't want to capture b.
+		// Ignore b.at; use exp.Now.
+		// Use the same labels as the start event.
+		if nLabels <= len(pLabels) {
+			ee.pLabels = pLabels
+			ee.Labels = ee.pLabels[:nLabels]
+		} else {
+			ee.Labels = labels
+		}
+		exp.prepare(ee)
+		exp.trace.End(ctx, ee)
+	}
 	return ctx, end
+}
+
+func (b Builder) prepare(e *Event) {
+	e.At = b.at
+	if b.nLabels <= len(b.pLabels) {
+		// All the labels are in b.pLabels.
+		e.pLabels = b.pLabels
+		e.Labels = e.pLabels[:b.nLabels]
+	} else {
+		// All the labels are in b.aLabels; ignore b.pLabels.
+		e.Labels = b.aLabels
+	}
+}
+
+// This allocates. Used for tests.
+func (b Builder) Labels() []Label {
+	if b.nLabels <= len(b.pLabels) {
+		return b.pLabels[:b.nLabels]
+	}
+	return b.aLabels
+}
+
+var eventPool = sync.Pool{New: func() interface{} { return &Event{} }}
+
+func newEvent(parent uint64) *Event {
+	e := eventPool.Get().(*Event)
+	e.Parent = parent
+	return e
+}
+
+func freeEvent(e *Event) {
+	e.At = time.Time{}
+	e.Message = ""
+	eventPool.Put(e)
 }
