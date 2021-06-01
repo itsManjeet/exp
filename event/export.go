@@ -65,6 +65,9 @@ func NewExporter(handler Handler) *Exporter {
 }
 
 func (opts ExporterOptions) NewExporter(handler Handler) *Exporter {
+	if handler == nil {
+		panic("handler must not be nil")
+	}
 	return &Exporter{opts: opts, handler: handler}
 }
 
