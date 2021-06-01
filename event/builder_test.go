@@ -9,6 +9,7 @@ package event_test
 import (
 	"context"
 	"fmt"
+	"strings"
 	"testing"
 
 	"github.com/google/go-cmp/cmp"
@@ -87,4 +88,39 @@ func (t *testTraceHandler) End(ctx context.Context, _ *event.Event) {
 	if val != 1 {
 		t.t.Fatal("Start context not passed to End")
 	}
+}
+
+func TestFailToClone(t *testing.T) {
+	ctx := event.WithExporter(context.Background(), event.NewExporter(nil))
+
+	catch := func(f func()) {
+		defer func() {
+			r := recover()
+			if r == nil {
+				t.Error("expected panic, did not get one")
+				return
+			}
+			got, ok := r.(string)
+			if !ok || !strings.Contains(got, "Clone") {
+				t.Errorf("got panic(%v), want string with 'Clone'", r)
+			}
+		}()
+
+		f()
+	}
+
+	catch(func() {
+		b1 := event.To(ctx)
+		b1.Log("msg1")
+		// Reuse of Builder without Clone; b1.data has been cleared.
+		b1.Log("msg2")
+	})
+
+	catch(func() {
+		b1 := event.To(ctx)
+		b1.Log("msg1")
+		_ = event.To(ctx) // re-allocate the builder
+		// b1.data is populated, but with the wrong information.
+		b1.Log("msg2")
+	})
 }
