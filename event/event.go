@@ -18,33 +18,10 @@ type Event struct {
 	Labels []Label
 }
 
-// LogHandler is a the type for something that handles log events as they occur.
-type LogHandler interface {
-	// Log indicates a logging event.
-	Log(context.Context, *Event)
-}
-
-// MetricHandler is a the type for something that handles metric events as they
-// occur.
-type MetricHandler interface {
-	// Metric indicates a metric record event.
-	Metric(context.Context, *Event)
-}
-
-// AnnotateHandler is a the type for something that handles annotate events as
-// they occur.
-type AnnotateHandler interface {
-	// Annotate reports label values at a point in time.
-	Annotate(context.Context, *Event)
-}
-
-// TraceHandler is a the type for something that handles start and end events as
-// they occur.
-type TraceHandler interface {
-	// Start indicates a trace start event.
-	Start(context.Context, *Event) context.Context
-	// End indicates a trace end event.
-	End(context.Context, *Event)
+// Handler is a the type for something that handles events as they occur.
+type Handler interface {
+	// Handle is called with all events delivered by the exporter.
+	Handle(context.Context, *Event) context.Context
 }
 
 // WithExporter returns a context with the exporter attached.

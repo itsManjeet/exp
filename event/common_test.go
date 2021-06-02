@@ -62,29 +62,9 @@ type catchHandler struct {
 	ev event.Event
 }
 
-func (h *catchHandler) Log(ctx context.Context, ev *event.Event) {
-	h.event(ctx, ev)
-}
-
-func (h *catchHandler) Metric(ctx context.Context, ev *event.Event) {
-	h.event(ctx, ev)
-}
-
-func (h *catchHandler) Annotate(ctx context.Context, ev *event.Event) {
-	h.event(ctx, ev)
-}
-
-func (h *catchHandler) Start(ctx context.Context, ev *event.Event) context.Context {
-	h.event(ctx, ev)
-	return ctx
-}
-
-func (h *catchHandler) End(ctx context.Context, ev *event.Event) {
-	h.event(ctx, ev)
-}
-
-func (h *catchHandler) event(ctx context.Context, ev *event.Event) {
+func (h *catchHandler) Handle(ctx context.Context, ev *event.Event) context.Context {
 	h.ev = *ev
 	h.ev.Labels = make([]event.Label, len(ev.Labels))
 	copy(h.ev.Labels, ev.Labels)
+	return ctx
 }

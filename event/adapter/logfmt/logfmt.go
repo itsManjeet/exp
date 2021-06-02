@@ -21,39 +21,23 @@ type Printer struct {
 	needSep bool
 }
 
-type Handler struct {
+type handler struct {
 	to      io.Writer
 	printer Printer
 }
 
 // NewHandler returns a handler that prints the events to the supplied writer.
 // Each event is printed in logfmt format on a single line.
-func NewHandler(to io.Writer) *Handler {
-	return &Handler{to: to}
+func NewHandler(to io.Writer) event.Handler {
+	return &handler{to: to}
 }
 
-func (h *Handler) Log(ctx context.Context, ev *event.Event) {
-	h.printer.Event(h.to, "log", ev)
-}
-
-func (h *Handler) Metric(ctx context.Context, ev *event.Event) {
-	h.printer.Event(h.to, "metric", ev)
-}
-
-func (h *Handler) Annotate(ctx context.Context, ev *event.Event) {
-	h.printer.Event(h.to, "annotate", ev)
-}
-
-func (h *Handler) Start(ctx context.Context, ev *event.Event) context.Context {
-	h.printer.Event(h.to, "start", ev)
+func (h *handler) Handle(ctx context.Context, ev *event.Event) context.Context {
+	h.printer.Event(h.to, ev)
 	return ctx
 }
 
-func (h *Handler) End(ctx context.Context, ev *event.Event) {
-	h.printer.Event(h.to, "end", ev)
-}
-
-func (p *Printer) Event(w io.Writer, kind string, ev *event.Event) {
+func (p *Printer) Event(w io.Writer, ev *event.Event) {
 	const timeFormat = "2006-01-02T15:04:05"
 	p.needSep = false
 	if !ev.At.IsZero() {
@@ -65,10 +49,6 @@ func (p *Printer) Event(w io.Writer, kind string, ev *event.Event) {
 	}
 	if ev.Parent != 0 {
 		p.label(w, "parent", event.BytesOf(strconv.AppendUint(p.buf[:0], ev.Parent, 10)))
-	}
-
-	if kind != "log" && kind != "start" {
-		p.label(w, "kind", event.StringOf(kind))
 	}
 
 	for _, l := range ev.Labels {
