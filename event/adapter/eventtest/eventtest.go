@@ -42,6 +42,9 @@ func (h *testHandler) Handle(ctx context.Context, ev *event.Event) context.Conte
 func FixedNow(ctx context.Context) {
 	nextTime, _ := time.Parse(time.RFC3339Nano, "2020-03-05T14:27:48Z")
 	e, _ := event.FromContext(ctx)
+	if e == nil {
+		return
+	}
 	e.Now = func() time.Time {
 		thisTime := nextTime
 		nextTime = nextTime.Add(time.Second)
