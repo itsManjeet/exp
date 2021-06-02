@@ -97,6 +97,13 @@ func (b Builder) At(t time.Time) Builder {
 	return b
 }
 
+func (b Builder) Namespace(ns string) Builder {
+	if b.data != nil {
+		b.data.Event.Namespace = ns
+	}
+	return b
+}
+
 // Log is a helper that calls Deliver with LogKind.
 func (b Builder) Log(message string) {
 	if b.data == nil {
@@ -109,7 +116,13 @@ func (b Builder) Log(message string) {
 // Logf is a helper that uses fmt.Sprint to build the message and then
 // calls Deliver with LogKind.
 func (b Builder) Logf(template string, args ...interface{}) {
-	b.Log(fmt.Sprintf(template, args...))
+	if b.data == nil {
+		return
+	}
+	message := fmt.Sprintf(template, args...)
+	// Duplicate code from Log so Exporter.deliver's invocation of runtime.Callers is correct.
+	b.data.Event.Labels = append(b.data.Event.Labels, Message.Of(message))
+	b.deliver()
 }
 
 // Metric is a helper that calls Deliver with MetricKind.

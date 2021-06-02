@@ -8,6 +8,8 @@ package event
 
 import (
 	"context"
+	"runtime"
+	"strings"
 	"sync"
 	"sync/atomic"
 	"time"
@@ -18,9 +20,10 @@ import (
 type Exporter struct {
 	Now func() time.Time
 
-	mu        sync.Mutex
-	handler   Handler
-	lastEvent uint64
+	mu            sync.Mutex
+	handler       Handler
+	lastEvent     uint64
+	pcToNamespace map[uintptr]string
 }
 
 // contextKey is used as the key for storing a contextValue on the context.
@@ -50,8 +53,9 @@ func NewExporter(handler Handler) *Exporter {
 		handler = noopHandler{}
 	}
 	return &Exporter{
-		Now:     time.Now,
-		handler: handler,
+		Now:           time.Now,
+		handler:       handler,
+		pcToNamespace: map[uintptr]string{},
 	}
 }
 
@@ -82,7 +86,53 @@ func (e *Exporter) deliver(ctx context.Context, ev *Event) context.Context {
 	if e.Now != nil && ev.At.IsZero() {
 		ev.At = e.Now()
 	}
+	var pc uintptr
+	if ev.Namespace == "" {
+		// Get the pc of the user function that delivered the event.
+		// This is sensitive to the call stack.
+		// 0: runtime.Callers
+		// 1: Exporter.deliver (this function)
+		// 2: Builder.deliver
+		// 3: Builder.{Start,End,etc.}
+		// 4: user function
+		var pcs [1]uintptr
+		runtime.Callers(4, pcs[:])
+		pc = pcs[0]
+	}
 	e.mu.Lock()
 	defer e.mu.Unlock()
+	if pc != 0 {
+		ns, ok := e.pcToNamespace[pc]
+		if !ok {
+			// If we call runtime.CallersFrames(pcs[:1]) in this function, the
+			// compiler will think the pcs array escapes and will allocate.
+			f := callerFrameFunction(pc)
+			ns = namespace(f)
+			e.pcToNamespace[pc] = ns
+		}
+		ev.Namespace = ns
+	}
 	return e.handler.Handle(ctx, ev)
+}
+
+func callerFrameFunction(pc uintptr) string {
+	frame, _ := runtime.CallersFrames([]uintptr{pc}).Next()
+	return frame.Function
+}
+
+func namespace(funcPath string) string {
+	// Function is the fully-qualified function name. The name itself may
+	// have dots (for a closure, for instance), but it can't have slashes.
+	// So the package path ends at the first dot after the last slash.
+	i := strings.LastIndexByte(funcPath, '/')
+	if i < 0 {
+		i = 0
+	}
+	end := strings.IndexByte(funcPath[i:], '.')
+	if end >= 0 {
+		end += i
+	} else {
+		end = len(funcPath)
+	}
+	return funcPath[:end]
 }
