@@ -100,6 +100,30 @@
       },
       "revId": "932902e061bdd2ef4a75f2b0c3d65bda43a20081",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "528b37ac_d62d661d",
+        "filename": "cmd/gorelease/testdata/basic/v1_v2_base_version_verify.test",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-06-02T17:21:41Z",
+      "side": 1,
+      "message": "\u003e Perhaps \u0027go mod vet\u0027 should not let the user specify a base version at all: it would only compare against the next lower version of the same module. \n\nWithout thinking about it too much, this seems like a good idea to me.\n\n\u003e \u0027go mod diff\u0027 would allow comparison between any two versions but would not make a judgment about whether the release version is valid or not.\n\nAlso SGTM.\n\n----------\n\nThanks for explaining!\n\nAs a last question: do you think #40913 is still somewhat unfulfilled after this CL? It seems like the user specifically wants diff (in order to generate changelogs), despite the title of their issue being about allowing major version comparisons. Although this satisfies the title of the issue, it does not seem to allow users to diff. 🤔\n\nI am probably missing something, so if this seems moot let me know. The contents of the CL look great to me and I am of course happy to +2. :D",
+      "parentUuid": "597675ca_b7dcc755",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 52
+      },
+      "revId": "932902e061bdd2ef4a75f2b0c3d65bda43a20081",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
