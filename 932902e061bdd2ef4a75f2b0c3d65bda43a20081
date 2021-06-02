@@ -76,6 +76,30 @@
       },
       "revId": "932902e061bdd2ef4a75f2b0c3d65bda43a20081",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "597675ca_b7dcc755",
+        "filename": "cmd/gorelease/testdata/basic/v1_v2_base_version_verify.test",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-06-02T16:47:55Z",
+      "side": 1,
+      "message": "To answer at a technical level, this is saying that there weren\u0027t any changes between example.com/basic@v1.1.0 and the current directory that would make example.com/basic/v2@v2.1.0 an invalid version.\n\nYou\u0027re right though, this isn\u0027t a really useful statement, both because all changes are allowed between major versions and also because v1.1.0 may not be the correct choice of base version.\n\nI think this is a case where that \u0027go mod vet\u0027 / gomoddiff split might be helpful. Perhaps \u0027go mod vet\u0027 should not let the user specify a base version at all: it would only compare against the next lower version of the same module. \u0027go mod diff\u0027 would allow comparison between any two versions but would not make a judgment about whether the release version is valid or not.\n\nWDYT? If that sounds good, I\u0027ll add a comment in https://github.com/golang/go/issues/46371.",
+      "parentUuid": "c0491b48_cd803975",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 52
+      },
+      "revId": "932902e061bdd2ef4a75f2b0c3d65bda43a20081",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
