@@ -30,31 +30,11 @@ type testHandler struct {
 	printer logfmt.Printer
 }
 
-func (h *testHandler) Log(ctx context.Context, ev *event.Event) {
-	h.event(ctx, "log", ev)
-}
-
-func (h *testHandler) Metric(ctx context.Context, ev *event.Event) {
-	h.event(ctx, "metric", ev)
-}
-
-func (h *testHandler) Annotate(ctx context.Context, ev *event.Event) {
-	h.event(ctx, "annotate", ev)
-}
-
-func (h *testHandler) Start(ctx context.Context, ev *event.Event) context.Context {
-	h.event(ctx, "start", ev)
-	return ctx
-}
-
-func (h *testHandler) End(ctx context.Context, ev *event.Event) {
-	h.event(ctx, "end", ev)
-}
-
-func (h *testHandler) event(ctx context.Context, kind string, ev *event.Event) {
+func (h *testHandler) Handle(ctx context.Context, ev *event.Event) context.Context {
 	//TODO: choose between stdout and stderr based on the event
 	//TODO: decide if we should be calling h.tb.Fail()
-	h.printer.Event(os.Stdout, kind, ev)
+	h.printer.Event(os.Stdout, ev)
+	return ctx
 }
 
 // FixedNow updates the exporter in the context to use a time function returned

@@ -19,10 +19,11 @@ type TestHandler struct {
 	Got event.Event
 }
 
-func (h *TestHandler) Log(_ context.Context, ev *event.Event) {
+func (h *TestHandler) Handle(ctx context.Context, ev *event.Event) context.Context {
 	h.Got = *ev
 	h.Got.Labels = make([]event.Label, len(ev.Labels))
 	copy(h.Got.Labels, ev.Labels)
+	return ctx
 }
 
 var TestAt = time.Now()

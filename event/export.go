@@ -19,10 +19,7 @@ type Exporter struct {
 	Now func() time.Time
 
 	mu        sync.Mutex
-	log       LogHandler
-	metric    MetricHandler
-	annotate  AnnotateHandler
-	trace     TraceHandler
+	handler   Handler
 	lastEvent uint64
 }
 
@@ -38,19 +35,24 @@ type contextValue struct {
 	parent   uint64
 }
 
+type noopHandler struct{}
+
+func (noopHandler) Handle(ctx context.Context, ev *Event) context.Context { return ctx }
+
 var (
 	defaultExporter unsafe.Pointer
 )
 
 // NewExporter creates an Exporter using the supplied handler.
 // Event delivery is serialized to enable safe atomic handling.
-func NewExporter(handler interface{}) *Exporter {
-	e := &Exporter{Now: time.Now}
-	e.log, _ = handler.(LogHandler)
-	e.metric, _ = handler.(MetricHandler)
-	e.annotate, _ = handler.(AnnotateHandler)
-	e.trace, _ = handler.(TraceHandler)
-	return e
+func NewExporter(handler Handler) *Exporter {
+	if handler == nil {
+		handler = noopHandler{}
+	}
+	return &Exporter{
+		Now:     time.Now,
+		handler: handler,
+	}
 }
 
 func setDefaultExporter(e *Exporter) {
@@ -73,13 +75,14 @@ func FromContext(ctx context.Context) (*Exporter, uint64) {
 	return getDefaultExporter(), 0
 }
 
-// prepare events before delivering to the underlying handler.
-// The event will be assigned a new ID.
+// deliver events to the underlying handler.
 // If the event does not have a timestamp, and the exporter has a Now function
 // then the timestamp will be updated.
-// prepare must be called with the export mutex held.
-func (e *Exporter) prepare(ev *Event) {
+func (e *Exporter) deliver(ctx context.Context, ev *Event) context.Context {
 	if e.Now != nil && ev.At.IsZero() {
 		ev.At = e.Now()
 	}
+	e.mu.Lock()
+	defer e.mu.Unlock()
+	return e.handler.Handle(ctx, ev)
 }

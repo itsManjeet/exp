@@ -22,23 +22,23 @@ func TestCommon(t *testing.T) {
 
 	event.To(ctx).Log(simple)
 	checkFind(t, h, "Log", event.Message, true, simple)
-	checkFind(t, h, "Log", event.Trace, false, "")
+	checkFind(t, h, "Log", event.Name, false, "")
 
 	event.To(ctx).Metric()
 	checkFind(t, h, "Metric", event.Message, false, "")
-	checkFind(t, h, "Metric", event.Trace, false, "")
+	checkFind(t, h, "Metric", event.Name, false, "")
 
 	event.To(ctx).Annotate()
 	checkFind(t, h, "Annotate", event.Message, false, "")
-	checkFind(t, h, "Annotate", event.Trace, false, "")
+	checkFind(t, h, "Annotate", event.Name, false, "")
 
 	_, end := event.To(ctx).Start(trace)
 	checkFind(t, h, "Start", event.Message, false, "")
-	checkFind(t, h, "Start", event.Trace, true, trace)
+	checkFind(t, h, "Start", event.Name, true, trace)
 
 	end()
 	checkFind(t, h, "End", event.Message, false, "")
-	checkFind(t, h, "End", event.Trace, false, "")
+	checkFind(t, h, "End", event.Name, false, "")
 }
 
 type finder interface {
@@ -62,29 +62,9 @@ type catchHandler struct {
 	ev event.Event
 }
 
-func (h *catchHandler) Log(ctx context.Context, ev *event.Event) {
-	h.event(ctx, ev)
-}
-
-func (h *catchHandler) Metric(ctx context.Context, ev *event.Event) {
-	h.event(ctx, ev)
-}
-
-func (h *catchHandler) Annotate(ctx context.Context, ev *event.Event) {
-	h.event(ctx, ev)
-}
-
-func (h *catchHandler) Start(ctx context.Context, ev *event.Event) context.Context {
-	h.event(ctx, ev)
-	return ctx
-}
-
-func (h *catchHandler) End(ctx context.Context, ev *event.Event) {
-	h.event(ctx, ev)
-}
-
-func (h *catchHandler) event(ctx context.Context, ev *event.Event) {
+func (h *catchHandler) Handle(ctx context.Context, ev *event.Event) context.Context {
 	h.ev = *ev
 	h.ev.Labels = make([]event.Label, len(ev.Labels))
 	copy(h.ev.Labels, ev.Labels)
+	return ctx
 }

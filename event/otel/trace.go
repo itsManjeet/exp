@@ -15,27 +15,27 @@ type TraceHandler struct {
 	tracer trace.Tracer
 }
 
-var _ event.TraceHandler = (*TraceHandler)(nil)
-
 func NewTraceHandler(t trace.Tracer) *TraceHandler {
 	return &TraceHandler{tracer: t}
 }
 
 type spanKey struct{}
 
-func (t *TraceHandler) Start(ctx context.Context, e *event.Event) context.Context {
-	opts := labelsToSpanOptions(e.Labels)
-	name, _ := event.Trace.Find(e)
-	octx, span := t.tracer.Start(ctx, name, opts...)
-	return context.WithValue(octx, spanKey{}, span)
-}
-
-func (t *TraceHandler) End(ctx context.Context, e *event.Event) {
-	span, ok := ctx.Value(spanKey{}).(trace.Span)
-	if !ok {
-		panic("End called on context with no span")
+func (t *TraceHandler) Handle(ctx context.Context, ev *event.Event) context.Context {
+	switch {
+	case ev.Is(event.Start):
+		opts := labelsToSpanOptions(ev.Labels)
+		name, _ := event.Name.Find(ev)
+		octx, span := t.tracer.Start(ctx, name, opts...)
+		return context.WithValue(octx, spanKey{}, span)
+	case ev.Is(event.End):
+		span, ok := ctx.Value(spanKey{}).(trace.Span)
+		if !ok {
+			panic("End called on context with no span")
+		}
+		span.End()
 	}
-	span.End()
+	return ctx
 }
 
 func labelsToSpanOptions(ls []event.Label) []trace.SpanOption {

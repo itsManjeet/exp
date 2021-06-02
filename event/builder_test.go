@@ -78,13 +78,17 @@ type testTraceHandler struct {
 	t *testing.T
 }
 
-func (*testTraceHandler) Start(ctx context.Context, _ *event.Event) context.Context {
-	return context.WithValue(ctx, "x", 1)
-}
-
-func (t *testTraceHandler) End(ctx context.Context, _ *event.Event) {
-	val := ctx.Value("x")
-	if val != 1 {
-		t.t.Fatal("Start context not passed to End")
+func (t *testTraceHandler) Handle(ctx context.Context, ev *event.Event) context.Context {
+	switch {
+	case ev.Is(event.Start):
+		return context.WithValue(ctx, "x", 1)
+	case ev.Is(event.End):
+		val := ctx.Value("x")
+		if val != 1 {
+			t.t.Error("Start context not passed to End")
+		}
+	default:
+		t.t.Error("unexpected event type")
 	}
+	return ctx
 }

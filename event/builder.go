@@ -10,6 +10,7 @@ import (
 	"context"
 	"fmt"
 	"sync"
+	"sync/atomic"
 	"time"
 )
 
@@ -101,30 +102,14 @@ func (b Builder) Log(message string) {
 	if b.data == nil {
 		return
 	}
-	if b.data.exporter.log != nil {
-		b.log(message)
-	}
-	b.done()
+	b.data.Event.Labels = append(b.data.Event.Labels, Message.Of(message))
+	b.deliver()
 }
 
 // Logf is a helper that uses fmt.Sprint to build the message and then
 // calls Deliver with LogKind.
 func (b Builder) Logf(template string, args ...interface{}) {
-	if b.data == nil {
-		return
-	}
-	if b.data.exporter.log != nil {
-		b.log(fmt.Sprintf(template, args...))
-	}
-	b.done()
-}
-
-func (b Builder) log(message string) {
-	b.data.exporter.mu.Lock()
-	defer b.data.exporter.mu.Unlock()
-	b.data.Event.Labels = append(b.data.Event.Labels, Message.Of(message))
-	b.data.exporter.prepare(&b.data.Event)
-	b.data.exporter.log.Log(b.ctx, &b.data.Event)
+	b.Log(fmt.Sprintf(template, args...))
 }
 
 // Metric is a helper that calls Deliver with MetricKind.
@@ -132,13 +117,7 @@ func (b Builder) Metric() {
 	if b.data == nil {
 		return
 	}
-	if b.data.exporter.metric != nil {
-		b.data.exporter.mu.Lock()
-		defer b.data.exporter.mu.Unlock()
-		b.data.exporter.prepare(&b.data.Event)
-		b.data.exporter.metric.Metric(b.ctx, &b.data.Event)
-	}
-	b.done()
+	b.deliver()
 }
 
 // Annotate is a helper that calls Deliver with AnnotateKind.
@@ -146,27 +125,7 @@ func (b Builder) Annotate() {
 	if b.data == nil {
 		return
 	}
-	if b.data.exporter.annotate != nil {
-		b.data.exporter.mu.Lock()
-		defer b.data.exporter.mu.Unlock()
-		b.data.exporter.prepare(&b.data.Event)
-		b.data.exporter.annotate.Annotate(b.ctx, &b.data.Event)
-	}
-	b.done()
-}
-
-// End is a helper that calls Deliver with EndKind.
-func (b Builder) End() {
-	if b.data == nil {
-		return
-	}
-	if b.data.exporter.trace != nil {
-		b.data.exporter.mu.Lock()
-		defer b.data.exporter.mu.Unlock()
-		b.data.exporter.prepare(&b.data.Event)
-		b.data.exporter.trace.End(b.ctx, &b.data.Event)
-	}
-	b.done()
+	b.deliver()
 }
 
 // Event returns a copy of the event currently being built.
@@ -179,11 +138,6 @@ func (b Builder) Event() *Event {
 	return &clone
 }
 
-func (b Builder) done() {
-	*b.data = builder{}
-	builderPool.Put(b.data)
-}
-
 // Start delivers a start event with the given name and labels.
 // Its second return value is a function that should be called to deliver the
 // matching end event.
@@ -193,26 +147,38 @@ func (b Builder) Start(name string) (context.Context, func()) {
 	if b.data == nil {
 		return b.ctx, func() {}
 	}
-	ctx := b.ctx
-	end := func() {}
-	if b.data.exporter.trace != nil {
-		b.data.exporter.mu.Lock()
-		defer b.data.exporter.mu.Unlock()
-		b.data.exporter.lastEvent++
-		b.data.Event.ID = b.data.exporter.lastEvent
-		b.data.exporter.prepare(&b.data.Event)
-		// create the end builder
-		eb := Builder{}
-		eb.data = builderPool.Get().(*builder)
-		eb.data.exporter = b.data.exporter
-		eb.data.Event.Parent = b.data.Event.ID
-		// and now deliver the start event
-		b.data.Event.Labels = append(b.data.Event.Labels, Trace.Of(name))
-		ctx = newContext(ctx, b.data.exporter, b.data.Event.ID)
-		ctx = b.data.exporter.trace.Start(ctx, &b.data.Event)
-		eb.ctx = ctx
-		end = eb.End
+	exporter := b.data.exporter
+	spanID := atomic.AddUint64(&exporter.lastEvent, 1)
+
+	// deliver the start event
+	b.ctx = newContext(b.ctx, exporter, spanID)
+	b.data.Event.ID = spanID
+	b.data.Event.Labels = append(b.data.Event.Labels, Name.Of(name))
+	ctx := b.deliver()
+
+	// construct the end event
+	eb := Builder{
+		ctx:  ctx,
+		data: builderPool.Get().(*builder),
 	}
-	b.done()
-	return ctx, end
+	eb.data.exporter = exporter
+	eb.data.Event.Parent = spanID
+	eb.data.Event.Labels = eb.data.labels[:0]
+
+	return ctx, eb.End
+}
+
+func (b Builder) End() {
+	if b.data == nil {
+		return
+	}
+	b.data.Event.Labels = append(b.data.Event.Labels, End.Value())
+	b.deliver()
+}
+
+func (b *Builder) deliver() context.Context {
+	ctx := b.data.exporter.deliver(b.ctx, &b.data.Event)
+	*b.data = builder{}
+	builderPool.Put(b.data)
+	return ctx
 }
