@@ -51,13 +51,13 @@ var (
 )
 
 // NewExporter creates an Exporter using the supplied handler.
+// All options have their default values except Now, which is set to time.Now.
 // Event delivery is serialized to enable safe atomic handling.
-func NewExporter(handler Handler) *Exporter {
-	return (ExporterOptions{}).NewExporter(handler)
-}
-
-func (opts ExporterOptions) NewExporter(handler Handler) *Exporter {
-	return &Exporter{opts: opts, handler: handler}
+func NewExporter(handler Handler, opts *ExporterOptions) *Exporter {
+	if opts == nil {
+		opts = &ExporterOptions{Now: time.Now}
+	}
+	return &Exporter{opts: *opts, handler: handler}
 }
 
 func setDefaultExporter(e *Exporter) {
