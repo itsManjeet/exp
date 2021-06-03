@@ -55,6 +55,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c463175_20aec21d",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-06-03T19:50:40Z",
+      "side": 1,
+      "message": "Done\n\nDoh, thanks.",
+      "parentUuid": "fed8bb87_74f64eda",
+      "revId": "dd66c2e745982fe3c7a2134b783e6cbebe5b786a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7bd3c0fb_191cfc10",
@@ -68,6 +86,30 @@
       "writtenOn": "2021-06-01T20:44:28Z",
       "side": 1,
       "message": "Let\u0027s rephrase this a bit.\n\n  \"required module %s@%s retracted by module author: %s\"\n\n\"required module\" hints that this is a \"require\" dependency in go.mod (or at least, it can be fixed by changing requirements). \"retracted by module author\" is good to say regardless; modload.ModuleRetractedError always says that before the rationale to make it clear this is not the user\u0027s fault. Putting the rationale after a colon instead of in parenthesis is mostly convention.\n\nIf there\u0027s no rationale or if the rationale is literally \"retracted by module author\", we can skip it and drop the \": %s\" at the end.",
+      "range": {
+        "startLine": 1407,
+        "startChar": 46,
+        "endLine": 1407,
+        "endChar": 56
+      },
+      "revId": "dd66c2e745982fe3c7a2134b783e6cbebe5b786a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90bf4538_a419816f",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 1407,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-06-03T19:50:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7bd3c0fb_191cfc10",
       "range": {
         "startLine": 1407,
         "startChar": 46,
@@ -101,6 +143,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5139de31_0242d8fd",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 1417,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-06-03T19:50:40Z",
+      "side": 1,
+      "message": "Done\n\nWhoops, thanks.",
+      "parentUuid": "7083e97f_44e2aa18",
+      "range": {
+        "startLine": 1417,
+        "startChar": 5,
+        "endLine": 1417,
+        "endChar": 29
+      },
+      "revId": "dd66c2e745982fe3c7a2134b783e6cbebe5b786a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3f62efed_b8f83877",
@@ -114,6 +180,30 @@
       "writtenOn": "2021-06-01T20:44:28Z",
       "side": 1,
       "message": "The go command just uses the first rationale, so let\u0027s do that too instead of joining them.\n\nFor context, it\u0027s possible to retract a range of versions, not only a specific version. So a version might be retracted with a range for some general reason (e.g., security vulnerability found on all versions tagged on a minor version branch). Then a specific version within that range might be retracted for some other reason. Both rationales would be present in the JSON output.",
+      "range": {
+        "startLine": 1418,
+        "startChar": 14,
+        "endLine": 1418,
+        "endChar": 26
+      },
+      "revId": "dd66c2e745982fe3c7a2134b783e6cbebe5b786a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d94a6874_4de6b05c",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 1418,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-06-03T19:50:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f62efed_b8f83877",
       "range": {
         "startLine": 1418,
         "startChar": 14,
