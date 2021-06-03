@@ -57,6 +57,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "273b87e4_ac8186ce",
+        "filename": "event/export.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-06-03T21:03:37Z",
+      "side": 1,
+      "message": "That all sounds fine to me. I don\u0027t think any of it is necessary at this early stage. I think we need more experience to know what is right.",
+      "parentUuid": "4d65b433_cabf1e31",
+      "revId": "dc68602948457031f857b5dcb3dd50cff9ff9bae",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d1238920_8447876f",
         "filename": "event/export.go",
         "patchSetId": 1
@@ -68,6 +86,24 @@
       "writtenOn": "2021-06-03T17:07:56Z",
       "side": 1,
       "message": "I think it would be better to have NewExporter take ExporterOptions as a parameter rather than have a constructor method on the options.",
+      "revId": "dc68602948457031f857b5dcb3dd50cff9ff9bae",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc540670_ec4a91fb",
+        "filename": "event/export.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-06-03T21:03:37Z",
+      "side": 1,
+      "message": "Changed it. This pattern does feel a bit odd, but has the advantage that you don\u0027t have to pass anything extra to get the defaults. I\u0027ve seen it elsewhere in a Google API, but I can\u0027t recall where.",
+      "parentUuid": "d1238920_8447876f",
       "revId": "dc68602948457031f857b5dcb3dd50cff9ff9bae",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
