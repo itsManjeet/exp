@@ -9,10 +9,12 @@ const Name = stringKey("name")
 const Trace = traceKey("trace")
 const End = tagKey("end")
 const Metric = tagKey("metric")
+const Error = errorKey("error")
 
 type stringKey string
 type traceKey string
 type tagKey string
+type errorKey string
 
 // Of creates a new message Label.
 func (k stringKey) Of(msg string) Label {
@@ -64,4 +66,23 @@ func (k tagKey) Matches(ev *Event) bool {
 		}
 	}
 	return false
+}
+
+// Of creates a new error Label.
+func (k errorKey) Of(err error) Label {
+	return Label{Name: string(k), Value: ValueOf(err)}
+}
+
+func (k errorKey) Matches(ev *Event) bool {
+	_, found := k.Find(ev)
+	return found
+}
+
+func (k errorKey) Find(ev *Event) (error, bool) {
+	for i := len(ev.Labels) - 1; i >= 0; i-- {
+		if ev.Labels[i].Name == string(k) {
+			return ev.Labels[i].Value.Interface().(error), true
+		}
+	}
+	return nil, false
 }
