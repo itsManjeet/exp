@@ -90,6 +90,24 @@
       "parentUuid": "0e6ca688_ce3a095c",
       "revId": "7153d65d393be4d99019113f56753c1e2c334a9e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "148da71b_7400f09d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-06-04T16:17:59Z",
+      "side": 1,
+      "message": "(in response to:\n\nIs there a way to simulate \"exists in github, but doesn\u0027t have a version\" with the file proxy? All the files in mod/ appear to have a version.\n(Without the \"exists in github\" part, go list -m -versions reports a \"no matching versions for query\" error. When go list does find something in github (without versions), on the other hand, it returns the mod path without any version.)\n\n)",
+      "parentUuid": "51344abb_87a26fef",
+      "revId": "7153d65d393be4d99019113f56753c1e2c334a9e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
