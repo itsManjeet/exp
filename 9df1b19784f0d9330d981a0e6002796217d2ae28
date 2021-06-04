@@ -107,6 +107,24 @@
       "message": "Should probably invert this test and put the following code inside, just because the natural tendency would be to add another prepare step at the bottom of the function and not realize it would be skipped by this test.",
       "revId": "9df1b19784f0d9330d981a0e6002796217d2ae28",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f33f3e3_00fc1b59",
+        "filename": "event/export.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-06-04T13:12:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3be6553_764091d6",
+      "revId": "9df1b19784f0d9330d981a0e6002796217d2ae28",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
