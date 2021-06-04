@@ -108,6 +108,24 @@
       "parentUuid": "51344abb_87a26fef",
       "revId": "7153d65d393be4d99019113f56753c1e2c334a9e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d7e7736_de24f042",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-06-04T16:23:48Z",
+      "side": 1,
+      "message": "gorelease doesn\u0027t accept non-canonical versions. 😞\n\nI just removed the test, since the value here is very low for how much investigation this is taking.",
+      "parentUuid": "148da71b_7400f09d",
+      "revId": "7153d65d393be4d99019113f56753c1e2c334a9e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
