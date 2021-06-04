@@ -63,6 +63,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0810b3da_c214e404",
+        "filename": "event/builder.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-06-04T17:34:18Z",
+      "side": 1,
+      "message": "It slows down a no-op exporter by about 10%. \nWe could have an option for it. I\u0027d vote for defaulting it to on.",
+      "parentUuid": "ea3e25d2_7c83f5bd",
+      "range": {
+        "startLine": 21,
+        "startChar": 1,
+        "endLine": 21,
+        "endChar": 10
+      },
+      "revId": "2e54981641c4e49de19cfa52192e8dd52d1420e9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1ac3e7ea_c2eb80a2",
         "filename": "event/builder.go",
         "patchSetId": 2
