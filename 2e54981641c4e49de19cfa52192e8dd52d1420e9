@@ -59,6 +59,29 @@
       },
       "revId": "2e54981641c4e49de19cfa52192e8dd52d1420e9",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ac3e7ea_c2eb80a2",
+        "filename": "event/builder.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 9711
+      },
+      "writtenOn": "2021-06-04T04:27:12Z",
+      "side": 1,
+      "message": "I had to change this as it breaks if there is no exporter (the b.id in the Builder constructor is a nil deref)\nnewBuilder is only used here, so I replaced it all with\n\nfunc To(ctx context.Context) Builder {\n\tb :\u003d Builder{ctx: ctx}\n\texporter, parent :\u003d FromContext(ctx)\n\tif exporter \u003d\u003d nil {\n\t\treturn b\n\t}\n\tb.data \u003d allocBuilder()\n\tb.builderID \u003d b.data.id\n\tb.data.exporter \u003d exporter\n\tb.data.Event.Labels \u003d b.data.labels[:0]\n\tb.data.Event.Parent \u003d parent\n\treturn b\n}",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 0
+      },
+      "revId": "2e54981641c4e49de19cfa52192e8dd52d1420e9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
