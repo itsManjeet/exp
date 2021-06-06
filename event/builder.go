@@ -154,8 +154,15 @@ func (b Builder) Logf(template string, args ...interface{}) {
 	b.done()
 }
 
+func (b Builder) Count(m *Metric) {
+	if m.Kind() != Counter {
+		panic("Builder.Count called on non-counter")
+	}
+	b.Metric(m, Int64Of(1))
+}
+
 // Metric is a helper that calls Deliver with MetricKind.
-func (b Builder) Metric() {
+func (b Builder) Metric(m *Metric, value Value) {
 	if b.data == nil {
 		return
 	}
@@ -163,7 +170,10 @@ func (b Builder) Metric() {
 	if b.data.exporter.metricsEnabled() {
 		b.data.exporter.mu.Lock()
 		defer b.data.exporter.mu.Unlock()
-		b.data.Event.Labels = append(b.data.Event.Labels, Metric.Value())
+		if b.data.Event.Namespace == "" {
+			b.data.Event.Namespace = m.namespace
+		}
+		b.data.Event.Labels = append(b.data.Event.Labels, Name.Of(m.name), MetricValue.Of(value), MetricTag.Value())
 		b.data.exporter.prepare(&b.data.Event)
 		b.data.exporter.handler.Metric(b.ctx, &b.data.Event)
 	}
