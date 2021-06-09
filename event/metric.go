@@ -46,12 +46,11 @@ func (m *MetricDescriptor) String() string {
 	return fmt.Sprintf("Metric(\"%s/%s\")", m.namespace, m.name)
 }
 
-func (m *MetricDescriptor) WithNamespace(ns string) *MetricDescriptor {
+func (m *MetricDescriptor) SetNamespace(ns string) {
 	if ns == "" {
 		panic("namespace cannot be empty")
 	}
 	m.namespace = ns
-	return m
 }
 
 func (m *MetricDescriptor) Name() string      { return m.name }
@@ -195,4 +194,44 @@ func (b DurationBuilder) WithAll(labels ...Label) DurationBuilder {
 
 func (b DurationBuilder) Record(v time.Duration) {
 	record(b.builderCommon, b.d, DurationOf(v))
+}
+
+type IntDistribution struct {
+	MetricDescriptor
+}
+
+func NewIntDistribution(name string) *IntDistribution {
+	return &IntDistribution{NewMetricDescriptor(name)}
+}
+
+func (d *IntDistribution) Descriptor() MetricDescriptor {
+	return d.MetricDescriptor
+}
+
+func (d *IntDistribution) To(ctx context.Context) IntDistributionBuilder {
+	b := IntDistributionBuilder{builderCommon: builderCommon{ctx: ctx}, d: d}
+	b.data = newBuilder(ctx)
+	if b.data != nil {
+		b.builderID = b.data.id
+	}
+	return b
+}
+
+type IntDistributionBuilder struct {
+	builderCommon
+	d *IntDistribution
+}
+
+func (b IntDistributionBuilder) With(label Label) IntDistributionBuilder {
+	b.addLabel(label)
+	return b
+}
+
+func (b IntDistributionBuilder) WithAll(labels ...Label) IntDistributionBuilder {
+	b.addLabels(labels)
+	return b
+}
+
+func (b IntDistributionBuilder) Record(v int64) {
+	record(b.builderCommon, b.d, Int64Of(v))
 }
