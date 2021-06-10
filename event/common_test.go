@@ -20,29 +20,29 @@ func TestCommon(t *testing.T) {
 	const simple = "simple message"
 	const trace = "a trace"
 
-	event.To(ctx).Log(simple)
+	event.Log(ctx, simple)
 	checkMessage(t, h, "Log", simple)
 	checkName(t, h, "Log", "")
 	h.Reset()
 
-	event.To(ctx).Metric(m.Record(3))
+	m.Record(ctx, 3)
 	checkMessage(t, h, "Metric", "")
 	checkName(t, h, "Metric", "")
 	h.Reset()
 
-	event.To(ctx).Annotate()
+	event.To(ctx).String("", "").Send()
 	checkMessage(t, h, "Annotate", "")
 	checkName(t, h, "Annotate", "")
 	h.Reset()
 
-	_, eb := event.To(ctx).Start(trace)
+	_, eb := event.Start(ctx, trace)
 	checkMessage(t, h, "Start", "")
 	checkName(t, h, "Start", trace)
 	h.Reset()
 
-	eb.End()
+	eb.Send()
 	checkMessage(t, h, "End", "")
-	checkName(t, h, "End", "")
+	checkName(t, h, "End", trace)
 }
 
 type finder interface {

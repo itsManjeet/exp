@@ -124,12 +124,13 @@ func (c *Connection) Notify(ctx context.Context, method string, params interface
 	if err != nil {
 		return errors.Errorf("marshaling notify parameters: %v", err)
 	}
-	b := event.To(ctx).With(Method.Of(method))
-	b.Clone().Metric(Started.Record(1))
-	ctx, endBuilder := b.With(RPCDirection.Of(Outbound)).Start(method)
+	//TODO: rewrite this using the new target/prototype stuff
+	ctx, endBuilder := event.Start(ctx, method)
+	event.Annotate(ctx, RPCDirection.Of(Outbound))
+	Started.RecordB(ctx, 1).Label(Method.Of(method)).Send()
 	err = c.write(ctx, notify)
-	event.To(ctx).With(Error.Of(err)).Metric(Finished.Record(1))
-	endBuilder.End()
+	Finished.RecordB(ctx, 1).Error(err).Send()
+	endBuilder.Send()
 	return err
 }
 
@@ -150,9 +151,10 @@ func (c *Connection) Call(ctx context.Context, method string, params interface{}
 		result.resultBox <- asyncResult{err: errors.Errorf("marshaling call parameters: %w", err)}
 		return result
 	}
-	b := event.To(ctx).With(Method.Of(method))
-	b.Clone().Metric(Started.Record(1))
-	ctx, endBuilder := b.Clone().With(RPCDirection.Of(Outbound)).With(RPCID.Of(fmt.Sprintf("%q", result.id))).Start(method)
+	//TODO: rewrite this using the new target/prototype stuff
+	ctx, endBuilder := event.Start(ctx, method)
+	Started.RecordB(ctx, 1).Label(Method.Of(method)).Send()
+	event.To(ctx).Label(Method.Of(method)).Label(RPCDirection.Of(Outbound)).Label(RPCID.Of(fmt.Sprintf("%q", result.id))).Send()
 	result.endBuilder = endBuilder
 	// We have to add ourselves to the pending map before we send, otherwise we
 	// are racing the response.
@@ -191,7 +193,7 @@ func (a *AsyncCall) IsReady() bool {
 // The response will be unmarshaled from JSON into the result.
 func (a *AsyncCall) Await(ctx context.Context, result interface{}) error {
 	status := "NONE"
-	defer a.endBuilder.With(StatusCode.Of(status)).End()
+	defer a.endBuilder.Label(StatusCode.Of(status)).Send()
 	var r asyncResult
 	select {
 	case response := <-a.response:
@@ -292,14 +294,14 @@ func (c *Connection) readIncoming(ctx context.Context, reader Reader, toQueue ch
 				request: msg,
 			}
 			// add a span to the context for this request
-			b := event.To(ctx).With(Method.Of(msg.Method)).With(RPCDirection.Of(Inbound))
+			b := event.To(ctx).Label(Method.Of(msg.Method)).Label(RPCDirection.Of(Inbound))
 			if msg.IsCall() {
-				b = b.With(RPCID.Of(fmt.Sprintf("%q", msg.ID)))
+				b = b.Label(RPCID.Of(fmt.Sprintf("%q", msg.ID)))
 			}
-			entry.baseCtx, entry.endBuilder = b.Start(msg.Method)
-			b = event.To(entry.baseCtx).With(Method.Of(msg.Method))
-			b.Clone().Metric(Started.Record(1))
-			b.Metric(ReceivedBytes.Record(n))
+			//TODO: rewrite this using the new target/prototype stuff
+			entry.baseCtx, entry.endBuilder = event.Start(ctx, msg.Method)
+			Started.RecordB(entry.baseCtx, 1).Label(Method.Of(msg.Method)).Send()
+			ReceivedBytes.RecordB(entry.baseCtx, n).Label(Method.Of(msg.Method)).Send()
 			// in theory notifications cannot be cancelled, but we build them a cancel context anyway
 			entry.handleCtx, entry.cancel = context.WithCancel(entry.baseCtx)
 			// if the request is a call, add it to the incoming map so it can be
@@ -412,7 +414,7 @@ func (c *Connection) reply(entry *incoming, result interface{}, rerr error) {
 	if err := c.respond(entry, result, rerr); err != nil {
 		// no way to propagate this error
 		//TODO: should we do more than just log it?
-		event.To(entry.baseCtx).With(Error.Of(err)).Log("jsonrpc2 message delivery failed")
+		event.LogB(entry.baseCtx, "jsonrpc2 message delivery failed").Error(err).Send()
 	}
 }
 
@@ -458,7 +460,7 @@ func (c *Connection) respond(entry *incoming, result interface{}, rerr error) er
 		entry.cancel = nil
 	}
 	// mark the entire request processing as done
-	entry.endBuilder.With(StatusCode.Of(status)).End()
+	entry.endBuilder.Label(StatusCode.Of(status)).Send()
 	return err
 }
 
@@ -469,6 +471,6 @@ func (c *Connection) write(ctx context.Context, msg Message) error {
 	defer func() { c.writerBox <- writer }()
 	n, err := writer.Write(ctx, msg)
 	// TODO: get a method label in here somehow.
-	event.To(ctx).Metric(SentBytes.Record(n))
+	SentBytes.Record(ctx, n)
 	return err
 }

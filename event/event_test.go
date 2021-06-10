@@ -36,72 +36,73 @@ func TestPrint(t *testing.T) {
 		expect string
 	}{{
 		name:   "simple",
-		events: func(ctx context.Context) { event.To(ctx).Log("a message") },
+		events: func(ctx context.Context) { event.Log(ctx, "a message") },
 		expect: `time="2020/03/05 14:27:48" msg="a message"
 `}, {
 		name:   "log 1",
-		events: func(ctx context.Context) { event.To(ctx).With(l1).Log("a message") },
+		events: func(ctx context.Context) { event.LogB(ctx, "a message").Label(l1).Send() },
 		expect: `time="2020/03/05 14:27:48" l1=1 msg="a message"`,
 	}, {
 		name:   "log 2",
-		events: func(ctx context.Context) { event.To(ctx).With(l1).With(l2).Log("a message") },
+		events: func(ctx context.Context) { event.LogB(ctx, "a message").Label(l1).Label(l2).Send() },
 		expect: `time="2020/03/05 14:27:48" l1=1 l2=2 msg="a message"`,
 	}, {
 		name:   "log 3",
-		events: func(ctx context.Context) { event.To(ctx).With(l1).With(l2).With(l3).Log("a message") },
+		events: func(ctx context.Context) { event.LogB(ctx, "a message").Label(l1).Label(l2).Label(l3).Send() },
 		expect: `time="2020/03/05 14:27:48" l1=1 l2=2 l3=3 msg="a message"`,
 	}, {
 		name: "span",
 		events: func(ctx context.Context) {
-			ctx, eb := event.To(ctx).Start("span")
-			eb.End()
+			ctx, eb := event.Start(ctx, "span")
+			eb.Send()
 		},
 		expect: `
 time="2020/03/05 14:27:48" trace=1 name=span
-time="2020/03/05 14:27:49" parent=1 end
+time="2020/03/05 14:27:49" parent=1 name=span end
 `}, {
 		name: "span nested",
 		events: func(ctx context.Context) {
-			ctx, eb := event.To(ctx).Start("parent")
-			defer eb.End()
-			child, eb2 := event.To(ctx).Start("child")
-			defer eb2.End()
-			event.To(child).Log("message")
+			ctx, eb := event.Start(ctx, "parent")
+			defer eb.Send()
+			child, eb2 := event.Start(ctx, "child")
+			defer eb2.Send()
+			event.Log(child, "message")
 		},
 		expect: `
 time="2020/03/05 14:27:48" trace=1 name=parent
 time="2020/03/05 14:27:49" parent=1 trace=2 name=child
 time="2020/03/05 14:27:50" parent=2 msg=message
-time="2020/03/05 14:27:51" parent=2 end
-time="2020/03/05 14:27:52" parent=1 end
+time="2020/03/05 14:27:51" parent=2 name=child end
+time="2020/03/05 14:27:52" parent=1 name=parent end
 `}, {
 		name:   "counter",
-		events: func(ctx context.Context) { event.To(ctx).With(l1).Metric(counter.Record(2)) },
-		expect: `time="2020/03/05 14:27:48" l1=1 metricValue=2 metric=Metric("golang.org/x/exp/event_test/hits")`,
+		events: func(ctx context.Context) { counter.RecordB(ctx, 2).Label(l1).Send() },
+		expect: `time="2020/03/05 14:27:48" metricValue=2 metric=Metric("golang.org/x/exp/event_test/hits") l1=1`,
 	}, {
 		name:   "gauge",
-		events: func(ctx context.Context) { event.To(ctx).With(l1).Metric(gauge.Record(98.6)) },
-		expect: `time="2020/03/05 14:27:48" l1=1 metricValue=98.6 metric=Metric("golang.org/x/exp/event_test/temperature")`,
+		events: func(ctx context.Context) { gauge.RecordB(ctx, 98.6).Label(l1).Send() },
+		expect: `time="2020/03/05 14:27:48" metricValue=98.6 metric=Metric("golang.org/x/exp/event_test/temperature") l1=1`,
 	}, {
 		name: "duration",
 		events: func(ctx context.Context) {
-			event.To(ctx).With(l1).With(l2).Metric(latency.Record(3 * time.Second))
+			latency.RecordB(ctx, 3*time.Second).Label(l1).Label(l2).Send()
 		},
-		expect: `time="2020/03/05 14:27:48" l1=1 l2=2 metricValue=3s metric=Metric("golang.org/x/exp/event_test/latency")`,
+		expect: `time="2020/03/05 14:27:48" metricValue=3s metric=Metric("golang.org/x/exp/event_test/latency") l1=1 l2=2`,
 	}, {
 		name:   "annotate",
-		events: func(ctx context.Context) { event.To(ctx).With(l1).Annotate() },
+		events: func(ctx context.Context) { event.Annotate(ctx, l1) },
 		expect: `time="2020/03/05 14:27:48" l1=1`,
 	}, {
 		name:   "annotate 2",
-		events: func(ctx context.Context) { event.To(ctx).With(l1).With(l2).Annotate() },
+		events: func(ctx context.Context) { event.To(ctx).Label(l1).Label(l2).Send() },
 		expect: `time="2020/03/05 14:27:48" l1=1 l2=2`,
 	}, {
 		name: "multiple events",
 		events: func(ctx context.Context) {
-			b := event.To(ctx)
-			b.Clone().With(keys.Int("myInt").Of(6)).Log("my event")
-			b.With(keys.String("myString").Of("some string value")).Log("string event")
+			t := event.To(ctx)
+			p := event.Prototype{}.As(event.LogKind)
+			t.With(p).Int("myInt", 6).Message("my event").Send()
+			t.With(p).String("myString", "some string value").Message("string event").Send()
 		},
 		expect: `
 time="2020/03/05 14:27:48" myInt=6 msg="my event"
@@ -120,8 +121,8 @@ time="2020/03/05 14:27:49" myString="some string value" msg="string event"
 
 func ExampleLog() {
 	ctx := event.WithExporter(context.Background(), event.NewExporter(logfmt.NewHandler(os.Stdout), eventtest.ExporterOptions()))
-	event.To(ctx).With(keys.Int("myInt").Of(6)).Log("my event")
-	event.To(ctx).With(keys.String("myString").Of("some string value")).Log("error event")
+	event.LogB(ctx, "my event").Label(keys.Int("myInt").Of(6)).Send()
+	event.LogB(ctx, "error event").String("myString", "some string value").Send()
 	// Output:
 	// time="2020/03/05 14:27:48" myInt=6 msg="my event"
 	// time="2020/03/05 14:27:49" myString="some string value" msg="error event"

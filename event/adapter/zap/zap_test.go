@@ -31,7 +31,7 @@ func Test(t *testing.T) {
 		Labels: []event.Label{
 			keys.Int64("traceID").Of(17),
 			keys.String("resource").Of("R"),
-			severity.Info,
+			severity.Info.Label(),
 			keys.Float64("pi").Of(3.14),
 		},
 	}}

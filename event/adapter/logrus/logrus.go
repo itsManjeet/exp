@@ -46,19 +46,22 @@ func (f *formatter) Format(e *logrus.Entry) ([]byte, error) {
 	if ctx == nil {
 		ctx = context.Background()
 	}
-	b := event.To(ctx).At(e.Time)
-	b.With(convertLevel(e.Level))
-	for k, v := range e.Data {
-		b.With(keys.Value(k).Of(v))
+	b := event.To(ctx).As(event.LogKind).At(e.Time)
+	if !b.Active() {
+		return nil, nil
 	}
-	b.Log(e.Message)
+	b.Label(convertLevel(e.Level).Label())
+	for k, v := range e.Data {
+		b.Label(keys.Value(k).Of(v))
+	}
+	b.Message(e.Message).Send()
 	return nil, nil
 }
 
-func convertLevel(level logrus.Level) event.Label {
+func convertLevel(level logrus.Level) severity.Level {
 	switch level {
 	case logrus.PanicLevel:
-		return severity.Of(severity.FatalLevel + 1)
+		return severity.Fatal + 1
 	case logrus.FatalLevel:
 		return severity.Fatal
 	case logrus.ErrorLevel:

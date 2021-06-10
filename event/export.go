@@ -18,11 +18,11 @@ import (
 
 // Exporter synchronizes the delivery of events to handlers.
 type Exporter struct {
-	opts ExporterOptions
+	lastEvent uint64 // accessed using atomic, must be 64 bit aligned
+	opts      ExporterOptions
 
 	mu            sync.Mutex
 	handler       Handler
-	lastEvent     uint64
 	pcToNamespace map[uintptr]string
 }
 
@@ -46,16 +46,8 @@ type contextKeyType struct{}
 
 var contextKey interface{} = contextKeyType{}
 
-// contextValue is stored by value in the context to track the exporter and
-// current parent event.
-type contextValue struct {
-	exporter  *Exporter
-	parent    uint64
-	startTime time.Time // for trace latency
-}
-
 var (
-	defaultExporter unsafe.Pointer
+	defaultTarget unsafe.Pointer
 )
 
 // NewExporter creates an Exporter using the supplied handler and options.
@@ -75,23 +67,19 @@ func NewExporter(handler Handler, opts *ExporterOptions) *Exporter {
 }
 
 func setDefaultExporter(e *Exporter) {
-	atomic.StorePointer(&defaultExporter, unsafe.Pointer(e))
+	atomic.StorePointer(&defaultTarget, unsafe.Pointer(&target{exporter: e}))
 }
 
-func getDefaultExporter() *Exporter {
-	return (*Exporter)(atomic.LoadPointer(&defaultExporter))
+func getDefaultTarget() *target {
+	return (*target)(atomic.LoadPointer(&defaultTarget))
 }
 
-func newContext(ctx context.Context, exporter *Exporter, parent uint64, t time.Time) context.Context {
-	return context.WithValue(ctx, contextKey, contextValue{exporter: exporter, parent: parent, startTime: t})
-}
-
-// FromContext returns the exporter, parentID and parent start time for the supplied context.
-func FromContext(ctx context.Context) (*Exporter, uint64, time.Time) {
-	if v, ok := ctx.Value(contextKey).(contextValue); ok {
-		return v.exporter, v.parent, v.startTime
+func newContext(ctx context.Context, exporter *Exporter, parent uint64, start time.Time) context.Context {
+	var t *target
+	if exporter != nil {
+		t = &target{exporter: exporter, parent: parent, startTime: start}
 	}
-	return getDefaultExporter(), 0, time.Time{}
+	return context.WithValue(ctx, contextKey, t)
 }
 
 // prepare events before delivering to the underlying handler.
@@ -106,18 +94,25 @@ func (e *Exporter) prepare(ev *Event) {
 		ev.At = e.opts.Now()
 	}
 	if e.opts.EnableNamespaces && ev.Namespace == "" {
+		//TODO: a better way of working out the stack depth
 		// Get the pc of the user function that delivered the event.
 		// This is sensitive to the call stack.
 		// 0: runtime.Callers
 		// 1: importPath
-		// 2: Exporter.prepare (this function)
-		// 3: Builder.{Start,End,etc.}
-		// 4: user function
-		if e.pcToNamespace == nil {
-			e.pcToNamespace = map[uintptr]string{}
-		}
-		ev.Namespace = importPath(4, e.pcToNamespace)
+		// 2: Exporter.capture
+		// 3: Exporter.prepare (this function)
+		// 4: Builder.Send
+		// 5: Builder.{Start,End,etc.}
+		// 6: user function
+		e.capture(ev, 6)
 	}
+}
+
+func (e *Exporter) capture(ev *Event, depth int) {
+	if e.pcToNamespace == nil {
+		e.pcToNamespace = map[uintptr]string{}
+	}
+	ev.Namespace = importPath(depth, e.pcToNamespace)
 }
 
 func (e *Exporter) loggingEnabled() bool     { return !e.opts.DisableLogging }

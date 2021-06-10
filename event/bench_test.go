@@ -26,12 +26,12 @@ var (
 
 	eventLog = eventtest.Hooks{
 		AStart: func(ctx context.Context, a int) context.Context {
-			event.To(ctx).With(severity.Info).With(aValue.Of(a)).Log(eventtest.A.Msg)
+			severity.Info.LogB(ctx, eventtest.A.Msg).Label(aValue.Of(a)).Send()
 			return ctx
 		},
 		AEnd: func(ctx context.Context) {},
 		BStart: func(ctx context.Context, b string) context.Context {
-			event.To(ctx).With(severity.Info).With(bValue.Of(b)).Log(eventtest.B.Msg)
+			severity.Info.LogB(ctx, eventtest.B.Msg).Label(bValue.Of(b)).Send()
 			return ctx
 		},
 		BEnd: func(ctx context.Context) {},
@@ -39,12 +39,12 @@ var (
 
 	eventLogf = eventtest.Hooks{
 		AStart: func(ctx context.Context, a int) context.Context {
-			event.To(ctx).With(severity.Info).Logf(eventtest.A.Msgf, a)
+			severity.Info.Logf(ctx, eventtest.A.Msgf, a)
 			return ctx
 		},
 		AEnd: func(ctx context.Context) {},
 		BStart: func(ctx context.Context, b string) context.Context {
-			event.To(ctx).With(severity.Info).Logf(eventtest.B.Msgf, b)
+			severity.Info.Logf(ctx, eventtest.B.Msgf, b)
 			return ctx
 		},
 		BEnd: func(ctx context.Context) {},
@@ -52,33 +52,33 @@ var (
 
 	eventTrace = eventtest.Hooks{
 		AStart: func(ctx context.Context, a int) context.Context {
-			ctx, _ = event.To(ctx).Start(eventtest.A.Msg)
-			event.To(ctx).With(aValue.Of(a)).Annotate()
+			ctx, _ = event.Start(ctx, eventtest.A.Msg)
+			event.Annotate(ctx, aValue.Of(a))
 			return ctx
 		},
 		AEnd: func(ctx context.Context) {
-			event.To(ctx).End()
+			event.To(ctx).As(event.TraceKind)
 		},
 		BStart: func(ctx context.Context, b string) context.Context {
-			ctx, _ = event.To(ctx).Start(eventtest.B.Msg)
-			event.To(ctx).With(bValue.Of(b)).Annotate()
+			ctx, _ = event.Start(ctx, eventtest.B.Msg)
+			event.Annotate(ctx, bValue.Of(b))
 			return ctx
 		},
 		BEnd: func(ctx context.Context) {
-			event.To(ctx).End()
+			event.To(ctx).As(event.TraceKind).Send()
 		},
 	}
 
 	eventMetric = eventtest.Hooks{
 		AStart: func(ctx context.Context, a int) context.Context {
-			event.To(ctx).With(aStat.Of(a)).Metric(gauge.Record(1))
-			event.To(ctx).With(aCount.Of(1)).Metric(gauge.Record(1))
+			gauge.RecordB(ctx, 1).Label(aStat.Of(a)).Send()
+			gauge.RecordB(ctx, 1).Label(aCount.Of(1)).Send()
 			return ctx
 		},
 		AEnd: func(ctx context.Context) {},
 		BStart: func(ctx context.Context, b string) context.Context {
-			event.To(ctx).With(bLength.Of(len(b))).Metric(gauge.Record(1))
-			event.To(ctx).With(bCount.Of(1)).Metric(gauge.Record(1))
+			gauge.RecordB(ctx, 1).Label(bLength.Of(len(b))).Send()
+			gauge.RecordB(ctx, 1).Label(bCount.Of(1)).Send()
 			return ctx
 		},
 		BEnd: func(ctx context.Context) {},

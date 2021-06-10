@@ -23,7 +23,7 @@ func TestAllocs(t *testing.T) {
 	e := event.NewExporter(logfmt.NewHandler(ioutil.Discard), nil)
 	ctx := event.WithExporter(context.Background(), e)
 	allocs := int(testing.AllocsPerRun(5, func() {
-		event.To(ctx).With(aString).With(anInt).Log("message")
+		event.LogB(ctx, "message").Label(aString).Label(anInt).Send()
 	}))
 	if allocs != 0 {
 		t.Errorf("Got %d allocs, expect 0", allocs)
