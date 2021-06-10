@@ -4,17 +4,23 @@
 
 package event
 
-const Message = stringKey("msg")
-const Name = stringKey("name")
-const Trace = traceKey("trace")
-const End = tagKey("end")
-const MetricKey = valueKey("metric")
-const MetricVal = valueKey("metricValue")
+const (
+	Message        = stringKey("msg")
+	Name           = stringKey("name")
+	Trace          = traceKey("trace")
+	End            = tagKey("end")
+	MetricKey      = interfaceKey("metric")
+	MetricVal      = valueKey("metricValue")
+	DurationMetric = interfaceKey("durationMetric")
+)
 
-type stringKey string
-type traceKey string
-type tagKey string
-type valueKey string
+type (
+	stringKey    string
+	traceKey     string
+	tagKey       string
+	valueKey     string
+	interfaceKey string
+)
 
 // Of creates a new message Label.
 func (k stringKey) Of(msg string) Label {
@@ -73,6 +79,23 @@ func (k valueKey) Matches(ev *Event) bool {
 
 func (k valueKey) Find(ev *Event) (Value, bool) {
 	return lookupValue(string(k), ev.Labels)
+}
+
+func (k interfaceKey) Of(v interface{}) Label {
+	return Label{Name: string(k), Value: ValueOf(v)}
+}
+
+func (k interfaceKey) Matches(ev *Event) bool {
+	_, found := k.Find(ev)
+	return found
+}
+
+func (k interfaceKey) Find(ev *Event) (interface{}, bool) {
+	v, ok := lookupValue(string(k), ev.Labels)
+	if !ok {
+		return nil, false
+	}
+	return v.Interface(), true
 
 }
 
