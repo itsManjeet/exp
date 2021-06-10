@@ -16,7 +16,7 @@ import (
 func TestCommon(t *testing.T) {
 	h := &catchHandler{}
 	ctx := event.WithExporter(context.Background(), event.NewExporter(h, nil))
-	m := event.NewCounter("m")
+	m := event.NewCounter("m", "")
 
 	const simple = "simple message"
 	const trace = "a trace"
