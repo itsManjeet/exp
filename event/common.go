@@ -4,6 +4,12 @@
 
 package event
 
+import (
+	"context"
+	"fmt"
+	"sync/atomic"
+)
+
 const (
 	MetricKey      = interfaceKey("metric")
 	MetricVal      = valueKey("metricValue")
@@ -17,13 +23,66 @@ const (
 
 	LogKind
 	MetricKind
-	TraceKind
+	StartKind
+	EndKind
 )
 
 type (
 	valueKey     string
 	interfaceKey string
 )
+
+func Log(ctx context.Context, msg string, labels ...Label) {
+	ev := New(ctx, LogKind)
+	if ev != nil {
+		ev.Labels = append(ev.Labels, labels...)
+		ev.Message = msg
+		ev.Deliver()
+	}
+}
+
+func Logf(ctx context.Context, msg string, args ...interface{}) {
+	ev := New(ctx, LogKind)
+	if ev != nil {
+		ev.Message = fmt.Sprintf(msg, args...)
+		ev.Deliver()
+	}
+}
+
+func Annotate(ctx context.Context, labels ...Label) {
+	ev := New(ctx, 0)
+	if ev != nil {
+		ev.Labels = append(ev.Labels, labels...)
+		ev.Deliver()
+	}
+}
+
+func Start(ctx context.Context, name string, labels ...Label) context.Context {
+	ev := New(ctx, StartKind)
+	if ev != nil {
+		ev.Labels = append(ev.Labels, labels...)
+		ev.Name = name
+		ev.TraceID = atomic.AddUint64(&ev.target.exporter.lastEvent, 1)
+		ev.target.exporter.prepare(ev)
+		ev.ctx = newContext(ev.ctx, ev.target.exporter, ev.TraceID, ev.At)
+		ctx = ev.Deliver()
+	}
+	return ctx
+}
+
+func End(ctx context.Context, labels ...Label) {
+	ev := New(ctx, EndKind)
+	if ev != nil {
+		ev.Labels = append(ev.Labels, labels...)
+		ev.target.exporter.prepare(ev)
+		// this was an end event, do we need to send a duration?
+		if v, ok := DurationMetric.Find(ev); ok {
+			//TODO: do we want the rest of the values from the end event?
+			v.(*Duration).Record(ctx, ev.At.Sub(ev.target.startTime))
+		}
+		ev.Deliver()
+	}
+}
 
 func (k valueKey) Of(v Value) Label {
 	return Label{Name: string(k), Value: v}
