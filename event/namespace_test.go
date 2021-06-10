@@ -17,7 +17,7 @@ const thisImportPath = "golang.org/x/exp/event_test"
 func TestNamespace(t *testing.T) {
 	var h nsHandler
 	ctx := event.WithExporter(context.Background(), event.NewExporter(&h, &event.ExporterOptions{EnableNamespaces: true}))
-	event.To(ctx).Log("msg")
+	event.Log(ctx, "msg")
 	if got, want := h.ns, thisImportPath; got != want {
 		t.Errorf("got namespace %q, want, %q", got, want)
 	}

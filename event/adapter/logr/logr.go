@@ -16,7 +16,8 @@ import (
 
 type logger struct {
 	exporter  *event.Exporter
-	builder   event.Builder // never delivered, only cloned
+	target    event.Target
+	prototype event.Prototype
 	nameSep   string
 	name      string
 	verbosity int
@@ -26,8 +27,9 @@ var _ logr.Logger = (*logger)(nil)
 
 func NewLogger(ctx context.Context, nameSep string) logr.Logger {
 	return &logger{
-		builder: event.To(ctx),
-		nameSep: nameSep,
+		target:    event.To(ctx),
+		prototype: event.Prototype{}.As(event.LogKind),
+		nameSep:   nameSep,
 	}
 }
 
@@ -66,7 +68,7 @@ func (l *logger) Enabled() bool {
 // addLabels adds labels for keysAndValues to b.
 func addLabels(b event.Builder, keysAndValues []interface{}) {
 	for i := 0; i < len(keysAndValues); i += 2 {
-		b.With(newLabel(keysAndValues[i], keysAndValues[i+1]))
+		b.Label(newLabel(keysAndValues[i], keysAndValues[i+1]))
 	}
 }
 
@@ -77,7 +79,7 @@ func addLabels(b event.Builder, keysAndValues []interface{}) {
 // variable information.  The key/value pairs should alternate string
 // keys and arbitrary values.
 func (l *logger) Info(msg string, keysAndValues ...interface{}) {
-	l.log(msg, l.builder.Clone(), keysAndValues)
+	l.log(msg, l.target.With(l.prototype), keysAndValues)
 }
 
 // Error logs an error, with the given message and key/value pairs as context.
@@ -89,22 +91,27 @@ func (l *logger) Info(msg string, keysAndValues ...interface{}) {
 // while the err field should be used to attach the actual error that
 // triggered this log line, if present.
 func (l *logger) Error(err error, msg string, keysAndValues ...interface{}) {
-	l.log(msg, l.builder.Clone().Error(err), keysAndValues)
+	l.log(msg, l.target.With(l.prototype).Error(err), keysAndValues)
 }
 
 func (l *logger) log(msg string, b event.Builder, keysAndValues []interface{}) {
-	b.With(convertVerbosity(l.verbosity))
-	b.Name(l.name)
-	addLabels(b, keysAndValues)
-	b.Log(msg)
+	if !b.Active() {
+		return
+	}
+	b = b.Label(convertVerbosity(l.verbosity).Label())
+	for i := 0; i < len(keysAndValues); i += 2 {
+		b = b.Label(newLabel(keysAndValues[i], keysAndValues[i+1]))
+	}
+	b.Name(l.name).Message(msg).Send()
 }
 
 // WithValues adds some key-value pairs of context to a logger.
 // See Info for documentation on how key/value pairs work.
 func (l *logger) WithValues(keysAndValues ...interface{}) logr.Logger {
 	l2 := *l
-	l2.builder = l2.builder.Clone()
-	addLabels(l2.builder, keysAndValues)
+	for i := 0; i < len(keysAndValues); i += 2 {
+		l2.prototype = l2.prototype.Label(newLabel(keysAndValues[i], keysAndValues[i+1]))
+	}
 	return &l2
 }
 
@@ -112,7 +119,7 @@ func newLabel(key, value interface{}) event.Label {
 	return keys.Value(key.(string)).Of(value)
 }
 
-func convertVerbosity(v int) event.Label {
+func convertVerbosity(v int) severity.Level {
 	//TODO: this needs to be more complicated, v decreases with increasing severity
-	return severity.Of(severity.Level(v))
+	return severity.Level(v)
 }

@@ -4,6 +4,10 @@
 
 package event
 
+import (
+	"context"
+)
+
 const (
 	MetricKey      = interfaceKey("metric")
 	MetricVal      = valueKey("metricValue")
@@ -24,6 +28,33 @@ type (
 	valueKey     string
 	interfaceKey string
 )
+
+//TODO: we could add labels ...Label and it would be free if not used...
+func Log(ctx context.Context, msg string) {
+	To(ctx).As(LogKind).Message(msg).Send()
+}
+
+func LogB(ctx context.Context, msg string) Builder {
+	return To(ctx).As(LogKind).Message(msg)
+}
+
+func LogWith(ctx context.Context, example Prototype, msg string) {
+	To(ctx).With(example).As(LogKind).Message(msg).Send()
+}
+
+func Annotate(ctx context.Context, label Label) {
+	To(ctx).As(LogKind).Label(label).Send()
+}
+
+func Start(ctx context.Context, name string) (context.Context, Builder) {
+	startB := To(ctx).As(TraceKind)
+	if !startB.Active() {
+		return ctx, Builder{}
+	}
+	startB.data.Event.Name = name
+	endB := startB.start()
+	return endB.ctx, endB
+}
 
 func (k valueKey) Of(v Value) Label {
 	return Label{Name: string(k), Value: v}

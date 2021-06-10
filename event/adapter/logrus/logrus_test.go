@@ -32,7 +32,7 @@ func Test(t *testing.T) {
 		Kind:    event.LogKind,
 		Message: "mess",
 		Labels: []event.Label{
-			severity.Info,
+			severity.Info.Label(),
 			keys.Value("traceID").Of(17),
 			keys.Value("resource").Of("R"),
 		},
