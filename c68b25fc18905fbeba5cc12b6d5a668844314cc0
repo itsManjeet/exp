@@ -53,6 +53,29 @@
       "message": "Env values collected need to be copied, otherwise they can be read and written in parallel.\nParallel tests were all writing to the same captured err variable. Moved the closure out to a function to avoid such mistakes in the future.",
       "revId": "c68b25fc18905fbeba5cc12b6d5a668844314cc0",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99009b1b_7700ac80",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 1353,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-06-14T21:59:00Z",
+      "side": 1,
+      "message": "nit: this doesn\u0027t actually do the update. Maybe copyEnv?",
+      "range": {
+        "startLine": 1353,
+        "startChar": 5,
+        "endLine": 1353,
+        "endChar": 14
+      },
+      "revId": "c68b25fc18905fbeba5cc12b6d5a668844314cc0",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
