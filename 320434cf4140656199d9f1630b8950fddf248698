@@ -53,6 +53,24 @@
       "message": "I think the thing that was bothering me was passing the duration to the start, and what that would mean for exporters that see that event.\nI am still bothered about the metric being on the end event, I think we probably need to filter it out, but that will also be very confusing, I think it is okay to submit as is, but I am not 100% on this approach.",
       "revId": "320434cf4140656199d9f1630b8950fddf248698",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bfe01a4_2f27f627",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-06-14T10:24:02Z",
+      "side": 1,
+      "message": "Not sure I understand your concerns; let\u0027s discuss it at our next 1:1.",
+      "parentUuid": "69ff4957_d6f15731",
+      "revId": "320434cf4140656199d9f1630b8950fddf248698",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
