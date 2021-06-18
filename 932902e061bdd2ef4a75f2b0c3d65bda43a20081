@@ -124,6 +124,30 @@
       },
       "revId": "932902e061bdd2ef4a75f2b0c3d65bda43a20081",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa41d9f4_a5745ac6",
+        "filename": "cmd/gorelease/testdata/basic/v1_v2_base_version_verify.test",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-06-18T21:15:26Z",
+      "side": 1,
+      "message": "I think #40913 is resolved by this. However, when we split \u0027go mod vet\u0027 and gomoddiff, this will probably only apply to gomoddiff. \u0027go mod vet\u0027 probably shouldn\u0027t support diffing against another major version at all since nothing in an earlier major version should block a release.",
+      "parentUuid": "528b37ac_d62d661d",
+      "range": {
+        "startLine": 6,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 52
+      },
+      "revId": "932902e061bdd2ef4a75f2b0c3d65bda43a20081",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
