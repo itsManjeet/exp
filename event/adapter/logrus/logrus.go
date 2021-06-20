@@ -46,12 +46,12 @@ func (f *formatter) Format(e *logrus.Entry) ([]byte, error) {
 	if ctx == nil {
 		ctx = context.Background()
 	}
-	b := event.To(ctx).At(e.Time)
-	b.With(convertLevel(e.Level))
+	t := event.To(ctx).At(e.Time)
+	ls := []event.Label{convertLevel(e.Level)}
 	for k, v := range e.Data {
-		b.With(keys.Value(k).Of(v))
+		ls = append(ls, keys.Value(k).Of(v))
 	}
-	b.Log(e.Message)
+	t.Log(e.Message, ls...)
 	return nil, nil
 }
 

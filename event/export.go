@@ -54,9 +54,7 @@ type contextValue struct {
 	startTime time.Time // for trace latency
 }
 
-var (
-	defaultExporter unsafe.Pointer
-)
+var defaultContextValue unsafe.Pointer = unsafe.Pointer(&contextValue{})
 
 // NewExporter creates an Exporter using the supplied handler and options.
 // Event delivery is serialized to enable safe atomic handling.
@@ -75,23 +73,23 @@ func NewExporter(handler Handler, opts *ExporterOptions) *Exporter {
 }
 
 func setDefaultExporter(e *Exporter) {
-	atomic.StorePointer(&defaultExporter, unsafe.Pointer(e))
+	atomic.StorePointer(&defaultContextValue, unsafe.Pointer(&contextValue{exporter: e}))
 }
 
-func getDefaultExporter() *Exporter {
-	return (*Exporter)(atomic.LoadPointer(&defaultExporter))
+func getDefault() *contextValue {
+	return (*contextValue)(atomic.LoadPointer(&defaultContextValue))
 }
 
-func newContext(ctx context.Context, exporter *Exporter, parent uint64, t time.Time) context.Context {
-	return context.WithValue(ctx, contextKey, contextValue{exporter: exporter, parent: parent, startTime: t})
+func newContext(ctx context.Context, cv *contextValue) context.Context {
+	return context.WithValue(ctx, contextKey, cv)
 }
 
-// FromContext returns the exporter, parentID and parent start time for the supplied context.
-func FromContext(ctx context.Context) (*Exporter, uint64, time.Time) {
-	if v, ok := ctx.Value(contextKey).(contextValue); ok {
-		return v.exporter, v.parent, v.startTime
+// fromContext returns the exporter, parentID and parent start time for the supplied context.
+func fromContext(ctx context.Context) *contextValue {
+	if v, ok := ctx.Value(contextKey).(*contextValue); ok {
+		return v
 	}
-	return getDefaultExporter(), 0, time.Time{}
+	return getDefault()
 }
 
 // prepare events before delivering to the underlying handler.

@@ -9,7 +9,6 @@ package event_test
 import (
 	"context"
 	"fmt"
-	"strings"
 	"testing"
 	"time"
 
@@ -17,48 +16,6 @@ import (
 	"golang.org/x/exp/event"
 	"golang.org/x/exp/event/keys"
 )
-
-func TestClone(t *testing.T) {
-	var labels []event.Label
-	for i := 0; i < 5; i++ { // one greater than len(Builder.labels)
-		labels = append(labels, keys.Int(fmt.Sprintf("l%d", i)).Of(i))
-	}
-
-	ctx := event.WithExporter(context.Background(), event.NewExporter(event.NopHandler{}, nil))
-	b1 := event.To(ctx)
-	b1.With(labels[0]).With(labels[1])
-	check(t, b1, labels[:2])
-	b2 := b1.Clone()
-	check(t, b1, labels[:2])
-	check(t, b2, labels[:2])
-
-	b2.With(labels[2])
-	check(t, b1, labels[:2])
-	check(t, b2, labels[:3])
-
-	// Force a new backing array for b.Event.Labels.
-	for i := 3; i < len(labels); i++ {
-		b2.With(labels[i])
-	}
-	check(t, b1, labels[:2])
-	check(t, b2, labels)
-
-	b2.Log("") // put b2 back in the pool.
-	b2 = event.To(ctx)
-	check(t, b1, labels[:2])
-	check(t, b2, []event.Label{})
-
-	b2.With(labels[3]).With(labels[4])
-	check(t, b1, labels[:2])
-	check(t, b2, labels[3:5])
-}
-
-func check(t *testing.T, b event.Builder, want []event.Label) {
-	t.Helper()
-	if got := b.Event().Labels; !cmp.Equal(got, want, cmp.Comparer(valueEqual)) {
-		t.Fatalf("got %v, want %v", got, want)
-	}
-}
 
 func valueEqual(l1, l2 event.Value) bool {
 	return fmt.Sprint(l1) == fmt.Sprint(l2)
@@ -92,41 +49,6 @@ func (t *testTraceHandler) End(ctx context.Context, _ *event.Event) {
 	}
 }
 
-func TestFailToClone(t *testing.T) {
-	ctx := event.WithExporter(context.Background(), event.NewExporter(event.NopHandler{}, nil))
-
-	catch := func(f func()) {
-		defer func() {
-			r := recover()
-			if r == nil {
-				t.Error("expected panic, did not get one")
-				return
-			}
-			got, ok := r.(string)
-			if !ok || !strings.Contains(got, "Clone") {
-				t.Errorf("got panic(%v), want string with 'Clone'", r)
-			}
-		}()
-
-		f()
-	}
-
-	catch(func() {
-		b1 := event.To(ctx)
-		b1.Log("msg1")
-		// Reuse of Builder without Clone; b1.data has been cleared.
-		b1.Log("msg2")
-	})
-
-	catch(func() {
-		b1 := event.To(ctx)
-		b1.Log("msg1")
-		_ = event.To(ctx) // re-allocate the builder
-		// b1.data is populated, but with the wrong information.
-		b1.Log("msg2")
-	})
-}
-
 func TestTraceDuration(t *testing.T) {
 	// Verify that a trace can can emit a latency metric.
 	dur := event.NewDuration("test", "")
@@ -145,9 +67,9 @@ func TestTraceDuration(t *testing.T) {
 	t.Run("returned builder", func(t *testing.T) {
 		h := &testTraceDurationHandler{}
 		ctx := event.WithExporter(context.Background(), event.NewExporter(h, nil))
-		ctx, eb := event.To(ctx).With(event.DurationMetric.Of(dur)).Start("s")
+		ctx, eb := event.To(ctx).Start("s")
 		time.Sleep(want)
-		eb.End()
+		eb.End(event.DurationMetric.Of(dur))
 		check(t, h)
 	})
 	t.Run("separate builder", func(t *testing.T) {
@@ -155,7 +77,7 @@ func TestTraceDuration(t *testing.T) {
 		ctx := event.WithExporter(context.Background(), event.NewExporter(h, nil))
 		ctx, _ = event.To(ctx).Start("s")
 		time.Sleep(want)
-		event.To(ctx).With(event.DurationMetric.Of(dur)).End()
+		event.To(ctx).End(event.DurationMetric.Of(dur))
 		check(t, h)
 	})
 }
@@ -183,12 +105,18 @@ func BenchmarkBuildContext(b *testing.B) {
 					event.To(ctx).Name("foo").Metric(c.Record(1))
 				}
 			})
-			b.Run("cloned", func(b *testing.B) {
-				bu := event.To(ctx)
-				for i := 0; i < b.N; i++ {
-					bu.Clone().Name("foo").Metric(c.Record(1))
-				}
-			})
 		})
+	}
+}
+
+func TestBuilder(t *testing.T) {
+	l1 := keys.Int("i").Of(3)
+	l2 := keys.String("s").Of("x")
+	b := event.NewBuilder(l1, l2)
+	if got, want := b.Labels, []event.Label{l1, l2}; !cmp.Equal(got, want) {
+		t.Errorf("got %v, want %v", got, want)
+	}
+	if got, want := b.Namespace, "golang.org/x/exp/event_test"; got != want {
+		t.Errorf("got %q, want %q", got, want)
 	}
 }

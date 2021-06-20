@@ -23,10 +23,11 @@ func TestInfo(t *testing.T) {
 	log = log.WithName("m")
 	log.Info("mess", "traceID", 17, "resource", "R")
 	want := []event.Event{{
-		At:      eventtest.InitialTime,
-		Kind:    event.LogKind,
-		Message: "mess",
-		Name:    "n/m",
+		At:        eventtest.InitialTime,
+		Kind:      event.LogKind,
+		Message:   "mess",
+		Name:      "n/m",
+		Namespace: "golang.org/x/exp/event/adapter/logr",
 		Labels: []event.Label{
 			severity.Debug,
 			keys.Value("traceID").Of(17),

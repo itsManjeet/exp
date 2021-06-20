@@ -6,6 +6,7 @@ package event_test
 
 import (
 	"context"
+	"fmt"
 	"io"
 	"testing"
 
@@ -26,12 +27,12 @@ var (
 
 	eventLog = eventtest.Hooks{
 		AStart: func(ctx context.Context, a int) context.Context {
-			event.To(ctx).With(severity.Info).With(aValue.Of(a)).Log(eventtest.A.Msg)
+			event.To(ctx).Log(eventtest.A.Msg, severity.Info, aValue.Of(a))
 			return ctx
 		},
 		AEnd: func(ctx context.Context) {},
 		BStart: func(ctx context.Context, b string) context.Context {
-			event.To(ctx).With(severity.Info).With(bValue.Of(b)).Log(eventtest.B.Msg)
+			event.To(ctx).Log(eventtest.B.Msg, severity.Info, bValue.Of(b))
 			return ctx
 		},
 		BEnd: func(ctx context.Context) {},
@@ -39,12 +40,12 @@ var (
 
 	eventLogf = eventtest.Hooks{
 		AStart: func(ctx context.Context, a int) context.Context {
-			event.To(ctx).With(severity.Info).Logf(eventtest.A.Msgf, a)
+			event.To(ctx).Log(fmt.Sprintf(eventtest.A.Msgf, a), severity.Info)
 			return ctx
 		},
 		AEnd: func(ctx context.Context) {},
 		BStart: func(ctx context.Context, b string) context.Context {
-			event.To(ctx).With(severity.Info).Logf(eventtest.B.Msgf, b)
+			event.To(ctx).Log(fmt.Sprintf(eventtest.B.Msgf, b), severity.Info)
 			return ctx
 		},
 		BEnd: func(ctx context.Context) {},
@@ -53,7 +54,7 @@ var (
 	eventTrace = eventtest.Hooks{
 		AStart: func(ctx context.Context, a int) context.Context {
 			ctx, _ = event.To(ctx).Start(eventtest.A.Msg)
-			event.To(ctx).With(aValue.Of(a)).Annotate()
+			event.To(ctx).Annotate(aValue.Of(a))
 			return ctx
 		},
 		AEnd: func(ctx context.Context) {
@@ -61,7 +62,7 @@ var (
 		},
 		BStart: func(ctx context.Context, b string) context.Context {
 			ctx, _ = event.To(ctx).Start(eventtest.B.Msg)
-			event.To(ctx).With(bValue.Of(b)).Annotate()
+			event.To(ctx).Annotate(bValue.Of(b))
 			return ctx
 		},
 		BEnd: func(ctx context.Context) {
@@ -71,14 +72,14 @@ var (
 
 	eventMetric = eventtest.Hooks{
 		AStart: func(ctx context.Context, a int) context.Context {
-			event.To(ctx).With(aStat.Of(a)).Metric(gauge.Record(1))
-			event.To(ctx).With(aCount.Of(1)).Metric(gauge.Record(1))
+			event.To(ctx).Metric(gauge.Record(1), aStat.Of(a))
+			event.To(ctx).Metric(gauge.Record(1), aCount.Of(1))
 			return ctx
 		},
 		AEnd: func(ctx context.Context) {},
 		BStart: func(ctx context.Context, b string) context.Context {
-			event.To(ctx).With(bLength.Of(len(b))).Metric(gauge.Record(1))
-			event.To(ctx).With(bCount.Of(1)).Metric(gauge.Record(1))
+			event.To(ctx).Metric(gauge.Record(1), bLength.Of(len(b)))
+			event.To(ctx).Metric(gauge.Record(1), bCount.Of(1))
 			return ctx
 		},
 		BEnd: func(ctx context.Context) {},
@@ -137,4 +138,14 @@ func BenchmarkEventMetricNoop(b *testing.B) {
 
 func BenchmarkEventMetricDiscard(b *testing.B) {
 	eventtest.RunBenchmark(b, eventPrint(io.Discard), eventMetric)
+}
+
+func BenchmarkNoExp(b *testing.B) {
+	ctx := event.WithExporter(context.Background(), nil)
+	a := 77
+	b.ReportAllocs()
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		event.To(ctx).Log(eventtest.A.Msg, severity.Info, aValue.Of(a))
+	}
 }

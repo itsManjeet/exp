@@ -40,7 +40,12 @@ func Test(t *testing.T) {
 	// logrus fields are stored in a map, so we have to sort to overcome map
 	// iteration indeterminacy.
 	less := func(a, b event.Label) bool { return a.Name < b.Name }
-	if diff := cmp.Diff(want, th.Got, cmpopts.SortSlices(less), cmpopts.IgnoreFields(event.Event{}, "At")); diff != "" {
+	for i := 0; i < len(want); i++ {
+		if i < len(th.Got) {
+			want[i].At = th.Got[i].At
+		}
+	}
+	if diff := cmp.Diff(want, th.Got, cmp.Comparer(event.Event.Equal), cmpopts.SortSlices(less)); diff != "" {
 		t.Errorf("mismatch (-want, +got):\n%s", diff)
 	}
 }

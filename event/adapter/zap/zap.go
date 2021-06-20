@@ -27,14 +27,16 @@ import (
 )
 
 type core struct {
-	builder event.Builder // never delivered, only cloned
+	ctx     context.Context
+	builder *event.Builder
 }
 
 var _ zapcore.Core = (*core)(nil)
 
 func NewCore(ctx context.Context) zapcore.Core {
 	return &core{
-		builder: event.To(ctx),
+		ctx:     ctx,
+		builder: event.NewBuilder(),
 	}
 }
 
@@ -45,24 +47,25 @@ func (c *core) Enabled(level zapcore.Level) bool {
 func (c *core) With(fields []zapcore.Field) zapcore.Core {
 	c2 := *c
 	c2.builder = c2.builder.Clone()
-	addLabels(c2.builder, fields)
+	c2.builder.Labels = addLabels(c2.builder.Labels, fields)
 	return &c2
 }
 
 func (c *core) Write(e zapcore.Entry, fs []zapcore.Field) error {
-	b := c.builder.Clone().
+
+	t := c.builder.To(c.ctx).
 		At(e.Time).
-		With(convertLevel(e.Level)).
 		Name(e.LoggerName)
+	labels := []event.Label{convertLevel(e.Level)}
 	// TODO: add these additional labels more efficiently.
 	if e.Stack != "" {
-		b.With(keys.String("stack").Of(e.Stack))
+		labels = append(labels, keys.String("stack").Of(e.Stack))
 	}
 	if e.Caller.Defined {
-		b.With(keys.String("caller").Of(e.Caller.String()))
+		labels = append(labels, keys.String("caller").Of(e.Caller.String()))
 	}
-	addLabels(b, fs)
-	b.Log(e.Message)
+	labels = addLabels(labels, fs)
+	t.Log(e.Message, labels...)
 	return nil
 }
 
@@ -74,10 +77,11 @@ func (c *core) Sync() error { return nil }
 
 // addLabels creates a new []event.Label with the given labels followed by the
 // labels constructed from fields.
-func addLabels(b event.Builder, fields []zap.Field) {
-	for i := 0; i < len(fields); i++ {
-		b.With(newLabel(fields[i]))
+func addLabels(ls []event.Label, fields []zap.Field) []event.Label {
+	for _, f := range fields {
+		ls = append(ls, newLabel(f))
 	}
+	return ls
 }
 
 func newLabel(f zap.Field) event.Label {

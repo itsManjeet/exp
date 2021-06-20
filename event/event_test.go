@@ -40,15 +40,15 @@ func TestPrint(t *testing.T) {
 		expect: `time="2020/03/05 14:27:48" msg="a message"
 `}, {
 		name:   "log 1",
-		events: func(ctx context.Context) { event.To(ctx).With(l1).Log("a message") },
+		events: func(ctx context.Context) { event.To(ctx).Log("a message", l1) },
 		expect: `time="2020/03/05 14:27:48" l1=1 msg="a message"`,
 	}, {
 		name:   "log 2",
-		events: func(ctx context.Context) { event.To(ctx).With(l1).With(l2).Log("a message") },
+		events: func(ctx context.Context) { event.To(ctx).Log("a message", l1, l2) },
 		expect: `time="2020/03/05 14:27:48" l1=1 l2=2 msg="a message"`,
 	}, {
 		name:   "log 3",
-		events: func(ctx context.Context) { event.To(ctx).With(l1).With(l2).With(l3).Log("a message") },
+		events: func(ctx context.Context) { event.To(ctx).Log("a message", l1, l2, l3) },
 		expect: `time="2020/03/05 14:27:48" l1=1 l2=2 l3=3 msg="a message"`,
 	}, {
 		name: "span",
@@ -76,52 +76,54 @@ time="2020/03/05 14:27:51" parent=2 end
 time="2020/03/05 14:27:52" parent=1 end
 `}, {
 		name:   "counter",
-		events: func(ctx context.Context) { event.To(ctx).With(l1).Metric(counter.Record(2)) },
+		events: func(ctx context.Context) { event.To(ctx).Metric(counter.Record(2), l1) },
 		expect: `time="2020/03/05 14:27:48" in="golang.org/x/exp/event_test" l1=1 metricValue=2 metric="Metric(\"golang.org/x/exp/event_test/hits\")"`,
 	}, {
 		name:   "gauge",
-		events: func(ctx context.Context) { event.To(ctx).With(l1).Metric(gauge.Record(98.6)) },
+		events: func(ctx context.Context) { event.To(ctx).Metric(gauge.Record(98.6), l1) },
 		expect: `time="2020/03/05 14:27:48" in="golang.org/x/exp/event_test" l1=1 metricValue=98.6 metric="Metric(\"golang.org/x/exp/event_test/temperature\")"`,
 	}, {
 		name: "duration",
 		events: func(ctx context.Context) {
-			event.To(ctx).With(l1).With(l2).Metric(latency.Record(3 * time.Second))
+			event.To(ctx).Metric(latency.Record(3*time.Second), l1, l2)
 		},
 		expect: `time="2020/03/05 14:27:48" in="golang.org/x/exp/event_test" l1=1 l2=2 metricValue=3s metric="Metric(\"golang.org/x/exp/event_test/latency\")"`,
 	}, {
 		name:   "annotate",
-		events: func(ctx context.Context) { event.To(ctx).With(l1).Annotate() },
+		events: func(ctx context.Context) { event.To(ctx).Annotate(l1) },
 		expect: `time="2020/03/05 14:27:48" l1=1`,
 	}, {
 		name:   "annotate 2",
-		events: func(ctx context.Context) { event.To(ctx).With(l1).With(l2).Annotate() },
+		events: func(ctx context.Context) { event.To(ctx).Annotate(l1, l2) },
 		expect: `time="2020/03/05 14:27:48" l1=1 l2=2`,
 	}, {
 		name: "multiple events",
 		events: func(ctx context.Context) {
-			b := event.To(ctx)
-			b.Clone().With(keys.Int("myInt").Of(6)).Log("my event")
-			b.With(keys.String("myString").Of("some string value")).Log("string event")
+			t := event.To(ctx)
+			t.Log("my event", keys.Int("myInt").Of(6))
+			t.Log("string event", keys.String("myString").Of("some string value"))
 		},
 		expect: `
 time="2020/03/05 14:27:48" myInt=6 msg="my event"
 time="2020/03/05 14:27:49" myString="some string value" msg="string event"
 `}} {
-		buf := &strings.Builder{}
-		ctx := event.WithExporter(ctx, event.NewExporter(logfmt.NewHandler(buf), eventtest.ExporterOptions()))
-		test.events(ctx)
-		got := strings.TrimSpace(buf.String())
-		expect := strings.TrimSpace(test.expect)
-		if got != expect {
-			t.Errorf("%s failed\ngot   : %s\nexpect: %s", test.name, got, expect)
-		}
+		t.Run(test.name, func(t *testing.T) {
+			buf := &strings.Builder{}
+			ctx := event.WithExporter(ctx, event.NewExporter(logfmt.NewHandler(buf), eventtest.ExporterOptions()))
+			test.events(ctx)
+			got := strings.TrimSpace(buf.String())
+			expect := strings.TrimSpace(test.expect)
+			if got != expect {
+				t.Errorf("\ngot:    %s\nexpect: %s", got, expect)
+			}
+		})
 	}
 }
 
 func ExampleLog() {
 	ctx := event.WithExporter(context.Background(), event.NewExporter(logfmt.NewHandler(os.Stdout), eventtest.ExporterOptions()))
-	event.To(ctx).With(keys.Int("myInt").Of(6)).Log("my event")
-	event.To(ctx).With(keys.String("myString").Of("some string value")).Log("error event")
+	event.To(ctx).Log("my event", keys.Int("myInt").Of(6))
+	event.To(ctx).Log("error event", keys.String("myString").Of("some string value"))
 	// Output:
 	// time="2020/03/05 14:27:48" myInt=6 msg="my event"
 	// time="2020/03/05 14:27:49" myString="some string value" msg="error event"
