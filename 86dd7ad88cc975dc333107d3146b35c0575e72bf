@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2367c964_df1181c3",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 802,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-06-21T17:49:12Z",
+      "side": 0,
+      "message": "If this isn\u0027t causing problems, let\u0027s keep it. We need to override the user\u0027s GO111MODULE setting, if any.",
+      "revId": "86dd7ad88cc975dc333107d3146b35c0575e72bf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
