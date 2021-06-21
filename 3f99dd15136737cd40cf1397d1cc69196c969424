@@ -53,6 +53,24 @@
       "message": "Yeah, I was thinking of doing exactly this.\nOpen questions for me were, is there anything we can do to help with detection of double delivery like we did before?\nDo we need a non Deliver terminator (Dispose?) for things we clone as a template but do not want to deliver?\nDo we want anything that allows the common event builders but giving you the event rather than delivering it? (my feeling is no, unnecessary complication for a rare case)\nIs there any way to use this with the metric recorders?\nWhat would we do for \"templates\" where we do not have a context yet (building global pre-prepared events for example)",
       "revId": "3f99dd15136737cd40cf1397d1cc69196c969424",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f562dcd7_ee57aae4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-06-21T15:56:24Z",
+      "side": 1,
+      "message": "\u003e Open questions for me were, is there anything we can do to help with detection of double delivery like we did before?\n\nI can\u0027t think of anything that doesn\u0027t involve adding a wrapper type.\n\n\u003e Do we need a non Deliver terminator (Dispose?) for things we clone as a template but do not want to deliver?\n\nSo far the clones are long-lived, so it\u0027s not necessary.\n\n\u003e Do we want anything that allows the common event builders but giving you the event rather than delivering it?\n\nFor metrics and Start, but not the others.\n\n\u003e What would we do for \"templates\" where we do not have a context yet (building global pre-prepared events for example)\n\nI think Builder would be the right name for that. Mostly it\u0027s just common labels but you could also do the runtime.Callers call just once.",
+      "parentUuid": "b2c5b018_76891f09",
+      "revId": "3f99dd15136737cd40cf1397d1cc69196c969424",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
