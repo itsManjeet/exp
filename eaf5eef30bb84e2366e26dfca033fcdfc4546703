@@ -53,6 +53,24 @@
       "message": "Minor simplification:\n\n  m.diagnostics \u003d append(m.diagnostics, retracted...)",
       "revId": "eaf5eef30bb84e2366e26dfca033fcdfc4546703",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fba05d9_ebd8c96f",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 9
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-06-24T17:58:34Z",
+      "side": 1,
+      "message": "Done\n\ndoh",
+      "parentUuid": "f2533f1e_89c9677b",
+      "revId": "eaf5eef30bb84e2366e26dfca033fcdfc4546703",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
