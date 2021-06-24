@@ -16,6 +16,24 @@
       "message": "If this isn\u0027t causing problems, let\u0027s keep it. We need to override the user\u0027s GO111MODULE setting, if any.",
       "revId": "86dd7ad88cc975dc333107d3146b35c0575e72bf",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a625a40_332f552e",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 802,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-06-24T17:43:43Z",
+      "side": 0,
+      "message": "Ack\n\nI agree! I removed it because we already are doing this in main, so it\u0027s guaranteed to be here. SGTY to remove given that reasoning?",
+      "parentUuid": "2367c964_df1181c3",
+      "revId": "86dd7ad88cc975dc333107d3146b35c0575e72bf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }

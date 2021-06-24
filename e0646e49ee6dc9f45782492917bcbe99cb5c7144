@@ -103,6 +103,54 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8e5140a_b9ec29cb",
+        "filename": "cmd/gorelease/errors.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-06-24T17:43:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f34d56fc_f32af312",
+      "range": {
+        "startLine": 41,
+        "startChar": 50,
+        "endLine": 41,
+        "endChar": 51
+      },
+      "revId": "e0646e49ee6dc9f45782492917bcbe99cb5c7144",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "210a63d2_827c3a10",
+        "filename": "cmd/gorelease/errors.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-06-24T17:43:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e53deb6_2ccbece7",
+      "range": {
+        "startLine": 41,
+        "startChar": 59,
+        "endLine": 41,
+        "endChar": 71
+      },
+      "revId": "e0646e49ee6dc9f45782492917bcbe99cb5c7144",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "80ade5e0_db3c2b3a",
@@ -116,6 +164,24 @@
       "writtenOn": "2021-06-21T17:49:12Z",
       "side": 1,
       "message": "Nit: move this check above the proxyVersions declaration to make it more visible.",
+      "revId": "e0646e49ee6dc9f45782492917bcbe99cb5c7144",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6042931d_12c3d56a",
+        "filename": "cmd/gorelease/gorelease_test.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-06-24T17:43:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80ade5e0_db3c2b3a",
       "revId": "e0646e49ee6dc9f45782492917bcbe99cb5c7144",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
