@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c674a23_0b4319e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-07-01T20:44:53Z",
+      "side": 1,
+      "message": "I\u0027m throwing out this CL as a strawman just so we have something concrete to discuss. I figured it\u0027s good to stick close to something familiar. Let me know if it would be better a different way though.\n\nOne issue I see is that the apidiff messages seem a little sparse. They\u0027d be better if they included a source position (except for removed definitions) and something saying what kind of definition it was (function, const, etc.). We could do that in another CL though.",
+      "revId": "bf08ea6b824ca8c20cc266b41dab367b4e9bf74d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
