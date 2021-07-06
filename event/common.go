@@ -7,6 +7,7 @@ package event
 import (
 	"context"
 	"fmt"
+	"sync"
 )
 
 const (
@@ -24,12 +25,49 @@ const (
 	MetricKind
 	StartKind
 	EndKind
+
+	dynamicKindStart
 )
 
 type (
 	valueKey     string
 	interfaceKey string
 )
+
+var (
+	dynamicKindMu    sync.Mutex
+	nextDynamicKind  = dynamicKindStart
+	dynamicKindNames map[Kind]string
+)
+
+func NewKind(name string) Kind {
+	dynamicKindMu.Lock()
+	defer dynamicKindMu.Unlock()
+	//TODO: check the name is unique?
+	k := nextDynamicKind
+	nextDynamicKind++
+	dynamicKindNames[k] = name
+	return k
+}
+
+func (k Kind) String() string {
+	switch k {
+	case unknownKind:
+		return "unknown"
+	case LogKind:
+		return "log"
+	case MetricKind:
+		return "metric"
+	case StartKind:
+		return "start"
+	case EndKind:
+		return "end"
+	default:
+		dynamicKindMu.Lock()
+		defer dynamicKindMu.Unlock()
+		return dynamicKindNames[k]
+	}
+}
 
 func Log(ctx context.Context, msg string, labels ...Label) {
 	ev := New(ctx, LogKind)
