@@ -100,6 +100,30 @@
       },
       "revId": "bf08ea6b824ca8c20cc266b41dab367b4e9bf74d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdddc064_638c0d69",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-07-07T15:20:37Z",
+      "side": 1,
+      "message": "Ah! Yes, that makes sense. Thank you!",
+      "parentUuid": "57521065_e26a7e3b",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 2
+      },
+      "revId": "bf08ea6b824ca8c20cc266b41dab367b4e9bf74d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
