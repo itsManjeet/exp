@@ -7,6 +7,7 @@ package main
 import (
 	"fmt"
 	"strings"
+	"text/template"
 
 	"golang.org/x/exp/apidiff"
 	"golang.org/x/mod/module"
@@ -14,25 +15,73 @@ import (
 	"golang.org/x/tools/go/packages"
 )
 
-// report describes the differences in the public API between two versions
+const defaultFormat = `
+{{- range .Packages}}{{.}}{{end -}}
+{{- if .Release.Diagnostics -}}
+# diagnostics
+{{range .Release.Diagnostics}}{{.}}
+{{end}}
+{{end -}}
+{{- if canVerifyReleaseVersion . -}}
+# summary
+{{$base := .Base.Version -}}
+{{- if ne .Base.ModPath .Release.ModPath -}}
+{{- $base = printf "%s@%s" .Base.ModPath .Base.Version -}}
+{{- end -}}
+{{- if .Base.VersionInferred -}}
+Inferred base version: {{$base}}
+{{else if .Base.VersionQuery -}}
+Base version: {{$base}} ({{.Base.VersionQuery}})
+{{end -}}
+{{- if .InvalidReleaseVersion -}}
+{{.InvalidReleaseVersion}}
+{{else if .Release.VersionInferred -}}
+Suggested version: {{.Release.Version}}
+{{- if .Release.TagPrefix}} (with tag {{.Release.TagPrefix}}{{.Release.Version}}){{end}}
+{{else if .Release.Version -}}
+{{.Release.Version}} {{if .Release.TagPrefix}}(with tag {{.Release.TagPrefix}}{{.Release.Version}}) {{end}}is a valid semantic version for this release.
+{{if lowerThanPseudo .Release.Version -}}
+Note: {{.Release.Version}} sorts lower in MVS than pseudo-versions, which may be
+unexpected for users. So, it may be better to choose a different suffix.
+{{end -}}
+{{- end -}}
+{{- if and (not .InvalidReleaseVersion) (haveBaseErrors .) -}}
+Errors were found in the base version. Some API changes may be omitted.
+{{ end -}}
+{{- end -}}
+`
+
+var defaultFuncs = template.FuncMap{
+	"canVerifyReleaseVersion": func(r Report) bool {
+		return r.canVerifyReleaseVersion()
+	},
+	"haveBaseErrors": func(r Report) bool {
+		return r.haveBaseErrors
+	},
+	"lowerThanPseudo": func(v string) bool {
+		return semver.Compare(v, "v0.0.0-99999999999999-zzzzzzzzzzzz") < 0
+	},
+}
+
+// Report describes the differences in the public API between two versions
 // of a module.
-type report struct {
-	// base contains information about the "old" module version being compared
-	// against. base.version may be "none", indicating there is no base version
-	// (for example, if this is the first release). base.version may not be "".
-	base moduleInfo
+type Report struct {
+	// Base contains information about the "old" module version being compared
+	// against. Base.version may be "none", indicating there is no Base version
+	// (for example, if this is the first release). Base.version may not be "".
+	Base VersionInfo
 
-	// release contains information about the version of the module to release.
+	// Release contains information about the version of the module to Release.
 	// The version may be set explicitly with -version or suggested using
-	// suggestVersion, in which case release.versionInferred is true.
-	release moduleInfo
+	// suggestVersion, in which case Release.versionInferred is true.
+	Release VersionInfo
 
-	// packages is a list of package reports, describing the differences
-	// for individual packages, sorted by package path.
-	packages []packageReport
+	// Packages is a list of package reports, describing the differences
+	// for individual Packages, sorted by package path.
+	Packages []PackageReport
 
-	// versionInvalid explains why the proposed or suggested version is not valid.
-	versionInvalid *versionMessage
+	// InvalidReleaseVersion explains why the proposed or suggested version is not valid.
+	InvalidReleaseVersion string
 
 	// haveCompatibleChanges is true if there are any backward-compatible
 	// changes in non-internal packages.
@@ -55,9 +104,9 @@ type report struct {
 // and incompatible changes in each package. If releaseVersion is set, the
 // report states whether releaseVersion is valid (and why). If releaseVersion is
 // not set, it suggests a new version.
-func (r *report) String() string {
+func (r *Report) String() string {
 	buf := &strings.Builder{}
-	for _, p := range r.packages {
+	for _, p := range r.Packages {
 		buf.WriteString(p.String())
 	}
 
@@ -65,55 +114,55 @@ func (r *report) String() string {
 		return buf.String()
 	}
 
-	if len(r.release.diagnostics) > 0 {
+	if len(r.Release.Diagnostics) > 0 {
 		buf.WriteString("# diagnostics\n")
-		for _, d := range r.release.diagnostics {
+		for _, d := range r.Release.Diagnostics {
 			fmt.Fprintln(buf, d)
 		}
 		buf.WriteByte('\n')
 	}
 
 	buf.WriteString("# summary\n")
-	baseVersion := r.base.version
-	if r.base.modPath != r.release.modPath {
-		baseVersion = r.base.modPath + "@" + baseVersion
+	baseVersion := r.Base.Version
+	if r.Base.ModPath != r.Release.ModPath {
+		baseVersion = r.Base.ModPath + "@" + baseVersion
 	}
-	if r.base.versionInferred {
+	if r.Base.VersionInferred {
 		fmt.Fprintf(buf, "Inferred base version: %s\n", baseVersion)
-	} else if r.base.versionQuery != "" {
-		fmt.Fprintf(buf, "Base version: %s (%s)\n", baseVersion, r.base.versionQuery)
+	} else if r.Base.VersionQuery != "" {
+		fmt.Fprintf(buf, "Base version: %s (%s)\n", baseVersion, r.Base.VersionQuery)
 	}
 
-	if r.versionInvalid != nil {
-		fmt.Fprintln(buf, r.versionInvalid)
-	} else if r.release.versionInferred {
-		if r.release.tagPrefix == "" {
-			fmt.Fprintf(buf, "Suggested version: %s\n", r.release.version)
+	if r.InvalidReleaseVersion != "" {
+		fmt.Fprintln(buf, r.InvalidReleaseVersion)
+	} else if r.Release.VersionInferred {
+		if r.Release.TagPrefix == "" {
+			fmt.Fprintf(buf, "Suggested version: %s\n", r.Release.Version)
 		} else {
-			fmt.Fprintf(buf, "Suggested version: %[1]s (with tag %[2]s%[1]s)\n", r.release.version, r.release.tagPrefix)
+			fmt.Fprintf(buf, "Suggested version: %[1]s (with tag %[2]s%[1]s)\n", r.Release.Version, r.Release.TagPrefix)
 		}
-	} else if r.release.version != "" {
-		if r.release.tagPrefix == "" {
-			fmt.Fprintf(buf, "%s is a valid semantic version for this release.\n", r.release.version)
+	} else if r.Release.Version != "" {
+		if r.Release.TagPrefix == "" {
+			fmt.Fprintf(buf, "%s is a valid semantic version for this release.\n", r.Release.Version)
 
-			if semver.Compare(r.release.version, "v0.0.0-99999999999999-zzzzzzzzzzzz") < 0 {
+			if semver.Compare(r.Release.Version, "v0.0.0-99999999999999-zzzzzzzzzzzz") < 0 {
 				fmt.Fprintf(buf, `Note: %s sorts lower in MVS than pseudo-versions, which may be
-unexpected for users. So, it may be better to choose a different suffix.`, r.release.version)
+unexpected for users. So, it may be better to choose a different suffix.`, r.Release.Version)
 			}
 		} else {
-			fmt.Fprintf(buf, "%[1]s (with tag %[2]s%[1]s) is a valid semantic version for this release\n", r.release.version, r.release.tagPrefix)
+			fmt.Fprintf(buf, "%[1]s (with tag %[2]s%[1]s) is a valid semantic version for this release\n", r.Release.Version, r.Release.TagPrefix)
 		}
 	}
 
-	if r.versionInvalid == nil && r.haveBaseErrors {
+	if r.InvalidReleaseVersion == "" && r.haveBaseErrors {
 		fmt.Fprintln(buf, "Errors were found in the base version. Some API changes may be omitted.")
 	}
 
 	return buf.String()
 }
 
-func (r *report) addPackage(p packageReport) {
-	r.packages = append(r.packages, p)
+func (r *Report) addPackage(p PackageReport) {
+	r.Packages = append(r.Packages, p)
 	if len(p.baseErrors) == 0 && len(p.releaseErrors) == 0 {
 		// Only count compatible and incompatible changes if there were no errors.
 		// When there are errors, definitions may be missing, and fixes may appear
@@ -138,15 +187,13 @@ func (r *report) addPackage(p packageReport) {
 // validateReleaseVersion checks whether r.release.version is valid.
 // If r.release.version is not valid, an error is returned explaining why.
 // r.release.version must be set.
-func (r *report) validateReleaseVersion() {
-	if r.release.version == "" {
+func (r *Report) validateReleaseVersion() {
+	if r.Release.Version == "" {
 		panic("validateVersion called without version")
 	}
 	setNotValid := func(format string, args ...interface{}) {
-		r.versionInvalid = &versionMessage{
-			message: fmt.Sprintf("%s is not a valid semantic version for this release.", r.release.version),
-			reason:  fmt.Sprintf(format, args...),
-		}
+		prefix := fmt.Sprintf("%s is not a valid semantic version for this release.\n", r.Release.Version)
+		r.InvalidReleaseVersion = prefix + fmt.Sprintf(format, args...)
 	}
 
 	if r.haveReleaseErrors {
@@ -159,70 +206,67 @@ func (r *report) validateReleaseVersion() {
 	// TODO(jayconrod): link to documentation for all of these errors.
 
 	// Check that the major version matches the module path.
-	_, suffix, ok := module.SplitPathVersion(r.release.modPath)
+	_, suffix, ok := module.SplitPathVersion(r.Release.ModPath)
 	if !ok {
-		setNotValid("%s: could not find version suffix in module path", r.release.modPath)
+		setNotValid("%s: could not find version suffix in module path", r.Release.ModPath)
 		return
 	}
 	if suffix != "" {
 		if suffix[0] != '/' && suffix[0] != '.' {
-			setNotValid("%s: unknown module path version suffix: %q", r.release.modPath, suffix)
+			setNotValid("%s: unknown module path version suffix: %q", r.Release.ModPath, suffix)
 			return
 		}
 		pathMajor := suffix[1:]
-		major := semver.Major(r.release.version)
+		major := semver.Major(r.Release.Version)
 		if pathMajor != major {
 			setNotValid(`The major version %s does not match the major version suffix
-in the module path: %s`, major, r.release.modPath)
+in the module path: %s`, major, r.Release.ModPath)
 			return
 		}
-	} else if major := semver.Major(r.release.version); major != "v0" && major != "v1" {
+	} else if major := semver.Major(r.Release.Version); major != "v0" && major != "v1" {
 		setNotValid(`The module path does not end with the major version suffix /%s,
 which is required for major versions v2 or greater.`, major)
 		return
 	}
 
-	for _, v := range r.base.existingVersions {
-		if semver.Compare(v, r.release.version) == 0 {
+	for _, v := range r.Base.existingVersions {
+		if semver.Compare(v, r.Release.Version) == 0 {
 			setNotValid("version %s already exists", v)
 		}
 	}
 
 	// Check that compatible / incompatible changes are consistent.
-	if semver.Major(r.base.version) == "v0" || r.base.modPath != r.release.modPath {
+	if semver.Major(r.Base.Version) == "v0" || r.Base.ModPath != r.Release.ModPath {
 		return
 	}
 	if r.haveIncompatibleChanges {
 		setNotValid("There are incompatible changes.")
 		return
 	}
-	if r.haveCompatibleChanges && semver.MajorMinor(r.base.version) == semver.MajorMinor(r.release.version) {
+	if r.haveCompatibleChanges && semver.MajorMinor(r.Base.Version) == semver.MajorMinor(r.Release.Version) {
 		setNotValid(`There are compatible changes, but the minor version is not incremented
-over the base version (%s).`, r.base.version)
+over the base version (%s).`, r.Base.Version)
 		return
 	}
 
-	if r.release.highestTransitiveVersion != "" && semver.Compare(r.release.highestTransitiveVersion, r.release.version) > 0 {
+	if r.Release.highestTransitiveVersion != "" && semver.Compare(r.Release.highestTransitiveVersion, r.Release.Version) > 0 {
 		setNotValid(`Module indirectly depends on a higher version of itself (%s).
-		`, r.release.highestTransitiveVersion)
+		`, r.Release.highestTransitiveVersion)
 	}
 }
 
 // suggestReleaseVersion suggests a new version consistent with observed
 // changes.
-func (r *report) suggestReleaseVersion() {
+func (r *Report) suggestReleaseVersion() {
 	setNotValid := func(format string, args ...interface{}) {
-		r.versionInvalid = &versionMessage{
-			message: "Cannot suggest a release version.",
-			reason:  fmt.Sprintf(format, args...),
-		}
+		r.InvalidReleaseVersion = "Cannot suggest a release version.\n" + fmt.Sprintf(format, args...)
 	}
 	setVersion := func(v string) {
-		r.release.version = v
-		r.release.versionInferred = true
+		r.Release.Version = v
+		r.Release.VersionInferred = true
 	}
 
-	if r.base.modPath != r.release.modPath {
+	if r.Base.ModPath != r.Release.ModPath {
 		setNotValid("Base module path is different from release.")
 		return
 	}
@@ -233,10 +277,10 @@ func (r *report) suggestReleaseVersion() {
 	}
 
 	var major, minor, patch, pre string
-	if r.base.version != "none" {
-		minVersion := r.base.version
-		if r.release.highestTransitiveVersion != "" && semver.Compare(r.release.highestTransitiveVersion, minVersion) > 0 {
-			setNotValid("Module indirectly depends on a higher version of itself (%s) than the base version (%s).", r.release.highestTransitiveVersion, r.base.version)
+	if r.Base.Version != "none" {
+		minVersion := r.Base.Version
+		if r.Release.highestTransitiveVersion != "" && semver.Compare(r.Release.highestTransitiveVersion, minVersion) > 0 {
+			setNotValid("Module indirectly depends on a higher version of itself (%s) than the base version (%s).", r.Release.highestTransitiveVersion, r.Base.Version)
 			return
 		}
 
@@ -247,7 +291,7 @@ func (r *report) suggestReleaseVersion() {
 		}
 	}
 
-	if r.haveIncompatibleChanges && r.base.version != "none" && pre == "" && major != "0" {
+	if r.haveIncompatibleChanges && r.Base.Version != "none" && pre == "" && major != "0" {
 		setNotValid("Incompatible changes were detected.")
 		return
 		// TODO(jayconrod): briefly explain how to prepare major version releases
@@ -259,22 +303,22 @@ func (r *report) suggestReleaseVersion() {
 	// This could happen further up, but we want the more pressing errors above
 	// to take precedence.
 	var latestForBaseMajor string
-	for _, v := range r.base.existingVersions {
-		if semver.Major(v) != semver.Major(r.base.version) {
+	for _, v := range r.Base.existingVersions {
+		if semver.Major(v) != semver.Major(r.Base.Version) {
 			continue
 		}
 		if latestForBaseMajor == "" || semver.Compare(latestForBaseMajor, v) < 0 {
 			latestForBaseMajor = v
 		}
 	}
-	if latestForBaseMajor != "" && latestForBaseMajor != r.base.version {
+	if latestForBaseMajor != "" && latestForBaseMajor != r.Base.Version {
 		setNotValid(fmt.Sprintf("Can only suggest a release version when compared against the most recent version of this major: %s.", latestForBaseMajor))
 		return
 	}
 
-	if r.base.version == "none" {
-		if _, pathMajor, ok := module.SplitPathVersion(r.release.modPath); !ok {
-			panic(fmt.Sprintf("could not parse module path %q", r.release.modPath))
+	if r.Base.Version == "none" {
+		if _, pathMajor, ok := module.SplitPathVersion(r.Release.ModPath); !ok {
+			panic(fmt.Sprintf("could not parse module path %q", r.Release.ModPath))
 		} else if pathMajor == "" {
 			setVersion("v0.1.0")
 		} else {
@@ -297,13 +341,13 @@ func (r *report) suggestReleaseVersion() {
 
 // canVerifyReleaseVersion returns true if we can safely suggest a new version
 // or if we can verify the version passed in with -version is safe to tag.
-func (r *report) canVerifyReleaseVersion() bool {
+func (r *Report) canVerifyReleaseVersion() bool {
 	// For now, return true if the base and release module paths are the same,
 	// ignoring the major version suffix.
 	// TODO(#37562, #39192, #39666, #40267): there are many more situations when
 	// we can't verify a new version.
-	basePath := strings.TrimSuffix(r.base.modPath, r.base.modPathMajor)
-	releasePath := strings.TrimSuffix(r.release.modPath, r.release.modPathMajor)
+	basePath := strings.TrimSuffix(r.Base.ModPath, r.Base.modPathMajor)
+	releasePath := strings.TrimSuffix(r.Release.ModPath, r.Release.modPathMajor)
 	return basePath == releasePath
 }
 
@@ -318,8 +362,8 @@ func (r *report) canVerifyReleaseVersion() bool {
 // It does not report true when, for example, a requirement was downgraded or
 // remove. We care more about the former since that might force dependent
 // modules that have the same dependency to upgrade.
-func (r *report) requirementsChanged() bool {
-	if r.base.goModFile == nil {
+func (r *Report) requirementsChanged() bool {
+	if r.Base.goModFile == nil {
 		// There wasn't a modfile before, and now there is.
 		return true
 	}
@@ -327,11 +371,11 @@ func (r *report) requirementsChanged() bool {
 	// baseReqs is a map of module path to MajorMinor of the base module
 	// requirements.
 	baseReqs := make(map[string]string)
-	for _, r := range r.base.goModFile.Require {
+	for _, r := range r.Base.goModFile.Require {
 		baseReqs[r.Mod.Path] = r.Mod.Version
 	}
 
-	for _, r := range r.release.goModFile.Require {
+	for _, r := range r.Release.goModFile.Require {
 		if _, ok := baseReqs[r.Mod.Path]; !ok {
 			// A module@version was added to the "require" block between base
 			// and release.
@@ -343,8 +387,8 @@ func (r *report) requirementsChanged() bool {
 		}
 	}
 
-	if r.release.goModFile.Go != nil && r.base.goModFile.Go != nil {
-		if r.release.goModFile.Go.Version > r.base.goModFile.Go.Version {
+	if r.Release.goModFile.Go != nil && r.Base.goModFile.Go != nil {
+		if r.Release.goModFile.Go.Version > r.Base.goModFile.Go.Version {
 			// The Go version increased from base to release.
 			return true
 		}
@@ -355,8 +399,8 @@ func (r *report) requirementsChanged() bool {
 
 // isSuccessful returns true the module appears to be safe to release at the
 // proposed or suggested version.
-func (r *report) isSuccessful() bool {
-	return len(r.release.diagnostics) == 0 && r.versionInvalid == nil
+func (r *Report) isSuccessful() bool {
+	return len(r.Release.Diagnostics) == 0 && r.InvalidReleaseVersion == ""
 }
 
 type versionMessage struct {
@@ -385,13 +429,13 @@ func incDecimal(decimal string) string {
 	return string(digits)
 }
 
-type packageReport struct {
+type PackageReport struct {
 	apidiff.Report
 	path                      string
 	baseErrors, releaseErrors []packages.Error
 }
 
-func (p *packageReport) String() string {
+func (p *PackageReport) String() string {
 	if len(p.Changes) == 0 && len(p.baseErrors) == 0 && len(p.releaseErrors) == 0 {
 		return ""
 	}
