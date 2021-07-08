@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3761273_a24bdc9a",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-07-08T21:34:05Z",
+      "side": 1,
+      "message": "TODO: test these flags.",
+      "revId": "e5197136402380c93d4bb1743db646762963739c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c31826d3_3107844e",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-07-08T21:34:05Z",
+      "side": 1,
+      "message": "TODO: split renaming into another CL.",
+      "revId": "e5197136402380c93d4bb1743db646762963739c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd4f3690_170e03ac",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-07-08T21:34:05Z",
+      "side": 1,
+      "message": "TODO: add `json:\",omitempty\"` tags as needed.",
+      "revId": "e5197136402380c93d4bb1743db646762963739c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31f9f220_bc7e31ac",
+        "filename": "cmd/gorelease/report.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-07-08T21:34:05Z",
+      "side": 1,
+      "message": "TODO: remove this method. May also want to rewrite/remove PackageReport.String.",
+      "revId": "e5197136402380c93d4bb1743db646762963739c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
