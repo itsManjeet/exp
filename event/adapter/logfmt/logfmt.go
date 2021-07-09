@@ -45,6 +45,8 @@ func (h *Handler) Event(ctx context.Context, ev *event.Event) context.Context {
 	return ctx
 }
 
+func (h *Handler) Enabled(event.Kind) bool { return true }
+
 func (p *Printer) Event(w io.Writer, ev *event.Event) {
 	p.needSep = false
 	if !ev.At.IsZero() {

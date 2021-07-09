@@ -39,6 +39,8 @@ func (h *testHandler) Event(ctx context.Context, ev *event.Event) context.Contex
 	return ctx
 }
 
+func (h *testHandler) Enabled(event.Kind) bool { return true }
+
 var InitialTime = func() time.Time {
 	t, _ := time.Parse(logfmt.TimeFormat, "2020/03/05 14:27:48")
 	return t
