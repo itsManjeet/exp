@@ -39,6 +39,10 @@ func (t *TraceHandler) Event(ctx context.Context, ev *event.Event) context.Conte
 	}
 }
 
+func (t *TraceHandler) Enabled(kind event.Kind) bool {
+	return kind == event.StartKind || kind == event.EndKind
+}
+
 func labelsToSpanOptions(ls []event.Label) (string, []trace.SpanOption) {
 	var opts []trace.SpanOption
 	var name string

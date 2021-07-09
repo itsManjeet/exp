@@ -272,6 +272,8 @@ func (t *testTraceHandler) Event(ctx context.Context, ev *event.Event) context.C
 	}
 }
 
+func (t *testTraceHandler) Enabled(event.Kind) bool { return true }
+
 func TestTraceDuration(t *testing.T) {
 	// Verify that a trace can can emit a latency metric.
 	dur := event.NewDuration("test", "")
@@ -318,6 +320,8 @@ func (t *testTraceDurationHandler) Event(ctx context.Context, ev *event.Event) c
 	}
 	return ctx
 }
+
+func (t *testTraceDurationHandler) Enabled(event.Kind) bool { return true }
 
 func BenchmarkBuildContext(b *testing.B) {
 	// How long does it take to deliver an event from a nested context?

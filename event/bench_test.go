@@ -79,6 +79,10 @@ func eventNoExporter() context.Context {
 	return event.WithExporter(context.Background(), nil)
 }
 
+func eventDisabled() context.Context {
+	return event.WithExporter(context.Background(), event.NewExporter(disabledHandler{}, eventtest.ExporterOptions()))
+}
+
 func eventNoop() context.Context {
 	return event.WithExporter(context.Background(), event.NewExporter(nopHandler{}, eventtest.ExporterOptions()))
 }
@@ -93,12 +97,22 @@ func eventPrintSource(w io.Writer) context.Context {
 	return event.WithExporter(context.Background(), event.NewExporter(logfmt.NewHandler(w), opts))
 }
 
+type disabledHandler struct{}
+
+func (disabledHandler) Event(ctx context.Context, _ *event.Event) context.Context { return ctx }
+func (disabledHandler) Enabled(event.Kind) bool                                   { return false }
+
 type nopHandler struct{}
 
 func (nopHandler) Event(ctx context.Context, _ *event.Event) context.Context { return ctx }
+func (nopHandler) Enabled(event.Kind) bool                                   { return true }
 
 func BenchmarkEventLogNoExporter(b *testing.B) {
 	eventtest.RunBenchmark(b, eventNoExporter(), eventLog)
+}
+
+func BenchmarkEventLogDisabled(b *testing.B) {
+	eventtest.RunBenchmark(b, eventDisabled(), eventLog)
 }
 
 func BenchmarkEventLogNoop(b *testing.B) {

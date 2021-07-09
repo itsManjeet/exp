@@ -18,6 +18,7 @@ import (
 type Exporter struct {
 	lastEvent uint64 // accessed using atomic, must be 64 bit aligned
 	opts      ExporterOptions
+	enabled   uint64
 
 	mu      sync.Mutex
 	handler Handler
@@ -35,12 +36,6 @@ type target struct {
 type ExporterOptions struct {
 	// If non-nil, sets zero Event.At on delivery.
 	Now func() time.Time
-
-	// Disable some event types, for better performance.
-	DisableLogging     bool
-	DisableTracing     bool
-	DisableAnnotations bool
-	DisableMetrics     bool
 
 	// Enable automatically setting the event Namespace to the calling package's
 	// import path.
@@ -72,6 +67,14 @@ func NewExporter(handler Handler, opts *ExporterOptions) *Exporter {
 	if e.opts.Now == nil {
 		e.opts.Now = time.Now
 	}
+
+	dynamicKindMu.Lock()
+	for kind := unknownKind; kind < nextDynamicKind; kind++ {
+		if handler.Enabled(kind) {
+			e.enabled |= 1 << kind
+		}
+	}
+	dynamicKindMu.Unlock()
 	return e
 }
 
@@ -110,7 +113,6 @@ func (ev *Event) prepare() {
 	}
 }
 
-func (e *Exporter) loggingEnabled() bool     { return !e.opts.DisableLogging }
-func (e *Exporter) annotationsEnabled() bool { return !e.opts.DisableAnnotations }
-func (e *Exporter) tracingEnabled() bool     { return !e.opts.DisableTracing }
-func (e *Exporter) metricsEnabled() bool     { return !e.opts.DisableMetrics }
+func (e *Exporter) Enabled(kind Kind) bool {
+	return kind >= 64 || (e.enabled&(1<<kind)) != 0
+}
