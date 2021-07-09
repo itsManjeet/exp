@@ -29,6 +29,10 @@ type Event struct {
 type Handler interface {
 	// Event is called with each event.
 	Event(context.Context, *Event) context.Context
+
+	// Enabled returns true if the handler wants events of the supplied kind.
+	// This should not change once the handler has been bound to an exporter.
+	Enabled(kind Kind) bool
 }
 
 // preallocateLabels controls the space reserved for labels in a builder.
@@ -69,20 +73,8 @@ func New(ctx context.Context, kind Kind) *Event {
 	if t == nil {
 		return nil
 	}
-	//TODO: we can change this to a much faster test
-	switch kind {
-	case LogKind:
-		if !t.exporter.loggingEnabled() {
-			return nil
-		}
-	case MetricKind:
-		if !t.exporter.metricsEnabled() {
-			return nil
-		}
-	case StartKind, EndKind:
-		if !t.exporter.tracingEnabled() {
-			return nil
-		}
+	if !t.exporter.Enabled(kind) {
+		return nil
 	}
 	ev := eventPool.Get().(*Event)
 	*ev = Event{

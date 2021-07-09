@@ -18,6 +18,8 @@ func (h *CaptureHandler) Event(ctx context.Context, ev *event.Event) context.Con
 	return ctx
 }
 
+func (h *CaptureHandler) Enabled(event.Kind) bool { return true }
+
 func (h *CaptureHandler) Reset() {
 	if len(h.Got) > 0 {
 		h.Got = h.Got[:0]
