@@ -15,7 +15,9 @@ import (
 )
 
 func TestIdleTimeout(t *testing.T) {
+	t.Parallel()
 	stacktest.NoLeak(t)
+
 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 	defer cancel()
 
@@ -77,9 +79,8 @@ func (fakeHandler) Handle(ctx context.Context, req *jsonrpc2.Request) (interface
 }
 
 func TestServe(t *testing.T) {
+	t.Parallel()
 	stacktest.NoLeak(t)
-	ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
-	defer cancel()
 
 	tests := []struct {
 		name    string
@@ -94,7 +95,12 @@ func TestServe(t *testing.T) {
 	}
 
 	for _, test := range tests {
+		test := test
 		t.Run(test.name, func(t *testing.T) {
+			t.Parallel()
+
+			ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+			defer cancel()
 			fake, err := test.factory(ctx)
 			if err != nil {
 				t.Fatal(err)
@@ -116,6 +122,8 @@ func TestServe(t *testing.T) {
 }
 
 func newFake(t *testing.T, ctx context.Context, l jsonrpc2.Listener) (*jsonrpc2.Connection, func(), error) {
+	t.Helper()
+
 	l = jsonrpc2.NewIdleListener(100*time.Millisecond, l)
 	server, err := jsonrpc2.Serve(ctx, l, jsonrpc2.ConnectionOptions{
 		Handler: fakeHandler{},
