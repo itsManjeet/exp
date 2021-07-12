@@ -14,20 +14,37 @@ import (
 )
 
 type logger struct {
-	ev        *event.Event // cloned, never delivered
-	labels    []event.Label
-	nameSep   string
-	name      string
-	verbosity int
+	ev      *event.Event // cloned, never delivered
+	labels  []event.Label
+	nameSep string
+	name    string
+	level   int
 }
 
-var _ logr.Logger = (*logger)(nil)
+// TODO(zchee): support logr.CallDepthLogSink.
+var _ logr.LogSink = (*logger)(nil)
 
-func NewLogger(ctx context.Context, nameSep string) logr.Logger {
-	return &logger{
+// Option represents a logger options.
+type Option func(l *logger)
+
+// WithLevel sets level to logger.
+func WithLevel(level int) Option {
+	return func(l *logger) {
+		l.level = level
+	}
+}
+
+// NewLogger returns the new event logger which implements logr interface.
+func NewLogger(ctx context.Context, nameSep string, opts ...Option) logr.LogSink {
+	l := &logger{
 		ev:      event.New(ctx, event.LogKind),
 		nameSep: nameSep,
 	}
+	for _, o := range opts {
+		o(l)
+	}
+
+	return l
 }
 
 // WithName adds a new element to the logger's name.
@@ -35,7 +52,7 @@ func NewLogger(ctx context.Context, nameSep string) logr.Logger {
 // suffixes to the logger's name.  It's strongly recommended
 // that name segments contain only letters, digits, and hyphens
 // (see the package documentation for more information).
-func (l *logger) WithName(name string) logr.Logger {
+func (l *logger) WithName(name string) logr.LogSink {
 	l2 := *l
 	if l.name == "" {
 		l2.name = name
@@ -45,20 +62,15 @@ func (l *logger) WithName(name string) logr.Logger {
 	return &l2
 }
 
-// V returns an Logger value for a specific verbosity level, relative to
-// this Logger.  In other words, V values are additive.  V higher verbosity
-// level means a log message is less important.  It's illegal to pass a log
-// level less than zero.
-func (l *logger) V(level int) logr.Logger {
-	l2 := *l
-	l2.verbosity += level
-	return &l2
-}
+// Init receives optional information.
+//
+// Currently, this method is no-op.
+func (l *logger) Init(logr.RuntimeInfo) {}
 
-// Enabled tests whether this Logger is enabled.  For example, commandline
+// Enabled tests whether this Logger is enabled. For example, commandline
 // flags might be used to set the logging verbosity and disable some info
 // logs.
-func (l *logger) Enabled() bool {
+func (l *logger) Enabled(int) bool {
 	return true
 }
 
@@ -68,11 +80,11 @@ func (l *logger) Enabled() bool {
 // the log line.  The key/value pairs can then be used to add additional
 // variable information.  The key/value pairs should alternate string
 // keys and arbitrary values.
-func (l *logger) Info(msg string, keysAndValues ...interface{}) {
+func (l *logger) Info(level int, msg string, keysAndValues ...interface{}) {
 	if l.ev == nil {
 		return
 	}
-	l.log(l.ev.Clone(), msg, keysAndValues)
+	l.log(l.ev.Clone(), level, msg, keysAndValues)
 }
 
 // Error logs an error, with the given message and key/value pairs as context.
@@ -89,11 +101,14 @@ func (l *logger) Error(err error, msg string, keysAndValues ...interface{}) {
 	}
 	ev := l.ev.Clone()
 	ev.Labels = append(ev.Labels, event.Value("error", err))
-	l.log(ev, msg, keysAndValues)
+	l.log(ev, l.level, msg, keysAndValues) // 0 means no append severity
 }
 
-func (l *logger) log(ev *event.Event, msg string, keysAndValues []interface{}) {
-	ev.Labels = append(ev.Labels, convertVerbosity(l.verbosity).Label())
+func (l *logger) log(ev *event.Event, level int, msg string, keysAndValues []interface{}) {
+	if level != l.level { // no append when Error method
+		level = l.level
+	}
+	ev.Labels = append(ev.Labels, convertVerbosity(level).Label())
 	ev.Labels = append(ev.Labels, l.labels...)
 	for i := 0; i < len(keysAndValues); i += 2 {
 		ev.Labels = append(ev.Labels, newLabel(keysAndValues[i], keysAndValues[i+1]))
@@ -107,7 +122,7 @@ func (l *logger) log(ev *event.Event, msg string, keysAndValues []interface{}) {
 
 // WithValues adds some key-value pairs of context to a logger.
 // See Info for documentation on how key/value pairs work.
-func (l *logger) WithValues(keysAndValues ...interface{}) logr.Logger {
+func (l *logger) WithValues(keysAndValues ...interface{}) logr.LogSink {
 	l2 := *l
 	if len(keysAndValues) > 0 {
 		l2.labels = make([]event.Label, len(l.labels), len(l.labels)+(len(keysAndValues)/2))
