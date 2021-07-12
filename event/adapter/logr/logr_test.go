@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+//go:build !disable_events
 // +build !disable_events
 
 package logr_test
@@ -18,9 +19,9 @@ import (
 
 func TestInfo(t *testing.T) {
 	ctx, th := eventtest.NewCapture()
-	log := elogr.NewLogger(ctx, "/").WithName("n").V(int(severity.Debug))
+	log := elogr.NewLogger(ctx, "/").WithName("n")
 	log = log.WithName("m")
-	log.Info("mess", "traceID", 17, "resource", "R")
+	log.Info(int(severity.Debug), "mess", "traceID", 17, "resource", "R")
 	want := []event.Event{{
 		At:   eventtest.InitialTime,
 		Kind: event.LogKind,
