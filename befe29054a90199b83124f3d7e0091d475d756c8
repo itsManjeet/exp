@@ -61,6 +61,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "24ebdd0e_7eecdcb4",
+        "filename": "event/common.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 9711
+      },
+      "writtenOn": "2021-07-13T04:10:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "370d757f_0a308b3a",
+      "range": {
+        "startLine": 46,
+        "startChar": 0,
+        "endLine": 46,
+        "endChar": 34
+      },
+      "revId": "befe29054a90199b83124f3d7e0091d475d756c8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bd962f8c_d33b3632",
@@ -74,6 +98,30 @@
       "writtenOn": "2021-07-09T23:21:26Z",
       "side": 1,
       "message": "How about \"?unknownKind?\" or something like that if it\u0027s not there?",
+      "range": {
+        "startLine": 68,
+        "startChar": 9,
+        "endLine": 68,
+        "endChar": 25
+      },
+      "revId": "befe29054a90199b83124f3d7e0091d475d756c8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d88abb6_52379e84",
+        "filename": "event/common.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 9711
+      },
+      "writtenOn": "2021-07-13T04:10:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bd962f8c_d33b3632",
       "range": {
         "startLine": 68,
         "startChar": 9,
