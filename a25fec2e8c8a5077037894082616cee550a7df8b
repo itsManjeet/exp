@@ -59,6 +59,30 @@
       },
       "revId": "a25fec2e8c8a5077037894082616cee550a7df8b",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "990de5f2_921cff78",
+        "filename": "event/event_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 9711
+      },
+      "writtenOn": "2021-07-14T14:36:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a6fe589e_9cd22bc8",
+      "range": {
+        "startLine": 29,
+        "startChar": 11,
+        "endLine": 29,
+        "endChar": 21
+      },
+      "revId": "a25fec2e8c8a5077037894082616cee550a7df8b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
