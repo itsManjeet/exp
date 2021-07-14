@@ -82,6 +82,30 @@
       },
       "revId": "8e79af9060830cff1ca4ff15f4d3520f5c823af8",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ebe6dad_302371b6",
+        "filename": "event/export.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 9711
+      },
+      "writtenOn": "2021-07-14T14:22:06Z",
+      "side": 1,
+      "message": "Yeah, this is one of the things I wanted to discuss with you.\nThe way it is designed right now, there is no promise that we will not deliver events that the handler did not ask for, it is a straight optimization that only applies to the first 64 event kinds.\nIf we stick with that, the loop should be max(nextDynamicKind, 64)\nIf we change it to be a guarantee that you do not receive events you did not ask for we need to either limit the maximum number of types to 64 or make the disabled test slower (either by using a larger bitset or by falling back to re-calling enabled for kinds above 64). I could not make up my mind which is the right choice...\nOn the plus side, this mechanism actually makes a nop handler considerably faster, it is as cheap as not having an exporter in the benchmarks, and actually cheaper if the context stack gets deeper but the nop exporter is near the top.",
+      "parentUuid": "a29396b4_b74d1adb",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 25
+      },
+      "revId": "8e79af9060830cff1ca4ff15f4d3520f5c823af8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
