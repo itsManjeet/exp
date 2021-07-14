@@ -106,6 +106,30 @@
       },
       "revId": "8e79af9060830cff1ca4ff15f4d3520f5c823af8",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f881450_59d52f1f",
+        "filename": "event/export.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-07-14T18:24:06Z",
+      "side": 1,
+      "message": "I don\u0027t think we can put a cap on the maximum number of kinds. Although 64 seems quite large, we can\u0027t allow a situation where someone adds a new dependency and now their program breaks.\n\nI\u0027d say use the uint64 and either re-call Enabled, or use a map[int]bool for \u003e\u003d 64.",
+      "parentUuid": "8ebe6dad_302371b6",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 25
+      },
+      "revId": "8e79af9060830cff1ca4ff15f4d3520f5c823af8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
