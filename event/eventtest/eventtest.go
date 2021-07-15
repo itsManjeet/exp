@@ -27,6 +27,15 @@ func NewContext(ctx context.Context, tb testing.TB) context.Context {
 	return event.WithExporter(ctx, event.NewExporter(h, nil))
 }
 
+// IsDisabled tests wether the binary was built with disable_events.
+// It does this by checking if sending a log event to a known handler drops
+// the event, which should only happen if the entire event system is disabled.
+func IsDisabled() bool {
+	ctx, _ := NewCapture()
+	ev := event.New(ctx, event.LogKind)
+	return ev == nil
+}
+
 type testHandler struct {
 	tb      testing.TB
 	printer logfmt.Printer

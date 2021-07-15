@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-// +build !disable_events
-
 package severity_test
 
 import (
@@ -18,6 +16,9 @@ import (
 )
 
 func TestPrint(t *testing.T) {
+	if eventtest.IsDisabled() {
+		t.SkipNow()
+	}
 	ctx := context.Background()
 	for _, test := range []struct {
 		name   string
