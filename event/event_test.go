@@ -2,21 +2,17 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-// +build !disable_events
-
 package event_test
 
 import (
 	"context"
 	"errors"
 	"fmt"
-	"os"
 	"testing"
 	"time"
 
 	"github.com/google/go-cmp/cmp"
 	"golang.org/x/exp/event"
-	"golang.org/x/exp/event/adapter/logfmt"
 	"golang.org/x/exp/event/eventtest"
 )
 
@@ -31,6 +27,7 @@ var (
 )
 
 func TestCommon(t *testing.T) {
+	disabled := eventtest.IsDisabled()
 	for _, test := range []struct {
 		method string
 		events func(context.Context)
@@ -217,32 +214,38 @@ func TestCommon(t *testing.T) {
 	}} {
 		t.Run(test.method, func(t *testing.T) {
 			ctx, h := eventtest.NewCapture()
+			expect := test.expect
+			if disabled {
+				expect = nil
+			}
 			test.events(ctx)
-			if diff := cmp.Diff(test.expect, h.Got, eventtest.CmpOptions()...); diff != "" {
+			if diff := cmp.Diff(expect, h.Got, eventtest.CmpOptions()...); diff != "" {
 				t.Errorf("mismatch (-want, +got):\n%s", diff)
 			}
 		})
 	}
 }
 
-func ExampleLog() {
-	ctx := event.WithExporter(context.Background(), event.NewExporter(logfmt.NewHandler(os.Stdout), eventtest.ExporterOptions()))
-	event.Log(ctx, "my event", event.Int64("myInt", 6))
-	event.Log(ctx, "error event", event.String("myString", "some string value"))
-	// Output:
-	// time="2020/03/05 14:27:48" myInt=6 msg="my event"
-	// time="2020/03/05 14:27:49" myString="some string value" msg="error event"
-}
-
 func TestLogEventf(t *testing.T) {
-	eventtest.TestBenchmark(t, eventPrint, eventLogf, eventtest.LogfOutput)
+	expect := eventtest.LogfOutput
+	if eventtest.IsDisabled() {
+		expect = ""
+	}
+	eventtest.TestBenchmark(t, eventPrint, eventLogf, expect)
 }
 
 func TestLogEvent(t *testing.T) {
-	eventtest.TestBenchmark(t, eventPrint, eventLog, eventtest.LogfmtOutput)
+	expect := eventtest.LogfmtOutput
+	if eventtest.IsDisabled() {
+		expect = ""
+	}
+	eventtest.TestBenchmark(t, eventPrint, eventLog, expect)
 }
 
 func TestTraceBuilder(t *testing.T) {
+	if eventtest.IsDisabled() {
+		t.SkipNow()
+	}
 	// Verify that the context returned from the handler is also returned from Start,
 	// and is the context passed to End.
 	ctx := event.WithExporter(context.Background(), event.NewExporter(&testTraceHandler{t: t}, eventtest.ExporterOptions()))
@@ -274,6 +277,9 @@ func (t *testTraceHandler) Event(ctx context.Context, ev *event.Event) context.C
 }
 
 func TestTraceDuration(t *testing.T) {
+	if eventtest.IsDisabled() {
+		t.SkipNow()
+	}
 	// Verify that a trace can can emit a latency metric.
 	dur := event.NewDuration("test", "")
 	want := time.Second
