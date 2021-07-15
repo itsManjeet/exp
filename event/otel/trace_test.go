@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-// +build !disable_events
-
 package otel_test
 
 import (
@@ -16,10 +14,14 @@ import (
 	sdktrace "go.opentelemetry.io/otel/sdk/trace"
 	"go.opentelemetry.io/otel/trace"
 	"golang.org/x/exp/event"
+	"golang.org/x/exp/event/eventtest"
 	"golang.org/x/exp/event/otel"
 )
 
 func TestTrace(t *testing.T) {
+	if eventtest.IsDisabled() {
+		t.SkipNow()
+	}
 	// Verify that otel and event traces work well together.
 	// This test uses a single, fixed span tree (see makeTraceSpec).
 	// Each test case varies which of the individual spans are
@@ -136,9 +138,12 @@ func (e *testExporter) ExportSpans(ctx context.Context, ss []*sdktrace.SpanSnaps
 }
 
 func (e *testExporter) Shutdown(ctx context.Context) error {
-	root := e.m[trace.SpanID{}][0]
+	snapshots := e.m[trace.SpanID{}]
+	if len(snapshots) < 1 {
+		return nil
+	}
 	var buf bytes.Buffer
-	e.print(&buf, root)
+	e.print(&buf, snapshots[0])
 	e.got = buf.String()
 	return nil
 }
