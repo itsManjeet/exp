@@ -15,6 +15,9 @@ import (
 const thisImportPath = "golang.org/x/exp/event_test"
 
 func TestNamespace(t *testing.T) {
+	if eventtest.IsDisabled() {
+		t.SkipNow()
+	}
 	event.RegisterHelper(testHelperB)
 	event.RegisterHelper(thisImportPath + ".testHelperC")
 	h := &eventtest.CaptureHandler{}

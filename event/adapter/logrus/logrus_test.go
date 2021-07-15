@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-// +build !disable_events
-
 package logrus_test
 
 import (
@@ -36,8 +34,9 @@ func Test(t *testing.T) {
 			event.String("msg", "mess"),
 		},
 	}}
-	// logrus fields are stored in a map, so we have to sort to overcome map
-	// iteration indeterminacy.
+	if eventtest.IsDisabled() {
+		want = nil
+	}
 	if diff := cmp.Diff(want, th.Got, eventtest.CmpOptions()...); diff != "" {
 		t.Errorf("mismatch (-want, +got):\n%s", diff)
 	}

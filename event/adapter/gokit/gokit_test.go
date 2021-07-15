@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-// +build !disable_events
-
 package gokit_test
 
 import (
@@ -30,6 +28,9 @@ func Test(t *testing.T) {
 			event.String("msg", "mess"),
 		},
 	}}
+	if eventtest.IsDisabled() {
+		want = nil
+	}
 	if diff := cmp.Diff(want, h.Got, eventtest.CmpOptions()...); diff != "" {
 		t.Errorf("mismatch (-want, +got):\n%s", diff)
 	}
