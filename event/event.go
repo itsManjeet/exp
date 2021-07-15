@@ -60,6 +60,9 @@ func SetDefaultExporter(e *Exporter) {
 // Deliver will exhaust the pool and cause allocations.
 // It returns nil if there is no active exporter for this kind of event.
 func New(ctx context.Context, kind Kind) *Event {
+	if disabled {
+		return nil
+	}
 	var t *target
 	if v, ok := ctx.Value(contextKey).(*target); ok {
 		t = v

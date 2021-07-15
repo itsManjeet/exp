@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-// +build !disable_events
-
 package logr_test
 
 import (
@@ -32,6 +30,9 @@ func TestInfo(t *testing.T) {
 			event.String("msg", "mess"),
 		},
 	}}
+	if eventtest.IsDisabled() {
+		want = nil
+	}
 	if diff := cmp.Diff(want, th.Got, eventtest.CmpOptions()...); diff != "" {
 		t.Errorf("mismatch (-want, +got):\n%s", diff)
 	}
