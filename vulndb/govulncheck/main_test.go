@@ -210,12 +210,12 @@ func TestHashicorpVault(t *testing.T) {
 			}
 		}
 
-		finds, err := run(cfg, []string{hashiVaultOkta}, false, []string{test.source})
+		r, err := run(cfg, []string{hashiVaultOkta}, false, []string{test.source})
 		if err != nil {
 			t.Fatal(err)
 		}
-		sort.SliceStable(finds, func(i int, j int) bool { return audit.FindingCompare(finds[i], finds[j]) })
-		if fs := testFindings(finds); !subset(test.want, fs) {
+		sort.SliceStable(r.Findings, func(i int, j int) bool { return audit.FindingCompare(r.Findings[i], r.Findings[j]) })
+		if fs := testFindings(r.Findings); !subset(test.want, fs) {
 			t.Errorf("want %v subset of findings; got %v", test.want, fs)
 		}
 	}
@@ -353,12 +353,12 @@ func TestKubernetes(t *testing.T) {
 			}
 		}
 
-		finds, err := run(cfg, []string{"./..."}, false, []string{test.source})
+		r, err := run(cfg, []string{"./..."}, false, []string{test.source})
 		if err != nil {
 			t.Fatal(err)
 		}
-		sort.SliceStable(finds, func(i int, j int) bool { return audit.FindingCompare(finds[i], finds[j]) })
-		if fs := testFindings(finds); !subset(test.want, fs) {
+		sort.SliceStable(r.Findings, func(i int, j int) bool { return audit.FindingCompare(r.Findings[i], r.Findings[j]) })
+		if fs := testFindings(r.Findings); !subset(test.want, fs) {
 			t.Errorf("want %v subset of findings; got %v", test.want, fs)
 		}
 	}
