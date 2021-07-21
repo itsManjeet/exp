@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a97f164_61a29599",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2021-07-21T14:57:27Z",
+      "side": 1,
+      "message": "This ",
+      "revId": "7963269fa287df481160373c33fd867625697c52",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2dfad30_895bcf3f",
+        "filename": "vulndb/govulncheck/main_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2021-07-21T14:57:27Z",
+      "side": 1,
+      "message": "This test should skip itself if any of those system dependencies is missing. (It is currently failing on the `longtest` builders; filed as #47314.)\n\nThat said, it isn\u0027t clear to me why the test needs `unzip` or `tar` binaries, given the existence of the `archive/zip` and `archive/tar` packages. (Does the k8s.io Makefile itself require those tools?)",
+      "range": {
+        "startLine": 264,
+        "startChar": 0,
+        "endLine": 265,
+        "endChar": 33
+      },
+      "revId": "7963269fa287df481160373c33fd867625697c52",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
