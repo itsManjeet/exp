@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "86613bdd_aa36ae7a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2021-07-22T15:19:52Z",
+      "side": 1,
+      "message": "Two small nits on the CL subject:\n\n- The path before colon should be \u0027vulndb/govulncheck\u0027 to match the path being modified.\n- s/checks/check/ since the first verb after colon is meant to complete the phrase \"This change modifies Go to ...\".\n\n(These style points are written down in https://golang.org/wiki/CommitMessage.)",
+      "revId": "efa0e2b342de3eaafadfe8b8ddbfe32e68af3f07",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "95ab4436_09a2ff40",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
