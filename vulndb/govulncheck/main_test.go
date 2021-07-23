@@ -6,16 +6,12 @@ package main
 
 import (
 	"context"
-	"crypto/tls"
 	"fmt"
-	"io"
 	"io/fs"
 	"net/http"
 	"os"
 	"os/exec"
-	"path"
 	"path/filepath"
-	"runtime"
 	"strings"
 	"testing"
 
@@ -24,93 +20,22 @@ import (
 	"golang.org/x/tools/go/packages/packagestest"
 )
 
-// TODO(zpavlinovic): improve integration tests.
-
 // goYamlVuln contains vulnerability info for github.com/go-yaml/yaml package.
 var goYamlVuln string = `[{"ID":"GO-2020-0036","Published":"2021-04-14T12:00:00Z","Modified":"2021-04-14T12:00:00Z","Withdrawn":null,"Aliases":["CVE-2019-11254"],"Package":{"Name":"github.com/go-yaml/yaml","Ecosystem":"go"},"Details":"An attacker can craft malicious YAML which will consume significant\nsystem resources when Unmarshalled.\n","Affects":{"Ranges":[{"Type":"SEMVER","Introduced":"","Fixed":"v2.2.8+incompatible"}]},"References":[{"Type":"code review","URL":"https://github.com/go-yaml/yaml/pull/555"},{"Type":"fix","URL":"https://github.com/go-yaml/yaml/commit/53403b58ad1b561927d19068c655246f2db79d48"},{"Type":"misc","URL":"https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=18496"}],"ecosystem_specific":{"Symbols":["yaml_parser_fetch_more_tokens"],"URL":"https://go.googlesource.com/vulndb/+/refs/heads/main/reports/GO-2020-0036.toml"}},{"ID":"GO-2021-0061","Published":"2021-04-14T12:00:00Z","Modified":"2021-04-14T12:00:00Z","Withdrawn":null,"Package":{"Name":"github.com/go-yaml/yaml","Ecosystem":"go"},"Details":"A maliciously crafted input can cause resource exhaustion due to\nalias chasing.\n","Affects":{"Ranges":[{"Type":"SEMVER","Introduced":"","Fixed":"v2.2.3+incompatible"}]},"References":[{"Type":"code review","URL":"https://github.com/go-yaml/yaml/pull/375"},{"Type":"fix","URL":"https://github.com/go-yaml/yaml/commit/bb4e33bf68bf89cad44d386192cbed201f35b241"}],"ecosystem_specific":{"Symbols":["decoder.unmarshal"],"URL":"https://go.googlesource.com/vulndb/+/refs/heads/main/reports/GO-2021-0061.toml"}}]`
 
-// cryptoSSHVuln contains vulnerability info for golang.org/x/crypto/ssh.
-var cryptoSSHVuln string = `[{"ID":"GO-2020-0012","Published":"2021-04-14T12:00:00Z","Modified":"2021-04-14T12:00:00Z","Withdrawn":null,"Aliases":["CVE-2020-9283"],"Package":{"Name":"golang.org/x/crypto/ssh","Ecosystem":"go"},"Details":"An attacker can craft an ssh-ed25519 or sk-ssh-ed25519@openssh.com public\nkey, such that the library will panic when trying to verify a signature\nwith it.\n","Affects":{"Ranges":[{"Type":"SEMVER","Introduced":"","Fixed":"v0.0.0-20200220183623-bac4c82f6975"}]},"References":[{"Type":"code review","URL":"https://go-review.googlesource.com/c/crypto/+/220357"},{"Type":"fix","URL":"https://github.com/golang/crypto/commit/bac4c82f69751a6dd76e702d54b3ceb88adab236"},{"Type":"misc","URL":"https://groups.google.com/g/golang-announce/c/3L45YRc91SY"}],"ecosystem_specific":{"Symbols":["parseED25519","ed25519PublicKey.Verify","parseSKEd25519","skEd25519PublicKey.Verify","NewPublicKey"],"URL":"https://go.googlesource.com/vulndb/+/refs/heads/main/reports/GO-2020-0012.toml"}},{"ID":"GO-2020-0013","Published":"2021-04-14T12:00:00Z","Modified":"2021-04-14T12:00:00Z","Withdrawn":null,"Aliases":["CVE-2017-3204"],"Package":{"Name":"golang.org/x/crypto/ssh","Ecosystem":"go"},"Details":"By default host key verification is disabled which allows for\nman-in-the-middle attacks against SSH clients if\n[ClientConfig.HostKeyCallback] is not set.\n","Affects":{"Ranges":[{"Type":"SEMVER","Introduced":"","Fixed":"v0.0.0-20170330155735-e4e2799dd7aa"}]},"References":[{"Type":"code review","URL":"https://go-review.googlesource.com/38701"},{"Type":"fix","URL":"https://github.com/golang/crypto/commit/e4e2799dd7aab89f583e1d898300d96367750991"},{"Type":"misc","URL":"https://github.com/golang/go/issues/19767"},{"Type":"misc","URL":"https://bridge.grumpy-troll.org/2017/04/golang-ssh-security/"}],"ecosystem_specific":{"Symbols":["NewClientConn"],"URL":"https://go.googlesource.com/vulndb/+/refs/heads/main/reports/GO-2020-0013.toml"}}]`
+// gopkgInYamlVuln contains vulnerability info for gopkg.in/yaml.v2 package.
+var gopkgInYamlVuln = `[{"id":"GO-2020-0036","published":"2021-04-14T12:00:00Z","modified":"2021-04-14T12:00:00Z","aliases":["CVE-2019-11254"],"package":{"name":"gopkg.in/yaml.v2","ecosystem":"Go"},"details":"Due to unbounded aliasing, a crafted YAML file can cause consumption\nof significant system resources. If parsing user supplied input, this\nmay be used as a denial of service vector.\n","affects":{"ranges":[{"type":"SEMVER","fixed":"2.2.8"}]},"references":[{"type":"FIX","url":"https://github.com/go-yaml/yaml/pull/555"},{"type":"FIX","url":"https://github.com/go-yaml/yaml/commit/53403b58ad1b561927d19068c655246f2db79d48"},{"type":"WEB","url":"https://bugs.chromium.org/p/oss-fuzz/issues/detail?id=18496"}],"ecosystem_specific":{"symbols":["yaml_parser_fetch_more_tokens"],"url":"https://go.googlesource.com/vulndb/+/refs/heads/master/reports/GO-2020-0036.yaml"}},{"id":"GO-2021-0061","published":"2021-04-14T12:00:00Z","modified":"2021-04-14T12:00:00Z","package":{"name":"gopkg.in/yaml.v2","ecosystem":"Go"},"details":"Due to unbounded alias chasing, a maliciously crafted YAML file\ncan cause the system to consume significant system resources. If\nparsing user input, this may be used as a denial of service vector.\n","affects":{"ranges":[{"type":"SEMVER","fixed":"2.2.3"}]},"references":[{"type":"FIX","url":"https://github.com/go-yaml/yaml/pull/375"},{"type":"FIX","url":"https://github.com/go-yaml/yaml/commit/bb4e33bf68bf89cad44d386192cbed201f35b241"}],"ecosystem_specific":{"symbols":["decoder.unmarshal"],"url":"https://go.googlesource.com/vulndb/+/refs/heads/master/reports/GO-2021-0061.yaml"}}]`
 
-// k8sAPIServerVuln contains vulnerability info for k8s.io/apiextensions-apiserver/pkg/apiserver.
-var k8sAPIServerVuln string = `[{"ID":"GO-2021-0062","Published":"2021-04-14T12:00:00Z","Modified":"2021-04-14T12:00:00Z","Withdrawn":null,"Aliases":["CVE-2019-11253"],"Package":{"Name":"k8s.io/apiextensions-apiserver/pkg/apiserver","Ecosystem":"go"},"Details":"A maliciously crafted YAML or JSON message can cause resource\nexhaustion.\n","Affects":{"Ranges":[{"Type":"SEMVER","Introduced":"","Fixed":"v0.17.0"}]},"References":[{"Type":"code review","URL":"https://github.com/kubernetes/kubernetes/pull/83261"},{"Type":"fix","URL":"https://github.com/kubernetes/apiextensions-apiserver/commit/9cfd100448d12f999fbf913ae5d4fef2fcd66871"},{"Type":"misc","URL":"https://github.com/kubernetes/kubernetes/issues/83253"},{"Type":"misc","URL":"https://gist.github.com/bgeesaman/0e0349e94cd22c48bf14d8a9b7d6b8f2"}],"ecosystem_specific":{"Symbols":["NewCustomResourceDefinitionHandler"],"URL":"https://go.googlesource.com/vulndb/+/refs/heads/main/reports/GO-2021-0062.toml"}}]`
-
-// index for dbs containing some entries for each vuln package.
-// The timestamp for package is set to random moment in the past.
+// index for dbs containing some entries for each vuln module.
+// The timestamp for module is set to random moment in the past.
 var index string = `{
-	"k8s.io/apiextensions-apiserver/pkg/apiserver": "2021-01-01T12:00:00.000000000-08:00",
-	"golang.org/x/crypto/ssh": "2021-01-01T12:00:00.000000000-08:00",
-	"github.com/go-yaml/yaml": "2021-01-01T12:00:00.000000000-08:00"
+	"github.com/go-yaml/yaml": "2021-01-01T12:00:00.000000000-08:00",
+	"gopkg.in/yaml.v2": "2021-01-01T12:00:00.000000000-08:00"
 }`
 
 var vulns = map[string]string{
-	"github.com/go-yaml/yaml.json":        goYamlVuln,
-	"golang.org/x/crypto.json":            cryptoSSHVuln,
-	"k8s.io/apiextensions-apiserver.json": k8sAPIServerVuln,
-}
-
-// addToLocalDb adds vuln for package p to local db at path db.
-func addToLocalDb(db, p, vuln string) error {
-	if err := os.MkdirAll(path.Join(db, filepath.Dir(p)), fs.ModePerm); err != nil {
-		return err
-	}
-
-	f, err := os.Create(path.Join(db, p))
-	if err != nil {
-		return err
-	}
-	defer f.Close()
-
-	f.Write([]byte(vuln))
-	return nil
-}
-
-// addToServerDb adds vuln for package p to localhost server identified by its handler.
-func addToServerDb(handler *http.ServeMux, p, vuln string) {
-	handler.HandleFunc("/"+p, func(w http.ResponseWriter, req *http.Request) { fmt.Fprint(w, vuln) })
-}
-
-// envUpdate updates an environment e by setting the key to value.
-func envUpdate(e []string, key, value string) []string {
-	var nenv []string
-	for _, kv := range e {
-		if strings.HasPrefix(kv, key+"=") {
-			nenv = append(nenv, key+"="+value)
-		} else {
-			nenv = append(nenv, kv)
-		}
-	}
-	return nenv
-}
-
-// cmd type encapsulating a shell command and its context.
-type cmd struct {
-	dir  string
-	env  []string
-	name string
-	args []string
-}
-
-// execAll executes a sequence of commands cmd. Exits on a first
-// encountered error returning the error and the accumulated output.
-func execAll(cmds []cmd) ([]byte, error) {
-	var out []byte
-	for _, c := range cmds {
-		o, err := execCmd(c.dir, c.env, c.name, c.args...)
-		out = append(out, o...)
-		if err != nil {
-			return o, err
-		}
-	}
-	return out, nil
-}
-
-// execCmd runs the command name with arg in dir location with the env environment.
-func execCmd(dir string, env []string, name string, arg ...string) ([]byte, error) {
-	cmd := exec.Command(name, arg...)
-	cmd.Dir = dir
-	cmd.Env = env
-	return cmd.CombinedOutput()
+	"github.com/go-yaml/yaml.json": goYamlVuln,
+	"gopkg.in/yaml.v2.json":        gopkgInYamlVuln,
 }
 
 // finding abstraction of Finding, for test purposes.
@@ -151,7 +76,24 @@ func allFindings(r *audit.Results) []audit.Finding {
 	return findings
 }
 
-func TestHashicorpVault(t *testing.T) {
+// staticCallStacks returns true if `findings` is an empty
+// list or each finding has call stacks involving exclusively
+// static call sites.
+func staticCallStacks(findings []audit.Finding) bool {
+	for _, f := range findings {
+		for _, te := range f.Trace {
+			if strings.Contains(te.Description, "approx. resolved") {
+				return false
+			}
+		}
+	}
+	return true
+}
+
+// TestStaticCallStackFindings checks if govulncheck finds uses
+// of test vulnerabilities in a real world package. Each use is
+// expected to involve static call stacks exclusively.
+func TestStaticCallStackFindings(t *testing.T) {
 	if testing.Short() {
 		t.Skip("skipping test in short mode.")
 	}
@@ -170,12 +112,8 @@ func TestHashicorpVault(t *testing.T) {
 		t.Logf("failed to get %s: %s", hashiVaultOkta+"@v1.6.3", out)
 		t.Fatal(err)
 	}
-	// if out, err := execCmd(e.Config.Dir, env, "go", "mod", "tidy"); err != nil {
-	// 	t.Logf("failed to mod tidy: %s", out)
-	// 	t.Fatal(err)
-	// }
 
-	// run goaudit.
+	// run govulncheck.
 	cfg := &packages.Config{
 		Mode:  packages.LoadAllSyntax | packages.NeedModule,
 		Tests: false,
@@ -183,7 +121,7 @@ func TestHashicorpVault(t *testing.T) {
 	}
 
 	// Create a local filesystem db.
-	dbPath := path.Join(e.Config.Dir, "db")
+	dbPath := filepath.Join(e.Config.Dir, "db")
 	addToLocalDb(dbPath, "index.json", index)
 	// Create a local server db.
 	sMux := http.NewServeMux()
@@ -198,9 +136,9 @@ func TestHashicorpVault(t *testing.T) {
 		toAdd []string
 		want  []finding
 	}{
-		// test local db without yaml, which should result in no findings.
+		// test local db with gopkgInYaml but without goYaml, which should result in no findings.
 		{source: "file://" + dbPath, want: nil,
-			toAdd: []string{"golang.org/x/crypto.json", "k8s.io/apiextensions-apiserver.json"}},
+			toAdd: []string{"gopkg.in/yaml.v2.json"}},
 		// add yaml to the local db, which should produce 2 findings.
 		{source: "file://" + dbPath, toAdd: []string{"github.com/go-yaml/yaml.json"},
 			want: []finding{
@@ -208,8 +146,8 @@ func TestHashicorpVault(t *testing.T) {
 				{"github.com/go-yaml/yaml.yaml_parser_fetch_more_tokens", 12}},
 		},
 		// repeat the similar experiment with a server db.
-		{source: "http://localhost:8080", toAdd: []string{"k8s.io/apiextensions-apiserver.json"}, want: nil},
-		{source: "http://localhost:8080", toAdd: []string{"golang.org/x/crypto.json", "github.com/go-yaml/yaml.json"},
+		{source: "http://localhost:8080", toAdd: []string{"gopkg.in/yaml.v2.json"}, want: nil},
+		{source: "http://localhost:8080", toAdd: []string{"github.com/go-yaml/yaml.json"},
 			want: []finding{
 				{"github.com/go-yaml/yaml.decoder.unmarshal", 6},
 				{"github.com/go-yaml/yaml.yaml_parser_fetch_more_tokens", 12}},
@@ -227,69 +165,25 @@ func TestHashicorpVault(t *testing.T) {
 		if err != nil {
 			t.Fatal(err)
 		}
-		if fs := testFindings(allFindings(r)); !subset(test.want, fs) {
+
+		findings := allFindings(r)
+		if len(findings) != 0 && !staticCallStacks(findings) {
+			t.Errorf("want all static traces; got some dynamic ones")
+		}
+
+		if fs := testFindings(findings); !subset(test.want, fs) {
 			t.Errorf("want %v subset of findings; got %v", test.want, fs)
 		}
 	}
 }
 
-// isSecure checks if http resp was made over a secure connection.
-func isSecure(resp *http.Response) bool {
-	if resp.TLS == nil {
-		return false
-	}
-
-	// Check the final URL scheme too for good measure.
-	if resp.Request.URL.Scheme != "https" {
-		return false
-	}
-
-	return true
-}
-
-// download fetches the content at url and stores it at destination location.
-func download(url, destination string) error {
-	tr := &http.Transport{
-		TLSClientConfig: &tls.Config{InsecureSkipVerify: false},
-	}
-	client := &http.Client{Transport: tr}
-	resp, err := client.Get(url)
-	if err != nil {
-		return err
-	}
-	defer resp.Body.Close()
-
-	if !isSecure(resp) {
-		return fmt.Errorf("insecure connection to %s", url)
-	}
-
-	out, err := os.Create(destination)
-	if err != nil {
-		return err
-	}
-	defer out.Close()
-
-	_, err = io.Copy(out, resp.Body)
-	return err
-}
-
-// TestKubernetes requires the following system dependencies:
-//   - make, tar, unzip, and gcc.
-// More information on installing kubernetes: https://github.com/kubernetes/kubernetes.
-// Note that the whole installation will require roughly 5GB of disk.
-func TestKubernetes(t *testing.T) {
+// TestDynamicCallStackFindings checks that govulncheck finds
+// uses of test vulnerabilities in a real world package. Each
+// use is expected to involve a dynamic call stack.
+func TestDynamicCallStackFindings(t *testing.T) {
 	if testing.Short() {
 		t.Skip("skipping test in short mode.")
 	}
-
-	// make sure the dependencies are present
-	if _, err := exec.LookPath("tar"); err != nil {
-		t.Skip("tar needed for this test.")
-	}
-	if _, err := exec.LookPath("unzip"); err != nil {
-		t.Skip("unzip needed for this test.")
-	}
-
 	e := packagestest.Export(t, packagestest.Modules, []packagestest.Module{
 		{
 			Name: "foo",
@@ -297,33 +191,24 @@ func TestKubernetes(t *testing.T) {
 	})
 	defer e.Cleanup()
 
-	// Environments and directories to build and download both k8s and go.
+	goAuthServer := "github.com/RichardKnop/go-oauth2-server"
+
+	// Go get go-oauth package v1.0.4.
 	env := envUpdate(e.Config.Env, "GOPROXY", "https://proxy.golang.org,direct")
-	dir := e.Config.Dir
-	k8sDir := path.Join(e.Config.Dir, "kubernetes-1.15.11")
-	k8sEnv := envUpdate(env, "PATH", path.Join(e.Config.Dir, "go/bin")+":"+os.Getenv("PATH"))
-
-	// Download kubernetes v1.15.11 and the go version 1.12 needed to build it.
-	if err := download("https://github.com/kubernetes/kubernetes/archive/v1.15.11.zip", path.Join(dir, "v1.15.11")); err != nil {
-		t.Fatal(err)
-	}
-	goZip := "go1.12.17." + runtime.GOOS + "-" + runtime.GOARCH + ".tar.gz"
-	if err := download("https://golang.org/dl/"+goZip, path.Join(dir, goZip)); err != nil {
+	if out, err := execCmd(e.Config.Dir, env, "go", "get", goAuthServer+"@v1.0.4"); err != nil {
+		t.Logf("failed to get %s: %s", goAuthServer+"@v1.0.4", out)
 		t.Fatal(err)
 	}
 
-	// Unzip k8s and go, and then build the k8s.
-	if out, err := execAll([]cmd{
-		{dir, env, "unzip", []string{"v1.15.11"}},
-		{dir, env, "tar", []string{"-xf", goZip}},
-		{k8sDir, k8sEnv, "make", nil},
-	}); err != nil {
-		t.Logf("failed to build k8s: %s", out)
-		t.Fatal(err)
+	// run govulncheck.
+	cfg := &packages.Config{
+		Mode:  packages.LoadAllSyntax | packages.NeedModule,
+		Tests: false,
+		Dir:   e.Config.Dir,
 	}
 
 	// Create a local filesystem db.
-	dbPath := path.Join(e.Config.Dir, "db")
+	dbPath := filepath.Join(e.Config.Dir, "db")
 	addToLocalDb(dbPath, "index.json", index)
 	// Create a local server db.
 	sMux := http.NewServeMux()
@@ -332,39 +217,29 @@ func TestKubernetes(t *testing.T) {
 	defer func() { s.Shutdown(context.Background()) }()
 	addToServerDb(sMux, "index.json", index)
 
-	// run goaudit.
-	cfg := &packages.Config{
-		Mode:  packages.LoadAllSyntax | packages.NeedModule,
-		Tests: false,
-		Dir:   path.Join(e.Config.Dir, "kubernetes-1.15.11"),
-	}
-
 	for _, test := range []struct {
 		source string
 		// list of packages whose vulns should be addded to source
 		toAdd []string
 		want  []finding
 	}{
-		// test local db with only apiserver vuln, which should result in a single finding.
-		{source: "file://" + dbPath, toAdd: []string{"github.com/go-yaml/yaml.json", "k8s.io/apiextensions-apiserver/pkg/apiserver.json"},
-			want: []finding{{"k8s.io/apiextensions-apiserver/pkg/apiserver.NewCustomResourceDefinitionHandler", 3}}},
-		// add the rest of the vulnerabilites, resulting in more findings.
-		{source: "file://" + dbPath, toAdd: []string{"golang.org/x/crypto/ssh.json"},
+		// Test local db without gopkinYaml but with goYaml, which should result in no findings.
+		// This is the flip side of the TestHashicorpVault.
+		{source: "file://" + dbPath, want: nil,
+			toAdd: []string{"github.com/go-yaml/yaml.json"}},
+		// add yaml to the local db, which should produce 2 findings.
+		{source: "file://" + dbPath, toAdd: []string{"gopkg.in/yaml.v2.json"},
 			want: []finding{
-				{"golang.org/x/crypto/ssh.NewPublicKey", 1},
-				{"k8s.io/apiextensions-apiserver/pkg/apiserver.NewCustomResourceDefinitionHandler", 3},
-				{"golang.org/x/crypto/ssh.NewPublicKey", 4},
-				{"golang.org/x/crypto/ssh.parseED25519", 9},
-			}},
-		// repeat similar experiment with a server db.
+				{"gopkg.in/yaml.v2.decoder.unmarshal", 10},
+				{"gopkg.in/yaml.v2.yaml_parser_fetch_more_tokens", 16}},
+		},
+		// repeat the similar experiment with a server db.
 		{source: "http://localhost:8080", toAdd: []string{"github.com/go-yaml/yaml.json"}, want: nil},
-		{source: "http://localhost:8080", toAdd: []string{"golang.org/x/crypto/ssh.json", "k8s.io/apiextensions-apiserver/pkg/apiserver.json"},
+		{source: "http://localhost:8080", toAdd: []string{"gopkg.in/yaml.v2.json"},
 			want: []finding{
-				{"golang.org/x/crypto/ssh.NewPublicKey", 1},
-				{"k8s.io/apiextensions-apiserver/pkg/apiserver.NewCustomResourceDefinitionHandler", 3},
-				{"golang.org/x/crypto/ssh.NewPublicKey", 4},
-				{"golang.org/x/crypto/ssh.parseED25519", 9},
-			}},
+				{"gopkg.in/yaml.v2.decoder.unmarshal", 10},
+				{"gopkg.in/yaml.v2.yaml_parser_fetch_more_tokens", 16}},
+		},
 	} {
 		for _, add := range test.toAdd {
 			if strings.HasPrefix(test.source, "file://") {
@@ -374,12 +249,60 @@ func TestKubernetes(t *testing.T) {
 			}
 		}
 
-		r, err := run(cfg, []string{"./..."}, false, []string{test.source})
+		r, err := run(cfg, []string{goAuthServer}, false, []string{test.source})
 		if err != nil {
 			t.Fatal(err)
 		}
-		if fs := testFindings(allFindings(r)); !subset(test.want, fs) {
+
+		findings := allFindings(r)
+		if len(findings) != 0 && staticCallStacks(findings) {
+			t.Errorf("want all dynamic traces; got some static ones")
+		}
+
+		if fs := testFindings(findings); !subset(test.want, fs) {
 			t.Errorf("want %v subset of findings; got %v", test.want, fs)
 		}
 	}
+}
+
+// addToLocalDb adds vuln for package p to local db at path db.
+func addToLocalDb(db, p, vuln string) error {
+	if err := os.MkdirAll(filepath.Join(db, filepath.Dir(p)), fs.ModePerm); err != nil {
+		return err
+	}
+
+	f, err := os.Create(filepath.Join(db, p))
+	if err != nil {
+		return err
+	}
+	defer f.Close()
+
+	f.Write([]byte(vuln))
+	return nil
+}
+
+// addToServerDb adds vuln for package p to localhost server identified by its handler.
+func addToServerDb(handler *http.ServeMux, p, vuln string) {
+	handler.HandleFunc("/"+p, func(w http.ResponseWriter, req *http.Request) { fmt.Fprint(w, vuln) })
+}
+
+// envUpdate updates an environment e by setting the key to value.
+func envUpdate(e []string, key, value string) []string {
+	var nenv []string
+	for _, kv := range e {
+		if strings.HasPrefix(kv, key+"=") {
+			nenv = append(nenv, key+"="+value)
+		} else {
+			nenv = append(nenv, kv)
+		}
+	}
+	return nenv
+}
+
+// execCmd runs the command name with arg in dir location with the env environment.
+func execCmd(dir string, env []string, name string, arg ...string) ([]byte, error) {
+	cmd := exec.Command(name, arg...)
+	cmd.Dir = dir
+	cmd.Env = env
+	return cmd.CombinedOutput()
 }
