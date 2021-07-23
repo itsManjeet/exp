@@ -5,6 +5,8 @@
 package main
 
 import (
+	"archive/tar"
+	"compress/gzip"
 	"context"
 	"crypto/tls"
 	"fmt"
@@ -13,7 +15,6 @@ import (
 	"net/http"
 	"os"
 	"os/exec"
-	"path"
 	"path/filepath"
 	"reflect"
 	"runtime"
@@ -50,70 +51,6 @@ var vulns = map[string]string{
 	"github.com/go-yaml/yaml.json":                      goYamlVuln,
 	"golang.org/x/crypto/ssh.json":                      cryptoSSHVuln,
 	"k8s.io/apiextensions-apiserver/pkg/apiserver.json": k8sAPIServerVuln,
-}
-
-// addToLocalDb adds vuln for package p to local db at path db.
-func addToLocalDb(db, p, vuln string) error {
-	if err := os.MkdirAll(path.Join(db, filepath.Dir(p)), fs.ModePerm); err != nil {
-		return err
-	}
-
-	f, err := os.Create(path.Join(db, p))
-	if err != nil {
-		return err
-	}
-	defer f.Close()
-
-	f.Write([]byte(vuln))
-	return nil
-}
-
-// addToServerDb adds vuln for package p to localhost server identified by its handler.
-func addToServerDb(handler *http.ServeMux, p, vuln string) {
-	handler.HandleFunc("/"+p, func(w http.ResponseWriter, req *http.Request) { fmt.Fprint(w, vuln) })
-}
-
-// envUpdate updates an environment e by setting the key to value.
-func envUpdate(e []string, key, value string) []string {
-	var nenv []string
-	for _, kv := range e {
-		if strings.HasPrefix(kv, key+"=") {
-			nenv = append(nenv, key+"="+value)
-		} else {
-			nenv = append(nenv, kv)
-		}
-	}
-	return nenv
-}
-
-// cmd type encapsulating a shell command and its context.
-type cmd struct {
-	dir  string
-	env  []string
-	name string
-	args []string
-}
-
-// execAll executes a sequence of commands cmd. Exits on a first
-// encountered error returning the error and the accumulated output.
-func execAll(cmds []cmd) ([]byte, error) {
-	var out []byte
-	for _, c := range cmds {
-		o, err := execCmd(c.dir, c.env, c.name, c.args...)
-		out = append(out, o...)
-		if err != nil {
-			return o, err
-		}
-	}
-	return out, nil
-}
-
-// execCmd runs the command name with arg in dir location with the env environment.
-func execCmd(dir string, env []string, name string, arg ...string) ([]byte, error) {
-	cmd := exec.Command(name, arg...)
-	cmd.Dir = dir
-	cmd.Env = env
-	return cmd.CombinedOutput()
 }
 
 // finding abstraction of Finding, for test purposes.
@@ -172,7 +109,7 @@ func TestHashicorpVault(t *testing.T) {
 	}
 
 	// Create a local filesystem db.
-	dbPath := path.Join(e.Config.Dir, "db")
+	dbPath := filepath.Join(e.Config.Dir, "db")
 	addToLocalDb(dbPath, "index.json", index)
 	// Create a local server db.
 	sMux := http.NewServeMux()
@@ -223,48 +160,8 @@ func TestHashicorpVault(t *testing.T) {
 	}
 }
 
-// isSecure checks if http resp was made over a secure connection.
-func isSecure(resp *http.Response) bool {
-	if resp.TLS == nil {
-		return false
-	}
-
-	// Check the final URL scheme too for good measure.
-	if resp.Request.URL.Scheme != "https" {
-		return false
-	}
-
-	return true
-}
-
-// download fetches the content at url and stores it at destination location.
-func download(url, destination string) error {
-	tr := &http.Transport{
-		TLSClientConfig: &tls.Config{InsecureSkipVerify: false},
-	}
-	client := &http.Client{Transport: tr}
-	resp, err := client.Get(url)
-	if err != nil {
-		return err
-	}
-	defer resp.Body.Close()
-
-	if !isSecure(resp) {
-		return fmt.Errorf("insecure connection to %s", url)
-	}
-
-	out, err := os.Create(destination)
-	if err != nil {
-		return err
-	}
-	defer out.Close()
-
-	_, err = io.Copy(out, resp.Body)
-	return err
-}
-
 // TestKubernetes requires the following system dependencies:
-//   - make, tar, unzip, and gcc.
+//   - make and gcc.
 // More information on installing kubernetes: https://github.com/kubernetes/kubernetes.
 // Note that the whole installation will require roughly 5GB of disk.
 func TestKubernetes(t *testing.T) {
@@ -273,11 +170,8 @@ func TestKubernetes(t *testing.T) {
 	}
 
 	// make sure the dependencies are present
-	if _, err := exec.LookPath("tar"); err != nil {
-		t.Skip("tar needed for this test.")
-	}
-	if _, err := exec.LookPath("unzip"); err != nil {
-		t.Skip("unzip needed for this test.")
+	if _, err := exec.LookPath("make"); err != nil {
+		t.Skip("make needed for this test.")
 	}
 
 	e := packagestest.Export(t, packagestest.Modules, []packagestest.Module{
@@ -287,33 +181,39 @@ func TestKubernetes(t *testing.T) {
 	})
 	defer e.Cleanup()
 
-	// Environments and directories to build and download both k8s and go.
+	// Basic environments and directories to build and download both k8s and go.
 	env := envUpdate(e.Config.Env, "GOPROXY", "https://proxy.golang.org,direct")
 	dir := e.Config.Dir
-	k8sDir := path.Join(e.Config.Dir, "kubernetes-1.15.11")
-	k8sEnv := envUpdate(env, "PATH", path.Join(e.Config.Dir, "go/bin")+":"+os.Getenv("PATH"))
 
-	// Download kubernetes v1.15.11 and the go version 1.12 needed to build it.
-	if err := download("https://github.com/kubernetes/kubernetes/archive/v1.15.11.zip", path.Join(dir, "v1.15.11")); err != nil {
+	// Download kubernetes v1.15.11 and decompress it.
+	k8sTar := filepath.Join(dir, "v1.15.11.tar.gz")
+	if err := download("https://github.com/kubernetes/kubernetes/archive/v1.15.11.tar.gz", k8sTar); err != nil {
 		t.Fatal(err)
 	}
-	goZip := "go1.12.17." + runtime.GOOS + "-" + runtime.GOARCH + ".tar.gz"
-	if err := download("https://golang.org/dl/"+goZip, path.Join(dir, goZip)); err != nil {
+	if err := untar(k8sTar, dir); err != nil {
 		t.Fatal(err)
 	}
 
-	// Unzip k8s and go, and then build the k8s.
-	if out, err := execAll([]cmd{
-		{dir, env, "unzip", []string{"v1.15.11"}},
-		{dir, env, "tar", []string{"-xf", goZip}},
-		{k8sDir, k8sEnv, "make", nil},
-	}); err != nil {
+	// Download Go version 1.12 needed to build k8s and decompress it.
+	goTarFile := "go1.12.17." + runtime.GOOS + "-" + runtime.GOARCH + ".tar.gz"
+	goTar := filepath.Join(dir, goTarFile)
+	if err := download("https://golang.org/dl/"+goTarFile, goTar); err != nil {
+		t.Fatal(err)
+	}
+	if err := untar(goTar, dir); err != nil {
+		t.Fatal(err)
+	}
+
+	// Build k8s.
+	k8sEnv := envUpdate(env, "PATH", filepath.Join(dir, "go/bin")+":"+os.Getenv("PATH"))
+	k8sDir := filepath.Join(dir, "kubernetes-1.15.11")
+	if out, err := execCmd(k8sDir, k8sEnv, "make"); err != nil {
 		t.Logf("failed to build k8s: %s", out)
 		t.Fatal(err)
 	}
 
 	// Create a local filesystem db.
-	dbPath := path.Join(e.Config.Dir, "db")
+	dbPath := filepath.Join(dir, "db")
 	addToLocalDb(dbPath, "index.json", index)
 	// Create a local server db.
 	sMux := http.NewServeMux()
@@ -326,7 +226,7 @@ func TestKubernetes(t *testing.T) {
 	cfg := &packages.Config{
 		Mode:  packages.LoadAllSyntax | packages.NeedModule,
 		Tests: false,
-		Dir:   path.Join(e.Config.Dir, "kubernetes-1.15.11"),
+		Dir:   filepath.Join(e.Config.Dir, "kubernetes-1.15.11"),
 	}
 
 	for _, test := range []struct {
@@ -373,6 +273,171 @@ func TestKubernetes(t *testing.T) {
 			t.Errorf("want %v subset of findings; got %v", test.want, fs)
 		}
 	}
+}
+
+// addToLocalDb adds vuln for package p to local db at path db.
+func addToLocalDb(db, p, vuln string) error {
+	if err := os.MkdirAll(filepath.Join(db, filepath.Dir(p)), fs.ModePerm); err != nil {
+		return err
+	}
+
+	f, err := os.Create(filepath.Join(db, p))
+	if err != nil {
+		return err
+	}
+	defer f.Close()
+
+	f.Write([]byte(vuln))
+	return nil
+}
+
+// addToServerDb adds vuln for package p to localhost server identified by its handler.
+func addToServerDb(handler *http.ServeMux, p, vuln string) {
+	handler.HandleFunc("/"+p, func(w http.ResponseWriter, req *http.Request) { fmt.Fprint(w, vuln) })
+}
+
+// envUpdate updates an environment e by setting the key to value.
+func envUpdate(e []string, key, value string) []string {
+	var nenv []string
+	for _, kv := range e {
+		if strings.HasPrefix(kv, key+"=") {
+			nenv = append(nenv, key+"="+value)
+		} else {
+			nenv = append(nenv, kv)
+		}
+	}
+	return nenv
+}
+
+// cmd type encapsulating a shell command and its context.
+type cmd struct {
+	dir  string
+	env  []string
+	name string
+	args []string
+}
+
+// execAll executes a sequence of commands cmd. Exits on a first
+// encountered error returning the error and the accumulated output.
+func execAll(cmds []cmd) ([]byte, error) {
+	var out []byte
+	for _, c := range cmds {
+		o, err := execCmd(c.dir, c.env, c.name, c.args...)
+		out = append(out, o...)
+		if err != nil {
+			return o, err
+		}
+	}
+	return out, nil
+}
+
+// execCmd runs the command name with arg in dir location with the env environment.
+func execCmd(dir string, env []string, name string, arg ...string) ([]byte, error) {
+	cmd := exec.Command(name, arg...)
+	cmd.Dir = dir
+	cmd.Env = env
+	return cmd.CombinedOutput()
+}
+
+// isSecure checks if http resp was made over a secure connection.
+func isSecure(resp *http.Response) bool {
+	if resp.TLS == nil {
+		return false
+	}
+
+	// Check the final URL scheme too for good measure.
+	if resp.Request.URL.Scheme != "https" {
+		return false
+	}
+
+	return true
+}
+
+// download fetches the content at url and stores it at destination location.
+func download(url, destination string) error {
+	tr := &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: false},
+	}
+	client := &http.Client{Transport: tr}
+	resp, err := client.Get(url)
+	if err != nil {
+		return err
+	}
+	defer resp.Body.Close()
+
+	if !isSecure(resp) {
+		return fmt.Errorf("insecure connection to %s", url)
+	}
+
+	out, err := os.Create(destination)
+	if err != nil {
+		return err
+	}
+	defer out.Close()
+
+	_, err = io.Copy(out, resp.Body)
+	return err
+}
+
+func untar(tarFile, dest string) error {
+	tf, err := os.Open(tarFile)
+	if err != nil {
+		return err
+	}
+	defer tf.Close()
+
+	stream, err := gzip.NewReader(tf)
+	if err != nil {
+		return err
+	}
+	defer stream.Close()
+
+	tarReader := tar.NewReader(stream)
+	for true {
+		header, err := tarReader.Next()
+		if err == io.EOF {
+			break
+		}
+		if err != nil {
+			return err
+		}
+
+		fpath := filepath.Join(dest, header.Name)
+		switch header.Typeflag {
+		case tar.TypeSymlink:
+			// make the dir if it does not exist
+			if err := os.MkdirAll(filepath.Dir(fpath), 0755); err != nil {
+				return err
+			}
+			if err := os.Symlink(header.Linkname, fpath); err != nil {
+				return err
+			}
+		case tar.TypeDir:
+			if err := os.MkdirAll(filepath.Dir(fpath), 0755); err != nil {
+				return err
+			}
+		case tar.TypeReg:
+			// make the dir if it does not exist
+			if err := os.MkdirAll(filepath.Dir(fpath), 0755); err != nil {
+				return err
+			}
+
+			out, err := os.OpenFile(fpath, os.O_CREATE|os.O_RDWR, os.FileMode(header.Mode))
+			if err != nil {
+				return err
+			}
+
+			if _, err := io.Copy(out, tarReader); err != nil {
+				return err
+			}
+			out.Close()
+		default:
+			// other flag types need not be covered.
+			continue
+		}
+
+	}
+	return nil
 }
 
 func vulnsToString(vulns []*osv.Entry) string {
