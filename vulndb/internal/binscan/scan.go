@@ -179,7 +179,7 @@ func ExtractPackagesAndSymbols(binPath string) (map[string]string, map[string][]
 
 	bi, ok := readBuildInfo(mod)
 	if !ok {
-		return nil, nil, err
+		return nil, nil, errors.New("unable to extract build information")
 	}
 
 	deps := map[string]string{}
@@ -195,6 +195,12 @@ func ExtractPackagesAndSymbols(binPath string) (map[string]string, map[string][]
 	}
 
 	pclntab, textOffset := x.PCLNTab()
+	if pclntab == nil {
+		// TODO: if we have build information, but not PCLN table, we should be able to
+		// fall back to much higher granularity vulnerability checking. This would require
+		// grouping vulnerabilities by module, rather than package, in the database.
+		return nil, nil, errors.New("unable to load the PCLN table")
+	}
 	lineTab := gosym.NewLineTable(pclntab, textOffset)
 	if lineTab == nil {
 		return nil, nil, errors.New("invalid line table")
@@ -238,5 +244,6 @@ func ExtractPackagesAndSymbols(binPath string) (map[string]string, map[string][]
 			}
 		}
 	}
+
 	return versionedPackages, packageSymbols, nil
 }
