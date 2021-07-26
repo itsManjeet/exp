@@ -57,6 +57,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "64dc06ee_ef68e325",
+        "filename": "vulndb/govulncheck/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-07-26T12:15:56Z",
+      "side": 1,
+      "message": "I am not sure is this correct. govulncheck loads vulnerabilities from the db that have enclosing packages mentioned in the program. However, this still does not mean that those vulns apply to the program because the packages used in the program might have the version where vulnerabilities are not present.",
+      "range": {
+        "startLine": 84,
+        "startChar": 1,
+        "endLine": 91,
+        "endChar": 14
+      },
+      "revId": "58694c579e41b1998d5132635e3ac0687377a086",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "747f352f_4b73b198",
         "filename": "vulndb/govulncheck/main.go",
         "patchSetId": 1
