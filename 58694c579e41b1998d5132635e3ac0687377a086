@@ -55,6 +55,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "09559466_eb211b36",
+        "filename": "vulndb/govulncheck/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 12545
+      },
+      "writtenOn": "2021-07-26T16:42:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0885a897_0b676167",
+      "revId": "58694c579e41b1998d5132635e3ac0687377a086",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "64dc06ee_ef68e325",
@@ -78,6 +96,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4edd56d_27d40250",
+        "filename": "vulndb/govulncheck/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 12545
+      },
+      "writtenOn": "2021-07-26T16:42:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64dc06ee_ef68e325",
+      "range": {
+        "startLine": 84,
+        "startChar": 1,
+        "endLine": 91,
+        "endChar": 14
+      },
+      "revId": "58694c579e41b1998d5132635e3ac0687377a086",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "747f352f_4b73b198",
@@ -91,6 +133,24 @@
       "writtenOn": "2021-07-16T21:33:32Z",
       "side": 1,
       "message": "Should we keep these comments in?",
+      "revId": "58694c579e41b1998d5132635e3ac0687377a086",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "202ea042_8c7d58aa",
+        "filename": "vulndb/govulncheck/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 12545
+      },
+      "writtenOn": "2021-07-26T16:42:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "747f352f_4b73b198",
       "revId": "58694c579e41b1998d5132635e3ac0687377a086",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
