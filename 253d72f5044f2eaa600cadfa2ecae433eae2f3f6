@@ -93,6 +93,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5fb9fd96_730437e3",
+        "filename": "event/doc.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 9711
+      },
+      "writtenOn": "2021-07-27T14:16:56Z",
+      "side": 1,
+      "message": "Yeah, I didn\u0027t mean it that way, but now you point it out I can\u0027t read it any other way!\nReworded, hopefully this says what I mean now?",
+      "parentUuid": "cb257bf0_1dc72390",
+      "revId": "253d72f5044f2eaa600cadfa2ecae433eae2f3f6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "718996b6_6f504952",
         "filename": "event/doc.go",
         "patchSetId": 4
