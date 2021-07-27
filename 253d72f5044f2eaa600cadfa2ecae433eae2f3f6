@@ -57,6 +57,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fe421803_77576ae1",
+        "filename": "event/doc.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 9711
+      },
+      "writtenOn": "2021-07-27T04:09:37Z",
+      "side": 1,
+      "message": "There seems to be some expectation in the community that although we might make breaking changes to things in x/exp we will leave something behind that does the same job, I want to make it crystal clear that there should be no such expectation for this folder. Not sure this is the right way to phrase that, but I think we need to say something.",
+      "parentUuid": "e4cf49bb_111ab666",
+      "revId": "253d72f5044f2eaa600cadfa2ecae433eae2f3f6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "718996b6_6f504952",
         "filename": "event/doc.go",
         "patchSetId": 4
