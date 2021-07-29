@@ -11,7 +11,7 @@ import (
 	"golang.org/x/tools/go/ssa"
 )
 
-// VulnerableImports returns a list of vulnerability findings for packages imported by `pkgs`
+// VulnerableImports returns vulnerability findings for packages imported by `pkgs`
 // given the vulnerability and platform info captured in `env`.
 //
 // Returns all findings reachable from `pkgs` while analyzing each package only once, prefering
@@ -24,10 +24,18 @@ import (
 // or
 //   D -> B -> V
 // as traces of importing a vulnerable package V.
-func VulnerableImports(pkgs []*ssa.Package, env Env) []Finding {
+func VulnerableImports(pkgs []*ssa.Package, env Env) Results {
+	results := Results{
+		SearchMode:      ImportsSearch,
+		Vulnerabilities: serialize(env.Vulns),
+		VulnFindings:    make(map[string][]Finding),
+	}
+	if len(env.Vulns) == 0 {
+		return results
+	}
+
 	pkgVulns := createPkgVulns(env.Vulns)
 
-	var findings []Finding
 	seen := make(map[string]bool)
 	queue := list.New()
 	for _, pkg := range pkgs {
@@ -36,10 +44,10 @@ func VulnerableImports(pkgs []*ssa.Package, env Env) []Finding {
 
 	for queue.Len() > 0 {
 		front := queue.Front()
-		v := front.Value.(*importChain)
+		c := front.Value.(*importChain)
 		queue.Remove(front)
 
-		pkg := v.pkg
+		pkg := c.pkg
 		if pkg == nil {
 			continue
 		}
@@ -50,21 +58,20 @@ func VulnerableImports(pkgs []*ssa.Package, env Env) []Finding {
 		seen[pkg.Path()] = true
 
 		for _, imp := range pkg.Imports() {
-			vulns := queryPkgVulns(imp.Path(), env, pkgVulns)
-			if len(vulns) > 0 {
-				findings = append(findings,
-					Finding{
-						Symbol: imp.Path(),
-						Type:   ImportType,
-						Trace:  v.trace(),
-						Vulns:  serialize(vulns),
-						weight: len(v.trace())})
+			queue.PushBack(&importChain{pkg: imp, parent: c})
+
+			for _, v := range serialize(queryPkgVulns(imp.Path(), env, pkgVulns)) {
+				results.addFinding(v, Finding{
+					Symbol: imp.Path(),
+					Type:   ImportType,
+					Trace:  c.trace(),
+					weight: len(c.trace())})
 			}
-			queue.PushBack(&importChain{pkg: imp, parent: v})
 		}
 	}
 
-	return findings
+	results.sort()
+	return results
 }
 
 // importChain helps doing BFS over package imports while remembering import chains.
