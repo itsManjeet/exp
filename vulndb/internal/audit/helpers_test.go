@@ -138,7 +138,6 @@ func projectFindings(findings []Finding) []Finding {
 			Symbol:   f.Symbol,
 			Position: projectPosition(f.Position),
 			Trace:    projectTrace(f.Trace),
-			Vulns:    projectVulns(f.Vulns),
 			weight:   f.weight,
 		}
 		nfs = append(nfs, nf)

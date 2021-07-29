@@ -12,22 +12,32 @@ import (
 // in packageSymbols, given the vulnerability and platform info captured in env.
 //
 // Returned Findings only have Symbol, Type, and Vulns fields set.
-func VulnerablePackageSymbols(packageSymbols map[string][]string, env Env) []Finding {
+//
+// Findings for each vulnerability are sorted by estimated usefulness to the user.
+func VulnerablePackageSymbols(packageSymbols map[string][]string, env Env) Results {
+	results := Results{
+		SearchMode:      BinarySearch,
+		Vulnerabilities: serialize(env.Vulns),
+		VulnFindings:    make(map[string][]Finding),
+	}
+	if len(env.Vulns) == 0 {
+		return results
+	}
+
 	symVulns := createSymVulns(env.Vulns)
 
-	var findings []Finding
 	for pkg, symbols := range packageSymbols {
 		for _, symbol := range symbols {
-			if vulns := querySymbolVulns(symbol, pkg, symVulns, env); len(vulns) > 0 {
-				findings = append(findings,
-					Finding{
-						Symbol: fmt.Sprintf("%s.%s", pkg, symbol),
-						Type:   GlobalType,
-						Vulns:  serialize(vulns),
-					})
+			vulns := querySymbolVulns(symbol, pkg, symVulns, env)
+			for _, v := range serialize(vulns) {
+				results.addFinding(v, Finding{
+					Symbol: fmt.Sprintf("%s.%s", pkg, symbol),
+					Type:   GlobalType,
+				})
 			}
 		}
 	}
 
-	return findings
+	results.sort()
+	return results
 }
