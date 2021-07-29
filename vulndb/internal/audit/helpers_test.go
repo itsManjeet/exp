@@ -42,7 +42,7 @@ import (
 //   T:T1() -> A:A1() -> B:B1() -> vuln.VulnData.Vuln()
 //
 // The produced environment is based on testdata/dbs vulnerability databases.
-func testProgAndEnv(t *testing.T) ([]*ssa.Package, Env) {
+func testProgAndEnv(t testing.TB) ([]*ssa.Package, Env) {
 	e := packagestest.Export(t, packagestest.Modules, []packagestest.Module{
 		{
 			Name:  "golang.org/vulntest",
@@ -148,7 +148,7 @@ func projectFindings(findings []Finding) []Finding {
 
 // fileSource creates a file URI for a database path `db`. If `db` is
 // relative, the source is made absolute w.r.t. the current directory.
-func fileSource(t *testing.T, db string) string {
+func fileSource(t testing.TB, db string) string {
 	cd, err := os.Getwd()
 	if err != nil {
 		t.Fatal(err)
@@ -156,7 +156,7 @@ func fileSource(t *testing.T, db string) string {
 	return "file://" + path.Join(cd, db)
 }
 
-func readFile(t *testing.T, path string) string {
+func readFile(t testing.TB, path string) string {
 	content, err := ioutil.ReadFile(path)
 	if err != nil {
 		t.Fatalf("failed to load code from `%v`: %v", path, err)

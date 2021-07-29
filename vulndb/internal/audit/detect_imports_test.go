@@ -50,3 +50,13 @@ func TestImportedPackageVulnDetection(t *testing.T) {
 		t.Errorf("want %v findings (projected); got %v", want, got)
 	}
 }
+
+func BenchmarkVulnerableImportsBasicProgram(b *testing.B) {
+	pkgs, env := testProgAndEnv(b)
+
+	b.ReportAllocs()
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		VulnerableImports(pkgs, env)
+	}
+}
