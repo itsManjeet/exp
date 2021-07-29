@@ -6,22 +6,98 @@
 package audit
 
 import (
+	"encoding/json"
 	"fmt"
 	"go/token"
 	"io"
+	"os"
+	"sort"
 
 	"golang.org/x/vulndb/osv"
 )
 
 // Preamble with types and common functionality used by vulnerability detection mechanisms in detect_*.go files.
 
+// SearchType represents a type of an audit search: call graph, imports, or binary.
+type SearchType int
+
+// enum values for SearchType.
+const (
+	CallGraphSearch SearchType = iota
+	ImportsSearch
+	BinarySearch
+)
+
+// Results contains the information on findings and identified
+// vulnerabilities by audit search.
+type Results struct {
+	SearchMode SearchType
+
+	// Vulnerabilities imported by a target program
+	// but not necessarily reachable by any execution.
+	Vulnerabilities []osv.Entry
+
+	VulnFindings map[string][]Finding // vuln id -> findings
+}
+
+// Findings returns a list of findings for `v`.
+func (r Results) Findings(v osv.Entry) []Finding {
+	return r.VulnFindings[v.ID]
+}
+
+// AddFindings adds a findings `f` for vulnerability `v`.
+func (r Results) AddFinding(v osv.Entry, f Finding) {
+	r.VulnFindings[v.ID] = append(r.VulnFindings[v.ID], f)
+}
+
+// Write pretty-prints results to out.
+func (r Results) Write(out io.Writer, toJson bool) {
+	// sort vulnerabilities by their ID but show
+	// ones that have some findings earlier.
+	sort.Slice(r.Vulnerabilities, func(i, j int) bool {
+		vI := r.Vulnerabilities[i]
+		hasFindsI := len(r.Findings(vI)) > 0
+		vJ := r.Vulnerabilities[j]
+		hasFindsJ := len(r.Findings(vJ)) > 0
+
+		return (hasFindsI && !hasFindsJ) || (hasFindsI && hasFindsJ && vI.ID < vJ.ID)
+	})
+	if toJson {
+		b, err := json.MarshalIndent(r, "", "\t")
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "govulncheck: %s\n", err)
+			os.Exit(1)
+		}
+		out.Write(b)
+		out.Write([]byte{'\n'})
+		return
+	}
+
+	idToVuln := make(map[string]osv.Entry)
+	for _, v := range r.Vulnerabilities {
+		idToVuln[v.ID] = v
+	}
+
+	for id, findings := range r.VulnFindings {
+		v := idToVuln[id]
+		fmt.Fprintf(out, "Findings for vulnerability %s (%s):\n\n", v.EcosystemSpecific.URL, v.Package.Name)
+
+		if len(findings) == 0 && r.SearchMode == CallGraphSearch {
+			fmt.Fprintf(out, "imported, but vulnerable symbols are not reachable\n")
+		}
+		for _, finding := range findings {
+			finding.Write(out)
+			out.Write([]byte{'\n'})
+		}
+	}
+}
+
 // Finding represents a finding for the use of a vulnerable symbol or an imported vulnerable package.
-// Provides info on symbol location, trace leading up to the symbol use, and associated vulnerabilities.
+// Provides info on symbol location and the trace leading up to the symbol use.
 type Finding struct {
 	Symbol   string
 	Position *token.Position `json:",omitempty"`
 	Type     SymbolType
-	Vulns    []osv.Entry
 	Trace    []TraceElem
 
 	// Approximate measure for indicating how useful the finding might be to the audit client.
@@ -65,8 +141,6 @@ func (f Finding) Write(w io.Writer) {
 	fmt.Fprintf(w, "Trace:\n%s%s\n", f.Symbol, pos)
 	writeTrace(w, f.Trace)
 	io.WriteString(w, "\n")
-	writeVulns(w, f.Vulns)
-	io.WriteString(w, "\n")
 }
 
 // writeTrace in reverse order, e.g., entry point is written last.
@@ -74,13 +148,6 @@ func writeTrace(w io.Writer, trace []TraceElem) {
 	for i := len(trace) - 1; i >= 0; i-- {
 		trace[i].Write(w)
 		io.WriteString(w, "\n")
-	}
-}
-
-func writeVulns(w io.Writer, vulns []osv.Entry) {
-	fmt.Fprintf(w, "Vulnerabilities:\n")
-	for _, v := range vulns {
-		fmt.Fprintf(w, "%s (%s)\n", v.Package.Name, v.EcosystemSpecific.URL)
 	}
 }
 
@@ -108,6 +175,7 @@ func (s SymbolType) MarshalText() ([]byte, error) {
 	return []byte(name), nil
 }
 
+// matchingVulns returns `vulns` matching `os`, `arch`, and `version`.
 func matchingVulns(os, arch, version string, vulns []*osv.Entry) []*osv.Entry {
 	var matches []*osv.Entry
 	for _, vuln := range vulns {

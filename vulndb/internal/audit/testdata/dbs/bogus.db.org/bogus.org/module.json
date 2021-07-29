@@ -1,5 +1,6 @@
 [
   {
+    "id": "BO-1",
     "package": {
       "name": "bogus.org/module/vuln"
     },

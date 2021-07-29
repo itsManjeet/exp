@@ -1,5 +1,6 @@
 [
   {
+    "id": "TP-1",
     "package": {
       "name": "thirdparty.org/vulnerabilities/vuln"
     },
@@ -25,6 +26,7 @@
     }
   },
   {
+    "id": "TP-2",
     "package": {
       "name": "thirdparty.org/vulnerabilities/vuln"
     },
@@ -48,6 +50,7 @@
     }
   },
   {
+    "id": "TP-3",
     "package": {
       "name": "thirdparty.org/vulnerabilities/vuln"
     },

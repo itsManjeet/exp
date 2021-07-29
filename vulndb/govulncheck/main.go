@@ -16,14 +16,11 @@
 package main
 
 import (
-	"encoding/json"
 	"flag"
 	"fmt"
-	"io"
 	"log"
 	"os"
 	"runtime"
-	"sort"
 	"strings"
 
 	"golang.org/x/exp/vulndb/internal/audit"
@@ -67,60 +64,6 @@ database URLs, with http://, https://, or file:// protocols. Entries from multip
 databases are merged.
 `
 
-type results struct {
-	ImportedPackages []string
-	Vulns            []*osv.Entry
-	Findings         []audit.Finding
-}
-
-func (r *results) unreachable() []*osv.Entry {
-	seen := map[string]bool{}
-	for _, f := range r.Findings {
-		for _, v := range f.Vulns {
-			seen[v.ID] = true
-		}
-	}
-	unseen := []*osv.Entry{}
-	for _, v := range r.Vulns {
-		if seen[v.ID] {
-			continue
-		}
-		unseen = append(unseen, v)
-	}
-	return unseen
-}
-
-// presentTo pretty-prints results to out.
-func (r *results) presentTo(out io.Writer) {
-	sort.Strings(r.ImportedPackages)
-	sort.Slice(r.Vulns, func(i, j int) bool { return r.Vulns[i].ID < r.Vulns[j].ID })
-	sort.SliceStable(r.Findings, func(i int, j int) bool { return audit.FindingCompare(r.Findings[i], r.Findings[j]) })
-	if !*jsonFlag {
-		for _, finding := range r.Findings {
-			finding.Write(out)
-			out.Write([]byte{'\n'})
-		}
-		if unreachable := r.unreachable(); len(unreachable) > 0 {
-			fmt.Fprintf(out, "The following %d vulnerabilities don't affect this project:\n", len(unreachable))
-			for _, u := range unreachable {
-				var aliases string
-				if len(u.Aliases) > 0 {
-					aliases = fmt.Sprintf(" (%s)", strings.Join(u.Aliases, ", "))
-				}
-				fmt.Fprintf(out, "- %s%s (package imported, but vulnerable symbol is not reachable)\n", u.ID, aliases)
-			}
-		}
-		return
-	}
-	b, err := json.MarshalIndent(r, "", "\t")
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "govulncheck: %s\n", err)
-		os.Exit(1)
-	}
-	out.Write(b)
-	out.Write([]byte{'\n'})
-}
-
 func main() {
 	flag.Usage = func() { fmt.Fprintln(os.Stderr, usage) }
 	flag.Parse()
@@ -145,7 +88,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	r.presentTo(os.Stdout)
+	r.Write(os.Stdout, *jsonFlag)
 }
 
 // allPkgPaths computes a list of all packages, in
@@ -193,8 +136,7 @@ func filterVulns(vulns []*osv.Entry, packageVersions map[string]string) []*osv.E
 	return filtered
 }
 
-func run(cfg *packages.Config, patterns []string, importsOnly bool, dbs []string) (*results, error) {
-	r := &results{}
+func run(cfg *packages.Config, patterns []string, importsOnly bool, dbs []string) (*audit.Results, error) {
 	if len(patterns) == 1 && isFile(patterns[0]) {
 		packages, symbols, err := binscan.ExtractPackagesAndSymbols(patterns[0])
 		if err != nil {
@@ -205,20 +147,13 @@ func run(cfg *packages.Config, patterns []string, importsOnly bool, dbs []string
 		for pkg := range packages {
 			paths = append(paths, pkg)
 		}
-		r.ImportedPackages = paths
 
 		vulns, err := audit.LoadVulnerabilities(dbs, paths)
 		if err != nil {
 			return nil, fmt.Errorf("failed to load vulnerability dbs: %v", err)
 		}
-		vulns = filterVulns(vulns, packages)
-		if len(vulns) == 0 {
-			return r, nil
-		}
-		r.Vulns = vulns
-
-		r.Findings = audit.VulnerablePackageSymbols(symbols, audit.Env{OS: runtime.GOOS, Arch: runtime.GOARCH, PkgVersions: packages, Vulns: vulns})
-		return r, nil
+		results := audit.VulnerablePackageSymbols(symbols, audit.Env{OS: runtime.GOOS, Arch: runtime.GOARCH, PkgVersions: packages, Vulns: filterVulns(vulns, packages)})
+		return &results, nil
 	}
 
 	// Load packages.
@@ -243,18 +178,11 @@ func run(cfg *packages.Config, patterns []string, importsOnly bool, dbs []string
 	if *verboseFlag {
 		log.Println("loading database...")
 	}
-	importedPackages := allPkgPaths(pkgs)
-	r.ImportedPackages = importedPackages
-	vulns, err := audit.LoadVulnerabilities(dbs, importedPackages)
+	vulns, err := audit.LoadVulnerabilities(dbs, allPkgPaths(pkgs))
 	if err != nil {
 		return nil, fmt.Errorf("failed to load vulnerability dbs: %v", err)
 	}
 	vulns = filterVulns(vulns, pkgVersions)
-	if len(vulns) == 0 {
-		return r, nil
-	}
-	r.Vulns = vulns
-
 	if *verboseFlag {
 		log.Printf("\t%d known vulnerabilities.\n", len(vulns))
 	}
@@ -273,16 +201,12 @@ func run(cfg *packages.Config, patterns []string, importsOnly bool, dbs []string
 	if *verboseFlag {
 		log.Println("detecting vulnerabilities...")
 	}
-	var findings []audit.Finding
 	env := audit.Env{OS: runtime.GOOS, Arch: runtime.GOARCH, PkgVersions: pkgVersions, Vulns: vulns}
+	var results audit.Results
 	if importsOnly {
-		r.Findings = audit.VulnerableImports(ssaPkgs, env)
+		results = audit.VulnerableImports(ssaPkgs, env)
 	} else {
-		r.Findings = audit.VulnerableSymbols(ssaPkgs, env)
+		results = audit.VulnerableSymbols(ssaPkgs, env)
 	}
-	if *verboseFlag {
-		log.Printf("\t%d detected findings.\n", len(findings))
-	}
-
-	return r, nil
+	return &results, nil
 }
