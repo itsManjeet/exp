@@ -88,6 +88,24 @@
       "parentUuid": "6d6b33e5_7660c9a4",
       "revId": "e97da425ca08b04e37f06e0b45d8825685b4d894",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55e34788_e01b7494",
+        "filename": "vulndb/govulncheck/main_test.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2021-07-30T15:04:04Z",
+      "side": 1,
+      "message": "Would it make sense to verify that the link target is itself within the destination directory? That would at least keep the test hermetic.\n\nAlso note that os.Symlink on Windows is somewhat broken and expected to remain so (https://golang.org/issue/39183). If this test will run on Windows, you may need to create symlinks in a separate pass.",
+      "parentUuid": "d9f73ab5_4822a579",
+      "revId": "e97da425ca08b04e37f06e0b45d8825685b4d894",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
