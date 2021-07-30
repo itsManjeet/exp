@@ -80,6 +80,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "aa2b3f3e_e5bbc18d",
+        "filename": "vulndb/govulncheck/main_test.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-07-30T17:23:37Z",
+      "side": 1,
+      "message": "I got this as part of an error message when running make:\n\ncannot find module providing package k8s.io/kubernetes: import lookup disabled by -mod\u003dreadonly\n        (Go version in go.mod is 1.12, so vendor directory was not used.)",
+      "parentUuid": "8b9191ea_c01929b7",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 205,
+        "endChar": 2
+      },
+      "revId": "60e3cd5ee11379105c79ae6058a05c7af0e56cd1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e3aa5190_e4eb4c2c",
         "filename": "vulndb/govulncheck/main_test.go",
         "patchSetId": 5
