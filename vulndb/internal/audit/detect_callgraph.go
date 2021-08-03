@@ -8,15 +8,32 @@ import (
 	"container/list"
 	"fmt"
 	"go/token"
+	"log"
 	"strings"
 
 	"golang.org/x/tools/go/callgraph"
+	"golang.org/x/tools/go/packages"
 	"golang.org/x/tools/go/ssa"
 	"golang.org/x/tools/go/ssa/ssautil"
 
 	"golang.org/x/tools/go/callgraph/cha"
 	"golang.org/x/tools/go/callgraph/vta"
 )
+
+// for assesing confidence level of findings
+var stdPackages = make(map[string]bool)
+
+func init() {
+	pkgs, err := packages.Load(nil, "std")
+	if err != nil {
+		log.Printf("error: failed to load std packages %v", err)
+		return
+	}
+
+	for _, p := range pkgs {
+		stdPackages[p.PkgPath] = true
+	}
+}
 
 // VulnerableSymbols returns a list of vulnerability findings for symbols transitively reachable
 // through the callgraph built using VTA analysis from the entry points of pkgs, given the
@@ -176,6 +193,23 @@ func (chain *callChain) weight() int {
 	return callWeight + chain.parent.weight()
 }
 
+// confidence computes an approximate confidence in whether the `chain`
+// represents a true findings. Currently, it equals to the number of
+// call sites in `chain` that go through standard libraries. Such findings
+// have been experimentally shown to results in false positives.
+func (chain *callChain) confidence() int {
+	if chain == nil || chain.call == nil {
+		return 0
+	}
+
+	callConfidence := 0
+	pkg := chain.call.Parent().Pkg
+	if pkg != nil && pkg.Pkg != nil && stdPackages[pkg.Pkg.Path()] {
+		callConfidence = 1
+	}
+	return callConfidence + chain.parent.confidence()
+}
+
 // funcVulnsAndCalls returns a list of symbol findings for function at the top
 // of chain and next calls to analyze.
 func funcVulnsAndCalls(chain *callChain, symVulns symVulnerabilities, env Env, callGraph *callgraph.Graph) ([]Finding, []*callChain) {
@@ -221,12 +255,13 @@ func globalFindings(globalUses []*ssa.Value, chain *callChain, symVulns symVulne
 		if len(vulns) > 0 {
 			findings = append(findings,
 				Finding{
-					Symbol:   fmt.Sprintf("%s.%s", g.Package().Pkg.Path(), g.Name()),
-					Trace:    chain.trace(),
-					Position: valPosition(*o, chain.f),
-					Type:     GlobalType,
-					Vulns:    serialize(vulns),
-					weight:   chain.weight()})
+					Symbol:     fmt.Sprintf("%s.%s", g.Package().Pkg.Path(), g.Name()),
+					Trace:      chain.trace(),
+					Position:   valPosition(*o, chain.f),
+					Type:       GlobalType,
+					Vulns:      serialize(vulns),
+					weight:     chain.weight(),
+					confidence: chain.confidence()})
 		}
 	}
 	return findings
@@ -255,12 +290,13 @@ func callFinding(chain *callChain, symVulns symVulnerabilities, env Env) *Findin
 			c = c.parent
 		}
 		return &Finding{
-			Symbol:   fmt.Sprintf("%s.%s", callee.Package().Pkg.Path(), dbFuncName(callee)),
-			Trace:    c.trace(),
-			Position: instrPosition(call),
-			Type:     FunctionType,
-			Vulns:    serialize(vulns),
-			weight:   c.weight()}
+			Symbol:     fmt.Sprintf("%s.%s", callee.Package().Pkg.Path(), dbFuncName(callee)),
+			Trace:      c.trace(),
+			Position:   instrPosition(call),
+			Type:       FunctionType,
+			Vulns:      serialize(vulns),
+			weight:     c.weight(),
+			confidence: c.confidence()}
 	}
 
 	return nil
