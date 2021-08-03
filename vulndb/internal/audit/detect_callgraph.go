@@ -11,6 +11,7 @@ import (
 	"strings"
 
 	"golang.org/x/tools/go/callgraph"
+	"golang.org/x/tools/go/packages"
 	"golang.org/x/tools/go/ssa"
 	"golang.org/x/tools/go/ssa/ssautil"
 
@@ -18,16 +19,20 @@ import (
 	"golang.org/x/tools/go/callgraph/vta"
 )
 
+// for assesing confidence level of findings.
+var stdPackages = make(map[string]bool)
+
 // VulnerableSymbols returns vulnerability findings for symbols transitively reachable
 // through the callgraph built using VTA analysis from the entry points of pkgs, given
-// the vulnerability and platform info captured in env.
+// 'modVulns' vulnerabilities.
 //
-// Returns all findings reachable from pkgs while analyzing each package only once, prefering findings
-// of shorter import traces. For instance, given call chains
+// Returns all findings reachable from pkgs while analyzing each package only once,
+// prefering findings of shorter import traces. For instance, given call chains
 //   A() -> B() -> V
 //   A() -> D() -> B() -> V
 //   D() -> B() -> V
-// where A and D are top level packages and V is a vulnerable symbol, VulnerableSymbols can return either
+// where A and D are top level packages and V is a vulnerable symbol, VulnerableSymbols
+// can return either
 //   A() -> B() -> V
 // or
 //   D() -> B() -> V
@@ -58,6 +63,7 @@ func VulnerableSymbols(pkgs []*ssa.Package, modVulns ModuleVulnerabilities) Resu
 		queue.PushBack(&callChain{f: entry})
 	}
 
+	loadStdPackages()
 	seen := make(map[*ssa.Function]bool)
 	for queue.Len() > 0 {
 		front := queue.Front()
@@ -140,6 +146,19 @@ func isEntry(f *ssa.Function) bool {
 	return f.Synthetic == "" && f.Object() != nil && f.Object().Exported()
 }
 
+func loadStdPackages() {
+	pkgs, err := packages.Load(nil, "std")
+	if err != nil {
+		// Ordering of findings might get affected, but no need
+		// to break the execution.
+		return
+	}
+
+	for _, p := range pkgs {
+		stdPackages[p.PkgPath] = true
+	}
+}
+
 // callChain helps doing BFS over package call graph while remembering the call stack.
 type callChain struct {
 	// nil for entry points of the chain.
@@ -170,11 +189,12 @@ func (chain *callChain) trace() []TraceElem {
 	return append(chain.parent.trace(), TraceElem{Description: desc, Position: pos})
 }
 
-// weight computes an approximate measure of how useful the call chain would
-// be to the client as a trace. The smaller the value, the more useful the chain.
-// Currently defined as the number of unresolved call sites in the chain.
+// weight computes an approximate measure of how easy is to understand the call
+// chain when presented to the client as a trace. The smaller the value, the more
+// understendeable the chain is. Currently defined as the number of unresolved
+// call sites in the chain.
 func (chain *callChain) weight() int {
-	if chain == nil {
+	if chain == nil || chain.call == nil {
 		return 0
 	}
 
@@ -183,6 +203,24 @@ func (chain *callChain) weight() int {
 		callWeight = 1
 	}
 	return callWeight + chain.parent.weight()
+}
+
+// confidence computes an approximate measure of whether the `chain`
+// represents a true finding. Currently, it equals the number of call
+// sites in `chain` that go through standard libraries. Such findings
+// have been experimentally shown to often result in false positives.
+func (chain *callChain) confidence() int {
+	if chain == nil || chain.call == nil {
+		return 0
+	}
+
+	callConfidence := 0
+	pkg := chain.call.Parent().Pkg
+	// package information might not be available in extreme case.
+	if pkg != nil && pkg.Pkg != nil && stdPackages[pkg.Pkg.Path()] {
+		callConfidence = 1
+	}
+	return callConfidence + chain.parent.confidence()
 }
 
 // funcVulnsAndCalls adds symbol findings to results for
@@ -223,11 +261,12 @@ func globalFindings(globalUses []*ssa.Value, chain *callChain, modVulns ModuleVu
 		vulns := modVulns.VulnsForSymbol(g.Package().Pkg.Path(), g.Name())
 		for _, v := range serialize(vulns) {
 			results.addFinding(v, Finding{
-				Symbol:   fmt.Sprintf("%s.%s", g.Package().Pkg.Path(), g.Name()),
-				Trace:    chain.trace(),
-				Position: valPosition(*o, chain.f),
-				Type:     GlobalType,
-				weight:   chain.weight()})
+				Symbol:     fmt.Sprintf("%s.%s", g.Package().Pkg.Path(), g.Name()),
+				Trace:      chain.trace(),
+				Position:   valPosition(*o, chain.f),
+				Type:       GlobalType,
+				weight:     chain.weight(),
+				confidence: chain.confidence()})
 		}
 	}
 }
@@ -256,11 +295,12 @@ func callFinding(chain *callChain, modVulns ModuleVulnerabilities, results *Resu
 	vulns := modVulns.VulnsForSymbol(callee.Package().Pkg.Path(), dbFuncName(callee))
 	for _, v := range serialize(vulns) {
 		results.addFinding(v, Finding{
-			Symbol:   fmt.Sprintf("%s.%s", callee.Package().Pkg.Path(), dbFuncName(callee)),
-			Trace:    c.trace(),
-			Position: instrPosition(call),
-			Type:     FunctionType,
-			weight:   c.weight()})
+			Symbol:     fmt.Sprintf("%s.%s", callee.Package().Pkg.Path(), dbFuncName(callee)),
+			Trace:      c.trace(),
+			Position:   instrPosition(call),
+			Type:       FunctionType,
+			weight:     c.weight(),
+			confidence: c.confidence()})
 	}
 }
 
