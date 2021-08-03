@@ -11,12 +11,16 @@ import (
 	"strings"
 
 	"golang.org/x/tools/go/callgraph"
+	"golang.org/x/tools/go/packages"
 	"golang.org/x/tools/go/ssa"
 	"golang.org/x/tools/go/ssa/ssautil"
 
 	"golang.org/x/tools/go/callgraph/cha"
 	"golang.org/x/tools/go/callgraph/vta"
 )
+
+// for assesing confidence level of findings.
+var stdPackages = make(map[string]bool)
 
 // VulnerableSymbols returns a list of vulnerability findings for symbols transitively reachable
 // through the callgraph built using VTA analysis from the entry points of pkgs, given the
@@ -47,6 +51,7 @@ func VulnerableSymbols(pkgs []*ssa.Package, env Env) []Finding {
 		queue.PushBack(&callChain{f: entry})
 	}
 
+	loadStdPackages()
 	symVulns := createSymVulns(env.Vulns)
 	var findings []Finding
 	seen := make(map[*ssa.Function]bool)
@@ -131,6 +136,19 @@ func isEntry(f *ssa.Function) bool {
 	return f.Synthetic == "" && f.Object() != nil && f.Object().Exported()
 }
 
+func loadStdPackages() {
+	pkgs, err := packages.Load(nil, "std")
+	if err != nil {
+		// Ordering of findings might get affected, but no need
+		// to break the execution.
+		return
+	}
+
+	for _, p := range pkgs {
+		stdPackages[p.PkgPath] = true
+	}
+}
+
 // callChain helps doing BFS over package call graph while remembering the call stack.
 type callChain struct {
 	// nil for entry points of the chain.
@@ -161,11 +179,12 @@ func (chain *callChain) trace() []TraceElem {
 	return append(chain.parent.trace(), TraceElem{Description: desc, Position: pos})
 }
 
-// weight computes an approximate measure of how useful the call chain would
-// be to the client as a trace. The smaller the value, the more useful the chain.
-// Currently defined as the number of unresolved call sites in the chain.
+// weight computes an approximate measure of how easy is to understand the call
+// chain when presented to the client as a trace. The smaller the value, the more
+// understendeable the chain is. Currently defined as the number of unresolved
+// call sites in the chain.
 func (chain *callChain) weight() int {
-	if chain == nil {
+	if chain == nil || chain.call == nil {
 		return 0
 	}
 
@@ -174,6 +193,24 @@ func (chain *callChain) weight() int {
 		callWeight = 1
 	}
 	return callWeight + chain.parent.weight()
+}
+
+// confidence computes an approximate measure of whether the `chain`
+// represents a true finding. Currently, it equals the number of call
+// sites in `chain` that go through standard libraries. Such findings
+// have been experimentally shown to often result in false positives.
+func (chain *callChain) confidence() int {
+	if chain == nil || chain.call == nil {
+		return 0
+	}
+
+	callConfidence := 0
+	pkg := chain.call.Parent().Pkg
+	// package information might not be available in extreme case.
+	if pkg != nil && pkg.Pkg != nil && stdPackages[pkg.Pkg.Path()] {
+		callConfidence = 1
+	}
+	return callConfidence + chain.parent.confidence()
 }
 
 // funcVulnsAndCalls returns a list of symbol findings for function at the top
@@ -221,12 +258,13 @@ func globalFindings(globalUses []*ssa.Value, chain *callChain, symVulns symVulne
 		if len(vulns) > 0 {
 			findings = append(findings,
 				Finding{
-					Symbol:   fmt.Sprintf("%s.%s", g.Package().Pkg.Path(), g.Name()),
-					Trace:    chain.trace(),
-					Position: valPosition(*o, chain.f),
-					Type:     GlobalType,
-					Vulns:    serialize(vulns),
-					weight:   chain.weight()})
+					Symbol:     fmt.Sprintf("%s.%s", g.Package().Pkg.Path(), g.Name()),
+					Trace:      chain.trace(),
+					Position:   valPosition(*o, chain.f),
+					Type:       GlobalType,
+					Vulns:      serialize(vulns),
+					weight:     chain.weight(),
+					confidence: chain.confidence()})
 		}
 	}
 	return findings
@@ -255,12 +293,13 @@ func callFinding(chain *callChain, symVulns symVulnerabilities, env Env) *Findin
 			c = c.parent
 		}
 		return &Finding{
-			Symbol:   fmt.Sprintf("%s.%s", callee.Package().Pkg.Path(), dbFuncName(callee)),
-			Trace:    c.trace(),
-			Position: instrPosition(call),
-			Type:     FunctionType,
-			Vulns:    serialize(vulns),
-			weight:   c.weight()}
+			Symbol:     fmt.Sprintf("%s.%s", callee.Package().Pkg.Path(), dbFuncName(callee)),
+			Trace:      c.trace(),
+			Position:   instrPosition(call),
+			Type:       FunctionType,
+			Vulns:      serialize(vulns),
+			weight:     c.weight(),
+			confidence: c.confidence()}
 	}
 
 	return nil

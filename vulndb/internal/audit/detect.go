@@ -24,9 +24,13 @@ type Finding struct {
 	Vulns    []osv.Entry
 	Trace    []TraceElem
 
-	// Approximate measure for indicating how useful the finding might be to the audit client.
-	// The smaller the weight, the more useful is the finding.
+	// Approximate measure for indicating how understandeable the finding is to the client.
+	// The smaller the weight, the more understendeable is the finding.
 	weight int
+
+	// Approximate measure for indicating confidence in finding being a true positive. The
+	// smaller the value, the bigger the confidence.
+	confidence int
 }
 
 // SymbolType represents a type of a symbol use: function, global, or an import statement.
