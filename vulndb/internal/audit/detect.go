@@ -27,6 +27,10 @@ type Finding struct {
 	// Approximate measure for indicating how useful the finding might be to the audit client.
 	// The smaller the weight, the more useful is the finding.
 	weight int
+
+	// Approximate measure for indicating confidence in finding being a true positive. The
+	// smaller the value, the larger the confidence.
+	confidence int
 }
 
 // SymbolType represents a type of a symbol use: function, global, or an import statement.

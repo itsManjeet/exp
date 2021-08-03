@@ -9,10 +9,18 @@ import (
 	"strings"
 )
 
-// FindingCompare compares two findings in terms of their approximate usefulness to the user.
-// A finding that either has 1) shorter trace, or 2) less unresolved call sites in the trace
-// is considered smaller, i.e., better.
+// FindingCompare compares two findings in terms of their estimated value to the user.
+// Findings of shorter traces generally come earlier in the ordering.
+//
+// Two findings produced by audit call graph search are lexicographically ordered by:
+// 1) the estimated level of confidence in finding being a true one, 2) the length of
+// the trace, and 3) the number of unresolved call sites in the trace.
 func FindingCompare(finding1, finding2 Finding) bool {
+	if finding1.confidence < finding2.confidence {
+		return true
+	} else if finding2.confidence < finding1.confidence {
+		return false
+	}
 	if len(finding1.Trace) < len(finding2.Trace) {
 		return true
 	} else if len(finding2.Trace) < len(finding1.Trace) {
@@ -23,6 +31,7 @@ func FindingCompare(finding1, finding2 Finding) bool {
 	} else if finding2.weight < finding1.weight {
 		return false
 	}
+
 	// At this point we just need to make sure the ordering is deterministic.
 	// TODO(zpavlinovic): is there a more meaningful ordering?
 	return findingStrCompare(finding1, finding2)
