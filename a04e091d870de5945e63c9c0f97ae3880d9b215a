@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5e2a308b_742003db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 12545
+      },
+      "writtenOn": "2021-08-04T20:02:15Z",
+      "side": 1,
+      "message": "Yes, that\u0027s correct.",
+      "parentUuid": "2f4556fa_c8279fc6",
+      "revId": "a04e091d870de5945e63c9c0f97ae3880d9b215a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6d375927_658ba1fc",
         "filename": "vulndb/govulncheck/main.go",
         "patchSetId": 1
@@ -85,6 +103,30 @@
       "writtenOn": "2021-08-03T21:45:10Z",
       "side": 1,
       "message": "Should these vulns be filtered too?",
+      "range": {
+        "startLine": 197,
+        "startChar": 2,
+        "endLine": 197,
+        "endChar": 7
+      },
+      "revId": "a04e091d870de5945e63c9c0f97ae3880d9b215a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d5dcaee_81742c39",
+        "filename": "vulndb/govulncheck/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 12545
+      },
+      "writtenOn": "2021-08-04T20:02:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d375927_658ba1fc",
       "range": {
         "startLine": 197,
         "startChar": 2,
@@ -112,6 +154,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "774a53f3_456555da",
+        "filename": "vulndb/internal/audit/detect.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 12545
+      },
+      "writtenOn": "2021-08-04T20:02:15Z",
+      "side": 1,
+      "message": "I don\u0027t think this would make things particularly simpler, we don\u0027t do any lookups using the packages.Module directly, so it\u0027s just a different way of storing the same data as far as I can see.",
+      "parentUuid": "80fd5ef2_84170123",
+      "revId": "a04e091d870de5945e63c9c0f97ae3880d9b215a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "900dc01c_c6c8089e",
@@ -135,6 +195,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "23f5a7fa_9a12bf3b",
+        "filename": "vulndb/internal/audit/detect.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 12545
+      },
+      "writtenOn": "2021-08-04T20:02:15Z",
+      "side": 1,
+      "message": "Done, this comment was no longer accurate, cleaned it up to refer to the most specific prefix check that is done.",
+      "parentUuid": "900dc01c_c6c8089e",
+      "range": {
+        "startLine": 152,
+        "startChar": 54,
+        "endLine": 152,
+        "endChar": 60
+      },
+      "revId": "a04e091d870de5945e63c9c0f97ae3880d9b215a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "07b513dd_6eb14df4",
@@ -148,6 +232,24 @@
       "writtenOn": "2021-08-03T21:45:10Z",
       "side": 1,
       "message": "In case of a remote db, any concerns on making several calls to the db instead of one?\n\n(If yes, a TODO is ok here. I will take over.)",
+      "revId": "a04e091d870de5945e63c9c0f97ae3880d9b215a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "353388dc_b2c5b4fb",
+        "filename": "vulndb/internal/audit/vulnerability.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 12545
+      },
+      "writtenOn": "2021-08-04T20:02:15Z",
+      "side": 1,
+      "message": "Internally the client makes multiple requests anyway, so there isn\u0027t much difference between passing one/multiple paths.\n\nI\u0027m considering just changing the golang.org/x/vulndb/client/Client.Get API to take a single path, and forcing the user to coalesce themselves.",
+      "parentUuid": "07b513dd_6eb14df4",
       "revId": "a04e091d870de5945e63c9c0f97ae3880d9b215a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
