@@ -90,6 +90,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d85c7608_f4b0280c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-08-04T21:33:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e2a308b_742003db",
+      "revId": "a04e091d870de5945e63c9c0f97ae3880d9b215a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d375927_658ba1fc",
@@ -250,6 +268,24 @@
       "side": 1,
       "message": "Internally the client makes multiple requests anyway, so there isn\u0027t much difference between passing one/multiple paths.\n\nI\u0027m considering just changing the golang.org/x/vulndb/client/Client.Get API to take a single path, and forcing the user to coalesce themselves.",
       "parentUuid": "07b513dd_6eb14df4",
+      "revId": "a04e091d870de5945e63c9c0f97ae3880d9b215a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca52464d_8303565b",
+        "filename": "vulndb/internal/audit/vulnerability.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-08-04T21:33:34Z",
+      "side": 1,
+      "message": "That is probably the most atomic way of doing it, but it doesn\u0027t have to happen in this CL.",
+      "parentUuid": "353388dc_b2c5b4fb",
       "revId": "a04e091d870de5945e63c9c0f97ae3880d9b215a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
