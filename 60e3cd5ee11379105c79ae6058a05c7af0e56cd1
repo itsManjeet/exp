@@ -104,6 +104,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "28e1e7cb_22801a91",
+        "filename": "vulndb/govulncheck/main_test.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2021-08-10T21:08:11Z",
+      "side": 1,
+      "message": "What target were you running `make` on, and what package was `make` attempting to run `go build` on?\n\nThere really isn\u0027t a package at the root of k8s.io/kubernetes at v1.15.11. Is there some step needed to generate the source files for that package before you run `make`?\n\nI really don\u0027t want us to be testing against an ancient Go version ~forever — seems like we really ought to figure out how to make this test forward-compatible with current (supported, security-patched) releases.",
+      "parentUuid": "aa2b3f3e_e5bbc18d",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 205,
+        "endChar": 2
+      },
+      "revId": "60e3cd5ee11379105c79ae6058a05c7af0e56cd1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e3aa5190_e4eb4c2c",
         "filename": "vulndb/govulncheck/main_test.go",
         "patchSetId": 5
