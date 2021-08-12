@@ -15,6 +15,7 @@ import (
 	"path/filepath"
 	"strconv"
 	"strings"
+	"sync"
 	"testing"
 
 	"golang.org/x/mod/module"
@@ -25,6 +26,22 @@ var (
 	testwork     = flag.Bool("testwork", false, "preserve work directory")
 	updateGolden = flag.Bool("u", false, "update expected text in test files instead of failing")
 )
+
+var hasGitCache struct {
+	once  sync.Once
+	found bool
+}
+
+// hasGit reports whether the git executable exists on the PATH.
+func hasGit() bool {
+	hasGitCache.once.Do(func() {
+		if _, err := exec.LookPath("git"); err != nil {
+			return
+		}
+		hasGitCache.found = true
+	})
+	return hasGitCache.found
+}
 
 // prepareProxy creates a proxy dir and returns an associated ctx.
 //
@@ -277,6 +294,30 @@ func TestRelease(t *testing.T) {
 	}
 }
 
+// TODO(deklerk): Is it necessary for this to be a separate test rather than a
+// txttar? Can we easily simulate a git repo with uncommitted changes with
+// txttar?
+func TestRelease_gitRepo_uncommittedChanges(t *testing.T) {
+	ctx := context.Background()
+	buf := &bytes.Buffer{}
+	releaseDir, err := ioutil.TempDir("", "")
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	goModInit(t, releaseDir)
+	gitInit(t, releaseDir)
+	createUncommittedChange(t, releaseDir)
+
+	success, err := runRelease(ctx, buf, releaseDir, nil)
+	if got, want := err.Error(), fmt.Sprintf("repo %s has uncommitted changes", releaseDir); got != want {
+		t.Errorf("runRelease:\ngot error:\n%q\nwant error\n%q", got, want)
+	}
+	if success {
+		t.Errorf("runRelease: expected failure, got success")
+	}
+}
+
 func testRelease(ctx context.Context, tests []*test, test *test) func(t *testing.T) {
 	return func(t *testing.T) {
 		if test.skip != "" {
@@ -323,6 +364,12 @@ func testRelease(ctx context.Context, tests []*test, test *test) func(t *testing
 		}
 		if err := extractTxtar(testDir, arc); err != nil {
 			t.Fatal(err)
+		}
+
+		if isGitRepo(t, testDir) {
+			// Convert testDir to a git repository with a single commit, to simulate
+			// a real user's module-in-a-git-repo.
+			gitInit(t, testDir)
 		}
 
 		// Generate the report and compare it against the expected text.
@@ -372,4 +419,77 @@ func testRelease(ctx context.Context, tests []*test, test *test) func(t *testing
 			t.Fatalf("got success: %v; want success %v", success, test.wantSuccess)
 		}
 	}
+}
+
+func gitInit(t *testing.T, dir string) {
+	t.Helper()
+
+	if !hasGit() {
+		t.Skip("PATH does not contain git")
+	}
+
+	// TODO(deklerk): This seems like it should not be necessary if we're
+	// ensuring that every test runs in its own directory.
+	if err := os.RemoveAll(filepath.Join(dir, ".git")); err != nil {
+		t.Fatalf("error removing .git directory: %v", err)
+	}
+
+	stdout := &bytes.Buffer{}
+	stderr := &bytes.Buffer{}
+
+	for _, args := range [][]string{
+		{"git", "init"},
+		{"git", "checkout", "-b", "test"},
+		{"git", "add", "-A"},
+		{"git", "commit", "-m", "test"},
+	} {
+		cmd := exec.Command(args[0], args[1:]...)
+		cmd.Dir = dir
+		cmd.Stdout = stdout
+		cmd.Stderr = stderr
+		if err := cmd.Run(); err != nil {
+			cmdArgs := strings.Join(args, " ")
+			t.Fatalf("%s\n%s\nerror running %q on dir %s: %v", stdout.String(), stderr.String(), cmdArgs, dir, err)
+		}
+	}
+}
+
+// goModInit runs `go mod init` in the given directory.
+func goModInit(t *testing.T, dir string) {
+	t.Helper()
+
+	aContents := `package a
+const A = "a"`
+	if err := ioutil.WriteFile(filepath.Join(dir, "a.go"), []byte(aContents), 0644); err != nil {
+		t.Fatal(err)
+	}
+
+	stdout := &bytes.Buffer{}
+	stderr := &bytes.Buffer{}
+	cmd := exec.Command("go", "mod", "init", "example.com/uncommitted")
+	cmd.Stdout = stdout
+	cmd.Stderr = stderr
+	cmd.Dir = dir
+	if err := cmd.Run(); err != nil {
+		t.Fatalf("error running `go mod init`: %s, %v", stderr.String(), err)
+	}
+}
+
+// createUncommittedChange creates an uncommitted change in the given directory.
+func createUncommittedChange(t *testing.T, dir string) {
+	t.Helper()
+	bContents := `package b
+const B = "b"`
+	if err := ioutil.WriteFile(filepath.Join(dir, "b.go"), []byte(bContents), 0644); err != nil {
+		t.Fatal(err)
+	}
+}
+
+// isGitRepo reports whether the given directory is a git repository.
+func isGitRepo(t *testing.T, dir string) bool {
+	t.Helper()
+	if _, err := os.Stat(filepath.Join(dir, ".git")); err != nil {
+		return false
+	}
+	return true
 }
