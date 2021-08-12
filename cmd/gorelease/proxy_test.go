@@ -10,6 +10,7 @@ import (
 	"io"
 	"io/ioutil"
 	"os"
+	"os/exec"
 	"path/filepath"
 	"sort"
 	"strings"
@@ -78,6 +79,10 @@ func buildProxyDir(proxyVersions map[module.Version]bool, tests []*test) (proxyD
 
 		modDir := filepath.Join(proxyDir, modPath, "@v")
 		if err := os.MkdirAll(modDir, 0777); err != nil {
+			return "", "", err
+		}
+
+		if err := gitInit(modDir); err != nil {
 			return "", "", err
 		}
 
@@ -170,6 +175,17 @@ func buildProxyDir(proxyVersions map[module.Version]bool, tests []*test) (proxyD
 		proxyURL = "file:///" + filepath.FromSlash(proxyDir)
 	}
 	return proxyDir, proxyURL, nil
+}
+
+func gitInit(dir string) error {
+	stderr := &bytes.Buffer{}
+	cmd := exec.Command("git", "init")
+	cmd.Dir = dir
+	cmd.Stderr = stderr
+	if err := cmd.Run(); err != nil {
+		return fmt.Errorf("error git initialising dir %s: %s", dir, stderr.String())
+	}
+	return nil
 }
 
 type txtarFile struct {

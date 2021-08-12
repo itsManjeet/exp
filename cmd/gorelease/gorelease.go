@@ -96,6 +96,7 @@ import (
 	"path/filepath"
 	"sort"
 	"strings"
+	"time"
 	"unicode"
 
 	"golang.org/x/exp/apidiff"
@@ -902,7 +903,9 @@ func copyModuleToTempDir(modPath, modRoot string) (dir string, err error) {
 		}
 	}()
 
-	if err := zip.CreateFromDir(zipFile, m, modRoot); err != nil {
+	fmt.Println(modRoot)
+	time.Sleep(time.Hour)
+	if err := zip.CreateFromVCS(zipFile, m, modRoot, "HEAD", ""); err != nil {
 		var e zip.FileErrorList
 		if errors.As(err, &e) {
 			return "", e
