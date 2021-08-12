@@ -387,7 +387,7 @@ func loadLocalModule(ctx context.Context, modRoot, repoRoot, version string) (m 
 	// as if it were published and downloaded. We'll detect any errors that would
 	// occur (for example, invalid file names). We avoid loading it as the
 	// main module.
-	tmpModRoot, err := copyModuleToTempDir(m.modPath, m.modRoot)
+	tmpModRoot, err := copyModuleToTempDir(repoRoot, m.modPath, m.modRoot)
 	if err != nil {
 		return moduleInfo{}, err
 	}
@@ -872,7 +872,7 @@ func dirMajorSuffix(path string) string {
 // An error is returned if the module contains any files or directories that
 // can't be included in a module zip file (due to special characters,
 // excessive sizes, etc.).
-func copyModuleToTempDir(modPath, modRoot string) (dir string, err error) {
+func copyModuleToTempDir(repoRoot, modPath, modRoot string) (dir string, err error) {
 	// Generate a fake version consistent with modPath. We need a canonical
 	// version to create a zip file.
 	version := "v0.0.0-gorelease"
@@ -902,13 +902,37 @@ func copyModuleToTempDir(modPath, modRoot string) (dir string, err error) {
 		}
 	}()
 
-	if err := zip.CreateFromDir(zipFile, m, modRoot); err != nil {
-		var e zip.FileErrorList
-		if errors.As(err, &e) {
-			return "", e
+	if repoRoot == "" {
+		// Not a recognised repo: create from dir.
+		if err := zip.CreateFromDir(zipFile, m, modRoot); err != nil {
+			var e zip.FileErrorList
+			if errors.As(err, &e) {
+				return "", e
+			}
+			return "", err
 		}
-		return "", err
+	} else {
+		// We recognised a repo: create from VCS.
+		if !hasFilePathPrefix(modRoot, repoRoot) {
+			panic(fmt.Sprintf("repo root %q is not a prefix of mod root %q", repoRoot, modRoot))
+		}
+		hasUncommitted, err := hasGitUncommittedChanges(repoRoot)
+		if err != nil {
+			return "", err
+		}
+		if hasUncommitted {
+			return "", fmt.Errorf("repo %s has uncommitted changes", repoRoot)
+		}
+		modRel := filepath.ToSlash(trimFilePathPrefix(modRoot, repoRoot))
+		if err := zip.CreateFromVCS(zipFile, m, repoRoot, "HEAD", modRel); err != nil {
+			var e zip.FileErrorList
+			if errors.As(err, &e) {
+				return "", e
+			}
+			return "", err
+		}
 	}
+
 	if err := zipFile.Close(); err != nil {
 		return "", err
 	}
@@ -1454,4 +1478,18 @@ func shortRetractionRationale(rationales []string) (string, bool) {
 	}
 	// NOTE: the go.mod parser rejects invalid UTF-8, so we don't check that here.
 	return rationale, true
+}
+
+// hasGitUncommittedChanges checks if the given directory has uncommitteed git
+// changes.
+func hasGitUncommittedChanges(dir string) (bool, error) {
+	stdout := &bytes.Buffer{}
+
+	cmd := exec.Command("git", "status", "--porcelain")
+	cmd.Dir = dir
+	cmd.Stdout = stdout
+	if err := cmd.Run(); err != nil {
+		return false, cleanCmdError(err)
+	}
+	return stdout.Len() != 0, nil
 }
