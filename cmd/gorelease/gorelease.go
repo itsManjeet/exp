@@ -902,7 +902,15 @@ func copyModuleToTempDir(modPath, modRoot string) (dir string, err error) {
 		}
 	}()
 
-	if err := zip.CreateFromDir(zipFile, m, modRoot); err != nil {
+	repoRoot := findRepoRoot(modRoot)
+	modRel, err := filepath.Rel(repoRoot, modRoot)
+	if err != nil {
+		return "", err
+	}
+	if repoRoot == modRoot {
+		modRel = ""
+	}
+	if err := zip.CreateFromVCS(zipFile, m, findRepoRoot(modRoot), "HEAD", modRel); err != nil {
 		var e zip.FileErrorList
 		if errors.As(err, &e) {
 			return "", e
