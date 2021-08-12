@@ -24,6 +24,12 @@ import (
 var (
 	testwork     = flag.Bool("testwork", false, "preserve work directory")
 	updateGolden = flag.Bool("u", false, "update expected text in test files instead of failing")
+	hasGit       = func() bool {
+		if _, err := exec.LookPath("git"); err != nil {
+			return false
+		}
+		return true
+	}()
 )
 
 // prepareProxy creates a proxy dir and returns an associated ctx.
@@ -325,6 +331,17 @@ func testRelease(ctx context.Context, tests []*test, test *test) func(t *testing
 			t.Fatal(err)
 		}
 
+		// Convert testDir to a git repository with a single commit, to simulate
+		// a real user's module-in-a-git-repo.
+		// TODO(deklerk): Should we add similar things for other version control
+		// systems?
+		if !hasGit {
+			t.Skip("PATH does not contain git")
+		}
+		if err := gitInit(testDir); err != nil {
+			t.Fatal(err)
+		}
+
 		// Generate the report and compare it against the expected text.
 		var args []string
 		if test.baseVersion != "" {
@@ -372,4 +389,33 @@ func testRelease(ctx context.Context, tests []*test, test *test) func(t *testing
 			t.Fatalf("got success: %v; want success %v", success, test.wantSuccess)
 		}
 	}
+}
+
+func gitInit(dir string) error {
+	// TODO(deklerk): This seems like it should not be necessary if we're
+	// ensuring that every test runs in its own directory.
+	if err := os.RemoveAll(filepath.Join(dir, ".git")); err != nil {
+		return fmt.Errorf("error removing .git directory: %w", err)
+	}
+
+	stdout := &bytes.Buffer{}
+	stderr := &bytes.Buffer{}
+
+	for _, args := range [][]string{
+		{"git", "init"},
+		{"git", "checkout", "-b", "test"},
+		{"git", "add", "-A"},
+		{"git", "commit", "-m", "test"},
+	} {
+		cmd := exec.Command(args[0], args[1:]...)
+		cmd.Dir = dir
+		cmd.Stdout = stdout
+		cmd.Stderr = stderr
+		if err := cmd.Run(); err != nil {
+			cmdArgs := strings.Join(args, " ")
+			return fmt.Errorf("%s\n%s\nerror running %q on dir %s: %s", stdout.String(), stderr.String(), cmdArgs, dir, err)
+		}
+	}
+
+	return nil
 }

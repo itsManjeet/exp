@@ -387,7 +387,7 @@ func loadLocalModule(ctx context.Context, modRoot, repoRoot, version string) (m 
 	// as if it were published and downloaded. We'll detect any errors that would
 	// occur (for example, invalid file names). We avoid loading it as the
 	// main module.
-	tmpModRoot, err := copyModuleToTempDir(m.modPath, m.modRoot)
+	tmpModRoot, err := copyModuleToTempDir(repoRoot, m.modPath, m.modRoot)
 	if err != nil {
 		return moduleInfo{}, err
 	}
@@ -872,7 +872,7 @@ func dirMajorSuffix(path string) string {
 // An error is returned if the module contains any files or directories that
 // can't be included in a module zip file (due to special characters,
 // excessive sizes, etc.).
-func copyModuleToTempDir(modPath, modRoot string) (dir string, err error) {
+func copyModuleToTempDir(repoRoot, modPath, modRoot string) (dir string, err error) {
 	// Generate a fake version consistent with modPath. We need a canonical
 	// version to create a zip file.
 	version := "v0.0.0-gorelease"
@@ -902,13 +902,31 @@ func copyModuleToTempDir(modPath, modRoot string) (dir string, err error) {
 		}
 	}()
 
-	if err := zip.CreateFromDir(zipFile, m, modRoot); err != nil {
-		var e zip.FileErrorList
-		if errors.As(err, &e) {
-			return "", e
+	if repoRoot == "" {
+		if err := zip.CreateFromDir(zipFile, m, modRoot); err != nil {
+			var e zip.FileErrorList
+			if errors.As(err, &e) {
+				return "", e
+			}
+			return "", err
 		}
-		return "", err
+	} else {
+		modRel, err := filepath.Rel(repoRoot, modRoot)
+		if err != nil {
+			return "", err
+		}
+		if repoRoot == modRoot {
+			modRel = ""
+		}
+		if err := zip.CreateFromVCS(zipFile, m, repoRoot, "HEAD", modRel); err != nil {
+			var e zip.FileErrorList
+			if errors.As(err, &e) {
+				return "", e
+			}
+			return "", err
+		}
 	}
+
 	if err := zipFile.Close(); err != nil {
 		return "", err
 	}
