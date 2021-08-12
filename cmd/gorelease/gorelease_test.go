@@ -325,6 +325,14 @@ func testRelease(ctx context.Context, tests []*test, test *test) func(t *testing
 			t.Fatal(err)
 		}
 
+		// Convert testDir to a git repository with a single commit, to simulate
+		// a real user's module-in-a-git-repo.
+		// TODO(deklerk): Should we add similar things for other version control
+		// systems?
+		if err := gitInit(testDir); err != nil {
+			t.Fatal(err)
+		}
+
 		// Generate the report and compare it against the expected text.
 		var args []string
 		if test.baseVersion != "" {
@@ -372,4 +380,48 @@ func testRelease(ctx context.Context, tests []*test, test *test) func(t *testing
 			t.Fatalf("got success: %v; want success %v", success, test.wantSuccess)
 		}
 	}
+}
+
+func gitInit(dir string) error {
+	// TODO(deklerk): This seems like it should not be necessary if we're
+	// ensuring that every test runs in its own directory.
+	if err := os.RemoveAll(filepath.Join(dir, ".git")); err != nil {
+		return fmt.Errorf("error removing .git directory: %w", err)
+	}
+
+	stdout := &bytes.Buffer{}
+	stderr := &bytes.Buffer{}
+
+	cmd := exec.Command("git", "init")
+	cmd.Dir = dir
+	cmd.Stdout = stdout
+	cmd.Stderr = stderr
+	if err := cmd.Run(); err != nil {
+		return fmt.Errorf("%s\n%s\nerror running `git init` on dir %s: %s", stdout.String(), stderr.String(), dir, err)
+	}
+
+	cmd = exec.Command("git", "checkout", "-b", "test")
+	cmd.Dir = dir
+	cmd.Stdout = stdout
+	cmd.Stderr = stderr
+	if err := cmd.Run(); err != nil {
+		return fmt.Errorf("%s\n%s\nerror running `git checkout` on dir %s: %s", stdout.String(), stderr.String(), dir, err)
+	}
+
+	cmd = exec.Command("git", "add", "-A")
+	cmd.Dir = dir
+	cmd.Stdout = stdout
+	cmd.Stderr = stderr
+	if err := cmd.Run(); err != nil {
+		return fmt.Errorf("%s\n%s\nerror running `git add` on dir %s: %s", stdout.String(), stderr.String(), dir, err)
+	}
+
+	cmd = exec.Command("git", "commit", "-m", "test")
+	cmd.Dir = dir
+	cmd.Stdout = stdout
+	cmd.Stderr = stderr
+	if err := cmd.Run(); err != nil {
+		return fmt.Errorf("%s\n%s\nerror running `git commit` on dir %s: %s", stdout.String(), stderr.String(), dir, err)
+	}
+	return nil
 }
