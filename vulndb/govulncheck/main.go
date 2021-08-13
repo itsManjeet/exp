@@ -167,9 +167,17 @@ func extractModules(pkgs []*packages.Package) []*packages.Module {
 	for _, pkg := range pkgs {
 		extract(pkg, modMap)
 	}
+
+	// Collect modules up to path uniqueness. Otherwise,
+	// the "same" models can appear multiple times which
+	// can slow down db loading.
+	seenPath := make(map[string]bool)
 	modules := []*packages.Module{}
 	for mod := range modMap {
-		modules = append(modules, mod)
+		if !seenPath[mod.Path] {
+			modules = append(modules, mod)
+		}
+		seenPath[mod.Path] = true
 	}
 	return modules
 }
