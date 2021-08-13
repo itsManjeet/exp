@@ -53,6 +53,24 @@
       "message": "I think this is the wrong fix. If extractModules is producing multiple modules which have the same path \u0026 version, we should be collapsing those into a single entry, rather than having a bunch of repeats in the output slice.",
       "revId": "a70a6c55cb4be066cd17f1c41585a4cb8b49dc6d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55ec6c27_6daa3108",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-08-13T22:31:52Z",
+      "side": 1,
+      "message": "I have tried doing this: for a modPath, fetch vulnerabilities only for the first module. For all other modules with the same modPath, just continue immediately. Interestingly, this did not yield the same results in govulncheck.\n\nI could imagine there being a problem if there are two modules with the same path but one has a Replace and the other does not. Not sure can this happen though.",
+      "parentUuid": "83a0efe6_fc20d6d6",
+      "revId": "a70a6c55cb4be066cd17f1c41585a4cb8b49dc6d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
