@@ -127,14 +127,19 @@ func matchesPlatform(os, arch string, e osv.GoSpecific) bool {
 func (mv ModuleVulnerabilities) Filter(os, arch string) ModuleVulnerabilities {
 	var filteredMod ModuleVulnerabilities
 	for _, mod := range mv {
+		module := mod.mod
+		modVersion := module.Version
+		if module.Replace != nil {
+			modVersion = module.Replace.Version
+		}
 		var filteredVulns []*osv.Entry
 		for _, v := range mod.vulns {
-			if matchesPlatform(os, arch, v.EcosystemSpecific) {
+			if v.Affects.AffectsSemver(modVersion) && matchesPlatform(os, arch, v.EcosystemSpecific) {
 				filteredVulns = append(filteredVulns, v)
 			}
 		}
 		filteredMod = append(filteredMod, modVulns{
-			mod:   mod.mod,
+			mod:   module,
 			vulns: filteredVulns,
 		})
 	}
