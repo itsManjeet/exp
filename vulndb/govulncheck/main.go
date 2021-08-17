@@ -119,7 +119,7 @@ func projectToSingleFinding(r *audit.Results) *audit.Results {
 
 func writeOut(r *audit.Results, toJson bool) {
 	if !toJson {
-		os.Stdout.Write([]byte(r.String()))
+		os.Stdout.Write([]byte(resultsString(r)))
 		return
 	}
 
