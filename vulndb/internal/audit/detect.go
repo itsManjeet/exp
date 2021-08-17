@@ -59,18 +59,30 @@ func (r Results) String() string {
 		} else {
 			alias = strings.Join(v.Aliases, ", ")
 		}
-		rStr += fmt.Sprintf("Findings for vulnerability: %s (of package %s):\n\n", alias, v.Package.Name)
+		rStr += fmt.Sprintf("Findings for vulnerability: %s (of package %s):\n", alias, v.Package.Name)
 
 		findings := r.VulnFindings[v.ID]
-		if len(findings) == 0 && r.SearchMode == CallGraphSearch {
-			rStr += "package imported, but no vulnerable symbols are reachable\n\n"
+		if len(findings) == 0 {
+			if r.SearchMode == CallGraphSearch {
+				rStr += "\tvulnerability imported, but no vulnerable symbols are reachable\n"
+			}
+			rStr += "\n"
 			continue
 		}
 		for _, finding := range findings {
-			rStr += finding.String() + "\n"
+			rStr += "  Trace:\n" + indent(finding.String(), "\t") + "\n"
 		}
 	}
 	return rStr
+}
+
+func indent(text string, ind string) string {
+	lines := strings.Split(text, "\n")
+	var newLines []string
+	for _, line := range lines {
+		newLines = append(newLines, ind+line)
+	}
+	return strings.Join(newLines, "\n")
 }
 
 // addFindings adds a findings `f` for vulnerability `v`.
@@ -108,7 +120,7 @@ func (f Finding) String() string {
 		pos = fmt.Sprintf(" (%s)", f.Position)
 	}
 
-	return fmt.Sprintf("Trace:\n%s%s\n%s\n", f.Symbol, pos, traceStr)
+	return fmt.Sprintf("%s%s\n%s", f.Symbol, pos, traceStr)
 }
 
 func traceString(trace []TraceElem) string {
