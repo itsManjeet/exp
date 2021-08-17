@@ -8,22 +8,25 @@ import (
 	"container/list"
 	"fmt"
 	"go/token"
+	"runtime"
 	"strings"
 
 	"golang.org/x/tools/go/callgraph"
+	"golang.org/x/tools/go/packages"
 	"golang.org/x/tools/go/ssa"
 	"golang.org/x/tools/go/ssa/ssautil"
+	"golang.org/x/vulndb/osv"
 
 	"golang.org/x/tools/go/callgraph/cha"
 	"golang.org/x/tools/go/callgraph/vta"
 )
 
 // VulnerableSymbols returns vulnerability findings for symbols transitively reachable
-// through the callgraph built using VTA analysis from the entry points of pkgs, given
-// the vulnerability and platform info captured in env.
+// through the callgraph from the entry points of pkgs. The vulnerabilities are provided
+// by database `client`.
 //
-// Returns all findings reachable from pkgs while analyzing each package only once, prefering findings
-// of shorter import traces. For instance, given call chains
+// Returns all findings reachable from pkgs while analyzing each package only once, prefering
+// findings of shorter import traces. For instance, given call chains
 //   A() -> B() -> V
 //   A() -> D() -> B() -> V
 //   D() -> B() -> V
@@ -33,24 +36,27 @@ import (
 //   D() -> B() -> V
 // as traces of transitively using a vulnerable symbol V.
 //
-// Findings for each vulnerability are sorted by estimated usefulness to the user.
-//
-// Panics if packages in pkgs do not belong to the same program.
-func VulnerableSymbols(pkgs []*ssa.Package, modVulns ModuleVulnerabilities) Results {
-	results := Results{
-		SearchMode:      CallGraphSearch,
-		Vulnerabilities: serialize(modVulns.Vulns()),
-		VulnFindings:    make(map[string][]Finding),
+// Findings for each vulnerability are sorted by their estimated usefulness to the user.
+func VulnerableSymbols(pkgs []*packages.Package, client DbClient) (*Results, error) {
+	results := &Results{SearchMode: CallGraphSearch}
+
+	modules, tPkgs := extractModulesAndPackages(pkgs)
+	modVulns, err := fetchVulnerabilities(client, modules)
+	if err != nil {
+		return nil, err
 	}
+	modVulns = modVulns.Filter(runtime.GOOS, runtime.GOARCH)
 	if len(modVulns) == 0 {
-		return results
+		return results, nil
 	}
 
-	prog := pkgsProgram(pkgs)
+	prog, ssaPkgs := ssautil.AllPackages(pkgs, 0)
+	prog.Build()
 	if prog == nil {
-		panic("packages in pkgs must belong to a single common program")
+		return nil, fmt.Errorf("failed to build internal ssa representation of pkgs")
 	}
-	entries := entryPoints(pkgs)
+
+	entries := entryPoints(ssaPkgs)
 	callGraph := callGraph(prog, entries)
 
 	queue := list.New()
@@ -69,14 +75,15 @@ func VulnerableSymbols(pkgs []*ssa.Package, modVulns ModuleVulnerabilities) Resu
 		}
 		seen[v.f] = true
 
-		calls := funcVulnsAndCalls(v, modVulns, &results, callGraph)
+		calls := funcVulnsAndCalls(v, modVulns, results, callGraph)
 		for _, call := range calls {
 			queue.PushBack(call)
 		}
 	}
 
+	addCallGraphUnusedVulns(results, modVulns, tPkgs)
 	results.sort()
-	return results
+	return results, nil
 }
 
 // callGraph builds a call graph of prog based on VTA analysis.
@@ -187,7 +194,7 @@ func (chain *callChain) weight() int {
 
 // funcVulnsAndCalls adds symbol findings to results for
 // function at the top of chain and next calls to analyze.
-func funcVulnsAndCalls(chain *callChain, modVulns ModuleVulnerabilities, results *Results, callGraph *callgraph.Graph) []*callChain {
+func funcVulnsAndCalls(chain *callChain, modVulns moduleVulnerabilities, results *Results, callGraph *callgraph.Graph) []*callChain {
 	var calls []*callChain
 	for _, b := range chain.f.Blocks {
 		for _, instr := range b.Instrs {
@@ -213,7 +220,7 @@ func funcVulnsAndCalls(chain *callChain, modVulns ModuleVulnerabilities, results
 // globalFindings adds findings for vulnerable globals among globalUses to results.
 // Assumes each use in globalUses is a use of a global variable. Can generate
 // duplicates when globalUses contains duplicates.
-func globalFindings(globalUses []*ssa.Value, chain *callChain, modVulns ModuleVulnerabilities, results *Results) {
+func globalFindings(globalUses []*ssa.Value, chain *callChain, modVulns moduleVulnerabilities, results *Results) {
 	if underRelatedVuln(chain, modVulns) {
 		return
 	}
@@ -221,7 +228,7 @@ func globalFindings(globalUses []*ssa.Value, chain *callChain, modVulns ModuleVu
 	for _, o := range globalUses {
 		g := (*o).(*ssa.Global)
 		vulns := modVulns.VulnsForSymbol(g.Package().Pkg.Path(), g.Name())
-		for _, v := range serialize(vulns) {
+		for _, v := range vulns {
 			results.addFinding(v, Finding{
 				Symbol:   fmt.Sprintf("%s.%s", g.Package().Pkg.Path(), g.Name()),
 				Trace:    chain.trace(),
@@ -235,7 +242,7 @@ func globalFindings(globalUses []*ssa.Value, chain *callChain, modVulns ModuleVu
 // callFinding adds findings to results for the call made at the top of the chain.
 // If there is no vulnerability or no call information, then nil is returned.
 // TODO(zpavlinovic): remove ssa info from higher-order calls.
-func callFinding(chain *callChain, modVulns ModuleVulnerabilities, results *Results) {
+func callFinding(chain *callChain, modVulns moduleVulnerabilities, results *Results) {
 	if underRelatedVuln(chain, modVulns) {
 		return
 	}
@@ -254,7 +261,7 @@ func callFinding(chain *callChain, modVulns ModuleVulnerabilities, results *Resu
 	}
 
 	vulns := modVulns.VulnsForSymbol(callee.Package().Pkg.Path(), dbFuncName(callee))
-	for _, v := range serialize(vulns) {
+	for _, v := range vulns {
 		results.addFinding(v, Finding{
 			Symbol:   fmt.Sprintf("%s.%s", callee.Package().Pkg.Path(), dbFuncName(callee)),
 			Trace:    c.trace(),
@@ -275,7 +282,7 @@ func callFinding(chain *callChain, modVulns ModuleVulnerabilities, results *Resu
 //
 // Note that for P1:A -> P2:B -> P3:D -> P2:C the function returns false. This
 // is because C is called from D that comes from a different package.
-func underRelatedVuln(chain *callChain, modVulns ModuleVulnerabilities) bool {
+func underRelatedVuln(chain *callChain, modVulns moduleVulnerabilities) bool {
 	pkg := pkgPath(chain.f)
 
 	c := chain
@@ -291,4 +298,32 @@ func underRelatedVuln(chain *callChain, modVulns ModuleVulnerabilities) bool {
 		}
 	}
 	return false
+}
+
+func addCallGraphUnusedVulns(results *Results, modVulns moduleVulnerabilities, pkgs []*packages.Package) {
+	allVulns := make(map[string]*osv.Entry)
+	for _, v := range modVulns.Vulns() {
+		allVulns[v.ID] = v
+	}
+
+	allPkgs := make(map[string]bool)
+	for _, pkg := range pkgs {
+		allPkgs[pkg.PkgPath] = true
+	}
+
+	vulnsWithFindings := make(map[string]bool)
+	for _, vf := range results.VulnFindings {
+		vulnsWithFindings[vf.Vuln.ID] = true
+	}
+
+	for id, v := range allVulns {
+		if vulnsWithFindings[id] {
+			continue
+		}
+		if allPkgs[v.Package.Name] {
+			results.PackageVulns = append(results.PackageVulns, v)
+			continue
+		}
+		results.ModuleVulns = append(results.ModuleVulns, v)
+	}
 }
