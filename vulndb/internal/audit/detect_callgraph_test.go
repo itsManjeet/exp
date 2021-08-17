@@ -9,17 +9,22 @@ import (
 	"reflect"
 	"testing"
 
-	"golang.org/x/tools/go/packages"
 	"golang.org/x/tools/go/packages/packagestest"
 	"golang.org/x/vulndb/osv"
 )
 
 func TestSymbolVulnDetectionVTA(t *testing.T) {
-	pkgs, modVulns := testContext(t)
-	results := VulnerableSymbols(pkgs, modVulns)
+	pkgs, client := testContext(t)
+	results, err := VulnerableSymbols(pkgs, client)
+	if err != nil {
+		t.Fatal(err)
+	}
 
 	if results.SearchMode != CallGraphSearch {
 		t.Errorf("want call graph search mode; got %v", results.SearchMode)
+	}
+	if len(results.UnreachableVulns) != 2 {
+		t.Errorf("want 2 non-exercised vulnerabilities; got %v", len(results.UnreachableVulns))
 	}
 
 	// There should be four call chains reported with VTA-VTA version, in the following order,
@@ -78,7 +83,7 @@ func TestSymbolVulnDetectionVTA(t *testing.T) {
 			},
 		}},
 	} {
-		got := projectFindings(results.VulnFindings[test.vulnId])
+		got := projectFindings(vulnFindings(results, test.vulnId))
 		if !reflect.DeepEqual(test.findings, got) {
 			t.Errorf("want %v findings (projected); got %v", test.findings, got)
 		}
@@ -115,27 +120,28 @@ func TestInitReachability(t *testing.T) {
 	})
 	defer e.Cleanup()
 
-	_, pkgs, _, err := loadAndBuildPackages(e, "/inittest/main.go")
+	pkgs, err := loadPackages(e, "/inittest/main.go")
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	modVulns := ModuleVulnerabilities{
-		{
-			mod: &packages.Module{Path: "example.com", Version: "v1.1.1"},
-			vulns: []*osv.Entry{
-				{
-					ID: "V3",
-					Affected: []osv.Affected{{
-						Package:           osv.Package{Name: "example.com/vuln"},
-						Ranges:            osv.Affects{{Type: osv.TypeSemver, Events: []osv.RangeEvent{{Introduced: "1.0.0"}, {Fixed: "1.1.2"}}}},
-						EcosystemSpecific: osv.EcosystemSpecific{Symbols: []string{"Bad"}},
-					}},
-				},
+	mc := &mockClient{ret: map[string][]*osv.Entry{
+		"example.com": []*osv.Entry{
+			{
+				ID: "V3",
+				Affected: []osv.Affected{{
+					Package:           osv.Package{Name: "example.com/vuln"},
+					Ranges:            osv.Affects{{Type: osv.TypeSemver, Events: []osv.RangeEvent{{Introduced: "1.0.0"}, {Fixed: "1.1.2"}}}},
+					EcosystemSpecific: osv.EcosystemSpecific{Symbols: []string{"Bad"}},
+				}},
 			},
 		},
+	},
 	}
-	results := VulnerableSymbols(pkgs, modVulns)
+	results, err := VulnerableSymbols(pkgs, mc)
+	if err != nil {
+		t.Fatal(err)
+	}
 
 	if results.SearchMode != CallGraphSearch {
 		t.Errorf("want call graph search mode; got %v", results.SearchMode)
@@ -153,7 +159,7 @@ func TestInitReachability(t *testing.T) {
 			weight:   0,
 		},
 	}
-	if got := projectFindings(results.VulnFindings["V3"]); !reflect.DeepEqual(want, got) {
+	if got := projectFindings(vulnFindings(results, "V3")); !reflect.DeepEqual(want, got) {
 		t.Errorf("want %v findings (projected); got %v", want, got)
 	}
 }

@@ -11,6 +11,7 @@ import (
 	"golang.org/x/tools/go/callgraph/cha"
 	"golang.org/x/tools/go/packages/packagestest"
 	"golang.org/x/tools/go/ssa"
+	"golang.org/x/tools/go/ssa/ssautil"
 )
 
 // funcsToString returns a set of function names for `funcs`.
@@ -29,12 +30,15 @@ func TestSlicing(t *testing.T) {
 			Files: map[string]interface{}{"slice/slice.go": readFile(t, "testdata/slice.go")},
 		},
 	})
-	prog, pkgs, _, err := loadAndBuildPackages(e, "/module/slice/slice.go")
+	pkgs, err := loadPackages(e, "/module/slice/slice.go")
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	pkg := pkgs[0]
+	prog, ssaPkgs := ssautil.AllPackages(pkgs, 0)
+	prog.Build()
+
+	pkg := ssaPkgs[0]
 	sources := map[*ssa.Function]bool{pkg.Func("Apply"): true, pkg.Func("Do"): true}
 	fs := funcsToString(forwardReachableFrom(sources, cha.CallGraph(prog)))
 	want := map[string]bool{
