@@ -107,6 +107,24 @@
       "parentUuid": "187aa79c_d2f91537",
       "revId": "f542c7edee4bbe55d1678055ca27f734c28cb83d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a991d8e_d8c5f952",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 12545
+      },
+      "writtenOn": "2021-08-17T20:29:10Z",
+      "side": 1,
+      "message": "Skipping modules replaced by local modules can be done in a follow-up change if you want.\n\n\u003e My concern is for the cases where the VCS data might not be available. Two scenarios:\n\nFor (1), in the case where a module was cloned then we inherently have VCS metadata, which is the underlying information the Go tooling uses for module versioning. It seems likely to incredibly uncommon for a user to retrieve a module and run govulncheck on it in such a way that there is absolutely no metadata (i.e. downloading the source in a zip or something).\n\nFor (2), I think it\u0027s perfectly reasonable to report those vulnerabilities if we are able to derive the version. The user of govulncheck would, presumably, know that they\u0027ve fixed the vulnerability that has been reported, and the reporting would indicate that the vulnerability database does not yet know about a fixed commit. The same thing would happen once they pushed a tagged version, since inherently there cannot be a \u0027fixed\u0027 entry in the vulndb at that point, and would only go away once the vulnerability database has been updated.\n\nFor cases where we cannot derive _any_ version information, it\u0027s perfectly reasonable to be rather conservative, although we may want to explicitly warn the user of the fact that we cannot provide proper vulnerability checking.\n\nLike I said initially though, I don\u0027t think this is something we need to worry about in this change. It\u0027s fine to add a todo/open an issue on the tracker to consider this work in the future.",
+      "parentUuid": "a32106a1_5157d097",
+      "revId": "f542c7edee4bbe55d1678055ca27f734c28cb83d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
