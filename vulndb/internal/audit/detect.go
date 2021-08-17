@@ -38,33 +38,6 @@ type Results struct {
 	VulnFindings map[string][]Finding // vuln.ID -> findings
 }
 
-// String method for results.
-func (r Results) String() string {
-	sort.Slice(r.Vulnerabilities, func(i, j int) bool { return r.Vulnerabilities[i].ID < r.Vulnerabilities[j].ID })
-
-	rStr := ""
-	for _, v := range r.Vulnerabilities {
-		findings := r.VulnFindings[v.ID]
-		if len(findings) == 0 {
-			// TODO: add messages for such cases too?
-			continue
-		}
-
-		var alias string
-		if len(v.Aliases) == 0 {
-			alias = v.EcosystemSpecific.URL
-		} else {
-			alias = strings.Join(v.Aliases, ", ")
-		}
-		rStr += fmt.Sprintf("Findings for vulnerability: %s (of package %s):\n\n", alias, v.Package.Name)
-
-		for _, finding := range findings {
-			rStr += finding.String() + "\n"
-		}
-	}
-	return rStr
-}
-
 // addFindings adds a findings `f` for vulnerability `v`.
 func (r Results) addFinding(v osv.Entry, f Finding) {
 	r.VulnFindings[v.ID] = append(r.VulnFindings[v.ID], f)
@@ -91,27 +64,6 @@ type Finding struct {
 	weight int
 }
 
-// String method for findings.
-func (f Finding) String() string {
-	traceStr := traceString(f.Trace)
-
-	var pos string
-	if f.Position != nil {
-		pos = fmt.Sprintf(" (%s)", f.Position)
-	}
-
-	return fmt.Sprintf("Trace:\n%s%s\n%s\n", f.Symbol, pos, traceStr)
-}
-
-func traceString(trace []TraceElem) string {
-	// traces are typically short, so string builders are not necessary
-	traceStr := ""
-	for i := len(trace) - 1; i >= 0; i-- {
-		traceStr += trace[i].String() + "\n"
-	}
-	return traceStr
-}
-
 // SymbolType represents a type of a symbol use: function, global, or an import statement.
 type SymbolType int
 
@@ -126,14 +78,6 @@ const (
 type TraceElem struct {
 	Description string
 	Position    *token.Position `json:",omitempty"`
-}
-
-// String method for trace elements.
-func (e TraceElem) String() string {
-	if e.Position == nil {
-		return fmt.Sprintf("%s", e.Description)
-	}
-	return fmt.Sprintf("%s (%s)", e.Description, e.Position)
 }
 
 // MarshalText implements the encoding.TextMarshaler interface.
