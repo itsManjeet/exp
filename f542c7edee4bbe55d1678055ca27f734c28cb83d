@@ -89,6 +89,24 @@
       "parentUuid": "49048509_e45de274",
       "revId": "f542c7edee4bbe55d1678055ca27f734c28cb83d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a32106a1_5157d097",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-08-17T18:16:52Z",
+      "side": 1,
+      "message": "\u003e \u003e \u003e I believe the only case where a module can have an empty Version field is when it has been replaced using a replace directive that points to a directory on the local filesystem.\n\u003e \u003e \u003e \n\u003e \u003e \u003e Since we cannot know the version of the local module that is being used, the other option would be to assume all vulnerabilities match (which I believe is the current behavior?) Local replacements are not _super_ common, and I\u0027m not entirely convinced it makes sense to be extremely conservative in those cases.\n\u003e \u003e \n\u003e \u003e This was behavior before, but it is not anymore and that is correct IMO. Things are more clear now. That is, if we have a replace directive to a local dir, we would fetch vulnerabilities for that dir and that would return empty set of vulnerabilities. This makes a whole lot of sense since we really don\u0027t know what that local thing is. So, \"\" version here won\u0027t really matter.\n\u003e \n\u003e Re-reading the module listing code, my memory of how replace directives are represented was incorrect. When a local replace is done `Path` is the local filesystem path, rather than the canonical import path for the module that is being pointed at. In these cases we should be explicit skipping the inclusion of these modules in the extractModule function in govulncheck, since they aren\u0027t going to produce anything of value and will just result in pointless HTTP requests to the database. \n\u003e \n\nRight, but this seems to be a separate issue that concerns only reducing the number of db queries. In the end, the fetched vulnerabilities are empty.\n\n\u003e \u003e Note that top-level packages will also have \"\" version. In fact, this popped up. The database has entries for k8s.io/x and we run audit on k8s.io/x and we get a match because module version is \"\".\n\u003e \u003e \n\u003e \u003e It seemed to me that the most general and cleanest way is to disregard \"\" version since we really don\u0027t know much about the module. The only exception is where a vulnerability applies to all versions.\n\u003e \n\u003e For top level modules I\u0027m fine being rather conservative for now, but we should look into deriving the module version, since we may have access to VCS metadata that can be used.\n\nMy concern is for the cases where the VCS data might not be available. Two scenarios:\n\n1) k8s is not get getteable. One literally clones the code and works on it.\n2) Suppose one is working on a fix to an issue with a vulnerable function F in their project and the fix has not yet been published. Although the fix is currently in, one would still get reports for usages of F in the same project since the module version is \"\" and that matches the previous vulnerable versions of F that are now addressed.",
+      "parentUuid": "187aa79c_d2f91537",
+      "revId": "f542c7edee4bbe55d1678055ca27f734c28cb83d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
