@@ -11,11 +11,17 @@ import (
 )
 
 func TestSymbolVulnDetectionVTA(t *testing.T) {
-	pkgs, modVulns := testContext(t)
-	results := VulnerableSymbols(pkgs, modVulns)
+	pkgs, client := testContext(t)
+	results, err := VulnerableSymbols(pkgs, client)
+	if err != nil {
+		t.Fatal(err)
+	}
 
 	if results.SearchMode != CallGraphSearch {
 		t.Errorf("want call graph search mode; got %v", results.SearchMode)
+	}
+	if len(results.UnreachableVulns) != 2 {
+		t.Errorf("want 2 non-exercised vulnerabilities; got %v", len(results.UnreachableVulns))
 	}
 
 	// There should be four call chains reported with VTA-VTA version, in the following order,
@@ -74,7 +80,7 @@ func TestSymbolVulnDetectionVTA(t *testing.T) {
 			},
 		}},
 	} {
-		got := projectFindings(results.VulnFindings[test.vulnId])
+		got := projectFindings(vulnFindings(results, test.vulnId))
 		if !reflect.DeepEqual(test.findings, got) {
 			t.Errorf("want %v findings (projected); got %v", test.findings, got)
 		}
