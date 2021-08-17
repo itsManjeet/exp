@@ -53,6 +53,23 @@
       "message": "PTAL\n\nThe change now happens at the level of govulncheck, outside of audit.",
       "revId": "d01e3ea68399a807f276143c8e0162e9f72e6bec",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d1649ba_1ea2d516",
+        "filename": "vulndb/govulncheck/main.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 12545
+      },
+      "writtenOn": "2021-08-17T16:57:19Z",
+      "side": 1,
+      "message": "I think we need to key this off the path and version (since a module can be imported at multiple versions), and the path should be replaced if the module has a replace directive. I think we can skip this additional map by switching modMap to\n\n modMap :\u003d map[string]*packages.Module{}\n \nand then building the module key with something like\n\n modKey :\u003d func(mod *packages.Module) string {\n   if mod.Replace !\u003d nil {\n     return fmt.Sprintf(\"%s@%s\", mod.Replace.Path, mod.Replace.Version)\n   }\n   return fmt.Sprintf(\"%s@%s\", mod.Path, mod.Version)\n }",
+      "revId": "d01e3ea68399a807f276143c8e0162e9f72e6bec",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
