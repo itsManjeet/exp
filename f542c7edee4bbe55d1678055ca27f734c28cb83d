@@ -53,6 +53,24 @@
       "message": "I believe the only case where a module can have an empty Version field is when it has been replaced using a replace directive that points to a directory on the local filesystem.\n\nSince we cannot know the version of the local module that is being used, the other option would be to assume all vulnerabilities match (which I believe is the current behavior?) Local replacements are not _super_ common, and I\u0027m not entirely convinced it makes sense to be extremely conservative in those cases.",
       "revId": "f542c7edee4bbe55d1678055ca27f734c28cb83d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49048509_e45de274",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-08-17T17:27:48Z",
+      "side": 1,
+      "message": "\u003e I believe the only case where a module can have an empty Version field is when it has been replaced using a replace directive that points to a directory on the local filesystem.\n\u003e \n\u003e Since we cannot know the version of the local module that is being used, the other option would be to assume all vulnerabilities match (which I believe is the current behavior?) Local replacements are not _super_ common, and I\u0027m not entirely convinced it makes sense to be extremely conservative in those cases.\n\nThis was behavior before, but it is not anymore and that is correct IMO. Things are more clear now. That is, if we have a replace directive to a local dir, we would fetch vulnerabilities for that dir and that would return empty set of vulnerabilities. This makes a whole lot of sense since we really don\u0027t know what that local thing is. So, \"\" version here won\u0027t really matter.\n\nNote that top-level packages will also have \"\" version. In fact, this popped up. The database has entries for k8s.io/x and we run audit on k8s.io/x and we get a match because module version is \"\".\n\nIt seemed to me that the most general and cleanest way is to disregard \"\" version since we really don\u0027t know much about the module. The only exception is where a vulnerability applies to all versions.",
+      "parentUuid": "bdfbf8b4_49852e90",
+      "revId": "f542c7edee4bbe55d1678055ca27f734c28cb83d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
