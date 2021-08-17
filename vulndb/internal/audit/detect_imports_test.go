@@ -10,11 +10,20 @@ import (
 )
 
 func TestImportedPackageVulnDetection(t *testing.T) {
-	pkgs, modVulns := testContext(t)
-	results := VulnerableImports(pkgs, modVulns)
+	pkgs, client := testContext(t)
+	results, err := VulnerableImports(pkgs, client)
+	if err != nil {
+		t.Fatal(err)
+	}
 
 	if results.SearchMode != ImportsSearch {
 		t.Errorf("want import search mode; got %v", results.SearchMode)
+	}
+	if len(results.ModuleVulns) != 1 {
+		t.Errorf("want 1 unused vuln whose module is imported but its package was not; got %v", len(results.ModuleVulns))
+	}
+	if len(results.PackageVulns) != 0 {
+		t.Errorf("want 0 unused vuln whose package and module are imported; got %v", len(results.PackageVulns))
 	}
 
 	// There should be two chains reported in the following order
@@ -54,7 +63,7 @@ func TestImportedPackageVulnDetection(t *testing.T) {
 			},
 		}},
 	} {
-		got := projectFindings(results.VulnFindings[test.vulnId])
+		got := projectFindings(vulnFindings(results, test.vulnId))
 		if !reflect.DeepEqual(test.findings, got) {
 			t.Errorf("want %v findings (projected); got %v", test.findings, got)
 		}

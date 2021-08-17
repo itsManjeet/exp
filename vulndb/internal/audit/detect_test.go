@@ -13,7 +13,7 @@ import (
 	"golang.org/x/vulndb/osv"
 )
 
-func moduleVulnerabilitiesToString(mv ModuleVulnerabilities) string {
+func moduleVulnerabilitiesToString(mv moduleVulnerabilities) string {
 	var s string
 	for _, m := range mv {
 		s += fmt.Sprintf("mod: %v\n", m.mod)
@@ -25,7 +25,7 @@ func moduleVulnerabilitiesToString(mv ModuleVulnerabilities) string {
 }
 
 func TestFilterVulns(t *testing.T) {
-	mv := ModuleVulnerabilities{
+	mv := moduleVulnerabilities{
 		{
 			mod: &packages.Module{
 				Path:    "example.mod/a",
@@ -64,7 +64,7 @@ func TestFilterVulns(t *testing.T) {
 
 	filtered := mv.Filter("linux", "amd64")
 
-	expected := ModuleVulnerabilities{
+	expected := moduleVulnerabilities{
 		{
 			mod: &packages.Module{
 				Path:    "example.mod/a",
@@ -109,7 +109,7 @@ func vulnsToString(vulns []*osv.Entry) string {
 }
 
 func TestVulnsForPackage(t *testing.T) {
-	mv := ModuleVulnerabilities{
+	mv := moduleVulnerabilities{
 		{
 			mod: &packages.Module{
 				Path:    "example.mod/a",
@@ -150,7 +150,7 @@ func TestVulnsForPackage(t *testing.T) {
 }
 
 func TestVulnsForPackageReplaced(t *testing.T) {
-	mv := ModuleVulnerabilities{
+	mv := moduleVulnerabilities{
 		{
 			mod: &packages.Module{
 				Path:    "example.mod/a",
@@ -185,7 +185,7 @@ func TestVulnsForPackageReplaced(t *testing.T) {
 }
 
 func TestVulnsForSymbol(t *testing.T) {
-	mv := ModuleVulnerabilities{
+	mv := moduleVulnerabilities{
 		{
 			mod: &packages.Module{
 				Path:    "example.mod/a",

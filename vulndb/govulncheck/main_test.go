@@ -143,8 +143,8 @@ func subset(finds1, finds2 []finding) bool {
 
 func allFindings(r *audit.Results) []audit.Finding {
 	var findings []audit.Finding
-	for _, v := range r.Vulnerabilities {
-		for _, f := range r.VulnFindings[v.ID] {
+	for _, vf := range r.VulnFindings {
+		for _, f := range vf.Findings {
 			findings = append(findings, f)
 		}
 	}
@@ -170,10 +170,6 @@ func TestHashicorpVault(t *testing.T) {
 		t.Logf("failed to get %s: %s", hashiVaultOkta+"@v1.6.3", out)
 		t.Fatal(err)
 	}
-	// if out, err := execCmd(e.Config.Dir, env, "go", "mod", "tidy"); err != nil {
-	// 	t.Logf("failed to mod tidy: %s", out)
-	// 	t.Fatal(err)
-	// }
 
 	// run goaudit.
 	cfg := &packages.Config{
