@@ -6,39 +6,53 @@ package audit
 
 import (
 	"container/list"
+	"fmt"
 	"go/types"
+	"runtime"
 
-	"golang.org/x/tools/go/ssa"
+	"golang.org/x/tools/go/packages"
+	"golang.org/x/tools/go/ssa/ssautil"
+	"golang.org/x/vulndb/osv"
 )
 
 // VulnerableImports returns vulnerability findings for packages imported by `pkgs`
-// given the vulnerability and platform info captured in `env`.
+// given the vulnerabilities provided by database `client`.
 //
-// Returns all findings reachable from `pkgs` while analyzing each package only once, prefering
-// findings of shorter import traces. For instance, given import chains
+// Returns all findings reachable from `pkgs` while analyzing each package only once,
+// prefering findings of shorter import traces. For instance, given import chains
 //   A -> B -> V
 //   A -> D -> B -> V
 //   D -> B -> V
-// where A and D are top level packages and V is a vulnerable package, VulnerableImports can return either
+// where A and D are top level packages and V is a vulnerable package, VulnerableImports
+// can return either
 //   A -> B -> V
 // or
 //   D -> B -> V
 // as traces of importing a vulnerable package V.
 //
-// Findings for each vulnerability are sorted by estimated usefulness to the user.
-func VulnerableImports(pkgs []*ssa.Package, modVulns ModuleVulnerabilities) Results {
-	results := Results{
-		SearchMode:      ImportsSearch,
-		Vulnerabilities: serialize(modVulns.Vulns()),
-		VulnFindings:    make(map[string][]Finding),
+// Findings for each vulnerability are sorted by their estimated usefulness to the user.
+func VulnerableImports(pkgs []*packages.Package, client DbClient) (*Results, error) {
+	results := &Results{SearchMode: ImportsSearch}
+
+	modules, _ := extractModulesAndPackages(pkgs)
+	modVulns, err := fetchVulnerabilities(client, modules)
+	if err != nil {
+		return nil, err
 	}
+	modVulns = modVulns.Filter(runtime.GOOS, runtime.GOARCH)
 	if len(modVulns) == 0 {
-		return results
+		return results, nil
+	}
+
+	prog, ssaPkgs := ssautil.AllPackages(pkgs, 0)
+	prog.Build()
+	if prog == nil {
+		return nil, fmt.Errorf("failed to build internal ssa representation of pkgs")
 	}
 
 	seen := make(map[string]bool)
 	queue := list.New()
-	for _, pkg := range pkgs {
+	for _, pkg := range ssaPkgs {
 		queue.PushBack(&importChain{pkg: pkg.Pkg})
 	}
 
@@ -59,7 +73,7 @@ func VulnerableImports(pkgs []*ssa.Package, modVulns ModuleVulnerabilities) Resu
 
 		for _, imp := range pkg.Imports() {
 			vulns := modVulns.VulnsForPackage(imp.Path())
-			for _, v := range serialize(vulns) {
+			for _, v := range vulns {
 				results.addFinding(v, Finding{
 					Symbol: imp.Path(),
 					Type:   ImportType,
@@ -70,8 +84,9 @@ func VulnerableImports(pkgs []*ssa.Package, modVulns ModuleVulnerabilities) Resu
 		}
 	}
 
+	addImportsUnusedVulns(results, modVulns)
 	results.sort()
-	return results
+	return results, nil
 }
 
 // importChain helps doing BFS over package imports while remembering import chains.
@@ -85,4 +100,24 @@ func (chain *importChain) trace() []TraceElem {
 		return nil
 	}
 	return append(chain.parent.trace(), TraceElem{Description: chain.pkg.Path()})
+}
+
+func addImportsUnusedVulns(results *Results, modVulns moduleVulnerabilities) {
+	allVulns := make(map[string]*osv.Entry)
+	for _, v := range modVulns.Vulns() {
+		allVulns[v.ID] = v
+	}
+
+	vulnsWithFindings := make(map[string]bool)
+	for _, vf := range results.VulnFindings {
+		vulnsWithFindings[vf.Vuln.ID] = true
+	}
+
+	for id, v := range allVulns {
+		if vulnsWithFindings[id] {
+			continue
+		}
+		uv := UnreachableVuln{Vuln: v, Type: NotImported}
+		results.UnreachableVulns = append(results.UnreachableVulns, uv)
+	}
 }

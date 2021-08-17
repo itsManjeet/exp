@@ -17,6 +17,12 @@ import (
 
 // Preamble with types and common functionality used by vulnerability detection mechanisms in detect_*.go files.
 
+// DbClient interface for loading vulnerabilities for
+// a list of import paths.
+type DbClient interface {
+	Get(string) ([]*osv.Entry, error)
+}
+
 // SearchType represents a type of an audit search: call graph, imports, or binary.
 type SearchType int
 
@@ -30,23 +36,29 @@ const (
 // Results contains the information on findings and identified vulnerabilities by audit search.
 type Results struct {
 	SearchMode SearchType
-
 	// TODO: identify vulnerability with <ID, package, symbol>?
-	// Vulnerabilities in dependent modules.
-	Vulnerabilities []osv.Entry
+	VulnFindings []*VulnFindings // vulnerability -> findings
 
-	VulnFindings map[string][]Finding // vuln.ID -> findings
+	// Information on vulnerabilities that are not exercised but whose
+	// corresponding modules were referenced by the client code.
+	UnreachableVulns []UnreachableVuln
 }
 
-// String method for results.
-func (r Results) String() string {
-	sort.Slice(r.Vulnerabilities, func(i, j int) bool { return r.Vulnerabilities[i].ID < r.Vulnerabilities[j].ID })
+// TODO: improve result format
+func (r *Results) String() string {
+	var vulns []*osv.Entry
+	vulnFindings := make(map[*osv.Entry][]Finding)
+	for _, vf := range r.VulnFindings {
+		vulns = append(vulns, vf.Vuln)
+		vulnFindings[vf.Vuln] = vf.Findings
+	}
+	sort.Slice(vulns, func(i, j int) bool { return vulns[i].ID < vulns[j].ID })
 
 	rStr := ""
-	for _, v := range r.Vulnerabilities {
-		findings := r.VulnFindings[v.ID]
+	for _, v := range vulns {
+		findings := vulnFindings[v]
 		if len(findings) == 0 {
-			// TODO: add messages for such cases too?
+			// should not happen
 			continue
 		}
 
@@ -60,20 +72,69 @@ func (r Results) String() string {
 			rStr += finding.String() + "\n"
 		}
 	}
+
+	rStr += fmt.Sprintf("Vulnerabilites not exercised in the code but applicable to modules (transitively) used by the code:\n")
+	for _, uv := range r.UnreachableVulns {
+		rStr += fmt.Sprintf("\t%s (%s)\n", uv.Vuln.ID, uv.Type.String())
+	}
+
 	return rStr
 }
 
 // addFindings adds a findings `f` for vulnerability `v`.
-func (r Results) addFinding(v osv.Entry, f Finding) {
-	r.VulnFindings[v.ID] = append(r.VulnFindings[v.ID], f)
+func (r *Results) addFinding(v *osv.Entry, f Finding) {
+	for _, vf := range r.VulnFindings {
+		if vf.Vuln == v {
+			vf.Findings = append(vf.Findings, f)
+			return
+		}
+	}
+	r.VulnFindings = append(r.VulnFindings, &VulnFindings{Vuln: v, Findings: []Finding{f}})
 }
 
 // sort orders findings for each vulnerability based on its
 // perceived usefulness to the user.
-func (r Results) sort() {
-	for _, fs := range r.VulnFindings {
+func (r *Results) sort() {
+	for _, vf := range r.VulnFindings {
+		fs := vf.Findings
 		sort.SliceStable(fs, func(i int, j int) bool { return findingCompare(&fs[i], &fs[j]) })
 	}
+}
+
+// UnreachableVuln encodes why a vulnerability
+// has not been exercised in the code.
+type UnreachableVuln struct {
+	Type UnreachableType
+	Vuln *osv.Entry
+}
+
+// UnreachableType provides information on why a vulnerability was not exercised in
+// the client code although its module is imported by the client.
+type UnreachableType int
+
+// enum values for UnreachableType.
+const (
+	// package of the vulnerability is not imported
+	NotImported UnreachableType = iota
+	// package of the vulnerability imported, but vulnerability is not reachable
+	Unreachable
+)
+
+func (u UnreachableType) String() string {
+	switch u {
+	case NotImported:
+		return "package not imported"
+	case Unreachable:
+		return "symbols not reachable"
+	default:
+		return "unknown"
+	}
+}
+
+// VulnFindings encapsulates findings for a vulnerability.
+type VulnFindings struct {
+	Vuln     *osv.Entry
+	Findings []Finding
 }
 
 // Finding represents a finding for the use of a vulnerable symbol or an imported vulnerable package.
@@ -96,12 +157,10 @@ type Finding struct {
 // String method for findings.
 func (f Finding) String() string {
 	traceStr := traceString(f.Trace)
-
 	var pos string
 	if f.Position != nil {
 		pos = fmt.Sprintf(" (%s)", f.Position)
 	}
-
 	return fmt.Sprintf("Trace:\n%s%s\n%s\n", f.Symbol, pos, traceStr)
 }
 
@@ -159,7 +218,7 @@ type modVulns struct {
 	vulns []*osv.Entry
 }
 
-type ModuleVulnerabilities []modVulns
+type moduleVulnerabilities []modVulns
 
 func matchesPlatform(os, arch string, e osv.EcosystemSpecific) bool {
 	matchesOS := len(e.GOOS) == 0
@@ -179,8 +238,8 @@ func matchesPlatform(os, arch string, e osv.EcosystemSpecific) bool {
 	return matchesOS && matchesArch
 }
 
-func (mv ModuleVulnerabilities) Filter(os, arch string) ModuleVulnerabilities {
-	var filteredMod ModuleVulnerabilities
+func (mv moduleVulnerabilities) Filter(os, arch string) moduleVulnerabilities {
+	var filteredMod moduleVulnerabilities
 	for _, mod := range mv {
 		module := mod.mod
 		modVersion := module.Version
@@ -212,7 +271,7 @@ func (mv ModuleVulnerabilities) Filter(os, arch string) ModuleVulnerabilities {
 	return filteredMod
 }
 
-func (mv ModuleVulnerabilities) Num() int {
+func (mv moduleVulnerabilities) Num() int {
 	var num int
 	for _, m := range mv {
 		num += len(m.vulns)
@@ -223,7 +282,7 @@ func (mv ModuleVulnerabilities) Num() int {
 // VulnsForPackage returns the vulnerabilities for the module which is the most
 // specific prefix of importPath, or nil if there is no matching module with
 // vulnerabilities.
-func (mv ModuleVulnerabilities) VulnsForPackage(importPath string) []*osv.Entry {
+func (mv moduleVulnerabilities) VulnsForPackage(importPath string) []*osv.Entry {
 	var mostSpecificMod *modVulns
 	for _, mod := range mv {
 		md := mod
@@ -255,7 +314,7 @@ func (mv ModuleVulnerabilities) VulnsForPackage(importPath string) []*osv.Entry 
 }
 
 // VulnsForSymbol returns vulnerabilites for `symbol` in `mv.VulnsForPackage(importPath)`.
-func (mv ModuleVulnerabilities) VulnsForSymbol(importPath, symbol string) []*osv.Entry {
+func (mv moduleVulnerabilities) VulnsForSymbol(importPath, symbol string) []*osv.Entry {
 	vulns := mv.VulnsForPackage(importPath)
 	if vulns == nil {
 		return nil
@@ -284,7 +343,7 @@ func (mv ModuleVulnerabilities) VulnsForSymbol(importPath, symbol string) []*osv
 }
 
 // Vulns returns vulnerabilities for all modules in `mv`.
-func (mv ModuleVulnerabilities) Vulns() []*osv.Entry {
+func (mv moduleVulnerabilities) Vulns() []*osv.Entry {
 	var vulns []*osv.Entry
 	seen := make(map[string]bool)
 	for _, mv := range mv {
