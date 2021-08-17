@@ -170,10 +170,6 @@ func TestHashicorpVault(t *testing.T) {
 		t.Logf("failed to get %s: %s", hashiVaultOkta+"@v1.6.3", out)
 		t.Fatal(err)
 	}
-	// if out, err := execCmd(e.Config.Dir, env, "go", "mod", "tidy"); err != nil {
-	// 	t.Logf("failed to mod tidy: %s", out)
-	// 	t.Fatal(err)
-	// }
 
 	// run goaudit.
 	cfg := &packages.Config{
