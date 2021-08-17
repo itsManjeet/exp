@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6b791daf_279ba8fb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 12545
+      },
+      "writtenOn": "2021-08-17T20:21:42Z",
+      "side": 1,
+      "message": "vulndb/govulncheck: make extractModules output unique\n\n(the exp/ prefix is unnecessary)",
+      "revId": "508635e2e2a0443270dd6c6f36f6bee583c99978",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "16a6a1bd_8ff8230b",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 5
