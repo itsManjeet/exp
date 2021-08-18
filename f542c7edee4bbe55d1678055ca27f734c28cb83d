@@ -143,6 +143,24 @@
       "parentUuid": "1a991d8e_d8c5f952",
       "revId": "f542c7edee4bbe55d1678055ca27f734c28cb83d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1effeb06_72c806b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 12545
+      },
+      "writtenOn": "2021-08-18T16:22:16Z",
+      "side": 1,
+      "message": "(3) seems reasonable to me, with an explicit warning to the user that the version of the module is unknown, which is why it applies.",
+      "parentUuid": "6ac8ea4e_192d1d55",
+      "revId": "f542c7edee4bbe55d1678055ca27f734c28cb83d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
