@@ -61,6 +61,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "028b31d4_47f0a0b5",
+        "filename": "vulndb/internal/audit/detect.go",
+        "patchSetId": 10
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-08-18T18:30:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27b15bb9_6ddba4e4",
+      "range": {
+        "startLine": 35,
+        "startChar": 4,
+        "endLine": 36,
+        "endChar": 51
+      },
+      "revId": "e816b0977e4b69bc5e5c58a8fa88717d7db78f7e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dfab8551_a34c1dc7",
@@ -74,6 +98,30 @@
       "writtenOn": "2021-08-18T16:57:49Z",
       "side": 1,
       "message": "I\u0027m also not particularly convinced of the value of exporting this field. At least for now the user is passing in ModuleVulnerabilities, so they know the vulnerabilities already, and the mapping between modules and vulnerabilities is probably more valuable than just the slice.",
+      "range": {
+        "startLine": 37,
+        "startChar": 1,
+        "endLine": 37,
+        "endChar": 16
+      },
+      "revId": "e816b0977e4b69bc5e5c58a8fa88717d7db78f7e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f86943b5_5debe7e3",
+        "filename": "vulndb/internal/audit/detect.go",
+        "patchSetId": 10
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-08-18T18:30:58Z",
+      "side": 1,
+      "message": "Right, but the API is likely to change: the users will likely provide db client.\n\nAlso, we can push everything into VulnFindings, but then what is a key to this map? osv.Entry does not work. *osv.Entry might be a problem since we need to serialize Results. We can also add a map[string]osv.Entry from ID to vulnerabilities, but that seems like an overkill.",
+      "parentUuid": "dfab8551_a34c1dc7",
       "range": {
         "startLine": 37,
         "startChar": 1,
@@ -103,6 +151,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "db23fe37_3c97469f",
+        "filename": "vulndb/internal/audit/detect.go",
+        "patchSetId": 10
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-08-18T18:30:58Z",
+      "side": 1,
+      "message": "I have another CL in the pipeline that makes this better. We can incorporate it here or leave it for another CL. It is not a big CL. Which option you prefer?",
+      "parentUuid": "7f63903a_507c61a7",
+      "revId": "e816b0977e4b69bc5e5c58a8fa88717d7db78f7e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "915cca86_4335480c",
         "filename": "vulndb/internal/audit/detect.go",
         "patchSetId": 10
@@ -114,6 +180,30 @@
       "writtenOn": "2021-08-18T16:57:49Z",
       "side": 1,
       "message": "We do not know if this package was imported. The ModuleVulnerabilities passed in contains vulnerabilities for all packages within each dependent module, if we want to present this information we need to filter the vulnerabilities based on our knowledge of the imported packages.",
+      "range": {
+        "startLine": 67,
+        "startChar": 12,
+        "endLine": 67,
+        "endChar": 28
+      },
+      "revId": "e816b0977e4b69bc5e5c58a8fa88717d7db78f7e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6aef993_a7ca7e1b",
+        "filename": "vulndb/internal/audit/detect.go",
+        "patchSetId": 10
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-08-18T18:30:58Z",
+      "side": 1,
+      "message": "Not sure I understand. Packages can be imported or unimported. Since we allow top level packages to be analyzed as if they are imported (see discussion in https://go-review.googlesource.com/c/exp/+/342552), then there is really no distinction.\n\nMaybe it is just the wording? Maybe it should be \"vulnerability imported\"? Something like that?",
+      "parentUuid": "915cca86_4335480c",
       "range": {
         "startLine": 67,
         "startChar": 12,
@@ -141,6 +231,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "84658a30_08d86569",
+        "filename": "vulndb/internal/audit/detect.go",
+        "patchSetId": 10
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-08-18T18:30:58Z",
+      "side": 1,
+      "message": "See discussion on printing above.",
+      "parentUuid": "f1acf5de_83ad195e",
+      "revId": "e816b0977e4b69bc5e5c58a8fa88717d7db78f7e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4085e7e0_d573ee51",
@@ -154,6 +262,24 @@
       "writtenOn": "2021-08-18T16:57:49Z",
       "side": 1,
       "message": "This needs to de-duplicate vulnerabilities, since one vulnerability may appear for multiple modules.",
+      "revId": "e816b0977e4b69bc5e5c58a8fa88717d7db78f7e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40a3d725_3f83d402",
+        "filename": "vulndb/internal/audit/detect.go",
+        "patchSetId": 10
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-08-18T18:30:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4085e7e0_d573ee51",
       "revId": "e816b0977e4b69bc5e5c58a8fa88717d7db78f7e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
