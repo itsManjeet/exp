@@ -9,6 +9,7 @@ import (
 	"fmt"
 	"go/token"
 	"go/types"
+	"sort"
 	"strings"
 
 	"golang.org/x/tools/go/callgraph"
@@ -16,6 +17,7 @@ import (
 
 	"golang.org/x/tools/go/ssa"
 
+	"golang.org/x/mod/semver"
 	"golang.org/x/vulndb/osv"
 )
 
@@ -209,4 +211,58 @@ func serialize(vulns []*osv.Entry) []osv.Entry {
 		vs = append(vs, *v)
 	}
 	return vs
+}
+
+func complementRanges(ranges []osv.AffectsRange) []osv.AffectsRange {
+	complements := []osv.AffectsRange{}
+	if len(ranges) == 0 {
+		return complements
+	}
+	sort.SliceStable(ranges, func(i, j int) bool { return rangeCompare(ranges[i], ranges[j]) })
+
+	firstIntro := ranges[0].Introduced
+	if firstIntro != "" && firstIntro != "v0.0.0" {
+		complements = append(complements, osv.AffectsRange{
+			Type:       osv.TypeSemver,
+			Introduced: "",
+			Fixed:      firstIntro,
+		})
+	}
+
+	for i, curr := range ranges {
+		if i >= (len(ranges) - 1) {
+			continue
+		}
+		next := ranges[i+1]
+		complements = append(complements, osv.AffectsRange{
+			Type:       osv.TypeSemver,
+			Introduced: curr.Fixed,
+			Fixed:      next.Introduced,
+		})
+	}
+
+	lastFixed := ranges[len(ranges)-1].Fixed
+	if lastFixed != "" {
+		complements = append(complements, osv.AffectsRange{
+			Type:       osv.TypeSemver,
+			Introduced: lastFixed,
+			Fixed:      "",
+		})
+	}
+
+	return complements
+}
+
+// assumes r1 and r2 are not overlapping and have semver versions.
+func rangeCompare(r1, r2 osv.AffectsRange) bool {
+	if r1.Introduced == "" {
+		return true
+	}
+	if r2.Introduced == "" {
+		return false
+	}
+	if semver.Compare(r1.Introduced, r2.Introduced) > 0 {
+		return false
+	}
+	return true
 }

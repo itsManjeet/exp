@@ -198,3 +198,52 @@ func TestVulnsForSymbol(t *testing.T) {
 		t.Fatalf("VulnsForPackage returned unexpected results, got:\n%s\nwant:\n%s", vulnsToString(filtered), vulnsToString(expected))
 	}
 }
+
+func TestFixes(t *testing.T) {
+	for _, test := range []struct {
+		bugs []osv.AffectsRange
+		want []osv.AffectsRange
+	}{
+		{
+			bugs: []osv.AffectsRange{},
+			want: []osv.AffectsRange{},
+		},
+		{
+			bugs: []osv.AffectsRange{
+				osv.AffectsRange{Type: osv.TypeSemver, Introduced: "", Fixed: ""},
+			},
+			want: []osv.AffectsRange{},
+		},
+		{
+			bugs: []osv.AffectsRange{
+				osv.AffectsRange{Type: osv.TypeSemver, Introduced: "", Fixed: "v1.2.3"},
+			},
+			want: []osv.AffectsRange{
+				osv.AffectsRange{Type: osv.TypeSemver, Introduced: "v1.2.3"},
+			}},
+		{
+			bugs: []osv.AffectsRange{
+				osv.AffectsRange{Type: osv.TypeSemver, Introduced: "v1.2.3", Fixed: ""},
+			},
+			want: []osv.AffectsRange{
+				osv.AffectsRange{Type: osv.TypeSemver, Fixed: "v1.2.3"},
+			},
+		},
+		{
+			bugs: []osv.AffectsRange{
+				osv.AffectsRange{Type: osv.TypeSemver, Introduced: "v0.0.0", Fixed: "v0.4.6"},
+				osv.AffectsRange{Type: osv.TypeSemver, Introduced: "v1.2.3", Fixed: "v2.0.0"},
+				osv.AffectsRange{Type: osv.TypeSemver, Introduced: "v2.1.0", Fixed: "v2.1.1"},
+			},
+			want: []osv.AffectsRange{
+				osv.AffectsRange{Type: osv.TypeSemver, Introduced: "v0.4.6", Fixed: "v1.2.3"},
+				osv.AffectsRange{Type: osv.TypeSemver, Introduced: "v2.0.0", Fixed: "v2.1.0"},
+				osv.AffectsRange{Type: osv.TypeSemver, Introduced: "v2.1.1"},
+			},
+		},
+	} {
+		if got := complementRanges(test.bugs); !reflect.DeepEqual(got, test.want) {
+			t.Errorf("want %v; got %v", test.want, got)
+		}
+	}
+}
