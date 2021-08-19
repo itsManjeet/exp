@@ -280,6 +280,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3a19467_e12b5a45",
+        "filename": "vulndb/internal/audit/detect.go",
+        "patchSetId": 10
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-08-19T18:48:20Z",
+      "side": 1,
+      "message": "Discussed offline. For now, information for these cases is not printed. This will happen in a later CL. TODO added.",
+      "parentUuid": "7a07ccb4_65ace4a5",
+      "range": {
+        "startLine": 67,
+        "startChar": 12,
+        "endLine": 67,
+        "endChar": 28
+      },
+      "revId": "e816b0977e4b69bc5e5c58a8fa88717d7db78f7e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f1acf5de_83ad195e",
