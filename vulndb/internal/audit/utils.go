@@ -12,12 +12,49 @@ import (
 	"strings"
 
 	"golang.org/x/tools/go/callgraph"
+	"golang.org/x/tools/go/packages"
 	"golang.org/x/tools/go/types/typeutil"
 
 	"golang.org/x/tools/go/ssa"
 
 	"golang.org/x/vulndb/osv"
 )
+
+// extractModules collects modules in `pkgs` up to uniqueness of
+// module path and version.
+func extractModules(pkgs []*packages.Package) []*packages.Module {
+	modMap := map[string]*packages.Module{}
+	modKey := func(mod *packages.Module) string {
+		if mod.Replace != nil {
+			return fmt.Sprintf("%s@%s", mod.Replace.Path, mod.Replace.Version)
+		}
+		return fmt.Sprintf("%s@%s", mod.Path, mod.Version)
+	}
+
+	seen := map[*packages.Package]bool{}
+	var extract func(*packages.Package, map[string]*packages.Module)
+	extract = func(pkg *packages.Package, modMap map[string]*packages.Module) {
+		if pkg == nil || seen[pkg] {
+			return
+		}
+		if pkg.Module != nil {
+			modMap[modKey(pkg.Module)] = pkg.Module
+		}
+		seen[pkg] = true
+		for _, imp := range pkg.Imports {
+			extract(imp, modMap)
+		}
+	}
+	for _, pkg := range pkgs {
+		extract(pkg, modMap)
+	}
+
+	modules := []*packages.Module{}
+	for _, mod := range modMap {
+		modules = append(modules, mod)
+	}
+	return modules
+}
 
 // instrPosition gives the position of `instr`. Returns empty token.Position
 // if no file information on `instr` is available.

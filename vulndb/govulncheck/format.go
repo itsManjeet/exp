@@ -6,14 +6,21 @@ import (
 	"strings"
 
 	"golang.org/x/exp/vulndb/internal/audit"
+	"golang.org/x/vulndb/osv"
 )
 
 func resultsString(r *audit.Results) string {
-	sort.Slice(r.Vulnerabilities, func(i, j int) bool { return r.Vulnerabilities[i].ID < r.Vulnerabilities[j].ID })
+	var vulns []*osv.Entry
+	vulnFindings := make(map[*osv.Entry][]audit.Finding)
+	for _, vf := range r.VulnFindings {
+		vulns = append(vulns, vf.Vuln)
+		vulnFindings[vf.Vuln] = vf.Findings
+	}
+	sort.Slice(vulns, func(i, j int) bool { return vulns[i].ID < vulns[j].ID })
 
 	rStr := ""
-	for _, v := range r.Vulnerabilities {
-		findings := r.VulnFindings[v.ID]
+	for _, v := range vulns {
+		findings := vulnFindings[v]
 		if len(findings) == 0 {
 			// TODO: add messages for such cases too?
 			continue

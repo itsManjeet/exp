@@ -17,6 +17,12 @@ import (
 
 // Preamble with types and common functionality used by vulnerability detection mechanisms in detect_*.go files.
 
+// DbClient interface for loading vulnerabilities for
+// a list of import paths.
+type DbClient interface {
+	Get([]string) ([]*osv.Entry, error)
+}
+
 // SearchType represents a type of an audit search: call graph, imports, or binary.
 type SearchType int
 
@@ -32,23 +38,34 @@ type Results struct {
 	SearchMode SearchType
 
 	// TODO: identify vulnerability with <ID, package, symbol>?
-	// Vulnerabilities in dependent modules.
-	Vulnerabilities []osv.Entry
 
-	VulnFindings map[string][]Finding // vuln.ID -> findings
+	VulnFindings []*VulnFindings // vulnerability -> findings
 }
 
 // addFindings adds a findings `f` for vulnerability `v`.
-func (r Results) addFinding(v osv.Entry, f Finding) {
-	r.VulnFindings[v.ID] = append(r.VulnFindings[v.ID], f)
+func (r *Results) addFinding(v *osv.Entry, f Finding) {
+	for _, vf := range r.VulnFindings {
+		if vf.Vuln == v {
+			vf.Findings = append(vf.Findings, f)
+			return
+		}
+	}
+	r.VulnFindings = append(r.VulnFindings, &VulnFindings{Vuln: v, Findings: []Finding{f}})
 }
 
 // sort orders findings for each vulnerability based on its
 // perceived usefulness to the user.
-func (r Results) sort() {
-	for _, fs := range r.VulnFindings {
+func (r *Results) sort() {
+	for _, vf := range r.VulnFindings {
+		fs := vf.Findings
 		sort.SliceStable(fs, func(i int, j int) bool { return findingCompare(fs[i], fs[j]) })
 	}
+}
+
+// VulnFindings encapsulates finding for a vulnerability.
+type VulnFindings struct {
+	Vuln     *osv.Entry
+	Findings []Finding
 }
 
 // Finding represents a finding for the use of a vulnerable symbol or an imported vulnerable package.
@@ -101,7 +118,7 @@ type modVulns struct {
 	vulns []*osv.Entry
 }
 
-type ModuleVulnerabilities []modVulns
+type moduleVulnerabilities []modVulns
 
 func matchesPlatform(os, arch string, e osv.GoSpecific) bool {
 	matchesOS := len(e.GOOS) == 0
@@ -121,8 +138,8 @@ func matchesPlatform(os, arch string, e osv.GoSpecific) bool {
 	return matchesOS && matchesArch
 }
 
-func (mv ModuleVulnerabilities) Filter(os, arch string) ModuleVulnerabilities {
-	var filteredMod ModuleVulnerabilities
+func (mv moduleVulnerabilities) Filter(os, arch string) moduleVulnerabilities {
+	var filteredMod moduleVulnerabilities
 	for _, mod := range mv {
 		module := mod.mod
 		modVersion := module.Version
@@ -151,7 +168,7 @@ func (mv ModuleVulnerabilities) Filter(os, arch string) ModuleVulnerabilities {
 	return filteredMod
 }
 
-func (mv ModuleVulnerabilities) Num() int {
+func (mv moduleVulnerabilities) Num() int {
 	var num int
 	for _, m := range mv {
 		num += len(m.vulns)
@@ -162,7 +179,7 @@ func (mv ModuleVulnerabilities) Num() int {
 // VulnsForPackage returns the vulnerabilities for the module which is the most
 // specific prefix of importPath, or nil if there is no matching module with
 // vulnerabilities.
-func (mv ModuleVulnerabilities) VulnsForPackage(importPath string) []*osv.Entry {
+func (mv moduleVulnerabilities) VulnsForPackage(importPath string) []*osv.Entry {
 	var mostSpecificMod *modVulns
 	for _, mod := range mv {
 		md := mod
@@ -191,7 +208,7 @@ func (mv ModuleVulnerabilities) VulnsForPackage(importPath string) []*osv.Entry 
 }
 
 // VulnsForSymbol returns vulnerabilites for `symbol` in `mv.VulnsForPackage(importPath)`.
-func (mv ModuleVulnerabilities) VulnsForSymbol(importPath, symbol string) []*osv.Entry {
+func (mv moduleVulnerabilities) VulnsForSymbol(importPath, symbol string) []*osv.Entry {
 	vulns := mv.VulnsForPackage(importPath)
 	if vulns == nil {
 		return nil
@@ -214,7 +231,7 @@ func (mv ModuleVulnerabilities) VulnsForSymbol(importPath, symbol string) []*osv
 }
 
 // Vulns returns vulnerabilities for all modules in `mv`.
-func (mv ModuleVulnerabilities) Vulns() []*osv.Entry {
+func (mv moduleVulnerabilities) Vulns() []*osv.Entry {
 	var vulns []*osv.Entry
 	seen := make(map[string]bool)
 	for _, mv := range mv {

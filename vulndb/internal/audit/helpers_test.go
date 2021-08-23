@@ -14,12 +14,19 @@ import (
 
 	"golang.org/x/tools/go/packages"
 	"golang.org/x/tools/go/packages/packagestest"
-	"golang.org/x/tools/go/ssa"
-	"golang.org/x/tools/go/ssa/ssautil"
 	"golang.org/x/vulndb/osv"
 )
 
-// Loads test program and environment with the following import structure
+// mock vulnerability db client
+type mockClient struct {
+	ret map[string][]*osv.Entry
+}
+
+func (mc *mockClient) Get(a []string) ([]*osv.Entry, error) {
+	return mc.ret[a[0]], nil
+}
+
+// Loads test program with the following import structure
 //                 T
 //              /  |  \
 //             A   |   B
@@ -39,7 +46,9 @@ import (
 //
 // The following vulnerability should not be reported as it is redundant:
 //   T:T1() -> A:A1() -> B:B1() -> vuln.VulnData.Vuln()
-func testContext(t *testing.T) ([]*ssa.Package, ModuleVulnerabilities) {
+//
+// Also creates a mock database client.
+func testContext(t *testing.T) ([]*packages.Package, DbClient) {
 	e := packagestest.Export(t, packagestest.Modules, []packagestest.Module{
 		{
 			Name:  "golang.org/vulntest",
@@ -60,18 +69,14 @@ func testContext(t *testing.T) ([]*ssa.Package, ModuleVulnerabilities) {
 	})
 	defer e.Cleanup()
 
-	_, ssaPkgs, _, err := loadAndBuildPackages(e, "/vulntest/T/T.go")
+	pkgs, err := loadPackages(e, "/vulntest/T/T.go")
 	if err != nil {
 		t.Fatal(err)
 	}
-	if len(ssaPkgs) != 1 {
-		t.Errorf("want 1 top level SSA package; got %d", len(ssaPkgs))
-	}
 
-	modVulns := ModuleVulnerabilities{
-		{
-			mod: &packages.Module{Path: "thirdparty.org/vulnerabilities", Version: "v1.0.1"},
-			vulns: []*osv.Entry{
+	mc := &mockClient{
+		ret: map[string][]*osv.Entry{
+			"thirdparty.org/vulnerabilities": []*osv.Entry{
 				{
 					ID:                "V1",
 					Package:           osv.Package{Name: "thirdparty.org/vulnerabilities/vuln"},
@@ -88,21 +93,14 @@ func testContext(t *testing.T) ([]*ssa.Package, ModuleVulnerabilities) {
 		},
 	}
 
-	return ssaPkgs, modVulns
+	return pkgs, mc
 }
 
-func loadAndBuildPackages(e *packagestest.Exported, file string) (*ssa.Program, []*ssa.Package, []*packages.Package, error) {
+func loadPackages(e *packagestest.Exported, file string) ([]*packages.Package, error) {
 	e.Config.Mode |= packages.NeedModule | packages.LoadAllSyntax
 	// Get the path to the test file.
 	filepath := path.Join(e.Temp(), file)
-	pkgs, err := packages.Load(e.Config, filepath)
-	if err != nil {
-		return nil, nil, nil, err
-	}
-
-	prog, ssaPkgs := ssautil.AllPackages(pkgs, 0)
-	prog.Build()
-	return prog, ssaPkgs, pkgs, nil
+	return packages.Load(e.Config, filepath)
 }
 
 // projectPosition simplifies position to only filename and location info.
@@ -153,6 +151,15 @@ func projectFindings(findings []Finding) []Finding {
 		nfs = append(nfs, nf)
 	}
 	return nfs
+}
+
+func vulnFindings(r *Results, vId string) []Finding {
+	for _, vf := range r.VulnFindings {
+		if vf.Vuln.ID == vId {
+			return vf.Findings
+		}
+	}
+	return nil
 }
 
 func readFile(t *testing.T, path string) string {

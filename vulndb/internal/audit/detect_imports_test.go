@@ -10,8 +10,11 @@ import (
 )
 
 func TestImportedPackageVulnDetection(t *testing.T) {
-	pkgs, modVulns := testContext(t)
-	results := VulnerableImports(pkgs, modVulns)
+	pkgs, client := testContext(t)
+	results, err := VulnerableImports(pkgs, client)
+	if err != nil {
+		t.Fatal(err)
+	}
 
 	if results.SearchMode != ImportsSearch {
 		t.Errorf("want import search mode; got %v", results.SearchMode)
@@ -54,7 +57,7 @@ func TestImportedPackageVulnDetection(t *testing.T) {
 			},
 		}},
 	} {
-		got := projectFindings(results.VulnFindings[test.vulnId])
+		got := projectFindings(vulnFindings(results, test.vulnId))
 		if !reflect.DeepEqual(test.findings, got) {
 			t.Errorf("want %v findings (projected); got %v", test.findings, got)
 		}
