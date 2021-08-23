@@ -6,32 +6,52 @@ import (
 	"strings"
 
 	"golang.org/x/exp/vulndb/internal/audit"
+	"golang.org/x/vulndb/osv"
 )
 
 func resultsString(r *audit.Results) string {
-	sort.Slice(r.Vulnerabilities, func(i, j int) bool { return r.Vulnerabilities[i].ID < r.Vulnerabilities[j].ID })
+	var vulns []*osv.Entry
+	vulnFindings := make(map[*osv.Entry][]audit.Finding)
+	for _, vf := range r.VulnFindings {
+		vulns = append(vulns, vf.Vuln)
+		vulnFindings[vf.Vuln] = vf.Findings
+	}
+	sort.Slice(vulns, func(i, j int) bool { return vulns[i].ID < vulns[j].ID })
 
 	rStr := ""
-	for _, v := range r.Vulnerabilities {
-		findings := r.VulnFindings[v.ID]
+	for _, v := range vulns {
+		findings := vulnFindings[v]
 		if len(findings) == 0 {
 			// TODO: add messages for such cases too?
 			continue
 		}
 
-		var alias string
-		if len(v.Aliases) == 0 {
-			alias = v.EcosystemSpecific.URL
-		} else {
-			alias = strings.Join(v.Aliases, ", ")
-		}
-		rStr += fmt.Sprintf("Findings for vulnerability: %s (of package %s):\n", alias, v.Package.Name)
-
+		rStr += fmt.Sprintf("Findings for vulnerability: %s (of package %s):\n", alias(v), v.Package.Name)
 		for _, f := range findings {
 			rStr += "  Trace:\n" + indent(findingString(f), "\t") + "\n"
 		}
 	}
+
+	rStr += fmt.Sprintf("Vulnerabilites with imported package but no observed use:\n")
+	for _, v := range r.PackageVulns {
+		rStr += fmt.Sprintf("\t%s (of package %s)\n", alias(v), v.Package.Name)
+	}
+
+	rStr += "\n"
+
+	rStr += fmt.Sprintf("Vulnerabilites with imported module but no imported package and no observed use:\n")
+	for _, v := range r.ModuleVulns {
+		rStr += fmt.Sprintf("\t%s (of package %s)\n", alias(v), v.Package.Name)
+	}
+
 	return rStr
+}
+
+func alias(v *osv.Entry) string {
+	if len(v.Aliases) == 0 {
+		return v.EcosystemSpecific.URL
+	}
+	return strings.Join(v.Aliases, ", ")
 }
 
 func indent(text string, ind string) string {
