@@ -16,6 +16,24 @@
       "message": "Ping adg@.",
       "revId": "ceb55e87b045afd6445a0d9c0cac21708cad477b",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4408ad8f_94e5633d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2021-08-23T11:35:41Z",
+      "side": 1,
+      "message": "Ping adg@.\n\nIf the CL looks daunting, perhaps just review the public API. The rest of the iceberg is pretty much internal details and for practical purposes, iconvg.UpgradeToFileFormatVersion1 is just a magic black box where a []byte goes in and a []byte comes out.\n\nIt\u0027s also \u0027transitional\u0027 code, so I wouldn\u0027t sweat too hard on it. Long term, people should be using the other packages (github.com/google/iconvg/src/go/*) instead of this one (golang.org/x/exp/shiny/iconvg).",
+      "parentUuid": "14a2029f_f2262203",
+      "revId": "ceb55e87b045afd6445a0d9c0cac21708cad477b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
