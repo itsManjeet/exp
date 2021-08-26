@@ -15,7 +15,6 @@ import (
 	"os/exec"
 	"path"
 	"path/filepath"
-	"runtime"
 	"strings"
 	"testing"
 
@@ -35,7 +34,7 @@ var cryptoSSHVuln string = `[{"ID":"GO-2020-0012","Published":"2021-04-14T12:00:
 // k8sAPIServerVuln contains vulnerability info for k8s.io/apiextensions-apiserver/pkg/apiserver.
 var k8sAPIServerVuln string = `[{"ID":"GO-2021-0062","Published":"2021-04-14T12:00:00Z","Modified":"2021-04-14T12:00:00Z","Withdrawn":null,"Aliases":["CVE-2019-11253"],"Package":{"Name":"k8s.io/apiextensions-apiserver/pkg/apiserver","Ecosystem":"go"},"Details":"A maliciously crafted YAML or JSON message can cause resource\nexhaustion.\n","Affects":{"Ranges":[{"Type":"SEMVER","Introduced":"","Fixed":"v0.17.0"}]},"References":[{"Type":"code review","URL":"https://github.com/kubernetes/kubernetes/pull/83261"},{"Type":"fix","URL":"https://github.com/kubernetes/apiextensions-apiserver/commit/9cfd100448d12f999fbf913ae5d4fef2fcd66871"},{"Type":"misc","URL":"https://github.com/kubernetes/kubernetes/issues/83253"},{"Type":"misc","URL":"https://gist.github.com/bgeesaman/0e0349e94cd22c48bf14d8a9b7d6b8f2"}],"ecosystem_specific":{"Symbols":["NewCustomResourceDefinitionHandler"],"URL":"https://go.googlesource.com/vulndb/+/refs/heads/main/reports/GO-2021-0062.toml"}}]`
 
-// index for dbs containing some entries for each vuln package.
+// index for db containing some entries for each vuln package.
 // The timestamp for package is set to random moment in the past.
 var index string = `{
 	"k8s.io/apiextensions-apiserver/pkg/apiserver": "2021-01-01T12:00:00.000000000-08:00",
@@ -271,115 +270,4 @@ func download(url, destination string) error {
 
 	_, err = io.Copy(out, resp.Body)
 	return err
-}
-
-// TestKubernetes requires the following system dependencies:
-//   - make, tar, unzip, and gcc.
-// More information on installing kubernetes: https://github.com/kubernetes/kubernetes.
-// Note that the whole installation will require roughly 5GB of disk.
-func TestKubernetes(t *testing.T) {
-	if testing.Short() {
-		t.Skip("skipping test in short mode.")
-	}
-
-	// make sure the dependencies are present
-	if _, err := exec.LookPath("tar"); err != nil {
-		t.Skip("tar needed for this test.")
-	}
-	if _, err := exec.LookPath("unzip"); err != nil {
-		t.Skip("unzip needed for this test.")
-	}
-
-	e := packagestest.Export(t, packagestest.Modules, []packagestest.Module{
-		{
-			Name: "foo",
-		},
-	})
-	defer e.Cleanup()
-
-	// Environments and directories to build and download both k8s and go.
-	env := envUpdate(e.Config.Env, "GOPROXY", "https://proxy.golang.org,direct")
-	dir := e.Config.Dir
-	k8sDir := path.Join(e.Config.Dir, "kubernetes-1.15.11")
-	k8sEnv := envUpdate(env, "PATH", path.Join(e.Config.Dir, "go/bin")+":"+os.Getenv("PATH"))
-
-	// Download kubernetes v1.15.11 and the go version 1.12 needed to build it.
-	if err := download("https://github.com/kubernetes/kubernetes/archive/v1.15.11.zip", path.Join(dir, "v1.15.11")); err != nil {
-		t.Fatal(err)
-	}
-	goZip := "go1.12.17." + runtime.GOOS + "-" + runtime.GOARCH + ".tar.gz"
-	if err := download("https://golang.org/dl/"+goZip, path.Join(dir, goZip)); err != nil {
-		t.Fatal(err)
-	}
-
-	// Unzip k8s and go, and then build the k8s.
-	if out, err := execAll([]cmd{
-		{dir, env, "unzip", []string{"v1.15.11"}},
-		{dir, env, "tar", []string{"-xf", goZip}},
-		{k8sDir, k8sEnv, "make", nil},
-	}); err != nil {
-		t.Logf("failed to build k8s: %s", out)
-		t.Fatal(err)
-	}
-
-	// Create a local filesystem db.
-	dbPath := path.Join(e.Config.Dir, "db")
-	addToLocalDb(dbPath, "index.json", index)
-	// Create a local server db.
-	sMux := http.NewServeMux()
-	s := http.Server{Addr: ":8080", Handler: sMux}
-	go func() { s.ListenAndServe() }()
-	defer func() { s.Shutdown(context.Background()) }()
-	addToServerDb(sMux, "index.json", index)
-
-	// run goaudit.
-	cfg := &packages.Config{
-		Mode:  packages.LoadAllSyntax | packages.NeedModule,
-		Tests: false,
-		Dir:   path.Join(e.Config.Dir, "kubernetes-1.15.11"),
-	}
-
-	for _, test := range []struct {
-		source string
-		// list of packages whose vulns should be addded to source
-		toAdd []string
-		want  []finding
-	}{
-		// test local db with only apiserver vuln, which should result in a single finding.
-		{source: "file://" + dbPath, toAdd: []string{"github.com/go-yaml/yaml.json", "k8s.io/apiextensions-apiserver/pkg/apiserver.json"},
-			want: []finding{{"k8s.io/apiextensions-apiserver/pkg/apiserver.NewCustomResourceDefinitionHandler", 3}}},
-		// add the rest of the vulnerabilites, resulting in more findings.
-		{source: "file://" + dbPath, toAdd: []string{"golang.org/x/crypto/ssh.json"},
-			want: []finding{
-				{"golang.org/x/crypto/ssh.NewPublicKey", 1},
-				{"k8s.io/apiextensions-apiserver/pkg/apiserver.NewCustomResourceDefinitionHandler", 3},
-				{"golang.org/x/crypto/ssh.NewPublicKey", 4},
-				{"golang.org/x/crypto/ssh.parseED25519", 9},
-			}},
-		// repeat similar experiment with a server db.
-		{source: "http://localhost:8080", toAdd: []string{"github.com/go-yaml/yaml.json"}, want: nil},
-		{source: "http://localhost:8080", toAdd: []string{"golang.org/x/crypto/ssh.json", "k8s.io/apiextensions-apiserver/pkg/apiserver.json"},
-			want: []finding{
-				{"golang.org/x/crypto/ssh.NewPublicKey", 1},
-				{"k8s.io/apiextensions-apiserver/pkg/apiserver.NewCustomResourceDefinitionHandler", 3},
-				{"golang.org/x/crypto/ssh.NewPublicKey", 4},
-				{"golang.org/x/crypto/ssh.parseED25519", 9},
-			}},
-	} {
-		for _, add := range test.toAdd {
-			if strings.HasPrefix(test.source, "file://") {
-				addToLocalDb(dbPath, add, vulns[add])
-			} else {
-				addToServerDb(sMux, add, vulns[add])
-			}
-		}
-
-		r, err := run(cfg, []string{"./..."}, false, []string{test.source})
-		if err != nil {
-			t.Fatal(err)
-		}
-		if fs := testFindings(allFindings(r)); !subset(test.want, fs) {
-			t.Errorf("want %v subset of findings; got %v", test.want, fs)
-		}
-	}
 }
