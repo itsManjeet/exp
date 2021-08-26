@@ -92,6 +92,70 @@
       "parentUuid": "93a2003a_03cd3a07",
       "revId": "74602e58dc98c7e875b1bf14ded61c9bc7a3958d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97ef0de4_75fa96eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 44473
+      },
+      "writtenOn": "2021-08-26T22:59:21Z",
+      "side": 1,
+      "message": "SG. Keep us posted.",
+      "parentUuid": "5db57f24_1f497139",
+      "revId": "74602e58dc98c7e875b1bf14ded61c9bc7a3958d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbd877af_f8894f07",
+        "filename": "vulndb/internal/audit/detect.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 44473
+      },
+      "writtenOn": "2021-08-26T22:59:21Z",
+      "side": 1,
+      "message": "s/understandeable/understandable/g",
+      "range": {
+        "startLine": 89,
+        "startChar": 43,
+        "endLine": 89,
+        "endChar": 58
+      },
+      "revId": "74602e58dc98c7e875b1bf14ded61c9bc7a3958d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f52079e1_b924b1a2",
+        "filename": "vulndb/internal/audit/detect_callgraph.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 44473
+      },
+      "writtenOn": "2021-08-26T22:59:21Z",
+      "side": 1,
+      "message": "Can we avoid globals? This might be worth a refactoring of confidence to avoid this.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 39
+      },
+      "revId": "74602e58dc98c7e875b1bf14ded61c9bc7a3958d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
