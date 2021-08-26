@@ -35,7 +35,7 @@ var cryptoSSHVuln string = `[{"ID":"GO-2020-0012","Published":"2021-04-14T12:00:
 // k8sAPIServerVuln contains vulnerability info for k8s.io/apiextensions-apiserver/pkg/apiserver.
 var k8sAPIServerVuln string = `[{"ID":"GO-2021-0062","Published":"2021-04-14T12:00:00Z","Modified":"2021-04-14T12:00:00Z","Withdrawn":null,"Aliases":["CVE-2019-11253"],"Package":{"Name":"k8s.io/apiextensions-apiserver/pkg/apiserver","Ecosystem":"go"},"Details":"A maliciously crafted YAML or JSON message can cause resource\nexhaustion.\n","Affects":{"Ranges":[{"Type":"SEMVER","Introduced":"","Fixed":"v0.17.0"}]},"References":[{"Type":"code review","URL":"https://github.com/kubernetes/kubernetes/pull/83261"},{"Type":"fix","URL":"https://github.com/kubernetes/apiextensions-apiserver/commit/9cfd100448d12f999fbf913ae5d4fef2fcd66871"},{"Type":"misc","URL":"https://github.com/kubernetes/kubernetes/issues/83253"},{"Type":"misc","URL":"https://gist.github.com/bgeesaman/0e0349e94cd22c48bf14d8a9b7d6b8f2"}],"ecosystem_specific":{"Symbols":["NewCustomResourceDefinitionHandler"],"URL":"https://go.googlesource.com/vulndb/+/refs/heads/main/reports/GO-2021-0062.toml"}}]`
 
-// index for dbs containing some entries for each vuln package.
+// index for db containing some entries for each vuln package.
 // The timestamp for package is set to random moment in the past.
 var index string = `{
 	"k8s.io/apiextensions-apiserver/pkg/apiserver": "2021-01-01T12:00:00.000000000-08:00",
