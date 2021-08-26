@@ -61,6 +61,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "36c34d4c_f0f9d2ed",
+        "filename": "vulndb/govulncheck/main.go",
+        "patchSetId": 9
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-08-26T17:00:08Z",
+      "side": 1,
+      "message": "Done\n\nGood point.",
+      "parentUuid": "cd8f6879_974e4e08",
+      "range": {
+        "startLine": 57,
+        "startChar": 12,
+        "endLine": 58,
+        "endChar": 76
+      },
+      "revId": "c2fecae9eabac53aae90898e77336dbda6d1b1ca",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "021669f0_32bf6f53",
@@ -121,6 +145,54 @@
       "side": 1,
       "message": "That would not be a deep copy, which seems to be the intension here. (Not really sure a deep copy is needed. But I don\u0027t see the harm either and it is cautious.)",
       "parentUuid": "3cf4c353_5dae9a5d",
+      "range": {
+        "startLine": 104,
+        "startChar": 1,
+        "endLine": 114,
+        "endChar": 52
+      },
+      "revId": "c2fecae9eabac53aae90898e77336dbda6d1b1ca",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6412f908_b75a570b",
+        "filename": "vulndb/govulncheck/main.go",
+        "patchSetId": 9
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-08-26T17:00:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "021669f0_32bf6f53",
+      "range": {
+        "startLine": 111,
+        "startChar": 2,
+        "endLine": 114,
+        "endChar": 52
+      },
+      "revId": "c2fecae9eabac53aae90898e77336dbda6d1b1ca",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d6c4813_4a07c4d0",
+        "filename": "vulndb/govulncheck/main.go",
+        "patchSetId": 9
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-08-26T17:00:08Z",
+      "side": 1,
+      "message": "This is a nice suggestion and it would work here. But I was trying to cautious. Probably unnecessary, but it doesn\u0027t hurt as Tim mentioned.",
+      "parentUuid": "2b87b7be_0a4ebe10",
       "range": {
         "startLine": 104,
         "startChar": 1,
