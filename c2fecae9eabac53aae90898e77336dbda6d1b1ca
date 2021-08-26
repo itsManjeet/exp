@@ -105,6 +105,30 @@
       },
       "revId": "c2fecae9eabac53aae90898e77336dbda6d1b1ca",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b87b7be_0a4ebe10",
+        "filename": "vulndb/govulncheck/main.go",
+        "patchSetId": 9
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 44473
+      },
+      "writtenOn": "2021-08-26T05:41:35Z",
+      "side": 1,
+      "message": "That would not be a deep copy, which seems to be the intension here. (Not really sure a deep copy is needed. But I don\u0027t see the harm either and it is cautious.)",
+      "parentUuid": "3cf4c353_5dae9a5d",
+      "range": {
+        "startLine": 104,
+        "startChar": 1,
+        "endLine": 114,
+        "endChar": 52
+      },
+      "revId": "c2fecae9eabac53aae90898e77336dbda6d1b1ca",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
