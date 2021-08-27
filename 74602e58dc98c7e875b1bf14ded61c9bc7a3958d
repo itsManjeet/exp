@@ -288,6 +288,30 @@
       },
       "revId": "74602e58dc98c7e875b1bf14ded61c9bc7a3958d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27070216_5172327d",
+        "filename": "vulndb/internal/audit/detect_callgraph.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-08-27T16:57:04Z",
+      "side": 1,
+      "message": "It seems there are three options here:\n\n- pass stdPackages to confidence method and function calling confidence. Simple, but a little unintuitive to me when you look what other things are being passed around. stdPackages would just look out of place there.\n\n- use go generate. stdPackages are computed only once when I call them prior to commit submission. But extra code has to be written to generate the list of std packages, which is potentially too complex.\n\n- use sync.Once and cache the result. But the cache needs to live somewhere. It can leave in each finding, but that seems like an overkill and we have a copy for each finding. Otherwise, it needs to be a global, which brings us back to the original problem.\n\nAm I missing an approach?",
+      "parentUuid": "5c4327de_6775df69",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 39
+      },
+      "revId": "74602e58dc98c7e875b1bf14ded61c9bc7a3958d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
