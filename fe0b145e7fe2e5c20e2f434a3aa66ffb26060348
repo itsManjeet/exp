@@ -72,6 +72,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "38aeced5_19556fec",
+        "filename": "vulndb/internal/audit/detect_callgraph.go",
+        "patchSetId": 14
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-08-27T22:20:25Z",
+      "side": 1,
+      "message": "Added a log statement. I hope that should cover it.",
+      "parentUuid": "17c4863b_83a1aa7c",
+      "range": {
+        "startLine": 204,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 9
+      },
+      "revId": "fe0b145e7fe2e5c20e2f434a3aa66ffb26060348",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7a4b9768_6c29b1b4",
