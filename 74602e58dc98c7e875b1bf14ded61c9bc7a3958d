@@ -240,6 +240,30 @@
       },
       "revId": "74602e58dc98c7e875b1bf14ded61c9bc7a3958d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "486238f1_c3ed03d8",
+        "filename": "vulndb/internal/audit/detect_callgraph.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 44473
+      },
+      "writtenOn": "2021-08-27T03:28:33Z",
+      "side": 1,
+      "message": "I am a bit worried about the complexity. It sounds more complex than the current approach. But if you can do it so it is done exactly once and it is not too complex sure.\n\nAnother approach is to put it in a function and to cache the result. A sync.Once makes this relatively easy. Having this be read only would probably be okay.",
+      "parentUuid": "da785fe3_35be63c0",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 39
+      },
+      "revId": "74602e58dc98c7e875b1bf14ded61c9bc7a3958d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
