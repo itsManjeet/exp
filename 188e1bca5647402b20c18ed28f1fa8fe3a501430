@@ -74,6 +74,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "436d670d_484ae2df",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 905,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-08-27T20:11:06Z",
+      "side": 1,
+      "message": "Done\n\nGood call.\n\n(how do you keep that all in your head?? :o )",
+      "parentUuid": "b127cbfc_37de6982",
+      "revId": "188e1bca5647402b20c18ed28f1fa8fe3a501430",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7b563873_d524c5ef",
@@ -91,6 +109,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f98305d4_ec4ce63f",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 906,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-08-27T20:11:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b563873_d524c5ef",
+      "revId": "188e1bca5647402b20c18ed28f1fa8fe3a501430",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "953ebbed_2046a0ca",
@@ -104,6 +140,24 @@
       "writtenOn": "2021-08-27T17:53:36Z",
       "side": 1,
       "message": "Let\u0027s make sure there are no uncommitted changes to the repo before calling zip.CreateFromVCS. I think checking whether \u0027git status --porcelain\u0027 writes anything to stdout is the way to do that.",
+      "revId": "188e1bca5647402b20c18ed28f1fa8fe3a501430",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "673667f1_a84839ea",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 912,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-08-27T20:11:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "953ebbed_2046a0ca",
       "revId": "188e1bca5647402b20c18ed28f1fa8fe3a501430",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -150,6 +204,48 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c079903e_e0d417e4",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 913,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-08-27T20:11:06Z",
+      "side": 1,
+      "message": "Done\n\nShould we fall back to CreateFromDir if CreateFromVCS returns a \"unrecognised repo type\" error? (since it only supports git atm)\n\nI could create and use an exported error type in mod/zip, and check for that in gorelease.",
+      "parentUuid": "8adcf948_73b5b371",
+      "revId": "188e1bca5647402b20c18ed28f1fa8fe3a501430",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbb4c1aa_96ab0fd2",
+        "filename": "cmd/gorelease/gorelease.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 913,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-08-27T20:11:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e44dd18_214f9afd",
+      "range": {
+        "startLine": 913,
+        "startChar": 72,
+        "endLine": 913,
+        "endChar": 78
+      },
+      "revId": "188e1bca5647402b20c18ed28f1fa8fe3a501430",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e8fd7609_00efc662",
         "filename": "cmd/gorelease/gorelease_test.go",
         "patchSetId": 7
@@ -161,6 +257,30 @@
       "writtenOn": "2021-08-27T17:53:36Z",
       "side": 1,
       "message": "See comment below: I think we can do this based on whether the test contains a file like .git/HEAD or .hg/somethingsomething.",
+      "range": {
+        "startLine": 330,
+        "startChar": 0,
+        "endLine": 331,
+        "endChar": 13
+      },
+      "revId": "188e1bca5647402b20c18ed28f1fa8fe3a501430",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "399704d2_c359615d",
+        "filename": "cmd/gorelease/gorelease_test.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-08-27T20:11:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8fd7609_00efc662",
       "range": {
         "startLine": 330,
         "startChar": 0,
@@ -194,6 +314,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "06626deb_9b385529",
+        "filename": "cmd/gorelease/gorelease_test.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-08-27T20:11:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "afab1b6a_fbdedc1f",
+      "range": {
+        "startLine": 332,
+        "startChar": 15,
+        "endLine": 332,
+        "endChar": 35
+      },
+      "revId": "188e1bca5647402b20c18ed28f1fa8fe3a501430",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c5ce9119_bed68c60",
@@ -211,6 +355,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "25cd42f3_a2aa17c7",
+        "filename": "cmd/gorelease/gorelease_test.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-08-27T20:11:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5ce9119_bed68c60",
+      "revId": "188e1bca5647402b20c18ed28f1fa8fe3a501430",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bab87970_ad4dbfa1",
@@ -224,6 +386,24 @@
       "writtenOn": "2021-08-27T17:53:36Z",
       "side": 1,
       "message": "Nit: let\u0027s put this in a loop to remove a bit of redundancy.\n\n  for _, args :\u003d range [][]string{\n    {\"git\", \"init\"},\n    {\"git\", \"checkout\", \"-b\", \"test\"},\n    ...\n  }{\n    cmd :\u003d exec.Command(args[0], args[1:]...)\n    ...\n  }",
+      "revId": "188e1bca5647402b20c18ed28f1fa8fe3a501430",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a0440e0_457366ba",
+        "filename": "cmd/gorelease/gorelease_test.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-08-27T20:11:06Z",
+      "side": 1,
+      "message": "Done\n\nGood idea!",
+      "parentUuid": "bab87970_ad4dbfa1",
       "revId": "188e1bca5647402b20c18ed28f1fa8fe3a501430",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
