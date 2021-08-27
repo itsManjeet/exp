@@ -55,6 +55,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f73b6400_29b7b3af",
+        "filename": "cmd/gorelease/gorelease_test.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-08-27T22:49:02Z",
+      "side": 1,
+      "message": "Done\n\nThanks for the lesson, that was good to learn about!\n\nAlso, TIL var ... struct. 😮 Thanks again for all these great lessons.",
+      "parentUuid": "94ef0185_487ff2c9",
+      "revId": "c21ddef3df2529b1c5ca7e5cc5b23a07bc1f7978",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cb587582_652aa5cf",
@@ -72,6 +90,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ecde761_16799233",
+        "filename": "cmd/gorelease/gorelease_test.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-08-27T22:49:02Z",
+      "side": 1,
+      "message": "Ack\n\nThanks for checking!",
+      "parentUuid": "cb587582_652aa5cf",
+      "revId": "c21ddef3df2529b1c5ca7e5cc5b23a07bc1f7978",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "11db71d6_edbe080f",
@@ -85,6 +121,24 @@
       "writtenOn": "2021-08-27T22:11:23Z",
       "side": 1,
       "message": "This should only make a difference for tests that have a .git subdirectory in their archive. This is kind of weird. I wonder if we should handle that differently? Maybe add a field to the test struct saying what the vcs should bit. If it\u0027s \"git\", we could call this function during test setup.",
+      "revId": "c21ddef3df2529b1c5ca7e5cc5b23a07bc1f7978",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "782f4623_c32b8ed2",
+        "filename": "cmd/gorelease/gorelease_test.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-08-27T22:49:02Z",
+      "side": 1,
+      "message": "Just to make sure I understand: in your proposal, we add a `vcs string` field to the test struct; we remove any `.git` files from tests txttars; for any tests which had `.git` files in their txttars, we add a `vcs\u003dgit` field, which causes this to be run rather than relying on writing `.git` files ourselves.\n\nIs that right?",
+      "parentUuid": "11db71d6_edbe080f",
       "revId": "c21ddef3df2529b1c5ca7e5cc5b23a07bc1f7978",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
