@@ -312,6 +312,30 @@
       },
       "revId": "74602e58dc98c7e875b1bf14ded61c9bc7a3958d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a31e1f4b_dca0a40d",
+        "filename": "vulndb/internal/audit/detect_callgraph.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 44473
+      },
+      "writtenOn": "2021-08-27T21:09:14Z",
+      "side": 1,
+      "message": "As mentioned in the meeting as long as the global is sufficiently self contained (such as abstracted behind a function + non stateful + not a memory hog + thread safe) it is probably fine.",
+      "parentUuid": "27070216_5172327d",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 39
+      },
+      "revId": "74602e58dc98c7e875b1bf14ded61c9bc7a3958d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
