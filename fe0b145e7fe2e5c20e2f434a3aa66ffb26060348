@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d445ebe5_ac06c9a2",
+        "filename": "vulndb/internal/audit/detect_callgraph.go",
+        "patchSetId": 14
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 44473
+      },
+      "writtenOn": "2021-08-27T21:49:36Z",
+      "side": 1,
+      "message": "Is the right thing to do fail silently, log the error, or panic?",
+      "range": {
+        "startLine": 204,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 9
+      },
+      "revId": "fe0b145e7fe2e5c20e2f434a3aa66ffb26060348",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a4b9768_6c29b1b4",
+        "filename": "vulndb/internal/audit/order.go",
+        "patchSetId": 14
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 44473
+      },
+      "writtenOn": "2021-08-27T21:49:36Z",
+      "side": 1,
+      "message": "nit:\nif finding1.confidence !\u003d finding2.confidence {\n   return finding1.confidence \u003c finding2.confidence\n}\n\netc.",
+      "range": {
+        "startLine": 19,
+        "startChar": 1,
+        "endLine": 23,
+        "endChar": 2
+      },
+      "revId": "fe0b145e7fe2e5c20e2f434a3aa66ffb26060348",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1200914_2c38e227",
+        "filename": "vulndb/internal/audit/order.go",
+        "patchSetId": 14
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 44473
+      },
+      "writtenOn": "2021-08-27T21:49:36Z",
+      "side": 1,
+      "message": "\u003c\u003d 0",
+      "range": {
+        "startLine": 54,
+        "startChar": 94,
+        "endLine": 54,
+        "endChar": 98
+      },
+      "revId": "fe0b145e7fe2e5c20e2f434a3aa66ffb26060348",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
