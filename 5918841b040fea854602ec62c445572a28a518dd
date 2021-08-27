@@ -91,6 +91,29 @@
       },
       "revId": "5918841b040fea854602ec62c445572a28a518dd",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "256ebded_e9058037",
+        "filename": "vulndb/internal/audit/order.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 44473
+      },
+      "writtenOn": "2021-08-27T04:16:23Z",
+      "side": 1,
+      "message": "nit: \nif cmp :\u003d strings.Compare(finding1.Symbol, finding2.Symbol); cmp !\u003d 0 {\n     return cmp \u003c 0\n}\n\netc.",
+      "range": {
+        "startLine": 42,
+        "startChar": 1,
+        "endLine": 47,
+        "endChar": 2
+      },
+      "revId": "5918841b040fea854602ec62c445572a28a518dd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
