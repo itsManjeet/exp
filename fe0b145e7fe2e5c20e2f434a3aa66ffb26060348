@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "17c4863b_83a1aa7c",
+        "filename": "vulndb/internal/audit/detect_callgraph.go",
+        "patchSetId": 14
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 44473
+      },
+      "writtenOn": "2021-08-27T22:01:51Z",
+      "side": 1,
+      "message": "\u003e This is not expected to happen and it is used to only to order findings.\n\n\nI would interpret this as a justification to log or panic too. Roland any opinion on this?",
+      "parentUuid": "19ff355f_9d8043f9",
+      "range": {
+        "startLine": 204,
+        "startChar": 0,
+        "endLine": 204,
+        "endChar": 9
+      },
+      "revId": "fe0b145e7fe2e5c20e2f434a3aa66ffb26060348",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7a4b9768_6c29b1b4",
         "filename": "vulndb/internal/audit/order.go",
         "patchSetId": 14
