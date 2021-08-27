@@ -264,6 +264,30 @@
       },
       "revId": "74602e58dc98c7e875b1bf14ded61c9bc7a3958d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c4327de_6775df69",
+        "filename": "vulndb/internal/audit/detect_callgraph.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 45880
+      },
+      "writtenOn": "2021-08-27T04:08:50Z",
+      "side": 1,
+      "message": "To avoid this global we may pass \"stdPackages\" as a function argument to the related functions.",
+      "parentUuid": "486238f1_c3ed03d8",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 23,
+        "endChar": 39
+      },
+      "revId": "74602e58dc98c7e875b1bf14ded61c9bc7a3958d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }

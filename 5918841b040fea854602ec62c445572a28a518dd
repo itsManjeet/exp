@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f52ea29_ed5cf875",
+        "filename": "vulndb/internal/audit/detect.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 45880
+      },
+      "writtenOn": "2021-08-27T04:08:50Z",
+      "side": 1,
+      "message": "It is more intuitive to me that greater weight implies more importance.",
+      "range": {
+        "startLine": 90,
+        "startChar": 1,
+        "endLine": 91,
+        "endChar": 11
+      },
+      "revId": "5918841b040fea854602ec62c445572a28a518dd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cc1d4cb_7b938045",
+        "filename": "vulndb/internal/audit/detect_callgraph.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 45880
+      },
+      "writtenOn": "2021-08-27T04:08:50Z",
+      "side": 1,
+      "message": "Should we use a \"for\" loop rather than recursion to compute the confidence value?",
+      "range": {
+        "startLine": 223,
+        "startChar": 1,
+        "endLine": 223,
+        "endChar": 50
+      },
+      "revId": "5918841b040fea854602ec62c445572a28a518dd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a066de8_3b016918",
+        "filename": "vulndb/internal/audit/order.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 45880
+      },
+      "writtenOn": "2021-08-27T04:08:50Z",
+      "side": 1,
+      "message": "Will passing pointers be slightly better here?\n\n```\nfunc findingCompare(finding1, finding2 *Finding) bool {\n```",
+      "range": {
+        "startLine": 18,
+        "startChar": 20,
+        "endLine": 18,
+        "endChar": 46
+      },
+      "revId": "5918841b040fea854602ec62c445572a28a518dd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fc450a7_f1df9c76",
+        "filename": "vulndb/internal/audit/order.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 45880
+      },
+      "writtenOn": "2021-08-27T04:08:50Z",
+      "side": 1,
+      "message": "Does the Finding have a String() function that pretty-print the finding, which can be used to perform the comparison?",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 57
+      },
+      "revId": "5918841b040fea854602ec62c445572a28a518dd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
