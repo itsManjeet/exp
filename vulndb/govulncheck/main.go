@@ -19,6 +19,7 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
+	"go/build"
 	"log"
 	"os"
 	"runtime"
@@ -26,6 +27,7 @@ import (
 
 	"golang.org/x/exp/vulndb/internal/audit"
 	"golang.org/x/exp/vulndb/internal/binscan"
+	"golang.org/x/tools/go/buildutil"
 	"golang.org/x/tools/go/packages"
 	"golang.org/x/tools/go/ssa/ssautil"
 	"golang.org/x/vulndb/client"
@@ -60,6 +62,8 @@ Flags:
 
 	-verbose   Print progress information.
 
+	-tags	   Comma-separated list of build tags.
+
 govulncheck can be used with either one or more package patterns (i.e. golang.org/x/crypto/...
 or ./...) or with a single path to a Go binary. In the latter case module and symbol
 information will be extracted from the binary in order to detect vulnerable symbols
@@ -69,6 +73,10 @@ The environment variable GOVULNDB can be set to a comma-separate list of vulnera
 database URLs, with http://, https://, or file:// protocols. Entries from multiple
 databases are merged.
 `
+
+func init() {
+	flag.Var((*buildutil.TagsFlag)(&build.Default.BuildTags), "tags", buildutil.TagsFlagDoc)
+}
 
 func main() {
 	flag.Usage = func() { fmt.Fprintln(os.Stderr, usage) }
@@ -85,7 +93,8 @@ func main() {
 	}
 
 	cfg := &packages.Config{
-		Mode: packages.LoadAllSyntax | packages.NeedModule,
+		Mode:       packages.LoadAllSyntax | packages.NeedModule,
+		BuildFlags: []string{fmt.Sprintf("-tags=%s", strings.Join(build.Default.BuildTags, " "))},
 	}
 
 	r, err := run(cfg, flag.Args(), *importsFlag, dbs)
