@@ -34,6 +34,46 @@
       "parentUuid": "14a2029f_f2262203",
       "revId": "ceb55e87b045afd6445a0d9c0cac21708cad477b",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b8887de_19e1ed04",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5010
+      },
+      "writtenOn": "2021-08-30T03:53:13Z",
+      "side": 1,
+      "message": "Public API LGTM, I read through the rest of the code and it all looks okay to me, but I lack the domain knowledge to say for sure.\n\nSorry for the delay.",
+      "revId": "ceb55e87b045afd6445a0d9c0cac21708cad477b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c2bf611_3be42b1a",
+        "filename": "shiny/iconvg/upgrade.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 5010
+      },
+      "writtenOn": "2021-08-30T03:53:13Z",
+      "side": 1,
+      "message": "err?",
+      "range": {
+        "startLine": 36,
+        "startChar": 98,
+        "endLine": 36,
+        "endChar": 104
+      },
+      "revId": "ceb55e87b045afd6445a0d9c0cac21708cad477b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
