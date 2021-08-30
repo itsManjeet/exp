@@ -141,6 +141,24 @@
       "parentUuid": "11db71d6_edbe080f",
       "revId": "c21ddef3df2529b1c5ca7e5cc5b23a07bc1f7978",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8719aa21_38a0e31a",
+        "filename": "cmd/gorelease/gorelease_test.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 17092
+      },
+      "writtenOn": "2021-08-30T16:17:25Z",
+      "side": 1,
+      "message": "Right, exactly.",
+      "parentUuid": "782f4623_c32b8ed2",
+      "revId": "c21ddef3df2529b1c5ca7e5cc5b23a07bc1f7978",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
