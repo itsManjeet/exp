@@ -55,6 +55,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "73cd8955_327a1fb6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-08-31T22:15:25Z",
+      "side": 1,
+      "message": "Thanks for the great reviews! :D",
+      "parentUuid": "78e20b88_78ef0317",
+      "revId": "8071da658dfd1bda3e1420033e2efc09251e1d23",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "69ff610f_08351236",
@@ -68,6 +86,24 @@
       "writtenOn": "2021-08-31T22:12:49Z",
       "side": 1,
       "message": "\u0027go mod tidy\u0027 should remove some of these old sums.",
+      "revId": "8071da658dfd1bda3e1420033e2efc09251e1d23",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b67781d_254758b4",
+        "filename": "go.sum",
+        "patchSetId": 15
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2021-08-31T22:15:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69ff610f_08351236",
       "revId": "8071da658dfd1bda3e1420033e2efc09251e1d23",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
