@@ -124,6 +124,24 @@
       "parentUuid": "55e34788_e01b7494",
       "revId": "e97da425ca08b04e37f06e0b45d8825685b4d894",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9195ffc_7d810b57",
+        "filename": "vulndb/govulncheck/main_test.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-08-31T19:55:12Z",
+      "side": 1,
+      "message": "Not applicable any more.",
+      "parentUuid": "09223a41_c9a7f641",
+      "revId": "e97da425ca08b04e37f06e0b45d8825685b4d894",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
