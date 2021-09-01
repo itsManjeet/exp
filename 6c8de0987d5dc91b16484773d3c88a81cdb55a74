@@ -59,6 +59,30 @@
       },
       "revId": "6c8de0987d5dc91b16484773d3c88a81cdb55a74",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ee00532_1f257a17",
+        "filename": "vulndb/govulncheck/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-09-01T17:27:22Z",
+      "side": 1,
+      "message": "True. But it turns out it works. Looking at the code, this will be passed to the build system as \"-tags\u003d a b\". I\u0027ve seen this approach used in other places.\n\nNonetheless, comma approach works as well and it is less confusing.\n\nDone",
+      "parentUuid": "60f47a22_4777b220",
+      "range": {
+        "startLine": 106,
+        "startChar": 0,
+        "endLine": 106,
+        "endChar": 92
+      },
+      "revId": "6c8de0987d5dc91b16484773d3c88a81cdb55a74",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
