@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ebc32318_9def0191",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-09-01T16:42:41Z",
+      "side": 1,
+      "message": "Good question. It will actually not even come to this point. If A was replaced with local Y, then it is more likely than not that no vulnerabilities exist in the database for the local module. In the end, we really don\u0027t know much about Y so we shouldn\u0027t pretend it has vulnerabilities reported for A.",
+      "parentUuid": "ccd675ca_806dac15",
+      "range": {
+        "startLine": 9,
+        "startChar": 5,
+        "endLine": 9,
+        "endChar": 37
+      },
+      "revId": "50afc32c5526064516d6d7d9783fa7c7161f5847",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7f5f0ca0_f0d52d1b",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -91,6 +115,30 @@
       "writtenOn": "2021-09-01T02:41:48Z",
       "side": 1,
       "message": "nit: alarm",
+      "range": {
+        "startLine": 199,
+        "startChar": 56,
+        "endLine": 199,
+        "endChar": 62
+      },
+      "revId": "50afc32c5526064516d6d7d9783fa7c7161f5847",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62173171_0cf40e65",
+        "filename": "vulndb/internal/audit/detect.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-09-01T16:42:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51c5b04e_b5c76087",
       "range": {
         "startLine": 199,
         "startChar": 56,
