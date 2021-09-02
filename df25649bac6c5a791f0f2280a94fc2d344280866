@@ -208,6 +208,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5cd57d4_89f6fc7b",
+        "filename": "vulndb/govulncheck/cache.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-09-02T19:01:51Z",
+      "side": 1,
+      "message": "The file might not exist because the cache was not yet used/primed, so it is not really an error. DB client takes care of this case.\n\nReadFile checks if the file exists. Since we anyhow need to call ReadFile, we can omit calling os.Stat.",
+      "parentUuid": "ecbb81ed_0150da31",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 3
+      },
+      "revId": "df25649bac6c5a791f0f2280a94fc2d344280866",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "18f7b97e_57e756fc",
@@ -315,6 +339,30 @@
       "writtenOn": "2021-09-02T02:48:00Z",
       "side": 1,
       "message": "Not sure I have a strong opinion about the permissions. But I have not thought hard about them. Can you explain why you chose the defaults you did?",
+      "range": {
+        "startLine": 79,
+        "startChar": 29,
+        "endLine": 79,
+        "endChar": 33
+      },
+      "revId": "df25649bac6c5a791f0f2280a94fc2d344280866",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01bcaf60_1a18fbc2",
+        "filename": "vulndb/govulncheck/cache.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-09-02T19:01:51Z",
+      "side": 1,
+      "message": "Changed it to 755, which seems to be the permissions for Go build cache.",
+      "parentUuid": "e18165bc_54fd19d2",
       "range": {
         "startLine": 79,
         "startChar": 29,
