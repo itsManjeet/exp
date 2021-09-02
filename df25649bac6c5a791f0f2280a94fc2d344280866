@@ -53,6 +53,70 @@
       "message": "Question for the reviewers. Is it perhaps cleaner to put cacheRoot as a field of fsCache?",
       "revId": "df25649bac6c5a791f0f2280a94fc2d344280866",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5983f53c_70180ea7",
+        "filename": "vulndb/govulncheck/cache.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 44473
+      },
+      "writtenOn": "2021-09-02T02:48:00Z",
+      "side": 1,
+      "message": "I think it will be cleaner. It will also clarify when cacheRoot gets initialized.",
+      "parentUuid": "187418f7_eb48dbef",
+      "revId": "df25649bac6c5a791f0f2280a94fc2d344280866",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad0f337f_df43dff9",
+        "filename": "vulndb/govulncheck/cache.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 44473
+      },
+      "writtenOn": "2021-09-02T02:48:00Z",
+      "side": 1,
+      "message": "When do we validate that cacheRoot is a reasonable path? It seems like this is just during the read and write operations.",
+      "range": {
+        "startLine": 22,
+        "startChar": 30,
+        "endLine": 22,
+        "endChar": 50
+      },
+      "revId": "df25649bac6c5a791f0f2280a94fc2d344280866",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e18165bc_54fd19d2",
+        "filename": "vulndb/govulncheck/cache.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 44473
+      },
+      "writtenOn": "2021-09-02T02:48:00Z",
+      "side": 1,
+      "message": "Not sure I have a strong opinion about the permissions. But I have not thought hard about them. Can you explain why you chose the defaults you did?",
+      "range": {
+        "startLine": 79,
+        "startChar": 29,
+        "endLine": 79,
+        "endChar": 33
+      },
+      "revId": "df25649bac6c5a791f0f2280a94fc2d344280866",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
