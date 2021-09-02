@@ -73,6 +73,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cd144fe_f9306c90",
+        "filename": "vulndb/govulncheck/cache.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-09-02T17:43:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5983f53c_70180ea7",
+      "revId": "df25649bac6c5a791f0f2280a94fc2d344280866",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ad0f337f_df43dff9",
@@ -96,6 +114,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a404b89d_ca9b9852",
+        "filename": "vulndb/govulncheck/cache.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-09-02T17:43:04Z",
+      "side": 1,
+      "message": "Yes, the validation pretty much happens during read and write operations. Note that adding a validation function would not really help here. The cache implements osv.Cache interface and that is what db clients end up using.",
+      "parentUuid": "ad0f337f_df43dff9",
+      "range": {
+        "startLine": 22,
+        "startChar": 30,
+        "endLine": 22,
+        "endChar": 50
+      },
+      "revId": "df25649bac6c5a791f0f2280a94fc2d344280866",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "50ad3f20_a8226cbf",
@@ -109,6 +151,30 @@
       "writtenOn": "2021-09-02T05:00:27Z",
       "side": 1,
       "message": "Since all these methods take \"dbName\" as an argument, perhaps it can be moved into \"fsCache\" as a field?",
+      "range": {
+        "startLine": 29,
+        "startChar": 28,
+        "endLine": 29,
+        "endChar": 41
+      },
+      "revId": "df25649bac6c5a791f0f2280a94fc2d344280866",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab8675b8_2e1643d5",
+        "filename": "vulndb/govulncheck/cache.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-09-02T17:43:04Z",
+      "side": 1,
+      "message": "Good point, but it can\u0027t be moved. The cache is used by the db client. The db client does not create a cache; it just gets one, in the form of an interface field, and calls its methods.",
+      "parentUuid": "50ad3f20_a8226cbf",
       "range": {
         "startLine": 29,
         "startChar": 28,
@@ -165,6 +231,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c20b8af_c3b9a292",
+        "filename": "vulndb/govulncheck/cache.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-09-02T17:43:04Z",
+      "side": 1,
+      "message": "To respect osv.Client interface. Different implementations of cache might have different logic for producing time stamps.",
+      "parentUuid": "18f7b97e_57e756fc",
+      "range": {
+        "startLine": 41,
+        "startChar": 1,
+        "endLine": 41,
+        "endChar": 37
+      },
+      "revId": "df25649bac6c5a791f0f2280a94fc2d344280866",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2fa6bb39_57509b8f",
@@ -178,6 +268,30 @@
       "writtenOn": "2021-09-02T05:00:27Z",
       "side": 1,
       "message": "Ditto. Why not just pass in (,,,, index cachedIndex)?",
+      "range": {
+        "startLine": 44,
+        "startChar": 44,
+        "endLine": 44,
+        "endChar": 82
+      },
+      "revId": "df25649bac6c5a791f0f2280a94fc2d344280866",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86b6b1d2_c2ca7034",
+        "filename": "vulndb/govulncheck/cache.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-09-02T17:43:04Z",
+      "side": 1,
+      "message": "Ditto, to respect osv.Client interface.",
+      "parentUuid": "2fa6bb39_57509b8f",
       "range": {
         "startLine": 44,
         "startChar": 44,
