@@ -98,6 +98,98 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "50ad3f20_a8226cbf",
+        "filename": "vulndb/govulncheck/cache.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 45880
+      },
+      "writtenOn": "2021-09-02T05:00:27Z",
+      "side": 1,
+      "message": "Since all these methods take \"dbName\" as an argument, perhaps it can be moved into \"fsCache\" as a field?",
+      "range": {
+        "startLine": 29,
+        "startChar": 28,
+        "endLine": 29,
+        "endChar": 41
+      },
+      "revId": "df25649bac6c5a791f0f2280a94fc2d344280866",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecbb81ed_0150da31",
+        "filename": "vulndb/govulncheck/cache.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 45880
+      },
+      "writtenOn": "2021-09-02T05:00:27Z",
+      "side": 1,
+      "message": "If the file doesn\u0027t exist, why is the error ignored?\n\nAlso, will it be better if we first whether the file exists (the code may be longer though)?\n```\nif _, err :\u003d os.Stat(\"...\"); os.IsNotExist(err) {\n  ...\n}\n```",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 3
+      },
+      "revId": "df25649bac6c5a791f0f2280a94fc2d344280866",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18f7b97e_57e756fc",
+        "filename": "vulndb/govulncheck/cache.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 45880
+      },
+      "writtenOn": "2021-09-02T05:00:27Z",
+      "side": 1,
+      "message": "Why not just return the \"index\" (which has only these two fields)?",
+      "range": {
+        "startLine": 41,
+        "startChar": 1,
+        "endLine": 41,
+        "endChar": 37
+      },
+      "revId": "df25649bac6c5a791f0f2280a94fc2d344280866",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fa6bb39_57509b8f",
+        "filename": "vulndb/govulncheck/cache.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 45880
+      },
+      "writtenOn": "2021-09-02T05:00:27Z",
+      "side": 1,
+      "message": "Ditto. Why not just pass in (,,,, index cachedIndex)?",
+      "range": {
+        "startLine": 44,
+        "startChar": 44,
+        "endLine": 44,
+        "endChar": 82
+      },
+      "revId": "df25649bac6c5a791f0f2280a94fc2d344280866",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e18165bc_54fd19d2",
         "filename": "vulndb/govulncheck/cache.go",
         "patchSetId": 1
