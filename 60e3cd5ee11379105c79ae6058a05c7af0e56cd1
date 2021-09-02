@@ -150,6 +150,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "217abda2_2a3d475a",
+        "filename": "vulndb/govulncheck/main_test.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-09-02T23:24:38Z",
+      "side": 1,
+      "message": "Not applicable any more.",
+      "parentUuid": "5524555d_86bc2a56",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 205,
+        "endChar": 2
+      },
+      "revId": "60e3cd5ee11379105c79ae6058a05c7af0e56cd1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e3aa5190_e4eb4c2c",
