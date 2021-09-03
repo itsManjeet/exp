@@ -73,16 +73,20 @@ func testContext(t *testing.T) ([]*ssa.Package, ModuleVulnerabilities) {
 			mod: &packages.Module{Path: "thirdparty.org/vulnerabilities", Version: "v1.0.1"},
 			vulns: []*osv.Entry{
 				{
-					ID:                "V1",
-					Package:           osv.Package{Name: "thirdparty.org/vulnerabilities/vuln"},
-					Affects:           osv.Affects{Ranges: []osv.AffectsRange{{Type: osv.TypeSemver, Introduced: "1.0.0", Fixed: "1.0.4"}, {Type: osv.TypeSemver, Introduced: "1.1.2"}}},
-					EcosystemSpecific: osv.GoSpecific{Symbols: []string{"VulnData.Vuln", "VulnData.VulnOnPtr"}},
+					ID: "V1",
+					Affected: []osv.Affected{{
+						Package:           osv.Package{Name: "thirdparty.org/vulnerabilities/vuln"},
+						Ranges:            osv.Affects{{Type: osv.TypeSemver, Events: []osv.RangeEvent{{Introduced: "1.0.0"}, {Fixed: "1.0.4"}, {Introduced: "1.1.2"}}}},
+						EcosystemSpecific: osv.EcosystemSpecific{Symbols: []string{"VulnData.Vuln", "VulnData.VulnOnPtr"}},
+					}},
 				},
 				{
-					ID:                "V2",
-					Package:           osv.Package{Name: "thirdparty.org/vulnerabilities/vuln"},
-					Affects:           osv.Affects{Ranges: []osv.AffectsRange{{Type: osv.TypeSemver, Introduced: "1.0.1", Fixed: "1.0.2"}}},
-					EcosystemSpecific: osv.GoSpecific{Symbols: []string{"VG"}},
+					ID: "V2",
+					Affected: []osv.Affected{{
+						Package:           osv.Package{Name: "thirdparty.org/vulnerabilities/vuln"},
+						Ranges:            osv.Affects{{Type: osv.TypeSemver, Events: []osv.RangeEvent{{Introduced: "1.0.1"}, {Fixed: "1.0.2"}}}},
+						EcosystemSpecific: osv.EcosystemSpecific{Symbols: []string{"VG"}},
+					}},
 				},
 			},
 		},
@@ -130,11 +134,12 @@ func projectTrace(trace []TraceElem) []TraceElem {
 // projectVulns simplifies vulnerabilities for testing comparison purposes
 // to only package path.
 func projectVulns(vulns []osv.Entry) []osv.Entry {
-	var nv []osv.Entry
-	for _, v := range vulns {
-		nv = append(nv, osv.Entry{Package: osv.Package{Name: v.Package.Name}})
-	}
-	return nv
+	// var nv []osv.Entry
+	// for _, v := range vulns {
+	// 	nv = append(nv, osv.Entry{Affected: []osv.Affected{{Package: osv.Package{Name: v.Package.Name}})
+	// }
+	// return nv
+	return vulns
 }
 
 // projectFindings simplifies findings for testing comparison purposes. Traces
