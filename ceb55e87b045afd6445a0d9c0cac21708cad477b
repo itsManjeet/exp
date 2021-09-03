@@ -74,6 +74,30 @@
       },
       "revId": "ceb55e87b045afd6445a0d9c0cac21708cad477b",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a10400d3_bfab7d04",
+        "filename": "shiny/iconvg/upgrade.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2021-09-03T01:35:01Z",
+      "side": 1,
+      "message": "For named return values (of type error) I typically always call them \"retErr\" so I don\u0027t ever have to think about whether a \"x, err :\u003d etc\" line in the function body would shadow it.",
+      "parentUuid": "8c2bf611_3be42b1a",
+      "range": {
+        "startLine": 36,
+        "startChar": 98,
+        "endLine": 36,
+        "endChar": 104
+      },
+      "revId": "ceb55e87b045afd6445a0d9c0cac21708cad477b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
