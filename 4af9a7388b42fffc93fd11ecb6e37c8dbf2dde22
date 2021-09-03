@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0f24588_31fbb275",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 12545
+      },
+      "writtenOn": "2021-09-03T20:55:23Z",
+      "side": 1,
+      "message": "The database has been updated, so we should try to land this sooner rather than later. I didn\u0027t update the govulncheck test since CL336969 removes them, we can just rebase once that lands.",
+      "revId": "4af9a7388b42fffc93fd11ecb6e37c8dbf2dde22",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
