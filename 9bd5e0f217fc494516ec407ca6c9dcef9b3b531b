@@ -55,6 +55,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4c4c8a9_10882f63",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-09-04T01:15:42Z",
+      "side": 1,
+      "message": "I\u0027ve removed the change for improved string formatting. It will come in a follow-up CL.\n\nOther things can\u0027t really be broken down. If we want to add info on unreachable vulns to Results, module and package info must be extracted within audit libraries, which is what we anyhow need to do in order to simplify APIs. That draws all other changes pretty much. Some of them become simplifications, especially tests.",
+      "parentUuid": "9fb62911_f05b8d96",
+      "revId": "9bd5e0f217fc494516ec407ca6c9dcef9b3b531b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c2f6961e_88931cbb",
@@ -78,6 +96,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "330af997_3535b6b2",
+        "filename": "vulndb/internal/audit/detect.go",
+        "patchSetId": 14
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-09-04T01:15:42Z",
+      "side": 1,
+      "message": "Yes, a separate CL has been sent out for this.",
+      "parentUuid": "c2f6961e_88931cbb",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 1
+      },
+      "revId": "9bd5e0f217fc494516ec407ca6c9dcef9b3b531b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dac74cdd_4baadf67",
@@ -91,6 +133,30 @@
       "writtenOn": "2021-09-02T20:06:04Z",
       "side": 1,
       "message": "I think this is a bit confusing, and also makes increasing the granularity of these results more complicated. A somewhat nicer approach would be something like\n\n  UnreachableVulns []struct{\n    Type UnreachableType // enum of \u003cpackage not imported, symbol not reachable, etc\u003e\n    Vulnerability *osv.Entry\n  }\n  \nThat way new types of unreachable vulns can be added by just introducing a new enum, and all of the unreachable vulns are in one place.",
+      "range": {
+        "startLine": 41,
+        "startChar": 1,
+        "endLine": 45,
+        "endChar": 26
+      },
+      "revId": "9bd5e0f217fc494516ec407ca6c9dcef9b3b531b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5de6955e_85042fab",
+        "filename": "vulndb/internal/audit/detect.go",
+        "patchSetId": 14
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-09-04T01:15:42Z",
+      "side": 1,
+      "message": "Nice suggestion.\n\nDone",
+      "parentUuid": "dac74cdd_4baadf67",
       "range": {
         "startLine": 41,
         "startChar": 1,
