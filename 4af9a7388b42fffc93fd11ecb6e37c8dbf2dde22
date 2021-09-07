@@ -72,6 +72,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8da53b83_7d4cc6ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 12545
+      },
+      "writtenOn": "2021-09-07T20:51:58Z",
+      "side": 1,
+      "message": "Yup, the DB was updated last week.",
+      "parentUuid": "bc816fcb_079b3471",
+      "revId": "4af9a7388b42fffc93fd11ecb6e37c8dbf2dde22",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c7a035cb_884493b4",
@@ -89,6 +107,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "afe99ecc_22bd41dd",
+        "filename": "vulndb/internal/audit/detect.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 12545
+      },
+      "writtenOn": "2021-09-07T20:51:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7a035cb_884493b4",
+      "revId": "4af9a7388b42fffc93fd11ecb6e37c8dbf2dde22",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "69ac92eb_1f557187",
@@ -102,6 +138,30 @@
       "writtenOn": "2021-09-04T00:01:13Z",
       "side": 1,
       "message": "Could you perhaps explain this?",
+      "range": {
+        "startLine": 137,
+        "startChar": 1,
+        "endLine": 141,
+        "endChar": 13
+      },
+      "revId": "4af9a7388b42fffc93fd11ecb6e37c8dbf2dde22",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc547a8c_89b242a2",
+        "filename": "vulndb/internal/audit/helpers_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 12545
+      },
+      "writtenOn": "2021-09-07T20:51:58Z",
+      "side": 1,
+      "message": "This is dead code, I\u0027ve just removed the function.",
+      "parentUuid": "69ac92eb_1f557187",
       "range": {
         "startLine": 137,
         "startChar": 1,
