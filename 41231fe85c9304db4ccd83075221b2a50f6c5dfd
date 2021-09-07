@@ -34,6 +34,24 @@
       "parentUuid": "8a3ad4b6_5b15768f",
       "revId": "41231fe85c9304db4ccd83075221b2a50f6c5dfd",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ab22bbe_6caa9c94",
+        "filename": "vulndb/internal/audit/detect.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-09-07T21:06:28Z",
+      "side": 0,
+      "message": "Done.",
+      "parentUuid": "21066616_70bbde2d",
+      "revId": "41231fe85c9304db4ccd83075221b2a50f6c5dfd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
