@@ -59,6 +59,30 @@
       },
       "revId": "ce13a3591eccc4e2859b39ba2249cef9be8531fe",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "010dc768_4824b974",
+        "filename": "vulndb/internal/audit/utils.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-09-09T02:01:59Z",
+      "side": 1,
+      "message": "I don\u0027t think this has to do much with CHA, VTA, or static call graph for that matter. We work on SSA level. There will be calls to (transitive) inits inside of a top-entry init in the SSA form. These calls are static, but this is abstracted away in siteCallees. The previous definition of siteCallees would disregard synthetic callees, which in this case are (transitive) inits.\n\nThe more I think, siteCallees should not disregard anything. What a call graph gives us, we should take. I initially introduced this filtering since CHA was spitting out a bunch of nonsense, as expected.\n\nPTAL",
+      "parentUuid": "fdbf2040_8028eaa6",
+      "range": {
+        "startLine": 56,
+        "startChar": 2,
+        "endLine": 56,
+        "endChar": 124
+      },
+      "revId": "ce13a3591eccc4e2859b39ba2249cef9be8531fe",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
