@@ -83,6 +83,30 @@
       },
       "revId": "ce13a3591eccc4e2859b39ba2249cef9be8531fe",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e617b2c0_78ad70d1",
+        "filename": "vulndb/internal/audit/utils.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-09-09T16:51:06Z",
+      "side": 1,
+      "message": "Resolved via +2",
+      "parentUuid": "010dc768_4824b974",
+      "range": {
+        "startLine": 56,
+        "startChar": 2,
+        "endLine": 56,
+        "endChar": 124
+      },
+      "revId": "ce13a3591eccc4e2859b39ba2249cef9be8531fe",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
