@@ -195,7 +195,7 @@ var stdPackages = make(map[string]bool)
 var loadStdsOnce sync.Once
 
 func isStdPackage(pkg *ssa.Package) bool {
-	if pkg != nil && pkg.Pkg != nil {
+	if pkg == nil || pkg.Pkg == nil {
 		return false
 	}
 
@@ -297,6 +297,10 @@ func callFinding(chain *callChain, modVulns ModuleVulnerabilities, results *Resu
 		c = c.parent
 	}
 
+	if callee.Package() == nil || callee.Package().Pkg == nil {
+		return
+	}
+
 	vulns := modVulns.VulnsForSymbol(callee.Package().Pkg.Path(), dbFuncName(callee))
 	for _, v := range serialize(vulns) {
 		results.addFinding(v, Finding{
@@ -330,6 +334,11 @@ func underRelatedVuln(chain *callChain, modVulns ModuleVulnerabilities) bool {
 		if c == nil || pkgPath(c.f) != pkg {
 			break
 		}
+
+		if c.f.Pkg == nil || c.f.Pkg.Pkg == nil {
+			continue
+		}
+
 		// TODO: can we optimize using the information on findings already reported?
 		if len(modVulns.VulnsForSymbol(c.f.Pkg.Pkg.Path(), dbFuncName(c.f))) > 0 {
 			return true
