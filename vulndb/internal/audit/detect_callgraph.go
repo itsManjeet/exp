@@ -55,7 +55,7 @@ func VulnerableSymbols(pkgs []*ssa.Package, modVulns ModuleVulnerabilities) Resu
 		panic("packages in pkgs must belong to a single common program")
 	}
 	entries := entryPoints(pkgs)
-	callGraph := callGraph(prog, entries)
+	callGraph := callGraph(prog, entries, modVulns)
 
 	queue := list.New()
 	for _, entry := range entries {
@@ -84,7 +84,7 @@ func VulnerableSymbols(pkgs []*ssa.Package, modVulns ModuleVulnerabilities) Resu
 }
 
 // callGraph builds a call graph of prog based on VTA analysis.
-func callGraph(prog *ssa.Program, entries []*ssa.Function) *callgraph.Graph {
+func callGraph(prog *ssa.Program, entries []*ssa.Function, modVulns ModuleVulnerabilities) *callgraph.Graph {
 	entrySlice := make(map[*ssa.Function]bool)
 	for _, e := range entries {
 		entrySlice[e] = true
@@ -102,7 +102,10 @@ func callGraph(prog *ssa.Program, entries []*ssa.Function) *callgraph.Graph {
 	fslice = forwardReachableFrom(entrySlice, vtaCg)
 	pruneSlice(fslice, allFuncs)
 
-	return vta.CallGraph(fslice, vtaCg)
+	cg := vta.CallGraph(fslice, vtaCg)
+
+	vulnSlice(allFuncs, entries, cg, modVulns)
+	return cg
 }
 
 func entryPoints(topPackages []*ssa.Package) []*ssa.Function {
