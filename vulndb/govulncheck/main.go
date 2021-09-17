@@ -38,6 +38,7 @@ var (
 	importsFlag = flag.Bool("imports", false, "")
 	allFlag     = flag.Bool("all", false, "")
 	testsFlag   = flag.Bool("tests", false, "")
+	graphFlag   = flag.Bool("graph", false, "")
 )
 
 const usage = `govulncheck: identify known vulnerabilities by call graph traversal.
@@ -257,7 +258,7 @@ func run(cfg *packages.Config, patterns []string, importsOnly bool, dbClient cli
 	if importsOnly {
 		results = audit.VulnerableImports(ssaPkgs, modVulns)
 	} else {
-		results = audit.VulnerableSymbols(ssaPkgs, modVulns)
+		results = audit.VulnerableSymbols(ssaPkgs, modVulns, *graphFlag)
 	}
 	return &results, nil
 }

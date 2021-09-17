@@ -64,9 +64,20 @@ func callName(call ssa.CallInstruction) string {
 	if !call.Common().IsInvoke() {
 		return fmt.Sprintf("%s.%s", call.Parent().Pkg.Pkg.Path(), call.Common().Value.Name())
 	}
+	return fmt.Sprintf("%s.%s", typeString(call.Common().Value.Type()), call.Common().Method.Name())
+}
+
+func gCallName(call *CallSite, parent *FuncNode) string {
+	if call.RecvType == "" {
+		return fmt.Sprintf("%s.%s", parent.PkgPath, call.Name)
+	}
+	return fmt.Sprintf("%s.%s", call.RecvType, call.Name)
+}
+
+func typeString(t types.Type) string {
 	buf := new(bytes.Buffer)
-	types.WriteType(buf, call.Common().Value.Type(), nil)
-	return fmt.Sprintf("%s.%s", buf, call.Common().Method.Name())
+	types.WriteType(buf, t, nil)
+	return buf.String()
 }
 
 func unresolved(call ssa.CallInstruction) bool {
