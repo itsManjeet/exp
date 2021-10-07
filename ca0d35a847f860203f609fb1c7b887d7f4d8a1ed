@@ -59,6 +59,30 @@
       },
       "revId": "ca0d35a847f860203f609fb1c7b887d7f4d8a1ed",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29a8f1f5_a14b4568",
+        "filename": "vulndb/internal/audit/vulnerability.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 12545
+      },
+      "writtenOn": "2021-10-07T16:43:16Z",
+      "side": 1,
+      "message": "Uh, this can be reduced to one line\n\n  modCacheDir \u003d filepath.Join(modCacheDir, \"pkg\")\n  modCacheDir \u003d filepath.Join(modCacheDir, \"mod\")\n\n  ...\n  \n  modCacheDir \u003d filepath.Join(modCacheDir, \"pkg\", \"mod\")",
+      "parentUuid": "5de3df3d_71e62797",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 1
+      },
+      "revId": "ca0d35a847f860203f609fb1c7b887d7f4d8a1ed",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
