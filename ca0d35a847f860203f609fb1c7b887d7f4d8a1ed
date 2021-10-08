@@ -131,6 +131,54 @@
       },
       "revId": "ca0d35a847f860203f609fb1c7b887d7f4d8a1ed",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ad7bbe0_f04c4a35",
+        "filename": "vulndb/internal/audit/vulnerability.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-10-08T21:58:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "397ade53_8f70bad2",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 1
+      },
+      "revId": "ca0d35a847f860203f609fb1c7b887d7f4d8a1ed",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "591124c4_106aea58",
+        "filename": "vulndb/internal/audit/vulnerability.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-10-08T21:58:18Z",
+      "side": 1,
+      "message": "Done\n\nIt seems there is an even simpler way: pretend that test packages.Module are in go mod cache, i.e., set the test packages.Module.Dir to modCacheDir.",
+      "parentUuid": "397ade53_8f70bad2",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 1
+      },
+      "revId": "ca0d35a847f860203f609fb1c7b887d7f4d8a1ed",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
