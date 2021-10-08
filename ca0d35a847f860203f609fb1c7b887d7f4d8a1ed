@@ -107,6 +107,30 @@
       },
       "revId": "ca0d35a847f860203f609fb1c7b887d7f4d8a1ed",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "397ade53_8f70bad2",
+        "filename": "vulndb/internal/audit/vulnerability.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 12545
+      },
+      "writtenOn": "2021-10-08T18:49:59Z",
+      "side": 1,
+      "message": "You should just be able to modify GOPATH and GOMODCACHE in the test body, you won\u0027t be able to test the exact functionality obviously, but you\u0027ll hit most of it.",
+      "parentUuid": "1aecbfdb_a967382a",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 1
+      },
+      "revId": "ca0d35a847f860203f609fb1c7b887d7f4d8a1ed",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
