@@ -53,6 +53,24 @@
       "message": "In some cases, mod.Dir will be empty. The documentation says that mod.Dir is\n\n\"directory holding files for this module, if any\"\n\nThis suggests that this might be empty sometimes. Perhaps we should just return false whenever modDir \u003d\u003d \"\"?\n\nFor more context, I see this in hashicorp-vault project for pretty much all dependencies, such as github.com/Azure/azure-pipeline-go. Note that mod.Replace\u003d\u003dnil for those dependencies.",
       "revId": "9d437fee8864546f6fbbd651e76b39618127817f",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c1e980d_a27c13ca",
+        "filename": "vulndb/internal/audit/vulnerability.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 12545
+      },
+      "writtenOn": "2021-10-11T18:37:10Z",
+      "side": 1,
+      "message": "We should skip them, this typically indicates a weird pre-module vendoring situation where we cannot reliably determine the version anyway.\n\nSidenote: you may be analyzing an old version of vault, they switched from master -\u003e main at some point as the default branch, and at tip I no longer see this behavior.",
+      "parentUuid": "065613a8_7ba02ffa",
+      "revId": "9d437fee8864546f6fbbd651e76b39618127817f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
