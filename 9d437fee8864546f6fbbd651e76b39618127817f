@@ -71,6 +71,24 @@
       "parentUuid": "065613a8_7ba02ffa",
       "revId": "9d437fee8864546f6fbbd651e76b39618127817f",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9171b00a_98a598d3",
+        "filename": "vulndb/internal/audit/vulnerability.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-10-11T21:31:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c1e980d_a27c13ca",
+      "revId": "9d437fee8864546f6fbbd651e76b39618127817f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
