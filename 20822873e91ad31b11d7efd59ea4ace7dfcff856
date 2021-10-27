@@ -55,6 +55,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "beadee41_b3d15bdf",
+        "filename": "vulncheck/vulncheck.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-10-27T16:50:32Z",
+      "side": 1,
+      "message": "Oh, yes!",
+      "parentUuid": "a4d4f26e_052abf30",
+      "revId": "20822873e91ad31b11d7efd59ea4ace7dfcff856",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4a066448_5a557a9e",
@@ -78,6 +96,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcb426fa_658b4d48",
+        "filename": "vulncheck/vulncheck.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-10-27T16:50:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a066448_5a557a9e",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 76
+      },
+      "revId": "20822873e91ad31b11d7efd59ea4ace7dfcff856",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c1901792_bc231ffa",
@@ -91,6 +133,30 @@
       "writtenOn": "2021-10-27T13:14:19Z",
       "side": 1,
       "message": "It would be nice to make these full symbol comments, so that they appear on https://pkg.go.dev/golang.org/x/exp/vulncheck (once this CL is merged)",
+      "range": {
+        "startLine": 70,
+        "startChar": 27,
+        "endLine": 70,
+        "endChar": 80
+      },
+      "revId": "20822873e91ad31b11d7efd59ea4ace7dfcff856",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad35dc91_3c59dedd",
+        "filename": "vulncheck/vulncheck.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-10-27T16:50:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1901792_bc231ffa",
       "range": {
         "startLine": 70,
         "startChar": 27,
