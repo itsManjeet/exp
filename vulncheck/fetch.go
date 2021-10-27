@@ -105,10 +105,11 @@ func isLocal(mod *packages.Module) bool {
 	return !strings.HasPrefix(modDir, modCacheDirectory())
 }
 
+// TODO: define modCacheDir using cmd/go/internal/cfg.GOMODCACHE
+var modCacheDir string = os.Getenv("GOMODCACHE")
+
 func modCacheDirectory() string {
-	var modCacheDir string
-	// TODO: define modCacheDir using cmd/go/internal/cfg.GOMODCACHE
-	if modCacheDir = os.Getenv("GOMODCACHE"); modCacheDir == "" {
+	if modCacheDir == "" {
 		if modCacheDir = os.Getenv("GOPATH"); modCacheDir == "" {
 			modCacheDir = build.Default.GOPATH
 		}
