@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0435a690_76326079",
+        "filename": "vulncheck/vulncheck.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 30038
+      },
+      "writtenOn": "2021-10-27T18:28:09Z",
+      "side": 1,
+      "message": "nit: may \"signals that vulncheck should analyze import chains only...\"? (commands reads weird to me, since this is a config and not actually commanding anything)",
+      "range": {
+        "startLine": 18,
+        "startChar": 31,
+        "endLine": 18,
+        "endChar": 50
+      },
+      "revId": "d46cf871bd2bd2a5ce0f965895748aa8535329a2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
