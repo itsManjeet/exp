@@ -16,6 +16,24 @@
       "message": "Is the plan to abandon this CL?",
       "revId": "c2d632503fda1b10b2651ca3641626a3f2a4247d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "674d8491_9c3c7d66",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-10-28T16:43:10Z",
+      "side": 1,
+      "message": "Yes. Removing reviewers and abandoning this CL.",
+      "parentUuid": "303400ec_6b08de21",
+      "revId": "c2d632503fda1b10b2651ca3641626a3f2a4247d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
