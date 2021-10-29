@@ -53,6 +53,24 @@
       "message": "The change makes sense. I\u0027m not very familiar with X11 headers and wouldn\u0027t be able to suggest a simpler or more canonical set of imports to use if there\u0027s something better.",
       "revId": "c6bd33ff098a062792c863128cbd6ae08ff87afd",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e56f2050_f2829682",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2021-10-29T17:00:03Z",
+      "side": 1,
+      "message": "FWIW, https://www.x.org/releases/X11R7.6/doc/libX11/specs/libX11/libX11.html#Standard_Header_Files seems to say that Xlib.h is the main entrypoint.\n\n(I found the dependency on Xutil.h by grepping /usr/include/X11 for the symbol that was still broken after adding the Xlib.h include. 😩)",
+      "parentUuid": "1a38e5fe_1802e8d2",
+      "revId": "c6bd33ff098a062792c863128cbd6ae08ff87afd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
