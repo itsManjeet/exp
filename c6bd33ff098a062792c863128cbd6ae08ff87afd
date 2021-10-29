@@ -71,6 +71,24 @@
       "parentUuid": "1a38e5fe_1802e8d2",
       "revId": "c6bd33ff098a062792c863128cbd6ae08ff87afd",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc063c4f_4adbd6a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2021-10-29T17:01:09Z",
+      "side": 1,
+      "message": "Pretty sure the rule in X11 libraries is:\nKeep adding headers until it works. Then stop and back away slowly.",
+      "parentUuid": "e56f2050_f2829682",
+      "revId": "c6bd33ff098a062792c863128cbd6ae08ff87afd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
