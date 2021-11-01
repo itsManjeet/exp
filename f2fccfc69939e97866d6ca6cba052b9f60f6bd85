@@ -61,6 +61,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "707860cc_853f24e2",
+        "filename": "vulncheck/fetch.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-11-01T17:55:27Z",
+      "side": 1,
+      "message": "Ok, sounds good. Going forward, I will create such TODOs for important issues potentially needing broader discussion. This one I will skip.",
+      "parentUuid": "8e2b62a8_0e8d1c8b",
+      "range": {
+        "startLine": 110,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 65
+      },
+      "revId": "f2fccfc69939e97866d6ca6cba052b9f60f6bd85",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1e3661eb_4312198a",
@@ -74,6 +98,30 @@
       "writtenOn": "2021-11-01T14:04:28Z",
       "side": 1,
       "message": "ditto re: TODO comment above",
+      "range": {
+        "startLine": 174,
+        "startChar": 0,
+        "endLine": 174,
+        "endChar": 59
+      },
+      "revId": "f2fccfc69939e97866d6ca6cba052b9f60f6bd85",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16b17f06_5fe1de60",
+        "filename": "vulncheck/vulncheck.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-11-01T17:55:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e3661eb_4312198a",
       "range": {
         "startLine": 174,
         "startChar": 0,
