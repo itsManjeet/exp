@@ -127,7 +127,8 @@ type RequireGraph struct {
 type ModNode struct {
 	Path    string
 	Version string
-	Replace *ModNode
+	// Replace is the ID of the replacemenet module node, if any.
+	Replace int
 	// RequiredBy contains IDs of the modules requiring this module.
 	RequiredBy []int
 }

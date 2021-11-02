@@ -22,9 +22,14 @@ func Source(pkgs []*packages.Package, cfg *Config) (*Result, error) {
 		Imports:  &ImportGraph{Packages: make(map[int]*PkgNode)},
 		Requires: &RequireGraph{Modules: make(map[int]*ModNode)},
 	}
-	vulnPkgImportSlice(pkgs, modVulns, result)
-	// TODO(zpavlinovic): compute module and call graph slice.
+	vulnImportsRequiresSlice(pkgs, modVulns, result)
 	return result, nil
+}
+
+// modNodeWithId is a wrapper around ModNode remembering node id.
+type modNodeWithIdVal struct {
+	node *ModNode
+	id   int
 }
 
 // pkgId is an id counter for nodes of Imports graph.
@@ -35,18 +40,29 @@ func nextPkgID() int {
 	return pkgID
 }
 
-// vulnPkgImportSlice computes the slice of pkg imports graph leading to imports of vulnerable
-// packages in modVulns and stores the slice to result.
+// modId is an id counter for nodes of Requires graph.
+var modID int = 0
+
+func nextModID() int {
+	modID += 1
+	return modID
+}
+
+// vulnImportsRequiresSlice computes the slice of pkg imports and requires graph
+// leading to imports/requires of vulnerable packages/modules in modVulns and
+// stores the computed slices to result.
 func vulnPkgImportSlice(pkgs []*packages.Package, modVulns moduleVulnerabilities, result *Result) {
-	// analyzed contains information on packages analyzed thus far.
+	// analyzedPkgs contains information on packages analyzed thus far.
 	// If a package is mapped to nil, this means it has been visited
 	// but it does not lead to a vulnerable imports. Otherwise, a
 	// visited package is mapped to Imports package node.
-	analyzed := make(map[*packages.Package]*PkgNode)
+	analyzedPkgs := make(map[*packages.Package]*PkgNode)
+	// Set of analyzed modules, identified with their path and version.
+	analyzedMods := make(map[string]modNodeWithId)
 	for _, pkg := range pkgs {
 		// Top level packages that lead to vulnerable imports are
 		// stored as result.Imports graph entry points.
-		if e := vulnImportSlice(pkg, modVulns, result, analyzed); e != nil {
+		if e := vulnImportSlice(pkg, modVulns, result, analyzedPkgs, analyzedMods); e != nil {
 			result.Imports.Entries = append(result.Imports.Entries, e)
 		}
 	}
@@ -56,16 +72,16 @@ func vulnPkgImportSlice(pkgs []*packages.Package, modVulns moduleVulnerabilities
 // a package with known vulnerabilities. If that is the case, populates result.Imports
 // graph with this reachability information and returns the result.Imports package
 // node for pkg. Otherwise, returns nil.
-func vulnImportSlice(pkg *packages.Package, modVulns moduleVulnerabilities, result *Result, analyzed map[*packages.Package]*PkgNode) *PkgNode {
-	if pn, ok := analyzed[pkg]; ok {
+func vulnImportSlice(pkg *packages.Package, modVulns moduleVulnerabilities, result *Result, analyzedPkgs map[*packages.Package]*PkgNode, analyzedMods map[string]node) *PkgNode {
+	if pn, ok := analyzedPkgs[pkg]; ok {
 		return pn
 	}
-	analyzed[pkg] = nil
+	analyzedPkgs[pkg] = nil
 	// Recursively compute which direct dependencies lead to an import of
 	// a vulnerable package and remember the nodes of such dependencies.
 	var onSlice []*PkgNode
 	for _, imp := range pkg.Imports {
-		if impNode := vulnImportSlice(imp, modVulns, result, analyzed); impNode != nil {
+		if impNode := vulnImportSlice(imp, modVulns, result, analyzedPkgs); impNode != nil {
 			onSlice = append(onSlice, impNode)
 		}
 	}
@@ -84,7 +100,7 @@ func vulnImportSlice(pkg *packages.Package, modVulns moduleVulnerabilities, resu
 		Name: pkg.Name,
 		Path: pkg.PkgPath,
 	}
-	analyzed[pkg] = pkgNode
+	analyzedPkgs[pkg] = pkgNode
 
 	id := nextPkgID()
 	result.Imports.Packages[id] = pkgNode
@@ -114,4 +130,44 @@ func vulnImportSlice(pkg *packages.Package, modVulns moduleVulnerabilities, resu
 	}
 
 	return pkgNode
+}
+
+func moduleNode(pkg *packages.Package, result *Result, analyzedMods map[string]modNodeWithId) modNodeWithId {
+	mod := pkg.Module
+	if mod == nil {
+		return modNodeWithId{}
+	}
+
+	mk := modKey(mod)
+	if mn, ok := analyzedMods[mk]; ok {
+		return mn
+	}
+
+	id := nextModID()
+	n := &ModNode{
+		Path:    mod.Path,
+		Version: mod.Version,
+	}
+
+	if mod.Replace != nil {
+		rmk := modKey(mod.Replace)
+		if rmn, ok := analyzed[rmk]; ok {
+			n.Replace = rmn.id
+		} else {
+			rid := nextModID()
+			n.Replace = rid
+			rModNode := &ModNode{
+				Path:    mod.Replace.Path,
+				Version: mod.Replace.Version,
+			}
+			analyzedMods[rmk] = &modNodeWithId{
+				node: rModNode,
+				id:   rid,
+			}
+		}
+	}
+	return modNodeWithId{
+		node: n,
+		id:   id,
+	}
 }
