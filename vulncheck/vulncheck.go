@@ -127,7 +127,8 @@ type RequireGraph struct {
 type ModNode struct {
 	Path    string
 	Version string
-	Replace *ModNode
+	// Replace is the ID of the replacement module node, if any.
+	Replace int
 	// RequiredBy contains IDs of the modules requiring this module.
 	RequiredBy []int
 }
@@ -150,6 +151,9 @@ type PkgNode struct {
 	Module int
 	// ImportedBy contains IDs of packages directly importing this package.
 	ImportedBy []int
+
+	// pkg is used for connecting package node to module and call graph nodes.
+	pkg *packages.Package
 }
 
 // moduleVulnerabilities is an internal structure for
