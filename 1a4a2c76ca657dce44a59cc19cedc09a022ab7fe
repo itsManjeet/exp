@@ -87,6 +87,24 @@
       "message": "Sounds like it would be worth asking the compiler team about why and how this happens, so we can also learn how to handle it properly every time.",
       "revId": "1a4a2c76ca657dce44a59cc19cedc09a022ab7fe",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "735860c4_e70140ba",
+        "filename": "vulndb/internal/binscan/exe.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 12545
+      },
+      "writtenOn": "2021-11-03T16:58:08Z",
+      "side": 1,
+      "message": "I\u0027m going to submit this as-is so that we can get some feedback from people testing it out, and will send a message to the compiler folks to see if they have thoughts on a better/more correct implementation.",
+      "parentUuid": "5f480b04_cfb167d4",
+      "revId": "1a4a2c76ca657dce44a59cc19cedc09a022ab7fe",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
