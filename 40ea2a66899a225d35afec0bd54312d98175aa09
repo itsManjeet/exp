@@ -179,6 +179,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a2be066_11dfe155",
+        "filename": "vulncheck/source.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 30038
+      },
+      "writtenOn": "2021-11-09T17:21:44Z",
+      "side": 1,
+      "message": "I like using this to easily trace where errors are coming from, but up to you if it is useful in this context.",
+      "parentUuid": "4443bc2e_1cf15b55",
+      "range": {
+        "startLine": 18,
+        "startChar": 52,
+        "endLine": 18,
+        "endChar": 66
+      },
+      "revId": "40ea2a66899a225d35afec0bd54312d98175aa09",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "abfe4514_91a9cedc",
@@ -210,6 +234,24 @@
       "side": 1,
       "message": "I would assume then that the same approach would be used later when we have IDs for module nodes and callgraph nodes. That would mean we need to pass those around too. I believe things will be messier than they are right now. Id is also not updated at every recursive call, yet only when a package is on a vulnerable slice.\n\nI am not sure if things become more clear down the road, but I am happy to be argued otherwise. With the current approach, id logic is localized within few simple functions with descriptive names.",
       "parentUuid": "abfe4514_91a9cedc",
+      "revId": "40ea2a66899a225d35afec0bd54312d98175aa09",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8c3263d_b39d5862",
+        "filename": "vulncheck/source.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 30038
+      },
+      "writtenOn": "2021-11-09T17:21:44Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f2507155_5ad0a6cf",
       "revId": "40ea2a66899a225d35afec0bd54312d98175aa09",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
