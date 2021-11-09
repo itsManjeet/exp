@@ -1,0 +1,10 @@
+entity:
+  ship
+  mine
+
+action:
+  move
+  new
+  shoot
+  set
+  remove
