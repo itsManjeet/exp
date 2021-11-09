@@ -174,6 +174,30 @@
       },
       "revId": "1141d722b53c4dc988cfed103cf07a6343d8a640",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9bc21eb_40037cc2",
+        "filename": "vulncheck/vulncheck.go",
+        "patchSetId": 10
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-11-09T23:59:54Z",
+      "side": 1,
+      "message": "The graph tells us the latter, how are vulnerable packages imported by user packages. In general, we have a subgraph of the imports graph related to vulnerabilities. This graph can be bidirected or just directed. We have it directed but from sinks (vulnerable packages) to roots (entry packages). The explanation for this direction can be found in the design doc. tldr is that it is the cleanest solution in the presence of graph sharing.",
+      "parentUuid": "0f0520f5_b1f81cf3",
+      "range": {
+        "startLine": 136,
+        "startChar": 58,
+        "endLine": 138,
+        "endChar": 82
+      },
+      "revId": "1141d722b53c4dc988cfed103cf07a6343d8a640",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
