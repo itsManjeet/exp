@@ -227,6 +227,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "38ee229b_82629f46",
+        "filename": "vulncheck/source.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 30038
+      },
+      "writtenOn": "2021-11-09T17:29:34Z",
+      "side": 1,
+      "message": "yup!",
+      "parentUuid": "8debd646_9dc708cc",
+      "range": {
+        "startLine": 18,
+        "startChar": 52,
+        "endLine": 18,
+        "endChar": 66
+      },
+      "revId": "40ea2a66899a225d35afec0bd54312d98175aa09",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "abfe4514_91a9cedc",
