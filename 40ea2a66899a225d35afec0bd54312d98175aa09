@@ -61,6 +61,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "12cbed03_0154679f",
+        "filename": "vulncheck/fetch.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-11-09T17:14:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e02a7bec_e163e42d",
+      "range": {
+        "startLine": 100,
+        "startChar": 3,
+        "endLine": 100,
+        "endChar": 7
+      },
+      "revId": "40ea2a66899a225d35afec0bd54312d98175aa09",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1b23a92f_f5f96b44",
@@ -74,6 +98,30 @@
       "writtenOn": "2021-11-09T01:53:29Z",
       "side": 1,
       "message": "slices",
+      "range": {
+        "startLine": 11,
+        "startChar": 55,
+        "endLine": 11,
+        "endChar": 63
+      },
+      "revId": "40ea2a66899a225d35afec0bd54312d98175aa09",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7887fac0_99c78fe0",
+        "filename": "vulncheck/source.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-11-09T17:14:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b23a92f_f5f96b44",
       "range": {
         "startLine": 11,
         "startChar": 55,
@@ -109,6 +157,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4443bc2e_1cf15b55",
+        "filename": "vulncheck/source.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-11-09T17:14:46Z",
+      "side": 1,
+      "message": "What is the immediate benefit of this here, in this particular context?",
+      "parentUuid": "1632ce97_d61cd59b",
+      "range": {
+        "startLine": 18,
+        "startChar": 52,
+        "endLine": 18,
+        "endChar": 66
+      },
+      "revId": "40ea2a66899a225d35afec0bd54312d98175aa09",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "abfe4514_91a9cedc",
         "filename": "vulncheck/source.go",
         "patchSetId": 11
@@ -126,6 +198,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f2507155_5ad0a6cf",
+        "filename": "vulncheck/source.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-11-09T17:14:46Z",
+      "side": 1,
+      "message": "I would assume then that the same approach would be used later when we have IDs for module nodes and callgraph nodes. That would mean we need to pass those around too. I believe things will be messier than they are right now. Id is also not updated at every recursive call, yet only when a package is on a vulnerable slice.\n\nI am not sure if things become more clear down the road, but I am happy to be argued otherwise. With the current approach, id logic is localized within few simple functions with descriptive names.",
+      "parentUuid": "abfe4514_91a9cedc",
+      "revId": "40ea2a66899a225d35afec0bd54312d98175aa09",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8c17518a_18a88b48",
         "filename": "vulncheck/source_test.go",
         "patchSetId": 11
@@ -137,6 +227,30 @@
       "writtenOn": "2021-11-09T01:53:29Z",
       "side": 1,
       "message": "make an issue for this (unless it is being address in the next CL)",
+      "range": {
+        "startLine": 117,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 59
+      },
+      "revId": "40ea2a66899a225d35afec0bd54312d98175aa09",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee682712_f8f93738",
+        "filename": "vulncheck/source_test.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-11-09T17:14:46Z",
+      "side": 1,
+      "message": "Addressed in upcoming CLs.",
+      "parentUuid": "8c17518a_18a88b48",
       "range": {
         "startLine": 117,
         "startChar": 0,
