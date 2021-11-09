@@ -203,6 +203,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8debd646_9dc708cc",
+        "filename": "vulncheck/source.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-11-09T17:24:40Z",
+      "side": 1,
+      "message": "I see. Suppose we have calls A-\u003eB-\u003eC-\u003eD and an error is generated in D and propagated all the way back. Wrapping errors then helps to trace where the error is created, in this case D?\n\nIf that is true, then currently I would say it is not needed as the errors already happen top-level.",
+      "parentUuid": "6a2be066_11dfe155",
+      "range": {
+        "startLine": 18,
+        "startChar": 52,
+        "endLine": 18,
+        "endChar": 66
+      },
+      "revId": "40ea2a66899a225d35afec0bd54312d98175aa09",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "abfe4514_91a9cedc",
