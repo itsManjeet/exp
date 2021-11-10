@@ -342,6 +342,30 @@
       },
       "revId": "1141d722b53c4dc988cfed103cf07a6343d8a640",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bad609b_bd9ffd18",
+        "filename": "vulncheck/vulncheck.go",
+        "patchSetId": 10
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-11-10T18:55:37Z",
+      "side": 1,
+      "message": "Very good point. I revised the comments on the graphs to make explicit what the graphs conceptually stand for and how are they technically encoded as well as why. Hopefully that should make things more clear.",
+      "parentUuid": "9ed88355_cc015fa6",
+      "range": {
+        "startLine": 136,
+        "startChar": 58,
+        "endLine": 138,
+        "endChar": 82
+      },
+      "revId": "1141d722b53c4dc988cfed103cf07a6343d8a640",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
