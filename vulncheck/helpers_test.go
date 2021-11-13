@@ -6,6 +6,7 @@ package vulncheck
 
 import (
 	"fmt"
+	"sort"
 
 	"golang.org/x/tools/go/packages"
 	"golang.org/x/tools/go/packages/packagestest"
@@ -79,6 +80,11 @@ func impGraphToStrMap(ig *ImportGraph) map[string][]string {
 			m[pred.Path] = append(m[pred.Path], n.Path)
 		}
 	}
+
+	// determinize the map
+	for _, imports := range m {
+		sort.Strings(imports)
+	}
 	return m
 }
 
@@ -89,6 +95,47 @@ func reqGraphToStrMap(rg *RequireGraph) map[string][]string {
 			pred := rg.Modules[predId]
 			m[pred.Path] = append(m[pred.Path], n.Path)
 		}
+	}
+
+	// determinize the map
+	for _, requires := range m {
+		sort.Strings(requires)
+	}
+	return m
+}
+
+func callGraphToStrMap(cg *CallGraph) map[string][]string {
+	type edge struct {
+		s int
+		t int
+	}
+	// seen edges, to avoid repetitions
+	seen := make(map[edge]bool)
+
+	funcName := func(fn *FuncNode) string {
+		if fn.RecvType == "" {
+			return fmt.Sprintf("%s.%s", fn.PkgPath, fn.Name)
+		}
+		return fmt.Sprintf("%s.%s", fn.RecvType, fn.Name)
+	}
+
+	m := make(map[string][]string)
+	for _, n := range cg.Funcs {
+		fName := funcName(n)
+		for _, callsite := range n.CallSites {
+			e := edge{s: callsite.Parent, t: n.ID}
+			if seen[e] {
+				continue
+			}
+			caller := cg.Funcs[e.s]
+			callerName := funcName(caller)
+			m[callerName] = append(m[callerName], fName)
+		}
+	}
+
+	// determinize the map
+	for _, calls := range m {
+		sort.Strings(calls)
 	}
 	return m
 }

@@ -47,7 +47,7 @@ func forward(f *ssa.Function, cg *callgraph.Graph, seen map[*ssa.Function]bool) 
 // pruneSlice removes functions in `slice` that are in `toPrune`.
 func pruneSlice(slice map[*ssa.Function]bool, toPrune map[*ssa.Function]bool) {
 	for f := range slice {
-		if toPrune[f] {
+		if !toPrune[f] {
 			delete(slice, f)
 		}
 	}
