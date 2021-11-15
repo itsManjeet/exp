@@ -61,6 +61,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d077d2dc_4becc39d",
+        "filename": "vulncheck/slicing.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-11-15T21:54:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26996766_9cb19f20",
+      "range": {
+        "startLine": 24,
+        "startChar": 4,
+        "endLine": 24,
+        "endChar": 25
+      },
+      "revId": "9a74657f730818d87c45f91d7e5100b565f30f84",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8567198e_471b70d6",
@@ -74,6 +98,30 @@
       "writtenOn": "2021-11-15T21:05:27Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 50,
+        "startChar": 5,
+        "endLine": 50,
+        "endChar": 29
+      },
+      "revId": "9a74657f730818d87c45f91d7e5100b565f30f84",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b35c7ba5_e47e9f1c",
+        "filename": "vulncheck/slicing.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-11-15T21:54:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8567198e_471b70d6",
       "range": {
         "startLine": 50,
         "startChar": 5,
@@ -107,6 +155,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5253644c_748184d8",
+        "filename": "vulncheck/slicing_test.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-11-15T21:54:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5870a4fe_dbd18b70",
+      "range": {
+        "startLine": 19,
+        "startChar": 5,
+        "endLine": 19,
+        "endChar": 18
+      },
+      "revId": "9a74657f730818d87c45f91d7e5100b565f30f84",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b59e3a76_69bc31ec",
@@ -124,6 +196,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "100b5eed_d32f8ff4",
+        "filename": "vulncheck/utils.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-11-15T21:54:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b59e3a76_69bc31ec",
+      "revId": "9a74657f730818d87c45f91d7e5100b565f30f84",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "17b23265_79c0bc25",
@@ -137,6 +227,30 @@
       "writtenOn": "2021-11-15T21:05:27Z",
       "side": 1,
       "message": "\"dbFuncName computes a ...\"",
+      "range": {
+        "startLine": 37,
+        "startChar": 3,
+        "endLine": 37,
+        "endChar": 11
+      },
+      "revId": "9a74657f730818d87c45f91d7e5100b565f30f84",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1d40994_eff36efa",
+        "filename": "vulncheck/utils.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-11-15T21:54:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17b23265_79c0bc25",
       "range": {
         "startLine": 37,
         "startChar": 3,
