@@ -190,6 +190,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4eb3673d_6a709e72",
+        "filename": "slices/slices.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2021-11-17T21:31:24Z",
+      "side": 1,
+      "message": "Oh, thanks, I fixed a different one.  I\u0027ve fixed this one too now.",
+      "parentUuid": "084d9fad_704188f9",
+      "range": {
+        "startLine": 14,
+        "startChar": 43,
+        "endLine": 14,
+        "endChar": 54
+      },
+      "revId": "d6bc87e908730bfe1d7cde69193c40a95e3b08ce",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a33cbc95_8815b4e9",
