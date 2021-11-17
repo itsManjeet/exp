@@ -55,6 +55,23 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "59c9cf27_43745409",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2021-11-17T05:50:31Z",
+      "side": 1,
+      "message": "Changed to use E for the slice element type parameter.",
+      "revId": "d6bc87e908730bfe1d7cde69193c40a95e3b08ce",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0da6ee52_17bcc92e",
@@ -68,6 +85,30 @@
       "writtenOn": "2021-11-17T05:42:27Z",
       "side": 1,
       "message": "s/otherwise specified/specified otherwise/ ?",
+      "range": {
+        "startLine": 6,
+        "startChar": 10,
+        "endLine": 6,
+        "endChar": 29
+      },
+      "revId": "d6bc87e908730bfe1d7cde69193c40a95e3b08ce",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8fcc476_5af01ba6",
+        "filename": "slices/slices.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2021-11-17T05:50:31Z",
+      "side": 1,
+      "message": "I think \"otherwise specified\" is more conventional here.",
+      "parentUuid": "0da6ee52_17bcc92e",
       "range": {
         "startLine": 6,
         "startChar": 10,
@@ -101,6 +142,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf48c44a_2ac60c23",
+        "filename": "slices/slices.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2021-11-17T05:50:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bab701f3_9b708f2d",
+      "range": {
+        "startLine": 14,
+        "startChar": 43,
+        "endLine": 14,
+        "endChar": 54
+      },
+      "revId": "d6bc87e908730bfe1d7cde69193c40a95e3b08ce",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a33cbc95_8815b4e9",
@@ -114,6 +179,30 @@
       "writtenOn": "2021-11-17T05:42:27Z",
       "side": 1,
       "message": "s/len(s2)/s2len/ ?\n\nor just use len(s2) everywhere and get rid of s2len?",
+      "range": {
+        "startLine": 70,
+        "startChar": 14,
+        "endLine": 70,
+        "endChar": 21
+      },
+      "revId": "d6bc87e908730bfe1d7cde69193c40a95e3b08ce",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55a0b729_28df9302",
+        "filename": "slices/slices.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2021-11-17T05:50:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a33cbc95_8815b4e9",
       "range": {
         "startLine": 70,
         "startChar": 14,
@@ -141,6 +230,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "89272498_a72d49bd",
+        "filename": "slices/slices.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2021-11-17T05:50:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "738ecc59_f8b6ed9f",
+      "revId": "d6bc87e908730bfe1d7cde69193c40a95e3b08ce",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1f8cffe1_f3008c8e",
@@ -154,6 +261,24 @@
       "writtenOn": "2021-11-17T05:42:27Z",
       "side": 1,
       "message": "IndexFunc returns the index i of the first element of s satisfying f(s[i]), or -1 if none do.\n\nor even shorter:\n\nIndexFunc returns the first index i satisfying f(s[i]), or -1 if none do.",
+      "revId": "d6bc87e908730bfe1d7cde69193c40a95e3b08ce",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30b7818a_7be53f4d",
+        "filename": "slices/slices.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2021-11-17T05:50:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f8cffe1_f3008c8e",
       "revId": "d6bc87e908730bfe1d7cde69193c40a95e3b08ce",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -181,6 +306,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9967a39_f12f8e9c",
+        "filename": "slices/slices_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2021-11-17T05:50:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "105ab2db_1b57741e",
+      "range": {
+        "startLine": 77,
+        "startChar": 30,
+        "endLine": 77,
+        "endChar": 34
+      },
+      "revId": "d6bc87e908730bfe1d7cde69193c40a95e3b08ce",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "921bad4d_605535c8",
@@ -194,6 +343,30 @@
       "writtenOn": "2021-11-17T05:42:27Z",
       "side": 1,
       "message": "maybe add tests with two equal elements\n\n[]int{1, 2, 2, 3}\n[]int{1, 2, 3, 2}",
+      "range": {
+        "startLine": 304,
+        "startChar": 10,
+        "endLine": 304,
+        "endChar": 11
+      },
+      "revId": "d6bc87e908730bfe1d7cde69193c40a95e3b08ce",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85e26033_cc0f6a38",
+        "filename": "slices/slices_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2021-11-17T05:50:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "921bad4d_605535c8",
       "range": {
         "startLine": 304,
         "startChar": 10,
