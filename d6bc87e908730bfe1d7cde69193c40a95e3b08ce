@@ -166,6 +166,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "084d9fad_704188f9",
+        "filename": "slices/slices.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2021-11-17T16:52:36Z",
+      "side": 1,
+      "message": "I assume by \"Done\" you decided that this doesn\u0027t need to change (as there\u0027s no change). Just double-checking.",
+      "parentUuid": "bf48c44a_2ac60c23",
+      "range": {
+        "startLine": 14,
+        "startChar": 43,
+        "endLine": 14,
+        "endChar": 54
+      },
+      "revId": "d6bc87e908730bfe1d7cde69193c40a95e3b08ce",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a33cbc95_8815b4e9",
