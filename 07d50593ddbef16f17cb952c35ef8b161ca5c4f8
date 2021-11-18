@@ -55,6 +55,167 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "5794635d_e754e6eb",
+        "filename": "vulncheck/helpers_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-11-18T19:20:18Z",
+      "side": 1,
+      "message": "\"Sort the map values to make them deterministic.\"\n\n(determinize isn\u0027t a word, and this just affects the map values - iterating over the map will still be non-deterministic)\n\nAlso, since you do this several times on a map[string][]string, I\u0027d suggest making it a separate function (sortMapValues, perhaps).",
+      "range": {
+        "startLine": 84,
+        "startChar": 0,
+        "endLine": 84,
+        "endChar": 23
+      },
+      "revId": "07d50593ddbef16f17cb952c35ef8b161ca5c4f8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d490189a_7bdad43e",
+        "filename": "vulncheck/helpers_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-11-18T19:20:18Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 23
+      },
+      "revId": "07d50593ddbef16f17cb952c35ef8b161ca5c4f8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "282999ba_9987cc11",
+        "filename": "vulncheck/helpers_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-11-18T19:20:18Z",
+      "side": 1,
+      "message": "s, t int\n  \n?",
+      "range": {
+        "startLine": 109,
+        "startChar": 2,
+        "endLine": 110,
+        "endChar": 7
+      },
+      "revId": "07d50593ddbef16f17cb952c35ef8b161ca5c4f8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00cf0d02_a5f03b88",
+        "filename": "vulncheck/helpers_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-11-18T19:20:18Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 23
+      },
+      "revId": "07d50593ddbef16f17cb952c35ef8b161ca5c4f8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26b4b712_be6f0309",
+        "filename": "vulncheck/slicing.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-11-18T19:20:18Z",
+      "side": 1,
+      "message": "How about s/slice/set/ throughout?",
+      "range": {
+        "startLine": 47,
+        "startChar": 3,
+        "endLine": 47,
+        "endChar": 13
+      },
+      "revId": "07d50593ddbef16f17cb952c35ef8b161ca5c4f8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07114924_ed3187e2",
+        "filename": "vulncheck/slicing.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-11-18T19:20:18Z",
+      "side": 1,
+      "message": "remove this type, it\u0027s unnecessary",
+      "range": {
+        "startLine": 48,
+        "startChar": 22,
+        "endLine": 48,
+        "endChar": 44
+      },
+      "revId": "07d50593ddbef16f17cb952c35ef8b161ca5c4f8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bece051a_b43f1005",
+        "filename": "vulncheck/source.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-11-18T19:20:18Z",
+      "side": 1,
+      "message": "Does this handle mutual recursion? Say V calls F which calls V, and V has a vuln.\n\nvisit V\nset analyzed[V] \u003d nil\n  visit F\n    visit V recursively\n      return analyzed[V], which is nil\n    no vulns in F, return nil\ndetect vuln in V\n\nIt seems that you miss that F calls a function with a vuln.\n\nMaybe do the local vuln checking before the recursion?",
+      "range": {
+        "startLine": 268,
+        "startChar": 5,
+        "endLine": 268,
+        "endChar": 18
+      },
+      "revId": "07d50593ddbef16f17cb952c35ef8b161ca5c4f8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "d49b04b5_598008f0",
@@ -85,6 +246,24 @@
       "writtenOn": "2021-11-18T16:54:56Z",
       "side": 1,
       "message": "Note: copied from exp/vulndb/internal/audit",
+      "revId": "07d50593ddbef16f17cb952c35ef8b161ca5c4f8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e82ae12_867629e1",
+        "filename": "vulncheck/utils.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-11-18T19:20:18Z",
+      "side": 1,
+      "message": "Add these \"copied from\" comments to the code.\n\nProvide at least the commit hash, ideally a link to the code, so if the forks diverge it\u0027s easy to see what\u0027s going on.",
+      "parentUuid": "f5674c94_ded906a1",
       "revId": "07d50593ddbef16f17cb952c35ef8b161ca5c4f8",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
