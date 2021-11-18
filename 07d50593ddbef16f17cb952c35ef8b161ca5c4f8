@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b185a453_7c2d82af",
+        "filename": "vulncheck/entries.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-11-18T16:54:56Z",
+      "side": 1,
+      "message": "Note to the reviewers: this was copied from exp/vulndb/internal/audit",
+      "revId": "07d50593ddbef16f17cb952c35ef8b161ca5c4f8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d49b04b5_598008f0",
+        "filename": "vulncheck/source_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-11-18T16:54:56Z",
+      "side": 1,
+      "message": "Note: the test program is effectively the same as the one used in exp/vulndb/internal/audit.",
+      "revId": "07d50593ddbef16f17cb952c35ef8b161ca5c4f8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5674c94_ded906a1",
+        "filename": "vulncheck/utils.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-11-18T16:54:56Z",
+      "side": 1,
+      "message": "Note: copied from exp/vulndb/internal/audit",
+      "revId": "07d50593ddbef16f17cb952c35ef8b161ca5c4f8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b671dd3b_52a974fb",
+        "filename": "vulncheck/utils.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-11-18T16:54:56Z",
+      "side": 1,
+      "message": "Note: all of the below code is copied from exp/vulndb/internal/audit",
+      "revId": "07d50593ddbef16f17cb952c35ef8b161ca5c4f8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
