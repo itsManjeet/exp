@@ -220,6 +220,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f5e53ec_e9c06812",
+        "filename": "vulncheck/helpers_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-11-19T20:48:44Z",
+      "side": 1,
+      "message": "Just a habit.\n\nDone.",
+      "parentUuid": "4c487ab2_40cfda0f",
+      "range": {
+        "startLine": 109,
+        "startChar": 2,
+        "endLine": 110,
+        "endChar": 7
+      },
+      "revId": "07d50593ddbef16f17cb952c35ef8b161ca5c4f8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "00cf0d02_a5f03b88",
@@ -456,6 +480,24 @@
       "side": 1,
       "message": "Add these \"copied from\" comments to the code.\n\nProvide at least the commit hash, ideally a link to the code, so if the forks diverge it\u0027s easy to see what\u0027s going on.",
       "parentUuid": "f5674c94_ded906a1",
+      "revId": "07d50593ddbef16f17cb952c35ef8b161ca5c4f8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "437b9308_42497022",
+        "filename": "vulncheck/utils.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-11-19T20:48:44Z",
+      "side": 1,
+      "message": "That code will be deleted. The plan is for this code to replace that one. Should we still add something here?",
+      "parentUuid": "4e82ae12_867629e1",
       "revId": "07d50593ddbef16f17cb952c35ef8b161ca5c4f8",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
