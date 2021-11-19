@@ -198,6 +198,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4c487ab2_40cfda0f",
+        "filename": "vulncheck/helpers_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-11-19T19:34:48Z",
+      "side": 1,
+      "message": "That\u0027s good.\nIs there some reason you don\u0027t want to write it on one line:\n   src, dst int",
+      "parentUuid": "2051fd0d_590823a7",
+      "range": {
+        "startLine": 109,
+        "startChar": 2,
+        "endLine": 110,
+        "endChar": 7
+      },
+      "revId": "07d50593ddbef16f17cb952c35ef8b161ca5c4f8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "00cf0d02_a5f03b88",
         "filename": "vulncheck/helpers_test.go",
         "patchSetId": 1
