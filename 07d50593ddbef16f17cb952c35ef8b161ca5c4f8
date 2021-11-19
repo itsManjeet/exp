@@ -504,6 +504,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4ab11322_c6ce8d97",
+        "filename": "vulncheck/utils.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-11-19T21:24:40Z",
+      "side": 1,
+      "message": "Not necessary in that case.",
+      "parentUuid": "437b9308_42497022",
+      "revId": "07d50593ddbef16f17cb952c35ef8b161ca5c4f8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b671dd3b_52a974fb",
         "filename": "vulncheck/utils.go",
         "patchSetId": 1
