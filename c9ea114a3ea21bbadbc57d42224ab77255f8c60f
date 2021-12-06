@@ -273,6 +273,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4a81759_e591d6fe",
+        "filename": "vulncheck/vulncheck.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 30038
+      },
+      "writtenOn": "2021-12-06T21:38:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "d51bde1a_128adb00",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 39
+      },
+      "revId": "c9ea114a3ea21bbadbc57d42224ab77255f8c60f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "51b2100e_962253d5",
@@ -310,6 +334,30 @@
       "side": 1,
       "message": "Ditto on recursion.",
       "parentUuid": "51b2100e_962253d5",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 41
+      },
+      "revId": "c9ea114a3ea21bbadbc57d42224ab77255f8c60f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7dc47668_976b1774",
+        "filename": "vulncheck/vulncheck.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 30038
+      },
+      "writtenOn": "2021-12-06T21:38:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "bf34c7f4_bae36934",
       "range": {
         "startLine": 73,
         "startChar": 0,
