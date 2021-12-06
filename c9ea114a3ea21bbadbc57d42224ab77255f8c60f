@@ -61,6 +61,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "11df8c45_eba973cd",
+        "filename": "vulncheck/helpers_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-12-06T21:21:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3cc85a1_8ae99133",
+      "range": {
+        "startLine": 135,
+        "startChar": 5,
+        "endLine": 135,
+        "endChar": 17
+      },
+      "revId": "c9ea114a3ea21bbadbc57d42224ab77255f8c60f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "42ea4c1f_55d60442",
@@ -74,6 +98,30 @@
       "writtenOn": "2021-12-06T20:44:10Z",
       "side": 1,
       "message": "maybe createModulePathToVersion?",
+      "range": {
+        "startLine": 158,
+        "startChar": 5,
+        "endLine": 158,
+        "endChar": 17
+      },
+      "revId": "c9ea114a3ea21bbadbc57d42224ab77255f8c60f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc696ddc_1d7767ea",
+        "filename": "vulncheck/helpers_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-12-06T21:21:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42ea4c1f_55d60442",
       "range": {
         "startLine": 158,
         "startChar": 5,
@@ -107,6 +155,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b9fbdd4_95eaa5bf",
+        "filename": "vulncheck/vulncheck.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-12-06T21:21:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18fa4ed8_49f4e89c",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 52
+      },
+      "revId": "c9ea114a3ea21bbadbc57d42224ab77255f8c60f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d625ed8b_8ac0b230",
@@ -120,6 +192,30 @@
       "writtenOn": "2021-12-06T20:44:10Z",
       "side": 1,
       "message": "maybe Convert or ConvertToVulnPackages?",
+      "range": {
+        "startLine": 52,
+        "startChar": 5,
+        "endLine": 52,
+        "endChar": 13
+      },
+      "revId": "c9ea114a3ea21bbadbc57d42224ab77255f8c60f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "196b68e3_90ea3da1",
+        "filename": "vulncheck/vulncheck.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-12-06T21:21:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d625ed8b_8ac0b230",
       "range": {
         "startLine": 52,
         "startChar": 5,
@@ -155,6 +251,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d51bde1a_128adb00",
+        "filename": "vulncheck/vulncheck.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-12-06T21:21:20Z",
+      "side": 1,
+      "message": "This function is recursive (we use it at line 66), so I it seems to me this would not work.",
+      "parentUuid": "e28cea0b_adae1ffa",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 39
+      },
+      "revId": "c9ea114a3ea21bbadbc57d42224ab77255f8c60f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "51b2100e_962253d5",
         "filename": "vulncheck/vulncheck.go",
         "patchSetId": 2
@@ -166,6 +286,30 @@
       "writtenOn": "2021-12-06T20:44:10Z",
       "side": 1,
       "message": "ditto re: declar pkg on the next line",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 41
+      },
+      "revId": "c9ea114a3ea21bbadbc57d42224ab77255f8c60f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf34c7f4_bae36934",
+        "filename": "vulncheck/vulncheck.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-12-06T21:21:20Z",
+      "side": 1,
+      "message": "Ditto on recursion.",
+      "parentUuid": "51b2100e_962253d5",
       "range": {
         "startLine": 73,
         "startChar": 0,
