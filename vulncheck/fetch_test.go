@@ -9,7 +9,7 @@ import (
 	"testing"
 
 	"golang.org/x/tools/go/packages"
-	"golang.org/x/vulndb/osv"
+	"golang.org/x/vuln/osv"
 )
 
 func TestFetchVulnerabilities(t *testing.T) {
