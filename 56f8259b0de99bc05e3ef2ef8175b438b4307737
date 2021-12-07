@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d6417bb6_98bf6352",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-12-07T01:16:40Z",
+      "side": 1,
+      "message": "Explain why.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 58
+      },
+      "revId": "56f8259b0de99bc05e3ef2ef8175b438b4307737",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8315c21b_0e6868d3",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
