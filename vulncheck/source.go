@@ -5,11 +5,13 @@
 package vulncheck
 
 import (
+	"runtime"
+
 	"golang.org/x/tools/go/callgraph"
 	"golang.org/x/tools/go/packages"
 	"golang.org/x/tools/go/ssa"
 	"golang.org/x/tools/go/ssa/ssautil"
-	"golang.org/x/vulndb/osv"
+	"golang.org/x/vuln/osv"
 )
 
 // Source detects vulnerabilities in pkgs and computes slices of
@@ -24,6 +26,7 @@ func Source(pkgs []*packages.Package, cfg *Config) (*Result, error) {
 	if err != nil {
 		return nil, err
 	}
+	modVulns = modVulns.Filter(lookupEnv("GOOS", runtime.GOOS), lookupEnv("GOARCH", runtime.GOARCH))
 
 	result := &Result{
 		Imports:  &ImportGraph{Packages: make(map[int]*PkgNode)},

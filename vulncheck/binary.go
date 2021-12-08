@@ -6,6 +6,7 @@ package vulncheck
 
 import (
 	"io"
+	"runtime"
 
 	"golang.org/x/exp/vulncheck/internal/binscan"
 )
@@ -21,6 +22,7 @@ func Binary(exe io.ReaderAt, cfg *Config) (*Result, error) {
 	if err != nil {
 		return nil, err
 	}
+	modVulns = modVulns.Filter(lookupEnv("GOOS", runtime.GOOS), lookupEnv("GOARCH", runtime.GOARCH))
 
 	result := &Result{}
 	for pkg, symbols := range packageSymbols {
