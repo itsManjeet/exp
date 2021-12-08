@@ -5,6 +5,7 @@
 package vulncheck
 
 import (
+	"context"
 	"fmt"
 	"go/build"
 	"os"
@@ -12,7 +13,7 @@ import (
 	"strings"
 
 	"golang.org/x/tools/go/packages"
-	"golang.org/x/vulndb/client"
+	"golang.org/x/vuln/client"
 )
 
 // modKey creates a unique string identifier for mod.
@@ -72,7 +73,7 @@ func fetchVulnerabilities(client client.Client, modules []*packages.Module) (mod
 			// with local vulns?
 			continue
 		}
-		vulns, err := client.GetByModule(modPath)
+		vulns, err := client.GetByModule(context.Background(), modPath)
 		if err != nil {
 			return nil, err
 		}
