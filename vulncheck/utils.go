@@ -222,3 +222,34 @@ func lookupEnv(key, defaultValue string) string {
 	}
 	return defaultValue
 }
+
+// allSymbols returns all top-level functions and methods defined in pkg.
+func allSymbols(pkg *types.Package) []string {
+	var names []string
+	scope := pkg.Scope()
+	for _, name := range scope.Names() {
+		o := scope.Lookup(name)
+		if f, ok := o.(*types.Func); ok {
+			names = append(names, dbTypesFuncName(f))
+		} else if tn, ok := o.(*types.TypeName); ok {
+			ms := types.NewMethodSet(tn.Type())
+			for i := 0; i < ms.Len(); i++ {
+				m := ms.At(i)
+				if f, ok := m.Obj().(*types.Func); ok {
+					names = append(names, dbTypesFuncName(f))
+				}
+			}
+		}
+	}
+	return names
+}
+
+func dbTypesFuncName(f *types.Func) string {
+	sig := f.Type().(*types.Signature)
+	if sig.Recv() == nil {
+		return f.Name()
+	}
+	buf := new(bytes.Buffer)
+	types.WriteType(buf, sig.Recv().Type(), func(p *types.Package) string { return "" })
+	return buf.String() + "." + f.Name()
+}
