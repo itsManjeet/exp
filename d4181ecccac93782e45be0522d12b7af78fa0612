@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "10a7cc1a_749d9b8e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 30038
+      },
+      "writtenOn": "2021-12-09T04:17:21Z",
+      "side": 1,
+      "message": "looks like this was added in a separate patch and overridden:\n\npackages.Package can consume a lot of memory for some clients,\nso we use its trimmed version vulncheck.Packages instead.",
+      "revId": "d4181ecccac93782e45be0522d12b7af78fa0612",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e47db3a6_05a6b66a",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 7
