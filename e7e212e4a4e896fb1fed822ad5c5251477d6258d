@@ -101,6 +101,54 @@
       },
       "revId": "e7e212e4a4e896fb1fed822ad5c5251477d6258d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1bf61de_79c4d81a",
+        "filename": "vulncheck/utils.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-12-11T03:45:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7cf4190_0d20a836",
+      "range": {
+        "startLine": 219,
+        "startChar": 49,
+        "endLine": 219,
+        "endChar": 54
+      },
+      "revId": "e7e212e4a4e896fb1fed822ad5c5251477d6258d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9427cae_378453ad",
+        "filename": "vulncheck/utils.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-12-11T03:45:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9410ec8e_671c08db",
+      "range": {
+        "startLine": 219,
+        "startChar": 19,
+        "endLine": 219,
+        "endChar": 25
+      },
+      "revId": "e7e212e4a4e896fb1fed822ad5c5251477d6258d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
