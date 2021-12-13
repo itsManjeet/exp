@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "422e61e4_4d0b5b1f",
+        "filename": "cmd/txtar/txtar.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2021-12-13T19:10:13Z",
+      "side": 1,
+      "message": "I wouldn\u0027t bother with a short alias for this flag. (For one it\u0027s nice to spell out the unsafety, and for two I could see `-u` being confused with “unarchive” or “update”. `-x` at least matches the corresponding `tar` flag.)",
+      "revId": "ebd22eec14e18fca8e79cb067e3870b50e6b7140",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48ed6813_a22833de",
+        "filename": "cmd/txtar/txtar.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2021-12-13T19:10:13Z",
+      "side": 1,
+      "message": "filepath.Abs is fairly heavy, and I\u0027m not sure why it is needed here — could we instead check `path.Clean(expand(f.Name))` for a leading `/` or `..`?\n\n(If not, why not?)",
+      "range": {
+        "startLine": 98,
+        "startChar": 29,
+        "endLine": 98,
+        "endChar": 32
+      },
+      "revId": "ebd22eec14e18fca8e79cb067e3870b50e6b7140",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba4b0d11_e95fcd92",
+        "filename": "cmd/txtar/txtar.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2021-12-13T19:10:13Z",
+      "side": 1,
+      "message": "I\u0027m not sure why a path.Clean is needed here. Shouldn\u0027t filepath.Abs clean its own argument?\n\n(A comment would be helpful, if we end up keeping both calls.)",
+      "range": {
+        "startLine": 98,
+        "startChar": 52,
+        "endLine": 98,
+        "endChar": 62
+      },
+      "revId": "ebd22eec14e18fca8e79cb067e3870b50e6b7140",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
