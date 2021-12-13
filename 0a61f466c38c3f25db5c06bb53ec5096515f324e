@@ -53,6 +53,46 @@
       "message": "Note to the reviewers:\n\nFor this approach:\n- pros: 1) clean and intuitive solution, 2) seamlessly works with call graph search\n- cons: if a package has a lot of symbols, there can be a lot of Vulns entries in vulncheck.Result (the memory is not an issue, yet presenting many findings in the end might be. Also, there aren\u0027t many of such vulnerabilities.)\n\nAn alternative approach:\n\nHave only one Vuln entry with Vuln.Symbol field empty (or *) indicating \"every symbol\" in imports search. Then, when call graph search finds a symbol, add a new additional results.Vuln for that particular symbol.\n- pros: less entries in Result.Vuln\n- cons: 1) more work in the call search, 2) indirect and hence perhaps less intuitive, 3) needs handling of an unlikely special case when every symbol of a package is actually reachable via call graph analysis (we\u0027d then need to remove Vuln entry with empty Symbol).",
       "revId": "0a61f466c38c3f25db5c06bb53ec5096515f324e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "363cb332_a0da3384",
+        "filename": "vulncheck/utils.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-12-13T20:09:21Z",
+      "side": 1,
+      "message": "switch o :\u003d o.(type) {\ncase *types.Func:\n   // no cast needed, `o` is a *types.Func\ncase *types.TypeName:\n}",
+      "range": {
+        "startLine": 232,
+        "startChar": 2,
+        "endLine": 242,
+        "endChar": 2
+      },
+      "revId": "0a61f466c38c3f25db5c06bb53ec5096515f324e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fce6e7f9_a74f0bf1",
+        "filename": "vulncheck/utils.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-12-13T20:09:21Z",
+      "side": 1,
+      "message": "dbTypesFuncName",
+      "revId": "0a61f466c38c3f25db5c06bb53ec5096515f324e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
