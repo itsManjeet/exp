@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdee7c3e_b6d1aee6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-12-13T21:31:50Z",
+      "side": 1,
+      "message": "Rearranged things a bit and enriched the tests too.",
+      "revId": "c02e20dad185be1fc8016db997eab77de124e8bd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
