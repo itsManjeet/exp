@@ -23,6 +23,10 @@
 // variable is set in the process environment. When writing an archive, the
 // variables (before expansion) are preserved in the archived paths.
 //
+// When writing an archive, shell variable expansion is always enabled.
+// When extracting an archive, shell variables are expanded only if the --env
+// flag is set.
+//
 // Example usage:
 //
 // 	txtar *.go <README >testdata/example.txt
@@ -47,6 +51,7 @@ import (
 )
 
 var (
+	envFlag     = flag.Bool("env", false, "allow environment variable expansion during extraction")
 	extractFlag = flag.Bool("extract", false, "if true, extract files from the archive instead of writing to it")
 	unsafeFlag  = flag.Bool("unsafe", false, "allow extraction of files outside the current directory")
 )
@@ -64,7 +69,7 @@ func main() {
 			fmt.Fprintln(os.Stderr, "Usage: txtar --extract <archive.txt")
 			os.Exit(2)
 		}
-		err = extract()
+		err = extract(*envFlag, *unsafeFlag)
 	} else {
 		paths := flag.Args()
 		if len(paths) == 0 {
@@ -79,7 +84,7 @@ func main() {
 	}
 }
 
-func extract() (err error) {
+func extract(expandVars, unsafePaths bool) (err error) {
 	b, err := ioutil.ReadAll(os.Stdin)
 	if err != nil {
 		return err
@@ -87,7 +92,7 @@ func extract() (err error) {
 
 	ar := txtar.Parse(b)
 
-	if !*unsafeFlag {
+	if !unsafePaths {
 		// Check that no files are extracted outside the current directory
 		wd, err := os.Getwd()
 		if err != nil {
@@ -101,7 +106,11 @@ func extract() (err error) {
 		}
 
 		for _, f := range ar.Files {
-			fileName := filepath.Clean(expand(f.Name))
+			fileName := f.Name
+			if expandVars {
+				fileName = expand(fileName)
+			}
+			fileName = filepath.Clean(fileName)
 
 			if strings.HasPrefix(fileName, "..") ||
 				(filepath.IsAbs(fileName) && !strings.HasPrefix(fileName, wd)) {
@@ -111,7 +120,12 @@ func extract() (err error) {
 	}
 
 	for _, f := range ar.Files {
-		fileName := filepath.FromSlash(path.Clean(expand(f.Name)))
+		fileName := f.Name
+		if expandVars {
+			fileName = expand(f.Name)
+		}
+		fileName = filepath.FromSlash(path.Clean(fileName))
+
 		if err := os.MkdirAll(filepath.Dir(fileName), 0777); err != nil {
 			return err
 		}

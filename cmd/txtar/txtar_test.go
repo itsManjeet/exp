@@ -50,10 +50,10 @@ func TestRoundTrip(t *testing.T) {
 	if err := os.Mkdir(dir, 0755); err != nil {
 		t.Fatal(err)
 	}
-	if out, err := txtar(t, dir, testdata, "--extract"); err != nil {
+	if out, err := txtar(t, dir, testdata, "--extract", "--env"); err != nil {
 		t.Fatal(err)
 	} else if out != comment {
-		t.Fatalf("txtar --extract: stdout:\n%s\nwant:\n%s", out, comment)
+		t.Fatalf("txtar --extract --env: stdout:\n%s\nwant:\n%s", out, comment)
 	}
 
 	// Now, re-archive its contents explicitly and ensure that the result matches
@@ -92,17 +92,17 @@ func TestUnsafePaths(t *testing.T) {
 			// Expand the testdata archive into a temporary directory.
 
 			// Should fail without the --unsafe flag
-			if _, err := txtar(t, dir, testdata, "--extract"); err == nil {
-				t.Fatalf("txtar --extract: extracts to unsafe paths")
+			if _, err := txtar(t, dir, testdata, "--extract", "--env"); err == nil {
+				t.Fatalf("txtar --extract --env: extracts to unsafe paths")
 			}
 
 			// Should allow paths outside the current dir with the --unsafe flags
-			out, err := txtar(t, dir, testdata, "--extract", "--unsafe")
+			out, err := txtar(t, dir, testdata, "--extract", "--unsafe", "--env")
 			if err != nil {
 				t.Fatal(err)
 			}
 			if out != comment {
-				t.Fatalf("txtar --extract --unsafe: stdout:\n%s\nwant:\n%s", out, comment)
+				t.Fatalf("txtar --extract --unsafe --env: stdout:\n%s\nwant:\n%s", out, comment)
 			}
 
 			// Now, re-archive its contents explicitly and ensure that the result matches
@@ -116,6 +116,43 @@ func TestUnsafePaths(t *testing.T) {
 				t.Fatalf("txtar %s: archive:\n%s\n\nwant:\n%s", strings.Join(args, " "), out, testdata)
 			}
 		})
+	}
+}
+
+func TestEnvVars(t *testing.T) {
+	// Set up temporary directories for test archives.
+	parentDir := t.TempDir()
+	dir := filepath.Join(parentDir, "dir")
+	if err := os.Mkdir(dir, 0755); err != nil {
+		t.Fatal(err)
+	}
+
+	// Set env var to usafe path
+	t.Setenv("SPECIAL_LOCATION", filepath.Join(parentDir, "special"))
+
+	// Expand testdata archive
+
+	// Should succeed when not expanding unsafe env vars
+	out, err := txtar(t, dir, testdata, "--extract")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if out != comment {
+		t.Fatalf("txtar --extract: stdout:\n%s\nwant:\n%s", out, comment)
+	}
+
+	// Should fail when expanding environment vars to unsafe paths without the --unsafe flag
+	if _, err := txtar(t, dir, testdata, "--extract", "--env"); err == nil {
+		t.Fatalf("txtar --extract --env: extracts to unsafe paths")
+	}
+
+	// Should succeed when expanding environment vars to unsafe paths with the --unsafe flag
+	out, err = txtar(t, dir, testdata, "--extract", "--unsafe", "--env")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if out != comment {
+		t.Fatalf("txtar --extract --unsafe --env: stdout:\n%s\nwant:\n%s", out, comment)
 	}
 }
 
