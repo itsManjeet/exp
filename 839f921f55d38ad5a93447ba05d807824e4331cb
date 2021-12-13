@@ -53,6 +53,24 @@
       "message": "Zvonimir, can you click Trust +1 on this CL? (In the REPLY dialog.)\nI\u0027m not sure why it isn\u0027t happening automatically.",
       "revId": "839f921f55d38ad5a93447ba05d807824e4331cb",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44bf74ef_3834717b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2021-12-13T17:35:37Z",
+      "side": 1,
+      "message": "Yes. Btw., this is what I typically have to do.",
+      "parentUuid": "c974501a_571473c4",
+      "revId": "839f921f55d38ad5a93447ba05d807824e4331cb",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
