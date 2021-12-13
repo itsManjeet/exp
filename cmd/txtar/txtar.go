@@ -20,8 +20,10 @@
 // --unsafe flag.
 //
 // Shell variables in paths are expanded (using os.Expand) if the corresponding
-// variable is set in the process environment. When writing an archive, the
-// variables (before expansion) are preserved in the archived paths.
+// variable is set in the process environment and the variable is allowed in the
+// --env flag. When writing an archive, the variables (before expansion) are
+// preserved in the archived paths. The --env flag is not neccessary when
+// writing variable paths to the archive.
 //
 // Example usage:
 //
@@ -49,6 +51,8 @@ import (
 var (
 	extractFlag = flag.Bool("extract", false, "if true, extract files from the archive instead of writing to it")
 	unsafeFlag  = flag.Bool("unsafe", false, "Allow extraction of files outside the current directory")
+	envFlag     = flag.String("env", "", "comma-separated `list` of environment variables that are allowed to be expanded")
+	envVars     = make(map[string]struct{}) // set of allowed env vars from --env
 )
 
 func init() {
@@ -57,6 +61,11 @@ func init() {
 
 func main() {
 	flag.Parse()
+
+	// Read --env flag:
+	for _, envVar := range strings.Split(*envFlag, ",") {
+		envVars[envVar] = struct{}{}
+	}
 
 	var err error
 	if *extractFlag {
@@ -188,6 +197,13 @@ func archive(paths []string) (err error) {
 // of escaping them to the empty string) if the variable is not set.
 func expand(p string) string {
 	return os.Expand(p, func(key string) string {
+		if *extractFlag {
+			// Expand only allowed env vars during extraction
+			if _, ok := envVars[key]; !ok {
+				return "$" + key
+			}
+		}
+
 		v, ok := os.LookupEnv(key)
 		if !ok {
 			return "$" + key

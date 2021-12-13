@@ -25,6 +25,8 @@ one
 two
 -- $SPECIAL_LOCATION/three.txt --
 three
+-- $ANOTHER_LOCATION/four.txt --
+four
 `
 
 func TestMain(m *testing.M) {
@@ -37,8 +39,8 @@ func TestMain(m *testing.M) {
 }
 
 func TestRoundTrip(t *testing.T) {
-	os.Setenv("SPECIAL_LOCATION", "special")
-	defer os.Unsetenv("SPECIAL_LOCATION")
+	t.Setenv("SPECIAL_LOCATION", "special")
+	t.Setenv("ANOTHER_LOCATION", "another")
 
 	// Expand the testdata archive into a temporary directory.
 	parentDir, err := ioutil.TempDir("", "txtar")
@@ -50,7 +52,7 @@ func TestRoundTrip(t *testing.T) {
 	if err := os.Mkdir(dir, 0755); err != nil {
 		t.Fatal(err)
 	}
-	if out, err := txtar(t, dir, testdata, "--extract"); err != nil {
+	if out, err := txtar(t, dir, testdata, "--extract", "--env", "SPECIAL_LOCATION,ANOTHER_LOCATION"); err != nil {
 		t.Fatal(err)
 	} else if out != comment {
 		t.Fatalf("txtar --extract: stdout:\n%s\nwant:\n%s", out, comment)
@@ -58,7 +60,7 @@ func TestRoundTrip(t *testing.T) {
 
 	// Now, re-archive its contents explicitly and ensure that the result matches
 	// the original.
-	args := []string{"one.txt", "dir", "$SPECIAL_LOCATION"}
+	args := []string{"one.txt", "dir", "$SPECIAL_LOCATION", "$ANOTHER_LOCATION"}
 	if out, err := txtar(t, dir, comment, args...); err != nil {
 		t.Fatal(err)
 	} else if out != testdata {
@@ -69,6 +71,7 @@ func TestRoundTrip(t *testing.T) {
 func TestUnsafePaths(t *testing.T) {
 	// Set SPECIAL_LOCATION outside the current directory
 	t.Setenv("SPECIAL_LOCATION", "../special")
+	t.Setenv("ANOTHER_LOCATION", "../another")
 
 	// Expand the testdata archive into a temporary directory.
 	parentDir, err := ioutil.TempDir("", "txtar")
@@ -82,12 +85,12 @@ func TestUnsafePaths(t *testing.T) {
 	}
 
 	// Should fail without the --unsafe flag
-	if _, err := txtar(t, dir, testdata, "--extract"); err == nil {
+	if _, err := txtar(t, dir, testdata, "--extract", "--env", "SPECIAL_LOCATION,ANOTHER_LOCATION"); err == nil {
 		t.Fatalf("txtar --extract: extracts to unsafe paths")
 	}
 
 	// Should allow paths outside the current dir with the --unsafe flags
-	out, err := txtar(t, dir, testdata, "--extract", "--unsafe")
+	out, err := txtar(t, dir, testdata, "--extract", "--unsafe", "--env", "SPECIAL_LOCATION,ANOTHER_LOCATION")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -97,7 +100,7 @@ func TestUnsafePaths(t *testing.T) {
 
 	// Now, re-archive its contents explicitly and ensure that the result matches
 	// the original.
-	args := []string{"one.txt", "dir", "$SPECIAL_LOCATION"}
+	args := []string{"one.txt", "dir", "$SPECIAL_LOCATION", "$ANOTHER_LOCATION"}
 	out, err = txtar(t, dir, comment, args...)
 	if err != nil {
 		t.Fatal(err)
