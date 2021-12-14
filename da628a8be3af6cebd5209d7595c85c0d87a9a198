@@ -16,6 +16,46 @@
       "message": "Updated per the review-comments.\n\nAlso, found a hole that allowed to extract to absolute paths that contain the current directory as a prefix, but are outside the current directory. Fixed this by adding a trailing separator when comparing absolute paths.",
       "revId": "da628a8be3af6cebd5209d7595c85c0d87a9a198",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cbead5e_7d13fa2f",
+        "filename": "cmd/txtar/txtar_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2021-12-14T21:27:26Z",
+      "side": 1,
+      "message": "(optional)\n\nMaybe use subtests to run this twice, once with a relative SPECIAL_LOCATION and one with an absolute one?",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 43
+      },
+      "revId": "da628a8be3af6cebd5209d7595c85c0d87a9a198",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a8ccc37_8599a6ec",
+        "filename": "cmd/txtar/txtar_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2021-12-14T21:27:26Z",
+      "side": 1,
+      "message": "(existing issue, but possibly relevant to the new test)\n\nOn some platforms (particularly macOS), os.Getwd depends heavily on the PWD environment variable being set correctly. (The macOS /tmp directory is a symlink to /private/tmp, so without an accurate PWD there might be skew between the two.)\n\nThe fix is to always add PWD to the environment when setting Dir:\n\n\tcmd.Dir \u003d dir\n\tcmd.Env \u003d append(os.Environ(), \"PWD\u003d\"+dir)",
+      "revId": "da628a8be3af6cebd5209d7595c85c0d87a9a198",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
