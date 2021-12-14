@@ -55,6 +55,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "88e6022b_f2140f61",
+        "filename": "cmd/txtar/txtar.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 34615
+      },
+      "writtenOn": "2021-12-14T06:06:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "422e61e4_4d0b5b1f",
+      "revId": "ebd22eec14e18fca8e79cb067e3870b50e6b7140",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "48ed6813_a22833de",
@@ -91,6 +109,54 @@
       "writtenOn": "2021-12-13T19:10:13Z",
       "side": 1,
       "message": "I\u0027m not sure why a path.Clean is needed here. Shouldn\u0027t filepath.Abs clean its own argument?\n\n(A comment would be helpful, if we end up keeping both calls.)",
+      "range": {
+        "startLine": 98,
+        "startChar": 52,
+        "endLine": 98,
+        "endChar": 62
+      },
+      "revId": "ebd22eec14e18fca8e79cb067e3870b50e6b7140",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12d29f92_6d6a6952",
+        "filename": "cmd/txtar/txtar.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 34615
+      },
+      "writtenOn": "2021-12-14T06:06:33Z",
+      "side": 1,
+      "message": "Done. Removed filepath.Abs - thanks for the heads up.\n\nUpdated to check relative paths for leading `..` and check if absolute paths are prefixed by wd. Using filepath.IsAbs here, as this covers the leading `/` but also Windows paths such as `C:\\` and `\\\\server\\path`.",
+      "parentUuid": "48ed6813_a22833de",
+      "range": {
+        "startLine": 98,
+        "startChar": 29,
+        "endLine": 98,
+        "endChar": 32
+      },
+      "revId": "ebd22eec14e18fca8e79cb067e3870b50e6b7140",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67d40add_7d92af51",
+        "filename": "cmd/txtar/txtar.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 34615
+      },
+      "writtenOn": "2021-12-14T06:06:33Z",
+      "side": 1,
+      "message": "Done, please see comment above.",
+      "parentUuid": "ba4b0d11_e95fcd92",
       "range": {
         "startLine": 98,
         "startChar": 52,
