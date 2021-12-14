@@ -57,6 +57,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8ad083d1_f70a3fdb",
+        "filename": "cmd/txtar/txtar.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 13315
+      },
+      "writtenOn": "2021-12-14T23:36:06Z",
+      "side": 1,
+      "message": "Maybe lowercase \"allow\". Flag help messages seem usually lowercased.",
+      "range": {
+        "startLine": 51,
+        "startChar": 43,
+        "endLine": 51,
+        "endChar": 48
+      },
+      "revId": "da628a8be3af6cebd5209d7595c85c0d87a9a198",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6cbead5e_7d13fa2f",
         "filename": "cmd/txtar/txtar_test.go",
         "patchSetId": 2
