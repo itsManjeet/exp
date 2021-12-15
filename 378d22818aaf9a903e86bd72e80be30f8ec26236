@@ -16,6 +16,24 @@
       "message": "Hmm... Is this really needed? On Unix, at least, you can get the same result with something like:\n\n\tenv --ignore-environment \"FOO\u003d$FOO\" \"BAR\u003d$BAR\" txtar -x example.txt",
       "revId": "378d22818aaf9a903e86bd72e80be30f8ec26236",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff97756f_b5f89e94",
+        "filename": "cmd/txtar/txtar.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 34615
+      },
+      "writtenOn": "2021-12-15T15:39:41Z",
+      "side": 1,
+      "message": "I see. We could simplify envFlag to a bool; variables are expanded only when envFlag is true.\nComments? Other suggestions?",
+      "parentUuid": "310d3929_bb3f1e67",
+      "revId": "378d22818aaf9a903e86bd72e80be30f8ec26236",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
