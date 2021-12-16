@@ -24,6 +24,8 @@ import (
 // when running the manual test.
 const debug = false
 
+const maxBytes = 1<<(strconv.IntSize-1) - 1
+
 // ReaderAt reads a memory-mapped file.
 //
 // Like any io.ReaderAt, clients can execute parallel ReadAt calls, but it is
