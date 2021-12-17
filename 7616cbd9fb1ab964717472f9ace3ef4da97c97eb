@@ -3,6 +3,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d7dc19a5_c1efaf27",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2021-12-17T01:48:43Z",
+      "side": 1,
+      "message": "We don\u0027t use Signed-off-by lines.  Please remove.  Thanks.",
+      "revId": "7616cbd9fb1ab964717472f9ace3ef4da97c97eb",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3aeef80_67473f33",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2021-12-17T01:48:43Z",
+      "side": 1,
+      "message": "Write this as\n\nFixes golang/go#49106",
+      "revId": "7616cbd9fb1ab964717472f9ace3ef4da97c97eb",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9894a02b_1642b44e",
         "filename": "mmap/mmap_windows.go",
         "patchSetId": 1
@@ -14,6 +48,24 @@
       "writtenOn": "2021-12-17T00:44:50Z",
       "side": 1,
       "message": "The current amd64 sources use `1\u003c\u003c50 - 1`.  This would be a change; why?",
+      "revId": "7616cbd9fb1ab964717472f9ace3ef4da97c97eb",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac86ba15_c513b4f1",
+        "filename": "mmap/mmap_windows.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2021-12-17T01:48:43Z",
+      "side": 1,
+      "message": "Does this even compile?  This file doesn\u0027t import strconv.",
+      "parentUuid": "9894a02b_1642b44e",
       "revId": "7616cbd9fb1ab964717472f9ace3ef4da97c97eb",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
