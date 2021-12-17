@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9894a02b_1642b44e",
+        "filename": "mmap/mmap_windows.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 54458
+      },
+      "writtenOn": "2021-12-17T00:44:50Z",
+      "side": 1,
+      "message": "The current amd64 sources use `1\u003c\u003c50 - 1`.  This would be a change; why?",
+      "revId": "7616cbd9fb1ab964717472f9ace3ef4da97c97eb",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
