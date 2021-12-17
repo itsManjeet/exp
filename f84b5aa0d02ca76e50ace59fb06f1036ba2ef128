@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "227a88b2_f299bb7b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2021-12-17T05:31:11Z",
+      "side": 1,
+      "message": "It\u0027s usually best to avoid words like \"fix\" in CL descriptions.  Change descriptions are written for future readers, and they won\u0027t know what was broken or what was fixed.  Better to describe the change.  See https://golang.org/wiki/CommitMessage.  Perhaps\n\nmmap: use unsafe.Slice rather than maxBytes array",
+      "revId": "f84b5aa0d02ca76e50ace59fb06f1036ba2ef128",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
