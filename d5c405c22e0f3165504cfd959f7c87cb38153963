@@ -16,6 +16,24 @@
       "message": "Since we\u0027re fiddling with this anyhow, let\u0027s drop maxBytes entirely and use the new unsafe.Slice function.  This is exactly what it is for.\n\n    data :\u003d unsafe.Slice(ptr, size)",
       "revId": "d5c405c22e0f3165504cfd959f7c87cb38153963",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "419f281c_38f616ba",
+        "filename": "mmap/mmap_windows.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 54458
+      },
+      "writtenOn": "2021-12-17T02:49:58Z",
+      "side": 1,
+      "message": "Perhaps I\u0027m taking you too literally, but when I try that locally I get:\n  mmap/mmap_windows.go:111:22: first argument to unsafe.Slice must be pointer; have uintptr",
+      "parentUuid": "345bca96_7ccfa988",
+      "revId": "d5c405c22e0f3165504cfd959f7c87cb38153963",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
