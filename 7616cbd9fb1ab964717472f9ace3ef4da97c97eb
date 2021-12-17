@@ -18,6 +18,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bfaf11a_260b0c01",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 55263
+      },
+      "writtenOn": "2021-12-17T02:00:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7dc19a5_c1efaf27",
+      "revId": "7616cbd9fb1ab964717472f9ace3ef4da97c97eb",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d3aeef80_67473f33",
@@ -31,6 +49,24 @@
       "writtenOn": "2021-12-17T01:48:43Z",
       "side": 1,
       "message": "Write this as\n\nFixes golang/go#49106",
+      "revId": "7616cbd9fb1ab964717472f9ace3ef4da97c97eb",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b7cdc6a_d7d6faac",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 55263
+      },
+      "writtenOn": "2021-12-17T02:00:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3aeef80_67473f33",
       "revId": "7616cbd9fb1ab964717472f9ace3ef4da97c97eb",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -65,6 +101,24 @@
       "writtenOn": "2021-12-17T01:48:43Z",
       "side": 1,
       "message": "Does this even compile?  This file doesn\u0027t import strconv.",
+      "parentUuid": "9894a02b_1642b44e",
+      "revId": "7616cbd9fb1ab964717472f9ace3ef4da97c97eb",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "072ab309_1decf82d",
+        "filename": "mmap/mmap_windows.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 55263
+      },
+      "writtenOn": "2021-12-17T02:00:50Z",
+      "side": 1,
+      "message": "`1\u003c\u003c50-1` was introduced at https://github.com/golang/go/issues/26028 for fix max size of bytes in 64 bit architecture. It only needs to be large enough under the 64 architecture.",
       "parentUuid": "9894a02b_1642b44e",
       "revId": "7616cbd9fb1ab964717472f9ace3ef4da97c97eb",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
