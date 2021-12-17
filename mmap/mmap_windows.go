@@ -11,6 +11,7 @@ import (
 	"io"
 	"os"
 	"runtime"
+	"strconv"
 	"syscall"
 	"unsafe"
 )
@@ -23,6 +24,8 @@ import (
 // cannot automatically test that the finalizer runs. Instead, set this to true
 // when running the manual test.
 const debug = false
+
+const maxBytes = 1<<(strconv.IntSize-1) - 1
 
 // ReaderAt reads a memory-mapped file.
 //
