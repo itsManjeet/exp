@@ -76,6 +76,23 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "966f8846_3df8cea5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-12-20T01:10:06Z",
+      "side": 1,
+      "message": "BTW, you may be interested in seeing what a subset of your grammar (with minor variations) looks like in parco, a Go-with-generics parser combinator framework I\u0027ve been working on: https://github.com/jba/parco/blob/generics/usage_lang_test.go#L52.\n\nIt takes 51 non-blank lines of code to write it in parco, compared to 105 loc in grammar.go.",
+      "revId": "b5129008213eb0827fcafbeaf00c70b289870e0b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "50d2a432_f6d4efeb",
