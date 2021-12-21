@@ -16,6 +16,24 @@
       "message": "This seems like something we should fix in the compiler.",
       "revId": "3dc0adc8c63ee62f2b819ff0cb86f61add8c8cad",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa7b13c5_4af4f827",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 54802
+      },
+      "writtenOn": "2021-12-21T04:01:00Z",
+      "side": 1,
+      "message": "https://go.dev/doc/faq#pass_by_value\nAs the FAQ says, everything in Go is passed by value.\nThe thing being passed will create a copy.\n\nhttps://go.googlesource.com/go/+/refs/heads/master/src/cmd/compile/internal/walk/range.go#114\nIn the compile/internal/walk/range.go:\n```\n// for v1, v2 :\u003d range ha { body }\nif cheapComputableIndex(t.Elem().Size()) {\n    // v1, v2 \u003d hv1, ha[hv1]\n    tmp :\u003d ir.NewIndexExpr(base.Pos, ha, hv1) // this will create a copy\n    ...\n}\n```\n\nAnd v2 :\u003d s2[i] will create a copy, too.\nI made a benchmark test with:\n```\nfor i, v1 :\u003d range s1 {\n    if v1 !\u003d s2[i] {\n        return false\n    }\n}\n```\nIt also has a 13~34% improvement on large struct slice (length from 10 to 100000)",
+      "parentUuid": "b1bd1a78_375df07a",
+      "revId": "3dc0adc8c63ee62f2b819ff0cb86f61add8c8cad",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
