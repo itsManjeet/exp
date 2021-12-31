@@ -93,6 +93,23 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab3417f2_bf1e050d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2021-12-31T15:47:59Z",
+      "side": 1,
+      "message": "Although I see the power of this approach, especially for large command surfaces, I think it would be overkill for the smaller command-line tools I tend to write. I particularly don\u0027t like the fact that the doc is separate from the code.\n\nThinking about that separation, I had the idea of using struct tags for usage doc. The struct itself holds both the flags and positional args for a command. I happen to like the result a lot. https://github.com/jba/cli.",
+      "revId": "b5129008213eb0827fcafbeaf00c70b289870e0b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "50d2a432_f6d4efeb",
