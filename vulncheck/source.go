@@ -6,7 +6,6 @@ package vulncheck
 
 import (
 	"context"
-	"fmt"
 	"runtime"
 
 	"golang.org/x/exp/vulncheck/internal/derrors"
@@ -38,7 +37,6 @@ func Source(ctx context.Context, pkgs []*Package, cfg *Config) (_ *Result, err e
 	}
 
 	vulnPkgModSlice(pkgs, modVulns, result)
-	fmt.Println("IMPORTS", result.Imports)
 	if cfg.ImportsOnly {
 		return result, nil
 	}
