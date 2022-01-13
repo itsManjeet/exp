@@ -18,6 +18,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "660cab33_3e0e63fd",
+        "filename": "slices/sort.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 30696
+      },
+      "writtenOn": "2022-01-13T22:55:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e764424_e9f17edf",
+      "revId": "f446dd8fa1aee7bff21719180ac71618a0ec6b57",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "57c38b26_63d8b935",
@@ -35,6 +53,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c4b0a01_0474bdeb",
+        "filename": "slices/sort.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 30696
+      },
+      "writtenOn": "2022-01-13T22:55:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57c38b26_63d8b935",
+      "revId": "f446dd8fa1aee7bff21719180ac71618a0ec6b57",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "07cf65ca_9208e8c5",
@@ -48,6 +84,24 @@
       "writtenOn": "2022-01-13T18:04:02Z",
       "side": 1,
       "message": "\"in ascending order as determined by the less function\".\n\n(Also for SortStableFunc).",
+      "revId": "f446dd8fa1aee7bff21719180ac71618a0ec6b57",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c7e98fc_a899e851",
+        "filename": "slices/sort.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 30696
+      },
+      "writtenOn": "2022-01-13T22:55:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07cf65ca_9208e8c5",
       "revId": "f446dd8fa1aee7bff21719180ac71618a0ec6b57",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -71,6 +125,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "19bd1691_44d0579c",
+        "filename": "slices/sort.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 30696
+      },
+      "writtenOn": "2022-01-13T22:55:13Z",
+      "side": 1,
+      "message": "I\u0027m not sure about this one either. Maybe we should just exclude this function for now - can always add it later if there\u0027s high demand for it for some reason. OTOH here in the exp/ repo it may be OK.",
+      "parentUuid": "da559367_bff4063e",
+      "revId": "f446dd8fa1aee7bff21719180ac71618a0ec6b57",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "54dd2142_b3a98c48",
         "filename": "slices/sort.go",
         "patchSetId": 5
@@ -82,6 +154,24 @@
       "writtenOn": "2022-01-13T18:04:02Z",
       "side": 1,
       "message": "\"is sorted in ascending order.\"",
+      "revId": "f446dd8fa1aee7bff21719180ac71618a0ec6b57",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1a4260a_713e1e67",
+        "filename": "slices/sort.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 30696
+      },
+      "writtenOn": "2022-01-13T22:55:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54dd2142_b3a98c48",
       "revId": "f446dd8fa1aee7bff21719180ac71618a0ec6b57",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -134,6 +224,24 @@
       "writtenOn": "2022-01-13T18:04:02Z",
       "side": 1,
       "message": "By convention generated files in the standard library start with `z`.  So zsort_generic_function.go.  Or just zsortfunc.go and zsortordered.go.",
+      "revId": "f446dd8fa1aee7bff21719180ac71618a0ec6b57",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34694cfd_300d70a3",
+        "filename": "slices/sort_generic_func_gen.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 30696
+      },
+      "writtenOn": "2022-01-13T22:55:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af0d54e9_8dba45a3",
       "revId": "f446dd8fa1aee7bff21719180ac71618a0ec6b57",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
