@@ -3,6 +3,91 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2e764424_e9f17edf",
+        "filename": "slices/sort.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2022-01-13T18:04:02Z",
+      "side": 1,
+      "message": "Even though it\u0027s in the signature, I would expect the doc comment to say something like\n\nSort sorts a slice of any ordered type in ascending order.\n\n(Also for SortStable.)",
+      "revId": "f446dd8fa1aee7bff21719180ac71618a0ec6b57",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57c38b26_63d8b935",
+        "filename": "slices/sort.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2022-01-13T18:04:02Z",
+      "side": 1,
+      "message": "Usual naming style would be quickSortOrdered; any particular reason to use underscores?\n\nSimilarly elsewhere.",
+      "revId": "f446dd8fa1aee7bff21719180ac71618a0ec6b57",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07cf65ca_9208e8c5",
+        "filename": "slices/sort.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2022-01-13T18:04:02Z",
+      "side": 1,
+      "message": "\"in ascending order as determined by the less function\".\n\n(Also for SortStableFunc).",
+      "revId": "f446dd8fa1aee7bff21719180ac71618a0ec6b57",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da559367_bff4063e",
+        "filename": "slices/sort.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2022-01-13T18:04:02Z",
+      "side": 1,
+      "message": "Maybe slightly expand the \"for consistency\" sentence to say that the results are indistinguishable from those of Sort?  Not sure.",
+      "revId": "f446dd8fa1aee7bff21719180ac71618a0ec6b57",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54dd2142_b3a98c48",
+        "filename": "slices/sort.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2022-01-13T18:04:02Z",
+      "side": 1,
+      "message": "\"is sorted in ascending order.\"",
+      "revId": "f446dd8fa1aee7bff21719180ac71618a0ec6b57",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "36838485_4603f59b",
         "filename": "slices/sort.go",
         "patchSetId": 5
@@ -32,6 +117,23 @@
       "side": 1,
       "message": "This function was copied from the sort module for consistency, where it\u0027s used in the same way.\n\nI would not worry too much about its performance, given that it\u0027s invoked once per sort. But if you are worried, I encourage you to write those benchmarks and submit a separate CL with a fix, if the results seem significant.",
       "parentUuid": "36838485_4603f59b",
+      "revId": "f446dd8fa1aee7bff21719180ac71618a0ec6b57",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af0d54e9_8dba45a3",
+        "filename": "slices/sort_generic_func_gen.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2022-01-13T18:04:02Z",
+      "side": 1,
+      "message": "By convention generated files in the standard library start with `z`.  So zsort_generic_function.go.  Or just zsortfunc.go and zsortordered.go.",
       "revId": "f446dd8fa1aee7bff21719180ac71618a0ec6b57",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
