@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36838485_4603f59b",
+        "filename": "slices/sort.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 12425
+      },
+      "writtenOn": "2022-01-13T15:50:22Z",
+      "side": 1,
+      "message": "I would be interested to see this benchmarked against https://pkg.go.dev/math/bits#LeadingZeros64.",
+      "revId": "f446dd8fa1aee7bff21719180ac71618a0ec6b57",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
