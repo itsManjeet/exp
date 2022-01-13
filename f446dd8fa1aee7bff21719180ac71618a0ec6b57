@@ -16,6 +16,24 @@
       "message": "I would be interested to see this benchmarked against https://pkg.go.dev/math/bits#LeadingZeros64.",
       "revId": "f446dd8fa1aee7bff21719180ac71618a0ec6b57",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9afe218_178481c3",
+        "filename": "slices/sort.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 30696
+      },
+      "writtenOn": "2022-01-13T16:56:51Z",
+      "side": 1,
+      "message": "This function was copied from the sort module for consistency, where it\u0027s used in the same way.\n\nI would not worry too much about its performance, given that it\u0027s invoked once per sort. But if you are worried, I encourage you to write those benchmarks and submit a separate CL with a fix, if the results seem significant.",
+      "parentUuid": "36838485_4603f59b",
+      "revId": "f446dd8fa1aee7bff21719180ac71618a0ec6b57",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
