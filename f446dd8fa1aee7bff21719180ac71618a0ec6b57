@@ -159,6 +159,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3967e855_108b8366",
+        "filename": "slices/sort.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 30696
+      },
+      "writtenOn": "2022-01-14T13:49:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa46a087_fcadc3c4",
+      "revId": "f446dd8fa1aee7bff21719180ac71618a0ec6b57",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "54dd2142_b3a98c48",
