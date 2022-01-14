@@ -143,6 +143,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "aa46a087_fcadc3c4",
+        "filename": "slices/sort.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2022-01-14T00:34:49Z",
+      "side": 1,
+      "message": "Yeah, I suggest that we drop it and remove the \"sort is not guaranteed to be stable\" comment from Sort.",
+      "parentUuid": "19bd1691_44d0579c",
+      "revId": "f446dd8fa1aee7bff21719180ac71618a0ec6b57",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "54dd2142_b3a98c48",
         "filename": "slices/sort.go",
         "patchSetId": 5
