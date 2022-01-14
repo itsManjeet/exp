@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7598abde_13fc8677",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2022-01-14T18:23:48Z",
+      "side": 1,
+      "message": "For benchmarks, the convention is to run the benchmarks with -test.count\u003d10 or something and then run golang.org/x/perf/cmd/benchstat on the output.  In this case that might require some massaging of the output as benchstat expects to compare one set of runs before the change and one set of runs after the change.",
+      "revId": "9607c52033f60f0389d155edf873d1f71bd23931",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
