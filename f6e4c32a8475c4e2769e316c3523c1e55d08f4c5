@@ -125,6 +125,24 @@
       "parentUuid": "3a45e499_308eef16",
       "revId": "f6e4c32a8475c4e2769e316c3523c1e55d08f4c5",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "808652fb_f5832fbe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-01-24T19:22:07Z",
+      "side": 1,
+      "message": "OK.",
+      "parentUuid": "3a45e499_308eef16",
+      "revId": "f6e4c32a8475c4e2769e316c3523c1e55d08f4c5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
