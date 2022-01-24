@@ -6,7 +6,6 @@ package vulncheck
 
 import (
 	"context"
-	"fmt"
 	"runtime"
 
 	"golang.org/x/exp/vulncheck/internal/derrors"
@@ -34,11 +33,10 @@ func Source(ctx context.Context, pkgs []*Package, cfg *Config) (_ *Result, err e
 	result := &Result{
 		Imports:  &ImportGraph{Packages: make(map[int]*PkgNode)},
 		Requires: &RequireGraph{Modules: make(map[int]*ModNode)},
-		Calls:    &CallGraph{Functions: make(map[int]*FuncNode)},
+		Calls:    &CallGraph{},
 	}
 
 	vulnPkgModSlice(pkgs, modVulns, result)
-	fmt.Println("IMPORTS", result.Imports)
 	if cfg.ImportsOnly {
 		return result, nil
 	}
@@ -271,17 +269,9 @@ func vulnCallGraphSlice(entries []*ssa.Function, modVulns moduleVulnerabilities,
 		// Top level entries that lead to vulnerable calls
 		// are stored as result.Calls graph entry points.
 		if e := vulnCallSlice(entry, modVulns, cg, result, analyzedFuncs); e != nil {
-			result.Calls.Entries = append(result.Calls.Entries, e.ID)
+			result.Calls.Entries = append(result.Calls.Entries, e)
 		}
 	}
-}
-
-// funID is an id counter for nodes of Calls graph.
-var funID int = 0
-
-func nextFunID() int {
-	funID++
-	return funID
 }
 
 // vulnCallSlice checks if f has some vulnerabilities or transitively calls
@@ -338,13 +328,13 @@ func vulnCallSlice(f *ssa.Function, modVulns moduleVulnerabilities, cg *callgrap
 		funNode = funcNode(f)
 		analyzed[f] = funNode
 	}
-	result.Calls.Functions[funNode.ID] = funNode
+	result.Calls.Functions = append(result.Calls.Functions, funNode)
 
 	// Save node predecessor information.
 	for _, calleeSliceInfo := range onSlice {
 		call, node := calleeSliceInfo.call, calleeSliceInfo.fn
 		cs := &CallSite{
-			Parent:   funNode.ID,
+			Parent:   funNode,
 			Name:     call.Common().Value.Name(),
 			RecvType: callRecvType(call),
 			Resolved: resolved(call),
@@ -359,16 +349,14 @@ func vulnCallSlice(f *ssa.Function, modVulns moduleVulnerabilities, cg *callgrap
 			if affected.Package.Name != funNode.PkgPath {
 				continue
 			}
-			addCallSinkForVuln(funNode.ID, osv, dbFuncName(f), funNode.PkgPath, result)
+			addCallSinkForVuln(funNode, osv, dbFuncName(f), funNode.PkgPath, result)
 		}
 	}
 	return funNode
 }
 
 func funcNode(f *ssa.Function) *FuncNode {
-	id := nextFunID()
 	return &FuncNode{
-		ID:       id,
 		Name:     f.Name(),
 		PkgPath:  f.Package().Pkg.Path(),
 		RecvType: funcRecvType(f),
@@ -378,10 +366,10 @@ func funcNode(f *ssa.Function) *FuncNode {
 
 // addCallSinkForVuln adds callID as call sink to vuln of result.Vulns
 // identified with <osv, symbol, pkg>.
-func addCallSinkForVuln(callID int, osv *osv.Entry, symbol, pkg string, result *Result) {
+func addCallSinkForVuln(fn *FuncNode, osv *osv.Entry, symbol, pkg string, result *Result) {
 	for _, vuln := range result.Vulns {
 		if vuln.OSV == osv && vuln.Symbol == symbol && vuln.PkgPath == pkg {
-			vuln.CallSink = callID
+			vuln.CallSink = fn
 			return
 		}
 	}

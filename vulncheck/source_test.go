@@ -376,7 +376,7 @@ func TestCallGraph(t *testing.T) {
 	// Check that vulnerabilities are connected to the call graph.
 	// For the test example, all vulns should have a call sink.
 	for _, v := range result.Vulns {
-		if v.CallSink == 0 {
+		if v.CallSink == nil {
 			t.Errorf("want CallSink !=0 for %v:%v; got 0", v.Symbol, v.PkgPath)
 		}
 	}
@@ -551,9 +551,9 @@ func TestAllSymbolsVulnerable(t *testing.T) {
 	}
 
 	for _, v := range result.Vulns {
-		if v.Symbol == "V1" && v.CallSink == 0 {
+		if v.Symbol == "V1" && v.CallSink == nil {
 			t.Errorf("expected a call sink for V1; got none")
-		} else if v.Symbol != "V1" && v.CallSink != 0 {
+		} else if v.Symbol != "V1" && v.CallSink != nil {
 			t.Errorf("expected no call sink for %v; got %v", v.Symbol, v.CallSink)
 		}
 	}
