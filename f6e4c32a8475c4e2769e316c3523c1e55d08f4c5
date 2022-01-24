@@ -53,6 +53,24 @@
       "message": "This definition of FuncNode closely follows the definition of call graph node (https://pkg.go.dev/golang.org/x/tools/go/callgraph#Node) and what was proposed in the vulncheck design doc. IDs simplify things when serialization comes into picture as equality of two FuncNodes can be checked by their equality of their IDs.\n\nThoughts?",
       "revId": "f6e4c32a8475c4e2769e316c3523c1e55d08f4c5",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76827046_3178a60e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-01-24T17:47:48Z",
+      "side": 1,
+      "message": "The existing API is more cumbersome for users. In the code I was writing, I had to first get the ID then look it up. It\u0027s simpler just to access the *FuncNode.\n\nI didn\u0027t see any serialization in the code. Where do you think it will be needed? Note that common serialization packages (encoding/gob, encoding/json, etc.) do not preserve topology (i.e. they will write the same *FuncNode twice), whether or not there is an ID. To serialize properly you\u0027d need to write custom code or use something that can handle sharing, like https://github.com/jba/codec.\n\nBut maybe I don\u0027t understand your point. After all, equality of two FuncNodes can be checked by pointer comparison as well as ID comparison.",
+      "parentUuid": "ad7d6444_9739a301",
+      "revId": "f6e4c32a8475c4e2769e316c3523c1e55d08f4c5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
