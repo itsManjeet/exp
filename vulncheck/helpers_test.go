@@ -99,9 +99,9 @@ func reqGraphToStrMap(rg *RequireGraph) map[string][]string {
 
 func callGraphToStrMap(cg *CallGraph) map[string][]string {
 	type edge struct {
-		// src and dest are ids ofr source and
+		// src and dest are source and
 		// destination nodes in a callgraph edge.
-		src, dst int
+		src, dst *FuncNode
 	}
 	// seen edges, to avoid repetitions
 	seen := make(map[edge]bool)
@@ -110,12 +110,11 @@ func callGraphToStrMap(cg *CallGraph) map[string][]string {
 	for _, n := range cg.Functions {
 		fName := n.String()
 		for _, callsite := range n.CallSites {
-			e := edge{src: callsite.Parent, dst: n.ID}
+			e := edge{src: callsite.Parent, dst: n}
 			if seen[e] {
 				continue
 			}
-			caller := cg.Functions[e.src]
-			callerName := caller.String()
+			callerName := e.src.String()
 			m[callerName] = append(m[callerName], fName)
 		}
 	}

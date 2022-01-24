@@ -142,10 +142,10 @@ type Vuln struct {
 	// ModPath is the module path corresponding to PkgPath.
 	ModPath string
 
-	// CallSink is the ID of the sink node in Calls graph corresponding to
-	// the use of Symbol. ID is not available (denoted with 0) in binary mode,
+	// CallSink is the sink node in Calls graph corresponding to
+	// the use of Symbol. Is is not available (denoted with nil) in binary mode,
 	// or if Symbol is not reachable, or if Config.ImportsOnly=true.
-	CallSink int
+	CallSink *FuncNode
 	// ImportSink is the ID of the sink node in the Imports graph corresponding
 	// to the import of PkgPath. ID is not available (denoted with 0) in binary
 	// mode or if PkgPath is not imported.
@@ -162,14 +162,13 @@ type Vuln struct {
 // CallGraph is technically backwards directed, i.e., from a vulnerable function
 // towards the program entry functions (see FuncNode).
 type CallGraph struct {
-	// Functions contains all call graph nodes as a map: func node id -> func node.
-	Functions map[int]*FuncNode
-	// Entries are IDs of a subset of Functions representing vulncheck entry points.
-	Entries []int
+	// Functions contains all call graph nodes.
+	Functions []*FuncNode
+	// Entries are a subset of Functions representing vulncheck entry points.
+	Entries []*FuncNode
 }
 
 type FuncNode struct {
-	ID   int
 	Name string
 	// RecvType is the receiver object type of this function, if any.
 	RecvType string
@@ -188,7 +187,7 @@ func (fn *FuncNode) String() string {
 
 type CallSite struct {
 	// Parent is ID of the enclosing function where the call is made.
-	Parent int
+	Parent *FuncNode
 	// Name stands for the name of the function (variable) being called.
 	Name string
 	// RecvType is the full path of the receiver object type, if any.
