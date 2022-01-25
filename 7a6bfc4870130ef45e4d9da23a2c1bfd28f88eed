@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c714ca04_4d816e06",
+        "filename": "vulncheck/source.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2022-01-25T23:56:05Z",
+      "side": 0,
+      "message": "Sorry for this, don\u0027t know how this slipped under my radar earlier.",
+      "revId": "7a6bfc4870130ef45e4d9da23a2c1bfd28f88eed",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
