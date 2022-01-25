@@ -161,6 +161,24 @@
       "parentUuid": "808652fb_f5832fbe",
       "revId": "f6e4c32a8475c4e2769e316c3523c1e55d08f4c5",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41af336a_552f82aa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2022-01-25T16:32:50Z",
+      "side": 1,
+      "message": "I wanted to discuss it a bit more with other folks involved in the design of vulncheck API, just so I am sure I am not missing anything. Also, vulncheck has already been added to google3. We should have a clarification today.",
+      "parentUuid": "6ce130c2_ee7ba5c3",
+      "revId": "f6e4c32a8475c4e2769e316c3523c1e55d08f4c5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
