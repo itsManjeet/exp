@@ -179,6 +179,24 @@
       "parentUuid": "6ce130c2_ee7ba5c3",
       "revId": "f6e4c32a8475c4e2769e316c3523c1e55d08f4c5",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7b02ef2_561c89f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2022-01-26T18:37:24Z",
+      "side": 1,
+      "message": "Discussed offline: this CL looks like it will likely be accepted, but the idea for now is to see if there might be more changes to the APIs and how will they affect this one.",
+      "parentUuid": "41af336a_552f82aa",
+      "revId": "f6e4c32a8475c4e2769e316c3523c1e55d08f4c5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
