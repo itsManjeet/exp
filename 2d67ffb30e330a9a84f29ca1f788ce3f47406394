@@ -83,6 +83,30 @@
       },
       "revId": "2d67ffb30e330a9a84f29ca1f788ce3f47406394",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0aec1e19_68cbb9f5",
+        "filename": "vulncheck/witness.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-01-26T20:59:27Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5c814307_40b14870",
+      "range": {
+        "startLine": 110,
+        "startChar": 8,
+        "endLine": 110,
+        "endChar": 59
+      },
+      "revId": "2d67ffb30e330a9a84f29ca1f788ce3f47406394",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
