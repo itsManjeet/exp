@@ -16,6 +16,24 @@
       "message": "Is this the correct issue number? I fail to understand the connection between this CL and the issue mentioned here.",
       "revId": "8bc44498406d996381ad31b17e04c50a1de2a561",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31a0b86b_8e8d4907",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 55679
+      },
+      "writtenOn": "2022-01-27T16:43:17Z",
+      "side": 1,
+      "message": "Yes. In this CL I use `S ~[]E` to replace all `[]E` constraints, but for quickSortOrdered, I keep its constraints unchanged.\n\nBecause quickSortOrdered is recursive, and it cause a recursive type inference. I am not sure will golang supports recursive type inference in future, so I mention the issue here.",
+      "parentUuid": "e0c38b82_f4f6f317",
+      "revId": "8bc44498406d996381ad31b17e04c50a1de2a561",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
