@@ -53,6 +53,24 @@
       "message": "Does it make sense to add this for other PkgNode and ModNode for consistency? If yes, I can also do it in a separate CL.",
       "revId": "d01694e6e373af2cd17fc084b0d3c98efaac58fa",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "217abaf5_1a8e6400",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-02-01T15:06:18Z",
+      "side": 1,
+      "message": "IMO, not for consistency, only if it\u0027s needed.\n\nBut up to you.",
+      "parentUuid": "ebf7424d_40812d81",
+      "revId": "d01694e6e373af2cd17fc084b0d3c98efaac58fa",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
