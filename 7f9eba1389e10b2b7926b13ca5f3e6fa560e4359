@@ -78,6 +78,30 @@
       },
       "revId": "7f9eba1389e10b2b7926b13ca5f3e6fa560e4359",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20a08bf4_eedf9f4d",
+        "filename": "constraints/constraints_test.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2022-02-03T16:40:36Z",
+      "side": 1,
+      "message": "I\u0027m just going with what it was named in the baseline. 😅\n\n(The specific module path doesn\u0027t really matter either way here as long as we don\u0027t add a standard-library package named `constraintest`, which I don\u0027t see happening.)",
+      "parentUuid": "97afabae_c65ce322",
+      "range": {
+        "startLine": 82,
+        "startChar": 32,
+        "endLine": 82,
+        "endChar": 45
+      },
+      "revId": "7f9eba1389e10b2b7926b13ca5f3e6fa560e4359",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
