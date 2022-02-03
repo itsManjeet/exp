@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57749b24_9bb44005",
+        "filename": "constraints/constraints_test.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2022-02-03T16:43:45Z",
+      "side": 1,
+      "message": "If we disable internet access during test execution, this should be okay as long as it won\u0027t need to access the checksum database.",
+      "revId": "d4f80a91470e45b31d944fe5f8383717bd92019f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
