@@ -42,7 +42,7 @@ type TestTypes struct {
 var prolog = []byte(`
 package constrainttest
 
-import "constraints"
+import "golang.org/x/exp/constraints"
 
 type (
 	testSigned[T constraints.Signed]     struct{ f T }
@@ -71,7 +71,23 @@ func TestFailure(t *testing.T) {
 
 	tmpdir := t.TempDir()
 
-	if err := os.WriteFile(filepath.Join(tmpdir, "go.mod"), []byte("module constraintest"), 0666); err != nil {
+	cwd, err := os.Getwd()
+	if err != nil {
+		t.Fatal(err)
+	}
+	// This package is golang.org/x/exp/constraints, so the root of the x/exp
+	// module is the parent directory of the directory in which this test runs.
+	expModDir := filepath.Dir(cwd)
+
+	modFile := fmt.Sprintf(`module constraintest
+
+go 1.18
+
+replace golang.org/x/exp v0.0.0 => %s
+
+require golang.org/x/exp v0.0.0
+`, expModDir)
+	if err := os.WriteFile(filepath.Join(tmpdir, "go.mod"), []byte(modFile), 0666); err != nil {
 		t.Fatal(err)
 	}
 
