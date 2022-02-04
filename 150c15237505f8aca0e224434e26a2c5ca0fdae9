@@ -72,6 +72,24 @@
       "message": "I strongly disagree with using nested modules for basically anything, having used them for gopls in x/tools I would hate to add another one and am trying to get rid of that one. They really don\u0027t work out well from a usability standpoint.\nI would totally support moving this entire package to it\u0027s own repository though if it is causing problems. I guess the worry there is that if we decide to just kill this because it does not work out we have a zombie repository loafing around.\nOut of interest, what is the issue with lots of deps in exp?",
       "revId": "150c15237505f8aca0e224434e26a2c5ca0fdae9",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbd2fd0d_c3bb6b56",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2022-02-04T19:08:13Z",
+      "side": 1,
+      "message": "Note that x/exp already has nested modules: errors, sumdb, vulncheck and vulndb already have go.mod files with the overall x/exp directory.\n\nx/exp is by nature a collection of unrelated stuff.  Perhaps each subdirectory should be a separate module.",
+      "parentUuid": "416cf18c_8f0b1993",
+      "revId": "150c15237505f8aca0e224434e26a2c5ca0fdae9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
