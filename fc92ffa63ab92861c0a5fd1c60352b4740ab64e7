@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ad45b93d_5e74c597",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2022-02-04T21:35:51Z",
+      "side": 1,
+      "message": "I tried updating to the latest xgb, and the package didn\u0027t build.  From the revision history it appears that the xgb code was added here in order to apply local patches.\n\nIf those local patches are no longer necessary, then definitely it would be preferable to update to the current xgb and make whatever changes are required to make the code still work.  I don\u0027t know why the local patches were needed in the first place.",
+      "parentUuid": "86fba43a_56b9f6dc",
+      "revId": "fc92ffa63ab92861c0a5fd1c60352b4740ab64e7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "79f11890_bc5c98b1",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 6
