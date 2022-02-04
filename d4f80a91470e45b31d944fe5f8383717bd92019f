@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f3871d47_7b3c4db8",
+        "filename": "go.mod",
+        "patchSetId": 6
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2022-02-04T21:48:58Z",
+      "side": 0,
+      "message": "Now that the shiny packages are no longer a part of this module, running \u0027go mod tidy\u0027 here should remove some dependencies.",
+      "revId": "d4f80a91470e45b31d944fe5f8383717bd92019f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}

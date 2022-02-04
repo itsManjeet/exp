@@ -36,6 +36,23 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "a80cfff2_f90a9b82",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2022-02-04T21:48:58Z",
+      "side": 1,
+      "message": "Consider adding \"Updates golang/go#37175.\" or similar, since that issue is relevant to this change and mentioned the possibility of moving shiny into a nested module.",
+      "revId": "fc92ffa63ab92861c0a5fd1c60352b4740ab64e7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "79f11890_bc5c98b1",
@@ -158,6 +175,40 @@
       "side": 1,
       "message": "Yeah, that LGTM.",
       "parentUuid": "5959b9db_d5741b23",
+      "revId": "fc92ffa63ab92861c0a5fd1c60352b4740ab64e7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef5f756e_df930670",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2022-02-04T21:48:58Z",
+      "side": 1,
+      "message": "I think it is okay to make shiny a nested module. I left two suggestions in inline comments that I think should be easy to apply, but if I missed something and they\u0027re not, please let me know. I\u0027ll take another look at the CL after you get a chance to see them and reply.",
+      "revId": "fc92ffa63ab92861c0a5fd1c60352b4740ab64e7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "647b847f_d40c1604",
+        "filename": "shiny/driver/x11driver/buffer.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2022-02-04T21:48:58Z",
+      "side": 1,
+      "message": "Since this is meant to be a temporary solution while the patches are worked out, I think it would be better to include \u0027/internal/\u0027 in the import path of these xgb packages, so no one else can begin to depend on them. Otherwise it might become difficult to delete them if some time passes. (Compare with golang.org/x/tools/godoc/redirect which we no longer use for the Go website, but it\u0027s not easy to delete now.)",
       "revId": "fc92ffa63ab92861c0a5fd1c60352b4740ab64e7",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
