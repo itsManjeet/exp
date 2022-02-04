@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "86fba43a_56b9f6dc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2022-02-04T21:30:37Z",
+      "side": 1,
+      "message": "I haven\u0027t followed Go modules that closely.\n\nLong term (well, at least after this CL lands), it\u0027s viable (and preferable??) to remove the local xgb fork and use the upstream library, using go.mod to pin a version, right?",
+      "revId": "fc92ffa63ab92861c0a5fd1c60352b4740ab64e7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "79f11890_bc5c98b1",
