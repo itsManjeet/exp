@@ -124,6 +124,24 @@
       "parentUuid": "f6d99b49_8a017c0f",
       "revId": "fc92ffa63ab92861c0a5fd1c60352b4740ab64e7",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df2c59ce_0a8e9633",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2022-02-04T21:31:08Z",
+      "side": 1,
+      "message": "Yeah, that LGTM.",
+      "parentUuid": "5959b9db_d5741b23",
+      "revId": "fc92ffa63ab92861c0a5fd1c60352b4740ab64e7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
