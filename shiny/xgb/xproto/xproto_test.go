@@ -27,7 +27,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/BurntSushi/xgb"
+	"golang.org/x/exp/shiny/xgb"
 )
 
 // The X connection used throughout testing.

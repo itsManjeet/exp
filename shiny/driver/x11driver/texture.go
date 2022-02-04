@@ -11,8 +11,8 @@ import (
 	"math"
 	"sync"
 
-	"github.com/BurntSushi/xgb/render"
-	"github.com/BurntSushi/xgb/xproto"
+	"golang.org/x/exp/shiny/xgb/render"
+	"golang.org/x/exp/shiny/xgb/xproto"
 
 	"golang.org/x/exp/shiny/screen"
 	"golang.org/x/image/math/f64"
