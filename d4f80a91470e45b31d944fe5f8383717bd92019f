@@ -34,6 +34,24 @@
       "parentUuid": "f3871d47_7b3c4db8",
       "revId": "d4f80a91470e45b31d944fe5f8383717bd92019f",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae703e7a_e7e59bc2",
+        "filename": "go.mod",
+        "patchSetId": 6
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2022-02-05T01:53:06Z",
+      "side": 0,
+      "message": "I believe the earlier trouble was related to the inclusion of local replace directives. Now that there are no replace directives, these modules are much simpler to reason about, and it should be possible to create a nested module while keeping both modules tidy in a single CL. I believe if you start with patch set 7 and run \u0027go mod tidy\u0027 in the top-level module, that will remove unused requirements without affecting the new module, and local tests + TryBots should still be okay.\n\nBut, it is also not a problem if you prefer to do in a followup CL.",
+      "parentUuid": "718327c5_69422936",
+      "revId": "d4f80a91470e45b31d944fe5f8383717bd92019f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
