@@ -52,6 +52,24 @@
       "parentUuid": "718327c5_69422936",
       "revId": "d4f80a91470e45b31d944fe5f8383717bd92019f",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b340d1a_60874382",
+        "filename": "go.mod",
+        "patchSetId": 6
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2022-02-05T01:57:08Z",
+      "side": 0,
+      "message": "Thanks, yeah, I\u0027ll do in a follow-up.  I\u0027m also trying to move event and jsonrpc2 into submodules.",
+      "parentUuid": "ae703e7a_e7e59bc2",
+      "revId": "d4f80a91470e45b31d944fe5f8383717bd92019f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
