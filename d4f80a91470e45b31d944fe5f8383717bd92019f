@@ -16,6 +16,24 @@
       "message": "Now that the shiny packages are no longer a part of this module, running \u0027go mod tidy\u0027 here should remove some dependencies.",
       "revId": "d4f80a91470e45b31d944fe5f8383717bd92019f",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "718327c5_69422936",
+        "filename": "go.mod",
+        "patchSetId": 6
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2022-02-05T00:02:33Z",
+      "side": 0,
+      "message": "Yes, but as far as I can tell I can\u0027t do that now, because it will break the trybots.  See the hideous history of patchsets on this CL as I\u0027ve tried to get the trybots to pass.  That will be a followup CL.",
+      "parentUuid": "f3871d47_7b3c4db8",
+      "revId": "d4f80a91470e45b31d944fe5f8383717bd92019f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }

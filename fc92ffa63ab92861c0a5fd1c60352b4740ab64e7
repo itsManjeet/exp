@@ -55,6 +55,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5dcc16c6_55f9cf31",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2022-02-05T00:02:33Z",
+      "side": 1,
+      "message": "Thanks.  Done.",
+      "parentUuid": "a80cfff2_f90a9b82",
+      "revId": "fc92ffa63ab92861c0a5fd1c60352b4740ab64e7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "79f11890_bc5c98b1",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 6
@@ -209,6 +227,24 @@
       "writtenOn": "2022-02-04T21:48:58Z",
       "side": 1,
       "message": "Since this is meant to be a temporary solution while the patches are worked out, I think it would be better to include \u0027/internal/\u0027 in the import path of these xgb packages, so no one else can begin to depend on them. Otherwise it might become difficult to delete them if some time passes. (Compare with golang.org/x/tools/godoc/redirect which we no longer use for the Go website, but it\u0027s not easy to delete now.)",
+      "revId": "fc92ffa63ab92861c0a5fd1c60352b4740ab64e7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90e210da_a85dfdf3",
+        "filename": "shiny/driver/x11driver/buffer.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2022-02-05T00:02:33Z",
+      "side": 1,
+      "message": "Good point, done.",
+      "parentUuid": "647b847f_d40c1604",
       "revId": "fc92ffa63ab92861c0a5fd1c60352b4740ab64e7",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
