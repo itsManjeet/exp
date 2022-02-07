@@ -51,6 +51,24 @@
       "message": "I don\u0027t see any need for this change.  Can you show some code that would be fail before this change and work afterward?  Given \"type MySlice []int\" it\u0027s already OK to pass that slices to slices.Sort.  It\u0027s only necessary to use a type parameter for the slice type if we return a value of that type.",
       "revId": "8bc44498406d996381ad31b17e04c50a1de2a561",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b50f975_1508c715",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 55679
+      },
+      "writtenOn": "2022-02-07T03:00:44Z",
+      "side": 1,
+      "message": "Yes, you are right, this patch does not allow more types work for slice package. I will close it, thank you for reviewing.",
+      "parentUuid": "09d82b41_1af8f250",
+      "revId": "8bc44498406d996381ad31b17e04c50a1de2a561",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
