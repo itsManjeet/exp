@@ -70,6 +70,23 @@
       "message": "Ping Ian Cottrell.",
       "revId": "bbbfa6235eed17d5b461ddb77bae31358998ef2b",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c10f95d_2ef8c65a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9711
+      },
+      "writtenOn": "2022-02-08T23:53:12Z",
+      "side": 1,
+      "message": "At some point this will have to move again, probably to a module all of it\u0027s very own because we have (not yet submitted) tests for both gopls and event that use it.\nWe really don\u0027t have a good place to put stuff we are not willing to make compatibility promises on but that we want to use from multiple modules (this is already the second copy of this, the original was in x/tools/internal)",
+      "revId": "bbbfa6235eed17d5b461ddb77bae31358998ef2b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
