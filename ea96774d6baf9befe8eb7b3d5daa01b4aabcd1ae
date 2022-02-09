@@ -74,6 +74,23 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6188097_c23a6f23",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-02-09T17:43:55Z",
+      "side": 1,
+      "message": "Since I no longer have access to x/tools/internal/apidiff, I wrote a quick-and-dirty API diff test from scratch. This actually turned up some inconsistencies in receiver type (pointer vs non-pointer) that apidiff missed. Fixed by adding additional method stubs with pointer receivers to the 1.17 API.",
+      "revId": "ea96774d6baf9befe8eb7b3d5daa01b4aabcd1ae",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8e246888_305449bd",
@@ -87,6 +104,30 @@
       "writtenOn": "2022-02-07T17:34:40Z",
       "side": 1,
       "message": "Which file is this referring to?",
+      "range": {
+        "startLine": 22,
+        "startChar": 11,
+        "endLine": 22,
+        "endChar": 28
+      },
+      "revId": "ea96774d6baf9befe8eb7b3d5daa01b4aabcd1ae",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2887cd84_cb4aa1a6",
+        "filename": "typeparams/common.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-02-09T17:43:55Z",
+      "side": 1,
+      "message": "Aha, files that don\u0027t exist in this CL. Thanks, removed.",
+      "parentUuid": "8e246888_305449bd",
       "range": {
         "startLine": 22,
         "startChar": 11,
@@ -120,6 +161,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "28171251_6410e240",
+        "filename": "typeparams/common.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-02-09T17:43:55Z",
+      "side": 1,
+      "message": "I did that in x/tools, but technically having different constant values constitutes a \"different API\". I used a function here so that the 1.17 API is exactly the same as 1.18+, even accounting for constant values.",
+      "parentUuid": "d45b1ece_6671c4b7",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 1
+      },
+      "revId": "ea96774d6baf9befe8eb7b3d5daa01b4aabcd1ae",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "82abd6c9_5f40ac23",
@@ -133,6 +198,24 @@
       "writtenOn": "2022-02-07T17:34:40Z",
       "side": 1,
       "message": "Stray newline",
+      "revId": "ea96774d6baf9befe8eb7b3d5daa01b4aabcd1ae",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7bfd1e11_236fcdc8",
+        "filename": "typeparams/common.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-02-09T17:43:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82abd6c9_5f40ac23",
       "revId": "ea96774d6baf9befe8eb7b3d5daa01b4aabcd1ae",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
