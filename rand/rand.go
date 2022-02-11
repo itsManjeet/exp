@@ -246,10 +246,10 @@ func read(p []byte, src Source, readVal *uint64, readPos *int8) (n int, err erro
  * Top-level convenience functions
  */
 
-var globalRand = New(&LockedSource{src: NewSource(1).(*PCGSource)})
+var globalRand = New(&LockedSource{src: *NewSource(1).(*PCGSource)})
 
-// Type assert that globalRand's source is a LockedSource whose src is a *rngSource.
-var _ *PCGSource = globalRand.src.(*LockedSource).src
+// Type assert that globalRand's source is a LockedSource whose src is a PCGSource.
+var _ PCGSource = globalRand.src.(*LockedSource).src
 
 // Seed uses the provided seed value to initialize the default Source to a
 // deterministic state. If Seed is not called, the generator behaves as
@@ -335,10 +335,12 @@ func NormFloat64() float64 { return globalRand.NormFloat64() }
 func ExpFloat64() float64 { return globalRand.ExpFloat64() }
 
 // LockedSource is an implementation of Source that is concurrency-safe.
-// It is just a standard Source with its operations protected by a sync.Mutex.
+// A Rand using a LockedSource is safe for concurrent use.
+//
+// The zero value of LockedSource is valid, but should be seeded before use.
 type LockedSource struct {
 	lk  sync.Mutex
-	src *PCGSource
+	src PCGSource
 }
 
 func (s *LockedSource) Uint64() (n uint64) {
@@ -365,7 +367,7 @@ func (s *LockedSource) seedPos(seed uint64, readPos *int8) {
 // Read implements Read for a LockedSource.
 func (s *LockedSource) Read(p []byte, readVal *uint64, readPos *int8) (n int, err error) {
 	s.lk.Lock()
-	n, err = read(p, s.src, readVal, readPos)
+	n, err = read(p, &s.src, readVal, readPos)
 	s.lk.Unlock()
 	return
 }
