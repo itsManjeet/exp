@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e61e3bef_e95edb0d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2022-02-11T20:49:18Z",
+      "side": 1,
+      "message": "You don\u0027t need the comma before \"unless\" but this looks good.",
+      "revId": "1a5f54c66785b4292125ec548002f5a635f34d39",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e56bf3d2_1bbaa055",
+        "filename": "rand/rand.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2022-02-11T20:49:18Z",
+      "side": 1,
+      "message": "you don\u0027t need the comma here.",
+      "revId": "1a5f54c66785b4292125ec548002f5a635f34d39",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9142ab09_3e0a6e3f",
+        "filename": "rand/rand.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2022-02-11T20:49:18Z",
+      "side": 1,
+      "message": "s/,//",
+      "revId": "1a5f54c66785b4292125ec548002f5a635f34d39",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
