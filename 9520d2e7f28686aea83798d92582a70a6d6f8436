@@ -40,6 +40,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "48e462e7_de0f8842",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-02-15T15:26:39Z",
+      "side": 1,
+      "message": "The spec has migrated from speaking of \u0027structural types\u0027 to \u0027core types\u0027, so I renamed \u0027StructuralTerms\u0027 to \u0027NormalTerms\u0027, which is shorter and more accurate anyway. WDYT?",
+      "revId": "9520d2e7f28686aea83798d92582a70a6d6f8436",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dc38d0be_226e4423",
         "filename": "typeparams/go.tools.mod",
         "patchSetId": 3
@@ -51,6 +68,24 @@
       "writtenOn": "2022-02-14T04:28:13Z",
       "side": 1,
       "message": "Did you mean to commit this file?",
+      "revId": "9520d2e7f28686aea83798d92582a70a6d6f8436",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3f4ee2c_128c8c50",
+        "filename": "typeparams/go.tools.mod",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-02-15T15:26:39Z",
+      "side": 1,
+      "message": "Err, no. Thanks.\n\nThis doesn\u0027t work, due to https://go.dev/issue/51079. Removed this file and changed the instructions for running copytermslist.go.",
+      "parentUuid": "dc38d0be_226e4423",
       "revId": "9520d2e7f28686aea83798d92582a70a6d6f8436",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -68,6 +103,24 @@
       "writtenOn": "2022-02-14T04:28:13Z",
       "side": 1,
       "message": "And this one if the .mod is also not supposed to be here",
+      "revId": "9520d2e7f28686aea83798d92582a70a6d6f8436",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af03f900_5c4a3af9",
+        "filename": "typeparams/go.tools.sum",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-02-15T15:26:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ec578f9_319f6287",
       "revId": "9520d2e7f28686aea83798d92582a70a6d6f8436",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -95,6 +148,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "22cb0fbd_19082c29",
+        "filename": "typeparams/normalize.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-02-15T15:26:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b339cfbd_96aa1f29",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 0
+      },
+      "revId": "9520d2e7f28686aea83798d92582a70a6d6f8436",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "af42e3b0_6211fa0d",
@@ -112,6 +189,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "272eb186_c1999ec7",
+        "filename": "typeparams/normalize.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-02-15T15:26:39Z",
+      "side": 1,
+      "message": "Ack. Leaving as-is for now.",
+      "parentUuid": "af42e3b0_6211fa0d",
+      "revId": "9520d2e7f28686aea83798d92582a70a6d6f8436",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3340d679_decc6e37",
@@ -125,6 +220,30 @@
       "writtenOn": "2022-02-14T04:28:13Z",
       "side": 1,
       "message": "why is this different to unsupported?",
+      "range": {
+        "startLine": 80,
+        "startChar": 2,
+        "endLine": 80,
+        "endChar": 7
+      },
+      "revId": "9520d2e7f28686aea83798d92582a70a6d6f8436",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cb44601_100d5584",
+        "filename": "typeparams/typeparams_go117.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-02-15T15:26:39Z",
+      "side": 1,
+      "message": "Good catch. Historical reasons only.\n\nRemoved.",
+      "parentUuid": "3340d679_decc6e37",
       "range": {
         "startLine": 80,
         "startChar": 2,
@@ -158,6 +277,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "76aa0c21_9d08299b",
+        "filename": "typeparams/typeparams_go117.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-02-15T15:26:39Z",
+      "side": 1,
+      "message": "Thanks. Fixed the comment.",
+      "parentUuid": "b68efbd2_9504aef7",
+      "range": {
+        "startLine": 155,
+        "startChar": 50,
+        "endLine": 155,
+        "endChar": 56
+      },
+      "revId": "9520d2e7f28686aea83798d92582a70a6d6f8436",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ec9b252c_7f1c7168",
@@ -171,6 +314,30 @@
       "writtenOn": "2022-02-14T04:28:13Z",
       "side": 1,
       "message": "Not sure I would describe this as a cheap trick...",
+      "range": {
+        "startLine": 86,
+        "startChar": 4,
+        "endLine": 86,
+        "endChar": 15
+      },
+      "revId": "9520d2e7f28686aea83798d92582a70a6d6f8436",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70834f23_d1af24bc",
+        "filename": "typeparams/typeparams_test.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-02-15T15:26:39Z",
+      "side": 1,
+      "message": "Good point :O.",
+      "parentUuid": "ec9b252c_7f1c7168",
       "range": {
         "startLine": 86,
         "startChar": 4,
