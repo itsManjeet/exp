@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c56caed_849cefba",
+        "filename": "shiny/go.sum",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2022-02-20T17:20:02Z",
+      "side": 0,
+      "message": "There appears to be a bug in the go command. Either this line shouldn\u0027t be removed, or if it is removed, go test golang.org/x/exp/shiny/... should work without a problem. I filed #51283 for it.\n\nIf you\u0027d like to move forward with this CL sooner, just manually restore this removed go.sum entry for now, which should allow tests to keep working (even though the module will continue to be slightly un-tidy.) Or you can wait for that issue to be resolved if you prefer that.",
+      "revId": "6cf2b201936e0673ace5b31d2dffa00dafb3ee58",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}

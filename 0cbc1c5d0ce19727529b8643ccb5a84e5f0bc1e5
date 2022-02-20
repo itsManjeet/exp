@@ -75,6 +75,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0197849_21714ed0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2022-02-20T17:20:02Z",
+      "side": 1,
+      "message": "It looks like this uncovered a (pre-existing) bug. I filed #51283 for investigation.\n\nSee my inline comment on the deleted go.sum line (previous line number 9) for a suggestion of what to do next.",
+      "parentUuid": "c35ce8d9_2ceae376",
+      "revId": "0cbc1c5d0ce19727529b8643ccb5a84e5f0bc1e5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c2d57c19_8674b99a",
@@ -88,6 +106,24 @@
       "writtenOn": "2022-02-20T10:15:28Z",
       "side": 1,
       "message": "Should I manually delete this line too? I\u0027m still not very fluent with Go modules and whether I should do anything other than \"go get github.com/jezek/xgb\" and \"go mod tidy\".",
+      "revId": "0cbc1c5d0ce19727529b8643ccb5a84e5f0bc1e5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a447d44_09c42363",
+        "filename": "shiny/go.sum",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2022-02-20T17:20:02Z",
+      "side": 1,
+      "message": "I think you did everything right in terms of using modules, but ran into a bug (see other comment for more details). Running \"go get\" and then \"go mod tidy\" is a very common and normal sequence. Under normal circumstances, that should always leave the module in a clean healthy state. Manually editing go.mod and go.sum mod files is best to leave for advanced use-cases and for debugging only.",
+      "parentUuid": "c2d57c19_8674b99a",
       "revId": "0cbc1c5d0ce19727529b8643ccb5a84e5f0bc1e5",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
