@@ -59,6 +59,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c35ce8d9_2ceae376",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2022-02-20T10:47:57Z",
+      "side": 1,
+      "message": "https://storage.googleapis.com/go-build-log/0261fa61/linux-amd64_c6954a9b.log says \"pattern golang.org/x/exp/shiny/...: golang.org/x/exp@v0.0.0-20190731235908-ec7cb31e5a56: missing go.sum entry\"\n\nWhat should I do next? \"go mod tidy\" is a no-op in my x/exp/shiny directory.",
+      "parentUuid": "a228d896_aa7ec827",
+      "revId": "0cbc1c5d0ce19727529b8643ccb5a84e5f0bc1e5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c2d57c19_8674b99a",
         "filename": "shiny/go.sum",
         "patchSetId": 1
