@@ -63,6 +63,7 @@ func findVers(x exe) string {
 		readPtr = bo.Uint64
 	}
 	vers := readString(x, ptrSize, readPtr, readPtr(data[16:]))
+	fmt.Printf("VERS: %v\n", vers)
 	if vers == "" {
 		return ""
 	}
@@ -173,6 +174,7 @@ func readBuildInfo(data string) (*debug.BuildInfo, bool) {
 func debugModulesToPackagesModules(debugModules []*debug.Module) []*packages.Module {
 	packagesModules := make([]*packages.Module, len(debugModules))
 	for i, mod := range debugModules {
+		fmt.Printf("DEP %v\n", mod.Path)
 		packagesModules[i] = &packages.Module{
 			Path:    mod.Path,
 			Version: mod.Version,
