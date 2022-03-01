@@ -53,6 +53,24 @@
       "message": "I maybe missing something obvious, what what does an element between length and capacity mean? Is it a \"legal\" element that the caller may have any expectations about?",
       "revId": "18d00eb8231c9ccfb67c766621da7696d1c99ada",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfd5bae1_e3679468",
+        "filename": "slices/slices.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2022-03-01T18:53:31Z",
+      "side": 1,
+      "message": "If you have a slice s with len 2 and cap 4, there are elements at index 2 and 3 that are between the length and the capacity.  They are valid elements that can be accessed by writing code like s[:4][3].",
+      "parentUuid": "55d187fe_810943ff",
+      "revId": "18d00eb8231c9ccfb67c766621da7696d1c99ada",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
