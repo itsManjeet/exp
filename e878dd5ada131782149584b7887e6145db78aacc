@@ -74,6 +74,23 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "46f4c4cd_f73f1313",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 9711
+      },
+      "writtenOn": "2022-03-01T18:17:11Z",
+      "side": 1,
+      "message": "I think the document is missing a section that appears early and gives a summary of the important changes that might bite the author of a tool so they know to read the rest of the document.",
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "36174ffb_40f63859",
@@ -184,6 +201,29 @@
         "startChar": 39,
         "endLine": 36,
         "endChar": 51
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5290db79_03cad374",
+        "filename": "typeparams/example/generic-go-types.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 9711
+      },
+      "writtenOn": "2022-03-01T18:17:11Z",
+      "side": 1,
+      "message": "This reads weirdly, because the categories are not directly following and you have to scroll an awfully long way to know what the three were.\nI would probably directly list them here, and then change the next sentence to include the word \"below\"",
+      "range": {
+        "startLine": 37,
+        "startChar": 20,
+        "endLine": 37,
+        "endChar": 52
       },
       "revId": "e878dd5ada131782149584b7887e6145db78aacc",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
