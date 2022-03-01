@@ -93,6 +93,91 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ca1d97be_71f86879",
+        "filename": "typeparams/example/findtypeparams/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2022-03-01T21:10:55Z",
+      "side": 1,
+      "message": "use any here?",
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82e51019_fb29ef7e",
+        "filename": "typeparams/example/findtypeparams/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2022-03-01T21:10:55Z",
+      "side": 1,
+      "message": "maybe: tparamFields ?",
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9a6f4f0_e2925fae",
+        "filename": "typeparams/example/findtypeparams/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2022-03-01T21:10:55Z",
+      "side": 1,
+      "message": "remove - this assignment is already happening on line 61",
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a7bb268_ab773db6",
+        "filename": "typeparams/example/findtypeparams/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2022-03-01T21:10:55Z",
+      "side": 1,
+      "message": "I don\u0027t understand this comment. What about the Constraint type in the example? It\u0027s not generic and I think it would have a name here.\n\nBut more to the point: How about moving this into the switch above as the default case. And change comment to:\n\n// not a type of function declaration",
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a52b2196_a1656e84",
+        "filename": "typeparams/example/findtypeparams/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2022-03-01T21:10:55Z",
+      "side": 1,
+      "message": "maybe only do this if tparam.Types.Len() \u003e 0  and have an else branch like for the other options?",
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "36174ffb_40f63859",
         "filename": "typeparams/example/generic-go-types.md",
         "patchSetId": 3
@@ -442,6 +527,29 @@
         "startChar": 48,
         "endLine": 127,
         "endChar": 53
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93fdf9e1_a0a1a191",
+        "filename": "typeparams/example/generic-go-types.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 5210
+      },
+      "writtenOn": "2022-03-01T21:10:55Z",
+      "side": 1,
+      "message": "s/syntax of the//\n\n(syntax \u003d\u003d grammar, what we access here is really the tree structure)",
+      "range": {
+        "startLine": 145,
+        "startChar": 11,
+        "endLine": 145,
+        "endChar": 24
       },
       "revId": "e878dd5ada131782149584b7887e6145db78aacc",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
