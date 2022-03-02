@@ -125,6 +125,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "95858dce_c8e407ac",
+        "filename": "typeparams/example/findtypeparams/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca1d97be_71f86879",
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "82e51019_fb29ef7e",
@@ -138,6 +156,24 @@
       "writtenOn": "2022-03-01T21:10:55Z",
       "side": 1,
       "message": "maybe: tparamFields ?",
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5d63917_52ce9293",
+        "filename": "typeparams/example/findtypeparams/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82e51019_fb29ef7e",
       "revId": "e878dd5ada131782149584b7887e6145db78aacc",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -159,6 +195,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "10eca402_357f5cd6",
+        "filename": "typeparams/example/findtypeparams/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9a6f4f0_e2925fae",
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5a7bb268_ab773db6",
@@ -172,6 +226,24 @@
       "writtenOn": "2022-03-01T21:10:55Z",
       "side": 1,
       "message": "I don\u0027t understand this comment. What about the Constraint type in the example? It\u0027s not generic and I think it would have a name here.\n\nBut more to the point: How about moving this into the switch above as the default case. And change comment to:\n\n// not a type of function declaration",
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7b929c1_455d4faf",
+        "filename": "typeparams/example/findtypeparams/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a7bb268_ab773db6",
       "revId": "e878dd5ada131782149584b7887e6145db78aacc",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -193,6 +265,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85e43c6e_7e4a6978",
+        "filename": "typeparams/example/findtypeparams/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a52b2196_a1656e84",
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "36174ffb_40f63859",
@@ -206,6 +296,30 @@
       "writtenOn": "2022-03-01T17:45:24Z",
       "side": 1,
       "message": "leave away \"introduced for generic Go\" - not needed",
+      "range": {
+        "startLine": 16,
+        "startChar": 28,
+        "endLine": 16,
+        "endChar": 53
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7355d05b_4ca570e7",
+        "filename": "typeparams/example/generic-go-types.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36174ffb_40f63859",
       "range": {
         "startLine": 16,
         "startChar": 28,
@@ -239,6 +353,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdebc956_54a741f7",
+        "filename": "typeparams/example/generic-go-types.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ff9149e_fd110cb1",
+      "range": {
+        "startLine": 18,
+        "startChar": 19,
+        "endLine": 18,
+        "endChar": 23
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "77502b61_cc41585b",
@@ -252,6 +390,30 @@
       "writtenOn": "2022-03-01T17:45:24Z",
       "side": 1,
       "message": "s/existing//\n\n(it can\u0027t possibly assume non-existing knowledge)",
+      "range": {
+        "startLine": 28,
+        "startChar": 16,
+        "endLine": 28,
+        "endChar": 24
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d96cd525_ea56fbc6",
+        "filename": "typeparams/example/generic-go-types.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77502b61_cc41585b",
       "range": {
         "startLine": 28,
         "startChar": 16,
@@ -285,6 +447,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "61ac71f7_ea0f1f13",
+        "filename": "typeparams/example/generic-go-types.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a56f6cd3_762aa433",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 5
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a91c4b6c_eadb0d69",
@@ -308,6 +494,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "918f2065_442a40b1",
+        "filename": "typeparams/example/generic-go-types.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a91c4b6c_eadb0d69",
+      "range": {
+        "startLine": 36,
+        "startChar": 39,
+        "endLine": 36,
+        "endChar": 51
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5290db79_03cad374",
@@ -321,6 +531,30 @@
       "writtenOn": "2022-03-01T18:17:11Z",
       "side": 1,
       "message": "This reads weirdly, because the categories are not directly following and you have to scroll an awfully long way to know what the three were.\nI would probably directly list them here, and then change the next sentence to include the word \"below\"",
+      "range": {
+        "startLine": 37,
+        "startChar": 20,
+        "endLine": 37,
+        "endChar": 52
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06ecb25d_7deb733e",
+        "filename": "typeparams/example/generic-go-types.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5290db79_03cad374",
       "range": {
         "startLine": 37,
         "startChar": 20,
@@ -377,6 +611,54 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3342499f_89a52ef9",
+        "filename": "typeparams/example/generic-go-types.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f4a74cd_2b92bb7e",
+      "range": {
+        "startLine": 42,
+        "startChar": 49,
+        "endLine": 42,
+        "endChar": 50
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbc3ba6e_f30590c6",
+        "filename": "typeparams/example/generic-go-types.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc578621_d6e2ee8d",
+      "range": {
+        "startLine": 42,
+        "startChar": 12,
+        "endLine": 42,
+        "endChar": 15
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0c37290d_2971e61b",
@@ -390,6 +672,30 @@
       "writtenOn": "2022-03-01T17:45:24Z",
       "side": 1,
       "message": "should explain that the index is just the type param number f.l.t.r. starting at 0",
+      "range": {
+        "startLine": 59,
+        "startChar": 66,
+        "endLine": 59,
+        "endChar": 71
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7f0ce77_e5ceae95",
+        "filename": "typeparams/example/generic-go-types.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done (sort of)",
+      "parentUuid": "0c37290d_2971e61b",
       "range": {
         "startLine": 59,
         "startChar": 66,
@@ -423,6 +729,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "33d090fd_f74a5aca",
+        "filename": "typeparams/example/generic-go-types.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d30e3ad_58d97311",
+      "range": {
+        "startLine": 61,
+        "startChar": 57,
+        "endLine": 61,
+        "endChar": 62
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a5adb26_f85cf142",
@@ -436,6 +766,30 @@
       "writtenOn": "2022-03-01T17:45:24Z",
       "side": 1,
       "message": "s/via/by/ or maybe through",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 3
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6247bb5_d89a5afd",
+        "filename": "typeparams/example/generic-go-types.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a5adb26_f85cf142",
       "range": {
         "startLine": 76,
         "startChar": 0,
@@ -463,6 +817,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc483e60_bf3aead6",
+        "filename": "typeparams/example/generic-go-types.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9e37265_8c41c038",
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f5f7cbc5_5f8afc22",
@@ -476,6 +848,30 @@
       "writtenOn": "2022-03-01T17:45:24Z",
       "side": 1,
       "message": "\"as occurs\" doesn\u0027t sound quite right grammatically to me",
+      "range": {
+        "startLine": 108,
+        "startChar": 3,
+        "endLine": 108,
+        "endChar": 12
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47a008c1_e1727274",
+        "filename": "typeparams/example/generic-go-types.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Removed \"occurs\"",
+      "parentUuid": "f5f7cbc5_5f8afc22",
       "range": {
         "startLine": 108,
         "startChar": 3,
@@ -509,6 +905,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f3b967b_4398d4ca",
+        "filename": "typeparams/example/generic-go-types.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8c2cf5f_5e63ec2a",
+      "range": {
+        "startLine": 109,
+        "startChar": 13,
+        "endLine": 109,
+        "endChar": 17
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d37ca6c3_9e661045",
@@ -526,6 +946,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b7bcff8_2fb9aa80",
+        "filename": "typeparams/example/generic-go-types.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d37ca6c3_9e661045",
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9e38a965_4ab9597f",
@@ -539,6 +977,30 @@
       "writtenOn": "2022-03-01T17:45:24Z",
       "side": 1,
       "message": "s/above, //",
+      "range": {
+        "startLine": 127,
+        "startChar": 48,
+        "endLine": 127,
+        "endChar": 53
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23fd8b75_51f779de",
+        "filename": "typeparams/example/generic-go-types.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e38a965_4ab9597f",
       "range": {
         "startLine": 127,
         "startChar": 48,
@@ -572,6 +1034,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdce67ab_f8cb70fa",
+        "filename": "typeparams/example/generic-go-types.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93fdf9e1_a0a1a191",
+      "range": {
+        "startLine": 145,
+        "startChar": 11,
+        "endLine": 145,
+        "endChar": 24
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9ad1a05d_47656b90",
@@ -585,6 +1071,30 @@
       "writtenOn": "2022-03-01T22:47:11Z",
       "side": 1,
       "message": "s/underlying/underlying type/",
+      "range": {
+        "startLine": 173,
+        "startChar": 54,
+        "endLine": 173,
+        "endChar": 64
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "770aab3e_d465aef8",
+        "filename": "typeparams/example/generic-go-types.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ad1a05d_47656b90",
       "range": {
         "startLine": 173,
         "startChar": 54,
@@ -618,6 +1128,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9147876_cd5af735",
+        "filename": "typeparams/example/generic-go-types.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Non-interface isn\u0027t accurate though. Type parameters, which are interfaces, can be comparable.\n\nJust went with the tautological \"all comparable types\" for now.",
+      "parentUuid": "a7ac695a_8249b208",
+      "range": {
+        "startLine": 200,
+        "startChar": 62,
+        "endLine": 200,
+        "endChar": 70
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "12475985_839e16a4",
@@ -631,6 +1165,30 @@
       "writtenOn": "2022-03-01T22:47:11Z",
       "side": 1,
       "message": "s/is //",
+      "range": {
+        "startLine": 211,
+        "startChar": 34,
+        "endLine": 211,
+        "endChar": 36
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6af6801_672f9bb2",
+        "filename": "typeparams/example/generic-go-types.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12475985_839e16a4",
       "range": {
         "startLine": 211,
         "startChar": 34,
@@ -664,6 +1222,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "95777b05_5941fd28",
+        "filename": "typeparams/example/generic-go-types.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc34968c_a9f6b936",
+      "range": {
+        "startLine": 221,
+        "startChar": 9,
+        "endLine": 221,
+        "endChar": 23
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6eedc3db_eb8ab9ea",
@@ -677,6 +1259,30 @@
       "writtenOn": "2022-03-01T22:47:11Z",
       "side": 1,
       "message": "s/./?/\n\nThis is a question, isn\u0027t it? (no self-reference intended)",
+      "range": {
+        "startLine": 228,
+        "startChar": 43,
+        "endLine": 228,
+        "endChar": 44
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bb4d83b_dde32ed5",
+        "filename": "typeparams/example/generic-go-types.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6eedc3db_eb8ab9ea",
       "range": {
         "startLine": 228,
         "startChar": 43,
@@ -710,6 +1316,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "68910eb7_0230d91b",
+        "filename": "typeparams/example/generic-go-types.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb71ae60_0391bbc1",
+      "range": {
+        "startLine": 233,
+        "startChar": 0,
+        "endLine": 233,
+        "endChar": 15
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b9b75a7d_29ad3ca7",
@@ -723,6 +1353,30 @@
       "writtenOn": "2022-03-01T22:47:11Z",
       "side": 1,
       "message": "or implicitly, through type inference.",
+      "range": {
+        "startLine": 251,
+        "startChar": 77,
+        "endLine": 251,
+        "endChar": 79
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37177ebe_61c6bffc",
+        "filename": "typeparams/example/generic-go-types.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9b75a7d_29ad3ca7",
       "range": {
         "startLine": 251,
         "startChar": 77,
@@ -756,6 +1410,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "abb23e52_aec04eff",
+        "filename": "typeparams/example/generic-go-types.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69e1b719_b4dc7ca3",
+      "range": {
+        "startLine": 252,
+        "startChar": 33,
+        "endLine": 252,
+        "endChar": 42
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "486dcd9d_ea03d133",
@@ -779,6 +1457,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c70b0917_4f3d774c",
+        "filename": "typeparams/example/generic-go-types.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "486dcd9d_ea03d133",
+      "range": {
+        "startLine": 275,
+        "startChar": 49,
+        "endLine": 275,
+        "endChar": 57
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "590e9b1b_058568cb",
@@ -792,6 +1494,30 @@
       "writtenOn": "2022-03-01T22:47:11Z",
       "side": 1,
       "message": "... an API for ...",
+      "range": {
+        "startLine": 285,
+        "startChar": 27,
+        "endLine": 285,
+        "endChar": 28
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "abcf67db_b0417678",
+        "filename": "typeparams/example/generic-go-types.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "590e9b1b_058568cb",
       "range": {
         "startLine": 285,
         "startChar": 27,
@@ -848,6 +1574,54 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4e93289_bb2e8eea",
+        "filename": "typeparams/example/generic-go-types.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68974e85_68117cde",
+      "range": {
+        "startLine": 288,
+        "startChar": 72,
+        "endLine": 288,
+        "endChar": 73
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "351dc910_3885786e",
+        "filename": "typeparams/example/generic-go-types.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f4ef511_547e0444",
+      "range": {
+        "startLine": 288,
+        "startChar": 23,
+        "endLine": 288,
+        "endChar": 44
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7aa9deb9_db0deab6",
@@ -861,6 +1635,30 @@
       "writtenOn": "2022-03-01T22:47:11Z",
       "side": 1,
       "message": "... constraint; i.e., `types.Instantiate` will check that each type arguments implements the corresponding type parameter constraint. If a type arguments does not implement the respective constraint, the resulting error ...",
+      "range": {
+        "startLine": 294,
+        "startChar": 0,
+        "endLine": 294,
+        "endChar": 10
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1a90f82_e423905a",
+        "filename": "typeparams/example/generic-go-types.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7aa9deb9_db0deab6",
       "range": {
         "startLine": 294,
         "startChar": 0,
@@ -917,6 +1715,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e114eb8_06038d78",
+        "filename": "typeparams/example/generic-go-types.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "541302fc_e685b14c",
+      "range": {
+        "startLine": 327,
+        "startChar": 71,
+        "endLine": 327,
+        "endChar": 73
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a86d1d44_bda022c5",
@@ -940,6 +1762,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcf99a21_31630b15",
+        "filename": "typeparams/example/generic-go-types.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a86d1d44_bda022c5",
+      "range": {
+        "startLine": 365,
+        "startChar": 0,
+        "endLine": 365,
+        "endChar": 5
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3813e95f_45378650",
@@ -953,6 +1799,30 @@
       "writtenOn": "2022-03-01T22:47:11Z",
       "side": 1,
       "message": "should perhaps explain what \"modulo renaming\" means",
+      "range": {
+        "startLine": 374,
+        "startChar": 53,
+        "endLine": 374,
+        "endChar": 54
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "116a80a3_d6186a8d",
+        "filename": "typeparams/example/generic-go-types.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done, perhaps awkwardly. I want to say something declarative \"F[A, B] \u003d\u003d G[A, B] for all A, B\", but that\u0027s probably inaccurate.",
+      "parentUuid": "3813e95f_45378650",
       "range": {
         "startLine": 374,
         "startChar": 53,
@@ -1009,6 +1879,54 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a8a756c_71ed66f2",
+        "filename": "typeparams/example/generic-go-types.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6689eb82_75e4de7e",
+      "range": {
+        "startLine": 389,
+        "startChar": 16,
+        "endLine": 389,
+        "endChar": 21
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bd4f2fd_3e69506e",
+        "filename": "typeparams/example/generic-go-types.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22d88334_5c95343c",
+      "range": {
+        "startLine": 389,
+        "startChar": 23,
+        "endLine": 389,
+        "endChar": 46
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "59f74ef1_f8f1b4fe",
@@ -1022,6 +1940,30 @@
       "writtenOn": "2022-03-01T22:47:11Z",
       "side": 1,
       "message": "s/determing/determine/",
+      "range": {
+        "startLine": 396,
+        "startChar": 7,
+        "endLine": 396,
+        "endChar": 16
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa987634_cdeee0fe",
+        "filename": "typeparams/example/generic-go-types.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59f74ef1_f8f1b4fe",
       "range": {
         "startLine": 396,
         "startChar": 7,
@@ -1055,6 +1997,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "beefec0b_9b3d6c7d",
+        "filename": "typeparams/example/generic-go-types.md",
+        "patchSetId": 3
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Went with \"by mailing\".",
+      "parentUuid": "044695ab_102b126b",
+      "range": {
+        "startLine": 421,
+        "startChar": 3,
+        "endLine": 421,
+        "endChar": 6
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de6c1a55_5afb58c2",
@@ -1068,6 +2034,24 @@
       "writtenOn": "2022-03-01T22:47:11Z",
       "side": 1,
       "message": "consider a lookup helper function in all these functions:\n\nlookup :\u003d func(name string) *types.Named { return pkg.Scope().Lookup(name).Type().(*types.Named)\n\ncould make all this code much easier to read by removing clutter",
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a3a8bb2_8eaa80a0",
+        "filename": "typeparams/example/genericmethods/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done here, will look at other places to do this.",
+      "parentUuid": "de6c1a55_5afb58c2",
       "revId": "e878dd5ada131782149584b7887e6145db78aacc",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -1089,6 +2073,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab6256c4_8ad569ae",
+        "filename": "typeparams/example/genericmethods/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e12f61d0_994200ec",
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dc84d8a3_5ce02bd5",
@@ -1102,6 +2104,30 @@
       "writtenOn": "2022-03-01T22:47:11Z",
       "side": 1,
       "message": "s/instantiationsq/instantiations./",
+      "range": {
+        "startLine": 94,
+        "startChar": 47,
+        "endLine": 94,
+        "endChar": 62
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e6e621c_6fecd4b9",
+        "filename": "typeparams/example/instantiation/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc84d8a3_5ce02bd5",
       "range": {
         "startLine": 94,
         "startChar": 47,
@@ -1135,6 +2161,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "160f6a55_b9910719",
+        "filename": "typeparams/example/instantiation/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a2150f9_a56d323f",
+      "range": {
+        "startLine": 97,
+        "startChar": 37,
+        "endLine": 97,
+        "endChar": 49
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "578972d8_edd9cef1",
@@ -1148,6 +2198,30 @@
       "writtenOn": "2022-03-01T21:15:02Z",
       "side": 1,
       "message": "s/Named/*Named/ ?",
+      "range": {
+        "startLine": 24,
+        "startChar": 73,
+        "endLine": 24,
+        "endChar": 78
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79fdad91_5df5dcdf",
+        "filename": "typeparams/normalize.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-02T21:30:01Z",
+      "side": 1,
+      "message": "Done, but actually I think it may be clearer to say \"possibly defined\".\n\nWill rephrase.",
+      "parentUuid": "578972d8_edd9cef1",
       "range": {
         "startLine": 24,
         "startChar": 73,
