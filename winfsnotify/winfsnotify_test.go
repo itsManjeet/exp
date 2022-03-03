@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+//go:build windows
 // +build windows
 
 package winfsnotify
@@ -31,6 +32,8 @@ func expect(t *testing.T, eventstream <-chan *Event, name string, mask uint32) {
 }
 
 func TestNotifyEvents(t *testing.T) {
+	t.Skipf("skipping test due to undiagnosed flakiness; see https://go.dev/issue/49734")
+
 	watcher, err := NewWatcher()
 	if err != nil {
 		t.Fatalf("NewWatcher() failed: %s", err)
