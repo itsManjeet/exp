@@ -108,6 +108,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a79716f_daf6fa41",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-03T21:24:48Z",
+      "side": 1,
+      "message": "Thanks, good point. I added such a section.",
+      "parentUuid": "46f4c4cd_f73f1313",
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ca1d97be_71f86879",
@@ -2056,6 +2074,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7876125e_51f58650",
+        "filename": "typeparams/example/genericmethods/main.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-03T21:24:48Z",
+      "side": 1,
+      "message": "Will consider this for a follow-up (I want to see how it looks after merging, and there\u0027s no reason to hold up this CL).",
+      "parentUuid": "3a3a8bb2_8eaa80a0",
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e12f61d0_994200ec",
@@ -2222,6 +2258,30 @@
       "side": 1,
       "message": "Done, but actually I think it may be clearer to say \"possibly defined\".\n\nWill rephrase.",
       "parentUuid": "578972d8_edd9cef1",
+      "range": {
+        "startLine": 24,
+        "startChar": 73,
+        "endLine": 24,
+        "endChar": 78
+      },
+      "revId": "e878dd5ada131782149584b7887e6145db78aacc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb12136e_011cea83",
+        "filename": "typeparams/normalize.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2022-03-03T21:24:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79fdad91_5df5dcdf",
       "range": {
         "startLine": 24,
         "startChar": 73,
