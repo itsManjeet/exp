@@ -266,7 +266,7 @@ func globalFindings(globalUses []*ssa.Value, chain *callChain, modVulns ModuleVu
 	for _, o := range globalUses {
 		g := (*o).(*ssa.Global)
 		vulns := modVulns.VulnsForSymbol(g.Package().Pkg.Path(), g.Name())
-		for _, v := range serialize(vulns) {
+		for _, v := range vulns {
 			results.addFinding(v, Finding{
 				Symbol:     fmt.Sprintf("%s.%s", g.Package().Pkg.Path(), g.Name()),
 				Trace:      chain.trace(),
@@ -305,7 +305,7 @@ func callFinding(chain *callChain, modVulns ModuleVulnerabilities, results *Resu
 	}
 
 	vulns := modVulns.VulnsForSymbol(callee.Package().Pkg.Path(), dbFuncName(callee))
-	for _, v := range serialize(vulns) {
+	for _, v := range vulns {
 		results.addFinding(v, Finding{
 			Symbol:     fmt.Sprintf("%s.%s", callee.Package().Pkg.Path(), dbFuncName(callee)),
 			Trace:      c.trace(),

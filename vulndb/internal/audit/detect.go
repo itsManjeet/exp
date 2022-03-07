@@ -64,7 +64,7 @@ func (r Results) String() string {
 }
 
 // addFindings adds a findings `f` for vulnerability `v`.
-func (r Results) addFinding(v osv.Entry, f Finding) {
+func (r Results) addFinding(v *osv.Entry, f Finding) {
 	r.VulnFindings[v.ID] = append(r.VulnFindings[v.ID], f)
 }
 

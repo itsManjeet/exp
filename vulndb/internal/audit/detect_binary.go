@@ -26,7 +26,7 @@ func VulnerablePackageSymbols(packageSymbols map[string][]string, modVulns Modul
 	for pkg, symbols := range packageSymbols {
 		for _, symbol := range symbols {
 			vulns := modVulns.VulnsForSymbol(pkg, symbol)
-			for _, v := range serialize(vulns) {
+			for _, v := range vulns {
 				results.addFinding(v, Finding{
 					Symbol: fmt.Sprintf("%s.%s", pkg, symbol),
 					Type:   GlobalType,

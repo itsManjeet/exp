@@ -59,7 +59,7 @@ func VulnerableImports(pkgs []*ssa.Package, modVulns ModuleVulnerabilities) Resu
 
 		for _, imp := range pkg.Imports() {
 			vulns := modVulns.VulnsForPackage(imp.Path())
-			for _, v := range serialize(vulns) {
+			for _, v := range vulns {
 				t := c.trace()
 				results.addFinding(v, Finding{
 					Symbol: imp.Path(),
