@@ -74,6 +74,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8fa7897_fa900357",
+        "filename": "cmd/govulncheck/main.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-03-09T12:56:32Z",
+      "side": 1,
+      "message": "Agreed, I had the same thought. Done.",
+      "parentUuid": "c2ae1259_5bc3eefb",
+      "revId": "81fa5161ca61301baeb2773e1397326ab34ec998",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0655118d_cc52cbe3",
@@ -87,6 +105,24 @@
       "writtenOn": "2022-03-08T18:21:08Z",
       "side": 1,
       "message": "I believe we don\u0027t need this flag and mode anymore. My understanding is that we will always run the call analysis.",
+      "revId": "81fa5161ca61301baeb2773e1397326ab34ec998",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ee1e130_c427005b",
+        "filename": "cmd/govulncheck/main.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-03-09T12:56:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0655118d_cc52cbe3",
       "revId": "81fa5161ca61301baeb2773e1397326ab34ec998",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
