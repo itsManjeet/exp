@@ -22,6 +22,7 @@ import (
 	"go/build"
 	"log"
 	"os"
+	"sort"
 	"strings"
 
 	"golang.org/x/exp/vulncheck"
@@ -36,6 +37,7 @@ var (
 	jsonFlag    = flag.Bool("json", false, "")
 	verboseFlag = flag.Bool("v", false, "")
 	testsFlag   = flag.Bool("tests", false, "")
+	injsonFlag  = flag.String("in", "", "")
 )
 
 const usage = `govulncheck: identify known vulnerabilities by call graph traversal.
@@ -83,9 +85,7 @@ func main() {
 	if err != nil {
 		die("govulncheck: %s", err)
 	}
-	vcfg := &vulncheck.Config{
-		Client: dbClient,
-	}
+	vcfg := &vulncheck.Config{Client: dbClient}
 	ctx := context.Background()
 
 	patterns := flag.Args()
@@ -115,10 +115,22 @@ func main() {
 		if err != nil {
 			die("govulncheck: %v", err)
 		}
-		r, err = vulncheck.Source(ctx, vulncheck.Convert(pkgs), vcfg)
-		if err != nil {
-			die("govulncheck: %v", err)
+
+		if *injsonFlag != "" {
+			data, err := os.ReadFile(*injsonFlag)
+			if err != nil {
+				die("govulncheck: %v", err)
+			}
+			if err := json.Unmarshal(data, &r); err != nil {
+				die("govulncheck: %v", err)
+			}
+		} else {
+			r, err = vulncheck.Source(ctx, vulncheck.Convert(pkgs), vcfg)
+			if err != nil {
+				die("govulncheck: %v", err)
+			}
 		}
+
 		if *jsonFlag {
 			writeJSON(r)
 		} else {
@@ -149,22 +161,46 @@ func writeText(r *vulncheck.Result, pkgs []*packages.Package) {
 	})
 
 	const labelWidth = 16
-
 	line := func(label, text string) {
 		fmt.Printf("%-*s%s\n", labelWidth, label, text)
 	}
 
-	for _, v := range r.Vulns {
-		current := moduleVersions[v.ModPath]
-		fixed := "v" + latestFixed(v.OSV.Affected)
-		ref := fmt.Sprintf("https://pkg.go.dev/vuln/%s", v.OSV.ID)
-		line("package:", v.PkgPath)
+	entryMap := map[int]bool{}
+	for _, e := range r.Calls.Entries {
+		entryMap[e] = true
+	}
+
+	vulnGroups := groupByIDAndPackage(r.Vulns)
+	for _, vg := range vulnGroups {
+		// All the vulns in vg have the same PkgPath, ModPath and OSV.
+		// All have a non-zero CallSink.
+		v0 := vg[0]
+		current := moduleVersions[v0.ModPath]
+		fixed := "v" + latestFixed(v0.OSV.Affected)
+		ref := fmt.Sprintf("https://pkg.go.dev/vuln/%s", v0.OSV.ID)
+		var sinks []int
+		for _, v := range vg {
+			sinks = append(sinks, v.CallSink)
+		}
+
+		cfs := callingFunctions(sinks, r, func(fn *vulncheck.FuncNode) bool {
+			return entryMap[fn.ID]
+		})
+		var syms string
+		if len(cfs) == 0 {
+			syms = "no calling functions" // shouldn't happen
+		} else if len(cfs) == 1 {
+			syms = cfs[0]
+		} else {
+			syms = fmt.Sprintf("%s and %d others", cfs[0], len(cfs)-1)
+		}
+		line("package:", v0.PkgPath)
 		line("your version:", current)
 		line("fixed version:", fixed)
-		line("symbol:", v.Symbol)
+		line("symbols:", syms)
 		line("reference:", ref)
 
-		desc := strings.Split(wrap(v.OSV.Details, 80-labelWidth), "\n")
+		desc := strings.Split(wrap(v0.OSV.Details, 80-labelWidth), "\n")
 		for i, l := range desc {
 			if i == 0 {
 				line("description:", l)
@@ -174,6 +210,28 @@ func writeText(r *vulncheck.Result, pkgs []*packages.Package) {
 		}
 		fmt.Println()
 	}
+}
+
+func groupByIDAndPackage(vs []*vulncheck.Vuln) [][]*vulncheck.Vuln {
+	groups := map[[2]string][]*vulncheck.Vuln{}
+	for _, v := range vs {
+		if v.CallSink == 0 {
+			// Skip this vuln because although it appears in the
+			// import graph, there are no calls to it.
+			continue
+		}
+		key := [2]string{v.OSV.ID, v.PkgPath}
+		groups[key] = append(groups[key], v)
+	}
+
+	var res [][]*vulncheck.Vuln
+	for _, g := range groups {
+		res = append(res, g)
+	}
+	sort.Slice(res, func(i, j int) bool {
+		return res[i][0].PkgPath < res[j][0].PkgPath
+	})
+	return res
 }
 
 func isFile(path string) bool {
@@ -217,6 +275,51 @@ func latestFixed(as []osv.Affected) string {
 		}
 	}
 	return v
+}
+
+func callingFunctions(callSinks []int, r *vulncheck.Result, match func(*vulncheck.FuncNode) bool) []string {
+	names := map[string]bool{}
+
+	var visit func(*vulncheck.FuncNode)
+	seen := map[int]bool{}
+	visit = func(fn *vulncheck.FuncNode) {
+		if seen[fn.ID] {
+			return
+		}
+		seen[fn.ID] = true
+		if match(fn) {
+			names[funcName(fn)] = true
+			return
+		}
+		for _, cs := range fn.CallSites {
+			visit(r.Calls.Functions[cs.Parent])
+		}
+	}
+
+	for _, cs := range callSinks {
+		visit(r.Calls.Functions[cs])
+	}
+
+	var res []string
+	for n := range names {
+		res = append(res, n)
+	}
+	sort.Strings(res)
+	return res
+}
+
+func funcName(fn *vulncheck.FuncNode) string {
+	if fn.RecvType == "" {
+		return fn.PkgPath + "." + fn.Name
+	}
+	return strings.TrimPrefix(fn.RecvType+"."+fn.Name, "*")
+
+	// // Remove package path from type.
+	// i := strings.LastIndexByte(fn.RecvType, '.')
+	// if i < 0 {
+	// 	return fn.RecvType + "." + fn.Name
+	// }
+	// return fn.RecvType[i+1:] + "." + fn.Name
 }
 
 func die(format string, args ...interface{}) {
