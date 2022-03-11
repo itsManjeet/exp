@@ -10,7 +10,6 @@ import (
 	"go/build"
 	"os"
 	"path/filepath"
-	"strings"
 
 	"golang.org/x/vuln/client"
 )
@@ -66,12 +65,6 @@ func fetchVulnerabilities(ctx context.Context, client client.Client, modules []*
 			modPath = mod.Replace.Path
 		}
 
-		// skip loading vulns for local imports
-		if isLocal(mod) {
-			// TODO: what if client has its own db
-			// with local vulns?
-			continue
-		}
 		vulns, err := client.GetByModule(ctx, modPath)
 		if err != nil {
 			return nil, err
@@ -87,20 +80,6 @@ func fetchVulnerabilities(ctx context.Context, client client.Client, modules []*
 	return mv, nil
 }
 
-// fetchingInTesting is a flag used to avoid skipping
-// loading local vulnerabilities in testing.
-var fetchingInTesting bool = false
-
-func isLocal(mod *Module) bool {
-	if fetchingInTesting {
-		return false
-	}
-	modDir := mod.Dir
-	if mod.Replace != nil {
-		modDir = mod.Replace.Dir
-	}
-	return modDir != "" && !strings.HasPrefix(modDir, modCacheDirectory())
-}
 func modCacheDirectory() string {
 	var modCacheDir string
 	// TODO: define modCacheDir using something similar to cmd/go/internal/cfg.GOMODCACHE?
