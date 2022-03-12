@@ -37,5 +37,115 @@
       "revId": "72f8a4983c02f8c5f321af24222cbf81226af120",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
+  ],
+  "submitRequirementResults": [
+    {
+      "submitRequirement": {
+        "name": "Code-Review",
+        "description": {
+          "value": "At least one maximum vote for label \u0027Code-Review\u0027 is required. Self review is not allowed."
+        },
+        "applicabilityExpression": {},
+        "submittabilityExpression": {
+          "expressionString": "label:Code-Review\u003dMAX,user\u003dnon_uploader AND -label:Code-Review\u003dMIN"
+        },
+        "overrideExpression": {},
+        "allowOverrideInChildProjects": true
+      },
+      "applicabilityExpressionResult": {},
+      "submittabilityExpressionResult": {
+        "value": {"expression":{"expressionString":"label:Code-Review=MAX,user=non_uploader AND -label:Code-Review=MIN"},"status":"PASS","errorMessage":{"value":null},"passingAtoms":["label:Code-Review=MAX,user=non_uploader"],"failingAtoms":["label:Code-Review=MIN"]}
+      },
+      "overrideExpressionResult": {},
+      "patchSetCommitId": "72f8a4983c02f8c5f321af24222cbf81226af120",
+      "legacy": {
+        "value": false
+      },
+      "forced": {},
+      "hidden": {}
+    },
+    {
+      "submitRequirement": {
+        "name": "Do-Not-Review",
+        "description": {
+          "value": "Changes that have DO NOT REVIEW in their commit message are not submittable."
+        },
+        "applicabilityExpression": {
+          "value": {
+            "expressionString": "message:\"^.*(D|d)(O|o) (N|n)(O|o)(T|t) (R|r)(E|e)(V|v)(I|i)(E|e)(W|w).*\""
+          }
+        },
+        "submittabilityExpression": {
+          "expressionString": "is:false"
+        },
+        "overrideExpression": {},
+        "allowOverrideInChildProjects": false
+      },
+      "applicabilityExpressionResult": {
+        "value": {"expression":{"expressionString":"message:\"^.*(D|d)(O|o) (N|n)(O|o)(T|t) (R|r)(E|e)(V|v)(I|i)(E|e)(W|w).*\""},"status":"FAIL","errorMessage":{"value":null},"passingAtoms":[],"failingAtoms":["message:\"^.*(D|d)(O|o) (N|n)(O|o)(T|t) (R|r)(E|e)(V|v)(I|i)(E|e)(W|w).*\""]}
+      },
+      "submittabilityExpressionResult": {},
+      "overrideExpressionResult": {},
+      "patchSetCommitId": "72f8a4983c02f8c5f321af24222cbf81226af120",
+      "legacy": {
+        "value": false
+      },
+      "forced": {},
+      "hidden": {}
+    },
+    {
+      "submitRequirement": {
+        "name": "Do-Not-Submit",
+        "description": {
+          "value": "Changes that have DO NOT SUBMIT in their commit message are not submittable."
+        },
+        "applicabilityExpression": {
+          "value": {
+            "expressionString": "message:\"^.*(D|d)(O|o) (N|n)(O|o)(T|t) (S|s)(U|u)(B|b)(M|m)(I|i)(T|t).*\""
+          }
+        },
+        "submittabilityExpression": {
+          "expressionString": "is:false"
+        },
+        "overrideExpression": {},
+        "allowOverrideInChildProjects": false
+      },
+      "applicabilityExpressionResult": {
+        "value": {"expression":{"expressionString":"message:\"^.*(D|d)(O|o) (N|n)(O|o)(T|t) (S|s)(U|u)(B|b)(M|m)(I|i)(T|t).*\""},"status":"FAIL","errorMessage":{"value":null},"passingAtoms":[],"failingAtoms":["message:\"^.*(D|d)(O|o) (N|n)(O|o)(T|t) (S|s)(U|u)(B|b)(M|m)(I|i)(T|t).*\""]}
+      },
+      "submittabilityExpressionResult": {},
+      "overrideExpressionResult": {},
+      "patchSetCommitId": "72f8a4983c02f8c5f321af24222cbf81226af120",
+      "legacy": {
+        "value": false
+      },
+      "forced": {},
+      "hidden": {}
+    },
+    {
+      "submitRequirement": {
+        "name": "Trust",
+        "description": {
+          "value": "A change must get two Trust+1 or Code-Review+2 from two different approvers."
+        },
+        "applicabilityExpression": {},
+        "submittabilityExpression": {
+          "expressionString": "distinctvoters:\"[Code-Review,Trust],value\u003dMAX,count\u003e1\""
+        },
+        "overrideExpression": {},
+        "allowOverrideInChildProjects": true
+      },
+      "applicabilityExpressionResult": {},
+      "submittabilityExpressionResult": {
+        "value": {"expression":{"expressionString":"distinctvoters:\"[Code-Review,Trust],value=MAX,count>1\""},"status":"PASS","errorMessage":{"value":null},"passingAtoms":["distinctvoters:\"[Code-Review,Trust],value=MAX,count>1\""],"failingAtoms":[]}
+      },
+      "overrideExpressionResult": {},
+      "patchSetCommitId": "72f8a4983c02f8c5f321af24222cbf81226af120",
+      "legacy": {
+        "value": false
+      },
+      "forced": {},
+      "hidden": {}
+    }
   ]
 }
