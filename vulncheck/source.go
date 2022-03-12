@@ -6,6 +6,8 @@ package vulncheck
 
 import (
 	"context"
+	"fmt"
+	"go/token"
 	"runtime"
 
 	"golang.org/x/exp/vulncheck/internal/derrors"
@@ -21,8 +23,26 @@ import (
 //    package that has some known vulnerabilities
 //  - call graph leading to the use of a known vulnerable function
 //    or method
+// All the entries in pkgs must have been loaded using the same
+// FileSet.
 func Source(ctx context.Context, pkgs []*Package, cfg *Config) (_ *Result, err error) {
 	defer derrors.Wrap(&err, "vulncheck.Source")
+
+	// buildSSA builds a whole program that assumes all packages use the same FileSet.
+	// Check all packages in pkgs are using the same FileSet.
+	// TODO(hyangah): Alternative is to take FileSet out of Package and
+	// let Source take a single FileSet. That will make the enforcement
+	// clearer from the API level.
+	var fset *token.FileSet
+	for _, p := range pkgs {
+		if fset == nil {
+			fset = p.Fset
+		} else {
+			if fset != p.Fset {
+				return nil, fmt.Errorf("All entries in []*Package must reference to the same FileSet object used when loading them")
+			}
+		}
+	}
 
 	modVulns, err := fetchVulnerabilities(ctx, cfg.Client, extractModules(pkgs))
 	if err != nil {
@@ -41,7 +61,7 @@ func Source(ctx context.Context, pkgs []*Package, cfg *Config) (_ *Result, err e
 		return result, nil
 	}
 
-	prog, ssaPkgs := buildSSA(pkgs)
+	prog, ssaPkgs := buildSSA(pkgs, fset)
 	entries := entryPoints(ssaPkgs)
 	cg := callGraph(prog, entries)
 	vulnCallGraphSlice(entries, modVulns, cg, result)
