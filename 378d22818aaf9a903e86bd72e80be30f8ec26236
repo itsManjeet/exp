@@ -52,6 +52,24 @@
       "parentUuid": "ff97756f_b5f89e94",
       "revId": "378d22818aaf9a903e86bd72e80be30f8ec26236",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8dffcd2_03a952cf",
+        "filename": "cmd/txtar/txtar.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 34615
+      },
+      "writtenOn": "2022-03-12T08:34:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b0226f6_bf60e1bf",
+      "revId": "378d22818aaf9a903e86bd72e80be30f8ec26236",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
