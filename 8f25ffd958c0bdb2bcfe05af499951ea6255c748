@@ -130,6 +130,30 @@
       },
       "revId": "8f25ffd958c0bdb2bcfe05af499951ea6255c748",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06750eea_ca624a85",
+        "filename": "cmd/govulncheck/main.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2022-03-14T17:55:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65f4ca01_0d1374ab",
+      "range": {
+        "startLine": 264,
+        "startChar": 0,
+        "endLine": 269,
+        "endChar": 1
+      },
+      "revId": "8f25ffd958c0bdb2bcfe05af499951ea6255c748",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
