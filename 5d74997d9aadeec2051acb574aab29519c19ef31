@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "108a1116_ae0394f4",
+        "filename": "vulncheck/checks.bash",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2022-03-14T18:45:10Z",
+      "side": 1,
+      "message": "This line seems to be causing failures on all of the darwin builders:\nhttps://build.golang.org/log/9996106d145ee9b5439fa4359c055e1fd260729a\n```\n./checks.bash: line 38: shopt: globstar: invalid shell option name\nhead: **/*.go: No such file or directory\n\u001b[31mmissing license header: **/*.go\u001b(B\u001b[m\nhead: **/*.bash: No such file or directory\n\u001b[31mmissing license header: **/*.bash\u001b(B\u001b[m\n```",
+      "revId": "5d74997d9aadeec2051acb574aab29519c19ef31",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
