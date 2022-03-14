@@ -53,6 +53,41 @@
       "message": "What do you think about this fix? Alternatively, we can make the Source take only a single FileSet... \nOr, is there a way to use the correct position by using the corresponding Package\u0027s FileSet??",
       "revId": "ec2c412377ccedfb4d5dfa66b53fad02c993b571",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19da737d_1d136fa6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2022-03-14T20:21:45Z",
+      "side": 1,
+      "message": "There is an offline discussion about this and there was somewhat of an agreement that this is ok solution. This looks good to me. Perhaps you can include other folks for confirmation?",
+      "parentUuid": "3a66d4ac_ff9b22a6",
+      "revId": "ec2c412377ccedfb4d5dfa66b53fad02c993b571",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d7847bb_fe602181",
+        "filename": "vulncheck/source.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2022-03-14T20:21:45Z",
+      "side": 1,
+      "message": "Perhaps we can document this in the Source documentation/description?",
+      "revId": "ec2c412377ccedfb4d5dfa66b53fad02c993b571",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
