@@ -89,6 +89,24 @@
       "parentUuid": "2b5f9a73_3f286bc2",
       "revId": "b127f4ca9d728e7b3218510a632eda29723004b0",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2205b9b6_254789a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2022-03-14T23:22:57Z",
+      "side": 1,
+      "message": "We could do that. That is why we made Config a struct, so we can add more fields if needed.\n\nHowever, IMO that seems a bit overkill for just improving the performance of loading, which is why isLocal was originally introduced. If the performance becomes a problem, then we can try to load vulns in parallel (once I make the cache thread-safe).\n\nThoughts?",
+      "parentUuid": "1d5e214e_6990f7b6",
+      "revId": "b127f4ca9d728e7b3218510a632eda29723004b0",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
