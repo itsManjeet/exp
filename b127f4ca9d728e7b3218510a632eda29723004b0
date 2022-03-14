@@ -53,6 +53,24 @@
       "message": "Or should we pass envs, build flags through the Config? ",
       "revId": "b127f4ca9d728e7b3218510a632eda29723004b0",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b5f9a73_3f286bc2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2022-03-14T20:14:10Z",
+      "side": 1,
+      "message": "I wonder how is golang/go#48079 related to this? I am looking at its original fix https://go-review.googlesource.com/c/exp/+/346609 and that code touches something else.\n\nWe introduced isLocal to skip loading when it does not make sense. That affects the number of modules with \"\" version, but the code in https://go.googlesource.com/exp/+/refs/heads/master/vulncheck/vulncheck.go (line 279) should handle \"\" versions regardless.\n\nAre you seeing something different?",
+      "parentUuid": "c1ea491a_3c928f33",
+      "revId": "b127f4ca9d728e7b3218510a632eda29723004b0",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
