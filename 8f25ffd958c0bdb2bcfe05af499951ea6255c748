@@ -61,6 +61,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3dd3111_31cddf90",
+        "filename": "cmd/govulncheck/main.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-03-14T16:34:58Z",
+      "side": 1,
+      "message": "I think it\u0027s more useful to show the symbols in the package that the user is running govulncheck on.\n\nBased on the discussion in our internal chat room, looks like there is agreement.",
+      "parentUuid": "108c5d11_b356daf3",
+      "range": {
+        "startLine": 177,
+        "startChar": 3,
+        "endLine": 177,
+        "endChar": 13
+      },
+      "revId": "8f25ffd958c0bdb2bcfe05af499951ea6255c748",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "231d4d7c_fd95a11f",
@@ -74,6 +98,30 @@
       "writtenOn": "2022-03-11T19:01:12Z",
       "side": 1,
       "message": "Is this equivalent to\n   strings.TrimPrefix(fn.String(), \"*\") \n\n?",
+      "range": {
+        "startLine": 264,
+        "startChar": 0,
+        "endLine": 269,
+        "endChar": 1
+      },
+      "revId": "8f25ffd958c0bdb2bcfe05af499951ea6255c748",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65f4ca01_0d1374ab",
+        "filename": "cmd/govulncheck/main.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 269,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-03-14T16:34:58Z",
+      "side": 1,
+      "message": "Yes! Done.",
+      "parentUuid": "231d4d7c_fd95a11f",
       "range": {
         "startLine": 264,
         "startChar": 0,
