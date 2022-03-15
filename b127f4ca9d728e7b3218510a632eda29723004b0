@@ -125,6 +125,24 @@
       "parentUuid": "1d5e214e_6990f7b6",
       "revId": "b127f4ca9d728e7b3218510a632eda29723004b0",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75261f63_5d82e8c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2022-03-15T15:56:18Z",
+      "side": 1,
+      "message": "\u003e if it was for performance improvement, I think it\u0027s an overkill - in most cases, it will cut fetching of the local, main module\u0027s info, and I hope caching also helps.\n\u003e \n\u003e If that becomes an issue, how about allowing more explicit configuration than relying on module cache location? For example,\n\u003e \n\u003e - to remove the main modules, use \u0027Main\u0027 field.\n\u003e - to allow to arbitrary modules, allow users to pass module names (`exclude []string`) setting.\n\u003e \n\u003e What do you think?\n\nSorry, is the idea to use modules as inputs instead of packages?",
+      "parentUuid": "576b1d8d_c7f0da2b",
+      "revId": "b127f4ca9d728e7b3218510a632eda29723004b0",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }

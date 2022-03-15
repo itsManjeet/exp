@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97a3213f_5b05b080",
+        "filename": "vulncheck/fetch.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2022-03-15T15:56:18Z",
+      "side": 0,
+      "message": "Is it possible to also get rid of this?",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 1
+      },
+      "revId": "20fd27f61765bc7b0692095eb711da361e0d655c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
