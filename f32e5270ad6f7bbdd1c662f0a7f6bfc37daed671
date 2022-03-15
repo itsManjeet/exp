@@ -87,6 +87,23 @@
       "message": "Jonathan is currently assigned to that issue and available, so will let him review.",
       "revId": "f32e5270ad6f7bbdd1c662f0a7f6bfc37daed671",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56c48e0a_54a4739c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-03-15T12:25:58Z",
+      "side": 1,
+      "message": "https://go.dev/cl/392594 should fix the issue so this can be abandoned.",
+      "revId": "f32e5270ad6f7bbdd1c662f0a7f6bfc37daed671",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
