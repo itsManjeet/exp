@@ -120,7 +120,12 @@ func main() {
 	} else {
 		writeText(r, pkgs)
 	}
-
+	exitCode := 0
+	// Fail if there are vulns.
+	if len(r.Vulns) > 0 {
+		exitCode = 1
+	}
+	os.Exit(exitCode)
 }
 
 func writeJSON(r *vulncheck.Result) {
