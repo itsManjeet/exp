@@ -83,6 +83,30 @@
       },
       "revId": "7955152d010635537d4d5f45ac37e442a877ba7f",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84eeb253_202dec6e",
+        "filename": "cmd/govulncheck/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2022-03-16T19:38:07Z",
+      "side": 1,
+      "message": "\u003e So are you suggesting that s/1/3/ here, and wherever we call die or otherwise terminate due to an error, we use 1?\n\nYes.\n\n\u003e I\u0027m not sure what go vet means by \"diagnostics\".\n\nhttps://github.com/golang/tools/blob/e6a7e133888e97001109ab82f930ca7ea3449309/go/analysis/diagnostic.go#L17\n\nIn vet, this is a finding. We use the same approach in DeepGo.",
+      "parentUuid": "5c2b001f_f7488cdd",
+      "range": {
+        "startLine": 123,
+        "startChar": 1,
+        "endLine": 128,
+        "endChar": 18
+      },
+      "revId": "7955152d010635537d4d5f45ac37e442a877ba7f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
