@@ -22,6 +22,30 @@
       },
       "revId": "20fd27f61765bc7b0692095eb711da361e0d655c",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd5b01ff_5b9f8f48",
+        "filename": "vulncheck/fetch.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 5190
+      },
+      "writtenOn": "2022-03-18T15:31:46Z",
+      "side": 0,
+      "message": "removed. (and changed the references from fetch_test.go)",
+      "parentUuid": "97a3213f_5b05b080",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 1
+      },
+      "revId": "20fd27f61765bc7b0692095eb711da361e0d655c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
