@@ -61,6 +61,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7674f38_d7f71ac0",
+        "filename": "cmd/govulncheck/main.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-03-18T20:50:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bca968c8_a0f67cbf",
+      "range": {
+        "startLine": 163,
+        "startChar": 2,
+        "endLine": 168,
+        "endChar": 3
+      },
+      "revId": "fa1114d89c65ab0906e4c28d3a872e68576975a0",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "30b5ff09_c793d24f",
@@ -74,6 +98,30 @@
       "writtenOn": "2022-03-14T18:08:54Z",
       "side": 1,
       "message": "Why topmods instead of toppkgs? This would simplify the matching code below and IMO looks more intuitive to me. The set of pkgs the user specified are the entry points. I am not sure should we communicate other packages that are in the same mod but not specified by the user. (I am also not sure how much this distinction will matter in practice).",
+      "range": {
+        "startLine": 284,
+        "startChar": 19,
+        "endLine": 284,
+        "endChar": 26
+      },
+      "revId": "fa1114d89c65ab0906e4c28d3a872e68576975a0",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f23f1c6e_e82cbcb2",
+        "filename": "cmd/govulncheck/main.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-03-18T20:50:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30b5ff09_c793d24f",
       "range": {
         "startLine": 284,
         "startChar": 19,
