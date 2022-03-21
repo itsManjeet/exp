@@ -143,6 +143,24 @@
       "parentUuid": "576b1d8d_c7f0da2b",
       "revId": "b127f4ca9d728e7b3218510a632eda29723004b0",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fccdfd7c_19a9c247",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5190
+      },
+      "writtenOn": "2022-03-21T17:32:35Z",
+      "side": 1,
+      "message": "`fetchVulnerabilities` already take modules as inputs. (we can consider to make   x/tools/packages.Module and x/exp/vulncheck.Module look similar to each other...) so, I used module as the default granularity. If not, more complex filtering logic may be necessary.",
+      "parentUuid": "75261f63_5d82e8c6",
+      "revId": "b127f4ca9d728e7b3218510a632eda29723004b0",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
