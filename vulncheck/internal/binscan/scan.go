@@ -10,18 +10,14 @@ package binscan
 // and cmd/go/internal/version/exe.go.
 
 import (
-	"debug/buildinfo"
-	"debug/gosym"
 	"errors"
-	"fmt"
 	"io"
-	"net/url"
 	"runtime/debug"
-	"strings"
 
 	"golang.org/x/tools/go/packages"
 )
 
+//lint:ignore U1000 this is a utility used when compiled with go1.18+.
 func debugModulesToPackagesModules(debugModules []*debug.Module) []*packages.Module {
 	packagesModules := make([]*packages.Module, len(debugModules))
 	for i, mod := range debugModules {
@@ -44,55 +40,9 @@ func debugModulesToPackagesModules(debugModules []*debug.Module) []*packages.Mod
 //
 // TODO(#51412): detect inlined symbols too
 func ExtractPackagesAndSymbols(bin io.ReaderAt) ([]*packages.Module, map[string][]string, error) {
-	bi, err := buildinfo.Read(bin)
-	if err != nil {
-		return nil, nil, err
-	}
+	return extractPackagesAndSymbols(bin)
+}
 
-	x, err := openExe(bin)
-	if err != nil {
-		return nil, nil, err
-	}
-
-	pclntab, textOffset := x.PCLNTab()
-	if pclntab == nil {
-		// TODO(roland): if we have build information, but not PCLN table, we should be able to
-		// fall back to much higher granularity vulnerability checking.
-		return nil, nil, errors.New("unable to load the PCLN table")
-	}
-	lineTab := gosym.NewLineTable(pclntab, textOffset)
-	if lineTab == nil {
-		return nil, nil, errors.New("invalid line table")
-	}
-	tab, err := gosym.NewTable(nil, lineTab)
-	if err != nil {
-		return nil, nil, err
-	}
-
-	packageSymbols := map[string][]string{}
-	for _, f := range tab.Funcs {
-		if f.Func == nil {
-			continue
-		}
-		symName := f.Func.BaseName()
-		if r := f.Func.ReceiverName(); r != "" {
-			if strings.HasPrefix(r, "(*") {
-				r = strings.Trim(r, "(*)")
-			}
-			symName = fmt.Sprintf("%s.%s", r, symName)
-		}
-
-		pkgName := f.Func.PackageName()
-		if pkgName == "" {
-			continue
-		}
-		pkgName, err := url.PathUnescape(pkgName)
-		if err != nil {
-			return nil, nil, err
-		}
-
-		packageSymbols[pkgName] = append(packageSymbols[pkgName], symName)
-	}
-
-	return debugModulesToPackagesModules(bi.Deps), packageSymbols, nil
+var extractPackagesAndSymbols = func(bin io.ReaderAt) ([]*packages.Module, map[string][]string, error) {
+	return nil, nil, errors.New("ExtractPackagesAndSymbols requires go1.18 or newer")
 }
