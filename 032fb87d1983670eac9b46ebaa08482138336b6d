@@ -53,6 +53,23 @@
       "message": "LGTM to me, but leaving it to Roland to confirn.",
       "revId": "032fb87d1983670eac9b46ebaa08482138336b6d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b59235b_08ed2eee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5190
+      },
+      "writtenOn": "2022-03-21T22:20:09Z",
+      "side": 1,
+      "message": "Since there is no go1.17 builder and x/exp does not have any official compatibility promise, I think it\u0027s also ok not to accept this change but require the callers to handle this restriction instead.",
+      "revId": "032fb87d1983670eac9b46ebaa08482138336b6d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
