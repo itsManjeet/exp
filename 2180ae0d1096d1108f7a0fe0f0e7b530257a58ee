@@ -24,6 +24,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "623007cc_4b729711",
+        "filename": "cmd/govulncheck/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-03-23T19:09:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7c56a19_ed0ae763",
+      "range": {
+        "startLine": 186,
+        "startChar": 4,
+        "endLine": 186,
+        "endChar": 38
+      },
+      "revId": "2180ae0d1096d1108f7a0fe0f0e7b530257a58ee",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "81e5df91_85f9eed4",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-03-23T16:15:42Z",
       "side": 1,
       "message": "Is this just supposed to remove duplicates? compact is kind of a loose term IMO.",
+      "range": {
+        "startLine": 353,
+        "startChar": 0,
+        "endLine": 367,
+        "endChar": 1
+      },
+      "revId": "2180ae0d1096d1108f7a0fe0f0e7b530257a58ee",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a425d03_08736916",
+        "filename": "cmd/govulncheck/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-03-23T19:09:15Z",
+      "side": 1,
+      "message": "That\u0027s what they call it. Clarified in comment.",
+      "parentUuid": "81e5df91_85f9eed4",
       "range": {
         "startLine": 353,
         "startChar": 0,
