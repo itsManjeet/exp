@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7c56a19_ed0ae763",
+        "filename": "cmd/govulncheck/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2022-03-23T16:15:42Z",
+      "side": 1,
+      "message": "Could this just be moved to the body of the above if statement?",
+      "range": {
+        "startLine": 186,
+        "startChar": 4,
+        "endLine": 186,
+        "endChar": 38
+      },
+      "revId": "2180ae0d1096d1108f7a0fe0f0e7b530257a58ee",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81e5df91_85f9eed4",
+        "filename": "cmd/govulncheck/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 44008
+      },
+      "writtenOn": "2022-03-23T16:15:42Z",
+      "side": 1,
+      "message": "Is this just supposed to remove duplicates? compact is kind of a loose term IMO.",
+      "range": {
+        "startLine": 353,
+        "startChar": 0,
+        "endLine": 367,
+        "endChar": 1
+      },
+      "revId": "2180ae0d1096d1108f7a0fe0f0e7b530257a58ee",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
