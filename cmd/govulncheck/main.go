@@ -99,7 +99,7 @@ func main() {
 			die("govulncheck: %v", err)
 		}
 		defer f.Close()
-		r, err = vulncheck.Binary(ctx, f, vcfg)
+		r, err = vulncheckBinary(ctx, f, vcfg)
 		if err != nil {
 			die("govulncheck: %v", err)
 		}
