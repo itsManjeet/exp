@@ -7,6 +7,7 @@ package slices
 import (
 	"math"
 	"math/rand"
+	"strings"
 	"testing"
 )
 
@@ -151,31 +152,63 @@ func TestStability(t *testing.T) {
 }
 
 func TestBinarySearch(t *testing.T) {
-	data := []string{"aa", "ad", "ca", "xy"}
+	str1 := []string{"foo"}
+	str2 := []string{"ab", "ca"}
+	str3 := []string{"mo", "qo", "vo"}
+	str4 := []string{"ab", "ad", "ca", "xy"}
+
 	tests := []struct {
-		target string
-		want   int
+		data      []string
+		target    string
+		wantPos   int
+		wantFound bool
 	}{
-		{"aa", 0},
-		{"ab", 1},
-		{"ad", 1},
-		{"ax", 2},
-		{"ca", 2},
-		{"cc", 3},
-		{"dd", 3},
-		{"xy", 3},
-		{"zz", 4},
+		{[]string{}, "foo", 0, false},
+		{[]string{}, "", 0, false},
+
+		{str1, "foo", 0, true},
+		{str1, "bar", 0, false},
+		{str1, "zx", 1, false},
+
+		{str2, "aa", 0, false},
+		{str2, "ab", 0, true},
+		{str2, "ad", 1, false},
+		{str2, "ca", 1, true},
+		{str2, "ra", 2, false},
+
+		{str3, "bb", 0, false},
+		{str3, "mo", 0, true},
+		{str3, "nb", 1, false},
+		{str3, "qo", 1, true},
+		{str3, "tr", 2, false},
+		{str3, "vo", 2, true},
+		{str3, "xr", 3, false},
+
+		{str4, "aa", 0, false},
+		{str4, "ab", 0, true},
+		{str4, "ac", 1, false},
+		{str4, "ad", 1, true},
+		{str4, "ax", 2, false},
+		{str4, "ca", 2, true},
+		{str4, "cc", 3, false},
+		{str4, "dd", 3, false},
+		{str4, "xy", 3, true},
+		{str4, "zz", 4, false},
 	}
 	for _, tt := range tests {
 		t.Run(tt.target, func(t *testing.T) {
-			i := BinarySearch(data, tt.target)
-			if i != tt.want {
-				t.Errorf("BinarySearch want %d, got %d", tt.want, i)
+			{
+				pos, found := BinarySearch(tt.data, tt.target)
+				if pos != tt.wantPos || found != tt.wantFound {
+					t.Errorf("BinarySearch want (%v, %v) got (%v, %v)", tt.wantPos, tt.wantFound, pos, found)
+				}
 			}
 
-			j := BinarySearchFunc(data, func(s string) bool { return s >= tt.target })
-			if j != tt.want {
-				t.Errorf("BinarySearchFunc want %d, got %d", tt.want, j)
+			{
+				pos, found := BinarySearchFunc(tt.data, tt.target, strings.Compare)
+				if pos != tt.wantPos || found != tt.wantFound {
+					t.Errorf("BinarySearchFunc want (%v, %v) got (%v, %v)", tt.wantPos, tt.wantFound, pos, found)
+				}
 			}
 		})
 	}
