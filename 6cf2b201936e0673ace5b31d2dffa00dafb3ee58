@@ -34,6 +34,24 @@
       "parentUuid": "7c56caed_849cefba",
       "revId": "6cf2b201936e0673ace5b31d2dffa00dafb3ee58",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb1d6982_f1afb652",
+        "filename": "shiny/go.sum",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2022-04-01T00:56:38Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "8087876c_f7479829",
+      "revId": "6cf2b201936e0673ace5b31d2dffa00dafb3ee58",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
