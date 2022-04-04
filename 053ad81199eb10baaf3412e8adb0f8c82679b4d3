@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4917c539_d142f8b8",
+        "filename": "shiny/internal/xgb/xproto/xproto_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2022-04-04T15:33:07Z",
+      "side": 0,
+      "message": "We\u0027re losing the test improvement made in CL 12765, since that hasn\u0027t been upstreamed (see https://github.com/jezek/xgb/blob/v1.0.0/xproto/xproto_test.go#L35-L48). It\u0027s not a critical problem since Go builders don\u0027t run the xgb tests, only x/exp tests, now that it\u0027s a dependency in another module rather than a set of (copied) internal packages.",
+      "range": {
+        "startLine": 36,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 1
+      },
+      "revId": "053ad81199eb10baaf3412e8adb0f8c82679b4d3",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
