@@ -4,19 +4,46 @@
 
 package slices
 
-import "golang.org/x/exp/constraints"
+import (
+	"math/bits"
+
+	"golang.org/x/exp/constraints"
+)
+
+type sortedHint int // hint for pdqsort when choosing the pivot
+
+const (
+	unknownHint sortedHint = iota
+	increasingHint
+	decreasingHint
+)
+
+// xorshift paper: https://www.jstatsoft.org/article/view/v008i14/xorshift.pdf
+type xorshift uint
+
+func (r *xorshift) Next() uint {
+	*r ^= *r << 13
+	*r ^= *r >> 17
+	*r ^= *r << 5
+	return uint(*r)
+}
+
+func nextPowerOfTwo(length int) uint {
+	shift := uint(bits.Len(uint(length)))
+	return uint(1 << shift)
+}
 
 // Sort sorts a slice of any ordered type in ascending order.
 func Sort[E constraints.Ordered](x []E) {
 	n := len(x)
-	quickSortOrdered(x, 0, n, maxDepth(n))
+	pdqsortOrdered(x, 0, n, bits.Len(uint(n)))
 }
 
 // Sort sorts the slice x in ascending order as determined by the less function.
 // This sort is not guaranteed to be stable.
 func SortFunc[E any](x []E, less func(a, b E) bool) {
 	n := len(x)
-	quickSortLessFunc(x, 0, n, maxDepth(n), less)
+	pdqsortLessFunc(x, 0, n, bits.Len(uint(n)), less)
 }
 
 // SortStable sorts the slice x while keeping the original order of equal
@@ -74,16 +101,6 @@ func BinarySearchFunc[E any](x []E, target E, cmp func(E, E) int) (int, bool) {
 	} else {
 		return pos, true
 	}
-}
-
-// maxDepth returns a threshold at which quicksort should switch
-// to heapsort. It returns 2*ceil(lg(n+1)).
-func maxDepth(n int) int {
-	var depth int
-	for i := n; i > 0; i >>= 1 {
-		depth++
-	}
-	return depth * 2
 }
 
 func search(n int, f func(int) bool) int {
