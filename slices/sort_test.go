@@ -34,15 +34,6 @@ func TestSortFuncIntSlice(t *testing.T) {
 	}
 }
 
-func TestSortFloat64Slice(t *testing.T) {
-	data := float64s[:]
-	Sort(data)
-	if !IsSorted(data) {
-		t.Errorf("sorted %v", float64s)
-		t.Errorf("   got %v", data)
-	}
-}
-
 func TestSortStringSlice(t *testing.T) {
 	data := strs[:]
 	Sort(data)
