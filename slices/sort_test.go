@@ -70,6 +70,36 @@ func TestSortLarge_Random(t *testing.T) {
 	}
 }
 
+func TestSortOrderedConsistency(t *testing.T) {
+	data1 := make([]float64, 100)
+	for i := range data1 {
+		switch rand.Intn(5) {
+		case 0:
+			data1[i] = math.NaN()
+		case 1:
+			data1[i] = math.Inf(1)
+		case 2:
+			data1[i] = math.Inf(-1)
+		default:
+			data1[i] = rand.ExpFloat64()
+		}
+	}
+
+	data2 := make([]float64, len(data1))
+	copy(data2, data1)
+
+	SortStableFunc(data1, func(a, b float64) bool {
+		return a < b
+	})
+	stableOrdered(data2, len(data2))
+
+	for i := range data1 {
+		if data1[i] != data2[i] && (!math.IsNaN(data1[i]) && !math.IsNaN(data2[i])) {
+			t.Errorf("inconsistent sorting %v, %v != %v", i, data1[i], data2[i])
+		}
+	}
+}
+
 type intPair struct {
 	a, b int
 }
