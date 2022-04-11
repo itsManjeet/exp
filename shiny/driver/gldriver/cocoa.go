@@ -81,7 +81,7 @@ func showWindow(w *windowImpl) {
 	C.doShowWindow(C.uintptr_t(w.id))
 }
 
-//export preparedOpenGL
+// export preparedOpenGL
 func preparedOpenGL(id, ctx, vba uintptr) {
 	theScreen.mu.Lock()
 	w := theScreen.windows[id]
@@ -107,7 +107,7 @@ func main(f func(screen.Screen)) error {
 	return nil
 }
 
-//export driverStarted
+// export driverStarted
 func driverStarted() {
 	go func() {
 		mainCallback(theScreen)
@@ -115,7 +115,7 @@ func driverStarted() {
 	}()
 }
 
-//export drawgl
+// export drawgl
 func drawgl(id uintptr) {
 	theScreen.mu.Lock()
 	w := theScreen.windows[id]
@@ -177,7 +177,7 @@ func drawLoop(w *windowImpl, vba uintptr) {
 	}
 }
 
-//export setGeom
+// export setGeom
 func setGeom(id uintptr, ppp float32, widthPx, heightPx int) {
 	theScreen.mu.Lock()
 	w := theScreen.windows[id]
@@ -204,7 +204,7 @@ func setGeom(id uintptr, ppp float32, widthPx, heightPx int) {
 	w.Send(sz)
 }
 
-//export windowClosing
+// export windowClosing
 func windowClosing(id uintptr) {
 	sendLifecycle(id, (*lifecycler.State).SetDead, true)
 }
@@ -270,7 +270,7 @@ func cocoaMouseButton(button int32) mouse.Button {
 	}
 }
 
-//export mouseEvent
+// export mouseEvent
 func mouseEvent(id uintptr, x, y, dx, dy float32, ty, button int32, flags uint32) {
 	cmButton := mouse.ButtonNone
 	switch ty {
@@ -324,7 +324,7 @@ func mouseEvent(id uintptr, x, y, dx, dy float32, ty, button int32, flags uint32
 	})
 }
 
-//export keyEvent
+// export keyEvent
 func keyEvent(id uintptr, runeVal rune, dir uint8, code uint16, flags uint32) {
 	sendWindowEvent(id, key.Event{
 		Rune:      cocoaRune(runeVal),
@@ -334,7 +334,7 @@ func keyEvent(id uintptr, runeVal rune, dir uint8, code uint16, flags uint32) {
 	})
 }
 
-//export flagEvent
+// export flagEvent
 func flagEvent(id uintptr, flags uint32) {
 	for _, mod := range mods {
 		if flags&mod.flags == mod.flags && lastFlags&mod.flags != mod.flags {
@@ -380,18 +380,18 @@ func sendLifecycleAll(dead bool) {
 	}
 }
 
-//export lifecycleDeadAll
+// export lifecycleDeadAll
 func lifecycleDeadAll() { sendLifecycleAll(true) }
 
-//export lifecycleHideAll
+// export lifecycleHideAll
 func lifecycleHideAll() { sendLifecycleAll(false) }
 
-//export lifecycleVisible
+// export lifecycleVisible
 func lifecycleVisible(id uintptr, val bool) {
 	sendLifecycle(id, (*lifecycler.State).SetVisible, val)
 }
 
-//export lifecycleFocused
+// export lifecycleFocused
 func lifecycleFocused(id uintptr, val bool) {
 	sendLifecycle(id, (*lifecycler.State).SetFocused, val)
 }
@@ -411,6 +411,7 @@ func cocoaRune(r rune) rune {
 // into the standard keycodes used by the key package.
 //
 // To get a sense of the key map, see the diagram on
+//
 //	http://boredzo.org/blog/archives/2007-05-22/virtual-key-codes
 func cocoaKeyCode(vkcode uint16) key.Code {
 	switch vkcode {

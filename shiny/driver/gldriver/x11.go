@@ -180,7 +180,7 @@ func main(f func(screen.Screen)) error {
 	}
 }
 
-//export onExpose
+// export onExpose
 func onExpose(id uintptr) {
 	theScreen.mu.Lock()
 	w := theScreen.windows[id]
@@ -193,13 +193,13 @@ func onExpose(id uintptr) {
 	w.Send(paint.Event{External: true})
 }
 
-//export onKeysym
+// export onKeysym
 func onKeysym(k, unshifted, shifted uint32) {
 	theKeysyms.Table[k][0] = unshifted
 	theKeysyms.Table[k][1] = shifted
 }
 
-//export onKey
+// export onKey
 func onKey(id uintptr, state uint16, detail, dir uint8) {
 	theScreen.mu.Lock()
 	w := theScreen.windows[id]
@@ -218,7 +218,7 @@ func onKey(id uintptr, state uint16, detail, dir uint8) {
 	})
 }
 
-//export onMouse
+// export onMouse
 func onMouse(id uintptr, x, y int32, state uint16, button, dir uint8) {
 	theScreen.mu.Lock()
 	w := theScreen.windows[id]
@@ -256,7 +256,7 @@ func onMouse(id uintptr, x, y int32, state uint16, button, dir uint8) {
 	})
 }
 
-//export onFocus
+// export onFocus
 func onFocus(id uintptr, focused bool) {
 	theScreen.mu.Lock()
 	w := theScreen.windows[id]
@@ -270,7 +270,7 @@ func onFocus(id uintptr, focused bool) {
 	w.lifecycler.SendEvent(w, w.glctx)
 }
 
-//export onConfigure
+// export onConfigure
 func onConfigure(id uintptr, x, y, width, height, displayWidth, displayWidthMM int32) {
 	theScreen.mu.Lock()
 	w := theScreen.windows[id]
@@ -297,7 +297,7 @@ func onConfigure(id uintptr, x, y, width, height, displayWidth, displayWidthMM i
 	})
 }
 
-//export onDeleteWindow
+// export onDeleteWindow
 func onDeleteWindow(id uintptr) {
 	theScreen.mu.Lock()
 	w := theScreen.windows[id]
