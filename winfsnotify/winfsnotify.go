@@ -2,10 +2,16 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
+//go:build windows
 // +build windows
 
 // Package winfsnotify allows the user to receive
 // file system event notifications on Windows.
+//
+// Deprecated: winfsnotify has been unmaintained since 2016 (see
+// https://go.dev/issue/51447). Forks of this package with more recent
+// maintenance and cross-platform support can be found at
+// https://pkg.go.dev/search?q=fsnotify.
 package winfsnotify // import "golang.org/x/exp/winfsnotify"
 
 import (
