@@ -35,6 +35,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fffa7ce_5a4a8b2f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 49673
+      },
+      "writtenOn": "2022-04-14T17:20:52Z",
+      "side": 1,
+      "message": "It locates in the Go repo, we can generate these codes by  `go run gen_sort_variants.go -generic`, ref https://go-review.googlesource.com/c/go/+/353069",
+      "parentUuid": "a2046b5f_5574f245",
+      "revId": "010a6b4fa3b19dced8663aec419499825c5edd71",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a2e76dc1_c3707f3b",
@@ -52,6 +70,41 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8b0c6d5_3957f4cb",
+        "filename": "slices/sort.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 49673
+      },
+      "writtenOn": "2022-04-14T17:20:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a2e76dc1_c3707f3b",
+      "revId": "010a6b4fa3b19dced8663aec419499825c5edd71",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25e500fe_44a5acd1",
+        "filename": "slices/zsortordered.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 49673
+      },
+      "writtenOn": "2022-04-14T17:20:52Z",
+      "side": 1,
+      "message": "This case we can ensure that `data[a-1]` always smaller or equal to `data[pivot]`. So if `(data[a-1] \u003e\u003d data[pivot])` is true, we can say that `data[a-1]\u003d\u003ddata[pivot]`.\n\nFor the float64 slice, it has a bad case, so we should use `(a\u003e\u003db)` instead of `!(a\u003cb)` to handle NaNs. For example, `!(1.0\u003cNaN)` is true, but 1.0 !\u003d NaN.",
+      "revId": "010a6b4fa3b19dced8663aec419499825c5edd71",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "05f7cfc6_8d4bea89",
@@ -65,6 +118,24 @@
       "writtenOn": "2022-04-14T16:43:05Z",
       "side": 1,
       "message": "Why is this changing? To handle NaNs differently somehow?\n\nI feel like this should be in a separate CL. With a test.",
+      "revId": "010a6b4fa3b19dced8663aec419499825c5edd71",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3f71043_0b1dbc02",
+        "filename": "slices/zsortordered.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 49673
+      },
+      "writtenOn": "2022-04-14T17:20:52Z",
+      "side": 1,
+      "message": "\u003e Why is this changing? To handle NaNs differently somehow?\nYes! For the float64 slice, we can not say that  !(a\u003cb)  is always equal to  (a\u003e\u003db).\n\n```\nvar x float64\nprintln(!(math.NaN() \u003c x)) // true\nprintln(math.NaN() \u003e\u003d x) // false\n```\n\nWithout this change, the test for unstable sort will fail.\n\nComment a bad case in the `zsortordered.go`.\n\nBut for StableSort, using the previous implementation is better. Agree it should be in a separate CL with a test.",
+      "parentUuid": "05f7cfc6_8d4bea89",
       "revId": "010a6b4fa3b19dced8663aec419499825c5edd71",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
