@@ -16,6 +16,57 @@
       "message": "Please take a look, thanks!\n\nSync with previous CL without any modifications.\n\nTips:\n- This CL also fixes a minor bug for slices/zsordered.go when sorting float64 slice. (`!(a\u003cb)` doesn\u0027t equal to `(a\u003e\u003db)`)\n- Use a 64-bit XORSHIFT",
       "revId": "010a6b4fa3b19dced8663aec419499825c5edd71",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2046b5f_5574f245",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5200
+      },
+      "writtenOn": "2022-04-14T16:43:05Z",
+      "side": 1,
+      "message": "Where is gen_sort_variants.go?\n",
+      "revId": "010a6b4fa3b19dced8663aec419499825c5edd71",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2e76dc1_c3707f3b",
+        "filename": "slices/sort.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 5200
+      },
+      "writtenOn": "2022-04-14T16:43:05Z",
+      "side": 1,
+      "message": "I think the outer cast here is unnecessary.\n\nThe stdlib needs some of them because we need to bootstrap from 1.4, and 1.4 doesn\u0027t allow signed things on the RHS of a shift. But a signed RHS here should be fine.",
+      "revId": "010a6b4fa3b19dced8663aec419499825c5edd71",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05f7cfc6_8d4bea89",
+        "filename": "slices/zsortordered.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 5200
+      },
+      "writtenOn": "2022-04-14T16:43:05Z",
+      "side": 1,
+      "message": "Why is this changing? To handle NaNs differently somehow?\n\nI feel like this should be in a separate CL. With a test.",
+      "revId": "010a6b4fa3b19dced8663aec419499825c5edd71",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
