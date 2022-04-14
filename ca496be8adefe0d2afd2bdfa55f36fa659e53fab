@@ -74,6 +74,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2e5f8b1_26dcea70",
+        "filename": "apidiff/compatibility.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2022-04-14T15:15:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8f89b96_4282b307",
+      "revId": "ca496be8adefe0d2afd2bdfa55f36fa659e53fab",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c17c2fc4_b58a5ab8",
@@ -87,6 +105,24 @@
       "writtenOn": "2022-04-12T21:47:18Z",
       "side": 1,
       "message": "In the original comment the spacing is arranged such that \"Then\" is above the second column.  That is lost here and the spacing is meaningless.",
+      "revId": "ca496be8adefe0d2afd2bdfa55f36fa659e53fab",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8c88ff2_b4e6fda4",
+        "filename": "apidiff/testdata/tests.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2022-04-14T15:15:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c17c2fc4_b58a5ab8",
       "revId": "ca496be8adefe0d2afd2bdfa55f36fa659e53fab",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -108,6 +144,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee1c119e_1d008830",
+        "filename": "apidiff/testdata/tests.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2022-04-14T15:15:18Z",
+      "side": 1,
+      "message": "I think it was trying to distinguish the directives like \"// old\" from commentary on the directives. But I cut the \"// //\" down to \"//\" since the tests don\u0027t care.",
+      "parentUuid": "f34498af_cbb98959",
+      "revId": "ca496be8adefe0d2afd2bdfa55f36fa659e53fab",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b4679a0f_c66e16f4",
@@ -121,6 +175,24 @@
       "writtenOn": "2022-04-12T21:47:18Z",
       "side": 1,
       "message": "Should be a straight numbered list.",
+      "revId": "ca496be8adefe0d2afd2bdfa55f36fa659e53fab",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfa589cf_71e5f49b",
+        "filename": "cmd/macos-roots-test/root_darwin.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2022-04-14T15:15:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4679a0f_c66e16f4",
       "revId": "ca496be8adefe0d2afd2bdfa55f36fa659e53fab",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
