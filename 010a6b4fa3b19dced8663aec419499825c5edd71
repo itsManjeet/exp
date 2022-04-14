@@ -138,6 +138,24 @@
       "parentUuid": "05f7cfc6_8d4bea89",
       "revId": "010a6b4fa3b19dced8663aec419499825c5edd71",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19759d25_f3a8ee97",
+        "filename": "slices/zsortordered.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 30696
+      },
+      "writtenOn": "2022-04-14T17:31:00Z",
+      "side": 1,
+      "message": "Just a note that this has to be 100% synced with the main repo, and whatever change is done should be done in the templated code in gen_sort_variants.go",
+      "parentUuid": "f3f71043_0b1dbc02",
+      "revId": "010a6b4fa3b19dced8663aec419499825c5edd71",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
