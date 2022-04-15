@@ -156,6 +156,24 @@
       "parentUuid": "f3f71043_0b1dbc02",
       "revId": "010a6b4fa3b19dced8663aec419499825c5edd71",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a301ff27_e7e5d2ed",
+        "filename": "slices/zsortordered.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 44188
+      },
+      "writtenOn": "2022-04-15T08:33:20Z",
+      "side": 1,
+      "message": "Agree! Create a related CL https://go-review.googlesource.com/c/go/+/400534, this CL will sync with this change(please merge CL 400534 before this).\n\nWe need to keep the previous implementation for StableSort.",
+      "parentUuid": "19759d25_f3a8ee97",
+      "revId": "010a6b4fa3b19dced8663aec419499825c5edd71",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
