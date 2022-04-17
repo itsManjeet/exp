@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89097c97_112cad50",
+        "filename": "rand/rng.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 5015
+      },
+      "writtenOn": "2022-04-17T00:08:25Z",
+      "side": 1,
+      "message": "perhaps this should be Seed128?",
+      "revId": "2904d304482cb56f43627e920d25d64d8f982390",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
