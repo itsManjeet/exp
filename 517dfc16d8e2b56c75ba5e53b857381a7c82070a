@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c05c46f_ac3473e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 44188
+      },
+      "writtenOn": "2022-04-20T06:53:44Z",
+      "side": 1,
+      "message": "Kingly ping :) The development freeze period is coming soon, we may not be able to make more changes later.",
+      "revId": "517dfc16d8e2b56c75ba5e53b857381a7c82070a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
