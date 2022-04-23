@@ -77,28 +77,12 @@ func (k Kind) String() string {
 	}
 }
 
+// Log is a low-level, zero-alloc way to create a log event.
 func Log(ctx context.Context, msg string, labels ...Label) {
 	ev := New(ctx, LogKind)
 	if ev != nil {
 		ev.Labels = append(ev.Labels, labels...)
 		ev.Labels = append(ev.Labels, String("msg", msg))
-		ev.Deliver()
-	}
-}
-
-func Logf(ctx context.Context, msg string, args ...interface{}) {
-	ev := New(ctx, LogKind)
-	if ev != nil {
-		ev.Labels = append(ev.Labels, String("msg", fmt.Sprintf(msg, args...)))
-		ev.Deliver()
-	}
-}
-
-func Error(ctx context.Context, msg string, err error, labels ...Label) {
-	ev := New(ctx, LogKind)
-	if ev != nil {
-		ev.Labels = append(ev.Labels, labels...)
-		ev.Labels = append(ev.Labels, String("msg", msg), Value("error", err))
 		ev.Deliver()
 	}
 }
