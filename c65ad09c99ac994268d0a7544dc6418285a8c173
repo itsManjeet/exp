@@ -1,0 +1,141 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3aff11e2_87c1e865",
+        "filename": "slices/sort.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 5200
+      },
+      "writtenOn": "2022-04-25T16:35:00Z",
+      "side": 1,
+      "message": "Since we know all the types that can appear in constraints.Ordered, we don\u0027t need to go into strict weak ordering here. I think we can just say:\n\nSort may fail to sort correctly when sorting slices of floating-point numbers containing Not-a-number (NaN) values. Use sort.Float64s instead if the input may contain NaNs.",
+      "revId": "c65ad09c99ac994268d0a7544dc6418285a8c173",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa350ba2_d124f6af",
+        "filename": "slices/sort.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 5200
+      },
+      "writtenOn": "2022-04-25T16:35:00Z",
+      "side": 1,
+      "message": "SortFunc, while we are here.",
+      "range": {
+        "startLine": 45,
+        "startChar": 3,
+        "endLine": 45,
+        "endChar": 7
+      },
+      "revId": "c65ad09c99ac994268d0a7544dc6418285a8c173",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f422e81a_cb7377d2",
+        "filename": "slices/sort.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 5200
+      },
+      "writtenOn": "2022-04-25T16:35:00Z",
+      "side": 1,
+      "message": "SortFunc requires that less is a ...",
+      "range": {
+        "startLine": 48,
+        "startChar": 12,
+        "endLine": 48,
+        "endChar": 34
+      },
+      "revId": "c65ad09c99ac994268d0a7544dc6418285a8c173",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8436d887_9263fa65",
+        "filename": "slices/sort.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 5200
+      },
+      "writtenOn": "2022-04-25T16:35:00Z",
+      "side": 1,
+      "message": "I don\u0027t think we need \"WARNING\", just the sentence itself is fine.",
+      "range": {
+        "startLine": 48,
+        "startChar": 3,
+        "endLine": 48,
+        "endChar": 12
+      },
+      "revId": "c65ad09c99ac994268d0a7544dc6418285a8c173",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87cf2bbc_3d062308",
+        "filename": "slices/sort.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 5200
+      },
+      "writtenOn": "2022-04-25T16:35:00Z",
+      "side": 1,
+      "message": "I don\u0027t think we need this sentence.",
+      "revId": "c65ad09c99ac994268d0a7544dc6418285a8c173",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c424cb99_1a6f2646",
+        "filename": "slices/sort.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 5200
+      },
+      "writtenOn": "2022-04-25T16:35:00Z",
+      "side": 1,
+      "message": "Do we want the same comments on the stable versions? I think they would still apply.\n\nBut that kind of opens a can of worms, e.g. does BinarySearchFunc require a strict weak ordering? We may want to put some of this documentation at package level instead of with every function.\n(stdlib sort kinda does that, by documenting the requirements of Less with Interface.Less instead of with each function.)\n\nProbably worth having a separate CL.",
+      "revId": "c65ad09c99ac994268d0a7544dc6418285a8c173",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb9676d9_e3822ab6",
+        "filename": "slices/sort_test.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 5200
+      },
+      "writtenOn": "2022-04-25T16:35:00Z",
+      "side": 1,
+      "message": "Probably also want a test with NaNs, just to make sure Sort doesn\u0027t crash. Just don\u0027t test the results.\n(Maybe the test we want is that the result is a permutation of the input, so that we\u0027re not totally corrupting the input slice. Checking for permutation when NaNs are involved might be tricky.)",
+      "revId": "c65ad09c99ac994268d0a7544dc6418285a8c173",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
