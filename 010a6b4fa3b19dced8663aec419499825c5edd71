@@ -105,6 +105,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb67e253_d2c80f6e",
+        "filename": "slices/zsortordered.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 49673
+      },
+      "writtenOn": "2022-04-25T16:19:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25e500fe_44a5acd1",
+      "revId": "010a6b4fa3b19dced8663aec419499825c5edd71",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "05f7cfc6_8d4bea89",
@@ -190,6 +208,24 @@
       "side": 1,
       "message": "Update: add a simple fuzz test for this case in sort_test.go:TestSortOrderedConsistency as Eli suggested. \n\nIf we use the original gen_sort_variants.go to generate these codes, the test will fail. With CL 400534, the test will succeed.\n\nThe test will check\n`SortStableFunc(data1, func(a, b float64) bool {return a \u003c b})`\nEqual to \n`stableOrdered(data2, len(data2))`\n\nIn this case, if we replace `!(a\u003cb)` to `(a\u003e\u003db)` in stableOrdered will destroy the consistency.",
       "parentUuid": "a301ff27_e7e5d2ed",
+      "revId": "010a6b4fa3b19dced8663aec419499825c5edd71",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f748e9f2_474c2b51",
+        "filename": "slices/zsortordered.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 49673
+      },
+      "writtenOn": "2022-04-25T16:19:20Z",
+      "side": 1,
+      "message": "Done. Revert this change.",
+      "parentUuid": "04feee54_494b1169",
       "revId": "010a6b4fa3b19dced8663aec419499825c5edd71",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
