@@ -18,6 +18,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5df1f47e_036b8fba",
+        "filename": "slices/sort.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 49673
+      },
+      "writtenOn": "2022-04-26T09:38:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3aff11e2_87c1e865",
+      "revId": "c65ad09c99ac994268d0a7544dc6418285a8c173",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aa350ba2_d124f6af",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-04-25T16:35:00Z",
       "side": 1,
       "message": "SortFunc, while we are here.",
+      "range": {
+        "startLine": 45,
+        "startChar": 3,
+        "endLine": 45,
+        "endChar": 7
+      },
+      "revId": "c65ad09c99ac994268d0a7544dc6418285a8c173",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc9801a5_1c777f95",
+        "filename": "slices/sort.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 49673
+      },
+      "writtenOn": "2022-04-26T09:38:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa350ba2_d124f6af",
       "range": {
         "startLine": 45,
         "startChar": 3,
@@ -87,6 +129,54 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4460117_a7bc3cab",
+        "filename": "slices/sort.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 49673
+      },
+      "writtenOn": "2022-04-26T09:38:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8436d887_9263fa65",
+      "range": {
+        "startLine": 48,
+        "startChar": 3,
+        "endLine": 48,
+        "endChar": 12
+      },
+      "revId": "c65ad09c99ac994268d0a7544dc6418285a8c173",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22db5db9_131a639d",
+        "filename": "slices/sort.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 49673
+      },
+      "writtenOn": "2022-04-26T09:38:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f422e81a_cb7377d2",
+      "range": {
+        "startLine": 48,
+        "startChar": 12,
+        "endLine": 48,
+        "endChar": 34
+      },
+      "revId": "c65ad09c99ac994268d0a7544dc6418285a8c173",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "87cf2bbc_3d062308",
@@ -100,6 +190,24 @@
       "writtenOn": "2022-04-25T16:35:00Z",
       "side": 1,
       "message": "I don\u0027t think we need this sentence.",
+      "revId": "c65ad09c99ac994268d0a7544dc6418285a8c173",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffbf5b0b_82fdbb38",
+        "filename": "slices/sort.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 49673
+      },
+      "writtenOn": "2022-04-26T09:38:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87cf2bbc_3d062308",
       "revId": "c65ad09c99ac994268d0a7544dc6418285a8c173",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -121,6 +229,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0714f59f_c6074598",
+        "filename": "slices/sort.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 49673
+      },
+      "writtenOn": "2022-04-26T09:38:52Z",
+      "side": 1,
+      "message": "Agree! There are many functions that require such comment(IsSortedFunc,SortFunc,SortStableFunc), package-level documentation would be better. I will document it in a separate CL.",
+      "parentUuid": "c424cb99_1a6f2646",
+      "revId": "c65ad09c99ac994268d0a7544dc6418285a8c173",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fb9676d9_e3822ab6",
@@ -134,6 +260,24 @@
       "writtenOn": "2022-04-25T16:35:00Z",
       "side": 1,
       "message": "Probably also want a test with NaNs, just to make sure Sort doesn\u0027t crash. Just don\u0027t test the results.\n(Maybe the test we want is that the result is a permutation of the input, so that we\u0027re not totally corrupting the input slice. Checking for permutation when NaNs are involved might be tricky.)",
+      "revId": "c65ad09c99ac994268d0a7544dc6418285a8c173",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fa2439c_696434ab",
+        "filename": "slices/sort_test.go",
+        "patchSetId": 11
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 49673
+      },
+      "writtenOn": "2022-04-26T09:38:52Z",
+      "side": 1,
+      "message": "Done. Add a test to make sure Sort doesn\u0027t crash and check the result is a permutation of the input.",
+      "parentUuid": "fb9676d9_e3822ab6",
       "revId": "c65ad09c99ac994268d0a7544dc6418285a8c173",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
