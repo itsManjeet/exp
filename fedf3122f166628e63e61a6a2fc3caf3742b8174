@@ -87,6 +87,24 @@
       "parentUuid": "2380fc49_153219cc",
       "revId": "fedf3122f166628e63e61a6a2fc3caf3742b8174",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24e921b9_83804685",
+        "filename": "slices/sort.go",
+        "patchSetId": 12
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 49673
+      },
+      "writtenOn": "2022-04-26T16:18:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90bea7bc_c0dbd9fd",
+      "revId": "fedf3122f166628e63e61a6a2fc3caf3742b8174",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
