@@ -18,6 +18,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "70ec63c4_f457395b",
+        "filename": "slices/sort_test.go",
+        "patchSetId": 13
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 49673
+      },
+      "writtenOn": "2022-04-26T15:28:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "51965a60_1b77d236",
+      "revId": "334a6297c00f0921ace696bfd7a6bade67d07f24",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "30e7ce00_a0453914",
@@ -31,6 +49,24 @@
       "writtenOn": "2022-04-26T15:04:00Z",
       "side": 1,
       "message": "Both of these slices are aliased to the same backing store, so I don\u0027t think you\u0027re testing the right thing. \"input\" should be a copy of the data from before Sort is called.",
+      "revId": "334a6297c00f0921ace696bfd7a6bade67d07f24",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82517129_603138c0",
+        "filename": "slices/sort_test.go",
+        "patchSetId": 13
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 49673
+      },
+      "writtenOn": "2022-04-26T15:28:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30e7ce00_a0453914",
       "revId": "334a6297c00f0921ace696bfd7a6bade67d07f24",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
