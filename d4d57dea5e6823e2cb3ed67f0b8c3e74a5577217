@@ -16,6 +16,57 @@
       "message": "I\u0027m not sure if we have the package-level documentation, do we still need a comment for each function? or just a pointer to the package comment.",
       "revId": "d4d57dea5e6823e2cb3ed67f0b8c3e74a5577217",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4aa91fc6_562d02ff",
+        "filename": "slices/slices.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 30696
+      },
+      "writtenOn": "2022-04-27T16:30:00Z",
+      "side": 1,
+      "message": "Nit: missing space before (",
+      "revId": "d4d57dea5e6823e2cb3ed67f0b8c3e74a5577217",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aaad543f_3bfc3d3e",
+        "filename": "slices/slices.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 30696
+      },
+      "writtenOn": "2022-04-27T16:30:00Z",
+      "side": 1,
+      "message": "just say \"containing NaN values\"",
+      "revId": "d4d57dea5e6823e2cb3ed67f0b8c3e74a5577217",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55b8d074_5b35bc84",
+        "filename": "slices/slices.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 30696
+      },
+      "writtenOn": "2022-04-27T16:30:00Z",
+      "side": 1,
+      "message": "Not sure we should recommend a specific function here on the top level, or perhaps say it\u0027s just an example (it sorts  NaNs first, but what if you want them last?)\n\nSince this is not strictly about floats, it should be fine to not mention the specific function here at all",
+      "revId": "d4d57dea5e6823e2cb3ed67f0b8c3e74a5577217",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
