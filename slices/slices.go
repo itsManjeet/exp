@@ -5,6 +5,13 @@
 // Package slices defines various functions useful with slices of any type.
 // Unless otherwise specified, these functions all apply to the elements
 // of a slice at index 0 <= i < len(s).
+//
+// Note that the less function in IsSortedFunc, SortFunc, SortStableFunc requires a
+// strict weak ordering(https://en.wikipedia.org/wiki/Weak_ordering#Strict_weak_orderings),
+// or the sorting may fail to sort correctly. A common case is when sorting slices of
+// floating-point numbers containing Not-a-number (NaN) values. In this case, use
+// func(a, b float64) bool {return a < b || (math.IsNaN(a) && !math.IsNaN(b))}
+// can still keep the strict weak ordering.
 package slices
 
 import "golang.org/x/exp/constraints"
