@@ -121,6 +121,24 @@
       "parentUuid": "55b8d074_5b35bc84",
       "revId": "d4d57dea5e6823e2cb3ed67f0b8c3e74a5577217",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ca8bc35_82d7b450",
+        "filename": "slices/slices.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 30696
+      },
+      "writtenOn": "2022-04-28T12:44:37Z",
+      "side": 1,
+      "message": "I think this is fine for now, thanks",
+      "parentUuid": "3210edd9_97191cda",
+      "revId": "d4d57dea5e6823e2cb3ed67f0b8c3e74a5577217",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
