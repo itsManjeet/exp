@@ -35,6 +35,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe8ee3e0_287122dc",
+        "filename": "slices/slices.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 44188
+      },
+      "writtenOn": "2022-04-28T06:34:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4aa91fc6_562d02ff",
+      "revId": "d4d57dea5e6823e2cb3ed67f0b8c3e74a5577217",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aaad543f_3bfc3d3e",
@@ -52,6 +70,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "96b03996_bd5cd5df",
+        "filename": "slices/slices.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 44188
+      },
+      "writtenOn": "2022-04-28T06:34:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aaad543f_3bfc3d3e",
+      "revId": "d4d57dea5e6823e2cb3ed67f0b8c3e74a5577217",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "55b8d074_5b35bc84",
@@ -65,6 +101,24 @@
       "writtenOn": "2022-04-27T16:30:00Z",
       "side": 1,
       "message": "Not sure we should recommend a specific function here on the top level, or perhaps say it\u0027s just an example (it sorts  NaNs first, but what if you want them last?)\n\nSince this is not strictly about floats, it should be fine to not mention the specific function here at all",
+      "revId": "d4d57dea5e6823e2cb3ed67f0b8c3e74a5577217",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3210edd9_97191cda",
+        "filename": "slices/slices.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 44188
+      },
+      "writtenOn": "2022-04-28T06:34:45Z",
+      "side": 1,
+      "message": "Agree! Removed this function, I\u0027m wondering that do we still need the common case? or just put the rule here.",
+      "parentUuid": "55b8d074_5b35bc84",
       "revId": "d4d57dea5e6823e2cb3ed67f0b8c3e74a5577217",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
