@@ -8,6 +8,7 @@ import (
 	"go/token"
 	"go/types"
 	"os"
+	"strings"
 
 	"golang.org/x/exp/apidiff"
 	"golang.org/x/tools/go/gcexportdata"
@@ -44,6 +45,10 @@ func main() {
 			os.Exit(2)
 		}
 		pkg := mustLoadPackage(flag.Arg(0))
+		// if the package is an internal package, ignore it
+		if isInternalPackage(pkg.PkgPath) {
+			die("ignore internal package:%s", pkg.PkgPath)
+		}
 		if err := writeExportData(pkg, *exportDataOutfile); err != nil {
 			die("writing export data: %v", err)
 		}
@@ -54,7 +59,10 @@ func main() {
 		}
 		oldpkg := mustLoadOrRead(flag.Arg(0))
 		newpkg := mustLoadOrRead(flag.Arg(1))
-
+		// if the package is an internal package, ignore it
+		if isInternalPackage(oldpkg.Path()) || isInternalPackage(newpkg.Path()) {
+			return
+		}
 		report := apidiff.Changes(oldpkg, newpkg)
 		var err error
 		if *incompatibleOnly {
@@ -139,4 +147,16 @@ func writeExportData(pkg *packages.Package, filename string) error {
 func die(format string, args ...interface{}) {
 	fmt.Fprintf(os.Stderr, format+"\n", args...)
 	os.Exit(1)
+}
+
+func isInternalPackage(pkgPath string) bool {
+	switch {
+	case strings.HasSuffix(pkgPath, "/internal"):
+		return true
+	case strings.Contains(pkgPath, "/internal/"):
+		return true
+	case pkgPath == "internal", strings.HasPrefix(pkgPath, "internal/"):
+		return true
+	}
+	return false
 }
