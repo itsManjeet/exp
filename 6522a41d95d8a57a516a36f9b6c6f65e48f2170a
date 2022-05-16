@@ -50,6 +50,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "0108d36a_eb4846b9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 54925
+      },
+      "writtenOn": "2022-05-16T09:58:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9133150_13584519",
+      "range": {
+        "startLine": 7,
+        "startChar": 25,
+        "endLine": 7,
+        "endChar": 29
+      },
+      "revId": "6522a41d95d8a57a516a36f9b6c6f65e48f2170a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "57ae9a10_7fc7466a",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -316,6 +340,30 @@
       "side": 1,
       "message": "It could then exit with 0.",
       "parentUuid": "85134ecf_96345c8c",
+      "range": {
+        "startLine": 64,
+        "startChar": 3,
+        "endLine": 64,
+        "endChar": 9
+      },
+      "revId": "6522a41d95d8a57a516a36f9b6c6f65e48f2170a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46697fdd_ff41a875",
+        "filename": "cmd/apidiff/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 54925
+      },
+      "writtenOn": "2022-05-16T09:58:59Z",
+      "side": 1,
+      "message": "In this shell [script] (https://github.com/kubernetes/klog/blob/788efcdee1e9be0bfbe5b076343d447314f2377e/hack/verify-apidiff.sh#L107), they didn\u0027t judge the code.\nI\u0027ll print message and exit with 0.",
+      "parentUuid": "dfaa4df0_13ad4bcd",
       "range": {
         "startLine": 64,
         "startChar": 3,
