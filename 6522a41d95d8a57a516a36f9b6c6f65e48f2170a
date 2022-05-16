@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9133150_13584519",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-05-16T09:35:00Z",
+      "side": 1,
+      "message": "packages",
+      "range": {
+        "startLine": 7,
+        "startChar": 25,
+        "endLine": 7,
+        "endChar": 29
+      },
+      "revId": "6522a41d95d8a57a516a36f9b6c6f65e48f2170a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "57ae9a10_7fc7466a",
@@ -31,6 +54,92 @@
       "writtenOn": "2022-05-16T08:47:39Z",
       "side": 1,
       "message": "Please check my fix.",
+      "revId": "6522a41d95d8a57a516a36f9b6c6f65e48f2170a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0d8ad41_df05a50d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-05-16T09:35:00Z",
+      "side": 1,
+      "message": "Thanks for the CL. I made some minor comments, but let\u0027s discuss on the issue because I\u0027m not convinced this is the right approach.",
+      "revId": "6522a41d95d8a57a516a36f9b6c6f65e48f2170a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "694e7c93_e1063f8a",
+        "filename": "cmd/apidiff/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-05-16T09:35:00Z",
+      "side": 1,
+      "message": "ignoring",
+      "range": {
+        "startLine": 50,
+        "startChar": 8,
+        "endLine": 50,
+        "endChar": 14
+      },
+      "revId": "6522a41d95d8a57a516a36f9b6c6f65e48f2170a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b14d913a_748d8667",
+        "filename": "cmd/apidiff/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-05-16T09:35:00Z",
+      "side": 1,
+      "message": "change colon to space",
+      "range": {
+        "startLine": 50,
+        "startChar": 31,
+        "endLine": 50,
+        "endChar": 34
+      },
+      "revId": "6522a41d95d8a57a516a36f9b6c6f65e48f2170a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85134ecf_96345c8c",
+        "filename": "cmd/apidiff/main.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-05-16T09:35:00Z",
+      "side": 1,
+      "message": "I feel like apidiff should print a message here so the user knows what\u0027s going on.\n\"Ignoring internal package %s\" would be fine.",
+      "range": {
+        "startLine": 64,
+        "startChar": 3,
+        "endLine": 64,
+        "endChar": 9
+      },
       "revId": "6522a41d95d8a57a516a36f9b6c6f65e48f2170a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
