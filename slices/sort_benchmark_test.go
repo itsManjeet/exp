@@ -14,27 +14,50 @@ import (
 // These benchmarks compare sorting a large slice of int with sort.Ints vs.
 // slices.Sort
 func makeRandomInts(n int) []int {
-	rand.Seed(42)
 	ints := make([]int, n)
-	for i := 0; i < n; i++ {
+	fillRandomInts(ints)
+	return ints
+}
+
+func fillRandomInts(ints []int) {
+	rand.Seed(42)
+	n := len(ints)
+	for i := 0; i < len(ints); i++ {
 		ints[i] = rand.Intn(n)
 	}
-	return ints
 }
 
 func makeSortedInts(n int) []int {
 	ints := make([]int, n)
-	for i := 0; i < n; i++ {
+	fillSortedInts(ints)
+	return ints
+}
+
+func fillSortedInts(ints []int) {
+	for i := 0; i < len(ints); i++ {
 		ints[i] = i
 	}
-	return ints
 }
 
 func makeReversedInts(n int) []int {
 	ints := make([]int, n)
+	fillReversedInts(ints)
+	return ints
+}
+
+func fillReversedInts(ints []int) {
+	n := len(ints)
 	for i := 0; i < n; i++ {
 		ints[i] = n - i
 	}
+}
+
+func makeMixedInts(n int) []int {
+	ints := make([]int, n)
+	m := n / 3
+	fillSortedInts(ints[:m])
+	fillRandomInts(ints[m : n-m])
+	fillReversedInts(ints[n-m:])
 	return ints
 }
 
@@ -76,19 +99,12 @@ func BenchmarkSlicesSortInts_Reversed(b *testing.B) {
 	}
 }
 
-// Since we're benchmarking these sorts against each other, make sure that they
-// generate similar results.
-func TestIntSorts(t *testing.T) {
-	ints := makeRandomInts(200)
-	ints2 := Clone(ints)
-
-	sort.Ints(ints)
-	Sort(ints2)
-
-	for i := range ints {
-		if ints[i] != ints2[i] {
-			t.Fatalf("ints2 mismatch at %d; %d != %d", i, ints[i], ints2[i])
-		}
+func BenchmarkSlicesSortInts_Mixed(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		b.StopTimer()
+		ints := makeMixedInts(N)
+		b.StartTimer()
+		Sort(ints)
 	}
 }
 
@@ -109,20 +125,6 @@ func makeRandomStrings(n int) []string {
 		ss[i] = sb.String()
 	}
 	return ss
-}
-
-func TestStringSorts(t *testing.T) {
-	ss := makeRandomStrings(200)
-	ss2 := Clone(ss)
-
-	sort.Strings(ss)
-	Sort(ss2)
-
-	for i := range ss {
-		if ss[i] != ss2[i] {
-			t.Fatalf("ss2 mismatch at %d; %s != %s", i, ss[i], ss2[i])
-		}
-	}
 }
 
 func BenchmarkSortStrings(b *testing.B) {
@@ -165,23 +167,6 @@ func makeRandomStructs(n int) myStructs {
 	return structs
 }
 
-func TestStructSorts(t *testing.T) {
-	ss := makeRandomStructs(200)
-	ss2 := make([]*myStruct, len(ss))
-	for i := range ss {
-		ss2[i] = &myStruct{n: ss[i].n}
-	}
-
-	sort.Sort(ss)
-	SortFunc(ss2, func(a, b *myStruct) bool { return a.n < b.n })
-
-	for i := range ss {
-		if *ss[i] != *ss2[i] {
-			t.Fatalf("ints2 mismatch at %d; %v != %v", i, *ss[i], *ss2[i])
-		}
-	}
-}
-
 func BenchmarkSortStructs(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		b.StopTimer()
@@ -191,12 +176,31 @@ func BenchmarkSortStructs(b *testing.B) {
 	}
 }
 
-func BenchmarkSortFuncStructs(b *testing.B) {
-	lessFunc := func(a, b *myStruct) bool { return a.n < b.n }
+func BenchmarkSortStableStructs(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		b.StopTimer()
 		ss := makeRandomStructs(N)
 		b.StartTimer()
-		SortFunc(ss, lessFunc)
+		sort.Stable(ss)
+	}
+}
+
+func BenchmarkSortFuncStructs(b *testing.B) {
+	less := func(a, b *myStruct) bool { return a.n < b.n }
+	for i := 0; i < b.N; i++ {
+		b.StopTimer()
+		ss := makeRandomStructs(N)
+		b.StartTimer()
+		SortFunc(ss, less)
+	}
+}
+
+func BenchmarkSortStableFuncStructs(b *testing.B) {
+	less := func(a, b *myStruct) bool { return a.n < b.n }
+	for i := 0; i < b.N; i++ {
+		b.StopTimer()
+		ss := makeRandomStructs(N)
+		b.StartTimer()
+		SortStableFunc(ss, less)
 	}
 }
