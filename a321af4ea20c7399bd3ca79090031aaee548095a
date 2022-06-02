@@ -108,6 +108,41 @@
       "message": "Thank you!",
       "revId": "a321af4ea20c7399bd3ca79090031aaee548095a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8f475d3_8c598b31",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2022-06-02T14:49:54Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "bb94d721_dbd6634a",
+      "revId": "a321af4ea20c7399bd3ca79090031aaee548095a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddd440d5_9b2e3057",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2022-06-02T14:49:54Z",
+      "side": 1,
+      "message": "Submitting. The build will be broken for one CL due to #52287, but fixed immediately by CL 389615.",
+      "revId": "a321af4ea20c7399bd3ca79090031aaee548095a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
