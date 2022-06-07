@@ -126,6 +126,9 @@ func (d *differ) corr(old, new types.Type, p *ifacePair) bool {
 			return d.establishCorrespondence(old, new)
 		}
 
+	case *types.TypeParam:
+		// TODO(deklerk)
+
 	default:
 		panic(fmt.Sprintf("unknown type kind %T", old))
 	}
