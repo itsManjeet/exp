@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fd4e805_63a7f5c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2022-06-07T13:52:40Z",
+      "side": 1,
+      "message": "This still isn\u0027t quite right:\n\n```\n## incompatible changes\n(*shardedMapOf[error]).Walk: changed from func(func(e EntryOf[error]) error) (int, error) to func(func(e EntryOf[error]) error) (int, error)\nFailoverConfigOf[V].Use: changed from func(*FailoverConfigOf[V]) to func(*FailoverConfigOf[V])\nNewFailoverOf: changed from func(...func(cfg *FailoverConfigOf[V])) *FailoverOf[V] to func(...func(cfg *FailoverConfigOf[V])) *FailoverOf[V]\nNewShardedMapOf: changed from func(...func(cfg *Config)) *ShardedMapOf[V] to func(...func(cfg *Config)) *ShardedMapOf[V]\nReadWriterOf: changed from ReadWriterOf[V any] to ReadWriterOf[V any]\nShardedMapOf: changed from ShardedMapOf[V any] to ShardedMapOf[V any]\nTraitEntryOf: changed from TraitEntryOf[V any] to TraitEntryOf[V any]\nTraitOf: changed from TraitOf[V any] to TraitOf[V any]\nWalkerOf[V any].Walk: changed from func(func(entry EntryOf[V]) error) (int, error) to func(func(entry EntryOf[V]) error) (int, error)\n```\n\nWe\u0027re not panicing anymore, but apidiff is picking up non-changes. Almost certainly because of my SUPER incorrect/naive equality check where I just look at index. I played around trying to create a test that would exercise the above, but couldn\u0027t come up with one (tried two same files; files where param names just change; files where there are generic params added before, or they move around; all in an effort to see a change in index that was not a change in equality, but could never get it).\n\nSo, two questions for you:\n\n1. Can you think of a test that exercises the above symptom?\n2. How is one supposed to equality check TypeParam? Looked in https://pkg.go.dev/golang.org/x/tools/internal/typeparams and didn\u0027t see anything obvious.",
+      "revId": "05a5c228d1a3b84f15519d35fc69c5186c180571",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
