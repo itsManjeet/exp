@@ -50,6 +50,24 @@
       "message": "Just saw your comment, looking into it.",
       "revId": "05a5c228d1a3b84f15519d35fc69c5186c180571",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e3da7e3_cffed8bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2022-06-08T12:34:53Z",
+      "side": 1,
+      "message": "thanks jonathan!",
+      "parentUuid": "deac381e_c9becf71",
+      "revId": "05a5c228d1a3b84f15519d35fc69c5186c180571",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
