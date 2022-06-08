@@ -140,6 +140,24 @@
       "parentUuid": "4e3da7e3_cffed8bf",
       "revId": "05a5c228d1a3b84f15519d35fc69c5186c180571",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1be4a6b5_91657215",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2022-06-08T14:32:10Z",
+      "side": 1,
+      "message": "sgtm - please cc me so i can follow along :)",
+      "parentUuid": "512f7216_a2eb63a0",
+      "revId": "05a5c228d1a3b84f15519d35fc69c5186c180571",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
