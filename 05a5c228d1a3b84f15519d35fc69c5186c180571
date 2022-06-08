@@ -104,6 +104,24 @@
       "parentUuid": "f1fcf742_246bb04c",
       "revId": "05a5c228d1a3b84f15519d35fc69c5186c180571",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "322af832_24d165c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 26615
+      },
+      "writtenOn": "2022-06-08T13:19:49Z",
+      "side": 1,
+      "message": "Good to know about index. As for output:\n\ncd /path/to/cmd/gorelease-at-this-cl\ngo build .\ncd /path/to/cache/repo\n/path/to/cmd/gorelease-at-this-cl/gorelease",
+      "parentUuid": "4d51edb5_e6965a43",
+      "revId": "05a5c228d1a3b84f15519d35fc69c5186c180571",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
