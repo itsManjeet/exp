@@ -8,12 +8,12 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
-	"reflect"
 	"runtime"
 	"sort"
 	"strings"
 	"testing"
 
+	"github.com/google/go-cmp/cmp"
 	"golang.org/x/tools/go/packages"
 )
 
@@ -40,12 +40,12 @@ func TestChanges(t *testing.T) {
 	report := Changes(oldpkg.Types, newpkg.Types)
 
 	got := report.messages(false)
-	if !reflect.DeepEqual(got, wanti) {
-		t.Errorf("incompatibles: got %v\nwant %v\n", got, wanti)
+	if diff := cmp.Diff(wanti, got); diff != "" {
+		t.Errorf("incompatibles: mismatch (-want, +got)\n%s", diff)
 	}
 	got = report.messages(true)
-	if !reflect.DeepEqual(got, wantc) {
-		t.Errorf("compatibles: got %v\nwant %v\n", got, wantc)
+	if diff := cmp.Diff(wantc, got); diff != "" {
+		t.Errorf("compatibles: mismatch (-want, +got)\n%s", diff)
 	}
 }
 
@@ -236,3 +236,9 @@ func allowMissingTool(tool string) bool {
 // Builds in GOPATH mode and builds that lack module information are assumed to
 // be development versions.
 var packageMainIsDevel = func() bool { return true }
+
+func TestTypesIdentical(t *testing.T) {
+	// pkg := types.NewPackage("path", "name")
+	// tn := types.NewTypeName(0, pkg, "t1", types.Typ[types.Bool])
+	// n1 := types.NewNamed(tn,
+}
