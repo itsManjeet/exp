@@ -91,6 +91,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e951b33c_c2fd9793",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-06-09T13:45:09Z",
+      "side": 1,
+      "message": "I will leave that to you. I\u0027m not familiar with the gorelease codebase.",
+      "parentUuid": "64eab081_ac0c9f67",
+      "revId": "204878bdd69710ac43e38545e91ddfbe666b6bbb",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7d4ed4f0_5d470e27",
@@ -114,6 +132,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "51cb8972_fb1ea100",
+        "filename": "apidiff/apidiff_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-06-09T13:45:09Z",
+      "side": 1,
+      "message": "Deleted.",
+      "parentUuid": "7d4ed4f0_5d470e27",
+      "range": {
+        "startLine": 241,
+        "startChar": 0,
+        "endLine": 244,
+        "endChar": 1
+      },
+      "revId": "204878bdd69710ac43e38545e91ddfbe666b6bbb",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a078ed19_a5b0a939",
@@ -127,6 +169,30 @@
       "writtenOn": "2022-06-09T12:18:56Z",
       "side": 1,
       "message": "nit: does this need a name?",
+      "range": {
+        "startLine": 29,
+        "startChar": 57,
+        "endLine": 29,
+        "endChar": 65
+      },
+      "revId": "204878bdd69710ac43e38545e91ddfbe666b6bbb",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e519d19_6167bf23",
+        "filename": "apidiff/correspondence.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-06-09T13:45:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a078ed19_a5b0a939",
       "range": {
         "startLine": 29,
         "startChar": 57,
