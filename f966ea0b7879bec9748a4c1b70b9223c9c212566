@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cbb1164_995c7bc4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2022-07-13T13:55:01Z",
+      "side": 1,
+      "message": "We use a proposal process for discussing new API.  See https://go.dev/s/proposal-process.  Putting on hold for a proposal.",
+      "revId": "f966ea0b7879bec9748a4c1b70b9223c9c212566",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
