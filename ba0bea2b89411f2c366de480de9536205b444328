@@ -16,6 +16,24 @@
       "message": "As far as I can tell this test will pass even without he change to maps.go.  If that is true then this is not a good test for that change.  Thanks.",
       "revId": "ba0bea2b89411f2c366de480de9536205b444328",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "727a9c41_d5996dae",
+        "filename": "maps/maps_test.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 55613
+      },
+      "writtenOn": "2022-07-13T03:22:23Z",
+      "side": 1,
+      "message": "PTAL. Thanks.",
+      "parentUuid": "fa0afcd4_1ca5855e",
+      "revId": "ba0bea2b89411f2c366de480de9536205b444328",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
