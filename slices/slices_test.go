@@ -523,6 +523,7 @@ func TestCompactFunc(t *testing.T) {
 
 func TestGrow(t *testing.T) {
 	s1 := []int{1, 2, 3}
+
 	copy := Clone(s1)
 	s2 := Grow(copy, 1000)
 	if !Equal(s1, s2) {
@@ -530,6 +531,16 @@ func TestGrow(t *testing.T) {
 	}
 	if cap(s2) < 1000+len(s1) {
 		t.Errorf("after Grow(%v) cap = %d, want >= %d", s1, cap(s2), 1000+len(s1))
+	}
+
+	copy = Clone(s1)
+	s3 := Grow(copy[:1], 2)[:3]
+	if !Equal(s1, s3) {
+		t.Errorf("Grow should not mutate elements between length and capacity")
+	}
+	s3 = Grow(copy[:1], 1000)[:3]
+	if !Equal(s1, s3) {
+		t.Errorf("Grow should not mutate elements between length and capacity")
 	}
 }
 
