@@ -523,6 +523,7 @@ func TestCompactFunc(t *testing.T) {
 
 func TestGrow(t *testing.T) {
 	s1 := []int{1, 2, 3}
+
 	copy := Clone(s1)
 	s2 := Grow(copy, 1000)
 	if !Equal(s1, s2) {
@@ -530,6 +531,38 @@ func TestGrow(t *testing.T) {
 	}
 	if cap(s2) < 1000+len(s1) {
 		t.Errorf("after Grow(%v) cap = %d, want >= %d", s1, cap(s2), 1000+len(s1))
+	}
+
+	// Test mutation of elements between length and capacity.
+	copy = Clone(s1)
+	s3 := Grow(copy[:1], 2)[:3]
+	if !Equal(s1, s3) {
+		t.Errorf("Grow should not mutate elements between length and capacity")
+	}
+	s3 = Grow(copy[:1], 1000)[:3]
+	if !Equal(s1, s3) {
+		t.Errorf("Grow should not mutate elements between length and capacity")
+	}
+
+	// Test number of allocations.
+	if n := testing.AllocsPerRun(100, func() { Grow(s2, cap(s2)-len(s2)) }); n > 0 {
+		t.Errorf("Grow should not allocate when given sufficient capacity; allocated %v times", n)
+	}
+	// TODO(https://go.dev/issues/53888): After the compiler is fixed,
+	// we should enforce that this is always equal to 1.
+	// As of Go 1.18.4, it allocates 2 times.
+	if n := testing.AllocsPerRun(100, func() { Grow(s2, cap(s2)-len(s2)+1) }); n == 0 {
+		t.Errorf("Grow should allocate when given insufficient capacity")
+	}
+
+	// Test for negative growth sizes.
+	var gotPanic bool
+	func() {
+		defer func() { gotPanic = recover() != nil }()
+		Grow(s1, -1)
+	}()
+	if !gotPanic {
+		t.Errorf("Grow(-1) did not panic; expected a panic")
 	}
 }
 
