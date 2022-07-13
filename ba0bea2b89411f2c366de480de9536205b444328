@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa0afcd4_1ca5855e",
+        "filename": "maps/maps_test.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2022-07-13T02:54:32Z",
+      "side": 1,
+      "message": "As far as I can tell this test will pass even without he change to maps.go.  If that is true then this is not a good test for that change.  Thanks.",
+      "revId": "ba0bea2b89411f2c366de480de9536205b444328",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
