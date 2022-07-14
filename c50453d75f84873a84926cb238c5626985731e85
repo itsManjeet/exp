@@ -33,6 +33,24 @@
       "message": "The doc comment says that it will panic if n \u003c 0. Is that still true? (I don\u0027t think so, but maybe I\u0027m missing it?) Seems like the comment should be updated, rather than adding a panic.",
       "revId": "c50453d75f84873a84926cb238c5626985731e85",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0b2daac_889a9afd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 8495
+      },
+      "writtenOn": "2022-07-14T01:42:08Z",
+      "side": 1,
+      "message": "You are correct that this changes the behavior of negative growth sizes. I\u0027ll leave it to Ian to decide whether we should keep panicking or silently ignore negative sizes.\n\nOnce we decide what the behavior should be, I\u0027ll amend the test to enforce the chosen semantic.",
+      "parentUuid": "b54353e1_7b0ffcc5",
+      "revId": "c50453d75f84873a84926cb238c5626985731e85",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
