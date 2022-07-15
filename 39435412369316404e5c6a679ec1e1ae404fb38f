@@ -72,6 +72,24 @@
       "message": "Let\u0027s not do this.  Let\u0027s fix the compiler instead.  I don\u0027t think this is yet critical enough to be worth uglifying to avoid a compiler issue.",
       "revId": "39435412369316404e5c6a679ec1e1ae404fb38f",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d684c135_a8309bdf",
+        "filename": "slices/slices.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 13550
+      },
+      "writtenOn": "2022-07-15T09:34:59Z",
+      "side": 1,
+      "message": "Also: we should use https://pkg.go.dev/testing#AllocsPerRun to ensure via `go test` that we do not allocate more than we expect. I guess this can be 2 until the compiler is fixed.",
+      "parentUuid": "76ba1590_cbbe5e1a",
+      "revId": "39435412369316404e5c6a679ec1e1ae404fb38f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
