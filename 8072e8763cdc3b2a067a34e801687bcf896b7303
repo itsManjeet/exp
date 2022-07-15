@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5113aac2_f4a2f32c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 8495
+      },
+      "writtenOn": "2022-07-15T01:15:02Z",
+      "side": 1,
+      "message": "I added a workaround for https://go.dev/issue/53888 so that growing does not double allocate.",
+      "revId": "8072e8763cdc3b2a067a34e801687bcf896b7303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
