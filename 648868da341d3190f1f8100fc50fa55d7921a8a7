@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ed8ffbe_c84f0eae",
+        "filename": "slices/slices_race_test.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 34895
+      },
+      "writtenOn": "2022-07-18T18:43:11Z",
+      "side": 1,
+      "message": "s/2021/2022/\n\n2022 is the year of the gopher.",
+      "revId": "648868da341d3190f1f8100fc50fa55d7921a8a7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
