@@ -90,6 +90,24 @@
       "parentUuid": "76ba1590_cbbe5e1a",
       "revId": "39435412369316404e5c6a679ec1e1ae404fb38f",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0935d214_aecbdedb",
+        "filename": "slices/slices.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 8495
+      },
+      "writtenOn": "2022-07-18T17:54:43Z",
+      "side": 1,
+      "message": "\u003e I don\u0027t think this is yet critical enough to be worth\n\nWhat instigated this was switching existing code to use `slices.Grow` and being surprised to find the performance to be significantly slower. I suspect not having a workaround may slow down adoption of the `slices` package. Would it be appropriate to have this be a TODO for the time being?\n\n\u003e we should use testing.AllocsPerRun\n\nAlready am 😊",
+      "parentUuid": "d684c135_a8309bdf",
+      "revId": "39435412369316404e5c6a679ec1e1ae404fb38f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
