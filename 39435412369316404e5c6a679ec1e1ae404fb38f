@@ -108,6 +108,24 @@
       "parentUuid": "d684c135_a8309bdf",
       "revId": "39435412369316404e5c6a679ec1e1ae404fb38f",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88f0fd7a_fad2fc90",
+        "filename": "slices/slices.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 12425
+      },
+      "writtenOn": "2022-07-18T18:10:25Z",
+      "side": 1,
+      "message": "FWIW, I have some code that could use slices.Grow, but I can\u0027t change over because it would be a memory allocation regression until this change comes in.",
+      "parentUuid": "0935d214_aecbdedb",
+      "revId": "39435412369316404e5c6a679ec1e1ae404fb38f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
