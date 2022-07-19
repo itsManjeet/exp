@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cb0e03f_08eb5c34",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 8495
+      },
+      "writtenOn": "2022-07-19T19:34:14Z",
+      "side": 1,
+      "message": "Per https://groups.google.com/g/golang-dev/c/K7oGURi0wTM/m/3mg1OwvqAQAJ, it seems I need two Googles to approve. Adding @eliben.",
+      "revId": "648868da341d3190f1f8100fc50fa55d7921a8a7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ed8ffbe_c84f0eae",
