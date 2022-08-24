@@ -154,7 +154,17 @@ func Insert[S ~[]E, E any](s S, i int, v ...E) S {
 // Delete is O(len(s)-(j-i)), so if many items must be deleted, it is better to
 // make a single call deleting them all together than to delete one at a time.
 func Delete[S ~[]E, E any](s S, i, j int) S {
-	return append(s[:i], s[j:]...)
+
+	if i > j {
+		panic("Delete: invalid slice indices")
+	}
+
+	var zero E
+	result := append(s[:i], s[j:]...)
+	for k := len(s) - (j - i); k < len(s); k++ {
+		s[k] = zero // Let the GC do its work
+	}
+	return result
 }
 
 // Clone returns a copy of the slice.

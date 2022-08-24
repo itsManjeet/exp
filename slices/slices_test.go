@@ -447,6 +447,45 @@ func TestDelete(t *testing.T) {
 	}
 }
 
+func panics(f func()) (b bool) {
+	defer func() {
+		if x := recover(); x != nil {
+			b = true
+		}
+	}()
+	f()
+	return false
+}
+
+func TestDeletePanics(t *testing.T) {
+	for _, test := range []struct {
+		name string
+		s    []int
+		i, j int
+	}{
+		{"with negative first index", []int{42}, -2, 1},
+		{"with negative second index", []int{42}, 1, -1},
+		{"with out-of-bounds first index", []int{42}, 2, 3},
+		{"with out-of-bounds second index", []int{42}, 0, 2},
+		{"with invalid i>j", []int{42}, 1, 0},
+	} {
+		if !panics(func() { Delete(test.s, test.i, test.j) }) {
+			t.Errorf("Delete %s: got no panic, want panic", test.name)
+		}
+	}
+}
+
+func TestDeletePointers(t *testing.T) {
+	// Make sure the rightmost values (beyond new len but within cap) are
+	// nil'ed out, otherwise we have a memory leak.
+	type data [256]byte
+	s := []*data{new(data), new(data), new(data)}
+	_ = Delete(s, 1, 2)
+	if s[2] != nil {
+		t.Errorf("memory leak beyond new length")
+	}
+}
+
 func TestClone(t *testing.T) {
 	s1 := []int{1, 2, 3}
 	s2 := Clone(s1)
