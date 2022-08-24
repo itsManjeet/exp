@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1ca6316_adf62b46",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 29355
+      },
+      "writtenOn": "2022-08-24T16:13:56Z",
+      "side": 1,
+      "message": "I did not want to force a new dependency to the fmt package, however an informative panic message like this would be more useful to the end user:\n\npanic(fmt.Sprintf(\"Delete: invalid args %d\u003e%d\", i, j))",
+      "revId": "62a8817c8fd0119b157dcf2c62f945a021055f9b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
