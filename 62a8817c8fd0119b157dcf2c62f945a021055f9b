@@ -16,6 +16,40 @@
       "message": "I did not want to force a new dependency to the fmt package, however an informative panic message like this would be more useful to the end user:\n\npanic(fmt.Sprintf(\"Delete: invalid args %d\u003e%d\", i, j))",
       "revId": "62a8817c8fd0119b157dcf2c62f945a021055f9b",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa7880af_20bb93ab",
+        "filename": "slices/slices.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 5200
+      },
+      "writtenOn": "2022-08-24T16:27:29Z",
+      "side": 1,
+      "message": "Maybe just do:\n\n_ \u003d s[i:j] // bounds check\n\nThat way you get the same error you would from the runtime (with the slice indexes provided in the error message).",
+      "revId": "62a8817c8fd0119b157dcf2c62f945a021055f9b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f89a25cd_ced07b63",
+        "filename": "slices/slices.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 5200
+      },
+      "writtenOn": "2022-08-24T16:27:29Z",
+      "side": 1,
+      "message": "It\u0027s not entirely clear to me that we should do this.\nSometimes users would care; most of the time they won\u0027t. Especially if E doesn\u0027t contain pointers.",
+      "revId": "62a8817c8fd0119b157dcf2c62f945a021055f9b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
