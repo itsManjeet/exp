@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0456181c_f4586ecd",
+        "filename": "slices/slices.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 29355
+      },
+      "writtenOn": "2022-08-25T10:07:39Z",
+      "side": 1,
+      "message": "Nice",
+      "parentUuid": "fa7880af_20bb93ab",
+      "revId": "62a8817c8fd0119b157dcf2c62f945a021055f9b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f89a25cd_ced07b63",
         "filename": "slices/slices.go",
         "patchSetId": 2
@@ -48,6 +66,24 @@
       "writtenOn": "2022-08-24T16:27:29Z",
       "side": 1,
       "message": "It\u0027s not entirely clear to me that we should do this.\nSometimes users would care; most of the time they won\u0027t. Especially if E doesn\u0027t contain pointers.",
+      "revId": "62a8817c8fd0119b157dcf2c62f945a021055f9b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a37db216_0755abc3",
+        "filename": "slices/slices.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 29355
+      },
+      "writtenOn": "2022-08-25T10:07:39Z",
+      "side": 1,
+      "message": "It is correct that most users don\u0027t care and shouldn\u0027t care about what\u0027s going on under the hood.\n\nI am convinced that they should just let the standard functions do the right thing, even at a cost, which is usually small.\n\nThe problem I\u0027m trying to address is serious because it is unexpected, hard to debug, and not trivial to work around. Let\u0027s say we have a slice s of 5 pointers to large objects: [A B C D E]|\n\nCalling `s \u003d slices.Delete(s, 1, 3)` to remove B and C works as expected for B and C, which are now ready to be GC\u0027ed:  [A D E]| (D) (E)\n\nWhat is very unexpected is to be keeping invisible references to D and E, in addition to the visible references. This can lead to large memory leaks over time.\n\nHere is an analysis of the cost of zeroing the right tail.\nBenchmark: https://gist.github.com/Deleplace/067ed63b3c8db5975f21bd4eb0488efd\nThe cost is negligible when deleting 1 element.\nThe cost is proportional to the number of elements deleted, when deleting many.\n\nI don\u0027t know how we could design a generic func that does the zeroing only for types containing references, and not for simple value type. Afaik this is not possible for now.\n\nIn the scenario where slices.Delete would do the zeroing unconditionally, then only a small number of users would want more aggressive performance, and work around this issue by not using slices.Delete.\n\nIn the scenario where slices.Delete does no zeroing (status quo), there are 2 burdens on the developer: first to figure out they may have a memory leak due to Delete, and second to write their own commodity func that does the shifting and the zeroing.",
+      "parentUuid": "f89a25cd_ced07b63",
       "revId": "62a8817c8fd0119b157dcf2c62f945a021055f9b",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
