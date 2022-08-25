@@ -104,6 +104,24 @@
       "parentUuid": "f89a25cd_ced07b63",
       "revId": "62a8817c8fd0119b157dcf2c62f945a021055f9b",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a078a82c_8412f390",
+        "filename": "slices/slices.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 6875
+      },
+      "writtenOn": "2022-08-25T16:23:21Z",
+      "side": 1,
+      "message": "I guess I see it the same as slicing. If you have\n  s \u003d [A B C D E]\n  s \u003d s[:3]\nThen there remain \"invisible\" references to D and E. The slicing operation does not zero the elements you sliced off for you.",
+      "parentUuid": "a37db216_0755abc3",
+      "revId": "62a8817c8fd0119b157dcf2c62f945a021055f9b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
