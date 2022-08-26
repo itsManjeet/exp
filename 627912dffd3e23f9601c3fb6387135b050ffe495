@@ -16,6 +16,23 @@
       "message": "The wording of this new comment is derived from https://github.com/golang/go/wiki/SliceTricks\n\nThe project of fixing the memory leak or not is discussed at https://go-review.git.corp.google.com/c/exp/+/425209/",
       "revId": "627912dffd3e23f9601c3fb6387135b050ffe495",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7463feb_08e25ed6",
+        "filename": "slices/slices.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 5200
+      },
+      "writtenOn": "2022-08-26T14:57:39Z",
+      "side": 1,
+      "message": "\"Delete does not modify the elements s[len(s)-(j-i):len(s)]. If those elements contain pointers you might consider zeroing those elements so that objects they reference can be garbage collected.\"\n\nIt is a bit weird though. Unlike the slice case, just zeroing those references will not cause anything to be garbage collected, as those references are just duplicates of the ones now at s[len(s)-2*(j-i):len(s)-(j-i)]. Only if those references are removed via some future writes will any GC behavior change.\nNot sure how/whether to word that subtlety.",
+      "revId": "627912dffd3e23f9601c3fb6387135b050ffe495",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
