@@ -69,6 +69,24 @@
       "parentUuid": "665bfac4_10e72263",
       "revId": "627912dffd3e23f9601c3fb6387135b050ffe495",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1945b10b_2bf56678",
+        "filename": "slices/slices.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 29355
+      },
+      "writtenOn": "2022-08-26T18:56:00Z",
+      "side": 1,
+      "message": "Many internet resources say \"may not\" means \"not permitted, prohibited\" so I wrote \"might not\" in the updated version.",
+      "parentUuid": "8eeba6f3_6628db8a",
+      "revId": "627912dffd3e23f9601c3fb6387135b050ffe495",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
