@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4999b82f_637d58c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 29355
+      },
+      "writtenOn": "2022-08-26T11:40:48Z",
+      "side": 1,
+      "message": "The wording of this new comment is derived from https://github.com/golang/go/wiki/SliceTricks\n\nThe project of fixing the memory leak or not is discussed at https://go-review.git.corp.google.com/c/exp/+/425209/",
+      "revId": "627912dffd3e23f9601c3fb6387135b050ffe495",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
