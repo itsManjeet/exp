@@ -33,6 +33,24 @@
       "message": "\"Delete does not modify the elements s[len(s)-(j-i):len(s)]. If those elements contain pointers you might consider zeroing those elements so that objects they reference can be garbage collected.\"\n\nIt is a bit weird though. Unlike the slice case, just zeroing those references will not cause anything to be garbage collected, as those references are just duplicates of the ones now at s[len(s)-2*(j-i):len(s)-(j-i)]. Only if those references are removed via some future writes will any GC behavior change.\nNot sure how/whether to word that subtlety.",
       "revId": "627912dffd3e23f9601c3fb6387135b050ffe495",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "665bfac4_10e72263",
+        "filename": "slices/slices.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 29355
+      },
+      "writtenOn": "2022-08-26T15:53:12Z",
+      "side": 1,
+      "message": "Ideally, if we avoid saying \"Delete does not modify the elements...\" then we don\u0027t make any promise about it, and we may still decide later to zero them, without abjuring...\n\nEven if, of course, the \"exp\" repo is explicitly not subject to go1compat.\n\n\"Delete may leave the elements s[len(s)-(j-i):len(s)] unchanged. If those elements contain pointers you might consider zeroing those elements so that objects they reference can be garbage collected.\"\n\nWe don\u0027t need to describe the successive steps required for the GC collection to actually happen, just to be explicit about \"it is user responsibility\" or \"it is GC responsibility\".\n\nThe \"consider zeroing\" user homework would be\n```\nt :\u003d slices.Delete(s, i, j)\nfor k :\u003d len(s) - (j - i); k \u003c len(s); k++ {\n\ts[k] \u003d nil\n}\ns \u003d t\n```",
+      "parentUuid": "b7463feb_08e25ed6",
+      "revId": "627912dffd3e23f9601c3fb6387135b050ffe495",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
