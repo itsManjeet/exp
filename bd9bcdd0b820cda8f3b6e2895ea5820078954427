@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e3c7232_d1951d2b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2022-08-27T02:00:30Z",
+      "side": 1,
+      "message": "For future reference, the part before the colon is the package name, so something like:\n\nslices: correct complexity expression in Delete doc",
+      "revId": "bd9bcdd0b820cda8f3b6e2895ea5820078954427",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
