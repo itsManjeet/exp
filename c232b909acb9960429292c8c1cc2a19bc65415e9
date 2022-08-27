@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36f3db64_05070a6b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 29355
+      },
+      "writtenOn": "2022-08-27T16:04:28Z",
+      "side": 1,
+      "message": "I updated the commit message",
+      "revId": "c232b909acb9960429292c8c1cc2a19bc65415e9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
