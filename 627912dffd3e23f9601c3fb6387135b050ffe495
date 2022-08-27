@@ -87,6 +87,24 @@
       "parentUuid": "8eeba6f3_6628db8a",
       "revId": "627912dffd3e23f9601c3fb6387135b050ffe495",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b80e03d_1f347ee0",
+        "filename": "slices/slices.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2022-08-27T01:47:17Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "1945b10b_2bf56678",
+      "revId": "627912dffd3e23f9601c3fb6387135b050ffe495",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
