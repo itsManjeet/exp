@@ -40,6 +40,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5fa35539_ba78f76c",
+        "filename": "slog/atomic.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-08-30T17:57:42Z",
+      "side": 1,
+      "message": "Nit: b !\u003d 0\n\n\"All nonzero values are true\" is slightly cleaner, and usually avoids the need for a CMP instruction.",
+      "revId": "3dc36a04e38053bd433532a48acc4919840b0122",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f8efd7e2_d6ad3ba0",
         "filename": "slog/level.go",
         "patchSetId": 1
@@ -51,6 +68,57 @@
       "writtenOn": "2022-08-30T17:03:56Z",
       "side": 1,
       "message": "In the event package I deliberately stuck to the open-telemetry values rather than inventing new ones, on the assumption that it is (or will be) the most common tooling used in enterprise to consume the output, and that they had done some research into the levels wanted.\nSee https://github.com/open-telemetry/opentelemetry-specification/blob/main/specification/logs/data-model.md#severity-fields\nIf we are going to invent new ones, we should document the rationale for the numbers chosen in here.",
+      "revId": "3dc36a04e38053bd433532a48acc4919840b0122",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d2c1262_6b475e49",
+        "filename": "slog/level.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-08-30T17:57:42Z",
+      "side": 1,
+      "message": "return fmt.Sprintf(\"%s%+d\", base, val) ?\n\nthough I guess the only time val is positive is when level \u003e DEBUG.",
+      "revId": "3dc36a04e38053bd433532a48acc4919840b0122",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c24fbb7f_ca706e2f",
+        "filename": "slog/level.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-08-30T17:57:42Z",
+      "side": 1,
+      "message": "Remove the additional * (indirection) here?",
+      "revId": "3dc36a04e38053bd433532a48acc4919840b0122",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32572af8_0859a563",
+        "filename": "slog/level.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-08-30T17:57:42Z",
+      "side": 1,
+      "message": "Is that a sensible default?",
       "revId": "3dc36a04e38053bd433532a48acc4919840b0122",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
