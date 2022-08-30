@@ -40,6 +40,97 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2c97d475_128a6fe9",
+        "filename": "slog/record.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-08-30T19:53:08Z",
+      "side": 1,
+      "message": "I know we\u0027ve been using \"Record\" for a long time in our discussions, but I think \"Event\" would be a better name. \"Record\" connotes both \"struct-like type\" and \"data base row\", both of which are true here but neither is very interesting. By contrast, an Event is \"a thing that happened at a particular moment\", which seems a more precise description of the purpose of this type.",
+      "revId": "bf1bd2cd5ae4711b9d4a49ff48e9b4aaa3a2bdb4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de543945_e69c5278",
+        "filename": "slog/record.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-08-30T19:53:08Z",
+      "side": 1,
+      "message": "This field\u0027s need of a doc comment is greater than those of \u0027time\u0027 and \u0027message\u0027. :)",
+      "revId": "bf1bd2cd5ae4711b9d4a49ff48e9b4aaa3a2bdb4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c91a5b1_b1d45433",
+        "filename": "slog/record.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-08-30T19:53:08Z",
+      "side": 1,
+      "message": "Is this optimization justified over the simpler one of simply allocating the initial space in a struct field and then letting append do its thing? i.e.\n\n   attrs  []Attr\n   attrs0 [K]Attr // space for first K attrs, usually enough\n\nThat approach wastes the entire attrs0 as soon as append allocates, but has the advantage of being idiomatic, and keeping the elements contiguous in one slice.",
+      "revId": "bf1bd2cd5ae4711b9d4a49ff48e9b4aaa3a2bdb4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e80b2e2b_f793d135",
+        "filename": "slog/record.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-08-30T19:53:08Z",
+      "side": 1,
+      "message": "\"at that depth, where 1 means the caller of NewRecord\". (I assume)",
+      "revId": "bf1bd2cd5ae4711b9d4a49ff48e9b4aaa3a2bdb4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d16b5882_4dd5446a",
+        "filename": "slog/record.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-08-30T19:53:08Z",
+      "side": 1,
+      "message": "Rather than \"Most users won\u0027t need it\", state what approach is likely to be better for most users.",
+      "range": {
+        "startLine": 42,
+        "startChar": 14,
+        "endLine": 42,
+        "endChar": 39
+      },
+      "revId": "bf1bd2cd5ae4711b9d4a49ff48e9b4aaa3a2bdb4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9a835c98_c9929132",
         "filename": "slog/record.go",
         "patchSetId": 1
@@ -57,6 +148,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c715928b_1e6298f2",
+        "filename": "slog/record.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-08-30T19:53:08Z",
+      "side": 1,
+      "message": "Yeah; the fact that the methods are associated with *Record suggests that this method (and all public API functions) should also return a *Record (since any one of them could cause internal aliasing.\n\nReturn a pointer and trust the escape analysis to do its thing.",
+      "parentUuid": "9a835c98_c9929132",
+      "revId": "bf1bd2cd5ae4711b9d4a49ff48e9b4aaa3a2bdb4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bc4ccdab_9d2b9650",
         "filename": "slog/record.go",
         "patchSetId": 1
@@ -68,6 +177,23 @@
       "writtenOn": "2022-08-30T17:04:13Z",
       "side": 1,
       "message": "Why are these methods rather than public fields?",
+      "revId": "bf1bd2cd5ae4711b9d4a49ff48e9b4aaa3a2bdb4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16f41076_087c5ded",
+        "filename": "slog/record.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-08-30T19:53:08Z",
+      "side": 1,
+      "message": "\"appends an attribute to the record\u0027s list of attributes\"",
       "revId": "bf1bd2cd5ae4711b9d4a49ff48e9b4aaa3a2bdb4",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
