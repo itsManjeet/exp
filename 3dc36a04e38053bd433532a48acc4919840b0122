@@ -229,6 +229,24 @@
       "parentUuid": "81ea75c0_6396130a",
       "revId": "3dc36a04e38053bd433532a48acc4919840b0122",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "390fa673_56e9b12d",
+        "filename": "slog/level.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-08-31T21:40:52Z",
+      "side": 1,
+      "message": "Ah, I think I see.\n\nLevelRefs are not for use in log messages. They are for level-setting, as in \"I don\u0027t want to output any logs at levels greater than Info.\" They are passed to Handlers.\n\nSorry for presenting the code bottom-up, but I wanted each CL to be small, buildable and testable, and I couldn\u0027t find another way.",
+      "parentUuid": "6c3af4cb_55653451",
+      "revId": "3dc36a04e38053bd433532a48acc4919840b0122",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
