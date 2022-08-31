@@ -211,6 +211,24 @@
       "parentUuid": "32572af8_0859a563",
       "revId": "3dc36a04e38053bd433532a48acc4919840b0122",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c3af4cb_55653451",
+        "filename": "slog/level.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-08-31T21:18:16Z",
+      "side": 1,
+      "message": "I think it means that the default Options{} behavior will cause the log to be full of DEBUG+ddddddddd where the digits are the decimal value of 1\u003c\u003c31 - DEBUG on a 32-bit machine and 1\u003c\u003c63 - DEBUG on a 64-bit machine. Even ignoring the machine variation, I can\u0027t imagine anyone wanting that (compared to, say INFO). But perhaps I misunderstand.",
+      "parentUuid": "81ea75c0_6396130a",
+      "revId": "3dc36a04e38053bd433532a48acc4919840b0122",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
