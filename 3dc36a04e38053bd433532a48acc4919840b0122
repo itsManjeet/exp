@@ -247,6 +247,24 @@
       "parentUuid": "6c3af4cb_55653451",
       "revId": "3dc36a04e38053bd433532a48acc4919840b0122",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4dfd3d8_37a80b37",
+        "filename": "slog/level.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-09-01T13:42:52Z",
+      "side": 1,
+      "message": "Ah, that makes sense now.",
+      "parentUuid": "390fa673_56e9b12d",
+      "revId": "3dc36a04e38053bd433532a48acc4919840b0122",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
