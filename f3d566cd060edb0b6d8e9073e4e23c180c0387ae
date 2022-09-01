@@ -55,6 +55,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e4f255d_abd55807",
+        "filename": "slog/internal/buffer/buffer.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-01T13:10:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "584388c5_314dcaca",
+      "revId": "f3d566cd060edb0b6d8e9073e4e23c180c0387ae",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2a142a02_52983279",
@@ -68,6 +86,24 @@
       "writtenOn": "2022-08-30T14:28:42Z",
       "side": 1,
       "message": "// To reduce peak allocation, return only smaller buffers to the pool.",
+      "revId": "f3d566cd060edb0b6d8e9073e4e23c180c0387ae",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "640e4646_76655717",
+        "filename": "slog/internal/buffer/buffer.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-01T13:10:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a142a02_52983279",
       "revId": "f3d566cd060edb0b6d8e9073e4e23c180c0387ae",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
