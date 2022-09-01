@@ -55,6 +55,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d15df516_366992fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-01T13:10:26Z",
+      "side": 1,
+      "message": "Not at all, I appreciate the attention to detail.",
+      "parentUuid": "86f62597_b5b28705",
+      "revId": "ed86898155576030385235807811f44d7adb4276",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3ec90ab5_c50a860f",
@@ -68,6 +86,24 @@
       "writtenOn": "2022-08-30T14:24:48Z",
       "side": 1,
       "message": "This discards the monotonic portion of the Time (see https://cs.opensource.google/go/go/+/refs/tags/go1.19:src/time/time.go;l\u003d10-69). The doc comment should state that.",
+      "revId": "ed86898155576030385235807811f44d7adb4276",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7c8f7d0_01acb3ac",
+        "filename": "slog/attr.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-01T13:10:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ec90ab5_c50a860f",
       "revId": "ed86898155576030385235807811f44d7adb4276",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -89,6 +125,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f29b005b_562f3e8d",
+        "filename": "slog/attr.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-01T13:10:26Z",
+      "side": 1,
+      "message": "Thanks, Done.",
+      "parentUuid": "a9fbb93c_52646bf2",
+      "revId": "ed86898155576030385235807811f44d7adb4276",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "506eb0e7_12e70d11",
@@ -102,6 +156,24 @@
       "writtenOn": "2022-08-30T14:24:48Z",
       "side": 1,
       "message": "Nit: s/returns true if/reports whether/, since it expresses a bi-implication.\n\nIs HasValue true only for zero values (which have no key) and values created by Any(key, nil) (which do have a key)?\n\nPerhaps: \"whether the Attr has a non-nil value\"?",
+      "revId": "ed86898155576030385235807811f44d7adb4276",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9eb36c32_6953a51d",
+        "filename": "slog/attr.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-01T13:10:26Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "506eb0e7_12e70d11",
       "revId": "ed86898155576030385235807811f44d7adb4276",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -123,6 +195,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b8d1ad3_fd4079c7",
+        "filename": "slog/attr.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-01T13:10:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c44294c1_7d1ae225",
+      "revId": "ed86898155576030385235807811f44d7adb4276",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ca9d94f5_12a320f1",
@@ -136,6 +226,24 @@
       "writtenOn": "2022-08-30T14:24:48Z",
       "side": 1,
       "message": "time.Time will end up here. Is that intentional?\n\nRecord the kind in the error message.",
+      "revId": "ed86898155576030385235807811f44d7adb4276",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "327042f3_4e7b9e97",
+        "filename": "slog/attr.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-01T13:10:26Z",
+      "side": 1,
+      "message": "No, oversight.\nDone.",
+      "parentUuid": "ca9d94f5_12a320f1",
       "revId": "ed86898155576030385235807811f44d7adb4276",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -157,6 +265,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8728397f_6bb2692c",
+        "filename": "slog/attr.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-01T13:10:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d24a05be_dc0551d8",
+      "revId": "ed86898155576030385235807811f44d7adb4276",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "327ce412_65799345",
@@ -170,6 +296,24 @@
       "writtenOn": "2022-08-30T14:24:48Z",
       "side": 1,
       "message": "// This file defines the most portable representation of Attr.",
+      "revId": "ed86898155576030385235807811f44d7adb4276",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4389d286_e2e1db5b",
+        "filename": "slog/attr_safe.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-01T13:10:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "327ce412_65799345",
       "revId": "ed86898155576030385235807811f44d7adb4276",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -221,6 +365,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d54d9604_fe66eafd",
+        "filename": "slog/attr_safe.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-01T13:10:26Z",
+      "side": 1,
+      "message": "There was some internal discussion about this, as you might imagine. Russ ultimately felt that since Attr was already used in several places in the standard library, it would be the best choice here.",
+      "parentUuid": "a1eeee4b_6e879d37",
+      "range": {
+        "startLine": 14,
+        "startChar": 5,
+        "endLine": 14,
+        "endChar": 9
+      },
+      "revId": "ed86898155576030385235807811f44d7adb4276",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4b45c552_00d74c8d",
@@ -234,6 +402,24 @@
       "writtenOn": "2022-08-30T14:24:48Z",
       "side": 1,
       "message": "Document the representation invariants inside the struct body.",
+      "revId": "ed86898155576030385235807811f44d7adb4276",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b47a23b0_604ce1a3",
+        "filename": "slog/attr_safe.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-01T13:10:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b45c552_00d74c8d",
       "revId": "ed86898155576030385235807811f44d7adb4276",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -261,6 +447,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "37f33545_cbff53b7",
+        "filename": "slog/attr_safe.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-01T13:10:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b270da9b_82f3e5f7",
+      "range": {
+        "startLine": 22,
+        "startChar": 6,
+        "endLine": 22,
+        "endChar": 7
+      },
+      "revId": "ed86898155576030385235807811f44d7adb4276",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "89c3f38d_2272d890",
@@ -274,6 +484,24 @@
       "writtenOn": "2022-08-30T14:24:48Z",
       "side": 1,
       "message": "// This file defines the most compact representation of Attr.",
+      "revId": "ed86898155576030385235807811f44d7adb4276",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13d807f7_7b64ac24",
+        "filename": "slog/attr_unsafe.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-01T13:10:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89c3f38d_2272d890",
       "revId": "ed86898155576030385235807811f44d7adb4276",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -301,6 +529,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "733d4c1a_d38dfffe",
+        "filename": "slog/attr_unsafe.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-01T13:10:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3c893e6d_f2af53b7",
+      "range": {
+        "startLine": 16,
+        "startChar": 20,
+        "endLine": 16,
+        "endChar": 24
+      },
+      "revId": "ed86898155576030385235807811f44d7adb4276",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f84b51d9_409bca3a",
@@ -314,6 +566,24 @@
       "writtenOn": "2022-08-30T14:24:48Z",
       "side": 1,
       "message": "Add a note about representation:\n\n  u uint64 // numbers: bool, int, uint, float, duration, string length\n  a any    // pointers, string data, arbitrary values",
+      "revId": "ed86898155576030385235807811f44d7adb4276",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a86c829_c88ed2d5",
+        "filename": "slog/attr_unsafe.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-01T13:10:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f84b51d9_409bca3a",
       "revId": "ed86898155576030385235807811f44d7adb4276",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
