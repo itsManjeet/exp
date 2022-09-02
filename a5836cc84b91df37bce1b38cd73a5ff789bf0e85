@@ -55,6 +55,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "be91dea6_699f271f",
+        "filename": "slog/attr_safe.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-02T14:49:10Z",
+      "side": 1,
+      "message": "Done, approximately. (\"str\" conflicts with a method of the same name).",
+      "parentUuid": "954639c1_3e325fc6",
+      "revId": "a5836cc84b91df37bce1b38cd73a5ff789bf0e85",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "535b0dfd_0f1f68d8",
@@ -68,6 +86,24 @@
       "writtenOn": "2022-09-01T13:48:48Z",
       "side": 1,
       "message": "s/kv/a/ (and above too)",
+      "revId": "a5836cc84b91df37bce1b38cd73a5ff789bf0e85",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b4d684f_11da086e",
+        "filename": "slog/attr_safe.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-02T14:49:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "535b0dfd_0f1f68d8",
       "revId": "a5836cc84b91df37bce1b38cd73a5ff789bf0e85",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
