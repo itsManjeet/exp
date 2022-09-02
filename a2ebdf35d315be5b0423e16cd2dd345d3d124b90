@@ -145,6 +145,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5b7665d1_1f535972",
+        "filename": "slog/level.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-02T12:06:46Z",
+      "side": 1,
+      "message": "To be clear, I mean that if Records are copied and copying the extra 6 bytes is noticeable, then this could be worth it; otherwise not.",
+      "parentUuid": "636a401b_9d5d6197",
+      "revId": "a2ebdf35d315be5b0423e16cd2dd345d3d124b90",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fb69daf1_2a84752a",
         "filename": "slog/level.go",
         "patchSetId": 2
