@@ -55,6 +55,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4f8e377_22bdde10",
+        "filename": "slog/atomic.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-02T11:16:01Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "18c46a96_40eaaf60",
+      "revId": "a2ebdf35d315be5b0423e16cd2dd345d3d124b90",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2c584fe1_ca050a1a",
@@ -68,6 +86,24 @@
       "writtenOn": "2022-09-01T13:42:52Z",
       "side": 1,
       "message": "Load on an uninitialized atomicValue returns the zero of T, whereas swap will panic in the nil.(T) type assertion. Fix the asymmetry?",
+      "revId": "a2ebdf35d315be5b0423e16cd2dd345d3d124b90",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0a5d8f5_c8714681",
+        "filename": "slog/atomic.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-02T11:16:01Z",
+      "side": 1,
+      "message": "Turns out I never use this, so I removed it.",
+      "parentUuid": "2c584fe1_ca050a1a",
       "revId": "a2ebdf35d315be5b0423e16cd2dd345d3d124b90",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -91,6 +127,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "636a401b_9d5d6197",
+        "filename": "slog/level.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-02T11:16:01Z",
+      "side": 1,
+      "message": "I agree that 16 bits are plenty. But int is the default integral type, and logr\u0027s verbosities are ints (and we want to easily interoperate with them). int16 feels like a premature optimization. \n\nOnce we settle on a Record representation, we can revisit. Leaving this unresolved.\n\n@rsc",
+      "parentUuid": "30aa8c07_717c8651",
+      "revId": "a2ebdf35d315be5b0423e16cd2dd345d3d124b90",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fb69daf1_2a84752a",
         "filename": "slog/level.go",
         "patchSetId": 2
@@ -108,6 +162,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5102d772_6164f88b",
+        "filename": "slog/level.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-02T11:16:01Z",
+      "side": 1,
+      "message": "AtomicLevel is what Zap calls it (although they use the value, not a pointer).\nMaking no changes now; leaving this open.\n@rsc",
+      "parentUuid": "fb69daf1_2a84752a",
+      "revId": "a2ebdf35d315be5b0423e16cd2dd345d3d124b90",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "45d5590f_3a03477f",
         "filename": "slog/level.go",
         "patchSetId": 2
@@ -119,6 +191,24 @@
       "writtenOn": "2022-09-01T13:42:52Z",
       "side": 1,
       "message": "Get()?",
+      "revId": "a2ebdf35d315be5b0423e16cd2dd345d3d124b90",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ada3a414_d3d27f89",
+        "filename": "slog/level.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-02T11:16:01Z",
+      "side": 1,
+      "message": "We try to avoid \"Get\" in the standard library.",
+      "parentUuid": "45d5590f_3a03477f",
       "revId": "a2ebdf35d315be5b0423e16cd2dd345d3d124b90",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
