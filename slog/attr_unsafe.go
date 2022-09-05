@@ -65,6 +65,12 @@ func (a Attr) str() string {
 	return s
 }
 
+func (a *Attr) setString(s string) {
+	hdr := (*reflect.StringHeader)(unsafe.Pointer(&s))
+	a.num = uint64(hdr.Len)
+	a.any = stringptr(hdr.Data)
+}
+
 // String returns Attr's value as a string, formatted like fmt.Sprint. Unlike
 // the methods Int64, Float64, and so on, which panic if the Attr is of the
 // wrong kind, String never panics.

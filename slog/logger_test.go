@@ -320,13 +320,13 @@ func BenchmarkNopLog(b *testing.B) {
 	l := New(&captureHandler{})
 	b.Run("attrs", func(b *testing.B) {
 		for i := 0; i < b.N; i++ {
-			l.LogAttrs(InfoLevel, "msg", Int("a", 1), String("b", "two"), Bool("c", true))
+			l.LogAttrs(InfoLevel, "msg", Int("a", 1), String("b", "two"), Any("c", true))
 		}
 	})
 	b.Run("attrs-parallel", func(b *testing.B) {
 		b.RunParallel(func(pb *testing.PB) {
 			for pb.Next() {
-				l.LogAttrs(InfoLevel, "msg", Int("a", 1), String("b", "two"), Bool("c", true))
+				l.LogAttrs(InfoLevel, "msg", Int("a", 1), String("b", "two"), Any("c", true))
 			}
 		})
 	})

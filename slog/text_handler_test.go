@@ -118,7 +118,7 @@ func TestSourceRegexp(t *testing.T) {
 func TestTextHandlerPreformatted(t *testing.T) {
 	var buf bytes.Buffer
 	var h Handler = NewTextHandler(&buf)
-	h = h.With([]Attr{Duration("dur", time.Minute), Bool("b", true)})
+	h = h.With([]Attr{Duration("dur", time.Minute), Any("b", true)})
 	// Also test omitting time and level.
 	r := MakeRecord(time.Time{}, 0, "m", 0)
 	r.AddAttrs(Int("a", 1))
