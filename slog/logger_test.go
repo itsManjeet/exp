@@ -211,7 +211,7 @@ func TestAlloc(t *testing.T) {
 	})
 	t.Run("attrs1", func(t *testing.T) {
 		wantAllocs(t, 0, func() { dl.LogAttrs(InfoLevel, "", Int("a", 1)) })
-		wantAllocs(t, 0, func() { dl.LogAttrs(InfoLevel, "", Any("error", io.EOF)) })
+		wantAllocs(t, 0, func() { dl.LogAttrs(InfoLevel, "", A("error", io.EOF)) })
 	})
 	t.Run("attrs3", func(t *testing.T) {
 		wantAllocs(t, 0, func() {
@@ -320,13 +320,13 @@ func BenchmarkNopLog(b *testing.B) {
 	l := New(&captureHandler{})
 	b.Run("attrs", func(b *testing.B) {
 		for i := 0; i < b.N; i++ {
-			l.LogAttrs(InfoLevel, "msg", Int("a", 1), String("b", "two"), Bool("c", true))
+			l.LogAttrs(InfoLevel, "msg", Int("a", 1), String("b", "two"), A("c", true))
 		}
 	})
 	b.Run("attrs-parallel", func(b *testing.B) {
 		b.RunParallel(func(pb *testing.PB) {
 			for pb.Next() {
-				l.LogAttrs(InfoLevel, "msg", Int("a", 1), String("b", "two"), Bool("c", true))
+				l.LogAttrs(InfoLevel, "msg", Int("a", 1), String("b", "two"), A("c", true))
 			}
 		})
 	})

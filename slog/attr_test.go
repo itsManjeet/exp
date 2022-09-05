@@ -17,12 +17,12 @@ func TestEqual(t *testing.T) {
 		{},
 		Int64("key", 1),
 		Int64("key", 2),
-		Float64("key", 3.5),
-		Float64("key", 3.7),
-		Bool("key", true),
-		Bool("key", false),
-		Any("key", &x),
-		Any("key", &y),
+		A("key", 3.5),
+		A("key", 3.7),
+		A("key", true),
+		A("key", false),
+		A("key", &x),
+		A("key", &y),
 	}
 	for i, v1 := range vals {
 		for j, v2 := range vals {
@@ -36,7 +36,7 @@ func TestEqual(t *testing.T) {
 }
 
 func TestNilAttr(t *testing.T) {
-	n := Any("k", nil)
+	n := A[any]("k", nil)
 	if g := n.Value(); g != nil {
 		t.Errorf("got %#v, want nil", g)
 	}
@@ -58,10 +58,10 @@ func TestString(t *testing.T) {
 		want string
 	}{
 		{Int64("key", -3), "-3"},
-		{Float64("key", .15), "0.15"},
-		{Bool("key", true), "true"},
+		{A("key", .15), "0.15"},
+		{A("key", true), "true"},
 		{String("key", "foo"), "foo"},
-		{Any("key", time.Duration(3*time.Second)), "3s"},
+		{A("key", time.Duration(3*time.Second)), "3s"},
 	} {
 		if got := test.v.String(); got != test.want {
 			t.Errorf("%#v: got %q, want %q", test.v, got, test.want)
@@ -81,14 +81,14 @@ func TestAttrNoAlloc(t *testing.T) {
 		p = &i
 		d time.Duration
 	)
-	a := int(testing.AllocsPerRun(5, func() {
+	a := int(testing.AllocsPerRun(1, func() {
 		i = Int64("key", 1).Int64()
 		u = Uint64("key", 1).Uint64()
-		f = Float64("key", 1).Float64()
-		b = Bool("key", true).Bool()
+		f = A("key", 1.0).Float64()
+		b = A("key", true).Bool()
 		s = String("key", "foo").String()
 		d = Duration("key", d).Duration()
-		x = Any("key", p).Value()
+		x = A("key", p).Value()
 	}))
 	if a != 0 {
 		t.Errorf("got %d allocs, want zero", a)
@@ -105,17 +105,137 @@ func TestAnyLevelAlloc(t *testing.T) {
 	// they are zero-alloc.
 	var a Attr
 	x := DebugLevel + 100
-	wantAllocs(t, 0, func() { a = Any("k", x) })
+	wantAllocs(t, 0, func() { a = A("k", x) })
 	_ = a
 }
 
 func TestAnyLevel(t *testing.T) {
 	x := DebugLevel + 100
-	a := Any("k", x)
+	a := A("k", x)
 	v := a.Value()
 	if _, ok := v.(Level); !ok {
 		t.Errorf("wanted Level, got %T", v)
 	}
+}
+
+func check[T any](t *testing.T, val T, wantKind Kind, wantVal any) {
+	t.Helper()
+	got := A("k", val)
+	if g, w := got.Kind(), wantKind; g != w {
+		t.Errorf("got %s, want %s", g, w)
+	}
+	if g, w := got.Value(), wantVal; g != w {
+		t.Errorf("got %v (%[1]T), want %v (%[2]T)", g, w)
+	}
+}
+
+func TestA(t *testing.T) {
+	check(t, "hello", StringKind, "hello")
+	check(t, 34, Int64Kind, int64(34))
+	check(t, any("x"), StringKind, "x")
+	check(t, any(34), Int64Kind, int64(34))
+	check(t, any(nil), AnyKind, nil)
+	check(t, 8*time.Hour, DurationKind, 8*time.Hour)
+	if A[any]("k", nil).Value() != nil {
+		t.Error("wanted nil")
+	}
+}
+
+// Compare A[T](T) with Any(any).
+func BenchmarkGenericAny(b *testing.B) {
+	var a Attr
+	w := "world"
+	str := "hello" + ", " + w
+	f := 3.14159
+	d := 99 * time.Hour
+	var an any = "hello"
+	tm := time.Date(2022, 9, 10, 0, 0, 0, 0, time.UTC)
+	b.Run("String", func(b *testing.B) {
+		b.ReportAllocs()
+		for i := 0; i < b.N; i++ {
+			a = String("key", str)
+		}
+	})
+	b.Run("any-string", func(b *testing.B) {
+		b.ReportAllocs()
+		for i := 0; i < b.N; i++ {
+			a = Any("key", str)
+		}
+	})
+	b.Run("generic-string", func(b *testing.B) {
+		b.ReportAllocs()
+		for i := 0; i < b.N; i++ {
+			a = A("key", str)
+		}
+	})
+	b.Run("any-float", func(b *testing.B) {
+		b.ReportAllocs()
+		for i := 0; i < b.N; i++ {
+			a = Any("key", f)
+		}
+	})
+	b.Run("generic-float", func(b *testing.B) {
+		b.ReportAllocs()
+		for i := 0; i < b.N; i++ {
+			a = A("key", f)
+		}
+	})
+	b.Run("Duration", func(b *testing.B) {
+		b.ReportAllocs()
+		for i := 0; i < b.N; i++ {
+			a = Duration("key", d)
+		}
+	})
+	b.Run("any-duration", func(b *testing.B) {
+		b.ReportAllocs()
+		for i := 0; i < b.N; i++ {
+			a = Any("key", d)
+		}
+	})
+	b.Run("generic-duration", func(b *testing.B) {
+		b.ReportAllocs()
+		for i := 0; i < b.N; i++ {
+			a = A("key", d)
+		}
+	})
+	b.Run("Time", func(b *testing.B) {
+		b.ReportAllocs()
+		for i := 0; i < b.N; i++ {
+			a = Time("key", tm)
+		}
+	})
+	b.Run("any-time", func(b *testing.B) {
+		b.ReportAllocs()
+		for i := 0; i < b.N; i++ {
+			a = Any("key", tm)
+		}
+	})
+	b.Run("generic-time", func(b *testing.B) {
+		b.ReportAllocs()
+		for i := 0; i < b.N; i++ {
+			a = A("key", tm)
+		}
+	})
+	b.Run("any-any", func(b *testing.B) {
+		b.ReportAllocs()
+		for i := 0; i < b.N; i++ {
+			a = Any("key", an)
+		}
+	})
+	b.Run("generic-any", func(b *testing.B) {
+		b.ReportAllocs()
+		for i := 0; i < b.N; i++ {
+			a = A("key", an)
+		}
+	})
+	_ = a
+}
+
+// A non-generic implementation of Any.
+func Any(key string, val any) Attr {
+	a := Attr{key: key}
+	a.setAnyValue(val)
+	return a
 }
 
 //////////////// Benchmark for accessing Attr values
@@ -130,10 +250,10 @@ func BenchmarkDispatch(b *testing.B) {
 		Int64("i", 32768),
 		Uint64("u", 0xfacecafe),
 		String("s", "anything"),
-		Bool("b", true),
-		Float64("f", 1.2345),
+		A("b", true),
+		A("f", 1.2345),
 		Duration("d", time.Second),
-		Any("a", b),
+		A("a", b),
 	}
 	var (
 		ii int64
@@ -323,7 +443,7 @@ func (a Attr) Visit(v Visitor) {
 	}
 }
 
-// A Attr with "unsafe" strings is significantly faster:
+// An Attr with "unsafe" strings is significantly faster:
 // safe:  1785 ns/op, 0 allocs
 // unsafe: 690 ns/op, 0 allocs
 

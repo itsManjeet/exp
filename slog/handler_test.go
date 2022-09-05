@@ -37,7 +37,7 @@ func TestWith(t *testing.T) {
 func TestCommonHandle(t *testing.T) {
 	tm := time.Now()
 	r := MakeRecord(tm, InfoLevel, "message", 1)
-	r.AddAttrs(String("a", "one"), Int("b", 2), Any("", "ignore me"))
+	r.AddAttrs(String("a", "one"), Int("b", 2), A("", "ignore me"))
 
 	for _, test := range []struct {
 		name string

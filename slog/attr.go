@@ -64,20 +64,6 @@ func Uint64(key string, value uint64) Attr {
 	return Attr{key: key, num: value, any: Uint64Kind}
 }
 
-// Float64 returns an Attr for a floating-point number.
-func Float64(key string, value float64) Attr {
-	return Attr{key: key, num: math.Float64bits(value), any: Float64Kind}
-}
-
-// Bool returns an Attr for a bool.
-func Bool(key string, value bool) Attr {
-	u := uint64(0)
-	if value {
-		u = 1
-	}
-	return Attr{key: key, num: u, any: BoolKind}
-}
-
 // Time returns an Attr for a time.Time.
 // It discards the monotonic portion.
 func Time(key string, value time.Time) Attr {
@@ -89,7 +75,7 @@ func Duration(key string, value time.Duration) Attr {
 	return Attr{key: key, num: uint64(value.Nanoseconds()), any: DurationKind}
 }
 
-// Any returns an Attr for the supplied value.
+// A returns an Attr for the supplied value.
 //
 // Given a value of one of Go's predeclared string, bool, or
 // (non-complex) numeric types, Any returns an Attr of kind
@@ -101,46 +87,117 @@ func Duration(key string, value time.Duration) Attr {
 //
 // For nil, or values of all other types, including named types whose
 // underlying type is numeric, Any returns a value of kind AnyKind.
-func Any(key string, value any) Attr {
+func A[T any](key string, val T) Attr {
+	a := Attr{key: key}
+	setAttrValue(&a, val)
+	return a
+}
+
+func setAttrValue[T any](a *Attr, val T) {
+	switch any(*new(T)).(type) {
+	case string:
+		a.setString(any(val).(string))
+	case int:
+		a.any = Int64Kind
+		a.num = uint64(any(val).(int))
+	case int64:
+		a.any = Int64Kind
+		a.num = uint64(any(val).(int64))
+	case uint64:
+		a.any = Uint64Kind
+		a.num = any(val).(uint64)
+	case time.Duration:
+		a.any = DurationKind
+		a.num = uint64(any(val).(time.Duration).Nanoseconds())
+	case bool:
+		a.any = BoolKind
+		a.num = 0
+		if any(val).(bool) {
+			a.num = 1
+		}
+	case time.Time:
+		a.any = TimeKind
+		tm := any(val).(time.Time)
+		a.num = uint64(tm.UnixNano())
+		a.any = tm.Location()
+	case int8:
+		a.any = Int64Kind
+		a.num = uint64(any(val).(int8))
+	case int16:
+		a.any = Int64Kind
+		a.num = uint64(any(val).(int16))
+	case int32:
+		a.any = Int64Kind
+		a.num = uint64(any(val).(int32))
+	case uint8:
+		a.any = Uint64Kind
+		a.num = uint64(any(val).(uint8))
+	case uint16:
+		a.any = Uint64Kind
+		a.num = uint64(any(val).(uint16))
+	case uint32:
+		a.any = Uint64Kind
+		a.num = uint64(any(val).(uint32))
+	case uintptr:
+		a.any = Uint64Kind
+		a.num = uint64(any(val).(uintptr))
+	case float32:
+		a.any = Float64Kind
+		a.num = math.Float64bits(float64(any(val).(float32)))
+	case float64:
+		a.any = Float64Kind
+		a.num = math.Float64bits(any(val).(float64))
+	case Kind:
+		panic("cannot store a slog.Kind in an Attr")
+	case *time.Location:
+		panic("cannot store a *time.Location in an Attr")
+	case nil, any:
+		a.setAnyValue(any(val))
+	default:
+		a.any = any(val)
+	}
+}
+
+func (a *Attr) setAnyValue(value any) {
 	switch v := value.(type) {
 	case string:
-		return String(key, v)
+		a.setString(v)
 	case int:
-		return Int(key, v)
+		setAttrValue(a, v)
 	case int64:
-		return Int64(key, v)
+		setAttrValue(a, v)
 	case uint64:
-		return Uint64(key, v)
+		setAttrValue(a, v)
 	case bool:
-		return Bool(key, v)
+		setAttrValue(a, v)
 	case time.Duration:
-		return Duration(key, v)
+		setAttrValue(a, v)
 	case time.Time:
-		return Time(key, v)
+		setAttrValue(a, v)
 	case uint8:
-		return Uint64(key, uint64(v))
+		setAttrValue(a, v)
 	case uint16:
-		return Uint64(key, uint64(v))
+		setAttrValue(a, v)
 	case uint32:
-		return Uint64(key, uint64(v))
+		setAttrValue(a, v)
 	case uintptr:
-		return Uint64(key, uint64(v))
+		setAttrValue(a, v)
 	case int8:
-		return Int64(key, int64(v))
+		setAttrValue(a, v)
 	case int16:
-		return Int64(key, int64(v))
+		setAttrValue(a, v)
 	case int32:
-		return Int64(key, int64(v))
+		setAttrValue(a, v)
 	case float64:
-		return Float64(key, v)
+		setAttrValue(a, v)
 	case float32:
-		return Float64(key, float64(v))
+		setAttrValue(a, v)
 	case Kind:
 		panic("cannot store a slog.Kind in an Attr")
 	case *time.Location:
 		panic("cannot store a *time.Location in an Attr")
 	default:
-		return Attr{key: key, any: v}
+		a.any = v
 	}
 }
 
@@ -224,7 +281,6 @@ func (a Attr) Float64() float64 {
 	if g, w := a.Kind(), Float64Kind; g != w {
 		panic(fmt.Sprintf("Attr kind is %s, not %s", g, w))
 	}
-
 	return a.float()
 }
 

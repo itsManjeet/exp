@@ -165,7 +165,7 @@ func (h *commonHandler) handle(r Record) error {
 		} else {
 			// Don't use replace: we want to output Levels as strings
 			// to match the above.
-			a := rep(Any(key, val))
+			a := rep(A(key, val))
 			if a.Key() != "" {
 				app.appendKey(a.Key())
 				if l, ok := a.any.(Level); ok {

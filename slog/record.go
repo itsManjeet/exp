@@ -126,13 +126,13 @@ func argsToAttr(args []any) (Attr, []any) {
 		if len(args) == 1 {
 			return String(badKey, x), nil
 		}
-		return Any(x, args[1]), args[2:]
+		return A(x, args[1]), args[2:]
 
 	case Attr:
 		return x, args[1:]
 
 	default:
-		return Any(badKey, x), args[1:]
+		return A(badKey, x), args[1:]
 	}
 }
 

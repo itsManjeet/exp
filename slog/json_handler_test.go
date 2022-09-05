@@ -77,7 +77,7 @@ func TestJSONAppendAttrValue(t *testing.T) {
 		testTime,
 		jsonMarshaler{"xyz"},
 	} {
-		attr := Any("", value)
+		attr := A("", value)
 		if err := app.appendAttrValue(attr); err != nil {
 			t.Fatal(err)
 		}
@@ -107,7 +107,7 @@ func TestJSONAppendAttrValueSpecial(t *testing.T) {
 		{math.Inf(-1), `"-Inf"`},
 		{WarnLevel, `"WARN"`},
 	} {
-		attr := Any("", test.value)
+		attr := A("", test.value)
 		if err := app.appendAttrValue(attr); err != nil {
 			t.Fatal(err)
 		}
@@ -179,7 +179,7 @@ func BenchmarkPreformatting(b *testing.B) {
 	structAttrs := []any{
 		String("program", "my-test-program"),
 		String("package", "log/slog"),
-		Any("request", &req{
+		A("request", &req{
 			Method:  "GET",
 			URL:     "https://pkg.go.dev/golang.org/x/log/slog",
 			TraceID: "2039232309232309",
