@@ -35,17 +35,17 @@ func TestTextHandler(t *testing.T) {
 		},
 		{
 			"Sprint",
-			Any("name", name{"Ren", "Hoek"}),
+			A("name", name{"Ren", "Hoek"}),
 			`name="Hoek, Ren"`,
 		},
 		{
 			"TextMarshaler",
-			Any("t", text{"abc"}),
+			A("t", text{"abc"}),
 			`t="text{\"abc\"}"`,
 		},
 		{
 			"TextMarshaler error",
-			Any("t", text{""}),
+			A("t", text{""}),
 			`t="!ERROR:text: empty string"`,
 		},
 	} {
@@ -118,7 +118,7 @@ func TestSourceRegexp(t *testing.T) {
 func TestTextHandlerPreformatted(t *testing.T) {
 	var buf bytes.Buffer
 	var h Handler = NewTextHandler(&buf)
-	h = h.With([]Attr{Duration("dur", time.Minute), Bool("b", true)})
+	h = h.With([]Attr{Duration("dur", time.Minute), A("b", true)})
 	// Also test omitting time and level.
 	r := MakeRecord(time.Time{}, 0, "m", 0)
 	r.AddAttrs(Int("a", 1))

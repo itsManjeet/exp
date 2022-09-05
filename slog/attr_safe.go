@@ -45,6 +45,8 @@ func (a Attr) str() string {
 	return a.s
 }
 
+func (a *Attr) setString(s string) { a.s = s; a.any = StringKind }
+
 // String returns a new Attr for a string.
 func String(key, value string) Attr {
 	return Attr{key: key, s: value, any: StringKind}

@@ -171,7 +171,7 @@ func (l *Logger) Warn(msg string, args ...any) {
 func (l *Logger) Error(msg string, err error, args ...any) {
 	if err != nil {
 		// TODO: avoid the copy.
-		args = append(args[:len(args):len(args)], Any("err", err))
+		args = append(args[:len(args):len(args)], A("err", err))
 	}
 	l.LogDepth(0, ErrorLevel, msg, args...)
 }
@@ -195,7 +195,7 @@ func Warn(msg string, args ...any) {
 func Error(msg string, err error, args ...any) {
 	if err != nil {
 		// TODO: avoid the copy.
-		args = append(args[:len(args):len(args)], Any("err", err))
+		args = append(args[:len(args):len(args)], A("err", err))
 	}
 	Default().LogDepth(0, ErrorLevel, msg, args...)
 }

@@ -16,7 +16,7 @@ import (
 
 func TestRecordAttrs(t *testing.T) {
 	as := []Attr{Int("k1", 1), String("k2", "foo"), Int("k3", 3),
-		Int64("k4", -1), Float64("f", 3.1), Uint64("u", 999)}
+		Int64("k4", -1), A("f", 3.1), Uint64("u", 999)}
 	r := newRecordWithAttrs(as)
 	if g, w := r.Attrs().Len(), len(as); g != w {
 		t.Errorf("NumAttrs: got %d, want %d", g, w)
