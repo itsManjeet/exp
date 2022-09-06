@@ -234,6 +234,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "97f8fb2d_b78f5217",
+        "filename": "slog/level.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-06T18:53:17Z",
+      "side": 1,
+      "message": "Done, I believe. Let me know if this is what you had in mind.",
+      "parentUuid": "2c7a3fbf_68a9839f",
+      "revId": "a2ebdf35d315be5b0423e16cd2dd345d3d124b90",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "45d5590f_3a03477f",
         "filename": "slog/level.go",
         "patchSetId": 2
