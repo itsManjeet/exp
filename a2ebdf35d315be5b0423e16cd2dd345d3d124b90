@@ -216,6 +216,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2c7a3fbf_68a9839f",
+        "filename": "slog/level.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-09-06T13:39:24Z",
+      "side": 1,
+      "message": "I think following (e.g.) atomic.Int32 would be clearest. Then the reference structure is transparent, and the integer is still encapsulated from unsynchronized access.",
+      "parentUuid": "2a40b9c8_ffad3440",
+      "revId": "a2ebdf35d315be5b0423e16cd2dd345d3d124b90",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "45d5590f_3a03477f",
         "filename": "slog/level.go",
         "patchSetId": 2
