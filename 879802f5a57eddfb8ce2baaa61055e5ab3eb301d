@@ -118,6 +118,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6904f168_208cf8c9",
+        "filename": "slog/list.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-07T20:13:05Z",
+      "side": 1,
+      "message": "\u003e How much faster is it than a slice with small inline preallocation?\n\nSlower I\u0027m sure, but the slice with preallocation suffers from aliasing.\n\n\u003e if AddAttr accepted a slice and clients were encouraged to call it once only\n\nI\u0027d want to support the following sequence of operations efficiently:\n\n1. Info(\"msg\", \"a\", 1, \"b\", 2) is called. It walks the ...any, constructing Attrs from key-value pairs, and builds a Record. (First problem: allocating the slice to pass to AddAttrs. Maybe we could use a pool here?)\n\n2. The Record is then passed to a Handler, which adds some Attrs and then passes it to another Handler. (Second problem: this is a second call to AddAttrs that seems hard to combine with the first. Third problem: how will the Handler allocate its slice of Attrs? Must every such handler use a pool to minimize allocations?)\n\n\u003e Alternatively, perhaps it would be simpler if instead of random access, you could only retrieve all of the attributes in a slice. What are the necessary access patterns for AddAttr and At?\n\nI think forward iteration is sufficient; I don\u0027t think there are any uses cases for random access. I was actually thinking of replacing At/NumAttrs with an Iter[Attr].",
+      "parentUuid": "f8b717eb_bd5ea200",
+      "revId": "879802f5a57eddfb8ce2baaa61055e5ab3eb301d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "02c9c975_75920a75",
         "filename": "slog/list.go",
         "patchSetId": 6
