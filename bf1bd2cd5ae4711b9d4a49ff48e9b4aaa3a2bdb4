@@ -75,6 +75,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "89e835b0_f27faa20",
+        "filename": "slog/record.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-07T11:26:51Z",
+      "side": 1,
+      "message": "OTOH, in writing doc comments I find myself using the word \"event,\" so I\u0027m open to it.",
+      "parentUuid": "123a4834_df129b3c",
+      "revId": "bf1bd2cd5ae4711b9d4a49ff48e9b4aaa3a2bdb4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "de543945_e69c5278",
         "filename": "slog/record.go",
         "patchSetId": 1
@@ -86,6 +104,24 @@
       "writtenOn": "2022-08-30T19:53:08Z",
       "side": 1,
       "message": "This field\u0027s need of a doc comment is greater than those of \u0027time\u0027 and \u0027message\u0027. :)",
+      "revId": "bf1bd2cd5ae4711b9d4a49ff48e9b4aaa3a2bdb4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68e16990_463a3c75",
+        "filename": "slog/record.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-07T11:26:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de543945_e69c5278",
       "revId": "bf1bd2cd5ae4711b9d4a49ff48e9b4aaa3a2bdb4",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -127,6 +163,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4ce3189a_abf08cc5",
+        "filename": "slog/record.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-07T11:26:51Z",
+      "side": 1,
+      "message": "To be clear, in the new implementation modifications to a Record do not affect copies.",
+      "parentUuid": "23109e0a_f8962042",
+      "revId": "bf1bd2cd5ae4711b9d4a49ff48e9b4aaa3a2bdb4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e80b2e2b_f793d135",
         "filename": "slog/record.go",
         "patchSetId": 1
@@ -138,6 +192,24 @@
       "writtenOn": "2022-08-30T19:53:08Z",
       "side": 1,
       "message": "\"at that depth, where 1 means the caller of NewRecord\". (I assume)",
+      "revId": "bf1bd2cd5ae4711b9d4a49ff48e9b4aaa3a2bdb4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f42be122_ffac95e8",
+        "filename": "slog/record.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-07T11:26:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e80b2e2b_f793d135",
       "revId": "bf1bd2cd5ae4711b9d4a49ff48e9b4aaa3a2bdb4",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -155,6 +227,30 @@
       "writtenOn": "2022-08-30T19:53:08Z",
       "side": 1,
       "message": "Rather than \"Most users won\u0027t need it\", state what approach is likely to be better for most users.",
+      "range": {
+        "startLine": 42,
+        "startChar": 14,
+        "endLine": 42,
+        "endChar": 39
+      },
+      "revId": "bf1bd2cd5ae4711b9d4a49ff48e9b4aaa3a2bdb4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7bf5c7d8_76bbf258",
+        "filename": "slog/record.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-07T11:26:51Z",
+      "side": 1,
+      "message": "Couldn\u0027t figure out a nice way to phrase it so I just omitted it.",
+      "parentUuid": "d16b5882_4dd5446a",
       "range": {
         "startLine": 42,
         "startChar": 14,
@@ -220,6 +316,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "60ec6bb5_28030751",
+        "filename": "slog/record.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-07T11:26:51Z",
+      "side": 1,
+      "message": "Open to alternative names.\n\n@rsc",
+      "parentUuid": "8c8833c9_225ef61c",
+      "revId": "bf1bd2cd5ae4711b9d4a49ff48e9b4aaa3a2bdb4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bc4ccdab_9d2b9650",
         "filename": "slog/record.go",
         "patchSetId": 1
@@ -266,6 +380,24 @@
       "writtenOn": "2022-08-30T19:53:08Z",
       "side": 1,
       "message": "\"appends an attribute to the record\u0027s list of attributes\"",
+      "revId": "bf1bd2cd5ae4711b9d4a49ff48e9b4aaa3a2bdb4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cdc3a1b_dedfa1eb",
+        "filename": "slog/record.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-07T11:26:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16f41076_087c5ded",
       "revId": "bf1bd2cd5ae4711b9d4a49ff48e9b4aaa3a2bdb4",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
