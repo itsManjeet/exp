@@ -99,6 +99,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "89b0c984_ab66995f",
+        "filename": "slog/list.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-07T20:49:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9cb6c17_38c1eefe",
+      "range": {
+        "startLine": 3,
+        "startChar": 18,
+        "endLine": 3,
+        "endChar": 28
+      },
+      "revId": "879802f5a57eddfb8ce2baaa61055e5ab3eb301d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f8b717eb_bd5ea200",
@@ -147,6 +171,24 @@
       "writtenOn": "2022-09-07T17:31:53Z",
       "side": 1,
       "message": "This is a strange requirement, and it means that list{}.append(x).at(0) will panic. It should be mentioned in the doc comments.",
+      "revId": "879802f5a57eddfb8ce2baaa61055e5ab3eb301d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "255498e5_7c61c484",
+        "filename": "slog/list.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-07T20:49:51Z",
+      "side": 1,
+      "message": "Don\u0027t I do so here, and also in the fourth paragraph of the doc comment on the type?",
+      "parentUuid": "02c9c975_75920a75",
       "revId": "879802f5a57eddfb8ce2baaa61055e5ab3eb301d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
