@@ -157,6 +157,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7429756f_aa7a808d",
+        "filename": "slog/handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-09-07T20:43:35Z",
+      "side": 1,
+      "message": "Well, there are three choices: lend, donate, or share, and it\u0027s not clear to me which one is intended here. The third requires that neither party modifies the slice.",
+      "parentUuid": "516e8779_d5f146bf",
+      "revId": "122fc2a156a04278d9a11acc2b25514ac93bb075",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "783ca216_fe01105d",
         "filename": "slog/handler.go",
         "patchSetId": 1
@@ -268,6 +286,24 @@
       "side": 1,
       "message": "I\u0027m good.\nDo you have a precedent in mind?",
       "parentUuid": "c4d24b9a_d316ad16",
+      "revId": "122fc2a156a04278d9a11acc2b25514ac93bb075",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e9616a3_b7908e0a",
+        "filename": "slog/handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-09-07T20:43:35Z",
+      "side": 1,
+      "message": "Not a big deal, but it\u0027s not uncommon to name the mutex after the sole field it guards when there are other fields in the struct.",
+      "parentUuid": "4833eecb_137fe2d7",
       "revId": "122fc2a156a04278d9a11acc2b25514ac93bb075",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
