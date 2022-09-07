@@ -78,6 +78,48 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8df95609_1c3c64ab",
+        "filename": "slog/handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-07T20:09:21Z",
+      "side": 1,
+      "message": "actually, \"the Time.\" So indeed clarification is needed.",
+      "parentUuid": "feb80e35_2d43bf1a",
+      "range": {
+        "startLine": 29,
+        "startChar": 52,
+        "endLine": 29,
+        "endChar": 54
+      },
+      "revId": "122fc2a156a04278d9a11acc2b25514ac93bb075",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c500e06_a46ac960",
+        "filename": "slog/handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-07T20:09:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a795617f_693f1fa4",
+      "revId": "122fc2a156a04278d9a11acc2b25514ac93bb075",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6b3be651_6491b124",
@@ -97,6 +139,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "516e8779_d5f146bf",
+        "filename": "slog/handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-07T20:09:21Z",
+      "side": 1,
+      "message": "I don\u0027t see why they can\u0027t. \nAdded a TODO to revisit when you see more of the implementation.",
+      "parentUuid": "6b3be651_6491b124",
+      "revId": "122fc2a156a04278d9a11acc2b25514ac93bb075",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "783ca216_fe01105d",
         "filename": "slog/handler.go",
         "patchSetId": 1
@@ -108,6 +168,24 @@
       "writtenOn": "2022-08-30T17:35:30Z",
       "side": 1,
       "message": "Where is concat defined? (higher in the CL stack?) I\u0027ll assume it is concurrency-safe and that the result doesn\u0027t alias either operand.",
+      "revId": "122fc2a156a04278d9a11acc2b25514ac93bb075",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0b75767_6c22e7ac",
+        "filename": "slog/handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-07T20:09:21Z",
+      "side": 1,
+      "message": "In util.go in the previous CL (Records). Yes to both.",
+      "parentUuid": "783ca216_fe01105d",
       "revId": "122fc2a156a04278d9a11acc2b25514ac93bb075",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -135,6 +213,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7ddd96a_5ea3db63",
+        "filename": "slog/handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-07T20:09:21Z",
+      "side": 1,
+      "message": "Done.\n(There used to be two attributes, file and line.)",
+      "parentUuid": "fc4592dc_9c7d7b82",
+      "range": {
+        "startLine": 70,
+        "startChar": 19,
+        "endLine": 70,
+        "endChar": 29
+      },
+      "revId": "122fc2a156a04278d9a11acc2b25514ac93bb075",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c4d24b9a_d316ad16",
@@ -148,6 +250,24 @@
       "writtenOn": "2022-08-30T17:35:30Z",
       "side": 1,
       "message": "Naming:\n\noutMu sync.Mutex\nout   io.Writer\n\n?",
+      "revId": "122fc2a156a04278d9a11acc2b25514ac93bb075",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4833eecb_137fe2d7",
+        "filename": "slog/handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-07T20:09:21Z",
+      "side": 1,
+      "message": "I\u0027m good.\nDo you have a precedent in mind?",
+      "parentUuid": "c4d24b9a_d316ad16",
       "revId": "122fc2a156a04278d9a11acc2b25514ac93bb075",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -169,6 +289,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6888d982_1d9f730b",
+        "filename": "slog/handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-07T20:09:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "11fa0f71_b51877ac",
+      "revId": "122fc2a156a04278d9a11acc2b25514ac93bb075",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3de50560_a7ae9d1a",
@@ -182,6 +320,24 @@
       "writtenOn": "2022-08-30T17:35:30Z",
       "side": 1,
       "message": "The contract is \"If the returned key is empty, the attribute is omitted from the output\", but I don\u0027t see that check here, or in the four cases below. Is appendAttrValue supposed to be a no-op in that case?",
+      "revId": "122fc2a156a04278d9a11acc2b25514ac93bb075",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6dbb635b_bccfc9f7",
+        "filename": "slog/handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-07T20:09:21Z",
+      "side": 1,
+      "message": "Thanks, fixed and I added a test.",
+      "parentUuid": "3de50560_a7ae9d1a",
       "revId": "122fc2a156a04278d9a11acc2b25514ac93bb075",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -203,6 +359,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cafec15_13cf59ad",
+        "filename": "slog/handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-07T20:09:21Z",
+      "side": 1,
+      "message": "The name presumes too much about the implementation. I changed it to appendString.\n\nI also removed appendSafeString, because it was intended as an optimization but was only called once per log line on a very short string.\n\nAlso added doc.",
+      "parentUuid": "1c4df5ad_7c446af9",
+      "revId": "122fc2a156a04278d9a11acc2b25514ac93bb075",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de313f60_f83feb67",
@@ -216,6 +390,24 @@
       "writtenOn": "2022-08-30T17:35:30Z",
       "side": 1,
       "message": "If speed is the goal here, consider indexing the slice directly, avoiding the overheads of append. I assume the caller has ensured there is sufficient space (25 bytes) so that append isn\u0027t actually allocating.\n\n(I didn\u0027t see any calls to this function. Later CLs?)",
+      "revId": "122fc2a156a04278d9a11acc2b25514ac93bb075",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a994acb_719564fb",
+        "filename": "slog/handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-07T20:09:21Z",
+      "side": 1,
+      "message": "Yes, it\u0027s called with sufficient space. (Should be the start of a 1K pool-allocated buffer, as we will see in a later CL.)\n\nI\u0027m sure it could be faster. However, The simple change to\n\n    char :\u003d func(b byte) {\n        // buf \u003d buf[:len(buf)+1]\n        buf[len(buf)-1] \u003d b\n    }\n    \ndidn\u0027t make a significant difference, and anything more would I fear be a distraction at this point, so I\u0027ve left a TODO for now.",
+      "parentUuid": "de313f60_f83feb67",
       "revId": "122fc2a156a04278d9a11acc2b25514ac93bb075",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
