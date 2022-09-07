@@ -334,6 +334,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f50397a1_574a42e7",
+        "filename": "slog/record.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-09-07T17:31:53Z",
+      "side": 1,
+      "message": "If Record is to be a pure value type (as it is now), then let\u0027s call this function MakeRecord, following the convention that make returns values, new returns pointers.",
+      "parentUuid": "60ec6bb5_28030751",
+      "revId": "bf1bd2cd5ae4711b9d4a49ff48e9b4aaa3a2bdb4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bc4ccdab_9d2b9650",
         "filename": "slog/record.go",
         "patchSetId": 1
