@@ -143,7 +143,9 @@ func (h *commonHandler) handle(r Record) error {
 		val := r.Time().Round(0) // strip monotonic to match Attr behavior
 		if rep == nil {
 			app.appendKey(key)
-			app.appendTime(val)
+			if err := app.appendTime(val); err != nil {
+				return err
+			}
 		} else {
 			replace(Time(key, val))
 		}
@@ -232,7 +234,7 @@ type appender interface {
 	appendSep()                         // separate one Attr from the next
 	appendKey(key string)               // append a key
 	appendString(string)                // append a string that may need to be escaped
-	appendTime(time.Time)               // append a time
+	appendTime(time.Time) error         // append a time
 	appendSource(file string, line int) // append file:line
 	appendAttrValue(a Attr) error       // append the Attr's value (but not its key)
 }
