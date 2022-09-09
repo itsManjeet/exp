@@ -239,6 +239,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c8d4cde_94e6dff2",
+        "filename": "slog/text_handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-09T12:55:51Z",
+      "side": 1,
+      "message": "Will follow up in a later CL.",
+      "parentUuid": "ec9fd9bf_09f30809",
+      "revId": "9383c735b0e6f44fb8822b916267668df75ebf85",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9fc3ecae_96f7c55d",
