@@ -111,6 +111,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a458105_16d6c3fe",
+        "filename": "slog/json_handler.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-09-09T15:12:42Z",
+      "side": 1,
+      "message": "What I meant was: if performance were no concern, you\u0027d build up a single pile of values using common logic for the special attrs, and then pass it to the json or text appender---but that would require heap-allocating a slice of non-constant length. Instead, we dribble the values into the appender one at a time in a sequence of calls, none of which entails an allocation.",
+      "parentUuid": "f8f0d1c5_278eb959",
+      "revId": "e2a7b8a88e6ad500af2f8ec7081dabab6fb27764",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f58841c9_37fce5ed",
@@ -247,6 +265,24 @@
       "side": 1,
       "message": "Unfortunately, json.NewEncoder allocates. Of course, so does json.Marshal. (I wish there were a json.AppendMarshal.) The benchmark shows that the former is a bit slower.\n\nOf course I could keep the Encoder around; then it\u0027s faster. But if I put it in the appender I\u0027d have to allocate that somehow. Not sure the code complexity is worth it.",
       "parentUuid": "29932ce1_d558df60",
+      "revId": "e2a7b8a88e6ad500af2f8ec7081dabab6fb27764",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a0cab38_d44b8d97",
+        "filename": "slog/json_handler.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-09-09T15:12:42Z",
+      "side": 1,
+      "message": "I agree. Never mind.",
+      "parentUuid": "39b0499a_50765b2f",
       "revId": "e2a7b8a88e6ad500af2f8ec7081dabab6fb27764",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
