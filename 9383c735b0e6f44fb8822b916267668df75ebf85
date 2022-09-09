@@ -221,6 +221,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec9fd9bf_09f30809",
+        "filename": "slog/text_handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-09-09T12:39:52Z",
+      "side": 1,
+      "message": "Good. Might be worth a comment and perhaps a test of a reference implementation of the parse function lest someone unwittingly break the invariant later.",
+      "parentUuid": "f6951d09_4b4c1f03",
+      "revId": "9383c735b0e6f44fb8822b916267668df75ebf85",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9fc3ecae_96f7c55d",
