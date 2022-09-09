@@ -350,6 +350,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "98a8533f_e2168286",
+        "filename": "slog/record.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-09T09:43:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f50397a1_574a42e7",
+      "revId": "bf1bd2cd5ae4711b9d4a49ff48e9b4aaa3a2bdb4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bc4ccdab_9d2b9650",
