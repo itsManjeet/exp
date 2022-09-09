@@ -90,6 +90,24 @@
       "parentUuid": "45f024f8_cb4b8e2a",
       "revId": "38bb717e2a1ba536c848cfcc5291af7536e2e43c",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "580997a9_ba852ef6",
+        "filename": "slog/handler.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-09-09T12:36:56Z",
+      "side": 1,
+      "message": "But that won\u0027t compile, and they\u0027ll know exactly what to do, just as they would if you saw:\n\n    var x struct { Num *atomic.Int32 }\n    x.Num \u003d int32(123) // error: can\u0027t assign int32 to *AtomicInt32",
+      "parentUuid": "ba2b27ac_d7e3253a",
+      "revId": "38bb717e2a1ba536c848cfcc5291af7536e2e43c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
