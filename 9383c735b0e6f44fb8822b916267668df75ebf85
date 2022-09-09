@@ -80,6 +80,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "367f6245_4170cd13",
+        "filename": "slog/text_handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-09T09:59:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a45b8ca2_2976b0d9",
+      "range": {
+        "startLine": 51,
+        "startChar": 33,
+        "endLine": 51,
+        "endChar": 35
+      },
+      "revId": "9383c735b0e6f44fb8822b916267668df75ebf85",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c96bf04a_db80d8f5",
@@ -93,6 +117,30 @@
       "writtenOn": "2022-09-08T20:58:18Z",
       "side": 1,
       "message": "s/it/the level/",
+      "range": {
+        "startLine": 55,
+        "startChar": 34,
+        "endLine": 55,
+        "endChar": 36
+      },
+      "revId": "9383c735b0e6f44fb8822b916267668df75ebf85",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "778a975a_f0bf8e31",
+        "filename": "slog/text_handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-09T09:59:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c96bf04a_db80d8f5",
       "range": {
         "startLine": 55,
         "startChar": 34,
@@ -120,6 +168,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "93b7c9f7_364cd1d9",
+        "filename": "slog/text_handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-09T09:59:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "109dc691_e21b5856",
+      "revId": "9383c735b0e6f44fb8822b916267668df75ebf85",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2927e780_c6e142f9",
@@ -133,6 +199,24 @@
       "writtenOn": "2022-09-08T20:58:18Z",
       "side": 1,
       "message": "Why is length a reason to quote a string?\n\nCan appendString be unambiguously reversed (parsed)? I think so.",
+      "revId": "9383c735b0e6f44fb8822b916267668df75ebf85",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6951d09_4b4c1f03",
+        "filename": "slog/text_handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-09T09:59:06Z",
+      "side": 1,
+      "message": "\u003e Why is length a reason to quote a string?\n\nEfficiency. I don\u0027t want to examine a long string just for the small cosmetic benefit of avoiding quotation marks. It is mostly helpful on short strings anyway, like log levels.\n\n\u003e Can appendString be unambiguously reversed (parsed)?\n\nThat is absolutely a requirement: the output must be machine-readable. I think it is achieved:\n- If the string doesn\u0027t begin with a quotation mark, scan to the next \u0027\u003d\u0027 (if a key) or space/EOF (if a value). needsQuoting makes that work.\n- If the string does begin with a quotation mark, parse it like a Go string.",
+      "parentUuid": "2927e780_c6e142f9",
       "revId": "9383c735b0e6f44fb8822b916267668df75ebf85",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -160,6 +244,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a9ba547_82e68dc4",
+        "filename": "slog/text_handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-09T09:59:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9fc3ecae_96f7c55d",
+      "range": {
+        "startLine": 73,
+        "startChar": 44,
+        "endLine": 73,
+        "endChar": 59
+      },
+      "revId": "9383c735b0e6f44fb8822b916267668df75ebf85",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ef37c28a_616e75c7",
@@ -173,6 +281,24 @@
       "writtenOn": "2022-09-08T20:58:18Z",
       "side": 1,
       "message": "(Belated:) Any reason not to declare it as Handler.With(...Attr) so that calls like this can omit the []Attr{...} part?  You mentioned the compiler generated worse code--let\u0027s look into that if so.",
+      "revId": "9383c735b0e6f44fb8822b916267668df75ebf85",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2f62d42_5269c24d",
+        "filename": "slog/text_handler_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-09T09:59:06Z",
+      "side": 1,
+      "message": "Only that it seems silly to provide a \"convenience\" API for a function that users don\u0027t interact with.\n\nThis is a test; the only real call is in Logger.With.",
+      "parentUuid": "ef37c28a_616e75c7",
       "revId": "9383c735b0e6f44fb8822b916267668df75ebf85",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
