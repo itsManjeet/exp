@@ -74,6 +74,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c1099e8_f5695260",
+        "filename": "slog/atomic.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-09T09:44:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b04ba32_0efa622e",
+      "revId": "d4bd0f69f25faa1c062097e4aca8e1a175e98855",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bcaf8fdb_1534c235",
@@ -87,6 +105,24 @@
       "writtenOn": "2022-09-08T12:25:39Z",
       "side": 1,
       "message": "Why is the last byte omitted? On the assumption that it\u0027s a newline? If so that should be verified.",
+      "revId": "d4bd0f69f25faa1c062097e4aca8e1a175e98855",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1400915_23dc39cd",
+        "filename": "slog/logger.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-09T09:44:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcaf8fdb_1534c235",
       "revId": "d4bd0f69f25faa1c062097e4aca8e1a175e98855",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -108,6 +144,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7742a194_534a7642",
+        "filename": "slog/logger.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-09T09:44:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d07a7c0_b0393536",
+      "revId": "d4bd0f69f25faa1c062097e4aca8e1a175e98855",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "db1062cb_7909f8bd",
@@ -121,6 +175,30 @@
       "writtenOn": "2022-09-08T12:25:39Z",
       "side": 1,
       "message": "\"of the specified level\"?",
+      "range": {
+        "startLine": 79,
+        "startChar": 47,
+        "endLine": 79,
+        "endChar": 56
+      },
+      "revId": "d4bd0f69f25faa1c062097e4aca8e1a175e98855",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cc0b7ea_716cfcfb",
+        "filename": "slog/logger.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-09T09:44:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db1062cb_7909f8bd",
       "range": {
         "startLine": 79,
         "startChar": 47,
@@ -150,6 +228,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e30a8243_ecac6eb5",
+        "filename": "slog/logger.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-09T09:44:28Z",
+      "side": 1,
+      "message": "This follows the `log` package. (Although log.Output, intended as a low-level function to be wrapped, does return the error.)\n\nIt\u0027s easy enough to write a Handler that wraps another Handler and exposes the error.",
+      "parentUuid": "34d1f242_d61b55ae",
+      "revId": "d4bd0f69f25faa1c062097e4aca8e1a175e98855",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "df089b9e_a36eddfb",
         "filename": "slog/logger.go",
         "patchSetId": 1
@@ -161,6 +257,24 @@
       "writtenOn": "2022-09-08T12:25:39Z",
       "side": 1,
       "message": "Curious: what change are you anticipating?",
+      "revId": "d4bd0f69f25faa1c062097e4aca8e1a175e98855",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13c30a5a_0a902e2b",
+        "filename": "slog/logger.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-09T09:44:28Z",
+      "side": 1,
+      "message": "I don\u0027t know the details, but Russ believes that it is doable.",
+      "parentUuid": "df089b9e_a36eddfb",
       "revId": "d4bd0f69f25faa1c062097e4aca8e1a175e98855",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -182,6 +296,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2aebe109_5496b80c",
+        "filename": "slog/logger.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-09T09:44:28Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f968f21a_483eefcf",
+      "revId": "d4bd0f69f25faa1c062097e4aca8e1a175e98855",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "45eecf27_b31b1996",
@@ -195,6 +327,24 @@
       "writtenOn": "2022-09-08T12:25:39Z",
       "side": 1,
       "message": "Nit: Factor the calls to AddAttr to make clear that it is called exactly once per iteration?\nNit: use \"for i :\u003d 0; i \u003c len(args); i++\" with an extra i++ only in the string case, to clarify the loop?",
+      "revId": "d4bd0f69f25faa1c062097e4aca8e1a175e98855",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "68e4e5c5_bddd8c15",
+        "filename": "slog/logger.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-09T09:44:28Z",
+      "side": 1,
+      "message": "Done, in a different way.",
+      "parentUuid": "45eecf27_b31b1996",
       "revId": "d4bd0f69f25faa1c062097e4aca8e1a175e98855",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -216,6 +366,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "46f42027_d5314b72",
+        "filename": "slog/logger_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-09T09:44:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56cc380e_5dab3a94",
+      "revId": "d4bd0f69f25faa1c062097e4aca8e1a175e98855",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bd05187d_ce97e8c4",
@@ -229,6 +397,24 @@
       "writtenOn": "2022-09-08T12:25:39Z",
       "side": 1,
       "message": "Let\u0027s chat about the list representation today.",
+      "revId": "d4bd0f69f25faa1c062097e4aca8e1a175e98855",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff1132b6_206f484a",
+        "filename": "slog/record.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-09T09:44:28Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "bd05187d_ce97e8c4",
       "revId": "d4bd0f69f25faa1c062097e4aca8e1a175e98855",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
