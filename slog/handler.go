@@ -25,15 +25,20 @@ type Handler interface {
 	Enabled(Level) bool
 
 	// Handle processes the Record.
+	//
 	// Handle methods that produce output should observe the following rules:
 	//   - If r.Time() is the zero time, do not output the time.
 	//   - If r.Level() is Level(0), do not output the level.
 	//   - If an Attr's key is the empty string, do not output the Attr.
+	//
+	// Handle is not required to detect duplicate keys, or to output the
+	// Attrs in any particular order.
 	Handle(r Record) error
 
 	// With returns a new Handler whose attributes consist of
 	// the receiver's attributes concatenated with the arguments.
 	// The Handler owns the slice: it may retain, modify or discard it.
+	// With is not required to detect duplicate keys.
 	With(attrs []Attr) Handler
 }
 
