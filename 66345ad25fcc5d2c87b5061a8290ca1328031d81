@@ -53,6 +53,24 @@
       "message": "Nit: size\u003d\u003d1 implies RuneError, since you knew it wasn\u0027t ASCII before you called the decoder.",
       "revId": "66345ad25fcc5d2c87b5061a8290ca1328031d81",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c294de57_c3bae3e8",
+        "filename": "slog/text_handler.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-09T18:23:40Z",
+      "side": 1,
+      "message": "huh, then is this redundant too? (That\u0027s where I got it from.)\nhttps://go.googlesource.com/go/+/refs/heads/master/src/encoding/json/encode.go#1066",
+      "parentUuid": "87b15dc2_1c933d93",
+      "revId": "66345ad25fcc5d2c87b5061a8290ca1328031d81",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
