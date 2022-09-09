@@ -93,6 +93,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8f0d1c5_278eb959",
+        "filename": "slog/json_handler.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-09T14:51:02Z",
+      "side": 1,
+      "message": "Done. I paraphrased your description and may have missed the mark because I don\u0027t really understand \"none of which need to avoid allocating dynamic memory for argument passing.\"\n\nAnd yeah, but that just feels so ugly. And maybe there\u0027ll be a third format some day?",
+      "parentUuid": "3ac07759_e5bc693e",
+      "revId": "e2a7b8a88e6ad500af2f8ec7081dabab6fb27764",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f58841c9_37fce5ed",
@@ -106,6 +124,24 @@
       "writtenOn": "2022-09-09T13:16:50Z",
       "side": 1,
       "message": "Can we call Time.AppendFormat directly, and avoid the possibility of error?",
+      "revId": "e2a7b8a88e6ad500af2f8ec7081dabab6fb27764",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d37c93fa_968461ae",
+        "filename": "slog/json_handler.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-09T14:51:02Z",
+      "side": 1,
+      "message": "But Time.MarshalJSON does more: https://go.googlesource.com/go/+/refs/heads/master/src/time/time.go#1317.\nAnd until convinced otherwise, I think it makes sense to be as close to json.Marshal as we can.",
+      "parentUuid": "f58841c9_37fce5ed",
       "revId": "e2a7b8a88e6ad500af2f8ec7081dabab6fb27764",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -127,6 +163,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6dcc41a6_8319717b",
+        "filename": "slog/json_handler.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-09T14:51:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9bf96a9f_7493c38c",
+      "revId": "e2a7b8a88e6ad500af2f8ec7081dabab6fb27764",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9f0e9ba8_0dafd18c",
@@ -140,6 +194,24 @@
       "writtenOn": "2022-09-09T13:16:50Z",
       "side": 1,
       "message": "Include the kind in the error message.",
+      "revId": "e2a7b8a88e6ad500af2f8ec7081dabab6fb27764",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2568768e_aeb66545",
+        "filename": "slog/json_handler.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-09T14:51:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f0e9ba8_0dafd18c",
       "revId": "e2a7b8a88e6ad500af2f8ec7081dabab6fb27764",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -161,6 +233,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "39b0499a_50765b2f",
+        "filename": "slog/json_handler.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-09T14:51:02Z",
+      "side": 1,
+      "message": "Unfortunately, json.NewEncoder allocates. Of course, so does json.Marshal. (I wish there were a json.AppendMarshal.) The benchmark shows that the former is a bit slower.\n\nOf course I could keep the Encoder around; then it\u0027s faster. But if I put it in the appender I\u0027d have to allocate that somehow. Not sure the code complexity is worth it.",
+      "parentUuid": "29932ce1_d558df60",
+      "revId": "e2a7b8a88e6ad500af2f8ec7081dabab6fb27764",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "cc3a2678_e9ad1e9f",
@@ -174,6 +264,24 @@
       "writtenOn": "2022-09-09T13:16:50Z",
       "side": 1,
       "message": "It\u0027s unfortunate that this delicate and potentially security-sensitive logic needs to be duplicated. Might be good to have a test that it generates the same result as the slower json.HTMLEscape just in case that one evolves in ways we should know about.",
+      "revId": "e2a7b8a88e6ad500af2f8ec7081dabab6fb27764",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2825f394_abc0929b",
+        "filename": "slog/json_handler.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-09T14:51:02Z",
+      "side": 1,
+      "message": "We\u0027ll revisit this. It may be that we don\u0027t need the same security guarantees.\n\nTestJSONAppendAttrValue does test this indirectly, by comparing a handler-formatted with the output of json.Marshal. I\u0027ve added more cases.",
+      "parentUuid": "cc3a2678_e9ad1e9f",
       "revId": "e2a7b8a88e6ad500af2f8ec7081dabab6fb27764",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
