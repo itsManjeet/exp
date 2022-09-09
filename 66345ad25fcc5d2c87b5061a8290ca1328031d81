@@ -71,6 +71,24 @@
       "parentUuid": "87b15dc2_1c933d93",
       "revId": "66345ad25fcc5d2c87b5061a8290ca1328031d81",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29dd327d_dbd8e0f8",
+        "filename": "slog/text_handler.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-09-09T19:08:12Z",
+      "side": 1,
+      "message": "\u003e is this redundant too? (That\u0027s where I got it from.)\n\nYes, though it is a natural way to use the decoder when you don\u0027t already know what you fed it. And on further reflection I wouldn\u0027t expect removing the RuneError check to make any performance difference because it removes one edge from the control tree only in the rare case of an actual decoding error.\n\nMore importantly: note that size\u003d1 implies r\u003d\u003dRuneError, but the other way around is false: a real, correctly encoded U+FFFD in the input has size \u003e 1. So if you want to remove one half of the \u0026\u0026, it must be the RuneError part.\n\nPerhaps it was clearer as it was. Sorry for complicating things. 😞",
+      "parentUuid": "c294de57_c3bae3e8",
+      "revId": "66345ad25fcc5d2c87b5061a8290ca1328031d81",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
