@@ -158,6 +158,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d881bac_1a72dce5",
+        "filename": "slog/list.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-09-09T12:33:06Z",
+      "side": 1,
+      "message": "\u003e 1. Info(\"msg\", \"a\", 1, \"b\", 2) is called. It walks the ...any, constructing Attrs from key-value pairs, and builds a Record. (First problem: allocating the slice to pass to AddAttrs. Maybe we could use a pool here?)\n\nAs we discussed yesterday: if Info is a static call and it only reads the ... slice, then the caller is free to allocate it on the stack, so there\u0027s no penalty for passing a constant number of attrs in this way.\n\n\n\u003e 2. The Record is then passed to a Handler, which adds some Attrs and then passes it to another Handler. (Second problem: this is a second call to AddAttrs that seems hard to combine with the first. Third problem: how will the Handler allocate its slice of Attrs? Must every such handler use a pool to minimize allocations?)\n\nAs we discussed, I agree with you that there are two choices to ensure that the first and second calls to AddAttr are efficient (allocation-free) in the common case where their total length is less than the 95%ile: (1) the record has an inline array of that size, in which case spillovers will be disproportionately more expensive; (2) we use pool allocation, in which case the API must have a Dispose() operation in the Record life cycle. I prefer the former on the grounds of simplicity... though I suppose one could argue that if we start with (2) we can always retreat to (1) later, and perhaps the fraction of users who have to engage with Records directly is very small.",
+      "parentUuid": "6904f168_208cf8c9",
+      "revId": "879802f5a57eddfb8ce2baaa61055e5ab3eb301d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "02c9c975_75920a75",
@@ -189,6 +207,24 @@
       "side": 1,
       "message": "Don\u0027t I do so here, and also in the fourth paragraph of the doc comment on the type?",
       "parentUuid": "02c9c975_75920a75",
+      "revId": "879802f5a57eddfb8ce2baaa61055e5ab3eb301d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ebecac6_c8652711",
+        "filename": "slog/list.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-09-09T12:33:06Z",
+      "side": 1,
+      "message": "Yes, you do. Never mind me.",
+      "parentUuid": "255498e5_7c61c484",
       "revId": "879802f5a57eddfb8ce2baaa61055e5ab3eb301d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
