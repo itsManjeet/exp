@@ -91,6 +91,24 @@
       "message": "Make sure to capture the len(buf) result before truncating buf so that the function doesn\u0027t return a short Write.",
       "revId": "f7b908e8161989a04baee0f90665b1adff53ea6a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3798f146_301a88cb",
+        "filename": "slog/logger.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-09T12:59:48Z",
+      "side": 1,
+      "message": "Nice catch.\nDone.",
+      "parentUuid": "a7bc1341_3ecff102",
+      "revId": "f7b908e8161989a04baee0f90665b1adff53ea6a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }

@@ -385,6 +385,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ada469d_736d5cec",
+        "filename": "slog/logger.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-09T12:59:48Z",
+      "side": 1,
+      "message": "Good to know!",
+      "parentUuid": "2cb5bdb8_fb1a3023",
+      "revId": "d4bd0f69f25faa1c062097e4aca8e1a175e98855",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "56cc380e_5dab3a94",
