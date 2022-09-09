@@ -244,6 +244,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "be796cd9_8db34b28",
+        "filename": "slog/logger.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-09-09T12:52:45Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "e30a8243_ecac6eb5",
+      "revId": "d4bd0f69f25faa1c062097e4aca8e1a175e98855",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "df089b9e_a36eddfb",
@@ -345,6 +363,24 @@
       "side": 1,
       "message": "Done, in a different way.",
       "parentUuid": "45eecf27_b31b1996",
+      "revId": "d4bd0f69f25faa1c062097e4aca8e1a175e98855",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cb5bdb8_fb1a3023",
+        "filename": "slog/logger.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-09-09T12:52:45Z",
+      "side": 1,
+      "message": "Fun fact: advancing by x\u003dx[1:] generates slightly worse code than using x[i] because the compiler takes pains to avoid a situation at the end of the loop in which the slice is zero length but points to the object just beyond the array, causing the GC to keep it spuriously live. This can be optimized by doing x[:len:len] before the loop to establish the capacity.\n\nTo be clear, this only matters when the loop body is tiny (e.g. typical []byte scanning). I don\u0027t think you should change the code here.",
+      "parentUuid": "68e4e5c5_bddd8c15",
       "revId": "d4bd0f69f25faa1c062097e4aca8e1a175e98855",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
