@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5f5ac05_668adbd3",
+        "filename": "slog/text_handler_test.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2022-09-09T20:21:52Z",
+      "side": 1,
+      "message": "This test still fails if the working directory containing the module includes a space — for example, if in a Windows directory such as `Program Files` or `My Documents`.\n\n```\nwith spaces/exp$ pwd\n/tmp/tmp.XcGZ9cG9Xb/with spaces/exp\n\nwith spaces/exp$ go1.19.1 test ./slog\n--- FAIL: TestTextHandlerSource (0.00s)\n    text_handler_test.go:106: got\n        \"time\u003d2000-01-02T03:04:05.000Z level\u003dINFO source\u003d\\\"/tmp/tmp.XcGZ9cG9Xb/with spaces/exp/slog/text_handler_test.go\\\":95 msg\u003dm\\n\"\n        wanted to match source\u003d([A-Z]:)?[^:]+text_handler_test\\.go:\\d+ msg\nFAIL\nFAIL    golang.org/x/exp/slog   0.026s\nFAIL\n```",
+      "revId": "5c715a9e85610075e168d38fd74f8be9d2e4a634",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
