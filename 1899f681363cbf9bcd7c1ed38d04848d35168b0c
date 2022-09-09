@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9d3cbf2_f15da84d",
+        "filename": "rand/race_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2022-09-09T00:10:38Z",
+      "side": 1,
+      "message": "Let\u0027s keep this type conversion to maintain the pattern.  It makes the code easier to read overall even though it is unnecessary.",
+      "revId": "1899f681363cbf9bcd7c1ed38d04848d35168b0c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
