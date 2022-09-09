@@ -69,8 +69,8 @@ func (h *TextHandler) With(attrs []Attr) Handler {
 // If a value implements [encoding.TextMarshaler], the result of MarshalText is
 // written. Otherwise, the result of fmt.Sprint is written.
 //
-// Keys and values are quoted if they are long or contain Unicode space
-// characters, '"' or '='.
+// Keys and values are quoted if they are long (to avoid scanning large strings)
+// or contain Unicode space characters, '"' or '='.
 //
 // Each call to Handle results in a single serialized call to
 // io.Writer.Write.

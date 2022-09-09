@@ -18,6 +18,7 @@ import (
 var testTime = time.Date(2000, 1, 2, 3, 4, 5, 0, time.UTC)
 
 func TestTextHandler(t *testing.T) {
+	longString := strings.Repeat("x", maxCheckQuoteSize+1)
 	for _, test := range []struct {
 		name string
 		attr Attr
@@ -32,6 +33,13 @@ func TestTextHandler(t *testing.T) {
 			"quoted",
 			String("x = y", `qu"o`),
 			`"x = y"="qu\"o"`,
+		},
+		{
+			"long quoted",
+			// Even though longString doesn't need to be escaped or quoted,
+			// it is anyway because it's longer than our threshold.
+			String("long", longString),
+			`long="` + longString + `"`,
 		},
 		{
 			"Sprint",
