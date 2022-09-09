@@ -72,6 +72,24 @@
       "message": "Level *AtomicLevel",
       "revId": "38bb717e2a1ba536c848cfcc5291af7536e2e43c",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba2b27ac_d7e3253a",
+        "filename": "slog/handler.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-09T10:08:22Z",
+      "side": 1,
+      "message": "I think that would be too confusing. People would think they could use a Level.",
+      "parentUuid": "45f024f8_cb4b8e2a",
+      "revId": "38bb717e2a1ba536c848cfcc5291af7536e2e43c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }

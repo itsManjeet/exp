@@ -173,6 +173,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e3d4199_0cc91859",
+        "filename": "slog/handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-09T10:08:22Z",
+      "side": 1,
+      "message": "It is \"donate\": Logger.With creates a fresh slice, and I don\u0027t see that needing to change.\n\nI clarified in the doc.",
+      "parentUuid": "7429756f_aa7a808d",
+      "revId": "122fc2a156a04278d9a11acc2b25514ac93bb075",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "783ca216_fe01105d",
