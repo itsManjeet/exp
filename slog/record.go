@@ -85,17 +85,13 @@ func (r *Record) SourceLine() (file string, line int) {
 	return f.File, f.Line
 }
 
-// Attrs returns a copy of the sequence of Attrs in r.
-func (r *Record) Attrs() []Attr {
-	res := make([]Attr, 0, r.attrs.len()*nAttrsInline+r.nTail)
+// Attrs appends the Record's attributes to the argument slice.
+func (r *Record) Attrs(attrs []Attr) []Attr {
 	r.attrs = r.attrs.normalize()
 	for _, f := range r.attrs.front {
-		res = append(res, f[:]...)
+		attrs = append(attrs, f[:]...)
 	}
-	for _, a := range r.tail[:r.nTail] {
-		res = append(res, a)
-	}
-	return res
+	return append(attrs, r.tail[:r.nTail]...)
 }
 
 // NumAttrs returns the number of Attrs in r.

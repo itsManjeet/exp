@@ -20,7 +20,7 @@ func TestRecordAttrs(t *testing.T) {
 	if g, w := r.NumAttrs(), len(as); g != w {
 		t.Errorf("NumAttrs: got %d, want %d", g, w)
 	}
-	if got := r.Attrs(); !attrsEqual(got, as) {
+	if got := r.Attrs(nil); !attrsEqual(got, as) {
 		t.Errorf("got %v, want %v", got, as)
 	}
 }
@@ -59,7 +59,7 @@ func TestAliasing(t *testing.T) {
 
 	check := func(r *Record, want []Attr) {
 		t.Helper()
-		got := r.Attrs()
+		got := r.Attrs(nil)
 		if !attrsEqual(got, want) {
 			t.Errorf("got %v, want %v", got, want)
 		}

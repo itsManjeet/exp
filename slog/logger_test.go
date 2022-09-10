@@ -91,7 +91,7 @@ func TestAttrs(t *testing.T) {
 	l2.Info("m", "c", 3)
 	h := l2.Handler().(*captureHandler)
 	check(h.attrs, Int("a", 1), Int("b", 2))
-	check(h.r.Attrs(), Int("c", 3))
+	check(h.r.Attrs(nil), Int("c", 3))
 }
 
 func TestCallDepth(t *testing.T) {
@@ -255,7 +255,7 @@ func TestSetAttrs(t *testing.T) {
 	} {
 		r := MakeRecord(time.Time{}, 0, "", 0)
 		setAttrs(&r, test.args)
-		got := r.Attrs()
+		got := r.Attrs(nil)
 		if !attrsEqual(got, test.want) {
 			t.Errorf("%v:\ngot  %v\nwant %v", test.args, got, test.want)
 		}
