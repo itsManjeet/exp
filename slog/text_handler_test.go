@@ -96,14 +96,22 @@ func TestTextHandlerSource(t *testing.T) {
 	if err := h.Handle(r); err != nil {
 		t.Fatal(err)
 	}
-	got := buf.String()
-	wantRE := `source=([A-Z]:)?[^:]+text_handler_test\.go:\d+ msg`
-	matched, err := regexp.MatchString(wantRE, got)
-	if err != nil {
-		t.Fatal(err)
+	if got := buf.String(); !sourceRegexp.MatchString(got) {
+		t.Errorf("got\n%q\nwanted to match %s", got, sourceRegexp)
 	}
-	if !matched {
-		t.Errorf("got\n%q\nwanted to match %s", got, wantRE)
+}
+
+var sourceRegexp = regexp.MustCompile(`source="?([A-Z]:)?[^:]+text_handler_test\.go:\d+"? msg`)
+
+func TestSourceRegexp(t *testing.T) {
+	for _, s := range []string{
+		`source=/tmp/path/to/text_handler_test.go:23 msg=m`,
+		`source=C:\windows\path\text_handler_test.go:23 msg=m"`,
+		`source="/tmp/tmp.XcGZ9cG9Xb/with spaces/exp/slog/text_handler_test.go:95" msg=m`,
+	} {
+		if !sourceRegexp.MatchString(s) {
+			t.Errorf("failed to match %s", s)
+		}
 	}
 }
 
