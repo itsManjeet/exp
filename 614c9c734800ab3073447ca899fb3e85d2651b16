@@ -53,6 +53,24 @@
       "message": "This wording (and similarly the With comment) make it sound as if duplicate keys are an error that we don\u0027t guarantee to check, but that some implementations might. Do we actually want that? I thought attributes were simply a list (with a clearly implied order), and no implication that duplicates are in any way special.\n\nIs there any reason not to define the interface that way? I\u0027m not sure it even needs additional wording since that\u0027s the natural implication of With(Attrs) being a slice, and the \"concatenate\" wording in the existing comment.",
       "revId": "614c9c734800ab3073447ca899fb3e85d2651b16",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bda7545c_e4aeaa39",
+        "filename": "slog/handler.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-10T10:32:17Z",
+      "side": 1,
+      "message": "It is odd to list the things that something isn\u0027t. But here I\u0027m trying to answer a common question. Duplicate-handling came up a few times the public discussion (https://github.com/golang/go/discussions/54763). Probably because keys often become JSON object keys, JSON objects are often thought of as associative arrays with unique keys, and they\u0027re officially not. You can Google \"json unique keys\" to see how much virtual ink has been spilled over this.",
+      "parentUuid": "dd739e65_56f7b67d",
+      "revId": "614c9c734800ab3073447ca899fb3e85d2651b16",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
