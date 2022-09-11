@@ -5,6 +5,7 @@
 package slog
 
 import (
+	"fmt"
 	"strings"
 	"testing"
 	"time"
@@ -17,10 +18,10 @@ func TestRecordAttrs(t *testing.T) {
 	as := []Attr{Int("k1", 1), String("k2", "foo"), Int("k3", 3),
 		Int64("k4", -1), Float64("f", 3.1), Uint64("u", 999)}
 	r := newRecordWithAttrs(as)
-	if g, w := r.NumAttrs(), len(as); g != w {
+	if g, w := r.Attrs().Len(), len(as); g != w {
 		t.Errorf("NumAttrs: got %d, want %d", g, w)
 	}
-	if got := r.Attrs(nil); !attrsEqual(got, as) {
+	if got := r.Attrs().Append(nil); !attrsEqual(got, as) {
 		t.Errorf("got %v, want %v", got, as)
 	}
 }
@@ -59,7 +60,7 @@ func TestAliasing(t *testing.T) {
 
 	check := func(r *Record, want []Attr) {
 		t.Helper()
-		got := r.Attrs(nil)
+		got := r.Attrs().Append(nil)
 		if !attrsEqual(got, want) {
 			t.Errorf("got %v, want %v", got, want)
 		}
@@ -67,7 +68,7 @@ func TestAliasing(t *testing.T) {
 
 	r1 := MakeRecord(time.Time{}, 0, "", 0)
 	for i := 0; i < nAttrsInline+3; i++ {
-		r1.AddAttr(Int("k", i))
+		r1.AddAttrs(Int("k", i))
 	}
 	check(&r1, intAttrs(0, nAttrsInline+3))
 	r2 := r1
@@ -75,17 +76,15 @@ func TestAliasing(t *testing.T) {
 	// if cap(r1.attrs2) <= len(r1.attrs2) {
 	// 	t.Fatal("cap not greater than len")
 	// }
-	r1.AddAttr(Int("k", nAttrsInline+3))
-	r2.AddAttr(Int("k", -1))
+	r1.AddAttrs(Int("k", nAttrsInline+3))
+	r2.AddAttrs(Int("k", -1))
 	check(&r1, intAttrs(0, nAttrsInline+4))
 	check(&r2, append(intAttrs(0, nAttrsInline+3), Int("k", -1)))
 }
 
 func newRecordWithAttrs(as []Attr) Record {
 	r := MakeRecord(time.Now(), InfoLevel, "", 0)
-	for _, a := range as {
-		r.AddAttr(a)
-	}
+	r.AddAttrs(as...)
 	return r
 }
 
@@ -127,18 +126,66 @@ func BenchmarkSourceLine(b *testing.B) {
 	})
 }
 
-func BenchmarkRecord(b *testing.B) {
-	const nAttrs = nAttrsInline * 10
-	var a Attr
-
-	for i := 0; i < b.N; i++ {
-		r := MakeRecord(time.Time{}, InfoLevel, "", 0)
-		for j := 0; j < nAttrs; j++ {
-			r.AddAttr(Int("k", j))
-		}
-		for j := 0; j < nAttrs; j++ {
-			a = r.Attr(j)
-		}
+func TestAttrIter(t *testing.T) {
+	var want []Attr
+	for i := 0; i < nAttrsInline*3+2; i++ {
+		want = append(want, Int("k", i))
 	}
-	_ = a
+	var al AttrList
+	al.Add(want[:6]...)
+	al.Add(want[6:12]...)
+	al.Add(want[12:]...)
+	var got []Attr
+	it := al.Range()
+	for {
+		a, ok := it.Next()
+		if !ok {
+			break
+		}
+		got = append(got, a)
+	}
+	if !attrsEqual(got, want) {
+		t.Errorf("\ngot  %v\nwant %v", got, want)
+	}
+}
+
+func BenchmarkAttrIteration(b *testing.B) {
+	attrs := make([]Attr, nAttrsInline)
+	for i := 0; i < len(attrs); i++ {
+		attrs[i] = Int("k", i)
+	}
+
+	var out Attr
+	for _, nChunks := range []int{1, 2, 3} {
+		var al AttrList
+		for i := 0; i < nChunks; i++ {
+			al.Add(attrs...)
+		}
+		if got, want := al.Len(), nAttrsInline*nChunks; got != want {
+			b.Fatalf("got len %d, want %d", got, want)
+		}
+		b.Run(fmt.Sprintf("%d chunks", nChunks), func(b *testing.B) {
+			b.Run("Each", func(b *testing.B) {
+				b.ReportAllocs()
+				for i := 0; i < b.N; i++ {
+					al.each(func(a Attr) { out = a })
+				}
+			})
+			b.Run("Iter", func(b *testing.B) {
+				b.ReportAllocs()
+				for i := 0; i < b.N; i++ {
+					it := al.Range()
+					for {
+						a, ok := it.Next()
+						if !ok {
+							break
+						}
+						out = a
+					}
+				}
+			})
+		})
+	}
+	_ = out
+
 }
