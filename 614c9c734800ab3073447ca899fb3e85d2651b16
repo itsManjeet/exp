@@ -71,6 +71,24 @@
       "parentUuid": "dd739e65_56f7b67d",
       "revId": "614c9c734800ab3073447ca899fb3e85d2651b16",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "321d0d75_f9962842",
+        "filename": "slog/handler.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-09-11T14:01:58Z",
+      "side": 1,
+      "message": "\u003e I\u0027m trying to answer a common question. Duplicate-handling came up a few times...\n\u003e Probably because keys often become JSON object keys\n\nI can see how JSON might raise the question, but this doesn\u0027t seem like the place to answer it: the Handler interface doesn\u0027t mention JSON at all. It would be appropriate for NewJSONHandler to document exactly how reach record\u0027s \"attribute list\" (let\u0027s use that term) is converted to JSON objects---sequentially, without duplicate removal. But here we\u0027re still talking about the abstraction, which makes these sentences confusing.\n\nEven if a particular Handler emits JSON, do we think it should be allowed to fail because an attribute list contains duplicate keys?\n\nPerhaps the problem is the word \"output\": it\u0027s not entirely clear what it means. The doc comments for this interface use four different verbs to explain what it does to a record: \"handle\", \"process\", \"accept\", and \"output\". It might be best if we stick to one, ideally \"handle\", something like:\n\n// A Handler handles log records produced by a Logger.\n//\n// A typical handler may print log records to standard error,\n// or write them to a file or database, or perhaps augment them\n// with additional attributes and pass them on to another handler.\n\n// Enabled reports whether the handler handles records at the given level.\n// The handler ignores records whose level is lower.\n\n// Handle handles a record.\n\nIf the Handler interface doesn\u0027t mention the concept of output, only \"handling records\", the issue of duplicates among the attribute list doesn\u0027t really arise.",
+      "parentUuid": "bda7545c_e4aeaa39",
+      "revId": "614c9c734800ab3073447ca899fb3e85d2651b16",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
