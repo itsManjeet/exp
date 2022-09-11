@@ -102,19 +102,21 @@ func (l *Logger) Enabled(level Level) bool {
 //     into an Attr.
 //   - Otherwise, the argument is treated as a value with key "!BADKEY".
 func (l *Logger) Log(level Level, msg string, args ...any) {
-	l.LogDepth(0, level, msg, args...)
+	_ = l.LogDepth(0, level, msg, args...)
 }
 
 // LogDepth is like [Logger.Log], but accepts a call depth to adjust the
 // file and line number in the log record. 0 refers to the caller
 // of LogDepth; 1 refers to the caller's caller; and so on.
-func (l *Logger) LogDepth(calldepth int, level Level, msg string, args ...any) {
+//
+// LogDepth returns the error from Handler.Handle.
+func (l *Logger) LogDepth(calldepth int, level Level, msg string, args ...any) error {
 	if !l.Enabled(level) {
-		return
+		return nil
 	}
 	r := l.makeRecord(msg, level, calldepth)
 	r.attrs.setFromArgs(args)
-	_ = l.Handler().Handle(r)
+	return l.Handler().Handle(r)
 }
 
 var useSourceLine = true
@@ -132,18 +134,20 @@ func (l *Logger) makeRecord(msg string, level Level, depth int) Record {
 
 // LogAttrs is a more efficient version of [Logger.Log] that accepts only Attrs.
 func (l *Logger) LogAttrs(level Level, msg string, attrs ...Attr) {
-	l.LogAttrsDepth(0, level, msg, attrs...)
+	_ = l.LogAttrsDepth(0, level, msg, attrs...)
 }
 
 // LogAttrsDepth is like [Logger.LogAttrs], but accepts a call depth argument
 // which it interprets like [Logger.LogDepth].
-func (l *Logger) LogAttrsDepth(calldepth int, level Level, msg string, attrs ...Attr) {
+//
+// LogAttrsDepth returns the error from Handler.Handle.
+func (l *Logger) LogAttrsDepth(calldepth int, level Level, msg string, attrs ...Attr) error {
 	if !l.Enabled(level) {
-		return
+		return nil
 	}
 	r := l.makeRecord(msg, level, calldepth)
 	r.AddAttrs(attrs...)
-	_ = l.Handler().Handle(r)
+	return l.Handler().Handle(r)
 }
 
 // Debug logs at DebugLevel.
