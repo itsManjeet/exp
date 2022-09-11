@@ -91,7 +91,7 @@ func TestAttrs(t *testing.T) {
 	l2.Info("m", "c", 3)
 	h := l2.Handler().(*captureHandler)
 	check(h.attrs, Int("a", 1), Int("b", 2))
-	check(h.r.Attrs(nil), Int("c", 3))
+	check(h.r.Attrs().Append(nil), Int("c", 3))
 }
 
 func TestCallDepth(t *testing.T) {
@@ -199,7 +199,7 @@ func TestAlloc(t *testing.T) {
 		s := "abc"
 		i := 2000
 		d := time.Second
-		wantAllocs(t, 10, func() {
+		wantAllocs(t, 12, func() {
 			dl.Info("hello",
 				"n", i, "s", s, "d", d,
 				"n", i, "s", s, "d", d,
@@ -225,14 +225,14 @@ func TestAlloc(t *testing.T) {
 		})
 	})
 	t.Run("attrs6", func(t *testing.T) {
-		wantAllocs(t, 1, func() {
+		wantAllocs(t, 2, func() {
 			dl.LogAttrs(InfoLevel, "hello",
 				Int("a", 1), String("b", "two"), Duration("c", time.Second),
 				Int("d", 1), String("e", "two"), Duration("f", time.Second))
 		})
 	})
 	t.Run("attrs9", func(t *testing.T) {
-		wantAllocs(t, 1, func() {
+		wantAllocs(t, 2, func() {
 			dl.LogAttrs(InfoLevel, "hello",
 				Int("a", 1), String("b", "two"), Duration("c", time.Second),
 				Int("d", 1), String("e", "two"), Duration("f", time.Second),
@@ -254,8 +254,8 @@ func TestSetAttrs(t *testing.T) {
 		{[]any{"a", 1, 2, 3}, []Attr{Int("a", 1), Int(badKey, 2), Int(badKey, 3)}},
 	} {
 		r := MakeRecord(time.Time{}, 0, "", 0)
-		setAttrs(&r, test.args)
-		got := r.Attrs(nil)
+		r.attrs.setFromArgs(test.args)
+		got := r.Attrs().Append(nil)
 		if !attrsEqual(got, test.want) {
 			t.Errorf("%v:\ngot  %v\nwant %v", test.args, got, test.want)
 		}

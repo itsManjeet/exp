@@ -9,8 +9,6 @@ import (
 	"time"
 )
 
-const nAttrsInline = 5
-
 // A Record holds information about a log event.
 type Record struct {
 	// The time at which the output method (Log, Info, etc.) was called.
@@ -26,17 +24,7 @@ type Record struct {
 	// by runtime.Callers using the calldepth argument to NewRecord.
 	pc uintptr
 
-	// Allocation optimization: an inline array sized to hold
-	// the majority of log calls (based on examination of open-source
-	// code). The array holds the end of the sequence of Attrs.
-	tail [nAttrsInline]Attr
-
-	// The number of Attrs in tail.
-	nTail int
-
-	// The sequence of Attrs except for the tail, represented as a functional
-	// list of arrays.
-	attrs list[[nAttrsInline]Attr]
+	attrs AttrList
 }
 
 // MakeRecord creates a new Record from the given arguments.
@@ -85,46 +73,187 @@ func (r *Record) SourceLine() (file string, line int) {
 	return f.File, f.Line
 }
 
-// Attrs appends the Record's attributes to the argument slice.
-func (r *Record) Attrs(attrs []Attr) []Attr {
-	r.attrs = r.attrs.normalize()
-	for _, f := range r.attrs.front {
-		attrs = append(attrs, f[:]...)
-	}
-	return append(attrs, r.tail[:r.nTail]...)
+// Attrs returns the Record's AttrList.
+func (r *Record) Attrs() AttrList { return r.attrs }
+
+// AddAttrs appends attributes to the Record's list of attributes.
+func (r *Record) AddAttrs(attrs ...Attr) {
+	r.attrs.Add(attrs...)
 }
 
-// NumAttrs returns the number of Attrs in r.
-func (r *Record) NumAttrs() int {
-	return r.attrs.len()*nAttrsInline + r.nTail
+func (al *AttrList) setFromArgs(args []any) {
+	var a Attr
+	var attrs []Attr
+	for len(args) > 0 {
+		a, args = argsToAttr(args)
+		if al.nFront < len(al.front) {
+			al.front[al.nFront] = a
+			al.nFront++
+		} else {
+			if attrs == nil {
+				attrs = make([]Attr, 0, countAttrs(args))
+			}
+			attrs = append(attrs, a)
+		}
+	}
+	if len(attrs) > 0 {
+		al.pushBack(attrs)
+	}
 }
 
-// Attr returns the i'th Attr in r.
-func (r *Record) Attr(i int) Attr {
-	if r.attrs.back != nil {
-		r.attrs = r.attrs.normalize()
+func countAttrs(args []any) int {
+	n := 0
+	for i := 0; i < len(args); i++ {
+		n++
+		if _, ok := args[i].(string); ok {
+			i++
+		}
 	}
-	alen := r.attrs.len() * nAttrsInline
-	if i < alen {
-		return r.attrs.at(i / nAttrsInline)[i%nAttrsInline]
-	}
-	return r.tail[i-alen]
+	return n
 }
 
-// AddAttr appends an attributes to the record's list of attributes.
-// It does not check for duplicate keys.
-func (r *Record) AddAttr(a Attr) {
-	if r.nTail == len(r.tail) {
-		r.attrs = r.attrs.append(r.tail)
-		r.nTail = 0
+const badKey = "!BADKEY"
+
+// argsToAttr turns a prefix of the args slice into an Attr and returns
+// the unused portion of the slice.
+// If args[0] is an Attr, it returns it.
+// If args[0] is a string, it treats the first two elements as
+// a key-value pair.
+// Otherwise, it treats args[0] as a value with a missing key.
+func argsToAttr(args []any) (Attr, []any) {
+	switch x := args[0].(type) {
+	case string:
+		if len(args) == 1 {
+			return String(badKey, x), nil
+		}
+		return Any(x, args[1]), args[2:]
+
+	case Attr:
+		return x, args[1:]
+
+	default:
+		return Any(badKey, x), args[1:]
 	}
-	r.tail[r.nTail] = a
-	r.nTail++
 }
 
-func (r *Record) addAttrs(attrs []Attr) {
-	// TODO: be cleverer.
-	for _, a := range attrs {
-		r.AddAttr(a)
+// After examining many log calls in open-source code, we found that most pass
+// no more than this many Attrs/Fields/kv pairs.
+const nAttrsInline = 5
+
+// An AttrList is a sequence of Attrs.
+// It may be modified in-place with Add,
+// but modifying a copy does not affect the original.
+type AttrList struct {
+	// Allocation optimization: an inline array
+	// holding the initial Attrs.
+	front [nAttrsInline]Attr
+
+	// The number of Attrs in front.
+	nFront int
+
+	// The sequence of Attrs except for the front, represented as a linked list
+	// of slices. Each slice is in order but the list is in reverse order.
+	back *attrsNode
+
+	// The total number of Attrs in back.
+	nBack int
+}
+
+type attrsNode struct {
+	attrs []Attr
+	next  *attrsNode
+}
+
+// Len returns the number of Attrs in the list.
+func (al AttrList) Len() int {
+	return al.nFront + al.nBack
+}
+
+// Add adds the attrs to the end of the list.
+func (al *AttrList) Add(attrs ...Attr) {
+	if len(attrs) == 0 {
+		return
+	}
+	// First, copy as many as will fit into front.
+	n := copy(al.front[al.nFront:], attrs)
+	al.nFront += n
+	if n == len(attrs) {
+		return
+	}
+	// If there are more left over, copy them into a slice
+	// and push it onto back.
+	s := make([]Attr, len(attrs)-n)
+	copy(s, attrs[n:])
+	al.pushBack(s)
+}
+
+func (al *AttrList) pushBack(attrs []Attr) {
+	al.back = &attrsNode{attrs: attrs, next: al.back}
+	al.nBack += len(attrs)
+}
+
+// Append appends the list's Attrs to the argument slice and returns the result.
+func (al AttrList) Append(attrs []Attr) []Attr {
+	al.each(func(a Attr) { attrs = append(attrs, a) })
+	return attrs
+}
+
+// Range returns an iterator over the Attrs.
+func (al AttrList) Range() Iter[Attr] {
+	// If the back linked list is non-empty,
+	// copy its contents into a slice, reversed.
+	var rest [][]Attr
+	n := 0
+	for b := al.back; b != nil; b = b.next {
+		n++
+	}
+	if n > 0 {
+		rest = make([][]Attr, n)
+		for b := al.back; b != nil; b = b.next {
+			n--
+			rest[n] = b.attrs
+		}
+	}
+	return &attrListIter{
+		cur:  al.front[:al.nFront],
+		rest: rest,
+	}
+}
+
+type attrListIter struct {
+	cur  []Attr
+	rest [][]Attr
+}
+
+func (it *attrListIter) Next() (Attr, bool) {
+	if len(it.cur) == 0 {
+		if len(it.rest) == 0 {
+			return Attr{}, false
+		}
+		it.cur, it.rest = it.rest[0], it.rest[1:]
+	}
+	a := it.cur[0]
+	it.cur = it.cur[1:]
+	return a, true
+}
+
+// each calls f on each Attr in the list.
+// Currently (Go 1.19), it is faster than using Iter
+// (See BenchmarkAttrIteration), but it is subject
+// to stack overflow if al.back is long.
+func (al AttrList) each(f func(Attr)) {
+	for _, a := range al.front[:al.nFront] {
+		f(a)
+	}
+	recCall(al.back, f)
+}
+
+func recCall(n *attrsNode, f func(Attr)) {
+	if n == nil {
+		return
+	}
+	recCall(n.next, f)
+	for _, a := range n.attrs {
+		f(a)
 	}
 }

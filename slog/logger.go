@@ -113,7 +113,7 @@ func (l *Logger) LogDepth(calldepth int, level Level, msg string, args ...any) {
 		return
 	}
 	r := l.makeRecord(msg, level, calldepth)
-	setAttrs(&r, args)
+	r.attrs.setFromArgs(args)
 	_ = l.Handler().Handle(r)
 }
 
@@ -130,38 +130,6 @@ func (l *Logger) makeRecord(msg string, level Level, depth int) Record {
 	return MakeRecord(time.Now(), level, msg, depth)
 }
 
-const badKey = "!BADKEY"
-
-func setAttrs(r *Record, args []any) {
-	var attr Attr
-	for len(args) > 0 {
-		attr, args = argsToAttr(args)
-		r.AddAttr(attr)
-	}
-}
-
-// argsToAttr turns a prefix of the args slice into an Attr and returns
-// the unused portion of the slice.
-// If args[0] is an Attr, it returns it.
-// If args[0] is a string, it treats the first two elements as
-// a key-value pair.
-// Otherwise, it treats args[0] as a value with a missing key.
-func argsToAttr(args []any) (Attr, []any) {
-	switch x := args[0].(type) {
-	case string:
-		if len(args) == 1 {
-			return String(badKey, x), nil
-		}
-		return Any(x, args[1]), args[2:]
-
-	case Attr:
-		return x, args[1:]
-
-	default:
-		return Any(badKey, x), args[1:]
-	}
-}
-
 // LogAttrs is a more efficient version of [Logger.Log] that accepts only Attrs.
 func (l *Logger) LogAttrs(level Level, msg string, attrs ...Attr) {
 	l.LogAttrsDepth(0, level, msg, attrs...)
@@ -174,7 +142,7 @@ func (l *Logger) LogAttrsDepth(calldepth int, level Level, msg string, attrs ...
 		return
 	}
 	r := l.makeRecord(msg, level, calldepth)
-	r.addAttrs(attrs)
+	r.AddAttrs(attrs...)
 	_ = l.Handler().Handle(r)
 }
 
