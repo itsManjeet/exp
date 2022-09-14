@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d37a15a6_dd2e3704",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5021
+      },
+      "writtenOn": "2022-09-14T20:28:00Z",
+      "side": 1,
+      "message": "late review, sorry.",
+      "revId": "dc92f86530134df267cc7e7ea686d509f7ca1163",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d06a1876_7b3db6d1",
@@ -14,6 +31,23 @@
       "writtenOn": "2022-09-14T18:08:04Z",
       "side": 1,
       "message": "Looks like this test still needs a similar fix:\nhttps://build.golang.org/log/a3535344e9acb8d8f2578596ab8dc5058d99bd90\n\n```\n--- FAIL: TestAlloc (0.00s)\n    buffer_test.go:29: got 1 allocs, want 0\nFAIL\nFAIL\tgolang.org/x/exp/slog/internal/buffer\t0.027s\n```",
+      "revId": "dc92f86530134df267cc7e7ea686d509f7ca1163",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d83fee53_655b022a",
+        "filename": "slog/race_test.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 5021
+      },
+      "writtenOn": "2022-09-14T20:28:00Z",
+      "side": 1,
+      "message": "Isn\u0027t there t.Skip for this or does that trigger some linters you use if changed?",
       "revId": "dc92f86530134df267cc7e7ea686d509f7ca1163",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
