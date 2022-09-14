@@ -89,6 +89,24 @@
       "message": "(nit) `runtime.KeepAlive(a)` would probably be more robust here.\n\n(Compare #27400.)",
       "revId": "7d381f93612006041c3dd78e247af080bd7274de",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77260c6c_c89195c7",
+        "filename": "slog/attr_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-14T17:05:26Z",
+      "side": 1,
+      "message": "Will do in a followup CL.",
+      "parentUuid": "993cd1f2_42b9e160",
+      "revId": "7d381f93612006041c3dd78e247af080bd7274de",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ],
   "submitRequirementResults": [
