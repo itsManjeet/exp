@@ -70,6 +70,24 @@
       "message": "I\u0027m curious why this uses (*T)(nil) and pointer types in each case, as opposed to any(*new(T))?  (I understand you don\u0027t want to use any(val) so that it\u0027s a static not a dynamic type switch.)\n\nYou\u0027d have to move \"case any\" to the end.",
       "revId": "c8bfffb0726a3ffe8295f3d4ce7191b995e5fe7b",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "515fd637_153077d9",
+        "filename": "slog/attr.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-15T09:44:56Z",
+      "side": 1,
+      "message": "I assume you meant `any(*new(T))`.\n\nYes, that works. I did have to add a case for nil because the type of\n   any((*T)(nil))    is *any\n   any(*new(T))      is nil",
+      "parentUuid": "fecc4743_64b084f1",
+      "revId": "c8bfffb0726a3ffe8295f3d4ce7191b995e5fe7b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
