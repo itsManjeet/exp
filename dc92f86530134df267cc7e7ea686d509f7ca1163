@@ -50,6 +50,24 @@
       "message": "Isn\u0027t there t.Skip for this or does that trigger some linters you use if changed?",
       "revId": "dc92f86530134df267cc7e7ea686d509f7ca1163",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cc9458d_63c32fc8",
+        "filename": "slog/race_test.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-15T11:49:45Z",
+      "side": 1,
+      "message": "This function might be used in tests that also test other things. I didn\u0027t want to bail on the entire test.",
+      "parentUuid": "d83fee53_655b022a",
+      "revId": "dc92f86530134df267cc7e7ea686d509f7ca1163",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
