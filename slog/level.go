@@ -78,7 +78,11 @@ func (l Level) String() string {
 	}
 }
 
-// An AtomicLevel is Level that can be read and written safely by multiple
+// Level returns the receiver.
+// It implements Leveler.
+func (l Level) Level() Level { return l }
+
+// An AtomicLevel is a Level that can be read and written safely by multiple
 // goroutines.
 // Use NewAtomicLevel to create one.
 type AtomicLevel struct {
@@ -87,21 +91,36 @@ type AtomicLevel struct {
 
 // NewAtomicLevel creates an AtomicLevel initialized to the given Level.
 func NewAtomicLevel(l Level) *AtomicLevel {
-	var r AtomicLevel
-	r.Set(l)
-	return &r
+	var a AtomicLevel
+	a.Set(l)
+	return &a
 }
 
 // Level returns r's level.
-// If r is nil, it returns the maximum level.
-func (r *AtomicLevel) Level() Level {
-	if r == nil {
+// If the receiver is nil, it returns the maximum level.
+func (a *AtomicLevel) Level() Level {
+	if a == nil {
 		return Level(math.MaxInt)
 	}
-	return Level(int(r.val.Load()))
+	return Level(int(a.val.Load()))
 }
 
-// Set sets r's level to l.
-func (r *AtomicLevel) Set(l Level) {
-	r.val.Store(int64(l))
+// Set sets the receiver's level to l.
+func (a *AtomicLevel) Set(l Level) {
+	a.val.Store(int64(l))
+}
+
+func (a *AtomicLevel) String() string {
+	if a == nil {
+		return "AtomicLevel(nil)"
+	}
+	return fmt.Sprintf("AtomicLevel(%s)", a.Level())
+}
+
+// A Leveler reports a Level.
+//
+// Both Level and *AtomicLevel implement Leveler, so they can be used
+// interchangeably when a Leveler is required.
+type Leveler interface {
+	Level() Level
 }

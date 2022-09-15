@@ -98,6 +98,25 @@ func TestCommonHandle(t *testing.T) {
 	}
 }
 
+func TestHandlerEnabled(t *testing.T) {
+	for _, test := range []struct {
+		leveler Leveler
+		want    bool
+	}{
+		{nil, true},
+		{WarnLevel, false},
+		{NewAtomicLevel(WarnLevel), false},
+		{DebugLevel, true},
+		{NewAtomicLevel(DebugLevel), true},
+	} {
+		h := &commonHandler{opts: HandlerOptions{Level: test.leveler}}
+		got := h.Enabled(InfoLevel)
+		if got != test.want {
+			t.Errorf("%v: got %t, want %t", test.leveler, got, test.want)
+		}
+	}
+}
+
 type memAppender struct {
 	key string
 	m   map[string]any
