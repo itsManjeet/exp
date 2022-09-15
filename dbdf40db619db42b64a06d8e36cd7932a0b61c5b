@@ -53,6 +53,24 @@
       "message": "The allocation here is unfortunate. You could pull the needsQuoting check out of appendString and avoid it in the common case:\n\n    if needsQuoting(file) \n        a.appendString(file + \":\" + strconv.Itoa(line))\n    } else { \n        // common case: no quoting needed.\n        old implementation\n    }",
       "revId": "dbdf40db619db42b64a06d8e36cd7932a0b61c5b",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3ccfd0e_6e22b115",
+        "filename": "slog/text_handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-15T10:06:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "56501b9e_1b9f133e",
+      "revId": "dbdf40db619db42b64a06d8e36cd7932a0b61c5b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
