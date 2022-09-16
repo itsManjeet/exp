@@ -20,7 +20,7 @@ func TestRecordAttrs(t *testing.T) {
 	if g, w := r.NumAttrs(), len(as); g != w {
 		t.Errorf("NumAttrs: got %d, want %d", g, w)
 	}
-	if got := r.Attrs(); !attrsEqual(got, as) {
+	if got := attrsSlice(r); !attrsEqual(got, as) {
 		t.Errorf("got %v, want %v", got, as)
 	}
 }
@@ -36,7 +36,7 @@ func TestRecordSourceLine(t *testing.T) {
 		{-16, "", false},
 		{1, "record.go", true},
 	} {
-		r := MakeRecord(time.Time{}, 0, "", test.depth)
+		r := NewRecord(time.Time{}, 0, "", test.depth)
 		gotFile, gotLine := r.SourceLine()
 		if i := strings.LastIndexByte(gotFile, '/'); i >= 0 {
 			gotFile = gotFile[i+1:]
@@ -48,7 +48,7 @@ func TestRecordSourceLine(t *testing.T) {
 	}
 }
 
-func TestAliasing(t *testing.T) {
+func TestAliasingAndClone(t *testing.T) {
 	intAttrs := func(from, to int) []Attr {
 		var as []Attr
 		for i := from; i < to; i++ {
@@ -57,36 +57,51 @@ func TestAliasing(t *testing.T) {
 		return as
 	}
 
-	check := func(r *Record, want []Attr) {
+	check := func(r Record, want []Attr) {
 		t.Helper()
-		got := r.Attrs()
+		got := attrsSlice(r)
 		if !attrsEqual(got, want) {
 			t.Errorf("got %v, want %v", got, want)
 		}
 	}
 
-	r1 := MakeRecord(time.Time{}, 0, "", 0)
-	for i := 0; i < nAttrsInline+3; i++ {
-		r1.AddAttr(Int("k", i))
+	// Create a record whose Attrs overflow the inline array,
+	// creating a slice in r.back.
+	r1 := NewRecord(time.Time{}, 0, "", 0)
+	r1.AddAttrs(intAttrs(0, nAttrsInline+1)...)
+	// Add some more attributes to grow r.back.
+	r1.AddAttrs(Int("x", 1), Int("x", 2), Int("x", 3), Int("x", 4))
+	r1.AddAttrs(Int("x", 1), Int("x", 2), Int("x", 3), Int("x", 4))
+	// The slice's capacity should exceed its length.
+	if len(r1.back) == cap(r1.back) {
+		t.Fatalf("len == cap (%d)", len(r1.back))
 	}
-	check(&r1, intAttrs(0, nAttrsInline+3))
+	// Make a copy that shares state.
 	r2 := r1
-	check(&r2, intAttrs(0, nAttrsInline+3))
-	// if cap(r1.attrs2) <= len(r1.attrs2) {
-	// 	t.Fatal("cap not greater than len")
-	// }
-	r1.AddAttr(Int("k", nAttrsInline+3))
-	r2.AddAttr(Int("k", -1))
-	check(&r1, intAttrs(0, nAttrsInline+4))
-	check(&r2, append(intAttrs(0, nAttrsInline+3), Int("k", -1)))
+	// Adding to both should panic.
+	r1.AddAttrs(Int("p", 0))
+	if !panics(func() { r2.AddAttrs(Int("p", 1)) }) {
+		t.Error("expected panic")
+	}
+	r1Attrs := attrsSlice(r1)
+	// Adding to a clone is fine.
+	r2 = r1.Clone()
+	check(r2, r1Attrs)
+	r2.AddAttrs(Int("p", 2))
+	check(r1, r1Attrs) // r1 is unchanged
+	check(r2, append(slices.Clip(r1Attrs), Int("p", 2)))
 }
 
 func newRecordWithAttrs(as []Attr) Record {
-	r := MakeRecord(time.Now(), InfoLevel, "", 0)
-	for _, a := range as {
-		r.AddAttr(a)
-	}
+	r := NewRecord(time.Now(), InfoLevel, "", 0)
+	r.AddAttrs(as...)
 	return r
+}
+
+func attrsSlice(r Record) []Attr {
+	s := make([]Attr, 0, r.NumAttrs())
+	r.Attrs(func(a Attr) { s = append(s, a) })
+	return s
 }
 
 func attrsEqual(as1, as2 []Attr) bool {
@@ -105,7 +120,7 @@ func BenchmarkPC(b *testing.B) {
 }
 
 func BenchmarkSourceLine(b *testing.B) {
-	r := MakeRecord(time.Now(), InfoLevel, "", 5)
+	r := NewRecord(time.Now(), InfoLevel, "", 5)
 	b.Run("alone", func(b *testing.B) {
 		for i := 0; i < b.N; i++ {
 			file, line := r.SourceLine()
@@ -132,13 +147,11 @@ func BenchmarkRecord(b *testing.B) {
 	var a Attr
 
 	for i := 0; i < b.N; i++ {
-		r := MakeRecord(time.Time{}, InfoLevel, "", 0)
+		r := NewRecord(time.Time{}, InfoLevel, "", 0)
 		for j := 0; j < nAttrs; j++ {
-			r.AddAttr(Int("k", j))
+			r.AddAttrs(Int("k", j))
 		}
-		for j := 0; j < nAttrs; j++ {
-			a = r.Attr(j)
-		}
+		r.Attrs(func(b Attr) { a = b })
 	}
 	_ = a
 }
