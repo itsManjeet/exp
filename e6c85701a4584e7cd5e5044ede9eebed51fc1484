@@ -55,6 +55,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "41bdaea3_0e3fce9a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-16T12:56:49Z",
+      "side": 1,
+      "message": "There may not in fact be a problem.\n\nWe discussed removing NewAtomicLevel, forcing users to write\n\n    var al slog.AtomicLevel\n    al.Set(slog.WarnLevel)\n    slog.HandlerOptions{Level: \u0026al}.New...\n   \neven if they wanted to write\n\n    slog.HandlerOptions{Level: slog.WarnLevel}.New...\n    \nMoving to an interface lets them do both.\n\nHowever, for reasons I discuss in the commit message, I think we need to keep NewAtomicLevel, in which case we can go back to\n\n    slog.HandlerOptions{Level: slog.NewAtomicLevel(slog.WarnLevel)}.New...\n\nwhich I think is bearable.\n\nSo this is CL may not make sense as it is. Let\u0027s use it as a forum for further discussion.",
+      "parentUuid": "2ba9f4df_d3d069d0",
+      "revId": "e6c85701a4584e7cd5e5044ede9eebed51fc1484",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0f276690_572964de",
@@ -68,6 +86,24 @@
       "writtenOn": "2022-09-15T20:14:43Z",
       "side": 1,
       "message": "This is now a dynamic call.",
+      "revId": "e6c85701a4584e7cd5e5044ede9eebed51fc1484",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "71125454_235d3390",
+        "filename": "slog/handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-16T12:56:49Z",
+      "side": 1,
+      "message": "I don\u0027t think that\u0027s a concern, but we can revisit when we have benchmarks.",
+      "parentUuid": "0f276690_572964de",
       "revId": "e6c85701a4584e7cd5e5044ede9eebed51fc1484",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
