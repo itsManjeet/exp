@@ -55,6 +55,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "11c12bc3_0b8918d6",
+        "filename": "slog/record.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-17T11:30:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd5f759c_b17b1a90",
+      "revId": "aef39b8ae826031eb59edaf12a60c41ddb428d96",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6fd9ebaf_628979bf",
@@ -68,6 +86,24 @@
       "writtenOn": "2022-09-16T17:26:01Z",
       "side": 1,
       "message": "More precisely:\n\n// NewRecord returns the sole copy of a Record...\n\nOr is that too pedantic?",
+      "revId": "aef39b8ae826031eb59edaf12a60c41ddb428d96",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "558fb0d1_bded7966",
+        "filename": "slog/record.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-17T11:30:27Z",
+      "side": 1,
+      "message": "I\u0027ve never seen that wording and I think most people would find it confusing. But if your concern is that the English word \"new\" here puns with the `new` builtin, perhaps we can just delete it? If so, done.",
+      "parentUuid": "6fd9ebaf_628979bf",
       "revId": "aef39b8ae826031eb59edaf12a60c41ddb428d96",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -89,6 +125,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fbdcf9c_dd04d4d9",
+        "filename": "slog/record.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-17T11:30:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16ef45e2_41193c74",
+      "revId": "aef39b8ae826031eb59edaf12a60c41ddb428d96",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0934122_42f7f550",
@@ -106,6 +160,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "05d7d88d_711de95a",
+        "filename": "slog/record.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-17T11:30:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0934122_42f7f550",
+      "revId": "aef39b8ae826031eb59edaf12a60c41ddb428d96",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0cbe4773_97305e80",
@@ -119,6 +191,24 @@
       "writtenOn": "2022-09-16T17:26:01Z",
       "side": 1,
       "message": "Why? Doesn\u0027t this depend on the particular append strategy?",
+      "revId": "aef39b8ae826031eb59edaf12a60c41ddb428d96",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7a49b3d_a8e7ab6d",
+        "filename": "slog/record_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-17T11:30:27Z",
+      "side": 1,
+      "message": "The test can\u0027t proceed unless this is true: without that extra space, we wouldn\u0027t have aliasing.\n\nYes, it does depend on how append works. But I don\u0027t know how else to test this behavior with the given API.\n\nI suppose I could induce this condition myself, though that feels a bit dirty. I\u0027ve done that; let me know if you prefer it.",
+      "parentUuid": "0cbe4773_97305e80",
       "revId": "aef39b8ae826031eb59edaf12a60c41ddb428d96",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
