@@ -94,7 +94,12 @@ func (a *jsonAppender) appendString(s string) {
 
 func (a *jsonAppender) appendStart() { a.buf().WriteByte('{') }
 func (a *jsonAppender) appendEnd()   { a.buf().WriteByte('}') }
-func (a *jsonAppender) appendSep()   { a.buf().WriteByte(',') }
+
+func (a *jsonAppender) appendSep(b bool) {
+	if b {
+		a.buf().WriteByte(',')
+	}
+}
 
 func (a *jsonAppender) appendTime(t time.Time) error {
 	b, err := t.MarshalJSON()
