@@ -115,16 +115,11 @@ func (h *commonHandler) with(as []Attr) *commonHandler {
 		preformattedAttrs: h.preformattedAttrs,
 		w:                 h.w,
 	}
-	if h.opts.ReplaceAttr != nil {
-		for i, p := range h2.attrs[len(h.attrs):] {
-			h2.attrs[i] = h.opts.ReplaceAttr(p)
-		}
-	}
-
 	// Pre-format the attributes as an optimization.
 	app := h2.newAppender((*buffer.Buffer)(&h2.preformattedAttrs))
-	for _, p := range h2.attrs[len(h.attrs):] {
-		appendAttr(app, p)
+	sep := false // Append separator before next Attr?
+	for _, a := range as {
+		h2.appendAttr(a, app, &sep)
 	}
 	return h2
 }
@@ -134,74 +129,74 @@ func (h *commonHandler) handle(r Record) error {
 	defer buf.Free()
 	app := h.newAppender(buf)
 	rep := h.opts.ReplaceAttr
-	replace := func(a Attr) {
-		a = rep(a)
-		if a.Key() != "" {
-			app.appendKey(a.Key())
-			if err := app.appendAttrValue(a); err != nil {
-				app.appendString(fmt.Sprintf("!ERROR:%v", err))
-			}
-		}
-	}
 
+	sep := false // Append separator before next Attr?
 	app.appendStart()
+	// time
 	if !r.Time().IsZero() {
 		key := "time"
 		val := r.Time().Round(0) // strip monotonic to match Attr behavior
 		if rep == nil {
 			app.appendKey(key)
-			if err := app.appendTime(val); err != nil {
-				return err
-			}
+			appendError(app, app.appendTime(val))
+			sep = true
 		} else {
-			replace(Time(key, val))
+			h.appendAttr(Time(key, val), app, &sep)
 		}
-		app.appendSep()
 	}
+	// level
 	if r.Level() != 0 {
 		key := "level"
 		val := r.Level()
 		if rep == nil {
+			app.appendSep(sep)
 			app.appendKey(key)
 			app.appendString(val.String())
+			sep = true
 		} else {
-			replace(Any(key, val))
+			h.appendAttr(Any(key, val), app, &sep)
 		}
-		app.appendSep()
 	}
+	// source
 	if h.opts.AddSource {
 		file, line := r.SourceLine()
 		if file != "" {
 			key := "source"
 			if rep == nil {
+				app.appendSep(sep)
 				app.appendKey(key)
 				app.appendSource(file, line)
+				sep = true
 			} else {
 				buf := buffer.New()
-				buf.WriteString(file)
+				buf.WriteString(file) // TODO: escape?
 				buf.WriteByte(':')
 				itoa((*[]byte)(buf), line, -1)
 				s := string(*buf)
 				buf.Free()
-				replace(String(key, s))
+				h.appendAttr(String(key, s), app, &sep)
 			}
-			app.appendSep()
 		}
 	}
+	// message
 	key := "msg"
 	val := r.Message()
 	if rep == nil {
+		app.appendSep(sep)
 		app.appendKey(key)
 		app.appendString(val)
+		sep = true
 	} else {
-		replace(String(key, val))
+		h.appendAttr(String(key, val), app, &sep)
 	}
-	*buf = append(*buf, h.preformattedAttrs...)
+	// preformatted Attrs
+	if len(h.preformattedAttrs) > 0 {
+		app.appendSep(sep)
+		*buf = append(*buf, h.preformattedAttrs...)
+	}
+	// Attrs in Record
 	r.Attrs(func(a Attr) {
-		if rep != nil {
-			a = rep(a)
-		}
-		appendAttr(app, a)
+		h.appendAttr(a, app, &sep)
 	})
 	app.appendEnd()
 	buf.WriteByte('\n')
@@ -212,13 +207,27 @@ func (h *commonHandler) handle(r Record) error {
 	return err
 }
 
-func appendAttr(app appender, a Attr) {
-	if a.Key() != "" {
-		app.appendSep()
-		app.appendKey(a.Key())
-		if err := app.appendAttrValue(a); err != nil {
-			app.appendString(fmt.Sprintf("!ERROR:%v", err))
-		}
+// appendAttr appends the Attr's key and value using app.
+// If sep is true, it also prepends a separator.
+// It handles replacement and checking for an empty key.
+// It sets sep to true if it actually did the append (if the key was non-empty
+// after replacement).
+func (h *commonHandler) appendAttr(a Attr, app appender, sep *bool) {
+	if rep := h.opts.ReplaceAttr; rep != nil {
+		a = rep(a)
+	}
+	if a.Key() == "" {
+		return
+	}
+	app.appendSep(*sep)
+	app.appendKey(a.Key())
+	appendError(app, app.appendAttrValue(a))
+	*sep = true
+}
+
+func appendError(app appender, err error) {
+	if err != nil {
+		app.appendString(fmt.Sprintf("!ERROR:%v", err))
 	}
 }
 
@@ -229,7 +238,7 @@ func appendAttr(app appender, a Attr) {
 type appender interface {
 	appendStart()                       // start a sequence of Attrs
 	appendEnd()                         // end a sequence of Attrs
-	appendSep()                         // separate one Attr from the next
+	appendSep(bool)                     // if arg is true, separate one Attr from the next
 	appendKey(key string)               // append a key
 	appendString(string)                // append a string that may need to be escaped
 	appendTime(time.Time) error         // append a time

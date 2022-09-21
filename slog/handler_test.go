@@ -38,6 +38,17 @@ func TestCommonHandle(t *testing.T) {
 	r := NewRecord(tm, InfoLevel, "message", 1)
 	r.AddAttrs(String("a", "one"), Int("b", 2), Any("", "ignore me"))
 
+	newHandler := func(replace func(Attr) Attr) *commonHandler {
+		return &commonHandler{
+			opts: HandlerOptions{ReplaceAttr: replace},
+			newAppender: func(buf *buffer.Buffer) appender {
+				return &testAppender{buf}
+			},
+		}
+	}
+
+	removeAttr := func(a Attr) Attr { return Attr{} }
+
 	for _, test := range []struct {
 		name string
 		h    *commonHandler
@@ -45,33 +56,38 @@ func TestCommonHandle(t *testing.T) {
 	}{
 		{
 			name: "basic",
-			h:    &commonHandler{},
+			h:    newHandler(nil),
 			want: "(time=2022-09-18T08:26:33.000Z;level=INFO;msg=message;a=one;b=2)",
 		},
 		{
 			name: "cap keys",
-			h: &commonHandler{
-				opts: HandlerOptions{ReplaceAttr: upperCaseKey},
-			},
+			h:    newHandler(upperCaseKey),
 			want: "(TIME=2022-09-18T08:26:33.000Z;LEVEL=INFO;MSG=message;A=one;B=2)",
 		},
 		{
 			name: "remove all",
-			h: &commonHandler{
-				opts: HandlerOptions{
-					ReplaceAttr: func(a Attr) Attr { return Attr{} },
-				},
-			},
-			// TODO: fix this. The correct result is "()".
-			want: "(;;)",
+			h:    newHandler(removeAttr),
+			want: "()",
+		},
+		{
+			name: "preformatted",
+			h:    newHandler(nil).with([]Attr{Int("pre", 3), String("x", "y")}),
+			want: "(time=2022-09-18T08:26:33.000Z;level=INFO;msg=message;pre=3;x=y;a=one;b=2)",
+		},
+		{
+			name: "preformatted cap keys",
+			h:    newHandler(upperCaseKey).with([]Attr{Int("pre", 3), String("x", "y")}),
+			want: "(TIME=2022-09-18T08:26:33.000Z;LEVEL=INFO;MSG=message;PRE=3;X=y;A=one;B=2)",
+		},
+		{
+			name: "preformatted remove all",
+			h:    newHandler(removeAttr).with([]Attr{Int("pre", 3), String("x", "y")}),
+			want: "()",
 		},
 	} {
 		t.Run(test.name, func(t *testing.T) {
 			var buf bytes.Buffer
 			test.h.w = &buf
-			test.h.newAppender = func(buf *buffer.Buffer) appender {
-				return &testAppender{buf}
-			}
 			if err := test.h.handle(r); err != nil {
 				t.Fatal(err)
 			}
@@ -92,8 +108,13 @@ type testAppender struct {
 }
 
 func (a *testAppender) appendStart() { a.buf.WriteByte('(') }
-func (a *testAppender) appendSep()   { a.buf.WriteByte(';') }
 func (a *testAppender) appendEnd()   { a.buf.WriteByte(')') }
+
+func (a *testAppender) appendSep(b bool) {
+	if b {
+		a.buf.WriteByte(';')
+	}
+}
 
 func (a *testAppender) appendKey(key string) {
 	a.appendString(key)

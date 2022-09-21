@@ -97,7 +97,12 @@ func (a *textAppender) appendString(s string) {
 
 func (a *textAppender) appendStart() {}
 func (a *textAppender) appendEnd()   {}
-func (a *textAppender) appendSep()   { a.buf().WriteByte(' ') }
+
+func (a *textAppender) appendSep(b bool) {
+	if b {
+		a.buf().WriteByte(' ')
+	}
+}
 
 func (a *textAppender) appendTime(t time.Time) error {
 	*a.buf() = appendTimeRFC3339Millis(*a.buf(), t)
