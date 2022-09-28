@@ -109,6 +109,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f16ed189_559726f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-28T12:20:48Z",
+      "side": 1,
+      "message": "Also, since the default level is Info, which is now 0, the zero value for AtomicLevel is correct, and we do not need a constructor function.",
+      "parentUuid": "0908a422_7d09f98a",
+      "revId": "e6c85701a4584e7cd5e5044ede9eebed51fc1484",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0f276690_572964de",
