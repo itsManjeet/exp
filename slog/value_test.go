@@ -118,6 +118,37 @@ func TestAnyLevel(t *testing.T) {
 	}
 }
 
+func TestLogValue(t *testing.T) {
+	want := "replaced"
+	r := &replace{StringValue(want)}
+	v := AnyValue(r)
+	if g, w := v.Kind(), LogValuerKind; g != w {
+		t.Errorf("got %s, want %s", g, w)
+	}
+	got := v.LogValuer().LogValue().Any()
+	if got != want {
+		t.Errorf("got %#v, want %#v", got, want)
+	}
+
+	// Test Resolve.
+	got = v.Resolve().Any()
+	if got != want {
+		t.Errorf("got %#v, want %#v", got, want)
+	}
+
+	// Test Resolve max iteration.
+	r.v = AnyValue(r) // create a cycle
+	if !panics(func() { AnyValue(r).Resolve() }) {
+		t.Error("wanted panic")
+	}
+}
+
+type replace struct {
+	v Value
+}
+
+func (r *replace) LogValue() Value { return r.v }
+
 //////////////// Benchmark for accessing Value values
 
 // The "As" form is the slowest.
