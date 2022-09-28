@@ -105,6 +105,24 @@
       "parentUuid": "d7dbda38_5d225c8d",
       "revId": "7470df5adbb397d7127a660b95486a96895758b8",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fd3ef25_0b641797",
+        "filename": "slog/json_handler.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-09-28T18:53:59Z",
+      "side": 1,
+      "message": "\u003e I actually did that (because you made that same point before). The several switches, with their default: panic cases, made me sad.\n\nWhy would the number of switches change? I imagine appendAttrValue would look much as it does below, but each case would consult the json bit.\n\nIf you\u0027ve tried both, and you preferred this way, I\u0027ll trust your judgment and not mention it again. :)\n\n\u003e As for the dynamic dispatch, these handlers are not intended to be highly optimized.\n\nOh, I thought that was the reason for all the trouble with buffer pools.",
+      "parentUuid": "2b061f71_960d442c",
+      "revId": "7470df5adbb397d7127a660b95486a96895758b8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
