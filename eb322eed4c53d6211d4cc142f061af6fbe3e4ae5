@@ -89,6 +89,24 @@
       "parentUuid": "86ca13a2_e763e619",
       "revId": "eb322eed4c53d6211d4cc142f061af6fbe3e4ae5",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "302c91cc_c5a1702c",
+        "filename": "slog/level.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-09-29T14:19:18Z",
+      "side": 1,
+      "message": "Ok, that all makes sense. In that case, let\u0027s document the expected usage more explicitly here:\n\n// A Leveler provides a Level value.\n//\n// As Level itself implements Leveler, clients typically supply\n// a Level value wherever a Leveler is needed, such as in HandlerOptions.\n// On occasion a client may need to vary the level dynamically,\n// in which case they can provide a more complex Leveler implementation\n// such as *AtomicLevel.",
+      "parentUuid": "4f0eb037_0c713f03",
+      "revId": "eb322eed4c53d6211d4cc142f061af6fbe3e4ae5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
