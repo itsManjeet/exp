@@ -53,6 +53,24 @@
       "message": "I still think this obfuscates rather than clarifies. Why would I use a Level versus an *AtomicLevel? Answer: because it is not safe to update the options.Level field once the options are already in use. (It is sorta safe---a benign data race---so long as you only update the field with a new value of the same runtime type.) So, use a Level when you plan to set it once at HandlerOptions construction and never change it again. Or, use an AtomicLevel when you need to be able to change the Level value after it is in use---but still you must never change the options.Level field itself again. But, you might ask, why not just expose atomic operations on a private field in the options struct? Ah, because it\u0027s inconvenient to construct, and you might need to share a single level variable between multiple options. Why not use an AtomicLevel, always? Are we perhaps trying to avoid the cost of atomics accesses? But in doing so we\u0027re paying for dynamic calls.\n\nThis all seems quite complicated and the motivation is still not clear to me.",
       "revId": "eb322eed4c53d6211d4cc142f061af6fbe3e4ae5",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86ca13a2_e763e619",
+        "filename": "slog/level.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-29T11:50:55Z",
+      "side": 1,
+      "message": "\u003e Why would I use a Level versus an *AtomicLevel? Answer: because it is not safe to update the options.Level field once the options are already in use.\n\nNo, it\u0027s because we think most people will just want to set a handler level (unshared), and we don\u0027t want them to even see the word \"Atomic\". That is just too highfalutin a concept to bring into play for something so elementary. It\u0027s about the UX of the API, not performance or safety.\n\nAlso, I don\u0027t understand your comments about safety. The HandlerOptions struct is copied in the New{Text,JSON}Handler constructors; setting its fields after that point is a no-op. \n\nCan you be more concrete about what \"expose atomic operations on a private field in the options struct\" means? I think you mean that instead of AtomicLevel, we provide an atomic HandlerOptions.SetLevel (and store a pointer to HandlerOptions in the handler, rather than copy it). I think you answered that: inconvenient to construct. (Also, what about the other fields in HandlerOptions? Do they need atomic setters too?)\n\n\u003e we\u0027re paying for dynamic calls.\n\nMy intuition is that it\u0027s going to be small potatoes, but I will benchmark.\nIf it turns out to be a problem, the handler constructors could type-assert to Level and store the level in a separate field, reducing the cost to a bool check. The API remains nice.",
+      "parentUuid": "134a2a10_2dcbb704",
+      "revId": "eb322eed4c53d6211d4cc142f061af6fbe3e4ae5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
