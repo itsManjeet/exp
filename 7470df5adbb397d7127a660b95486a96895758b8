@@ -57,6 +57,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "21455249_89e796ed",
+        "filename": "slog/handler.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-29T11:01:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "430930f1_ed9cc32e",
+      "revId": "7470df5adbb397d7127a660b95486a96895758b8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "da0ed103_b25df48b",
         "filename": "slog/handler_test.go",
         "patchSetId": 3
@@ -121,6 +139,24 @@
       "side": 1,
       "message": "\u003e I actually did that (because you made that same point before). The several switches, with their default: panic cases, made me sad.\n\nWhy would the number of switches change? I imagine appendAttrValue would look much as it does below, but each case would consult the json bit.\n\nIf you\u0027ve tried both, and you preferred this way, I\u0027ll trust your judgment and not mention it again. :)\n\n\u003e As for the dynamic dispatch, these handlers are not intended to be highly optimized.\n\nOh, I thought that was the reason for all the trouble with buffer pools.",
       "parentUuid": "2b061f71_960d442c",
+      "revId": "7470df5adbb397d7127a660b95486a96895758b8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2b2d55c_1b704de1",
+        "filename": "slog/json_handler.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-09-29T11:01:16Z",
+      "side": 1,
+      "message": "My rewrite looked like\n\n   switch h.outputMode {\n   case outputText: ...\n   case outputJSON: ...\n   default: panic(...)\n   }\n   \nand I needed one of those for each appender method. The asymmetry of a \"json bit\" is unappealing to me.\n\nRegarding performance: fair point. I\u0027m assuming that avoiding allocation, and locking a mutex, have much a bigger impact than dynamic dispatch. I\u0027m going to commit this as is to move forward, but I will make a note to  benchmark, and get back to you with the results.",
+      "parentUuid": "8fd3ef25_0b641797",
       "revId": "7470df5adbb397d7127a660b95486a96895758b8",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
