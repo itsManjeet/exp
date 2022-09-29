@@ -71,6 +71,24 @@
       "parentUuid": "134a2a10_2dcbb704",
       "revId": "eb322eed4c53d6211d4cc142f061af6fbe3e4ae5",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f0eb037_0c713f03",
+        "filename": "slog/level.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2022-09-29T13:08:12Z",
+      "side": 1,
+      "message": "It\u0027s about the API design, not performance. It seems very wrong to me to have an API that forces you to use things called \"atomic\" when almost no one is going to need that functionality. In general we work hard to avoid making people think they understand how to use atomics. Putting it front and center in a required place (the handler config) in a fundamental API seems like a mistake to me. I\u0027d much rather pay for the indirect function call than nudge the ecosystem to atomics being something to use in everyday APIs.\n\nI don\u0027t believe the interface call causes a serious performance problem. I\u0027m not sure whether you think it does or you were just pointing out that it\u0027s no worse than atomics, but either way, CPUs are very good at predicting indirect calls, and if your program is bottlenecked by the cost of the handler level lookup, there is an easy fix to that - take the log message out of your inner loop.",
+      "parentUuid": "86ca13a2_e763e619",
+      "revId": "eb322eed4c53d6211d4cc142f061af6fbe3e4ae5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
