@@ -5,15 +5,9 @@
 package slog
 
 import (
-	"encoding"
-	"fmt"
 	"io"
-	"strconv"
-	"time"
 	"unicode"
 	"unicode/utf8"
-
-	"golang.org/x/exp/slog/internal/buffer"
 )
 
 // TextHandler is a Handler that writes Records to an io.Writer as a
@@ -30,14 +24,7 @@ func NewTextHandler(w io.Writer) *TextHandler {
 
 // NewTextHandler creates a TextHandler with the given options that writes to w.
 func (opts HandlerOptions) NewTextHandler(w io.Writer) *TextHandler {
-	return &TextHandler{
-		&commonHandler{
-			app:     textAppender{},
-			attrSep: ' ',
-			w:       w,
-			opts:    opts,
-		},
-	}
+	return &TextHandler{&commonHandler{w: w, opts: opts}}
 }
 
 // With returns a new TextHandler whose attributes consists
@@ -75,63 +62,6 @@ func (h *TextHandler) With(attrs []Attr) Handler {
 // io.Writer.Write.
 func (h *TextHandler) Handle(r Record) error {
 	return h.commonHandler.handle(r)
-}
-
-type textAppender struct{}
-
-func (textAppender) appendStart(*buffer.Buffer) {}
-
-func (textAppender) appendEnd(*buffer.Buffer) {}
-
-func (a textAppender) appendKey(buf *buffer.Buffer, key string) {
-	a.appendString(buf, key)
-	buf.WriteByte('=')
-}
-
-func (textAppender) appendString(buf *buffer.Buffer, s string) {
-	if needsQuoting(s) {
-		*buf = strconv.AppendQuote(*buf, s)
-	} else {
-		buf.WriteString(s)
-	}
-}
-
-func (textAppender) appendTime(buf *buffer.Buffer, t time.Time) error {
-	*buf = appendTimeRFC3339Millis(*buf, t)
-	return nil
-}
-
-func (a textAppender) appendSource(buf *buffer.Buffer, file string, line int) {
-	if needsQuoting(file) {
-		a.appendString(buf, file+":"+strconv.Itoa(line))
-	} else {
-		// common case: no quoting needed.
-		a.appendString(buf, file)
-		buf.WriteByte(':')
-		itoa((*[]byte)(buf), line, -1)
-	}
-}
-func (app textAppender) appendAttrValue(buf *buffer.Buffer, a Attr) error {
-	switch a.Kind() {
-	case StringKind:
-		app.appendString(buf, a.str())
-	case TimeKind:
-		_ = app.appendTime(buf, a.Time())
-	case AnyKind:
-		if tm, ok := a.any.(encoding.TextMarshaler); ok {
-			data, err := tm.MarshalText()
-			if err != nil {
-				return err
-			}
-			// TODO: avoid the conversion to string.
-			app.appendString(buf, string(data))
-			return nil
-		}
-		app.appendString(buf, fmt.Sprint(a.Value()))
-	default:
-		*buf = a.appendValue(*buf)
-	}
-	return nil
 }
 
 func needsQuoting(s string) bool {

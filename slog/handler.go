@@ -5,9 +5,12 @@
 package slog
 
 import (
+	"encoding"
 	"fmt"
 	"io"
 	"log"
+	"math"
+	"strconv"
 	"strings"
 	"sync"
 	"time"
@@ -91,11 +94,10 @@ type HandlerOptions struct {
 
 type commonHandler struct {
 	opts              HandlerOptions
-	app               appender
-	attrSep           byte // char separating attrs from each other
 	preformattedAttrs []byte
 	mu                sync.Mutex
 	w                 io.Writer
+	json              bool
 }
 
 // Enabled reports whether l is less than or equal to the
@@ -106,18 +108,13 @@ func (h *commonHandler) Enabled(l Level) bool {
 
 func (h *commonHandler) with(as []Attr) *commonHandler {
 	h2 := &commonHandler{
-		app:               h.app,
-		attrSep:           h.attrSep,
+		json:              h.json,
 		opts:              h.opts,
 		preformattedAttrs: h.preformattedAttrs,
 		w:                 h.w,
 	}
 	// Pre-format the attributes as an optimization.
-	state := handleState{
-		h2,
-		(*buffer.Buffer)(&h2.preformattedAttrs),
-		false,
-	}
+	state := handleState{h: h2, buf: (*buffer.Buffer)(&h2.preformattedAttrs)}
 	for _, a := range as {
 		state.appendAttr(a)
 	}
@@ -126,20 +123,27 @@ func (h *commonHandler) with(as []Attr) *commonHandler {
 
 func (h *commonHandler) handle(r Record) error {
 	rep := h.opts.ReplaceAttr
-	state := handleState{h, buffer.New(), false}
+	state := handleState{h: h, buf: buffer.New()}
 	defer state.buf.Free()
-	h.app.appendStart(state.buf)
+
+	if h.json {
+		state.buf.WriteByte('{')
+	}
+
 	// time
 	if !r.Time().IsZero() {
 		key := "time"
 		val := r.Time().Round(0) // strip monotonic to match Attr behavior
 		if rep == nil {
 			state.appendKey(key)
-			state.appendTime(val)
+			if err := state.appendTime(val); err != nil {
+				state.appendError(err)
+			}
 		} else {
 			state.appendAttr(Time(key, val))
 		}
 	}
+
 	// level
 	key := "level"
 	val := r.Level()
@@ -149,6 +153,7 @@ func (h *commonHandler) handle(r Record) error {
 	} else {
 		state.appendAttr(Any(key, val))
 	}
+
 	// source
 	if h.opts.AddSource {
 		file, line := r.SourceLine()
@@ -156,7 +161,22 @@ func (h *commonHandler) handle(r Record) error {
 			key := "source"
 			if rep == nil {
 				state.appendKey(key)
-				h.app.appendSource(state.buf, file, line)
+				if h.json {
+					state.buf.WriteByte('"')
+					*state.buf = appendJSONString(*state.buf, file)
+					state.buf.WriteByte(':')
+					itoa((*[]byte)(state.buf), line, -1)
+					state.buf.WriteByte('"')
+				} else {
+					if needsQuoting(file) {
+						state.appendString(file + ":" + strconv.Itoa(line))
+					} else {
+						// common case: no quoting needed.
+						state.appendString(file)
+						state.buf.WriteByte(':')
+						itoa((*[]byte)(state.buf), line, -1)
+					}
+				}
 			} else {
 				buf := buffer.New()
 				buf.WriteString(file) // TODO: escape?
@@ -176,16 +196,21 @@ func (h *commonHandler) handle(r Record) error {
 	} else {
 		state.appendAttr(String(key, msg))
 	}
+
 	// preformatted Attrs
 	if len(h.preformattedAttrs) > 0 {
-		state.appendSep()
+		state.buf.WriteString(state.sep)
 		state.buf.Write(h.preformattedAttrs)
 	}
+
 	// Attrs in Record
 	r.Attrs(func(a Attr) {
 		state.appendAttr(a)
 	})
-	h.app.appendEnd(state.buf)
+
+	if h.json {
+		state.buf.WriteByte('}')
+	}
 	state.buf.WriteByte('\n')
 
 	h.mu.Lock()
@@ -200,7 +225,7 @@ func (h *commonHandler) handle(r Record) error {
 type handleState struct {
 	h   *commonHandler
 	buf *buffer.Buffer
-	sep bool // Append separator before next Attr?
+	sep string // Append separator before next Attr?
 }
 
 // appendAttr appends the Attr's key and value using app.
@@ -223,42 +248,107 @@ func (s *handleState) appendError(err error) {
 	s.appendString(fmt.Sprintf("!ERROR:%v", err))
 }
 
-type appender interface {
-	appendStart(*buffer.Buffer)                 // start of output
-	appendEnd(*buffer.Buffer)                   // end of output
-	appendKey(*buffer.Buffer, string)           // append key and key-value separator
-	appendString(*buffer.Buffer, string)        // append a string
-	appendSource(*buffer.Buffer, string, int)   // append a filename and line
-	appendTime(*buffer.Buffer, time.Time) error // append a time
-	appendAttrValue(*buffer.Buffer, Attr) error // append Attr's value (but not key)
-}
-
-func (s *handleState) appendSep() {
-	if s.sep {
-		s.buf.WriteByte(s.h.attrSep)
-	}
-}
-
 func (s *handleState) appendKey(key string) {
-	s.appendSep()
-	s.h.app.appendKey(s.buf, key)
-	s.sep = true
+	s.buf.WriteString(s.sep)
+	s.appendString(key)
+	if s.h.json {
+		s.buf.WriteByte(':')
+		s.sep = ","
+	} else {
+		s.buf.WriteByte('=')
+		s.sep = " "
+	}
 }
 
 func (s *handleState) appendString(str string) {
-	s.h.app.appendString(s.buf, str)
+	if s.h.json {
+		*s.buf = appendQuotedJSONString(*s.buf, str)
+	} else {
+		if needsQuoting(str) {
+			*s.buf = strconv.AppendQuote(*s.buf, str)
+		} else {
+			s.buf.WriteString(str)
+		}
+	}
 }
 
 func (s *handleState) appendAttrValue(a Attr) {
-	if err := s.h.app.appendAttrValue(s.buf, a); err != nil {
-		s.appendError(err)
+	if s.h.json {
+		switch a.Kind() {
+		case StringKind:
+			s.appendString(a.str())
+		case TimeKind:
+			if err := s.appendTime(a.Time()); err != nil {
+				s.appendError(err)
+			}
+		case Int64Kind:
+			*s.buf = strconv.AppendInt(*s.buf, a.Int64(), 10)
+		case Uint64Kind:
+			*s.buf = strconv.AppendUint(*s.buf, a.Uint64(), 10)
+		case Float64Kind:
+			f := a.Float64()
+			// json.Marshal fails on special floats, so handle them here.
+			switch {
+			case math.IsInf(f, 1):
+				s.buf.WriteString(`"+Inf"`)
+			case math.IsInf(f, -1):
+				s.buf.WriteString(`"-Inf"`)
+			case math.IsNaN(f):
+				s.buf.WriteString(`"NaN"`)
+			default:
+				// json.Marshal is funny about floats; it doesn't
+				// always match strconv.AppendFloat. So just call it.
+				// That's expensive, but floats are rare.
+				if err := appendJSONMarshal(s.buf, f); err != nil {
+					s.appendError(err)
+				}
+			}
+		case BoolKind:
+			*s.buf = strconv.AppendBool(*s.buf, a.Bool())
+		case DurationKind:
+			// Do what json.Marshal does.
+			*s.buf = strconv.AppendInt(*s.buf, int64(a.Duration()), 10)
+		case AnyKind:
+			if err := appendJSONMarshal(s.buf, a.Value()); err != nil {
+				s.appendError(err)
+			}
+		default:
+			panic(fmt.Sprintf("bad kind: %d", a.Kind()))
+		}
+	} else {
+		switch a.Kind() {
+		case StringKind:
+			s.appendString(a.str())
+		case TimeKind:
+			_ = s.appendTime(a.Time()) // can't fail?
+		case AnyKind:
+			if tm, ok := a.any.(encoding.TextMarshaler); ok {
+				data, err := tm.MarshalText()
+				if err != nil {
+					s.appendError(err)
+				}
+				// TODO: avoid the conversion to string.
+				s.appendString(string(data))
+				return
+			}
+			s.appendString(fmt.Sprint(a.Value()))
+		default:
+			*s.buf = a.appendValue(*s.buf)
+		}
 	}
 }
 
-func (s *handleState) appendTime(t time.Time) {
-	if err := s.h.app.appendTime(s.buf, t); err != nil {
-		s.appendError(err)
+func (s *handleState) appendTime(t time.Time) error {
+	if s.h.json {
+		b, err := t.MarshalJSON()
+		if err != nil {
+			return err
+		}
+		s.buf.Write(b)
+	} else {
+		*s.buf = appendTimeRFC3339Millis(*s.buf, t)
 	}
+	return nil
 }
 
 // This takes half the time of Time.AppendFormat.

@@ -6,11 +6,7 @@ package slog
 
 import (
 	"encoding/json"
-	"fmt"
 	"io"
-	"math"
-	"strconv"
-	"time"
 	"unicode/utf8"
 
 	"golang.org/x/exp/slog/internal/buffer"
@@ -30,14 +26,7 @@ func NewJSONHandler(w io.Writer) *JSONHandler {
 
 // NewJSONHandler creates a JSONHandler with the given options that writes to w.
 func (opts HandlerOptions) NewJSONHandler(w io.Writer) *JSONHandler {
-	return &JSONHandler{
-		&commonHandler{
-			app:     jsonAppender{},
-			attrSep: ',',
-			w:       w,
-			opts:    opts,
-		},
-	}
+	return &JSONHandler{&commonHandler{w: w, opts: opts, json: true}}
 }
 
 // With returns a new JSONHandler whose attributes consists
@@ -74,82 +63,6 @@ func (h *JSONHandler) With(attrs []Attr) Handler {
 // Each call to Handle results in a single serialized call to io.Writer.Write.
 func (h *JSONHandler) Handle(r Record) error {
 	return h.commonHandler.handle(r)
-}
-
-type jsonAppender struct{}
-
-func (jsonAppender) appendStart(buf *buffer.Buffer) { buf.WriteByte('{') }
-func (jsonAppender) appendEnd(buf *buffer.Buffer)   { buf.WriteByte('}') }
-
-func (a jsonAppender) appendKey(buf *buffer.Buffer, key string) {
-	a.appendString(buf, key)
-	buf.WriteByte(':')
-}
-
-func (jsonAppender) appendString(buf *buffer.Buffer, s string) {
-	*buf = appendQuotedJSONString(*buf, s)
-}
-
-func (jsonAppender) appendSource(buf *buffer.Buffer, file string, line int) {
-	buf.WriteByte('"')
-	*buf = appendJSONString(*buf, file)
-	buf.WriteByte(':')
-	itoa((*[]byte)(buf), line, -1)
-	buf.WriteByte('"')
-}
-
-func (jsonAppender) appendTime(buf *buffer.Buffer, t time.Time) error {
-	b, err := t.MarshalJSON()
-	if err != nil {
-		return err
-	}
-	buf.Write(b)
-	return nil
-}
-
-func (app jsonAppender) appendAttrValue(buf *buffer.Buffer, a Attr) error {
-	switch a.Kind() {
-	case StringKind:
-		app.appendString(buf, a.str())
-	case Int64Kind:
-		*buf = strconv.AppendInt(*buf, a.Int64(), 10)
-	case Uint64Kind:
-		*buf = strconv.AppendUint(*buf, a.Uint64(), 10)
-	case Float64Kind:
-		f := a.Float64()
-		// json.Marshal fails on special floats, so handle them here.
-		switch {
-		case math.IsInf(f, 1):
-			buf.WriteString(`"+Inf"`)
-		case math.IsInf(f, -1):
-			buf.WriteString(`"-Inf"`)
-		case math.IsNaN(f):
-			buf.WriteString(`"NaN"`)
-		default:
-			// json.Marshal is funny about floats; it doesn't
-			// always match strconv.AppendFloat. So just call it.
-			// That's expensive, but floats are rare.
-			if err := appendJSONMarshal(buf, f); err != nil {
-				return err
-			}
-		}
-	case BoolKind:
-		*buf = strconv.AppendBool(*buf, a.Bool())
-	case DurationKind:
-		// Do what json.Marshal does.
-		*buf = strconv.AppendInt(*buf, int64(a.Duration()), 10)
-	case TimeKind:
-		if err := app.appendTime(buf, a.Time()); err != nil {
-			return err
-		}
-	case AnyKind:
-		if err := appendJSONMarshal(buf, a.Value()); err != nil {
-			return err
-		}
-	default:
-		panic(fmt.Sprintf("bad kind: %d", a.Kind()))
-	}
-	return nil
 }
 
 func appendJSONMarshal(buf *buffer.Buffer, v any) error {
