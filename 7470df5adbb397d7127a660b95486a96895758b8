@@ -159,6 +159,24 @@
       "parentUuid": "8fd3ef25_0b641797",
       "revId": "7470df5adbb397d7127a660b95486a96895758b8",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c212a7c9_5908df03",
+        "filename": "slog/json_handler.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-09-29T14:59:06Z",
+      "side": 1,
+      "message": "\u003e My rewrite looked like switch{...}\n\nI think the point I\u0027m getting at is that appender isn\u0027t really a general interface, it\u0027s just the minimal abstraction over the text and json behaviors, and it seems very unlikely that it could serve a third implementation. So, if/else might be a less fussy way to implement a selection between exactly two choices. I threw together a quick sketch in https://go-review.git.corp.google.com/c/exp/+/436755/1/slog/handler.go. It\u0027s shorter and more direct but perhaps the total difference is fairly marginal. Now I really promise not to mention it again. :)\n\n\u003e Regarding performance\n\nYeah, I agree that mutex contention s probably the bigger deal.",
+      "parentUuid": "a2b2d55c_1b704de1",
+      "revId": "7470df5adbb397d7127a660b95486a96895758b8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
