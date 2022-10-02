@@ -71,6 +71,24 @@
       "parentUuid": "7e7f295f_10f1ba3b",
       "revId": "19a99a70dfa5f13d0a678777e9fa0397cd0b9f25",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f886883_dbc6fe1d",
+        "filename": "slog/json_handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-02T00:36:39Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "833044fb_2be2d0d8",
+      "revId": "19a99a70dfa5f13d0a678777e9fa0397cd0b9f25",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ],
   "submitRequirementResults": [
