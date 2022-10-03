@@ -41,6 +41,10 @@ func (h *TextHandler) With(attrs []Attr) Handler {
 	return &TextHandler{commonHandler: h.commonHandler.with(attrs)}
 }
 
+func (h *TextHandler) WithScope(name string) Handler {
+	panic("unimplemented")
+}
+
 // Handle formats its argument Record as a single line of space-separated
 // key=value items.
 //

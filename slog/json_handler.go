@@ -46,6 +46,10 @@ func (h *JSONHandler) With(attrs []Attr) Handler {
 	return &JSONHandler{commonHandler: h.commonHandler.with(attrs)}
 }
 
+func (h *JSONHandler) WithScope(name string) Handler {
+	panic("unimplemented")
+}
+
 // Handle formats its argument Record as a JSON object on a single line.
 //
 // If the Record's time is zero, the time is omitted.
