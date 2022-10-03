@@ -35,6 +35,8 @@ func (v Value) Kind() Kind {
 		return k
 	case *time.Location:
 		return TimeKind
+	case []Attr:
+		return GroupKind
 	case Marshaler:
 		return MarshalerKind
 	default:
@@ -60,4 +62,19 @@ func (v Value) String() string {
 	}
 	var buf []byte
 	return string(v.append(buf))
+}
+
+// GroupValue returns a new Value for a list of Attrs.
+func GroupValue(as ...Attr) Value {
+	return Value{any: as}
+}
+
+// Group returns the Value's value as a []Attr.
+// It panics if the Value's Kind is not GroupKind.
+func (v Value) Group() []Attr {
+	return v.group()
+}
+
+func (v Value) group() []Attr {
+	return v.any.([]Attr)
 }

@@ -57,6 +57,11 @@ func Duration(key string, v time.Duration) Attr {
 	return Attr{key, DurationValue(v)}
 }
 
+// Group returns an Attr for a Group Value.
+func Group(key string, as ...Attr) Attr {
+	return Attr{key, GroupValue(as...)}
+}
+
 // Any returns an Attr for the supplied value.
 // See [Value.AnyValue] for how values are treated.
 func Any(key string, value any) Attr {

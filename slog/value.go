@@ -9,6 +9,8 @@ import (
 	"math"
 	"strconv"
 	"time"
+
+	"golang.org/x/exp/slices"
 )
 
 // Definitions for Value.
@@ -29,6 +31,7 @@ const (
 	StringKind
 	TimeKind
 	Uint64Kind
+	GroupKind
 	MarshalerKind
 )
 
@@ -41,6 +44,7 @@ var kindStrings = []string{
 	"String",
 	"Time",
 	"Uint64",
+	"GroupKind",
 	"Marshaler",
 }
 
@@ -139,6 +143,8 @@ func AnyValue(v any) Value {
 		return Float64Value(v)
 	case float32:
 		return Float64Value(float64(v))
+	case []Attr:
+		return GroupValue(v...)
 	case Kind:
 		panic("cannot store a slog.Kind in a slog.Value")
 	case *time.Location:
@@ -153,7 +159,7 @@ func AnyValue(v any) Value {
 // Any returns the Value's value as an any.
 func (v Value) Any() any {
 	switch v.Kind() {
-	case AnyKind, MarshalerKind:
+	case AnyKind, GroupKind, MarshalerKind:
 		return v.any
 	case Int64Kind:
 		return int64(v.num)
@@ -270,6 +276,8 @@ func (v1 Value) Equal(v2 Value) bool {
 		return v1.time().Equal(v2.time())
 	case AnyKind, MarshalerKind:
 		return v1.any == v2.any // may panic if non-comparable
+	case GroupKind:
+		return slices.EqualFunc(v1.group(), v2.group(), Attr.Equal)
 	default:
 		panic(fmt.Sprintf("bad kind: %s", k1))
 	}
@@ -293,7 +301,7 @@ func (v Value) append(dst []byte) []byte {
 		return append(dst, v.duration().String()...)
 	case TimeKind:
 		return append(dst, v.time().String()...)
-	case AnyKind, MarshalerKind:
+	case AnyKind, GroupKind, MarshalerKind:
 		return append(dst, fmt.Sprint(v.any)...)
 	default:
 		panic(fmt.Sprintf("bad kind: %s", v.Kind()))
