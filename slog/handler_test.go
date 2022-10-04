@@ -160,7 +160,7 @@ func TestJSONAndTextHandlers(t *testing.T) {
 					Int("d", 4)),
 				Int("e", 5),
 			},
-			wantText: "SKIP",
+			wantText: "msg=message a=1 g.b=2 g.h.c=3 g.d=4 e=5",
 			wantJSON: `{"msg":"message","a":1,"g":{"b":2,"h":{"c":3},"d":4},"e":5}`,
 		},
 		{
@@ -171,7 +171,7 @@ func TestJSONAndTextHandlers(t *testing.T) {
 				Any("name", marshalName{"Ren", "Hoek"}),
 				Int("b", 2),
 			},
-			wantText: "SKIP",
+			wantText: "msg=message a=1 name.first=Ren name.last=Hoek b=2",
 			wantJSON: `{"msg":"message","a":1,"name":{"first":"Ren","last":"Hoek"},"b":2}`,
 		},
 		{
@@ -179,7 +179,7 @@ func TestJSONAndTextHandlers(t *testing.T) {
 			replace:  removeKeys(timeKey, levelKey),
 			with:     func(h Handler) Handler { return h.With(preAttrs).WithScope("s") },
 			attrs:    attrs,
-			wantText: "SKIP",
+			wantText: "msg=message pre=3 x=y s.a=one s.b=2",
 			wantJSON: `{"msg":"message","pre":3,"x":"y","s":{"a":"one","b":2}}`,
 		},
 		{
@@ -192,7 +192,7 @@ func TestJSONAndTextHandlers(t *testing.T) {
 					WithScope("s2")
 			},
 			attrs:    attrs,
-			wantText: "SKIP",
+			wantText: "msg=message p1=1 s1.p2=2 s1.s2.a=one s1.s2.b=2",
 			wantJSON: `{"msg":"message","p1":1,"s1":{"p2":2,"s2":{"a":"one","b":2}}}`,
 		},
 		{
@@ -204,7 +204,7 @@ func TestJSONAndTextHandlers(t *testing.T) {
 					WithScope("s2")
 			},
 			attrs:    attrs,
-			wantText: "SKIP",
+			wantText: "msg=message p1=1 s1.s2.a=one s1.s2.b=2",
 			wantJSON: `{"msg":"message","p1":1,"s1":{"s2":{"a":"one","b":2}}}`,
 		},
 	} {
@@ -222,9 +222,6 @@ func TestJSONAndTextHandlers(t *testing.T) {
 				{"json", opts.NewJSONHandler(&buf), test.wantJSON},
 			} {
 				t.Run(handler.name, func(t *testing.T) {
-					if handler.want == "SKIP" {
-						t.Skip("feature unimplemented")
-					}
 					h := handler.h
 					if test.with != nil {
 						h = test.with(h)
