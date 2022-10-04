@@ -232,6 +232,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a448c336_1cb05cae",
+        "filename": "slog/value.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-04T19:15:36Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "adc449ce_50e08474",
+      "revId": "d117352497a80efb1377936e7a39b6c52d942b3a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b727390_8cb064be",
