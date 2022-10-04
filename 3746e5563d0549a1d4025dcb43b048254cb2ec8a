@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3e92609_6730f744",
+        "filename": "slog/json_handler.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-10-04T15:27:34Z",
+      "side": 1,
+      "message": "Today I was delighted/appalled to learn that when JavaScript interprets the strings \"NaN\", \"+Infinity\", and \"-Infinity\" in a numeric context (e.g. an arithmetic operation such as unary +x), it coerces them to the corresponding IEEE754 values.\n\nThat may be a reason to spell out \"Infinity\" in full. Or not.",
+      "revId": "3746e5563d0549a1d4025dcb43b048254cb2ec8a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
