@@ -106,6 +106,24 @@
       "parentUuid": "011d33c7_c12a0ce9",
       "revId": "a1f1871b8617328c72cc7872b7ce0ab93916170e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04094212_91db336d",
+        "filename": "slog/value_safe.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-04T22:18:36Z",
+      "side": 1,
+      "message": "... what array is being referred to, since it will probably be used varargs style.",
+      "parentUuid": "f74bf5ce_7dda5a1e",
+      "revId": "a1f1871b8617328c72cc7872b7ce0ab93916170e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
