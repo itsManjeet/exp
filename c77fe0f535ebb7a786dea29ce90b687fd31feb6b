@@ -47,6 +47,54 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "422dd308_b36d2422",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-04T17:13:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2daba2d_b9470e2f",
+      "range": {
+        "startLine": 26,
+        "startChar": 57,
+        "endLine": 26,
+        "endChar": 61
+      },
+      "revId": "c77fe0f535ebb7a786dea29ce90b687fd31feb6b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9bcfe8f_410bd19d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-04T17:13:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "035cde50_504acede",
+      "range": {
+        "startLine": 26,
+        "startChar": 57,
+        "endLine": 26,
+        "endChar": 61
+      },
+      "revId": "c77fe0f535ebb7a786dea29ce90b687fd31feb6b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "155f92f5_c8c9ad55",
@@ -60,6 +108,24 @@
       "writtenOn": "2022-10-04T13:34:18Z",
       "side": 1,
       "message": "Comment on the differences between the two implementations? From my skim of the results, it appears that slog is at least as fast as zap in every benchmark when runtime.Callers is stubbed out, and usually faster when it is enabled.\n\nA CPU profile confirms that runtime.Callers really is surprisingly expensive, and so it could easily skew the whole result. I wonder what zap does for this feature, and how we can make a fair comparison.",
+      "revId": "c77fe0f535ebb7a786dea29ce90b687fd31feb6b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59d50ea9_0e87ddbb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-04T17:13:40Z",
+      "side": 1,
+      "message": "I think Zap only calls it when you explicitly ask. I don\u0027t recall how they make you ask. But it\u0027s nicer to always fetch the pc (fast, eventually) and only construct file:line when asked with a call to Record.SourceLine.\n\nProbably half the cost of the current runtime.Callers would be a place to call fair. If it doesn\u0027t get faster than that, we would consider redesigning the API to avoid it.",
+      "parentUuid": "155f92f5_c8c9ad55",
       "revId": "c77fe0f535ebb7a786dea29ce90b687fd31feb6b",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -135,6 +201,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ea935e7_f041f017",
+        "filename": "slog/benchmarks/benchmarks.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-04T17:13:40Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "690dc273_bd4a1a83",
+      "revId": "c77fe0f535ebb7a786dea29ce90b687fd31feb6b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4de87742_cb4c3a1c",
@@ -148,6 +232,24 @@
       "writtenOn": "2022-10-04T13:34:18Z",
       "side": 1,
       "message": "cd $(dirname $0)",
+      "revId": "c77fe0f535ebb7a786dea29ce90b687fd31feb6b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1eecb42_34574f63",
+        "filename": "slog/benchmarks/run_benchmarks.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-04T17:13:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4de87742_cb4c3a1c",
       "revId": "c77fe0f535ebb7a786dea29ce90b687fd31feb6b",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -169,6 +271,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc066f3f_ed522724",
+        "filename": "slog/benchmarks/zapbenchmarks/run_benchmarks.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-04T17:13:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "63dc1731_bbdbec3e",
+      "revId": "c77fe0f535ebb7a786dea29ce90b687fd31feb6b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "60372933_f5da55f5",
@@ -186,6 +306,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "75318887_b8fe0670",
+        "filename": "slog/benchmarks/zapbenchmarks/run_benchmarks.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-04T17:13:40Z",
+      "side": 1,
+      "message": "TIL! Thanks.",
+      "parentUuid": "60372933_f5da55f5",
+      "revId": "c77fe0f535ebb7a786dea29ce90b687fd31feb6b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aa2ed336_d8f0fa1e",
@@ -199,6 +337,24 @@
       "writtenOn": "2022-10-04T13:34:18Z",
       "side": 1,
       "message": "It is very surprising that one can clone a nil encoder when that\u0027s not a usable value by itself, and I wouldn\u0027t expect that this case is supported by looking at either this code or the implementation. Define a newFastTextEncoder helper?",
+      "revId": "c77fe0f535ebb7a786dea29ce90b687fd31feb6b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fecb10d_a35d3ad1",
+        "filename": "slog/benchmarks/zapbenchmarks/zap_encoders_test.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-04T17:13:40Z",
+      "side": 1,
+      "message": "Done.\nThere is some weirdness here because I copied a real zap encoder and removed functionality without seriously rewriting it.",
+      "parentUuid": "aa2ed336_d8f0fa1e",
       "revId": "c77fe0f535ebb7a786dea29ce90b687fd31feb6b",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
