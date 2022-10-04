@@ -93,6 +93,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2bbc3360_5d29b247",
+        "filename": "slog/attr.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-04T17:13:40Z",
+      "side": 1,
+      "message": "Just removed the word \"immutable.\"\nNot really our concern if they mutate a value, is it?",
+      "parentUuid": "06f608f5_d8a5a171",
+      "revId": "d117352497a80efb1377936e7a39b6c52d942b3a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0ff558d4_1290386f",
         "filename": "slog/attr.go",
         "patchSetId": 2
@@ -104,6 +122,24 @@
       "writtenOn": "2022-10-04T13:47:38Z",
       "side": 1,
       "message": "\"for a string value\"\n\nor \n\n\"whose value is a string\"\n\n? \n\n(throughout)",
+      "revId": "d117352497a80efb1377936e7a39b6c52d942b3a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "764c6984_8d745c2e",
+        "filename": "slog/attr.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-04T17:13:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ff558d4_1290386f",
       "revId": "d117352497a80efb1377936e7a39b6c52d942b3a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -121,6 +157,24 @@
       "writtenOn": "2022-10-04T13:47:38Z",
       "side": 1,
       "message": "Or you could note the no-mutation postcondition here (or at AnyValue).",
+      "revId": "d117352497a80efb1377936e7a39b6c52d942b3a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfa9512e_c18bf4a9",
+        "filename": "slog/attr.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-04T17:13:40Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5f3b4884_acca9446",
       "revId": "d117352497a80efb1377936e7a39b6c52d942b3a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -144,6 +198,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "02b5cbc2_74cfefe3",
+        "filename": "slog/value.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-04T17:13:40Z",
+      "side": 1,
+      "message": "Meh.\nMaybe I\u0027m missing something. Why do we care if they mutate it?",
+      "parentUuid": "c9627f37_f29f314f",
+      "revId": "d117352497a80efb1377936e7a39b6c52d942b3a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2b727390_8cb064be",
         "filename": "slog/value.go",
         "patchSetId": 2
@@ -155,6 +227,24 @@
       "writtenOn": "2022-10-04T13:47:38Z",
       "side": 1,
       "message": "Document this restriction? It\u0027s certainly obscure, but together with the no-mutation rule, the general precondition is \"it is not safe to log any value whatsoever\".",
+      "revId": "d117352497a80efb1377936e7a39b6c52d942b3a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7735f3b_bd9abfee",
+        "filename": "slog/value.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-04T17:13:40Z",
+      "side": 1,
+      "message": "Going to fix soon anyway.",
+      "parentUuid": "2b727390_8cb064be",
       "revId": "d117352497a80efb1377936e7a39b6c52d942b3a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
