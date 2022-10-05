@@ -36,6 +36,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "599ab05a_d4f89d57",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-05T10:55:29Z",
+      "side": 1,
+      "message": "One name idea: ReplaceLogValue.",
+      "parentUuid": "7e1316e4_6332f50e",
+      "revId": "f00f159ae149dbaba53b31c7508a94d87627d710",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "0b0d4681_f7dda7bb",
