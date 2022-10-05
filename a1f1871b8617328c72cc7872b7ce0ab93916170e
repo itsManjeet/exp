@@ -36,6 +36,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "120ee229_57577980",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-05T11:36:30Z",
+      "side": 1,
+      "message": "Actually tests will have to wait for an implementation, but I added an example here.",
+      "parentUuid": "19efdaaa_bb4454b8",
+      "revId": "a1f1871b8617328c72cc7872b7ce0ab93916170e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "05f11377_ea2b1cde",
