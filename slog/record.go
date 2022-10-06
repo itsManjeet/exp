@@ -5,6 +5,7 @@
 package slog
 
 import (
+	"context"
 	"runtime"
 	"time"
 
@@ -26,6 +27,9 @@ type Record struct {
 
 	// The level of the event.
 	level Level
+
+	// The Logger's context, non-nil if the Logger was obtained with FromContext.
+	ctx context.Context
 
 	// The pc at the time the record was constructed, as determined
 	// by runtime.Callers using the calldepth argument to NewRecord.
@@ -54,7 +58,7 @@ type Record struct {
 //
 // NewRecord is intended for logging APIs that want to support a [Handler] as
 // a backend.
-func NewRecord(t time.Time, level Level, msg string, calldepth int) Record {
+func NewRecord(t time.Time, level Level, msg string, calldepth int, ctx context.Context) Record {
 	var p uintptr
 	if calldepth > 0 {
 		p = pc(calldepth + 1)
@@ -63,6 +67,7 @@ func NewRecord(t time.Time, level Level, msg string, calldepth int) Record {
 		time:    t,
 		message: msg,
 		level:   level,
+		ctx:     ctx,
 		pc:      p,
 	}
 }
@@ -75,6 +80,12 @@ func (r Record) Message() string { return r.message }
 
 // Level returns the level of the log event.
 func (r Record) Level() Level { return r.level }
+
+// Context returns the context in the Record.
+// A Record will have a non-nil context only if
+// it was created by a Logger that was obtained
+// with [FromContext].
+func (r Record) Context() context.Context { return r.ctx }
 
 // SourceLine returns the file and line of the log event.
 // If the Record was created without the necessary information,

@@ -5,6 +5,7 @@
 package slog
 
 import (
+	"context"
 	"log"
 	"sync/atomic"
 	"time"
@@ -13,18 +14,18 @@ import (
 var defaultLogger atomic.Value
 
 func init() {
-	defaultLogger.Store(&Logger{
+	defaultLogger.Store(Logger{
 		handler: newDefaultHandler(log.Output),
 	})
 }
 
 // Default returns the default Logger.
-func Default() *Logger { return defaultLogger.Load().(*Logger) }
+func Default() Logger { return defaultLogger.Load().(Logger) }
 
 // SetDefault makes l the default Logger.
 // After this call, output from the log package's default Logger
 // (as with [log.Print], etc.) will be logged at InfoLevel using l's Handler.
-func SetDefault(l *Logger) {
+func SetDefault(l Logger) {
 	defaultLogger.Store(l)
 	// If the default's handler is a defaultHandler, then don't use a handleWriter,
 	// or we'll deadlock as try to acquire the log default mutex.
@@ -53,7 +54,7 @@ func (w *handlerWriter) Write(buf []byte) (int, error) {
 	if len(buf) > 0 && buf[len(buf)-1] == '\n' {
 		buf = buf[:len(buf)-1]
 	}
-	r := NewRecord(time.Now(), InfoLevel, string(buf), depth)
+	r := NewRecord(time.Now(), InfoLevel, string(buf), depth, nil)
 	return origLen, w.h.Handle(r)
 }
 
@@ -64,15 +65,16 @@ func (w *handlerWriter) Write(buf []byte) (int, error) {
 // Loggers are immutable; to create a new one, call [New] or [Logger.With].
 type Logger struct {
 	handler Handler // for structured logging
+	ctx     context.Context
 }
 
 // Handler returns l's Handler.
-func (l *Logger) Handler() Handler { return l.handler }
+func (l Logger) Handler() Handler { return l.handler }
 
 // With returns a new Logger whose handler's attributes are a concatenation of
 // l's attributes and the given arguments, converted to Attrs as in
 // [Logger.Log].
-func (l *Logger) With(args ...any) *Logger {
+func (l Logger) With(args ...any) Logger {
 	var (
 		attr  Attr
 		attrs []Attr
@@ -81,7 +83,7 @@ func (l *Logger) With(args ...any) *Logger {
 		attr, args = argsToAttr(args)
 		attrs = append(attrs, attr)
 	}
-	return &Logger{handler: l.handler.With(attrs)}
+	return Logger{handler: l.handler.With(attrs)}
 }
 
 // WithScope returns a new Logger with the named scope.
@@ -89,20 +91,20 @@ func (l *Logger) With(args ...any) *Logger {
 // to the given name. Two loggers with different scope names
 // but identical Attr keys will result in output without
 // duplicate keys.
-func (l *Logger) WithScope(name string) *Logger {
-	return &Logger{handler: l.handler.WithScope(name)}
+func (l Logger) WithScope(name string) Logger {
+	return Logger{handler: l.handler.WithScope(name)}
 }
 
 // New creates a new Logger with the given Handler.
-func New(h Handler) *Logger { return &Logger{handler: h} }
+func New(h Handler) Logger { return Logger{handler: h} }
 
 // With calls Logger.With on the default logger.
-func With(args ...any) *Logger {
+func With(args ...any) Logger {
 	return Default().With(args...)
 }
 
 // Enabled reports whether l emits log records at the given level.
-func (l *Logger) Enabled(level Level) bool {
+func (l Logger) Enabled(level Level) bool {
 	return l.Handler().Enabled(level)
 }
 
@@ -116,14 +118,14 @@ func (l *Logger) Enabled(level Level) bool {
 //     the following argument is treated as the value and the two are combined
 //     into an Attr.
 //   - Otherwise, the argument is treated as a value with key "!BADKEY".
-func (l *Logger) Log(level Level, msg string, args ...any) {
+func (l Logger) Log(level Level, msg string, args ...any) {
 	l.LogDepth(0, level, msg, args...)
 }
 
 // LogDepth is like [Logger.Log], but accepts a call depth to adjust the
 // file and line number in the log record. 0 refers to the caller
 // of LogDepth; 1 refers to the caller's caller; and so on.
-func (l *Logger) LogDepth(calldepth int, level Level, msg string, args ...any) {
+func (l Logger) LogDepth(calldepth int, level Level, msg string, args ...any) {
 	if !l.Enabled(level) {
 		return
 	}
@@ -138,21 +140,21 @@ var useSourceLine = true
 // Eventually, getting the pc should be fast.
 func disableSourceLine() { useSourceLine = false }
 
-func (l *Logger) makeRecord(msg string, level Level, depth int) Record {
+func (l Logger) makeRecord(msg string, level Level, depth int) Record {
 	if useSourceLine {
 		depth += 5
 	}
-	return NewRecord(time.Now(), level, msg, depth)
+	return NewRecord(time.Now(), level, msg, depth, l.ctx)
 }
 
 // LogAttrs is a more efficient version of [Logger.Log] that accepts only Attrs.
-func (l *Logger) LogAttrs(level Level, msg string, attrs ...Attr) {
+func (l Logger) LogAttrs(level Level, msg string, attrs ...Attr) {
 	l.LogAttrsDepth(0, level, msg, attrs...)
 }
 
 // LogAttrsDepth is like [Logger.LogAttrs], but accepts a call depth argument
 // which it interprets like [Logger.LogDepth].
-func (l *Logger) LogAttrsDepth(calldepth int, level Level, msg string, attrs ...Attr) {
+func (l Logger) LogAttrsDepth(calldepth int, level Level, msg string, attrs ...Attr) {
 	if !l.Enabled(level) {
 		return
 	}
@@ -162,24 +164,24 @@ func (l *Logger) LogAttrsDepth(calldepth int, level Level, msg string, attrs ...
 }
 
 // Debug logs at DebugLevel.
-func (l *Logger) Debug(msg string, args ...any) {
+func (l Logger) Debug(msg string, args ...any) {
 	l.LogDepth(0, DebugLevel, msg, args...)
 }
 
 // Info logs at InfoLevel.
-func (l *Logger) Info(msg string, args ...any) {
+func (l Logger) Info(msg string, args ...any) {
 	l.LogDepth(0, InfoLevel, msg, args...)
 }
 
 // Warn logs at WarnLevel.
-func (l *Logger) Warn(msg string, args ...any) {
+func (l Logger) Warn(msg string, args ...any) {
 	l.LogDepth(0, WarnLevel, msg, args...)
 }
 
 // Error logs at ErrorLevel.
 // If err is non-nil, Error appends Any("err", err)
 // to the list of attributes.
-func (l *Logger) Error(msg string, err error, args ...any) {
+func (l Logger) Error(msg string, err error, args ...any) {
 	if err != nil {
 		// TODO: avoid the copy.
 		args = append(args[:len(args):len(args)], Any("err", err))

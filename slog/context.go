@@ -10,15 +10,18 @@ type contextKey struct{}
 
 // NewContext returns a context that contains the given Logger.
 // Use FromContext to retrieve the Logger.
-func NewContext(ctx context.Context, l *Logger) context.Context {
+func NewContext(ctx context.Context, l Logger) context.Context {
 	return context.WithValue(ctx, contextKey{}, l)
 }
 
-// FromContext returns the Logger stored in ctx by NewContext, or the default
-// Logger if there is none.
-func FromContext(ctx context.Context) *Logger {
-	if l, ok := ctx.Value(contextKey{}).(*Logger); ok {
-		return l
+// FromContext retrieves the Logger stored in ctx by NewContext, or the default
+// Logger if there is none, and adds ctx to it. Handlers can retrieve the
+// context with [Record.Context].
+func FromContext(ctx context.Context) Logger {
+	l, ok := ctx.Value(contextKey{}).(Logger)
+	if !ok {
+		l = Default()
 	}
-	return Default()
+	l.ctx = ctx
+	return l
 }
