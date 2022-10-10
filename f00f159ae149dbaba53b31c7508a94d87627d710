@@ -90,6 +90,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d19b02d_90620904",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-10-10T21:11:30Z",
+      "side": 1,
+      "message": "\u003e I like MarshalLog because it is \"encode this for marshaling\".\n\nYeah, but Marshal functions return a message, whereas this function returns an alternative data structure to be marshaled in the usual way.\n\nI\u0027m happy with LogValue.",
+      "parentUuid": "c1c37157_af7aa3cc",
+      "revId": "f00f159ae149dbaba53b31c7508a94d87627d710",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "0b0d4681_f7dda7bb",
