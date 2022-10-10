@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45182e98_7017ad72",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 56561
+      },
+      "writtenOn": "2022-10-10T21:09:11Z",
+      "side": 1,
+      "message": "I rephrased and added an example, hope it helps to be clearer.",
+      "revId": "d61424c7125070f535905eff5af4e198dae31dd0",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
