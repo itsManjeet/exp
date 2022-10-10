@@ -18,6 +18,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2c03e57_a6a8c945",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-10T23:40:24Z",
+      "side": 1,
+      "message": "True, but no one seems to complain about this. I guess the backend processors can handle the merge?",
+      "parentUuid": "9b0b5ee4_b79825c7",
+      "revId": "15dcd6a75845801a0b2f64f573c18b650ef0767e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4aef2127_7245d896",
@@ -68,6 +86,30 @@
       "writtenOn": "2022-10-10T18:00:41Z",
       "side": 1,
       "message": "The concept of \"scope\" needs be defined and documented at Handler, and perhaps at package level. It seems related to the concept of Group: both treat the attribute key space as a tree whose nodes are identified by a dotted identifier (though each Attr key is an unrestricted string potentially containing dots).",
+      "range": {
+        "startLine": 43,
+        "startChar": 51,
+        "endLine": 43,
+        "endChar": 56
+      },
+      "revId": "15dcd6a75845801a0b2f64f573c18b650ef0767e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b44f40d_34e4aa12",
+        "filename": "slog/handler.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-10T23:40:24Z",
+      "side": 1,
+      "message": "I think my doc for WithScope is sufficient: it describes the semantics as precisely as I can (since Handlers are free to determine what \"qualified means); and it points to the relationship between scopes and groups. Can you elaborate on its deficiencies?\n\nThere will be a large package-level doc covering all the features, TBD.\n\nTextHandler will escape the dots. JSONHandler will use nested JSON objects.",
+      "parentUuid": "909c0ec3_79491f2e",
       "range": {
         "startLine": 43,
         "startChar": 51,
