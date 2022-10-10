@@ -72,6 +72,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1c37157_af7aa3cc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5056
+      },
+      "writtenOn": "2022-10-10T21:06:44Z",
+      "side": 1,
+      "message": "Replace how? or when?\nReplace seems too vague.\nI like MarshalLog because it is \"encode this for marshaling\".\nAlso I think you really need Log in the name to avoid conflicts with other methods a type might have.\n\nMaybe \n\n    type LogValuer interface {\n        LogValue() slog.Value\n    }\n\n\n(Compare with Stringer.)",
+      "parentUuid": "1cc0aa44_78d84742",
+      "revId": "f00f159ae149dbaba53b31c7508a94d87627d710",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "0b0d4681_f7dda7bb",
