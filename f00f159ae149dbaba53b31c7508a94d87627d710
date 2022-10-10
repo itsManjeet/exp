@@ -110,6 +110,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "03e12e8f_1d2dcbec",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-10T23:15:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d19b02d_90620904",
+      "revId": "f00f159ae149dbaba53b31c7508a94d87627d710",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "0b0d4681_f7dda7bb",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -195,6 +213,24 @@
       "side": 1,
       "message": "Added the boilerplate godoc.\nThis method exists because there is a getter method for each Kind.\nI think both representations treat Marshaler identically?",
       "parentUuid": "8a4eee25_bf03ba15",
+      "revId": "f00f159ae149dbaba53b31c7508a94d87627d710",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c252a26a_7fa639ce",
+        "filename": "slog/value.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-10T23:15:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d89ed263_9abc1b0b",
       "revId": "f00f159ae149dbaba53b31c7508a94d87627d710",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
