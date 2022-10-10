@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d082a99d_b99bf50e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2022-10-10T20:28:10Z",
+      "side": 1,
+      "message": "Please use complete sentences in the main content of Go commit messages, and wrap lines to 70 or so characters so that they remain legible in Gerrit.\n\n(See https://go.dev/doc/contribute#commit_messages.)",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 128
+      },
+      "revId": "1aa6fa1d5ef08526e52815b7ef39f869c0922da3",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2741634f_9609dcee",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2022-10-10T20:28:10Z",
+      "side": 1,
+      "message": "s/instanciated/instantiated/",
+      "range": {
+        "startLine": 9,
+        "startChar": 64,
+        "endLine": 9,
+        "endChar": 76
+      },
+      "revId": "1aa6fa1d5ef08526e52815b7ef39f869c0922da3",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e150e59c_1893f1b5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2022-10-10T20:28:10Z",
+      "side": 1,
+      "message": "More detail here would be helpful. (Why is it important whether c.async.read is nil in Bind? What goroutines would be started there that would affect c.Wait?)",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 37
+      },
+      "revId": "1aa6fa1d5ef08526e52815b7ef39f869c0922da3",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
