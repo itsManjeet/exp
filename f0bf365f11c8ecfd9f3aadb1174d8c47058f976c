@@ -16,6 +16,24 @@
       "message": "sep string // separator to write before next key",
       "revId": "f0bf365f11c8ecfd9f3aadb1174d8c47058f976c",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f6f624b_276b7c15",
+        "filename": "slog/handler.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-11T17:58:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ba2d8b2_d8b1b029",
+      "revId": "f0bf365f11c8ecfd9f3aadb1174d8c47058f976c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
