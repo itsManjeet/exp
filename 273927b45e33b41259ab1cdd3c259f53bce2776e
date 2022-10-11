@@ -159,6 +159,24 @@
       "parentUuid": "bbae6d58_9d3133ca",
       "revId": "273927b45e33b41259ab1cdd3c259f53bce2776e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44299498_fdc16387",
+        "filename": "slog/text_handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-11T18:02:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59ee0eae_57cd3ac7",
+      "revId": "273927b45e33b41259ab1cdd3c259f53bce2776e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
