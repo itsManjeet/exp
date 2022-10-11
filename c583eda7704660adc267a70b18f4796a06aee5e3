@@ -73,6 +73,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cbb897d0_06598d93",
+        "filename": "slog/handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-11T18:43:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc13637c_57e153e3",
+      "revId": "c583eda7704660adc267a70b18f4796a06aee5e3",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e76dabb0_d1642b10",
@@ -86,6 +104,24 @@
       "writtenOn": "2022-10-10T18:51:20Z",
       "side": 1,
       "message": "...4... // log.Output depth + len([handlerWriter.Write, defaultHandler.Handle])\n\n?",
+      "revId": "c583eda7704660adc267a70b18f4796a06aee5e3",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7b8519a_93ca227a",
+        "filename": "slog/handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-11T18:43:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e76dabb0_d1642b10",
       "revId": "c583eda7704660adc267a70b18f4796a06aee5e3",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
