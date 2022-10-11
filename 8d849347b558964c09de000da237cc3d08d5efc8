@@ -55,6 +55,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9dce67d9_737866fd",
+        "filename": "slog/handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-11T11:12:12Z",
+      "side": 1,
+      "message": "Inlined closeScopes. openScopes appears twice, would rather keep it factored out.",
+      "parentUuid": "6c7ff78c_41a5524d",
+      "revId": "8d849347b558964c09de000da237cc3d08d5efc8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c37986c6_85c83418",
@@ -68,6 +86,24 @@
       "writtenOn": "2022-10-10T18:17:09Z",
       "side": 1,
       "message": "Don\u0027t you need to save the sep state on a stack and restore it after the corresponding close on L317?  Otherwise you\u0027ll fail to emit a comma before a group item `\"g\": { ... }` appearing after an empty group `\"h\": {}`.",
+      "revId": "8d849347b558964c09de000da237cc3d08d5efc8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "355b3d21_d4844cc5",
+        "filename": "slog/handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-11T11:12:12Z",
+      "side": 1,
+      "message": "Good catch.\nI think the solution is simpler: set sep to \",\" when a group is closed.",
+      "parentUuid": "c37986c6_85c83418",
       "revId": "8d849347b558964c09de000da237cc3d08d5efc8",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
