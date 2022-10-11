@@ -53,6 +53,24 @@
       "message": "A Buffer is a slice, so in effect this is *[]byte, which is a level of indirection more than you need. If you only look at this field when !s.h.json, you can remove the pointer everwhere.",
       "revId": "0488e259f45a070a1a46049702e75fa4430601d4",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d909fe00_11561a26",
+        "filename": "slog/handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-11T12:54:57Z",
+      "side": 1,
+      "message": "I\u0027m uncomfortable about this because a *buffer.Buffer comes from a pool. If I do\n\n    prefix buffer.Buffer\n    \nthen I\u0027ll have\n\n    s.prefix \u003d *buffer.New()\n    defer s.prefix.Free()\n    \nwhich will compile, but the pointer I return to the pool is not the one I got out.\nThat will pin the handleState in memory indefinitely.\nIt also forces an allocation--I believe the handleState now escapes? Not sure, but my TextHandlerAlloc test fails and tells me there is an allocation somewhere.",
+      "parentUuid": "eccf22e6_2ba57156",
+      "revId": "0488e259f45a070a1a46049702e75fa4430601d4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
