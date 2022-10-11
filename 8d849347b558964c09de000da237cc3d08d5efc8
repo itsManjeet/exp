@@ -106,6 +106,24 @@
       "parentUuid": "c37986c6_85c83418",
       "revId": "8d849347b558964c09de000da237cc3d08d5efc8",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3d79179_dcbae504",
+        "filename": "slog/handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-10-11T13:37:53Z",
+      "side": 1,
+      "message": "Much simpler. (I was confused by a similar problem I was working on last week--see code in review comments at https://go-review.git.corp.google.com/c/tools/+/430915/6/gopls/internal/lsp/protocol/generator/handparse.go#478 --for which a stack was necessary, but you\u0027re right, here it isn\u0027t.)",
+      "parentUuid": "355b3d21_d4844cc5",
+      "revId": "8d849347b558964c09de000da237cc3d08d5efc8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
