@@ -61,6 +61,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "90a9492b_f2ebc405",
+        "filename": "slog/attr.go",
+        "patchSetId": 7
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-11T10:01:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34b42095_28e5ed6c",
+      "range": {
+        "startLine": 65,
+        "startChar": 25,
+        "endLine": 65,
+        "endChar": 39
+      },
+      "revId": "e41fdb53018553f4d210ee4e832d0a28c11139f9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f7f30c49_3e10efb8",
