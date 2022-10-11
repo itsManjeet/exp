@@ -57,6 +57,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e693e57c_bc38f4dd",
+        "filename": "apidiff/apidiff_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-11T20:16:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7556a19_663d305e",
+      "revId": "b54b8a0f297002d330361f4224ef8c221878d3d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "86599afb_fe96b59e",
         "filename": "apidiff/apidiff_test.go",
         "patchSetId": 1
@@ -68,6 +86,24 @@
       "writtenOn": "2022-10-11T19:50:54Z",
       "side": 1,
       "message": "This is likely part of the problem: as of Go 1.17, a `go.mod` file without a Go directive is supposed to be interpreted as Go 1.16. It\u0027s not clear to me why that mismatch wasn\u0027t surfacing before. 🤔\n\nBut, if I just add `go 1.18\\n` to the end of the `go.mod` file (I tried it locally just now) it triggers a panic elsewhere.",
+      "revId": "b54b8a0f297002d330361f4224ef8c221878d3d6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1cc2379_17bb50db",
+        "filename": "apidiff/apidiff_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-11T20:16:24Z",
+      "side": 1,
+      "message": "Yup, exactly what I did.",
+      "parentUuid": "86599afb_fe96b59e",
       "revId": "b54b8a0f297002d330361f4224ef8c221878d3d6",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
