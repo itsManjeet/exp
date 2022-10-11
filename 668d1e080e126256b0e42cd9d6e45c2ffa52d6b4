@@ -55,6 +55,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0e973cf_bb29556b",
+        "filename": "slog/handler.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-11T11:17:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bb16df5_a3cdcac7",
+      "revId": "668d1e080e126256b0e42cd9d6e45c2ffa52d6b4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2ec566b0_088550ce",
@@ -68,6 +86,24 @@
       "writtenOn": "2022-10-10T17:33:08Z",
       "side": 1,
       "message": "Include test.name in the error message. Ditto L51.",
+      "revId": "668d1e080e126256b0e42cd9d6e45c2ffa52d6b4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cb5e62c_bebcf0b9",
+        "filename": "slog/handler_test.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-11T11:17:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ec566b0_088550ce",
       "revId": "668d1e080e126256b0e42cd9d6e45c2ffa52d6b4",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
