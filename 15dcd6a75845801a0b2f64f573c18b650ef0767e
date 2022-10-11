@@ -118,6 +118,30 @@
       },
       "revId": "15dcd6a75845801a0b2f64f573c18b650ef0767e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "803df2db_df8b28b0",
+        "filename": "slog/handler.go",
+        "patchSetId": 6
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-10-11T03:07:10Z",
+      "side": 1,
+      "message": "\u003e Can you elaborate on its deficiencies?\n\u003e There will be a large package-level doc covering all the features, TBD.\n\nThanks, that\u0027s what I\u0027m after. The documentation on WithScope is fine; my concern is more that the reader will encounter a series of ideas piecemeal, rather than starting with a conceptual model that lays out all the major elements at once.",
+      "parentUuid": "1b44f40d_34e4aa12",
+      "range": {
+        "startLine": 43,
+        "startChar": 51,
+        "endLine": 43,
+        "endChar": 56
+      },
+      "revId": "15dcd6a75845801a0b2f64f573c18b650ef0767e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
