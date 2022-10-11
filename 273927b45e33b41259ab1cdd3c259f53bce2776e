@@ -55,6 +55,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3974c39_b56226a6",
+        "filename": "slog/handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-11T12:38:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3b789c66_c63eb803",
+      "revId": "273927b45e33b41259ab1cdd3c259f53bce2776e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8154ea33_4c297172",
@@ -72,6 +90,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca865034_90e982cc",
+        "filename": "slog/handler_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-11T12:38:26Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "8154ea33_4c297172",
+      "revId": "273927b45e33b41259ab1cdd3c259f53bce2776e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d4d5f5ea_8d3b5575",
@@ -85,6 +121,24 @@
       "writtenOn": "2022-10-10T18:39:03Z",
       "side": 1,
       "message": "Ideally these would be incorporated into the quotation of keys that we already do, or subject to a separate but similarly robust and reversible quotation.\n\nI wouldn\u0027t use hex escapes on dots alone, because some users will assume that the whole string has been consistently quoted, and will apply strconv.Quote, which will do the wrong thing. In any case, it\u0027s not the unescaped dots I\u0027m afraid of, it\u0027s the unescaped everything else (`[ \u003d\".]`).",
+      "revId": "273927b45e33b41259ab1cdd3c259f53bce2776e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbae6d58_9d3133ca",
+        "filename": "slog/text_handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-11T12:38:26Z",
+      "side": 1,
+      "message": "There are a number of problems with quotation in TextHandler, as you point out. I\u0027m hesitant to fix them in this CL, because the next one in the stack rewrites some of the prefix handling and I\u0027m worried about churn.\n\nMay we get through the current CL stack, or at least the next couple of CLs? Then I\u0027ll devote a CL to proper escaping.",
+      "parentUuid": "d4d5f5ea_8d3b5575",
       "revId": "273927b45e33b41259ab1cdd3c259f53bce2776e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
