@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74d42876_deaf668f",
+        "filename": "cmd/txtar/txtar.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2022-10-11T19:17:54Z",
+      "side": 1,
+      "message": "(nit) Is the list with or without environment variable expansion?\n\n(From the test it looks like without, which is fine, but it would be nice to clarify the comment.)",
+      "range": {
+        "startLine": 19,
+        "startChar": 3,
+        "endLine": 19,
+        "endChar": 39
+      },
+      "revId": "16108672c7720e755179ce4e8d79ff5ee53e4d65",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
