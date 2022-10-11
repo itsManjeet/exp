@@ -71,6 +71,24 @@
       "parentUuid": "eccf22e6_2ba57156",
       "revId": "0488e259f45a070a1a46049702e75fa4430601d4",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67804e57_bebfa37b",
+        "filename": "slog/handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-10-11T13:46:07Z",
+      "side": 1,
+      "message": "Of course, you\u0027re quite right: the pool would allocate and free one slice, but it would not be the same slice as is modified by handleState: the latter would initially be a copy but would then grow as needed, and those allocations would never be returned to the pool--hence the observed increase allocation.",
+      "parentUuid": "d909fe00_11561a26",
+      "revId": "0488e259f45a070a1a46049702e75fa4430601d4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
