@@ -18,6 +18,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "344a9d6d_e4859a32",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-12T21:08:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a13e01ef_1097e0da",
+      "revId": "35aeb09c70ecf117148fc33c6419bc475be12f81",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8fbf1db2_25254405",
@@ -31,6 +49,30 @@
       "writtenOn": "2022-10-12T16:43:01Z",
       "side": 1,
       "message": "Or perhaps:\n\n\"Alternative encodings that unambiguously preserve the group/key separation would make parsing more complicated than simply calling strconv.Unquote.\"",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 27,
+        "endChar": 0
+      },
+      "revId": "35aeb09c70ecf117148fc33c6419bc475be12f81",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a548561b_b6c6c333",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-12T21:08:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fbf1db2_25254405",
       "range": {
         "startLine": 17,
         "startChar": 0,
