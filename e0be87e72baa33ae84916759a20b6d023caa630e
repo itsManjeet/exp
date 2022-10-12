@@ -70,6 +70,24 @@
       "message": "Add:\n// (No user-provided value has this type.)",
       "revId": "e0be87e72baa33ae84916759a20b6d023caa630e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f798ed83_4c428010",
+        "filename": "slog/value.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-12T11:21:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "940f0c7e_889212cd",
+      "revId": "e0be87e72baa33ae84916759a20b6d023caa630e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
