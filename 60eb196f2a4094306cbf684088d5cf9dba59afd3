@@ -53,6 +53,24 @@
       "message": "Is the assumption here that (in production) there is only one instance of defaultHandler, so if the defaultLogger\u0027s handler is of that type, there\u0027s nothing to do? Might be worth an explicit comment.",
       "revId": "60eb196f2a4094306cbf684088d5cf9dba59afd3",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47083dab_63f31d50",
+        "filename": "slog/logger.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-12T21:08:26Z",
+      "side": 1,
+      "message": "Although there is only one instance, I don\u0027t think that\u0027s the relevant point here. It\u0027s that both handleWriter and defaultHandler acquire the package log mutex, so if they are both in the call chain you get self-deadlock.",
+      "parentUuid": "d97a2b79_ec04f278",
+      "revId": "60eb196f2a4094306cbf684088d5cf9dba59afd3",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
