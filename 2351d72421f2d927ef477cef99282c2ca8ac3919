@@ -53,6 +53,24 @@
       "message": "No need to capitalize Time, Message, Level in the doc comments since these words are part of the explanation, not the identifier being defined.",
       "revId": "2351d72421f2d927ef477cef99282c2ca8ac3919",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1317d71f_b092a3d8",
+        "filename": "slog/record.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-14T10:03:28Z",
+      "side": 1,
+      "message": "Of course. I don\u0027t know why I did that.",
+      "parentUuid": "70a3f650_db7aacb8",
+      "revId": "2351d72421f2d927ef477cef99282c2ca8ac3919",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
