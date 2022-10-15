@@ -12,8 +12,11 @@ func Test(t *testing.T) {
 	b.WriteString("hello")
 	b.WriteByte(',')
 	b.Write([]byte(" world"))
+	b.WriteRune('·')
+	b.WritePosIntWidth(17, 4)
+
 	got := b.String()
-	want := "hello, world"
+	want := "hello, world·0017"
 	if got != want {
 		t.Errorf("got %q, want %q", got, want)
 	}
