@@ -109,6 +109,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2ceff037_1f58c776",
+        "filename": "slog/logger.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-10-18T20:37:57Z",
+      "side": 1,
+      "message": "\u003e Couldn\u0027t we add later a method with a *Logger receiver?\n\nNot really, because in general later additions that make the value mutable will mean that making copies of it is no longer valid (for example, because it leads to aliasing problems), and lots of functions will by then exist in our code and in user code that copy Logger values.",
+      "parentUuid": "ea3dcd68_84cd067a",
+      "revId": "8db6bd7c0604ecbabd1e63aec4b951862c4adb3c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c2d43f8b_7df56487",
         "filename": "slog/record.go",
         "patchSetId": 3
