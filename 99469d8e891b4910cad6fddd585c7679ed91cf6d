@@ -53,6 +53,24 @@
       "message": "I\u0027m not sure anything is gained by using rune instead of string here. It\u0027s not more efficient and utf8.RuneLen is much less well known than len(string).",
       "revId": "99469d8e891b4910cad6fddd585c7679ed91cf6d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6b206a6_b9c282ca",
+        "filename": "slog/handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-18T20:58:04Z",
+      "side": 1,
+      "message": "Reverted.",
+      "parentUuid": "bcae45c3_7f2b2ffa",
+      "revId": "99469d8e891b4910cad6fddd585c7679ed91cf6d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
