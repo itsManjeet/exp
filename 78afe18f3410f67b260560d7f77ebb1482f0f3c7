@@ -53,6 +53,24 @@
       "message": "s/with //\n\nPerhaps add: \"Cancellation of the context does not affect record processing.\"",
       "revId": "78afe18f3410f67b260560d7f77ebb1482f0f3c7",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d7a226e_6a60fa92",
+        "filename": "slog/record.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-18T20:49:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02e9e00a_862e132a",
+      "revId": "78afe18f3410f67b260560d7f77ebb1482f0f3c7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
