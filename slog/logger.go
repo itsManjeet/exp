@@ -77,9 +77,8 @@ func (l Logger) Handler() Handler { return l.handler }
 // Context returns l's context.
 func (l Logger) Context() context.Context { return l.ctx }
 
-// With returns a new Logger whose handler's attributes are a concatenation of
-// l's attributes and the given arguments, converted to Attrs as in
-// [Logger.Log].
+// With returns a new Logger whose handler's attributes consist of both l's
+// attributes and the given arguments, converted to Attrs as in [Logger.Log].
 func (l Logger) With(args ...any) Logger {
 	var (
 		attr  Attr
