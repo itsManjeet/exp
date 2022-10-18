@@ -145,6 +145,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0f2bad47_af5c2b8e",
+        "filename": "slog/logger.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-10-18T21:36:45Z",
+      "side": 1,
+      "message": "\u003e So you\u0027re saying that if we have a method with a pointer receiver, users should expect and guard against mutation.\n\u003e However, doesn\u0027t that somewhat contradict the principle of providing a consistent view of a type (either value with value receivers, or pointer with pointer receivers)?\n\nThere\u0027s nothing theoretically wrong with providing a mix of (T) and (*T) methods for accessors and mutators, but it can be confusing to the reader, so it\u0027s common to use *T for all methods if any one of them needs it. But if we use (T) everywhere, we\u0027re basically promising that we\u0027ll never make Loggers mutable, since the copy implied by (T) methods would lead to aliasing problems.\n\nEven if Loggers remain shallowly immutable, there may be advantages to always using a pointer to refer to them: for example, less argument copying in function calls, and no allocation required for interface conversions. We can still have methods of \"functional update\" form, `(*T).WithFoo() *T`, that return a new variable rather than mutating the original, while reserving the possibility of adding mutator methods (and Clone) later.",
+      "parentUuid": "b227e063_d0300520",
+      "revId": "8db6bd7c0604ecbabd1e63aec4b951862c4adb3c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c2d43f8b_7df56487",
         "filename": "slog/record.go",
         "patchSetId": 3
