@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ea3dcd68_84cd067a",
+        "filename": "slog/logger.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-18T19:53:04Z",
+      "side": 1,
+      "message": "Removed \"immutable.\"\n\nI don\u0027t understand your second point. Couldn\u0027t we add later a method with a *Logger receiver?",
+      "parentUuid": "f57e827c_24dfda34",
+      "revId": "8db6bd7c0604ecbabd1e63aec4b951862c4adb3c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c2d43f8b_7df56487",
         "filename": "slog/record.go",
         "patchSetId": 3
@@ -102,6 +120,24 @@
       "writtenOn": "2022-10-18T17:59:09Z",
       "side": 1,
       "message": "Explain the purpose of the Context, especially as it is quite different to the norm. Contexts are usually for controlling cancellation of a task, or for providing key/value pairs, but here it is decidedly not for either of those purposes: we expect log Records to outlive their contexts, and to use Attrs for most k/v pairs.",
+      "revId": "8db6bd7c0604ecbabd1e63aec4b951862c4adb3c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d27a64c_15acc8be",
+        "filename": "slog/record.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-18T19:53:04Z",
+      "side": 1,
+      "message": "I added a line to the doc, but I think this _is_ for providing key/value pairs.\n\nAlso, I\u0027ll move this doc up to the doc for the Context field when I export it later (upstack).",
+      "parentUuid": "c2d43f8b_7df56487",
       "revId": "8db6bd7c0604ecbabd1e63aec4b951862c4adb3c",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
