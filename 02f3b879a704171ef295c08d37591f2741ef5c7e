@@ -34,6 +34,24 @@
       "parentUuid": "337940d2_ef4062b7",
       "revId": "02f3b879a704171ef295c08d37591f2741ef5c7e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "771cde6c_357d6b0c",
+        "filename": "mmap/manual_test_program.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2022-10-19T01:07:38Z",
+      "side": 1,
+      "message": "Yeah, it\u0027s deliberate, to match lines 47+ as dmitshur@ noted. I can change them to fmt.Println calls (in a follow-up commit) if you think it\u0027s worth it.",
+      "parentUuid": "34647e80_641e1715",
+      "revId": "02f3b879a704171ef295c08d37591f2741ef5c7e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
