@@ -57,16 +57,16 @@ func newDiffer(old, new *types.Package) *differ {
 	}
 }
 
-func (d *differ) incompatible(obj types.Object, part, format string, args ...interface{}) {
-	addMessage(d.incompatibles, obj, part, format, args)
+func (d *differ) incompatible(objOrString any, part, format string, args ...interface{}) {
+	addMessage(d.incompatibles, objOrString, part, format, args)
 }
 
-func (d *differ) compatible(obj types.Object, part, format string, args ...interface{}) {
-	addMessage(d.compatibles, obj, part, format, args)
+func (d *differ) compatible(objOrString any, part, format string, args ...interface{}) {
+	addMessage(d.compatibles, objOrString, part, format, args)
 }
 
-func addMessage(ms messageSet, obj types.Object, part, format string, args []interface{}) {
-	ms.add(obj, part, fmt.Sprintf(format, args...))
+func addMessage(ms messageSet, objOrString any, part, format string, args []interface{}) {
+	ms.add(objOrString, part, fmt.Sprintf(format, args...))
 }
 
 func (d *differ) checkPackage() {
@@ -184,18 +184,18 @@ func objectKindString(obj types.Object) string {
 	}
 }
 
-func (d *differ) checkCorrespondence(obj types.Object, part string, old, new types.Type) {
+func (d *differ) checkCorrespondence(objOrString any, part string, old, new types.Type) {
 	if !d.correspond(old, new) {
-		d.typeChanged(obj, part, old, new)
+		d.typeChanged(objOrString, part, old, new)
 	}
 }
 
-func (d *differ) typeChanged(obj types.Object, part string, old, new types.Type) {
+func (d *differ) typeChanged(objOrString any, part string, old, new types.Type) {
 	old = removeNamesFromSignature(old)
 	new = removeNamesFromSignature(new)
 	olds := types.TypeString(old, types.RelativeTo(d.old))
 	news := types.TypeString(new, types.RelativeTo(d.new))
-	d.incompatible(obj, part, "changed from %s to %s", olds, news)
+	d.incompatible(objOrString, part, "changed from %s to %s", olds, news)
 }
 
 // go/types always includes the argument and result names when formatting a signature.

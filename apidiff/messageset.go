@@ -15,19 +15,23 @@ import (
 //
 // The part thing is necessary. Method (Func) objects have sufficient info, but field
 // Vars do not: they just have a field name and a type, without the enclosing struct.
-type messageSet map[types.Object]map[string]string
+//
+// TODO(NOW): key can be a string too
+type messageSet map[any]map[string]string
 
 // Add a message for obj and part, overwriting a previous message
 // (shouldn't happen).
 // obj is required but part can be empty.
-func (m messageSet) add(obj types.Object, part, msg string) {
-	s := m[obj]
+//
+// TODO(NOW) can be a string tool
+func (m messageSet) add(objOrString any, part, msg string) {
+	s := m[objOrString]
 	if s == nil {
 		s = map[string]string{}
-		m[obj] = s
+		m[objOrString] = s
 	}
 	if f, ok := s[part]; ok && f != msg {
-		fmt.Printf("! second, different message for obj %s, part %q\n", obj, part)
+		fmt.Printf("! second, different message for obj %s, part %q\n", objOrString, part)
 		fmt.Printf("  first:  %s\n", f)
 		fmt.Printf("  second: %s\n", msg)
 	}
@@ -37,8 +41,11 @@ func (m messageSet) add(obj types.Object, part, msg string) {
 func (m messageSet) collect() []string {
 	var s []string
 	for obj, parts := range m {
-		// Format each object name relative to its own package.
-		objstring := objectString(obj)
+		objstring, ok := obj.(string)
+		if !ok {
+			// Format each object name relative to its own package.
+			objstring = objectString(obj.(types.Object))
+		}
 		for part, msg := range parts {
 			var p string
 

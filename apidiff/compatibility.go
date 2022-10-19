@@ -282,6 +282,7 @@ const (
 )
 
 func (d *differ) checkMethodSet(otn *types.TypeName, oldt, newt types.Type, addcompat bool) {
+	//fmt.Printf("#### checkMethodSet on TypeName %q, oldt=%+v, newt=%+v\n", otn.Name(), oldt, newt)
 	// TODO: find a way to use checkCompatibleObjectSets for this.
 	oldMethodSet := exportedMethods(oldt)
 	newMethodSet := exportedMethods(newt)
@@ -290,6 +291,7 @@ func (d *differ) checkMethodSet(otn *types.TypeName, oldt, newt types.Type, addc
 		msname = "*" + msname
 	}
 	for name, oldMethod := range oldMethodSet {
+		//fmt.Printf("    ## name %s\n", name)
 		newMethod := newMethodSet[name]
 		if newMethod == nil {
 			var part string
@@ -300,44 +302,81 @@ func (d *differ) checkMethodSet(otn *types.TypeName, oldt, newt types.Type, addc
 			// T and one for the embedded type U. We want both messages to appear,
 			// but the messageSet dedup logic will allow only one message for a given
 			// object. So use the part string to distinguish them.
-			if receiverNamedType(oldMethod).Obj() != otn {
+			// Use maybeDeref to avoid generating messages for both the value and pointer
+			// method sets.
+			if !types.Identical(maybeDeref(receiverType(oldMethod)), maybeDeref(oldt)) {
 				part = fmt.Sprintf(", method set of %s", msname)
 			}
-			d.incompatible(oldMethod, part, "removed")
+			d.incompatible(methodString(oldMethod, otn), part, "removed")
 		} else {
-			obj := oldMethod
+			key := methodString(oldMethod, otn)
 			// If a value method is changed to a pointer method and has a signature
 			// change, then we can get two messages for the same method definition: one
 			// for the value method set that says it's removed, and another for the
 			// pointer method set that says it changed. To keep both messages (since
 			// messageSet dedups), use newMethod for the second. (Slight hack.)
 			if !hasPointerReceiver(oldMethod) && hasPointerReceiver(newMethod) {
-				obj = newMethod
+				key = methodString(newMethod, otn)
 			}
-			d.checkCorrespondence(obj, "", oldMethod.Type(), newMethod.Type())
+			d.checkCorrespondence(key, "", oldMethod.Type(), newMethod.Type())
 		}
 	}
 
 	// Check for added methods.
 	for name, newMethod := range newMethodSet {
 		if oldMethodSet[name] == nil {
+			key := methodString(newMethod, otn)
 			if addcompat {
-				d.compatible(newMethod, "", "added")
+				d.compatible(key, "", "added")
 			} else {
-				d.incompatible(newMethod, "", "added")
+				d.incompatible(key, "", "added")
 			}
 		}
 	}
 }
 
+// methodString returns a string describing method. If the method's receiver is
+// a named type, then that is used for the receiver string; otherwise, the type
+// of tn is used.
+func methodString(method *types.Func, tn *types.TypeName) string {
+	var recv string
+	rt := receiverType(method)
+	isPtr := false
+	if p, ok := rt.(*types.Pointer); ok {
+		isPtr = true
+		rt = p.Elem()
+	}
+	if nt, ok := rt.(*types.Named); ok {
+		recv = nt.Obj().Name()
+	} else {
+		recv = tn.Name()
+		if _, ok := tn.Type().(*types.Pointer); ok {
+			isPtr = true
+		}
+	}
+	if isPtr {
+		recv = "(*" + recv + ")"
+	}
+	return dotjoin(recv, method.Name())
+}
+
+// maybeDeref returns t unless t is a pointer type, in which case it returns
+// t.Elem().
+func maybeDeref(t types.Type) types.Type {
+	if p, ok := t.(*types.Pointer); ok {
+		return p.Elem()
+	}
+	return t
+}
+
 // exportedMethods collects all the exported methods of type's method set.
-func exportedMethods(t types.Type) map[string]types.Object {
-	m := map[string]types.Object{}
+func exportedMethods(t types.Type) map[string]*types.Func {
+	m := map[string]*types.Func{}
 	ms := types.NewMethodSet(t)
 	for i := 0; i < ms.Len(); i++ {
 		obj := ms.At(i).Obj()
 		if obj.Exported() {
-			m[obj.Name()] = obj
+			m[obj.Name()] = obj.(*types.Func)
 		}
 	}
 	return m
