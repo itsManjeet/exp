@@ -107,6 +107,24 @@
       "parentUuid": "22bac82e_f54bcbbc",
       "revId": "5ffc863c22dc4943ddabf3f83cc541c55d5a0160",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5e17c9c_1984bc4f",
+        "filename": "slog/handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-10-19T16:43:32Z",
+      "side": 1,
+      "message": "Sorry, I\u0027m being a bit thick today: of course Logger.With just returns whatever the Handler.WithAttrs returns, so there\u0027s no way (or need) for it to specify anything more than that interface.",
+      "parentUuid": "7d5853ee_2c429ece",
+      "revId": "5ffc863c22dc4943ddabf3f83cc541c55d5a0160",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
