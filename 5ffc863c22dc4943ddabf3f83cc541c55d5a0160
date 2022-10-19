@@ -53,6 +53,24 @@
       "message": "I guess this in response to the consensus we formed with Russ that attributes are in spirit a disjoint set of key/value pairs in no particular order, and than handlers are free to reorder or remove duplicates as they please. But did we say we would stop promising to preserve attributes\u0027 \"listness\" even in the Logger  \u003c-\u003e Handler interface? I don\u0027t recall.",
       "revId": "5ffc863c22dc4943ddabf3f83cc541c55d5a0160",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b14f5775_ad2a4106",
+        "filename": "slog/handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-19T13:47:18Z",
+      "side": 1,
+      "message": "This is actually from a request on the discussion to avoid that requirement. I think the particular example was removing trace/span information from the list.\nIn general, Handlers should not be required to preserve anything about the Attrs (or at least, I don\u0027t know how to formulate a minimum requirement), although our built-in ones preserve order and don\u0027t remove anything.",
+      "parentUuid": "7027842f_43429b74",
+      "revId": "5ffc863c22dc4943ddabf3f83cc541c55d5a0160",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
