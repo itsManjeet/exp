@@ -71,6 +71,24 @@
       "parentUuid": "7027842f_43429b74",
       "revId": "5ffc863c22dc4943ddabf3f83cc541c55d5a0160",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22bac82e_f54bcbbc",
+        "filename": "slog/handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-10-19T14:39:00Z",
+      "side": 1,
+      "message": "OK. The change here makes sense since it specifies the minimum behavior for an interface, but the comment change at Logger seems vague given that it\u0027s a concrete function that takes an ordered list. I think we should keep this comment and revert  that comment.",
+      "parentUuid": "b14f5775_ad2a4106",
+      "revId": "5ffc863c22dc4943ddabf3f83cc541c55d5a0160",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
