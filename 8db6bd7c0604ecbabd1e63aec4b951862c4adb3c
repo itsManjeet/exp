@@ -163,6 +163,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a534e717_96da37ec",
+        "filename": "slog/logger.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-19T01:28:29Z",
+      "side": 1,
+      "message": "Now I remember: we made Logger a value type so that Logger.WithContext doesn\u0027t allocate. It needs to be fast.",
+      "parentUuid": "0f2bad47_af5c2b8e",
+      "revId": "8db6bd7c0604ecbabd1e63aec4b951862c4adb3c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c2d43f8b_7df56487",
         "filename": "slog/record.go",
         "patchSetId": 3
