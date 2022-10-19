@@ -89,6 +89,24 @@
       "parentUuid": "b14f5775_ad2a4106",
       "revId": "5ffc863c22dc4943ddabf3f83cc541c55d5a0160",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d5853ee_2c429ece",
+        "filename": "slog/handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-19T15:59:54Z",
+      "side": 1,
+      "message": "We can\u0027t totally revert it to restore the \"concatenation\" phrasing because it would be incorrect in general. But I also don\u0027t want to merely say that it delegates to its handler. I took a shot at a rephrasing.",
+      "parentUuid": "22bac82e_f54bcbbc",
+      "revId": "5ffc863c22dc4943ddabf3f83cc541c55d5a0160",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
