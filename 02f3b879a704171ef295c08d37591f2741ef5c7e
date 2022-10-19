@@ -16,6 +16,24 @@
       "message": "Did you mean to merge this println call?",
       "revId": "02f3b879a704171ef295c08d37591f2741ef5c7e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34647e80_641e1715",
+        "filename": "mmap/manual_test_program.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2022-10-19T00:36:05Z",
+      "side": 1,
+      "message": "I\u0027ll note it looked unusual to me too until I noticed that this program uses println (instead of fmt.Println) on lines 47 onwards. Nigel can answer more definitively.",
+      "parentUuid": "337940d2_ef4062b7",
+      "revId": "02f3b879a704171ef295c08d37591f2741ef5c7e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
