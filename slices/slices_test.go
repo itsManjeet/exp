@@ -6,6 +6,7 @@ package slices
 
 import (
 	"math"
+	"reflect"
 	"strings"
 	"testing"
 
@@ -613,4 +614,50 @@ func TestClip(t *testing.T) {
 	if cap(s2) != 3 {
 		t.Errorf("cap(Clip(%v)) = %d, want 3", orig, cap(s2))
 	}
+}
+
+// naiveReplace is a baseline implementation to the Replace function.
+func naiveReplace[S ~[]E, E any](s S, i, j int, v ...E) S {
+	s = Delete(s, i, j)
+	s = Insert(s, i, v...)
+	return s
+}
+
+func TestReplace(t *testing.T) {
+	for _, test := range []struct {
+		s, v []int
+		i, j int
+	}{
+		{}, // all zero value
+		{
+			s: []int{1, 2, 3, 4},
+			v: []int{5, 6, 7, 8},
+			i: 1,
+			j: 2,
+		},
+	} {
+		ss, vv := Clone(test.s), Clone(test.v)
+		want := naiveReplace(ss, test.i, test.j, vv...)
+		got := Replace(test.s, test.i, test.j, test.v...)
+		if !reflect.DeepEqual(got, want) {
+			t.Errorf("Replace(%v, %v, %v, %v) = %v, want %v", test.s, test.i, test.j, test.v, got, want)
+		}
+	}
+}
+
+func BenchmarkReplace(b *testing.B) {
+	b.Run("naive", func(b *testing.B) {
+		for k := 0; k < b.N; k++ {
+			s := make([]int, 100)
+			v := make([]int, 20)
+			_ = naiveReplace(s, 10, 30, v...)
+		}
+	})
+	b.Run("optimized", func(b *testing.B) {
+		for k := 0; k < b.N; k++ {
+			s := make([]int, 100)
+			v := make([]int, 20)
+			_ = Replace(s, 10, 30, v...)
+		}
+	})
 }

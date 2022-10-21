@@ -229,3 +229,12 @@ func Grow[S ~[]E, E any](s S, n int) S {
 func Clip[S ~[]E, E any](s S) S {
 	return s[:len(s):len(s)]
 }
+
+// Replace replaces the elements s[i:j] by the given v, and returns the
+// modified slice. Replace panics if s[i:j] is not a valid slice of s.
+func Replace[S ~[]E, E any](s S, i, j int, v ...E) S {
+	t := s[j:]
+	s = append(s[:i], v...)
+	s = append(s, t...)
+	return s
+}
