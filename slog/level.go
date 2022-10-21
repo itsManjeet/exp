@@ -22,8 +22,10 @@ type Level int
 // the default value for int, zero.
 //
 // Second, we wanted to make it easy to work with verbosities instead of levels.
-// Verbosities start at 0 corresponding to Info, and larger values are less severe
-// Negating a verbosity converts it into a Level.
+// Verbosities start at 0 corresponding to Info, and larger values are less
+// severe.
+// Negating a verbosity is one way to convert it into a Level. For example,
+// to log at verbosity 2, call [Logger.Log] with -2.
 //
 // Third, we wanted some room between levels to accommodate schemes with named
 // levels between ours. For example, Google Cloud Logging defines a Notice level
