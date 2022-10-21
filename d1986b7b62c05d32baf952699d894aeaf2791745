@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8806a78c_5df8890d",
+        "filename": "slices/slices.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 8541
+      },
+      "writtenOn": "2022-10-21T18:44:42Z",
+      "side": 1,
+      "message": "No, this implementation doesn\u0027t work. See https://go.dev/play/p/wNV-dF9hQMU. Because the first line isn\u0027t a copy, it just appends part of itself to itself after overwriting the original data. A proper implementation will probably need to grow the slice if necessary, then copy the parts after the modified part to wherever their new start is, and then copy the new data into place.",
+      "parentUuid": "d0890665_65e26710",
+      "revId": "d1986b7b62c05d32baf952699d894aeaf2791745",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0794b48c_8d16d277",
         "filename": "slices/slices_test.go",
         "patchSetId": 1
