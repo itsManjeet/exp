@@ -59,6 +59,30 @@
       },
       "revId": "aaaaef97a73d7d9e8f82b357485f82e1894a0350",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3787bac1_5737e7cf",
+        "filename": "slog/handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-25T13:35:02Z",
+      "side": 1,
+      "message": "...except that keyComponentSep is a byte now.\n\nAdded doc.",
+      "parentUuid": "47e8690d_0d2b666c",
+      "range": {
+        "startLine": 343,
+        "startChar": 54,
+        "endLine": 343,
+        "endChar": 55
+      },
+      "revId": "aaaaef97a73d7d9e8f82b357485f82e1894a0350",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
