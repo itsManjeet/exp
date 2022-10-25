@@ -27,6 +27,8 @@ import (
 type Handler interface {
 	// Enabled reports whether the handler handles records at the given level.
 	// The handler ignores records whose level is lower.
+	// Enabled is called early, before any arguments are processed,
+	// to save effort if the log event should be discarded.
 	Enabled(Level) bool
 
 	// Handle handles the Record.
