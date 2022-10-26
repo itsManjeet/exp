@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd19624a_0a66ac80",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 32345
+      },
+      "writtenOn": "2022-10-26T15:50:40Z",
+      "side": 1,
+      "message": "For context, Fuchsia would like to use the generic libraries in x/exp, and this is required to ensure compliance with our licensing policies: https://fxbug.dev/113141#c2\n\nLet me know if you\u0027d like me to organize this differently in any way.",
+      "revId": "6db1cdbc1920763a0dd56e0312377cf89c71636c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
