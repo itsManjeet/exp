@@ -62,7 +62,7 @@ func splitIntoPackages(t *testing.T, dir string) (incompatibles, compatibles []s
 	if err := os.MkdirAll(filepath.Join(dir, "src", "apidiff"), 0700); err != nil {
 		t.Fatal(err)
 	}
-	if err := os.WriteFile(filepath.Join(dir, "src", "apidiff", "go.mod"), []byte("module apidiff\n"), 0666); err != nil {
+	if err := os.WriteFile(filepath.Join(dir, "src", "apidiff", "go.mod"), []byte("module apidiff\n"), 0600); err != nil {
 		t.Fatal(err)
 	}
 
