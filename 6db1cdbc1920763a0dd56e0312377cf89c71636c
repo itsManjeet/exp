@@ -16,6 +16,23 @@
       "message": "For context, Fuchsia would like to use the generic libraries in x/exp, and this is required to ensure compliance with our licensing policies: https://fxbug.dev/113141#c2\n\nLet me know if you\u0027d like me to organize this differently in any way.",
       "revId": "6db1cdbc1920763a0dd56e0312377cf89c71636c",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ccb50f5_a7456747",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5899
+      },
+      "writtenOn": "2022-10-27T02:27:18Z",
+      "side": 1,
+      "message": "LGTM (yes, I agree that shiny/materialdesign/icons is derived from github.com/google/material-design-icons and should be similarly licensed).\n\nI\u0027m not 100% sure how LICENSE files should be managed inside golang.org/x repos but maybe dmitshur@ can give a definitive answer.\n\nIn any case, I believe you will need dmitshur@\u0027s +1 before you can submit, for the \"Review-Enforcement\" presubmit check.",
+      "revId": "6db1cdbc1920763a0dd56e0312377cf89c71636c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
