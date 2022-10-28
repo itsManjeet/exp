@@ -33,6 +33,41 @@
       "message": "LGTM (yes, I agree that shiny/materialdesign/icons is derived from github.com/google/material-design-icons and should be similarly licensed).\n\nI\u0027m not 100% sure how LICENSE files should be managed inside golang.org/x repos but maybe dmitshur@ can give a definitive answer.\n\nIn any case, I believe you will need dmitshur@\u0027s +1 before you can submit, for the \"Review-Enforcement\" presubmit check.",
       "revId": "6db1cdbc1920763a0dd56e0312377cf89c71636c",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8204766_772d7f5d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2022-10-28T14:52:53Z",
+      "side": 1,
+      "message": "Thanks.",
+      "revId": "6db1cdbc1920763a0dd56e0312377cf89c71636c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e81b2cda_56c16f7f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2022-10-28T14:52:53Z",
+      "side": 1,
+      "message": "\u003e I\u0027m not 100% sure how LICENSE files should be managed inside golang.org/x repos but maybe dmitshur@ can give a definitive answer.\n\nPlacing it in the relevant subdirectory like this looks right to me. There are similar examples in other golang.org/x repos, like https://cs.opensource.google/go/go/+/master:src/cmd/vendor/github.com/google/pprof/LICENSE and https://cs.opensource.google/go/x/website/+/master:_content/tour/static/lib/codemirror/LICENSE.\n\n\u003e In any case, I believe you will need dmitshur@\u0027s +1 before you can submit, for the \"Review-Enforcement\" presubmit check.\n\nIt\u0027s already satisfied now. The CL was uploaded by a Google employee, so it only needed one more +1 from another, that you left.",
+      "parentUuid": "0ccb50f5_a7456747",
+      "revId": "6db1cdbc1920763a0dd56e0312377cf89c71636c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
