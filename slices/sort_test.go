@@ -13,13 +13,22 @@ import (
 	"testing"
 )
 
-var ints = [...]int{74, 59, 238, -784, 9845, 959, 905, 0, 0, 42, 7586, -5467984, 7586}
-var float64s = [...]float64{74.3, 59.0, math.Inf(1), 238.2, -784.0, 2.3, math.Inf(-1), 9845.768, -959.7485, 905, 7.8, 7.8, 74.3, 59.0, math.Inf(1), 238.2, -784.0, 2.3}
-var float64sWithNaNs = [...]float64{74.3, 59.0, math.Inf(1), 238.2, -784.0, 2.3, math.NaN(), math.NaN(), math.Inf(-1), 9845.768, -959.7485, 905, 7.8, 7.8}
-var strs = [...]string{"", "Hello", "foo", "bar", "foo", "f00", "%*&^*&^&", "***"}
+var (
+	ints             = [...]int{74, 59, 238, -784, 9845, 959, 905, 0, 0, 42, 7586, -5467984, 7586}
+	float64s         = [...]float64{74.3, 59.0, math.Inf(1), 238.2, -784.0, 2.3, math.Inf(-1), 9845.768, -959.7485, 905, 7.8, 7.8, 74.3, 59.0, math.Inf(1), 238.2, -784.0, 2.3}
+	float64sWithNaNs = [...]float64{74.3, 59.0, math.Inf(1), 238.2, -784.0, 2.3, math.NaN(), math.NaN(), math.Inf(-1), 9845.768, -959.7485, 905, 7.8, 7.8}
+	float32sWithNaNs = [...]float32{74.3, 59.0, float32(math.NaN()), 238.2, -784.0, 2.3, float32(math.NaN()), float32(math.NaN()), float32(math.NaN()), 9845.768, -959.7485, 905, 7.8, 7.8}
+	strs             = [...]string{"", "Hello", "foo", "bar", "foo", "f00", "%*&^*&^&", "***"}
+)
+
+func copyslice[E any](x []E) []E {
+	y := make([]E, len(x))
+	copy(y, x)
+	return y
+}
 
 func TestSortIntSlice(t *testing.T) {
-	data := ints[:]
+	data := copyslice(ints[:])
 	Sort(data)
 	if !IsSorted(data) {
 		t.Errorf("sorted %v", ints)
@@ -28,7 +37,7 @@ func TestSortIntSlice(t *testing.T) {
 }
 
 func TestSortFuncIntSlice(t *testing.T) {
-	data := ints[:]
+	data := copyslice(ints[:])
 	SortFunc(data, func(a, b int) bool { return a < b })
 	if !IsSorted(data) {
 		t.Errorf("sorted %v", ints)
@@ -37,7 +46,7 @@ func TestSortFuncIntSlice(t *testing.T) {
 }
 
 func TestSortFloat64Slice(t *testing.T) {
-	data := float64s[:]
+	data := copyslice(float64s[:])
 	Sort(data)
 	if !IsSorted(data) {
 		t.Errorf("sorted %v", float64s)
@@ -46,19 +55,33 @@ func TestSortFloat64Slice(t *testing.T) {
 }
 
 func TestSortFloat64SliceWithNaNs(t *testing.T) {
-	data := float64sWithNaNs[:]
-	input := make([]float64, len(float64sWithNaNs))
-	for i := range input {
-		input[i] = float64sWithNaNs[i]
-	}
-	// Make sure Sort doesn't panic when the slice contains NaNs.
+	data := copyslice(float64sWithNaNs[:])
 	Sort(data)
-	// Check whether the result is a permutation of the input.
-	sort.Float64s(data)
-	sort.Float64s(input)
-	for i, v := range input {
-		if data[i] != v && !(math.IsNaN(data[i]) && math.IsNaN(v)) {
-			t.Fatalf("the result is not a permutation of the input\ngot %v\nwant %v", data, input)
+	if !IsSorted(data) {
+		t.Errorf("sorted %v", float64sWithNaNs)
+		t.Errorf("   got %v", data)
+	}
+}
+
+func TestSortFloat32SliceWithNaNs(t *testing.T) {
+	data := copyslice(float32sWithNaNs[:])
+	Sort(data)
+	if !IsSorted(data) {
+		t.Errorf("sorted %v", float32sWithNaNs)
+		t.Errorf("   got %v", data)
+	}
+}
+
+func TestSortSyncWithFloat64s(t *testing.T) {
+	s1 := copyslice(float64sWithNaNs[:])
+	s2 := copyslice(float64sWithNaNs[:])
+	Sort(s1)
+	sort.Float64s(s2)
+	for i := 0; i < len(float64sWithNaNs); i++ {
+		if s1[i] != s2[i] && !math.IsNaN(s1[i]) {
+			t.Errorf("sorted   %v", float64sWithNaNs)
+			t.Errorf("expected %v", s1)
+			t.Errorf("got      %v", s2)
 		}
 	}
 }
