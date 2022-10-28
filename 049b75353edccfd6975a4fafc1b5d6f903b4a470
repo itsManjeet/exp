@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11ffe026_85130ef1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2022-10-28T19:42:15Z",
+      "side": 1,
+      "message": "Thanks.  This seems to change the behavior of sorting slices with floating point values.  This should at least be discussed on an issue, possibly a proposal, rather than in a patch.\n\nPutting on hold pending more discussion.",
+      "revId": "049b75353edccfd6975a4fafc1b5d6f903b4a470",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
