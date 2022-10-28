@@ -5,6 +5,7 @@
 package slices
 
 import (
+	"math"
 	"math/rand"
 	"sort"
 	"strings"
@@ -198,5 +199,54 @@ func BenchmarkSortFuncStructs(b *testing.B) {
 		ss := makeRandomStructs(N)
 		b.StartTimer()
 		SortFunc(ss, lessFunc)
+	}
+}
+
+func makeRandomFloats(n int) []float64 {
+	rand.Seed(42)
+	floats := make([]float64, n)
+	for i := 0; i < n; i++ {
+		floats[i] = rand.Float64()
+	}
+	return floats
+}
+
+func BenchmarkSortFloats(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		b.StopTimer()
+		ss := makeRandomFloats(N)
+		b.StartTimer()
+		sort.Float64s(ss)
+	}
+}
+
+func BenchmarkSlicesSortFloats(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		b.StopTimer()
+		ss := makeRandomFloats(N)
+		b.StartTimer()
+		Sort(ss)
+	}
+}
+
+func makeRandomFloatsWithNaNs(n int) []float64 {
+	rand.Seed(42)
+	floats := make([]float64, n)
+	for i := 0; i < n; i++ {
+		if rand.Intn(100) == 0 {
+			floats[i] = math.NaN()
+		} else {
+			floats[i] = rand.Float64()
+		}
+	}
+	return floats
+}
+
+func BenchmarkSlicesSortFloatsWithNaNs(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		b.StopTimer()
+		ss := makeRandomFloatsWithNaNs(N)
+		b.StartTimer()
+		Sort(ss)
 	}
 }

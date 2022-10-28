@@ -5,18 +5,37 @@
 package slices
 
 import (
+	"math"
 	"math/bits"
+	"reflect"
+	"unsafe"
 
 	"golang.org/x/exp/constraints"
 )
 
 // Sort sorts a slice of any ordered type in ascending order.
-// Sort may fail to sort correctly when sorting slices of floating-point
-// numbers containing Not-a-number (NaN) values.
-// Use slices.SortFunc(x, func(a, b float64) bool {return a < b || (math.IsNaN(a) && !math.IsNaN(b))})
-// instead if the input may contain NaNs.
 func Sort[E constraints.Ordered](x []E) {
 	n := len(x)
+	var tmp E
+	typ := reflect.ValueOf(tmp).Kind()
+	switch typ {
+	case reflect.Float64:
+		for _, e := range x {
+			if e != e {
+				// The slice contain NaN values.
+				pdqsortLessFunc(*(*[]float64)(unsafe.Pointer(&x)), 0, n, bits.Len(uint(n)), func(a, b float64) bool { return a < b || (math.IsNaN(a) && !math.IsNaN(b)) })
+				return
+			}
+		}
+	case reflect.Float32:
+		for _, e := range x {
+			if e != e {
+				// The slice contain NaN values.
+				pdqsortLessFunc(*(*[]float32)(unsafe.Pointer(&x)), 0, n, bits.Len(uint(n)), func(a, b float32) bool { return a < b || (isNaN32(a) && !isNaN32(b)) })
+				return
+			}
+		}
+	}
 	pdqsortOrdered(x, 0, n, bits.Len(uint(n)))
 }
 
@@ -124,4 +143,8 @@ func (r *xorshift) Next() uint64 {
 
 func nextPowerOfTwo(length int) uint {
 	return 1 << bits.Len(uint(length))
+}
+
+func isNaN32(f float32) bool {
+	return f != f
 }
