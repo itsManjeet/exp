@@ -112,6 +112,46 @@ func Index[E comparable](s []E, v E) int {
 	return -1
 }
 
+// Max returns the value and index of the largest element in s.
+// NaNs are immediately returned by this function when found.
+func Max[E constraints.Ordered](s []E) (max E, idx int) {
+	if len(s) == 0 {
+		return max, -1
+	}
+	max = s[0]
+	for i, vs := range s {
+		switch {
+		case vs > max:
+			idx = i
+			max = vs
+		case vs != vs:
+			// Propagate NaN.
+			return vs, i
+		}
+	}
+	return max, idx
+}
+
+// Min returns the value and index of the smallest element in s.
+// NaNs are immediately returned by this function when found.
+func Min[E constraints.Ordered](s []E) (min E, idx int) {
+	if len(s) == 0 {
+		return min, -1
+	}
+	min = s[0]
+	for i, vs := range s {
+		switch {
+		case vs < min:
+			idx = i
+			min = vs
+		case vs != vs:
+			// Propagate NaN.
+			return vs, i
+		}
+	}
+	return min, idx
+}
+
 // IndexFunc returns the first index i satisfying f(s[i]),
 // or -1 if none do.
 func IndexFunc[E any](s []E, f func(E) bool) int {
