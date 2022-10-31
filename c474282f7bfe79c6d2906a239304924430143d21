@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "212114d4_c9f3553c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-31T10:12:06Z",
+      "side": 1,
+      "message": "Thanks for catching this.",
+      "revId": "c474282f7bfe79c6d2906a239304924430143d21",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b372d26b_62c7c4d4",
+        "filename": "slog/logger_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-10-31T10:12:06Z",
+      "side": 1,
+      "message": "You can remove the backslash.",
+      "range": {
+        "startLine": 20,
+        "startChar": 62,
+        "endLine": 20,
+        "endChar": 63
+      },
+      "revId": "c474282f7bfe79c6d2906a239304924430143d21",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
