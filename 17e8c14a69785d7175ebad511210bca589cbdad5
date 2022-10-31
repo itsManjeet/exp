@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48a19b62_2ecfbdbe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2022-10-31T02:52:17Z",
+      "side": 1,
+      "message": "Thanks.  New API like this should go through the proposal process.  See https://go.dev/s/proposal.  Putting on hold pending a proposal.  Thanks.",
+      "revId": "17e8c14a69785d7175ebad511210bca589cbdad5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
