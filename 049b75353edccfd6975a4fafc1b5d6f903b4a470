@@ -16,6 +16,24 @@
       "message": "Thanks.  This seems to change the behavior of sorting slices with floating point values.  This should at least be discussed on an issue, possibly a proposal, rather than in a patch.\n\nPutting on hold pending more discussion.",
       "revId": "049b75353edccfd6975a4fafc1b5d6f903b4a470",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3dbd8c42_1e66e3a9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 44188
+      },
+      "writtenOn": "2022-10-31T04:39:22Z",
+      "side": 1,
+      "message": "Oops, I thought it was a TODO instead of a behavior change. Agree that we need a related proposal: https://github.com/golang/go/issues/56491",
+      "parentUuid": "11ffe026_85130ef1",
+      "revId": "049b75353edccfd6975a4fafc1b5d6f903b4a470",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
