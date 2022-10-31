@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87099d5a_463bd2ed",
+        "filename": "slog/level.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-10-31T20:27:05Z",
+      "side": 1,
+      "message": "Much better!",
+      "revId": "05cedabc055c66dc7b901b941962754663607648",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
