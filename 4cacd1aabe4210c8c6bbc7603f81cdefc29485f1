@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "114b9fc3_c779e939",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 5200
+      },
+      "writtenOn": "2022-11-01T14:54:28Z",
+      "side": 1,
+      "message": "I\u0027m not sure I believe that your CL makes Sort on floats no slower. You\u0027re essentially invoking SortFunc from Sort under the hood, and It looks to me that SortFunc is quite a bit slower than Sort (30%-ish) on floats.",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 16
+      },
+      "revId": "4cacd1aabe4210c8c6bbc7603f81cdefc29485f1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26ecde7c_3013dd97",
+        "filename": "slices/sort.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 5200
+      },
+      "writtenOn": "2022-11-01T14:54:28Z",
+      "side": 1,
+      "message": "Not really sure we should do this, but if we do here\u0027s an idea:\n\n\tfor _, e :\u003d range x {\n\t\tif e !\u003d e {\n\t\t\t... use reflect switch code ...\n\t\t\treturn\n\t\t}\n\t}\n\tpdqsortOrdered(x, 0, n, bits.Len(uint(n)))\n\nFor non-floats, the e!\u003de condition gets compiled away, and the loop body is completely empty. For floats, the vast majority of users would have no NaNs, so this strategy would let them use the fast non-func version in the common case.\n\n(Currently in the non-float case the loop persists even though its body is empty. We could fix that in the compiler. And in any case it would be really fast.)",
+      "revId": "4cacd1aabe4210c8c6bbc7603f81cdefc29485f1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
