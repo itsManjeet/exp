@@ -53,6 +53,24 @@
       "message": "This does help and I think I understand now, but I think it could be clearer. If I understand correctly, \u0027level\u0027 equates to \u0027level of severity\u0027, \u0027verbosity\u0027 equates to \u0027level of verbosity\u0027, and severity and verbosity are inverses more or less. I think it would help to state this explicitly, and to use \u0027more positive values\u0027 instead of \u0027larger values\u0027. It is usually assumed that \u0027larger\u0027 is synonymous with \u0027more positive\u0027, but interpreting \u0027larger\u0027 as \u0027more negative\u0027 is not completely unreasonable so I think it\u0027s worth it to be explicit. What do you think of the following?\n\n\u003e Second we wanted to make it easy to work with verbosity levels in addition to (or instead of) severity levels. Typically verbosity levels start at 0 corresponding to Info, and more positive values are more verbose/less severe. Typically severity levels start at 0 corresponding to Info, and more positive values are more severe. Level combines severity and verbosity levels into a single scale by fixing Info at 0 and negating verbosity such that more positive levels are more severe and more negative levels are more verbose.",
       "revId": "cf979f016528b8bf64a164d6030218ea43cad94d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "682f1db8_c16b8dd8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-11-02T16:37:29Z",
+      "side": 1,
+      "message": "Sorry for the delay; I wanted the proposal to land to see if its reviewers had suggestions about this.\n\nI took some of what you wrote and combined it with what I had. PTAL.",
+      "parentUuid": "a5c9ab68_3f407649",
+      "revId": "cf979f016528b8bf64a164d6030218ea43cad94d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
