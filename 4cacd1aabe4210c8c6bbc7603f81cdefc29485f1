@@ -24,6 +24,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4613947_961dd418",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 44188
+      },
+      "writtenOn": "2022-11-02T09:06:00Z",
+      "side": 1,
+      "message": "Done. Updated the benchmark, the previous one is something wrong.",
+      "parentUuid": "114b9fc3_c779e939",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 16
+      },
+      "revId": "4cacd1aabe4210c8c6bbc7603f81cdefc29485f1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "26ecde7c_3013dd97",
@@ -37,6 +61,24 @@
       "writtenOn": "2022-11-01T14:54:28Z",
       "side": 1,
       "message": "Not really sure we should do this, but if we do here\u0027s an idea:\n\n\tfor _, e :\u003d range x {\n\t\tif e !\u003d e {\n\t\t\t... use reflect switch code ...\n\t\t\treturn\n\t\t}\n\t}\n\tpdqsortOrdered(x, 0, n, bits.Len(uint(n)))\n\nFor non-floats, the e!\u003de condition gets compiled away, and the loop body is completely empty. For floats, the vast majority of users would have no NaNs, so this strategy would let them use the fast non-func version in the common case.\n\n(Currently in the non-float case the loop persists even though its body is empty. We could fix that in the compiler. And in any case it would be really fast.)",
+      "revId": "4cacd1aabe4210c8c6bbc7603f81cdefc29485f1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c3f4e25_af7ec32e",
+        "filename": "slices/sort.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 44188
+      },
+      "writtenOn": "2022-11-02T09:06:00Z",
+      "side": 1,
+      "message": "Nice idea! I made some minor changes to it, how about the current implementation?\n\nThe above implementation added some overheads on the non-float case, the current one only added these overheads on the float case, once the compiler fixes that, the two implementation performances are almost the same.\n\nIf we don\u0027t fix that in the compiler, the current one won\u0027t make significant performance degradation.\n\nWe can see the overhead in the benchmark.\n\n(the above implementation VS the original implementation)\n```\nname                        old time/op  new time/op  delta\nSortInts-16                 9.80ms ± 0%  9.80ms ± 0%     ~     (p\u003d0.780 n\u003d9+10)\nSlicesSortInts-16           5.21ms ± 0%  5.22ms ± 0%   +0.25%  (p\u003d0.000 n\u003d10+10)\nSlicesSortInts_Sorted-16    48.9µs ± 0%  72.7µs ± 0%  +48.74%  (p\u003d0.000 n\u003d8+10)\nSlicesSortInts_Reversed-16  76.9µs ± 0%  99.6µs ± 1%  +29.61%  (p\u003d0.000 n\u003d10+10)\nSortStrings-16              20.4ms ± 0%  20.4ms ± 0%     ~     (p\u003d0.739 n\u003d10+10)\nSlicesSortStrings-16        16.4ms ± 0%  16.5ms ± 0%   +0.60%  (p\u003d0.000 n\u003d10+10)\nSortStructs-16              13.4ms ± 1%  13.4ms ± 1%     ~     (p\u003d0.579 n\u003d10+10)\nSortFuncStructs-16          10.8ms ± 4%  10.8ms ± 2%     ~     (p\u003d1.000 n\u003d10+10)\nSortFloats-16               11.2ms ± 0%  11.2ms ± 0%     ~     (p\u003d0.143 n\u003d10+10)\nSlicesSortFloats-16         5.72ms ± 0%  5.74ms ± 0%   +0.39%  (p\u003d0.000 n\u003d10+10)\n```\n\n(the above implementation VS the current implementation)\n```\nname                         old time/op  new time/op  delta\nSortInts-16                  9.80ms ± 0%  9.80ms ± 0%     ~     (p\u003d0.720 n\u003d10+9)\nSlicesSortInts-16            5.22ms ± 0%  5.20ms ± 0%   -0.34%  (p\u003d0.000 n\u003d10+8)\nSlicesSortInts_Sorted-16     72.7µs ± 0%  48.3µs ± 2%  -33.66%  (p\u003d0.000 n\u003d10+10)\nSlicesSortInts_Reversed-16    100µs ± 1%    77µs ± 0%  -22.83%  (p\u003d0.000 n\u003d10+10)\nSortStrings-16               20.4ms ± 0%  20.4ms ± 0%     ~     (p\u003d0.720 n\u003d10+9)\nSlicesSortStrings-16         16.5ms ± 0%  16.4ms ± 0%   -0.51%  (p\u003d0.000 n\u003d10+10)\nSortStructs-16               13.4ms ± 1%  13.4ms ± 1%     ~     (p\u003d0.549 n\u003d10+9)\nSortFuncStructs-16           10.8ms ± 2%  10.9ms ± 1%     ~     (p\u003d0.842 n\u003d10+9)\nSortFloats-16                11.2ms ± 0%  11.2ms ± 0%     ~     (p\u003d0.315 n\u003d10+10)\nSlicesSortFloats-16          5.74ms ± 0%  5.77ms ± 0%   +0.49%  (p\u003d0.000 n\u003d10+10)\nSlicesSortFloatsWithNaNs-16  8.78ms ± 0%  8.89ms ± 0%   +1.30%  (p\u003d0.000 n\u003d10+10)\n```",
+      "parentUuid": "26ecde7c_3013dd97",
       "revId": "4cacd1aabe4210c8c6bbc7603f81cdefc29485f1",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
