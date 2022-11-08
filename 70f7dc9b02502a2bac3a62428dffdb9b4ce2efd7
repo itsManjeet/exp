@@ -61,6 +61,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "17833f91_742b642c",
+        "filename": "slog/level.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-11-08T20:17:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e6c81ca_40ca92b9",
+      "range": {
+        "startLine": 17,
+        "startChar": 3,
+        "endLine": 17,
+        "endChar": 55
+      },
+      "revId": "70f7dc9b02502a2bac3a62428dffdb9b4ce2efd7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "decc6ca2_43d27d8b",
@@ -74,6 +98,24 @@
       "writtenOn": "2022-11-08T20:05:11Z",
       "side": 1,
       "message": "The reader at this point probably thinks a verbosity is the same as a level; only at the end of this paragraph is it clear that it\u0027s the opposite.  How about:\n\n\n\"Second, we wanted to make it easy to use levels to specify logger verbosity. Since a larger level means a more severe event, a logger that accepts events with smaller (or more negative) level means a more verbose logger. Logger verbosity is thus the negation of event severity, and the default verbosity of 0 accepts all events at least as severe as INFO.\"",
+      "revId": "70f7dc9b02502a2bac3a62428dffdb9b4ce2efd7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c618546_102d354b",
+        "filename": "slog/level.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-11-08T20:17:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "decc6ca2_43d27d8b",
       "revId": "70f7dc9b02502a2bac3a62428dffdb9b4ce2efd7",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
