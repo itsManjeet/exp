@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "704fa284_1ade4f27",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-11-08T21:03:13Z",
+      "side": 1,
+      "message": "Escape analysis for the win?",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 15
+      },
+      "revId": "d514303c4c7904b0994ec8b00348dbeef5bc5aec",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6ea527b6_04d65889",
