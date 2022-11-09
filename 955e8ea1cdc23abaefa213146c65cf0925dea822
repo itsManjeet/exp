@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed79f586_d025ec8b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2022-11-09T20:14:42Z",
+      "side": 1,
+      "message": "Write this as:\n\nslices: return quickly for Compact of one element",
+      "revId": "955e8ea1cdc23abaefa213146c65cf0925dea822",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13ff7c8c_5ece5f6c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2022-11-09T20:14:42Z",
+      "side": 1,
+      "message": "Then you can remove this line, as it just repeats the topic.\n\nDo this by editing the title and first comment of the GitHub pull request.\n\nThanks.",
+      "revId": "955e8ea1cdc23abaefa213146c65cf0925dea822",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
