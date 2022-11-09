@@ -53,6 +53,24 @@
       "message": "The optimization is unsound if h.level refers to a LevelVar that is dynamically modified. Remove it?",
       "revId": "8838ef678c4ac0da2352315518b92446cc772a21",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "279b2219_fa41ea2c",
+        "filename": "slog/example_level_handler_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-11-09T00:30:13Z",
+      "side": 1,
+      "message": "I don\u0027t see that. LevelHandler.Enabled bypasses the underlying handler; the other methods just delegate. Therefore LevelHandlers other than the first are no-ops. Perhaps I\u0027m missing something.\n\nI think the flaw, if there is one, is in the overall design, not the optimization. By skipping the underlying Enabled, we ignore all its logic, even if that logic is not level-related.",
+      "parentUuid": "76e190da_758aa986",
+      "revId": "8838ef678c4ac0da2352315518b92446cc772a21",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
