@@ -71,6 +71,24 @@
       "parentUuid": "76e190da_758aa986",
       "revId": "8838ef678c4ac0da2352315518b92446cc772a21",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fd57469_c7615b40",
+        "filename": "slog/example_level_handler_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-11-09T02:01:08Z",
+      "side": 1,
+      "message": "\u003e LevelHandlers other than the first are no-ops.\n\nAh, of course, it\u0027s a safe no-op to call Handle(r) when !Enabled(r.Level); I was concerned that it was bypassing a necessary check, but it\u0027s only an optimization. So it\u0027s not unsound, but it might conceivably be an pessmization.\n\n\n\u003e By skipping the underlying Enabled, we ignore all its logic, even if that logic is not level-related.\n\nWhat other logic could there be in Enabled other than level-related? That\u0027s the only part of the record it gets to look at. (The Handler might still reject a record for more complicated reasons, but that\u0027s consistent with the contract.)",
+      "parentUuid": "279b2219_fa41ea2c",
+      "revId": "8838ef678c4ac0da2352315518b92446cc772a21",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
