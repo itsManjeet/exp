@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0530611e_699691f8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2022-11-10T18:00:09Z",
+      "side": 1,
+      "message": "Write this as\n\nslices: add Sorted function\n\n(See https://go.dev/wiki/CommitMessage)",
+      "revId": "3e7933206a51ed6bdde22813c9d903a2df3b077b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1d72f58_c8f52186",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2022-11-10T18:00:09Z",
+      "side": 1,
+      "message": "New API like this needs to go through the proposal process described at https://go.dev/s/proposal.  Thanks.\n\nAlso this should have a test.",
+      "revId": "3e7933206a51ed6bdde22813c9d903a2df3b077b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f978470b_b782a90c",
+        "filename": "slices/sort.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2022-11-10T18:00:09Z",
+      "side": 1,
+      "message": "Note that in Go an array is not a slice.  This comment should talk about slices, not arrays.  Thanks.",
+      "revId": "3e7933206a51ed6bdde22813c9d903a2df3b077b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
