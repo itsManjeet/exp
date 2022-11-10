@@ -22,6 +22,30 @@
       },
       "revId": "16108672c7720e755179ce4e8d79ff5ee53e4d65",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6218235_bbac5d8e",
+        "filename": "cmd/txtar/txtar.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 13550
+      },
+      "writtenOn": "2022-11-10T11:42:49Z",
+      "side": 1,
+      "message": "The other parts of the docs say when expansion happens, so I thought that not saying anything here would be enough. But yeah, I\u0027ve made it explicit now.\n\nI needed to _not_ expand in --list because otherwise it\u0027s impossible to reuse the original txtar filenames, e.g. when recreating the original file.",
+      "parentUuid": "74d42876_deaf668f",
+      "range": {
+        "startLine": 19,
+        "startChar": 3,
+        "endLine": 19,
+        "endChar": 39
+      },
+      "revId": "16108672c7720e755179ce4e8d79ff5ee53e4d65",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
