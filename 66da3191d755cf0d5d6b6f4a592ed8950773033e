@@ -61,6 +61,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b17c1cb2_3223b300",
+        "filename": "slog/doc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-11-10T21:23:52Z",
+      "side": 1,
+      "message": "done, approximately",
+      "parentUuid": "470a63b3_f1f404a3",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 52
+      },
+      "revId": "66da3191d755cf0d5d6b6f4a592ed8950773033e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "143b19c8_380e0a9f",
@@ -74,6 +98,30 @@
       "writtenOn": "2022-11-09T02:33:29Z",
       "side": 1,
       "message": "\"which provides several methods (such as [Logger.Info] and [Logger.Error]) for reporting events of interest.\" ?",
+      "range": {
+        "startLine": 9,
+        "startChar": 29,
+        "endLine": 9,
+        "endChar": 65
+      },
+      "revId": "66da3191d755cf0d5d6b6f4a592ed8950773033e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b548060f_619f1b49",
+        "filename": "slog/doc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-11-10T21:23:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "143b19c8_380e0a9f",
       "range": {
         "startLine": 9,
         "startChar": 29,
@@ -107,6 +155,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce68aaed_f32ce5a8",
+        "filename": "slog/doc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-11-10T21:23:52Z",
+      "side": 1,
+      "message": "Don\u0027t want to say \"record\" before I define it, so added something like this one sentence later.",
+      "parentUuid": "08588d9d_bd522ef3",
+      "range": {
+        "startLine": 10,
+        "startChar": 15,
+        "endLine": 10,
+        "endChar": 17
+      },
+      "revId": "66da3191d755cf0d5d6b6f4a592ed8950773033e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "274d6d9c_4ae9a488",
@@ -120,6 +192,30 @@
       "writtenOn": "2022-11-09T02:33:29Z",
       "side": 1,
       "message": "\"A log record\"",
+      "range": {
+        "startLine": 16,
+        "startChar": 6,
+        "endLine": 16,
+        "endChar": 11
+      },
+      "revId": "66da3191d755cf0d5d6b6f4a592ed8950773033e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "239c8400_16fc23a9",
+        "filename": "slog/doc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-11-10T21:23:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "274d6d9c_4ae9a488",
       "range": {
         "startLine": 16,
         "startChar": 6,
@@ -147,6 +243,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "61337496_caff8449",
+        "filename": "slog/doc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-11-10T21:23:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21bf431c_4b232868",
+      "revId": "66da3191d755cf0d5d6b6f4a592ed8950773033e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "29263b4b_54c05c8d",
@@ -160,6 +274,30 @@
       "writtenOn": "2022-11-09T02:33:29Z",
       "side": 1,
       "message": "\"As an example, this call\n...\ncreates a record containing the time...\"",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 25
+      },
+      "revId": "66da3191d755cf0d5d6b6f4a592ed8950773033e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ecc151bb_ce1638a8",
+        "filename": "slog/doc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-11-10T21:23:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29263b4b_54c05c8d",
       "range": {
         "startLine": 18,
         "startChar": 0,
@@ -193,6 +331,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "17b599af_d417cbfc",
+        "filename": "slog/doc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-11-10T21:23:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f111d194_1b3bca3c",
+      "range": {
+        "startLine": 28,
+        "startChar": 36,
+        "endLine": 28,
+        "endChar": 59
+      },
+      "revId": "66da3191d755cf0d5d6b6f4a592ed8950773033e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3be2e73a_2a338724",
@@ -206,6 +368,30 @@
       "writtenOn": "2022-11-09T02:33:29Z",
       "side": 1,
       "message": "\"The default logger formats the log record\u0027s message, time, level, and attributes as a string and passes it to the [log] package.\"",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 14
+      },
+      "revId": "66da3191d755cf0d5d6b6f4a592ed8950773033e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2a693cf_08d8b066",
+        "filename": "slog/doc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-11-10T21:23:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3be2e73a_2a338724",
       "range": {
         "startLine": 32,
         "startChar": 0,
@@ -239,6 +425,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "04087d83_62944780",
+        "filename": "slog/doc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-11-10T21:23:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "868049b2_94a5d916",
+      "range": {
+        "startLine": 37,
+        "startChar": 41,
+        "endLine": 37,
+        "endChar": 44
+      },
+      "revId": "66da3191d755cf0d5d6b6f4a592ed8950773033e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9ab1e0c3_5613a752",
@@ -252,6 +462,30 @@
       "writtenOn": "2022-11-09T02:33:29Z",
       "side": 1,
       "message": "os.Stderr",
+      "range": {
+        "startLine": 39,
+        "startChar": 43,
+        "endLine": 39,
+        "endChar": 53
+      },
+      "revId": "66da3191d755cf0d5d6b6f4a592ed8950773033e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82c40dd6_264afb57",
+        "filename": "slog/doc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-11-10T21:23:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ab1e0c3_5613a752",
       "range": {
         "startLine": 39,
         "startChar": 43,
@@ -279,6 +513,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "df32621d_36909657",
+        "filename": "slog/doc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-11-10T21:23:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1315647c_f0add0dd",
+      "revId": "66da3191d755cf0d5d6b6f4a592ed8950773033e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "30215305_02383dd2",
@@ -302,6 +554,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b614e223_4d3d4daf",
+        "filename": "slog/doc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-11-10T21:23:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30215305_02383dd2",
+      "range": {
+        "startLine": 49,
+        "startChar": 17,
+        "endLine": 49,
+        "endChar": 29
+      },
+      "revId": "66da3191d755cf0d5d6b6f4a592ed8950773033e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de70f948_8361edaa",
@@ -315,6 +591,30 @@
       "writtenOn": "2022-11-09T02:33:29Z",
       "side": 1,
       "message": "\"produces this output:\"",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 10
+      },
+      "revId": "66da3191d755cf0d5d6b6f4a592ed8950773033e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66c1b1a0_7bfe6c21",
+        "filename": "slog/doc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-11-10T21:23:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de70f948_8361edaa",
       "range": {
         "startLine": 54,
         "startChar": 0,
