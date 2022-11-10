@@ -20,6 +20,17 @@ func Sort[E constraints.Ordered](x []E) {
 	pdqsortOrdered(x, 0, n, bits.Len(uint(n)))
 }
 
+
+// Sorted does the same as Sort but returns a new sorted array instead of
+// sorting in place. Sorted sorts a slice of any ordered type in ascending
+// order. Sorted may fail to sort correctly when sorting slices of
+// floating-point numbers containing Not-a-number (NaN) values.
+func Sorted[E constraints.Ordered](x []E) []E {
+	y := Clone(x)
+	Sort(y)
+	return y
+}
+
 // SortFunc sorts the slice x in ascending order as determined by the less function.
 // This sort is not guaranteed to be stable.
 //
