@@ -61,6 +61,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ef19904_7d797527",
+        "filename": "slog/doc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-11-26T14:58:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d04901f_c6649f51",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 24
+      },
+      "revId": "12b6ed50a2e5b9d1b67c58a17f9974de956465eb",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c0801b83_979cc14a",
@@ -102,6 +126,54 @@
         "startChar": 46,
         "endLine": 89,
         "endChar": 50
+      },
+      "revId": "12b6ed50a2e5b9d1b67c58a17f9974de956465eb",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a652c61_f607b85d",
+        "filename": "slog/doc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-11-26T14:58:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9daaa261_0536442f",
+      "range": {
+        "startLine": 89,
+        "startChar": 46,
+        "endLine": 89,
+        "endChar": 50
+      },
+      "revId": "12b6ed50a2e5b9d1b67c58a17f9974de956465eb",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "889823c8_0d996942",
+        "filename": "slog/doc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-11-26T14:58:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0801b83_979cc14a",
+      "range": {
+        "startLine": 89,
+        "startChar": 58,
+        "endLine": 89,
+        "endChar": 66
       },
       "revId": "12b6ed50a2e5b9d1b67c58a17f9974de956465eb",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
@@ -153,6 +225,54 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "472c3d26_42edb2e8",
+        "filename": "slog/doc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-11-26T14:58:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "931381b5_2cc93897",
+      "range": {
+        "startLine": 95,
+        "startChar": 26,
+        "endLine": 95,
+        "endChar": 31
+      },
+      "revId": "12b6ed50a2e5b9d1b67c58a17f9974de956465eb",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "722eea04_dd46cd01",
+        "filename": "slog/doc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-11-26T14:58:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e2bc44d_42d76409",
+      "range": {
+        "startLine": 94,
+        "startChar": 44,
+        "endLine": 95,
+        "endChar": 1
+      },
+      "revId": "12b6ed50a2e5b9d1b67c58a17f9974de956465eb",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d057bc9a_2d3dfa60",
@@ -166,6 +286,30 @@
       "writtenOn": "2022-11-14T16:50:16Z",
       "side": 1,
       "message": "\"severe the event\"",
+      "range": {
+        "startLine": 113,
+        "startChar": 31,
+        "endLine": 113,
+        "endChar": 37
+      },
+      "revId": "12b6ed50a2e5b9d1b67c58a17f9974de956465eb",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11d4b223_f873c062",
+        "filename": "slog/doc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-11-26T14:58:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d057bc9a_2d3dfa60",
       "range": {
         "startLine": 113,
         "startChar": 31,
@@ -199,6 +343,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4752da12_bfc378ee",
+        "filename": "slog/doc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-11-26T14:58:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b987374_2f2954e5",
+      "range": {
+        "startLine": 115,
+        "startChar": 8,
+        "endLine": 115,
+        "endChar": 15
+      },
+      "revId": "12b6ed50a2e5b9d1b67c58a17f9974de956465eb",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d6d22ea9_a4040363",
@@ -212,6 +380,30 @@
       "writtenOn": "2022-11-14T16:50:16Z",
       "side": 1,
       "message": "Is this worth mentioning? I would expect nearly everyone to use the standard levels. That the formatting of the in-between ones is non-lossy is just a nice detail.",
+      "range": {
+        "startLine": 116,
+        "startChar": 1,
+        "endLine": 117,
+        "endChar": 50
+      },
+      "revId": "12b6ed50a2e5b9d1b67c58a17f9974de956465eb",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "544cbf56_cf9c8dfe",
+        "filename": "slog/doc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-11-26T14:58:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d6d22ea9_a4040363",
       "range": {
         "startLine": 116,
         "startChar": 1,
@@ -245,6 +437,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa936d74_79288878",
+        "filename": "slog/doc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-11-26T14:58:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f440753a_6a13f6a6",
+      "range": {
+        "startLine": 119,
+        "startChar": 31,
+        "endLine": 119,
+        "endChar": 35
+      },
+      "revId": "12b6ed50a2e5b9d1b67c58a17f9974de956465eb",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c06b638b_13463338",
@@ -258,6 +474,30 @@
       "writtenOn": "2022-11-14T16:50:16Z",
       "side": 1,
       "message": "It\u0027s not immediately obvious that the previous Level is a field whereas this one is a type. Perhaps:\n\n\"The verbosity level of the built-in handlers can be configured through the [HandlerOptions.Level] field. Setting it to a constant of type [Level] fixes the handler\u0027s verbosity throughout its lifetime. Setting it to a [LevelVar] allows the verbosity to be varied dynamically. A LevelVar holds...\"",
+      "range": {
+        "startLine": 124,
+        "startChar": 17,
+        "endLine": 124,
+        "endChar": 22
+      },
+      "revId": "12b6ed50a2e5b9d1b67c58a17f9974de956465eb",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14bf86f9_dab29a5e",
+        "filename": "slog/doc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-11-26T14:58:52Z",
+      "side": 1,
+      "message": "Chose different prose. I want to avoid \"verbosity\" as a general term, limiting it to mean what logr means.",
+      "parentUuid": "c06b638b_13463338",
       "range": {
         "startLine": 124,
         "startChar": 17,
