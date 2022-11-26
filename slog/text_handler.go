@@ -6,8 +6,10 @@ package slog
 
 import (
 	"encoding"
+	"encoding/base64"
 	"fmt"
 	"io"
+	"reflect"
 	"unicode"
 	"unicode/utf8"
 )
@@ -103,11 +105,29 @@ func appendTextValue(s *handleState, v Value) error {
 			s.appendString(string(data))
 			return nil
 		}
+		if bs, ok := byteSlice(v.any); ok {
+			s.appendString(base64.StdEncoding.EncodeToString(bs))
+			return nil
+		}
 		s.appendString(fmt.Sprint(v.Any()))
 	default:
 		*s.buf = v.append(*s.buf)
 	}
 	return nil
+}
+
+// byteSlice returns its argument as a []byte if the argument's
+// underlying type is []byte, along with a second return value of true.
+// Otherwise it returns nil, false.
+func byteSlice(a any) ([]byte, bool) {
+	if bs, ok := a.([]byte); ok {
+		return bs, true
+	}
+	t := reflect.TypeOf(a)
+	if t.Kind() == reflect.Slice && t.Elem().Kind() == reflect.Uint8 {
+		return reflect.ValueOf(a).Bytes(), true
+	}
+	return nil, false
 }
 
 func needsQuoting(s string) bool {
