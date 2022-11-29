@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "baf31eea_1fc925f7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-11-29T14:37:31Z",
+      "side": 1,
+      "message": "But that\u0027s because JSON has no way to express binary strings or byte arrays, unlike Go. strconv.Quote has the advantage that if the string is text---or mostly text---then you can still read it. (And if it\u0027s not text, why are you logging it?)\n\nAlso, Go mostly treats byte slice and strings as equivalent. Users of an allocation-conscious logging package might be disappointed at being forced to allocate a string when they have a []byte in hand.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 24
+      },
+      "revId": "e4c4208ac8fc3749efb3c5612bfaedecd48aa7b0",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e39444ce_1eb98ebb",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
