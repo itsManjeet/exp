@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8c59a78_d2256e48",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2022-11-30T23:14:40Z",
+      "side": 1,
+      "message": "Please add\n\nFixes #53983",
+      "revId": "db53a138d674d8daba5783ddbb3a2f733d46e0a3",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a17fe32_e9466e0b",
+        "filename": "slices/slices.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2022-11-30T23:14:40Z",
+      "side": 1,
+      "message": "I think f(s[*]) is a bit confusing.  How about\n\nContainsFunc reports whether at least one element e of s satisfies f(e).",
+      "revId": "db53a138d674d8daba5783ddbb3a2f733d46e0a3",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
