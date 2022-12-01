@@ -69,6 +69,24 @@
       "parentUuid": "9a17fe32_e9466e0b",
       "revId": "db53a138d674d8daba5783ddbb3a2f733d46e0a3",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d612530_21cdea5e",
+        "filename": "slices/slices.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 5065
+      },
+      "writtenOn": "2022-12-01T16:54:03Z",
+      "side": 1,
+      "message": "Forget to git push?",
+      "parentUuid": "8e153661_a214f7fd",
+      "revId": "db53a138d674d8daba5783ddbb3a2f733d46e0a3",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
