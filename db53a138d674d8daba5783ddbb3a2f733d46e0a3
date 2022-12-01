@@ -105,6 +105,24 @@
       "parentUuid": "4d612530_21cdea5e",
       "revId": "db53a138d674d8daba5783ddbb3a2f733d46e0a3",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "479e3844_1e77d763",
+        "filename": "slices/slices.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2022-12-01T17:17:18Z",
+      "side": 1,
+      "message": "(Unresolving.)",
+      "parentUuid": "875dc3eb_760a1e36",
+      "revId": "db53a138d674d8daba5783ddbb3a2f733d46e0a3",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
