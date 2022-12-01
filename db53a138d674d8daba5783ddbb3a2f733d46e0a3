@@ -87,6 +87,24 @@
       "parentUuid": "8e153661_a214f7fd",
       "revId": "db53a138d674d8daba5783ddbb3a2f733d46e0a3",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "875dc3eb_760a1e36",
+        "filename": "slices/slices.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2022-12-01T17:16:58Z",
+      "side": 1,
+      "message": "I don\u0027t see this yet.  I also want to note that E is a type, so f(E) wouldn\u0027t make sense.",
+      "parentUuid": "4d612530_21cdea5e",
+      "revId": "db53a138d674d8daba5783ddbb3a2f733d46e0a3",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
