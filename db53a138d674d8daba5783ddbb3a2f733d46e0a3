@@ -123,6 +123,24 @@
       "parentUuid": "875dc3eb_760a1e36",
       "revId": "db53a138d674d8daba5783ddbb3a2f733d46e0a3",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac163a10_cc405d8c",
+        "filename": "slices/slices.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 57743
+      },
+      "writtenOn": "2022-12-01T21:07:26Z",
+      "side": 1,
+      "message": "\u003e Forget to git push?\n\nAlmost, forget that I\u0027ve just booted and need to enter ssh key password. Sorry guys.\n\n\u003e I also want to note that E is a type, so f(E) wouldn\u0027t make sense.\n\nThank you, I had the same thought.",
+      "parentUuid": "479e3844_1e77d763",
+      "revId": "db53a138d674d8daba5783ddbb3a2f733d46e0a3",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
