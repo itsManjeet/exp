@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76585310_0471f568",
+        "filename": "slices/slices.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2022-12-01T23:53:55Z",
+      "side": 1,
+      "message": "I would prefer \"e\" rather than \"E\".  Do you think that \"E\" is better?  Thanks.",
+      "revId": "0eb794ba543b3ad2b71a848489787e17fd928e1d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
