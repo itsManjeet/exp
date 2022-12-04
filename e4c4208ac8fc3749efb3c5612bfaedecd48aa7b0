@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c0793b31_704d97f0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-12-04T15:24:18Z",
+      "side": 1,
+      "message": "I suppose byte slices arise as bits of opaque matter from other systems (or one\u0027s own). They are rare but do appear: my Zap corpus has them at 0.2% of all attributes.\n\nI think it\u0027s reasonable for TextHandler to write them nicer than\n\n   [64, 88, 128, 45, 51]\n   \nThe human reader is unlikely to be able to make sense of the content (though a log processor might), so something the eye can easily skim over would be nice.\n\nstrconv.Quote assumes the slice is in Unicode, so that []byte{0xCF, 0x80} prints as \"π\". Whether that\u0027s desirable depends on whether one thinks, as you do, that these byte slices are likely to be text. I think they\u0027re unlikely to be.\n\nHow about encoding/hex?",
+      "parentUuid": "baf31eea_1fc925f7",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 24
+      },
+      "revId": "e4c4208ac8fc3749efb3c5612bfaedecd48aa7b0",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e39444ce_1eb98ebb",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
