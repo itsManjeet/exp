@@ -331,7 +331,7 @@ func TestSetDefault(t *testing.T) {
 func TestLoggerError(t *testing.T) {
 	var buf bytes.Buffer
 
-	removeTime := func(a Attr) Attr {
+	removeTime := func(_ []string, a Attr) Attr {
 		if a.Key == TimeKey {
 			return Attr{}
 		}
