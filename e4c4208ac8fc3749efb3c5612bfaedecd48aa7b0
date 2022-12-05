@@ -72,6 +72,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "82e15bc9_62a6921d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-12-05T21:21:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38757967_2d050bb9",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 24
+      },
+      "revId": "e4c4208ac8fc3749efb3c5612bfaedecd48aa7b0",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e39444ce_1eb98ebb",
@@ -122,6 +146,24 @@
       "writtenOn": "2022-12-05T17:55:58Z",
       "side": 1,
       "message": "// Like Printf\u0027s %s, we allow both the slice type and the byte element type to be named.",
+      "revId": "e4c4208ac8fc3749efb3c5612bfaedecd48aa7b0",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8460fc4_5c9d80af",
+        "filename": "slog/text_handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-12-05T21:21:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e529b349_3fc2b680",
       "revId": "e4c4208ac8fc3749efb3c5612bfaedecd48aa7b0",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
