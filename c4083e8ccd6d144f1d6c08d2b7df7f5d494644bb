@@ -16,6 +16,23 @@
       "message": "New API like this requires a proposal.  See https://go.dev/s/proposal.  Placing this CL on hold until a proposal is made and accepted.  Thanks.",
       "revId": "c4083e8ccd6d144f1d6c08d2b7df7f5d494644bb",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39587c7b_5f9652a3",
+        "filename": "maps/maps.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 55763
+      },
+      "writtenOn": "2022-12-08T12:56:23Z",
+      "side": 1,
+      "message": "Could be made more efficient by preallocating the required capacity\n```\nvar sum int\nfor _, v :\u003d range m {\n  sum +\u003d len(v)\n}\nr :\u003d make(M, sum)\n```",
+      "revId": "c4083e8ccd6d144f1d6c08d2b7df7f5d494644bb",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
