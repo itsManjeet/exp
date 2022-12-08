@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6092c993_1d85d162",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2022-12-08T04:22:42Z",
+      "side": 1,
+      "message": "New API like this requires a proposal.  See https://go.dev/s/proposal.  Placing this CL on hold until a proposal is made and accepted.  Thanks.",
+      "revId": "c4083e8ccd6d144f1d6c08d2b7df7f5d494644bb",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
