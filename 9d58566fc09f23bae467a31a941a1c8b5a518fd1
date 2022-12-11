@@ -24,6 +24,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cf775f1_2ee3000f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-12-11T13:25:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b2e9cc7_37de63ab",
+      "range": {
+        "startLine": 7,
+        "startChar": 18,
+        "endLine": 7,
+        "endChar": 32
+      },
+      "revId": "9d58566fc09f23bae467a31a941a1c8b5a518fd1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8e9357d0_8b2ec97d",
@@ -37,6 +61,30 @@
       "writtenOn": "2022-12-05T21:42:23Z",
       "side": 1,
       "message": "\"quote them, like strings, even if they contain binary.\"",
+      "range": {
+        "startLine": 9,
+        "startChar": 51,
+        "endLine": 10,
+        "endChar": 24
+      },
+      "revId": "9d58566fc09f23bae467a31a941a1c8b5a518fd1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ae51f17_d46c4845",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-12-11T13:25:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e9357d0_8b2ec97d",
       "range": {
         "startLine": 9,
         "startChar": 51,
@@ -97,6 +145,24 @@
       "writtenOn": "2022-12-05T21:42:23Z",
       "side": 1,
       "message": "The conversion doesn\u0027t escape, but the compiler generates a call to slicebytetostring with a temporary buffer of size 32. So it only allocates for strings longer than that. You could use an unsafe conversion, but I suspect these values are rare enough not to worry about.\n \n\n```\nxtools$ cat a.go\npackage tools\n\nimport \"strconv\"\n\nfunc f(x []byte) string {\n\t\n\treturn strconv.Quote(string(x))\n}\nxtools$ go tool compile -m -S a.go\n...\na.go:5:8: x does not escape\na.go:7:29: string(x) does not escape\n...\n\u003cunlinkable\u003e.f STEXT size\u003d192 args\u003d0x18 locals\u003d0x78 funcid\u003d0x0 align\u003d0x0\n\t0x0000 00000 (a.go:5)\tTEXT\t\u003cunlinkable\u003e.f(SB), ABIInternal, $128-24\n\t...        \n\t0x001c 00028 (a.go:7)\tMOVD\tR1, R2\n\t0x0020 00032 (a.go:7)\tMOVD\tR0, R1\n\t0x0024 00036 (a.go:7)\tMOVD\t$\u003cunlinkable\u003e..autotmp_12-40(SP), R0\n\t0x0028 00040 (a.go:7)\tPCDATA\t$1, $1\n\t0x0028 00040 (a.go:7)\tCALL\truntime.slicebytetostring(SB)\n\t...\n```",
+      "revId": "9d58566fc09f23bae467a31a941a1c8b5a518fd1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "492d0929_95c06b76",
+        "filename": "slog/text_handler.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-12-11T13:25:20Z",
+      "side": 1,
+      "message": "Thanks for the info. Agree, we should leave it as is. Removed the TODO.",
+      "parentUuid": "1b198d05_7ed8af3d",
       "revId": "9d58566fc09f23bae467a31a941a1c8b5a518fd1",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
