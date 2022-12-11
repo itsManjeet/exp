@@ -61,6 +61,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "24dc85c3_f907eb20",
+        "filename": "slog/logger.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-12-11T13:18:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95d6f1fc_a0b6857f",
+      "range": {
+        "startLine": 149,
+        "startChar": 50,
+        "endLine": 152,
+        "endChar": 40
+      },
+      "revId": "36faeb9a843f98fc1689df76e0bdefe70aaa0730",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "703c9eb7_f2ef9eb5",
@@ -74,6 +98,30 @@
       "writtenOn": "2022-11-29T14:30:08Z",
       "side": 1,
       "message": "You could save the calldepth in the Record (in addition to the pc) and adjust the value passed to Handler.output accordingly. (Perhaps this assumes that NewRecord and Handle are called from the same relative depth, which is not true in general, but I think is true for the limited cases of the default handler.)",
+      "range": {
+        "startLine": 87,
+        "startChar": 5,
+        "endLine": 89,
+        "endChar": 21
+      },
+      "revId": "36faeb9a843f98fc1689df76e0bdefe70aaa0730",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "339073ba_ece32bac",
+        "filename": "slog/logger_test.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-12-11T13:18:28Z",
+      "side": 1,
+      "message": "I don\u0027t think that would work. The Record is created, and then Handler.Handle is called--which may in turn call another Handler.Handle, and so on, until the default handler is called. All the other handlers are user-controlled. I need the depth between defaultHandler.Handle and the original log call, and nothing I put in the Record when it is created (or anywhere that slog has control) can help with that.\n\nI could get that using some function of the Record\u0027s pc and the current pc, but I know of no portable way to write that function, except to get a chunk of the stack and search it for the Record\u0027s pc, which is too slow and messy for this corner case. And the irony is that if I did do that, I\u0027d just be compensating for what the log package does, which is to get the pc at that offset: that is, the Record\u0027s pc.\n\nSo I think I should wait until I can dig into the log package, so I can hand it the Record\u0027s pc directly.",
+      "parentUuid": "703c9eb7_f2ef9eb5",
       "range": {
         "startLine": 87,
         "startChar": 5,
