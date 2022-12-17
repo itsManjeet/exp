@@ -259,14 +259,65 @@ The proper definition of Infof is
     }
 
 
-## Interoperating with other logging packages
+## Working with Records
 
-TODO: discuss NewRecord, Record.AddAttrs
+Sometimes a Handler will need to modify a Record
+before passing it on to another Handler or backend.
+To add attributes to a Record, use [Record.AddAttrs].
+If both the original and the modification will remain in use,
+call [Record.Clone] before calling AddAttrs
+so that the two Record values don't share any storage.
+
+To modify or remove existing Attrs, create a new, empty Record
+with [NewRecord] and build up its Attrs by traversing the old ones with [Record.Attrs].
+
 
 ## Performance considerations
 
-TODO: mention to avoid unnecessary work (like calling URL.String()) in log args in case
-the log statement is disabled.
+If profiling your application demonstrates that logging is taking significant time,
+the following suggestions may help.
+
+If many log lines have a common attribute, use [Logger.With] to create a Logger with
+that attribute. The built-in handlers will format that attribute only once, at the
+call to [Logger.With]. The [Handler] interface is designed to allow that optimization,
+and a well-written Handler should perform it.
+
+The arguments to a log call will always be evaluated, even if the log call is disabled.
+If possible, defer work so it happens when the value is actually logged.
+For example, consider the call
+
+    slog.Info("starting request", "url", r.URL.String())
+
+The URL.String method will be called even if this line is disabled. Instead, pass
+the URL directly. The built-in [TextHandler] will call its String method, but only
+if the line is enabled. ([JSONHandler] will display the URL as a nested object, so
+if you use that handler but want the URL as a string, then either call the String method
+explicitly, or set [HandlerOptions.ReplaceAttr] to a function that calls the String method.)
+
+You can also use the [LogValuer] interface to avoid unnecessary work in disabled log
+calls. Say you need to log some expensive value:
+
+    slog.Debug("frobbing", "value", computeExpensiveValue(arg))
+
+Even if this line is disabled, computeExpensiveValue will be called.
+To avoid that, define a type implementing LogValuer:
+
+    type expensive struct { arg int }
+
+    func (e expensive) LogValue() slog.Value {
+        return slog.AnyValue(computeExpensiveValue(e.arg))
+    }
+
+Then use a value of that type in log calls:
+
+    slog.Debug("frobbing", "value", expensive{arg})
+
+Now computeExpensiveValue will only be called when the line is enabled.
+
+Highly concurrent applications may run into a limitation of the built-in handlers.
+For correctness, they both acquire a lock before calling [io.Writer.Write]. If contention
+for this lock is your problem, consider writing a handler that batches Records, or
+processes them asynchronously.
 
 ## Writing a handler
 
