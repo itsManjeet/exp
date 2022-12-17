@@ -7,6 +7,8 @@ package slog_test
 import (
 	"fmt"
 	"os"
+	"path/filepath"
+	"strings"
 
 	"golang.org/x/exp/slog"
 )
@@ -20,15 +22,25 @@ func Infof(format string, args ...any) {
 func ExampleLogger_LogDepth() {
 	defer func(l *slog.Logger) { slog.SetDefault(l) }(slog.Default())
 
-	removeTime := func(groups []string, a slog.Attr) slog.Attr {
+	replace := func(groups []string, a slog.Attr) slog.Attr {
+		// Remove time.
 		if a.Key == slog.TimeKey && len(groups) == 0 {
 			a.Key = ""
 		}
+		// Remove the directory from the source's filename.
+		if a.Key == slog.SourceKey {
+			value := a.Value.String()
+			i := strings.LastIndexByte(value, ':')
+			if i > 0 {
+				a.Value = slog.StringValue(filepath.Base(value[:i]) + value[i:])
+			}
+		}
 		return a
 	}
-	logger := slog.New(slog.HandlerOptions{AddSource: true, ReplaceAttr: removeTime}.NewTextHandler(os.Stdout))
+	logger := slog.New(slog.HandlerOptions{AddSource: true, ReplaceAttr: replace}.NewTextHandler(os.Stdout))
 	slog.SetDefault(logger)
 	Infof("message, %s", "formatted")
 
-	// Output will refer to the line above.
+	// Output:
+	// level=INFO source=example_depth_test.go:42 msg="message, formatted"
 }
