@@ -126,7 +126,6 @@ The result is a new Logger with the same handler as the original, but additional
 attributes that will appear in the output of every call.
 
 
-
 # Levels
 
 A [Level] is an integer representing the importance or severity of a log event.
@@ -234,9 +233,31 @@ A LogValue method may return a Value that itself implements [LogValuer]. The [Va
 method handles these cases carefully, avoiding infinite loops and unbounded recursion.
 Handler authors and others may wish to use Value.Resolve instead of calling LogValue directly.
 
+
 ## Wrapping output methods
 
-TODO: discuss LogDepth, LogAttrDepth
+If you wrap slog with your own API, you will want to adjust the log depth so that source line
+information points to your wrapper, not the underlying slog function. For instance, if you define
+this function in file mylog.go:
+
+    func Infof(format string, args ...any) {
+        slog.Info(fmt.Sprintf(format, args...))
+    }
+
+and you call it like this in main.go:
+
+    Infof("hello, %s", "world")
+
+Then slog will use source file mylog.go, not main.go.
+The [LogDepth] and [LogAttrDepth] functions are designed for this case.
+Their first argument is count of the number of calls between your wrapper
+function and LogDepth or LogAttrDepth call.
+The proper definition of Infof is
+
+    func Infof(format string, args ...any) {
+        slog.LogDepth(1, slog.LevelInfo, fmt.Sprintf(format, args...))
+    }
+
 
 ## Interoperating with other logging packages
 
