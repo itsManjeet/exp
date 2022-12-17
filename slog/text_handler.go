@@ -110,7 +110,24 @@ func appendTextValue(s *handleState, v Value) error {
 			s.buf.WriteString(strconv.Quote(string(bs)))
 			return nil
 		}
-		s.appendString(fmt.Sprint(v.Any()))
+		var str string
+		// Handle fmt.Sprint special cases first.
+		switch a := v.any.(type) {
+		case fmt.Formatter:
+			str = fmt.Sprint(a)
+		case fmt.Stringer:
+			str = a.String()
+		case error:
+			str = a.Error()
+		default:
+			switch reflect.TypeOf(a).Kind() {
+			case reflect.Slice, reflect.Array, reflect.Map, reflect.Struct, reflect.Pointer:
+				str = fmt.Sprintf("%#v", v.any)
+			default:
+				str = fmt.Sprint(v.any)
+			}
+		}
+		s.appendString(str)
 	default:
 		*s.buf = v.append(*s.buf)
 	}

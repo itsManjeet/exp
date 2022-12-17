@@ -48,6 +48,26 @@ func TestTextHandler(t *testing.T) {
 			Any("t", text{""}),
 			`t`, `"!ERROR:text: empty string"`,
 		},
+		{
+			"slice",
+			Any("strings", []string{"a b", "c"}),
+			"strings", `"[]string{\"a b\", \"c\"}"`,
+		},
+		{
+			"map",
+			Any("map", map[string]string{"a b": "c d"}),
+			"map", `"map[string]string{\"a b\":\"c d\"}"`,
+		},
+		{
+			"struct",
+			Any("struct", struct{ f string }{"a b"}),
+			"struct", `"struct { f string }{f:\"a b\"}"`,
+		},
+		{
+			"struct pointer",
+			Any("structp", &struct{ f string }{"a b"}),
+			"structp", `"&struct { f string }{f:\"a b\"}"`,
+		},
 	} {
 		t.Run(test.name, func(t *testing.T) {
 			for _, opts := range []struct {
