@@ -53,6 +53,24 @@
       "message": "In this example and the logger.With example above, I wonder what are the pros and cons of passing r.URL.String() vs r.URL. In an ordinary log call, it\u0027s best to avoid the .String() call so that if the logger is disabled, we avoid building the string unnecessarily. But for With and Group, the Attr is retained indefinitely, potentially extending the lifetime of the URL object; also perhaps it causes the .String() operation to be performed at every log event instead of only once.\n\nPerhaps you could give guidance in this doc. (A TODO is fine.)",
       "revId": "ef5ba1bd8071e292f7f25c8492222251a05805e8",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3140bf47_5d7e3f2b",
+        "filename": "slog/doc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-12-17T15:52:59Z",
+      "side": 1,
+      "message": "Unless someone stores an Attr and reuses it, which should be rare, an Attr\u0027s value will be serialized at most once. The built-in handlers (and any handler that is properly written) will serialize when Logger.With is called, and if the Attr is passed directly to an output function like Info, it will be serialized then if logging is enabled.\n\nRetention wouldn\u0027t be a problem in this case because the logger containing the URL won\u0027t outlive the http.Request, which also contains the URL.\n\nSo removing the .String() is the right thing to do. Added a TODO in the advanced section.",
+      "parentUuid": "a6ea877f_e6621d13",
+      "revId": "ef5ba1bd8071e292f7f25c8492222251a05805e8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
