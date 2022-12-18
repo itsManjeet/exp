@@ -1,6 +1,13 @@
-#!/bin/bash -ex
+#!/bin/bash -e
+
+GO=go
+if [[ $1 != '' ]]; then
+  GO=$1
+fi
 
 cd $(dirname $0)
 
-go test -tags nopc -bench . -count 5 > slog.bench
-go test            -bench . -count 5 > slog-pc.bench
+set -x
+
+$GO test -tags nopc -bench . -count 5 > slog.bench
+$GO test            -bench . -count 5 > slog-pc.bench
