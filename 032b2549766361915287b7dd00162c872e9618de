@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ae1f6557_7c19ca4a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-12-18T01:46:58Z",
+      "side": 1,
+      "message": "I agree that we can\u0027t do this 100%, but we should at least grab the fruit that is both low-hanging and reasonably common. Simple aggregates like slices and maps fit that description.",
+      "parentUuid": "af67f5a2_5ce34a8d",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 0
+      },
+      "revId": "032b2549766361915287b7dd00162c872e9618de",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b2a217df_dc8f3347",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -74,6 +98,24 @@
       "writtenOn": "2022-12-17T23:24:42Z",
       "side": 1,
       "message": "Why not just delegate to fmt.Sprint (as the code did before) or fmt.Sprintf(\"%#v\",x), instead of trying to simulate it here?",
+      "revId": "032b2549766361915287b7dd00162c872e9618de",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bba6578b_cc73ca44",
+        "filename": "slog/text_handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-12-18T01:46:58Z",
+      "side": 1,
+      "message": "#v isn\u0027t what you want for some of these things. For example, errors.New(\"foo\") prints with #v as something like \u0026errors.errorString(\"foo\").",
+      "parentUuid": "39fed0dd_72d752d7",
       "revId": "032b2549766361915287b7dd00162c872e9618de",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
