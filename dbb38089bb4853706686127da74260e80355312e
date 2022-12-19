@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a53348c2_0e33df3f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6875
+      },
+      "writtenOn": "2022-12-19T23:51:14Z",
+      "side": 1,
+      "message": "This is new API, so it will need a proposal first.\n(It\u0027s exp, so maybe not strictly required. But the plan is to move this to the stdlib eventually, so we do want to go through the proposal process.)\n\nThis is also O(n^2), which is surprisingly expensive.",
+      "revId": "dbb38089bb4853706686127da74260e80355312e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
