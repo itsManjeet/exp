@@ -34,6 +34,24 @@
       "parentUuid": "a53348c2_0e33df3f",
       "revId": "dbb38089bb4853706686127da74260e80355312e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78e583fc_067a37f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2022-12-20T08:23:45Z",
+      "side": 1,
+      "message": "You don\u0027t have to move the implementation, but you do need to go through the proposal process.  See https://go.dev/proposal.  Thanks.",
+      "parentUuid": "d51d4117_2de301cc",
+      "revId": "dbb38089bb4853706686127da74260e80355312e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
