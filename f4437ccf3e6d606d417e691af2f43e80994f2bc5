@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef8dc4b2_9ecd2d0a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2022-12-22T22:04:09Z",
+      "side": 1,
+      "message": "Please write this as something like\n\nslices: inline search into its callers\n\nSee https://go.dev/wiki/CommitMessage.  Thanks.",
+      "revId": "f4437ccf3e6d606d417e691af2f43e80994f2bc5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "fa85f885_cfd3f988",
