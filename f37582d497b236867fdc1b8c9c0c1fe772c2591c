@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ee47f12_7f83835a",
+        "filename": "slices/sort.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 17576
+      },
+      "writtenOn": "2022-12-22T20:22:00Z",
+      "side": 1,
+      "message": "This is the only other instance of search. Inlining it here and removing `func search` may save some lines. Performance won\u0027t increase as dramatically here I think, but I\u0027d be surprised if it wasn\u0027t also better.",
+      "range": {
+        "startLine": 88,
+        "startChar": 8,
+        "endLine": 88,
+        "endChar": 14
+      },
+      "revId": "f37582d497b236867fdc1b8c9c0c1fe772c2591c",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
