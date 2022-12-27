@@ -55,6 +55,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "170d89af_f6d0e551",
+        "filename": "slog/example_logvaluer_secret_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-12-27T18:28:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "940b1a54_79c1de89",
+      "revId": "4323e8a9d88bff1c033e5130ed762aacf2eb0530",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7d771415_bb7c0811",
@@ -68,6 +86,24 @@
       "writtenOn": "2022-12-17T16:20:48Z",
       "side": 1,
       "message": "// Remove time attribute to make Output deterministic.\n\n(since this isn\u0027t the point of the example)",
+      "revId": "4323e8a9d88bff1c033e5130ed762aacf2eb0530",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eec20ded_6f76fcb4",
+        "filename": "slog/example_logvaluer_secret_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-12-27T18:28:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7d771415_bb7c0811",
       "revId": "4323e8a9d88bff1c033e5130ed762aacf2eb0530",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
