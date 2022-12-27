@@ -24,6 +24,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f2e694d_79f74c43",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-12-27T16:03:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0fc84698_ab1156ae",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 3
+      },
+      "revId": "5021d103b06ee09b22fdb01d29ae93e77ae4773e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "870426cc_0915f265",
@@ -84,6 +108,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "77a069b6_a503958e",
+        "filename": "slog/logger.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-12-27T16:03:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "571a4f2b_01d898da",
+      "range": {
+        "startLine": 140,
+        "startChar": 17,
+        "endLine": 140,
+        "endChar": 25
+      },
+      "revId": "5021d103b06ee09b22fdb01d29ae93e77ae4773e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0087f500_f93e9af8",
@@ -101,6 +149,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b57aa53_6bea7286",
+        "filename": "slog/pc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-12-27T16:03:32Z",
+      "side": 1,
+      "message": "Bug.\nFixed.",
+      "parentUuid": "0087f500_f93e9af8",
+      "revId": "5021d103b06ee09b22fdb01d29ae93e77ae4773e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "088728da_2b58aaf8",
@@ -114,6 +180,24 @@
       "writtenOn": "2022-12-18T20:53:48Z",
       "side": 1,
       "message": "Perhaps:\n\n// Compute caller pc at the earliest opportunity as cost increases with depth.",
+      "revId": "5021d103b06ee09b22fdb01d29ae93e77ae4773e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "101d6f9f_d6613dd4",
+        "filename": "slog/pc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-12-27T16:03:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "088728da_2b58aaf8",
       "revId": "5021d103b06ee09b22fdb01d29ae93e77ae4773e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
