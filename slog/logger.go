@@ -69,6 +69,11 @@ type Logger struct {
 	ctx     context.Context
 }
 
+func (l *Logger) clone() *Logger {
+	c := *l
+	return &c
+}
+
 // Handler returns l's Handler.
 func (l *Logger) Handler() Handler { return l.handler }
 
@@ -90,7 +95,9 @@ func (l *Logger) With(args ...any) *Logger {
 		attr, args = argsToAttr(args)
 		attrs = append(attrs, attr)
 	}
-	return New(l.handler.WithAttrs(attrs))
+	c := l.clone()
+	c.handler = l.handler.WithAttrs(attrs)
+	return c
 }
 
 // WithGroup returns a new Logger that starts a group. The keys of all
@@ -99,15 +106,18 @@ func (l *Logger) With(args ...any) *Logger {
 // The new Logger's handler is the result of calling WithGroup on the receiver's
 // handler.
 func (l *Logger) WithGroup(name string) *Logger {
-	return New(l.handler.WithGroup(name))
+	c := l.clone()
+	c.handler = l.handler.WithGroup(name)
+	return c
+
 }
 
 // WithContext returns a new Logger with the same handler
 // as the receiver and the given context.
 func (l *Logger) WithContext(ctx context.Context) *Logger {
-	l2 := *l
-	l2.ctx = ctx
-	return &l2
+	c := l.clone()
+	c.ctx = ctx
+	return c
 }
 
 // New creates a new Logger with the given Handler.
