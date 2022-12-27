@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81482c56_275f3859",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30696
+      },
+      "writtenOn": "2022-12-27T04:39:11Z",
+      "side": 1,
+      "message": "Nice catch and performance delta! It\u0027s a shame that we now have to repeat a subtle piece of code multiple times though.\n\nCC-ing Keith and Matthew for an inlining question: would it be difficult to inline this?",
+      "revId": "c71c3d06986bdaa637a906d9bac54a47e31e5bd8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
