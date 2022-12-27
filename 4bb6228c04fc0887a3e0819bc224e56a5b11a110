@@ -559,6 +559,24 @@
       "parentUuid": "4f0fa2bd_4eef7d4d",
       "revId": "4bb6228c04fc0887a3e0819bc224e56a5b11a110",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fc82aa3_d2123775",
+        "filename": "slog/doc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-12-27T19:57:36Z",
+      "side": 1,
+      "message": "I began with something like that premature optimization, influenced by a similar feature in Zap, but Russ nixed it early on. Here I simply wanted to point out the presence of the lock to advanced readers. It seemed like a reasonable point to make in a section about performance. But perhaps any sufficiently advanced reader would look at the code anyway.\n\nDo you still believe I should remove this section?",
+      "parentUuid": "4d342961_33490d90",
+      "revId": "4bb6228c04fc0887a3e0819bc224e56a5b11a110",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
