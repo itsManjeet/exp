@@ -122,6 +122,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "550e9c34_d9cdc972",
+        "filename": "slog/doc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-12-27T19:42:21Z",
+      "side": 1,
+      "message": "I was thinking along the lines of: engineers perform optimizations, handlers handle messages, but they might take advantage of optimizations while doing so. Or am I being too pedantic? ;-)",
+      "parentUuid": "c575cd94_ae8bf767",
+      "range": {
+        "startLine": 283,
+        "startChar": 34,
+        "endLine": 283,
+        "endChar": 41
+      },
+      "revId": "4bb6228c04fc0887a3e0819bc224e56a5b11a110",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c86e9abd_a780ba46",
         "filename": "slog/doc.go",
         "patchSetId": 1
@@ -274,6 +298,24 @@
       "writtenOn": "2022-12-18T21:15:58Z",
       "side": 1,
       "message": "Always flag bad code in examples as it may be copied careless without the surrounding warning:\n\nslog.Info(\"starting request\", \"url\", r.URL.String()) // may compute String unnecessarily",
+      "revId": "4bb6228c04fc0887a3e0819bc224e56a5b11a110",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb4c2148_6635693c",
+        "filename": "slog/doc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-12-27T19:42:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6acc590f_da3aedd0",
       "revId": "4bb6228c04fc0887a3e0819bc224e56a5b11a110",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -497,6 +539,24 @@
       "side": 1,
       "message": "Couldn\u0027t the lock be held during actual disk I/O? Or does that not happen in modern systems and it\u0027s all async under the hood?\n\nOr what if I have a highly concurrent io.Writer lying around that uses a lock-free queue, and I naively pass it to a JSONHandler?",
       "parentUuid": "5160158c_8138097a",
+      "revId": "4bb6228c04fc0887a3e0819bc224e56a5b11a110",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d342961_33490d90",
+        "filename": "slog/doc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-12-27T19:42:21Z",
+      "side": 1,
+      "message": "Let me correct my statement: an os.File may refer to a regular file, or to a pipe. Writes to regular files (without O_APPEND) are not atomic: one write(2) payload may be inserted the middle of another. Writes to pipes may be atomic if they are small, but in general they too may be interleaved. So the handler is right to use a lock to serialize writes that may be to an os.File. And even if the underlying file is atomic, the application-level mutex would probably not add much overhead: the same amount of contention would exist but would move from the kernel to the application.\n\nAs for whether some users may supply a writer implementation that is both concurrency-safe and capable of executing in parallel (i.e. not just one big critical section), I suppose that\u0027s possible, but it seems very advanced. The Writer could probably achieve that by just quickly enqueuing the write payload in the critical section of the handler mutex, and then doing the actual write asynchronously. If that proves inadequate, you could always add a HandlerOption field that is a sync.Locker to use instead of the usual one, but it seems like very premature optimization to do that today.",
+      "parentUuid": "4f0fa2bd_4eef7d4d",
       "revId": "4bb6228c04fc0887a3e0819bc224e56a5b11a110",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
