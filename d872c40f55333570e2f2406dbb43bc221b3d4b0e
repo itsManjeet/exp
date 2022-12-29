@@ -212,6 +212,24 @@
       "parentUuid": "325c97c8_28ae10b0",
       "revId": "d872c40f55333570e2f2406dbb43bc221b3d4b0e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36c37db2_b8a24252",
+        "filename": "slog/example_depth_test.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-12-29T16:24:46Z",
+      "side": 1,
+      "message": "Forgot to upload the latest patch? (I would expect an \"// Output:\" comment here, which causes \u0027go test\u0027 to call the Example function.)",
+      "parentUuid": "f1872037_d712c11b",
+      "revId": "d872c40f55333570e2f2406dbb43bc221b3d4b0e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
