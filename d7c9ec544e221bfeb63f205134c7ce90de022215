@@ -223,6 +223,24 @@
       "parentUuid": "245604b4_9b5b2c72",
       "revId": "d7c9ec544e221bfeb63f205134c7ce90de022215",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cadf6370_2821baea",
+        "filename": "slog/logger.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2022-12-29T14:23:21Z",
+      "side": 1,
+      "message": "In this case, there is an implied precondition that h is non-nil (since we call l.handler methods later) but there is nothing in the body of New that enforces this precondition, such as a call to one of its methods.\n\nI generally agree that we shouldn\u0027t litter the code with unnecessary checks, but sometimes a well-placed assertion can cheaply cause a mistake to be reported sooner and closer to the root cause.\n\nNot a big deal.",
+      "parentUuid": "617ffefa_9c11185c",
+      "revId": "d7c9ec544e221bfeb63f205134c7ce90de022215",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
