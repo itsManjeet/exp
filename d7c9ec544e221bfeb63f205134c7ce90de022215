@@ -55,6 +55,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1076d262_ead0d28c",
+        "filename": "slog/logger.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-12-29T13:59:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cfa104ba_cb8f0a42",
+      "revId": "d7c9ec544e221bfeb63f205134c7ce90de022215",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f5b13145_349f1d33",
@@ -68,6 +86,24 @@
       "writtenOn": "2022-12-27T21:32:16Z",
       "side": 1,
       "message": "\"The new Logger shares the old Logger\u0027s context.\"\n\nDitto at WithGroup. Alternatively, state somewhere that all the With functions all preserve the attributes of the original Logger unless otherwise specified.",
+      "revId": "d7c9ec544e221bfeb63f205134c7ce90de022215",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc367d63_4cc04b61",
+        "filename": "slog/logger.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-12-29T13:59:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5b13145_349f1d33",
       "revId": "d7c9ec544e221bfeb63f205134c7ce90de022215",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -95,6 +131,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ab4841a_ca69abc0",
+        "filename": "slog/logger.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-12-29T13:59:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d76d1ff5_016556ab",
+      "range": {
+        "startLine": 115,
+        "startChar": 36,
+        "endLine": 116,
+        "endChar": 40
+      },
+      "revId": "d7c9ec544e221bfeb63f205134c7ce90de022215",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d922ee3a_1e910601",
@@ -112,6 +172,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb623535_cee7ce8f",
+        "filename": "slog/logger.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-12-29T13:59:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d922ee3a_1e910601",
+      "revId": "d7c9ec544e221bfeb63f205134c7ce90de022215",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "245604b4_9b5b2c72",
@@ -125,6 +203,24 @@
       "writtenOn": "2022-12-27T21:32:16Z",
       "side": 1,
       "message": "Panic if h is nil?",
+      "revId": "d7c9ec544e221bfeb63f205134c7ce90de022215",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "617ffefa_9c11185c",
+        "filename": "slog/logger.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-12-29T13:59:40Z",
+      "side": 1,
+      "message": "We don\u0027t typically panic if args are nil, or the code would be littered with them. Why is this case different?",
+      "parentUuid": "245604b4_9b5b2c72",
       "revId": "d7c9ec544e221bfeb63f205134c7ce90de022215",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
