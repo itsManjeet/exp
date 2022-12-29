@@ -241,6 +241,24 @@
       "parentUuid": "617ffefa_9c11185c",
       "revId": "d7c9ec544e221bfeb63f205134c7ce90de022215",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b2d51ed_6932f2b4",
+        "filename": "slog/logger.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-12-29T15:51:51Z",
+      "side": 1,
+      "message": "Done, will let you review the change before I submit.",
+      "parentUuid": "cadf6370_2821baea",
+      "revId": "d7c9ec544e221bfeb63f205134c7ce90de022215",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
