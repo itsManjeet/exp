@@ -6,7 +6,10 @@
 
 package slog
 
-import "runtime"
+import (
+	"fmt"
+	"runtime"
+)
 
 // These functions compute the pc early and pass it down the call chain,
 // which is faster than computing it later with a larger skip.
@@ -30,6 +33,7 @@ func (l *Logger) LogAttrsDepth(calldepth int, level Level, msg string, attrs ...
 		return
 	}
 	var pcs [1]uintptr
+	fmt.Printf("#### rtimecallers %d\n", calldepth+3)
 	runtime.Callers(calldepth+3, pcs[:])
 	r := l.makeRecord(msg, level, pcs[0])
 	r.AddAttrs(attrs...)
