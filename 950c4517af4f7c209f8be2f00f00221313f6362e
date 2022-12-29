@@ -78,6 +78,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6beb5d86_e98b2704",
+        "filename": "slog/doc.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-12-29T19:15:12Z",
+      "side": 1,
+      "message": "Sorry, I forgot to delete the old text when I added your suggestion.",
+      "parentUuid": "f6184cea_0f043cb7",
+      "range": {
+        "startLine": 275,
+        "startChar": 0,
+        "endLine": 280,
+        "endChar": 54
+      },
+      "revId": "950c4517af4f7c209f8be2f00f00221313f6362e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4a1bd8fe_7871dd81",
@@ -95,6 +119,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3a99368_cad2c243",
+        "filename": "slog/doc.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-12-29T19:15:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a1bd8fe_7871dd81",
+      "revId": "950c4517af4f7c209f8be2f00f00221313f6362e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2dd3ab9b_be58d220",
@@ -108,6 +150,30 @@
       "writtenOn": "2022-12-29T16:39:48Z",
       "side": 1,
       "message": "\u0026r.URL, to hint that it has to be a fmt.Stringer. (The String method is attached to *URL.)",
+      "range": {
+        "startLine": 305,
+        "startChar": 41,
+        "endLine": 305,
+        "endChar": 46
+      },
+      "revId": "950c4517af4f7c209f8be2f00f00221313f6362e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "247f4a92_cfb58fcc",
+        "filename": "slog/doc.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-12-29T19:15:12Z",
+      "side": 1,
+      "message": "Good catch, thanks.",
+      "parentUuid": "2dd3ab9b_be58d220",
       "range": {
         "startLine": 305,
         "startChar": 41,
