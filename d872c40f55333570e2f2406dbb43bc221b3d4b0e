@@ -61,6 +61,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e6d0b9d_54b9a621",
+        "filename": "slog/doc.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-12-29T15:09:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "247b1482_af9293bf",
+      "range": {
+        "startLine": 261,
+        "startChar": 21,
+        "endLine": 261,
+        "endChar": 43
+      },
+      "revId": "d872c40f55333570e2f2406dbb43bc221b3d4b0e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e27022ee_2504cc82",
@@ -74,6 +98,30 @@
       "writtenOn": "2022-12-27T20:54:34Z",
       "side": 1,
       "message": "\"and the\"",
+      "range": {
+        "startLine": 262,
+        "startChar": 9,
+        "endLine": 262,
+        "endChar": 12
+      },
+      "revId": "d872c40f55333570e2f2406dbb43bc221b3d4b0e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6208dfa5_2b8cf05b",
+        "filename": "slog/doc.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-12-29T15:09:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e27022ee_2504cc82",
       "range": {
         "startLine": 262,
         "startChar": 9,
@@ -107,6 +155,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "96c63322_b89f18e6",
+        "filename": "slog/doc.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 266,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-12-29T15:09:20Z",
+      "side": 1,
+      "message": "https://go.dev/cl/459644 fixes the code so that 1 is right here.\nFixed the doc.",
+      "parentUuid": "6d5c0916_6f593bd7",
+      "range": {
+        "startLine": 266,
+        "startChar": 32,
+        "endLine": 266,
+        "endChar": 34
+      },
+      "revId": "d872c40f55333570e2f2406dbb43bc221b3d4b0e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "325c97c8_28ae10b0",
@@ -120,6 +192,24 @@
       "writtenOn": "2022-12-27T20:54:34Z",
       "side": 1,
       "message": "Can we make this executable? You\u0027ve already directed the logger to os.Stdout and sanitized the time. Is the issue that you need to sanitize the filename? If so you could do that by an intervening io.Writer equivalent to sed -e s/$PWD/PWD/g.\n\n\n// Output:\n// \n// level\u003dINFO src\u003dPWD/slog/example_depth_test.go msg\u003d\"message, formatted\"",
+      "revId": "d872c40f55333570e2f2406dbb43bc221b3d4b0e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1872037_d712c11b",
+        "filename": "slog/example_depth_test.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2022-12-29T15:09:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "325c97c8_28ae10b0",
       "revId": "d872c40f55333570e2f2406dbb43bc221b3d4b0e",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
