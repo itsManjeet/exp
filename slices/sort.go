@@ -16,6 +16,40 @@ import (
 // Use slices.SortFunc(x, func(a, b float64) bool {return a < b || (math.IsNaN(a) && !math.IsNaN(b))})
 // instead if the input may contain NaNs.
 func Sort[E constraints.Ordered](x []E) {
+	switch t := any(x).(type) {
+	case []uint8:
+		if len(x) < countingThreshold256 {
+			break
+		}
+		countingSort256(t)
+		return
+
+	case []int8:
+		if len(x) < countingThreshold256 {
+			break
+		}
+		countingSort256(t)
+		return
+
+	case []uint16:
+		if len(x) < countingThreshold65536 {
+			break
+		}
+		countingSort65536(t)
+		return
+
+	case []int16:
+		if len(x) < countingThreshold65536 {
+			break
+		}
+		countingSort65536(t)
+		return
+	}
+
+	sortNotCounting(x)
+}
+
+func sortNotCounting[E constraints.Ordered](x []E) {
 	n := len(x)
 	pdqsortOrdered(x, 0, n, bits.Len(uint(n)))
 }

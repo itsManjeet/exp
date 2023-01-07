@@ -14,6 +14,10 @@ import (
 )
 
 var ints = [...]int{74, 59, 238, -784, 9845, 959, 905, 0, 0, 42, 7586, -5467984, 7586}
+var ints8 = [...]int8{4, 3, 6, -3, 127, 9, 8, 0, 0, 2, 13, -128, 13}
+var uints8 = [...]uint8{4, 3, 6, 42, 255, 9, 8, 0, 0, 2, 13, 127, 13}
+var ints16 = [...]int16{4, 3, 6, -3, 1<<15 - 1, 9, 8, 0, 0, 2, 13, -1 << 15, 13}
+var uints16 = [...]uint16{4, 3, 6, 42, 1<<16 - 1, 9, 8, 0, 0, 2, 13, 255, 13}
 var float64s = [...]float64{74.3, 59.0, math.Inf(1), 238.2, -784.0, 2.3, math.Inf(-1), 9845.768, -959.7485, 905, 7.8, 7.8, 74.3, 59.0, math.Inf(1), 238.2, -784.0, 2.3}
 var float64sWithNaNs = [...]float64{74.3, 59.0, math.Inf(1), 238.2, -784.0, 2.3, math.NaN(), math.NaN(), math.Inf(-1), 9845.768, -959.7485, 905, 7.8, 7.8}
 var strs = [...]string{"", "Hello", "foo", "bar", "foo", "f00", "%*&^*&^&", "***"}
@@ -279,5 +283,41 @@ func TestBinarySearchInts(t *testing.T) {
 				}
 			}
 		})
+	}
+}
+
+func TestSortCountingInt8Slice(t *testing.T) {
+	data := Clone(ints8[:])
+	countingSort256(data)
+	if !IsSorted(data) {
+		t.Errorf("sorted %v", ints)
+		t.Fatalf("   got %v", data)
+	}
+}
+
+func TestSortCountingUint8Slice(t *testing.T) {
+	data := Clone(uints8[:])
+	countingSort256(data)
+	if !IsSorted(data) {
+		t.Errorf("sorted %v", ints)
+		t.Fatalf("   got %v", data)
+	}
+}
+
+func TestSortCountingInt16Slice(t *testing.T) {
+	data := Clone(ints16[:])
+	countingSort65536(data)
+	if !IsSorted(data) {
+		t.Errorf("sorted %v", ints)
+		t.Fatalf("   got %v", data)
+	}
+}
+
+func TestSortCountingUint16Slice(t *testing.T) {
+	data := Clone(uints16[:])
+	countingSort65536(data)
+	if !IsSorted(data) {
+		t.Errorf("sorted %v", ints)
+		t.Fatalf("   got %v", data)
 	}
 }
