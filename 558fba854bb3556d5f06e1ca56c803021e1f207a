@@ -53,6 +53,24 @@
       "message": "This is a surprising amount of memory to use on the stack.  I\u0027m not sure that this will be a good default for all programs.",
       "revId": "558fba854bb3556d5f06e1ca56c803021e1f207a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "819e1934_c61c5e23",
+        "filename": "slices/counting.go",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 55763
+      },
+      "writtenOn": "2023-01-07T20:05:06Z",
+      "side": 1,
+      "message": "Right, I did not took this in consideration, does a benchmark that verifies that speed increase at the threshold is big enough to balance the cost to grow the stack would convaince you ? (and raising the threshold if this is not the case)\nIf this is purely a memory usage concern, I think we can have a very high threshold for 16 bits types, what is 0.5MiB of stack when you are sorting 32MiB slices ?",
+      "parentUuid": "54f4658e_b5e97507",
+      "revId": "558fba854bb3556d5f06e1ca56c803021e1f207a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
