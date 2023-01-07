@@ -9,32 +9,64 @@ import (
 	"sort"
 	"strings"
 	"testing"
+	"unsafe"
+
+	"golang.org/x/exp/constraints"
 )
 
 // These benchmarks compare sorting a large slice of int with sort.Ints vs.
 // slices.Sort
-func makeRandomInts(n int) []int {
+func makeRandomInts[T constraints.Integer](n int) []T {
 	rand.Seed(42)
-	ints := make([]int, n)
+	ints := make([]T, n)
 	for i := 0; i < n; i++ {
-		ints[i] = rand.Intn(n)
+		ints[i] = T(rand.Intn(n))
 	}
 	return ints
 }
 
-func makeSortedInts(n int) []int {
-	ints := make([]int, n)
+func makeSortedInts[T constraints.Integer](n int) []T {
+	ints := make([]T, n)
 	for i := 0; i < n; i++ {
-		ints[i] = i
+		ints[i] = T(i)
 	}
+
+	var signTest T
+	signTest--
+	signed := signTest < 0
+	max := uint64(1 << unsafe.Sizeof(signTest) * 8)
+	if signed {
+		max = max>>1 - 1
+	}
+	if uint64(n) > max {
+		Sort(ints)
+	}
+
 	return ints
 }
 
-func makeReversedInts(n int) []int {
-	ints := make([]int, n)
+func makeReversedInts[T constraints.Integer](n int) []T {
+	ints := make([]T, n)
 	for i := 0; i < n; i++ {
-		ints[i] = n - i
+		ints[i] = T(n - i)
 	}
+
+	var signTest T
+	signTest--
+	signed := signTest < 0
+	max := uint64(1 << unsafe.Sizeof(signTest) * 8)
+	if signed {
+		max = max>>1 - 1
+	}
+	if uint64(n) > max {
+		Sort(ints)
+		// Reverse
+		for i := 0; i < len(ints)/2; i++ {
+			j := len(ints) - 1 - i
+			ints[i], ints[j] = ints[j], ints[i]
+		}
+	}
+
 	return ints
 }
 
@@ -43,7 +75,7 @@ const N = 100_000
 func BenchmarkSortInts(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		b.StopTimer()
-		ints := makeRandomInts(N)
+		ints := makeRandomInts[int](N)
 		b.StartTimer()
 		sort.Ints(ints)
 	}
@@ -52,7 +84,7 @@ func BenchmarkSortInts(b *testing.B) {
 func BenchmarkSlicesSortInts(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		b.StopTimer()
-		ints := makeRandomInts(N)
+		ints := makeRandomInts[int](N)
 		b.StartTimer()
 		Sort(ints)
 	}
@@ -61,7 +93,7 @@ func BenchmarkSlicesSortInts(b *testing.B) {
 func BenchmarkSlicesSortInts_Sorted(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		b.StopTimer()
-		ints := makeSortedInts(N)
+		ints := makeSortedInts[int](N)
 		b.StartTimer()
 		Sort(ints)
 	}
@@ -70,7 +102,7 @@ func BenchmarkSlicesSortInts_Sorted(b *testing.B) {
 func BenchmarkSlicesSortInts_Reversed(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		b.StopTimer()
-		ints := makeReversedInts(N)
+		ints := makeReversedInts[int](N)
 		b.StartTimer()
 		Sort(ints)
 	}
@@ -79,7 +111,7 @@ func BenchmarkSlicesSortInts_Reversed(b *testing.B) {
 // Since we're benchmarking these sorts against each other, make sure that they
 // generate similar results.
 func TestIntSorts(t *testing.T) {
-	ints := makeRandomInts(200)
+	ints := makeRandomInts[int](200)
 	ints2 := Clone(ints)
 
 	sort.Ints(ints)
@@ -199,4 +231,162 @@ func BenchmarkSortFuncStructs(b *testing.B) {
 		b.StartTimer()
 		SortFunc(ss, lessFunc)
 	}
+}
+
+func benchmarkSlicesSortIntsGeneric[T constraints.Integer](b *testing.B, ints []T) {
+	ints2 := make([]T, N)
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		b.StopTimer()
+		copy(ints2, ints)
+		b.StartTimer()
+		Sort(ints2)
+	}
+}
+
+func benchmarkSlicesSortIntsGenericNotCounting[T constraints.Integer](b *testing.B, ints []T) {
+	ints2 := make([]T, N)
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		b.StopTimer()
+		copy(ints2, ints)
+		b.StartTimer()
+		sortNotCounting(ints2)
+	}
+}
+
+func BenchmarkSlicesSortUint8_Random(b *testing.B) {
+	benchmarkSlicesSortIntsGeneric(b, makeRandomInts[uint8](N))
+}
+func BenchmarkSlicesSortUint8_Random_NotCounting(b *testing.B) {
+	benchmarkSlicesSortIntsGenericNotCounting(b, makeRandomInts[uint8](N))
+}
+func BenchmarkSlicesSortUint16_Random(b *testing.B) {
+	benchmarkSlicesSortIntsGeneric(b, makeRandomInts[uint16](N))
+}
+func BenchmarkSlicesSortUint16_Random_NotCounting(b *testing.B) {
+	benchmarkSlicesSortIntsGenericNotCounting(b, makeRandomInts[uint16](N))
+}
+func BenchmarkSlicesSortInt8_Random(b *testing.B) {
+	benchmarkSlicesSortIntsGeneric(b, makeRandomInts[int8](N))
+}
+func BenchmarkSlicesSortInt8_Random_NotCounting(b *testing.B) {
+	benchmarkSlicesSortIntsGenericNotCounting(b, makeRandomInts[int8](N))
+}
+func BenchmarkSlicesSortInt16_Random(b *testing.B) {
+	benchmarkSlicesSortIntsGeneric(b, makeRandomInts[int16](N))
+}
+func BenchmarkSlicesSortInt16_Random_NotCounting(b *testing.B) {
+	benchmarkSlicesSortIntsGenericNotCounting(b, makeRandomInts[int16](N))
+}
+func BenchmarkSlicesSortUint8_Sorted(b *testing.B) {
+	benchmarkSlicesSortIntsGeneric(b, makeSortedInts[uint8](N))
+}
+func BenchmarkSlicesSortUint8_Sorted_NotCounting(b *testing.B) {
+	benchmarkSlicesSortIntsGenericNotCounting(b, makeSortedInts[uint8](N))
+}
+func BenchmarkSlicesSortUint16_Sorted(b *testing.B) {
+	benchmarkSlicesSortIntsGeneric(b, makeSortedInts[uint16](N))
+}
+func BenchmarkSlicesSortUint16_Sorted_NotCounting(b *testing.B) {
+	benchmarkSlicesSortIntsGenericNotCounting(b, makeSortedInts[uint16](N))
+}
+func BenchmarkSlicesSortInt8_Sorted(b *testing.B) {
+	benchmarkSlicesSortIntsGeneric(b, makeSortedInts[int8](N))
+}
+func BenchmarkSlicesSortInt8_Sorted_NotCounting(b *testing.B) {
+	benchmarkSlicesSortIntsGenericNotCounting(b, makeSortedInts[int8](N))
+}
+func BenchmarkSlicesSortInt16_Sorted(b *testing.B) {
+	benchmarkSlicesSortIntsGeneric(b, makeSortedInts[int16](N))
+}
+func BenchmarkSlicesSortInt16_Sorted_NotCounting(b *testing.B) {
+	benchmarkSlicesSortIntsGenericNotCounting(b, makeSortedInts[int16](N))
+}
+func BenchmarkSlicesSortUint8_Reversed(b *testing.B) {
+	benchmarkSlicesSortIntsGeneric(b, makeReversedInts[uint8](N))
+}
+func BenchmarkSlicesSortUint8_Reversed_NotCounting(b *testing.B) {
+	benchmarkSlicesSortIntsGenericNotCounting(b, makeReversedInts[uint8](N))
+}
+func BenchmarkSlicesSortUint16_Reversed(b *testing.B) {
+	benchmarkSlicesSortIntsGeneric(b, makeReversedInts[uint16](N))
+}
+func BenchmarkSlicesSortUint16_Reversed_NotCounting(b *testing.B) {
+	benchmarkSlicesSortIntsGenericNotCounting(b, makeReversedInts[uint16](N))
+}
+func BenchmarkSlicesSortInt8_Reversed(b *testing.B) {
+	benchmarkSlicesSortIntsGeneric(b, makeReversedInts[int8](N))
+}
+func BenchmarkSlicesSortInt8_Reversed_NotCounting(b *testing.B) {
+	benchmarkSlicesSortIntsGenericNotCounting(b, makeReversedInts[int8](N))
+}
+func BenchmarkSlicesSortInt16_Reversed(b *testing.B) {
+	benchmarkSlicesSortIntsGeneric(b, makeReversedInts[int16](N))
+}
+func BenchmarkSlicesSortInt16_Reversed_NotCounting(b *testing.B) {
+	benchmarkSlicesSortIntsGenericNotCounting(b, makeReversedInts[int16](N))
+}
+
+// Ensure that counting sort isn't slower at the threshold for some reandom input
+
+func benchmarkCountingThreshold_Counting8[T ~uint8 | ~int8](b *testing.B, n int) {
+	ints := makeRandomInts[T](n)
+	ints2 := make([]T, n)
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		b.StopTimer()
+		copy(ints2, ints)
+		b.StartTimer()
+		countingSort256(ints2)
+	}
+}
+
+func benchmarkCountingThreshold_Counting16[T ~uint16 | ~int16](b *testing.B, n int) {
+	ints := makeRandomInts[T](n)
+	ints2 := make([]T, n)
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		b.StopTimer()
+		copy(ints2, ints)
+		b.StartTimer()
+		countingSort65536(ints2)
+	}
+}
+
+func benchmarkCountingThreshold_NotCounting[T ~uint8 | ~int8 | ~uint16 | ~int16](b *testing.B, n int) {
+	ints := makeRandomInts[T](n)
+	ints2 := make([]T, n)
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		b.StopTimer()
+		copy(ints2, ints)
+		b.StartTimer()
+		sortNotCounting(ints2)
+	}
+}
+
+func BenchmarkCountingThreshold_Counting_Uint8(b *testing.B) {
+	benchmarkCountingThreshold_Counting8[uint8](b, countingThreshold256)
+}
+func BenchmarkCountingThreshold_NotCounting_Uint8(b *testing.B) {
+	benchmarkCountingThreshold_NotCounting[uint8](b, countingThreshold256)
+}
+func BenchmarkCountingThreshold_Counting_Int8(b *testing.B) {
+	benchmarkCountingThreshold_Counting8[int8](b, countingThreshold256)
+}
+func BenchmarkCountingThreshold_NotCounting_Int8(b *testing.B) {
+	benchmarkCountingThreshold_NotCounting[int8](b, countingThreshold256)
+}
+func BenchmarkCountingThreshold_Counting_Uint16(b *testing.B) {
+	benchmarkCountingThreshold_Counting16[uint16](b, countingThreshold65536)
+}
+func BenchmarkCountingThreshold_NotCounting_Uint16(b *testing.B) {
+	benchmarkCountingThreshold_NotCounting[uint16](b, countingThreshold65536)
+}
+func BenchmarkCountingThreshold_Counting_Int16(b *testing.B) {
+	benchmarkCountingThreshold_Counting16[int16](b, countingThreshold65536)
+}
+func BenchmarkCountingThreshold_NotCounting_Int16(b *testing.B) {
+	benchmarkCountingThreshold_NotCounting[int16](b, countingThreshold65536)
 }
