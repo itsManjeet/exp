@@ -34,6 +34,23 @@
       "parentUuid": "81482c56_275f3859",
       "revId": "c71c3d06986bdaa637a906d9bac54a47e31e5bd8",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a89669b2_d0730615",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 60628
+      },
+      "writtenOn": "2023-01-10T18:17:27Z",
+      "side": 1,
+      "message": "Setting Keith as reviewer at Eli\u0027s request.",
+      "revId": "c71c3d06986bdaa637a906d9bac54a47e31e5bd8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
