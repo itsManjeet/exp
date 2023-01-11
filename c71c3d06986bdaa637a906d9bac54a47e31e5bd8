@@ -92,6 +92,30 @@
       },
       "revId": "c71c3d06986bdaa637a906d9bac54a47e31e5bd8",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5501394_987569b9",
+        "filename": "slices/sort.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 60628
+      },
+      "writtenOn": "2023-01-11T10:03:10Z",
+      "side": 1,
+      "message": "Updated comments.",
+      "parentUuid": "a8515e3e_e5628762",
+      "range": {
+        "startLine": 73,
+        "startChar": 26,
+        "endLine": 73,
+        "endChar": 41
+      },
+      "revId": "c71c3d06986bdaa637a906d9bac54a47e31e5bd8",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
