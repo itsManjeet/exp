@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9008a5aa_1bf8ba34",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2023-01-13T21:37:20Z",
+      "side": 1,
+      "message": "Replace 4 lines with:\n\n\"slog: re-run slog, zerolog, zap benchmarks\"",
+      "revId": "264b3eb047e582875081daf1ea8fcab8c6facf59",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8f6941f_89fc5398",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2023-01-13T21:37:20Z",
+      "side": 1,
+      "message": "Can you characterize why? Is the difference fundamental to the slog API or are there things the slog implementation could do to narrow the difference?",
+      "range": {
+        "startLine": 20,
+        "startChar": 8,
+        "endLine": 20,
+        "endChar": 27
+      },
+      "revId": "264b3eb047e582875081daf1ea8fcab8c6facf59",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
