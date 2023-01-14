@@ -16,6 +16,24 @@
       "message": "Does a change like this require a proposal? Noticed a comment saying as much in [cl/459375](https://go-review.googlesource.com/c/exp/+/459375/comments/09e84339_adfb455c)",
       "revId": "5c0433ac536d9b6e0fdcf54b84607a4c569961f1",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "936ab200_aece6317",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2023-01-14T17:26:44Z",
+      "side": 1,
+      "message": "Yes, this is new API, and as such requires a proposal.  See https://go.dev/s/proposal.\n\nAlso please see https://go.dev/wiki/CommitMessage for the preferred format for change descriptions.  Thanks.",
+      "parentUuid": "df6880ff_87ecacc3",
+      "revId": "5c0433ac536d9b6e0fdcf54b84607a4c569961f1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
