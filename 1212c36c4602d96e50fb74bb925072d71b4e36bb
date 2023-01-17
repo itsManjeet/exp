@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c5afd85_5d64717e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2023-01-17T20:10:31Z",
+      "side": 1,
+      "message": "Yes, that does sound better, though I imagine we do want at least one test that the operations on the global variables do the right thing.",
+      "range": {
+        "startLine": 13,
+        "startChar": 2,
+        "endLine": 14,
+        "endChar": 27
+      },
+      "revId": "1212c36c4602d96e50fb74bb925072d71b4e36bb",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9d53332b_bb58edf0",
