@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d53332b_bb58edf0",
+        "filename": "slog/logger_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 26596
+      },
+      "writtenOn": "2023-01-17T20:08:16Z",
+      "side": 1,
+      "message": "This is the core of the issue. Other tests modify the slog and log Default logger settings, which affect the test output. I think the best fix would be to make the test entirely deterministic by not using the global slog and log loggers, and instead create dedicated instances for the test. This would remove any inter-dependence on test ordering due to the global state.",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 0
+      },
+      "revId": "1212c36c4602d96e50fb74bb925072d71b4e36bb",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35d414bb_ab0fa76c",
+        "filename": "slog/logger_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 26596
+      },
+      "writtenOn": "2023-01-17T20:08:16Z",
+      "side": 1,
+      "message": "This again modifies global state. If folks are in favor of creating local instances, I\u0027d much prefer that approach.",
+      "range": {
+        "startLine": 77,
+        "startChar": 1,
+        "endLine": 77,
+        "endChar": 46
+      },
+      "revId": "1212c36c4602d96e50fb74bb925072d71b4e36bb",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
