@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae08e441_2a86698a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-01-17T19:41:17Z",
+      "side": 1,
+      "message": "Thanks, I agree this is useful.",
+      "revId": "48fc4f11e84f42c3e54c5b4e5c56daa942f5e783",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29110312_9909cd54",
+        "filename": "slog/example_custom_levels_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-01-17T19:41:17Z",
+      "side": 1,
+      "message": "Add a function doc comment giving an overview.",
+      "revId": "48fc4f11e84f42c3e54c5b4e5c56daa942f5e783",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
