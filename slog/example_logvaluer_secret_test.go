@@ -23,13 +23,6 @@ func (Token) LogValue() slog.Value {
 // with an alternative representation to avoid revealing secrets.
 func ExampleLogValuer_secret() {
 	t := Token("shhhh!")
-	// Remove the time attribute to make Output deterministic.
-	removeTime := func(groups []string, a slog.Attr) slog.Attr {
-		if a.Key == slog.TimeKey && len(groups) == 0 {
-			a.Key = ""
-		}
-		return a
-	}
 	logger := slog.New(slog.HandlerOptions{ReplaceAttr: removeTime}.NewTextHandler(os.Stdout))
 	logger.Info("permission granted", "user", "Perry", "token", t)
 
