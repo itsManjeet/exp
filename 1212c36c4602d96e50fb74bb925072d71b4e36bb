@@ -47,6 +47,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4db47dbc_bac4c678",
+        "filename": "slog/logger_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 26596
+      },
+      "writtenOn": "2023-01-18T00:41:09Z",
+      "side": 1,
+      "message": "Upon further investigation, this test is actually testing the behavior connections between the log and slog globals, so it must remain global. Ensuring the default logger and slogger are truly the default values at the start of the test is the best option.",
+      "parentUuid": "9d53332b_bb58edf0",
+      "range": {
+        "startLine": 67,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 0
+      },
+      "revId": "1212c36c4602d96e50fb74bb925072d71b4e36bb",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "35d414bb_ab0fa76c",
@@ -60,6 +84,30 @@
       "writtenOn": "2023-01-17T20:08:16Z",
       "side": 1,
       "message": "This again modifies global state. If folks are in favor of creating local instances, I\u0027d much prefer that approach.",
+      "range": {
+        "startLine": 77,
+        "startChar": 1,
+        "endLine": 77,
+        "endChar": 46
+      },
+      "revId": "1212c36c4602d96e50fb74bb925072d71b4e36bb",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14ef153d_09948748",
+        "filename": "slog/logger_test.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 26596
+      },
+      "writtenOn": "2023-01-18T00:41:09Z",
+      "side": 1,
+      "message": "Upon further investigation, this test is actually testing the behavior connections between the log and slog globals, so it must remain global.",
+      "parentUuid": "35d414bb_ab0fa76c",
       "range": {
         "startLine": 77,
         "startChar": 1,
