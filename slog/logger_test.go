@@ -155,6 +155,11 @@ func TestAttrs(t *testing.T) {
 	check(attrsSlice(h.r), Int("c", 3))
 }
 
+func sourceLine(r Record) (string, int) {
+	f := r.Frame()
+	return f.File, f.Line
+}
+
 func TestCallDepth(t *testing.T) {
 	h := &captureHandler{}
 	var startLine int
@@ -163,7 +168,7 @@ func TestCallDepth(t *testing.T) {
 		t.Helper()
 		const wantFile = "logger_test.go"
 		wantLine := startLine + count*2
-		gotFile, gotLine := h.r.SourceLine()
+		gotFile, gotLine := sourceLine(h.r)
 		gotFile = filepath.Base(gotFile)
 		if gotFile != wantFile || gotLine != wantLine {
 			t.Errorf("got (%s, %d), want (%s, %d)", gotFile, gotLine, wantFile, wantLine)
