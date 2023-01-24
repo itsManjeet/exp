@@ -39,7 +39,7 @@ func TestRecordSourceLine(t *testing.T) {
 		{2, "testing.go", true},
 	} {
 		r := NewRecord(time.Time{}, 0, "", test.depth, nil)
-		gotFile, gotLine := r.SourceLine()
+		gotFile, gotLine := sourceLine(r)
 		if i := strings.LastIndexByte(gotFile, '/'); i >= 0 {
 			gotFile = gotFile[i+1:]
 		}
@@ -126,14 +126,14 @@ func BenchmarkSourceLine(b *testing.B) {
 	r := NewRecord(time.Now(), LevelInfo, "", 5, nil)
 	b.Run("alone", func(b *testing.B) {
 		for i := 0; i < b.N; i++ {
-			file, line := r.SourceLine()
+			file, line := sourceLine(r)
 			_ = file
 			_ = line
 		}
 	})
 	b.Run("stringifying", func(b *testing.B) {
 		for i := 0; i < b.N; i++ {
-			file, line := r.SourceLine()
+			file, line := sourceLine(r)
 			buf := buffer.New()
 			buf.WriteString(file)
 			buf.WriteByte(':')

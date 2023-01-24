@@ -74,18 +74,13 @@ func NewRecord(t time.Time, level Level, msg string, calldepth int, ctx context.
 	}
 }
 
-// Context returns the context in the Record.
-// If the Record was created from a Logger,
-// this will be the Logger's context.
-
-// SourceLine returns the file and line of the log event.
+// Frame returns the runtime.Frame of the log event.
 // If the Record was created without the necessary information,
-// or if the location is unavailable, it returns ("", 0).
-func (r Record) SourceLine() (file string, line int) {
+// or if the location is unavailable, it returns a zero Frame.
+func (r Record) Frame() runtime.Frame {
 	fs := runtime.CallersFrames([]uintptr{r.pc})
-	// TODO: error-checking?
 	f, _ := fs.Next()
-	return f.File, f.Line
+	return f
 }
 
 // Clone returns a copy of the record with no shared state.
