@@ -5,8 +5,10 @@
 package slog
 
 import (
+	"errors"
 	"fmt"
 	"strconv"
+	"strings"
 	"sync/atomic"
 )
 
@@ -75,11 +77,82 @@ func (l Level) String() string {
 	}
 }
 
+// MarshalJSON implements [encoding/json.Marshaler]
+// by quoting the output of [Level.String].
 func (l Level) MarshalJSON() ([]byte, error) {
 	// AppendQuote is sufficient for JSON-encoding all Level strings.
 	// They don't contain any runes that would produce invalid JSON
 	// when escaped.
 	return strconv.AppendQuote(nil, l.String()), nil
+}
+
+// UnmarshalJSON implements [encoding/json.Unmarshaler]
+// It accepts any string produced by [Level.MarshalJSON],
+// ignoring case.
+func (l *Level) UnmarshalJSON(data []byte) error {
+	s, err := strconv.Unquote(string(data))
+	if err != nil {
+		return err
+	}
+	return l.parse(s)
+}
+
+// MarshalText implements [encoding.TextMarshaler]
+// by calling [Level.String].
+func (l Level) MarshalText() ([]byte, error) {
+	return []byte(l.String()), nil
+}
+
+// UnmarshalText implements [encoding.TextUnmarshaler].
+// It accepts any string produced by [Level.MarshalText],
+// ignoring case.
+func (l *Level) UnmarshalText(data []byte) error {
+	return l.parse(string(data))
+}
+
+func (l *Level) parse(s string) (err error) {
+	defer func() {
+		if err != nil {
+			err = fmt.Errorf("slog: level string %q: %w", s, err)
+		}
+	}()
+
+	var name, offset string
+	i := strings.IndexAny(s, "+-")
+	switch {
+	case i == 0 || len(s) == 0:
+		return errors.New("missing name")
+	case i < 0:
+		name = s
+	case i < len(s)-1:
+		name = s[:i]
+		offset = s[i+1:]
+	default:
+		return errors.New("missing number after +/-")
+	}
+	switch strings.ToUpper(name) {
+	case "DEBUG":
+		*l = LevelDebug
+	case "INFO":
+		*l = LevelInfo
+	case "WARN":
+		*l = LevelWarn
+	case "ERROR":
+		*l = LevelError
+	default:
+		return errors.New("unknown name")
+	}
+	if offset != "" {
+		n, err := strconv.Atoi(offset)
+		if err != nil {
+			return err
+		}
+		if s[i] == '-' {
+			n = -n
+		}
+		*l += Level(n)
+	}
+	return nil
 }
 
 // Level returns the receiver.
