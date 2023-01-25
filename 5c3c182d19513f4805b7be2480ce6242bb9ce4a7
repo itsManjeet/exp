@@ -55,6 +55,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "acbe7fd0_54f551d5",
+        "filename": "slog/logger.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-01-25T21:25:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "65c4d57d_aa698247",
+      "revId": "5c3c182d19513f4805b7be2480ce6242bb9ce4a7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d714e6fa_fcbad907",
@@ -68,6 +86,24 @@
       "writtenOn": "2023-01-25T20:57:43Z",
       "side": 1,
       "message": "s/directly//",
+      "revId": "5c3c182d19513f4805b7be2480ce6242bb9ce4a7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc901a9f_088a6c5e",
+        "filename": "slog/record.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-01-25T21:25:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d714e6fa_fcbad907",
       "revId": "5c3c182d19513f4805b7be2480ce6242bb9ce4a7",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
