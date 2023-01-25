@@ -53,6 +53,24 @@
       "message": "Why not get Atoi to consume the +/- and perform the negation?\n\nThen this becomes simply:\n\n\tname :\u003d s\n\toffset :\u003d 0\n\tif i :\u003d strings.IndexAny(s, \"+-\"); i \u003e\u003d 0 {\n\t \tname \u003d s[:i]\n\t \tv, err :\u003d strconv.Atoi(s[i:])\n\t \tif err { invalid numeric suffix }\n\t \toffset \u003d v\n\t}\n\tswitch strings.ToUpper(name) {\n\tcase \"DEBUG\":\n\t\t*l \u003d LevelDebug\n\tcase \"INFO\":\n\t\t*l \u003d LevelInfo\n\tcase \"WARN\":\n\t\t*l \u003d LevelWarn\n\tcase \"ERROR\":\n\t\t*l \u003d LevelError\n\tdefault:\n\t\treturn errors.New(\"unknown name\")\n\t}",
       "revId": "8776044bfe63d29fec898cb7716bbe426cbf9f21",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "310fd0c6_9135cbe7",
+        "filename": "slog/level.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-01-25T16:56:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c776d0a_ab93544f",
+      "revId": "8776044bfe63d29fec898cb7716bbe426cbf9f21",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
