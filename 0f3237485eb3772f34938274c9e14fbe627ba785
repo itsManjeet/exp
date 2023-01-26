@@ -88,6 +88,24 @@
       "message": "Presumably a big enough offset (of the right magnitude) can turn an ERROR-n into an INFO, or an INFO+n into an ERROR. Might be good to test, perhaps with a comment to indicate that the behavior is acknowledged, even if not exactly intentional.",
       "revId": "0f3237485eb3772f34938274c9e14fbe627ba785",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be69ac1a_834971ae",
+        "filename": "slog/level_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-01-26T17:34:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6164ab29_2a854ced",
+      "revId": "0f3237485eb3772f34938274c9e14fbe627ba785",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
