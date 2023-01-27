@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e0b7ecd4_169c0942",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2023-01-27T13:31:21Z",
+      "side": 1,
+      "message": "This comment (or a shorter version) should probably appear in the code to prevent a later \"simplification\" from reverting this change.",
+      "range": {
+        "startLine": 15,
+        "startChar": 44,
+        "endLine": 18,
+        "endChar": 40
+      },
+      "revId": "a78a7732f5ddc99378ea2693852e740086672267",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "240e929c_4ddaa8ee",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
