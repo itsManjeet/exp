@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b47ac418_1f2ed02e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 60885
+      },
+      "writtenOn": "2023-01-31T21:52:56Z",
+      "side": 1,
+      "message": "I changed the NewSignature function to NewSignatureType.\nhttps://pkg.go.dev/go/types@go1.18#NewSignature\nwas recommended to use NewSignatureType because it allows type parameters.",
+      "revId": "4e7354ddfe2cac3b65900275cb7dd035cf279b55",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
