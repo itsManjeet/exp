@@ -216,5 +216,5 @@ func removeNamesFromSignature(t types.Type) types.Type {
 		return types.NewTuple(vars...)
 	}
 
-	return types.NewSignature(sig.Recv(), dename(sig.Params()), dename(sig.Results()), sig.Variadic())
+	return types.NewSignatureType(sig.Recv(), nil, nil, dename(sig.Params()), dename(sig.Results()), sig.Variadic())
 }
