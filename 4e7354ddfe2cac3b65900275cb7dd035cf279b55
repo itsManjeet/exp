@@ -16,6 +16,23 @@
       "message": "I changed the NewSignature function to NewSignatureType.\nhttps://pkg.go.dev/go/types@go1.18#NewSignature\nwas recommended to use NewSignatureType because it allows type parameters.",
       "revId": "4e7354ddfe2cac3b65900275cb7dd035cf279b55",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d3acf5c_7d8f477f",
+        "filename": "apidiff/apidiff.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 219,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2023-02-01T15:59:56Z",
+      "side": 1,
+      "message": "It\u0027s not necessary to replace every call to a deprecated function: the old function is not going away, and the code here doesn\u0027t need any features of the new one. This deprecation is just a reminder that the old function makes pre-generics assumptions. I\u0027m inclined to leave this code alone until such time as it actually cares about generics.",
+      "revId": "4e7354ddfe2cac3b65900275cb7dd035cf279b55",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
