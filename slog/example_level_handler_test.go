@@ -55,20 +55,21 @@ func (h *LevelHandler) Handler() slog.Handler {
 }
 
 func ExampleHandler_levelHandler() {
-	th := slog.HandlerOptions{
-		// Remove time from the output.
-		ReplaceAttr: func(groups []string, a slog.Attr) slog.Attr {
-			if a.Key == slog.TimeKey {
-				return slog.Attr{}
-			}
-			return a
-		},
-	}.NewTextHandler(os.Stdout)
-
+	th := slog.HandlerOptions{ReplaceAttr: removeTime}.NewTextHandler(os.Stdout)
 	logger := slog.New(NewLevelHandler(slog.LevelWarn, th))
 	logger.Info("not printed")
 	logger.Warn("printed")
 
 	// Output:
 	// level=WARN msg=printed
+}
+
+// removeTime removes the top-level time attribute.
+// It is intended to be used as a ReplaceAttr function,
+// to make example output deterministic.
+func removeTime(groups []string, a slog.Attr) slog.Attr {
+	if a.Key == slog.TimeKey && len(groups) == 0 {
+		a.Key = ""
+	}
+	return a
 }
