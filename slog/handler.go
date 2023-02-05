@@ -38,8 +38,11 @@ type Handler interface {
 	// It will only be called if Enabled returns true.
 	// Handle methods that produce output should observe the following rules:
 	//   - If r.Time is the zero time, ignore the time.
-	//   - If an Attr's key is the empty string, ignore the Attr.
-	//   - If a group has no Attrs, ignore it.
+	//   - If an Attr's key is the empty string and the value is not a group,
+	//     ignore the Attr.
+	//   - If a group's key is empty, inline the group's Attrs.
+	//   - If a group has no Attrs (even if it has a non-empty key),
+	//     ignore it.
 	Handle(r Record) error
 
 	// WithAttrs returns a new Handler whose attributes consist of
@@ -64,6 +67,8 @@ type Handler interface {
 	// should behave like
 	//
 	//     logger.LogAttrs(level, msg, slog.Group("s", slog.Int("a", 1), slog.Int("b", 2)))
+	//
+	// If the name is empty, WithGroup returns the receiver.
 	WithGroup(name string) Handler
 }
 
@@ -230,6 +235,9 @@ func (h *commonHandler) withAttrs(as []Attr) *commonHandler {
 }
 
 func (h *commonHandler) withGroup(name string) *commonHandler {
+	if name == "" {
+		return h
+	}
 	h2 := h.clone()
 	h2.groups = append(h2.groups, name)
 	return h2
