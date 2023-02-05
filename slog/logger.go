@@ -32,7 +32,8 @@ func SetDefault(l *Logger) {
 	// This can occur with SetDefault(Default()).
 	// See TestSetDefault.
 	if _, ok := l.Handler().(*defaultHandler); !ok {
-		log.SetOutput(&handlerWriter{l.Handler(), log.Flags()})
+		capturePC := log.Flags()&(log.Lshortfile|log.Llongfile) != 0
+		log.SetOutput(&handlerWriter{l.Handler(), LevelInfo, capturePC})
 		log.SetFlags(0) // we want just the log message, no time or location
 	}
 }
@@ -40,16 +41,17 @@ func SetDefault(l *Logger) {
 // handlerWriter is an io.Writer that calls a Handler.
 // It is used to link the default log.Logger to the default slog.Logger.
 type handlerWriter struct {
-	h     Handler
-	flags int
+	h         Handler
+	level     Level
+	capturePC bool
 }
 
 func (w *handlerWriter) Write(buf []byte) (int, error) {
-	if !w.h.Enabled(nil, LevelInfo) {
+	if !w.h.Enabled(nil, w.level) {
 		return 0, nil
 	}
 	var pc uintptr
-	if w.flags&(log.Lshortfile|log.Llongfile) != 0 {
+	if w.capturePC {
 		pc = callerPC(5)
 	}
 
@@ -58,7 +60,7 @@ func (w *handlerWriter) Write(buf []byte) (int, error) {
 	if len(buf) > 0 && buf[len(buf)-1] == '\n' {
 		buf = buf[:len(buf)-1]
 	}
-	r := NewRecord(time.Now(), LevelInfo, string(buf), pc, nil)
+	r := NewRecord(time.Now(), w.level, string(buf), pc, nil)
 	return origLen, w.h.Handle(r)
 }
 
@@ -142,6 +144,12 @@ func With(args ...any) *Logger {
 // Enabled reports whether l emits log records at the given level.
 func (l *Logger) Enabled(level Level) bool {
 	return l.Handler().Enabled(l.ctx, level)
+}
+
+// NewLogLogger returns a log.Logger whose output becomes the message
+// of the given Handler, at the given level.
+func NewLogLogger(h Handler, level Level) *log.Logger {
+	return log.New(&handlerWriter{h, level, true}, "", 0)
 }
 
 // Log emits a log record with the current time and the given level and message.
