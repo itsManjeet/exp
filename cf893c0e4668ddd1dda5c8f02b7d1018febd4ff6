@@ -53,6 +53,24 @@
       "message": "Nit: flip the condition and indent instead of using an early return?",
       "revId": "cf893c0e4668ddd1dda5c8f02b7d1018febd4ff6",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bed11269_19446dc1",
+        "filename": "slog/handler.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-02-10T20:18:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98dfe01e_9c6d013e",
+      "revId": "cf893c0e4668ddd1dda5c8f02b7d1018febd4ff6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
