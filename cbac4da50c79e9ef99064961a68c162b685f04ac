@@ -55,6 +55,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb512aa6_2fe878c8",
+        "filename": "slog/logger.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-02-10T20:44:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79b29f9a_e3bf0c32",
+      "revId": "cbac4da50c79e9ef99064961a68c162b685f04ac",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "42235681_1d167ae7",
@@ -96,6 +114,54 @@
         "startChar": 37,
         "endLine": 150,
         "endChar": 23
+      },
+      "revId": "cbac4da50c79e9ef99064961a68c162b685f04ac",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c27a7969_36fdc19c",
+        "filename": "slog/logger.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-02-10T20:44:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4cbd293e_d25588d0",
+      "range": {
+        "startLine": 149,
+        "startChar": 37,
+        "endLine": 150,
+        "endChar": 23
+      },
+      "revId": "cbac4da50c79e9ef99064961a68c162b685f04ac",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf330112_1a8ee26a",
+        "filename": "slog/logger.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-02-10T20:44:16Z",
+      "side": 1,
+      "message": "I think it can. For example, you might want the Error level for the log.Logger you assign to net/http.Server.ErrorLog.",
+      "parentUuid": "42235681_1d167ae7",
+      "range": {
+        "startLine": 150,
+        "startChar": 28,
+        "endLine": 150,
+        "endChar": 43
       },
       "revId": "cbac4da50c79e9ef99064961a68c162b685f04ac",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
