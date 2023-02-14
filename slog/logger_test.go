@@ -310,6 +310,14 @@ func TestAlloc(t *testing.T) {
 				Int("d", 1), String("e", "two"), Duration("f", time.Second))
 		})
 	})
+	t.Run("WithContext", func(t *testing.T) {
+		ctx := context.Background()
+		wantAllocs(t, 0, func() {
+			cl := dl.WithContext(ctx)
+			cl.Info("msg")
+			cl.Warn("msg")
+		})
+	})
 }
 
 func TestSetAttrs(t *testing.T) {
