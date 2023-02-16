@@ -468,6 +468,52 @@ func TestDelete(t *testing.T) {
 	}
 }
 
+var deleteFuncTests = []struct {
+	s    []int
+	f    func(int) bool
+	want []int
+}{
+	{
+		nil,
+		nil,
+		nil,
+	},
+	{
+		[]int{},
+		nil,
+		[]int{},
+	},
+	{
+		[]int{4, 5, 6},
+		func(v int) bool { return v == 4 },
+		[]int{5, 6},
+	},
+	{
+		[]int{1, 2, 3},
+		func(_ int) bool { return false },
+		[]int{1, 2, 3},
+	},
+	{
+		[]int{7, 8, 9},
+		func(v int) bool { return true },
+		[]int{},
+	},
+	{
+		[]int{10, 11, 12},
+		func(v int) bool { return v%2 == 0 },
+		[]int{11},
+	},
+}
+
+func TestDeleteFunc(t *testing.T) {
+	for _, test := range deleteFuncTests {
+		copy := Clone(test.s)
+		if got := DeleteFunc(copy, test.f); !Equal(got, test.want) {
+			t.Errorf("DeleteFunc(%v) = %v, want %v", test.s, got, test.want)
+		}
+	}
+}
+
 func panics(f func()) (b bool) {
 	defer func() {
 		if x := recover(); x != nil {
