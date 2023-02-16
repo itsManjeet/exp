@@ -168,6 +168,22 @@ func Delete[S ~[]E, E any](s S, i, j int) S {
 	return append(s[:i], s[j:]...)
 }
 
+// DeleteFunc removes any element e from s where e satisfies f(e), returning
+// the modified slice.
+func DeleteFunc[S ~[]E, E any](s S, f func(E) bool) S {
+	if len(s) == 0 {
+		return s
+	}
+	i := 0
+	for _, v := range s {
+		if !f(v) {
+			s[i] = v
+			i++
+		}
+	}
+	return s[:i]
+}
+
 // Replace replaces the elements s[i:j] by the given v, and returns the
 // modified slice. Replace panics if s[i:j] is not a valid slice of s.
 func Replace[S ~[]E, E any](s S, i, j int, v ...E) S {
