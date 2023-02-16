@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b3542a1_7d5a6466",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2023-02-16T19:33:06Z",
+      "side": 1,
+      "message": "Thanks.  New API like this should first go through the proposal process described at https://go.dev/s/proposal.",
+      "revId": "69c27715359086faddb7507b20dc742625d6ffe3",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
