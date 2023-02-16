@@ -8,17 +8,24 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"runtime"
+	"time"
 
 	"golang.org/x/exp/slog"
 )
 
 func Infof(format string, args ...any) {
-	// Use LogDepth to adjust source line information to point to the caller of Infof.
-	// The 1 passed to LogDepth refers to the caller of LogDepth, namely this function.
-	slog.Default().LogDepth(1, slog.LevelInfo, fmt.Sprintf(format, args...))
+	l := slog.Default()
+	if !l.Enabled(nil, slog.LevelInfo) {
+		return
+	}
+	var pcs [1]uintptr
+	runtime.Callers(2, pcs[:])
+	r := slog.NewRecord(time.Now(), slog.LevelInfo, fmt.Sprintf(format, args...), pcs[0])
+	_ = l.Handler().Handle(nil, r)
 }
 
-func ExampleLogger_LogDepth() {
+func Example_wrapping() {
 	defer func(l *slog.Logger) { slog.SetDefault(l) }(slog.Default())
 
 	replace := func(groups []string, a slog.Attr) slog.Attr {
@@ -37,5 +44,5 @@ func ExampleLogger_LogDepth() {
 	Infof("message, %s", "formatted")
 
 	// Output:
-	// level=INFO source=example_depth_test.go:37 msg="message, formatted"
+	// level=INFO source=example_depth_test.go:44 msg="message, formatted"
 }
