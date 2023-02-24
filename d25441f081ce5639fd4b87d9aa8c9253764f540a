@@ -55,6 +55,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a64b3d08_b07800e2",
+        "filename": "slog/example_depth_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-02-24T15:40:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f49d8287_affa0da6",
+      "revId": "d25441f081ce5639fd4b87d9aa8c9253764f540a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "370bf16f_a15ed4a9",
@@ -68,6 +86,24 @@
       "writtenOn": "2023-02-24T14:42:33Z",
       "side": 1,
       "message": "... // skip [Callers, Infof]",
+      "revId": "d25441f081ce5639fd4b87d9aa8c9253764f540a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9feb5281_eee3f49a",
+        "filename": "slog/example_depth_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-02-24T15:40:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "370bf16f_a15ed4a9",
       "revId": "d25441f081ce5639fd4b87d9aa8c9253764f540a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -95,6 +131,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0dd89115_176e98b8",
+        "filename": "slog/example_depth_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-02-24T15:40:58Z",
+      "side": 1,
+      "message": "Yes, by those who care:\n\n    type errorHandlingHandler struct { h slog.Handler; ... }\n\n    func (h *errorHandlingHandler) Handle(ctx, r Record) error {\n        err :\u003d h.h.Handle(ctx, r)\n        if err !\u003d nil { \n           alertTheMedia(err)\n        }\n        return err\n    }\n    \n I personally don\u0027t know what anyone would do with that error, but maybe there are systems that have some sort of fallback logging in place.",
+      "parentUuid": "ab40c093_4b4e4e69",
+      "range": {
+        "startLine": 25,
+        "startChar": 1,
+        "endLine": 25,
+        "endChar": 5
+      },
+      "revId": "d25441f081ce5639fd4b87d9aa8c9253764f540a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "def4a643_10c999f0",
@@ -112,6 +172,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a483fc6b_40a238a8",
+        "filename": "slog/logger.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-02-24T15:40:58Z",
+      "side": 1,
+      "message": "Bug. Fixed.",
+      "parentUuid": "def4a643_10c999f0",
+      "revId": "d25441f081ce5639fd4b87d9aa8c9253764f540a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a98341a2_4f8cd5c7",
@@ -125,6 +203,24 @@
       "writtenOn": "2023-02-24T14:42:33Z",
       "side": 1,
       "message": "What\u0027s the plan here?",
+      "revId": "d25441f081ce5639fd4b87d9aa8c9253764f540a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c6329c7_7e2b4832",
+        "filename": "slog/logger_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-02-24T15:40:58Z",
+      "side": 1,
+      "message": "Should have been deleted. Log copying is trivial now (only one field).",
+      "parentUuid": "a98341a2_4f8cd5c7",
       "revId": "d25441f081ce5639fd4b87d9aa8c9253764f540a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
