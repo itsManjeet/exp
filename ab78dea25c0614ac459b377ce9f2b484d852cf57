@@ -61,6 +61,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a46f38d_f753294d",
+        "filename": "slog/doc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-02-24T13:03:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "728707fe_c175984b",
+      "range": {
+        "startLine": 200,
+        "startChar": 56,
+        "endLine": 200,
+        "endChar": 64
+      },
+      "revId": "ab78dea25c0614ac459b377ce9f2b484d852cf57",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "107c0037_6f9cacc3",
@@ -84,6 +108,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "65948e88_ce133491",
+        "filename": "slog/doc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-02-24T13:03:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "107c0037_6f9cacc3",
+      "range": {
+        "startLine": 201,
+        "startChar": 28,
+        "endLine": 202,
+        "endChar": 16
+      },
+      "revId": "ab78dea25c0614ac459b377ce9f2b484d852cf57",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c8b47f7_2ae0dc8a",
@@ -97,6 +145,30 @@
       "writtenOn": "2023-02-23T21:06:46Z",
       "side": 1,
       "message": "\"report the source file as\"",
+      "range": {
+        "startLine": 244,
+        "startChar": 15,
+        "endLine": 244,
+        "endChar": 18
+      },
+      "revId": "ab78dea25c0614ac459b377ce9f2b484d852cf57",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc8000b7_d0ecab41",
+        "filename": "slog/doc.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-02-24T13:03:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c8b47f7_2ae0dc8a",
       "range": {
         "startLine": 244,
         "startChar": 15,
