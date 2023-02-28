@@ -37,6 +37,9 @@ func (l *Logger) logAttrsDepth(ctx context.Context, calldepth int, level Level, 
 	runtime.Callers(calldepth+2, pcs[:])
 	r := NewRecord(time.Now(), level, msg, pcs[0])
 	r.AddAttrs(attrs...)
+	if ctx == nil {
+		ctx = context.Background()
+	}
 	_ = l.Handler().Handle(ctx, r)
 }
 
