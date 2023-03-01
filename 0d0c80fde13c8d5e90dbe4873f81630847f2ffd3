@@ -53,6 +53,24 @@
       "message": "Handler.Handle says:\n\n// The first argument is the context of the Logger that created the Record,\n// which may be nil.\n\nShouldn\u0027t it be changed to explicitly alleviate Handler implementations from caring about nil?\n\n// The first argument is the context of the Logger that created the Record,\n// or context.Background() if the Logger\u0027s context is nil.",
       "revId": "0d0c80fde13c8d5e90dbe4873f81630847f2ffd3",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4df1d6b3_199094a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-03-01T21:34:23Z",
+      "side": 1,
+      "message": "That comment was obsolete. (\"context of the Logger\" isn\u0027t a thing anymore).\nPTAL at my new attempt.",
+      "parentUuid": "b3e47180_55fa99cd",
+      "revId": "0d0c80fde13c8d5e90dbe4873f81630847f2ffd3",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
