@@ -767,3 +767,42 @@ func BenchmarkReplace(b *testing.B) {
 	}
 
 }
+
+var mapFuncTests = []struct {
+	name string
+	s    []int
+	want []bool
+}{
+	{
+		"nil",
+		nil,
+		nil,
+	},
+	{
+		"empty",
+		[]int{},
+		[]bool{},
+	},
+	{
+		"single item",
+		[]int{1},
+		[]bool{false},
+	},
+	{
+		"multiple items",
+		[]int{1, 2, 3},
+		[]bool{false, true, false},
+	},
+}
+
+func IsEven(n int) bool {
+	return (n & 1) == 0
+}
+
+func TestMapFunc(t *testing.T) {
+	for _, test := range mapFuncTests {
+		if got := MapFunc(test.s, IsEven); !Equal(got, test.want) {
+			t.Errorf("MapFunc(%v, isEven) = %v, want %v", test.s, got, test.want)
+		}
+	}
+}

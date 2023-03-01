@@ -256,3 +256,14 @@ func Grow[S ~[]E, E any](s S, n int) S {
 func Clip[S ~[]E, E any](s S) S {
 	return s[:len(s):len(s)]
 }
+
+// MapFunc converts a type of slice to another using a mapper function.
+// It iterates the given slice, runs mapper on each element of slice
+// and returns a new slice with mapped elements.
+func MapFunc[S, T any](s []S, mapper func(S) T) []T {
+	var t []T
+	for _, x := range s {
+		t = append(t, mapper(x))
+	}
+	return t
+}
