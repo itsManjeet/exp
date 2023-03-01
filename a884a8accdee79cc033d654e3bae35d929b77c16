@@ -16,6 +16,23 @@
       "message": "Adding new API like this requires a proposal.  See https://go.dev/s/proposal.  Thanks.",
       "revId": "a884a8accdee79cc033d654e3bae35d929b77c16",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c262f2d_a9513b76",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2023-03-01T19:56:12Z",
+      "side": 1,
+      "message": "Also I\u0027ll note that we explicitly did not add map/filter/reduce to the slices package because we are waiting for a clearer story on iteration over general containers.",
+      "revId": "a884a8accdee79cc033d654e3bae35d929b77c16",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
