@@ -40,6 +40,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a4f58fef_e7c008f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5021
+      },
+      "writtenOn": "2023-03-02T04:37:27Z",
+      "side": 1,
+      "message": "I am not sure where that objective has been discussed,\nbut please reconsider and maybe point me to the discussion.\n\nAccepting nil a context usually hides missing initialisation.\n\ndummy contexts are usually properly signalled via\ncontext.Background (permanently no context here(\nor context.TODO (no context aware code here yet).\n\nSo I don\u0027t see a reason to change it.\n\nWhat happens in real code is usually\n\nlog.Log(ctx,....) where ctx may be nil and that\nis unintended, so should not be hidden further.\n\nWhat you expect is\n\nlog.Log(nil, ...) and that is expressed clearer via\nlog.Log(context.Background(), ...) in regular Go code.\n\nThe only places, I am aware of, where nil context means\nto use a default of context.Background automatically,\nare cases that didn\u0027t have a context before but now can use one.\nAnd that doesn\u0027t seem to apply to this API as it is stil\nexperimental and in the design phase.",
+      "revId": "bb9af07fff7ee1f51e2991919fa6d3a0680ca075",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ac5f4ba9_90fa1bf9",
         "filename": "slog/handler.go",
         "patchSetId": 2
