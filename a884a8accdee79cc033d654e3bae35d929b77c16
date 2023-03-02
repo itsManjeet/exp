@@ -33,6 +33,59 @@
       "message": "Also I\u0027ll note that we explicitly did not add map/filter/reduce to the slices package because we are waiting for a clearer story on iteration over general containers.",
       "revId": "a884a8accdee79cc033d654e3bae35d929b77c16",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ebec390_dc0fe462",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 61598
+      },
+      "writtenOn": "2023-03-02T09:22:17Z",
+      "side": 1,
+      "message": "Closing this PR. As there is some internal discussion going on on iteration over containers.",
+      "revId": "a884a8accdee79cc033d654e3bae35d929b77c16",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a93b856b_3cc5c767",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 61598
+      },
+      "writtenOn": "2023-03-02T09:22:17Z",
+      "side": 1,
+      "message": "Yeah, everyday there\u0027s basically single use-case where we need to slice to a different type and every time I had to write a loop. So, I had a thought of adding it to source for everyone\u0027s use. As per your comment I believe I\u0027ll have to wait till you guys add it.\nIs there a issue/thread that I can follow on \"iteration over general containers\" topic?",
+      "parentUuid": "6c262f2d_a9513b76",
+      "revId": "a884a8accdee79cc033d654e3bae35d929b77c16",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d2de61e_2b82f5cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 61598
+      },
+      "writtenOn": "2023-03-02T09:22:17Z",
+      "side": 1,
+      "message": "Thanks for letting me know. I will take care next time.",
+      "parentUuid": "ff955080_691dfec5",
+      "revId": "a884a8accdee79cc033d654e3bae35d929b77c16",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
