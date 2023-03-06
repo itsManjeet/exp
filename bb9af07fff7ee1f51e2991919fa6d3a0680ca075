@@ -55,6 +55,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc9e59ed_1291f393",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-03-06T21:54:21Z",
+      "side": 1,
+      "message": "I agree that people should pass a non-nil context.\nAnd that normally, we shouldn\u0027t check for nil and let the program fail.\nBut logging is exceptional in that it is often the last resort for debugging, so we want to bend over backwards to make it succeed.",
+      "parentUuid": "a4f58fef_e7c008f1",
+      "revId": "bb9af07fff7ee1f51e2991919fa6d3a0680ca075",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ac5f4ba9_90fa1bf9",
@@ -68,6 +86,30 @@
       "writtenOn": "2023-03-01T21:37:26Z",
       "side": 1,
       "message": "In fewer words:\n\n// It will only be called Enabled returns true.\n// The Context argument is as for Enabled.",
+      "range": {
+        "startLine": 41,
+        "startChar": 4,
+        "endLine": 45,
+        "endChar": 42
+      },
+      "revId": "bb9af07fff7ee1f51e2991919fa6d3a0680ca075",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c91c650_e796509d",
+        "filename": "slog/handler.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-03-06T21:54:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ac5f4ba9_90fa1bf9",
       "range": {
         "startLine": 41,
         "startChar": 4,
