@@ -47,6 +47,7 @@ type Handler interface {
 	//
 	// Handle methods that produce output should observe the following rules:
 	//   - If r.Time is the zero time, ignore the time.
+	//   - If r.PC is zero, ignore it.
 	//   - If an Attr's key is the empty string and the value is not a group,
 	//     ignore the Attr.
 	//   - If a group's key is empty, inline the group's Attrs.
@@ -57,6 +58,10 @@ type Handler interface {
 	// WithAttrs returns a new Handler whose attributes consist of
 	// both the receiver's attributes and the arguments.
 	// The Handler owns the slice: it may retain, modify or discard it.
+	//
+	// WithAttrs is intended to be called only from Logger.With,
+	// which will resolve the Attrs.
+	// It should not be invoked directly.
 	WithAttrs(attrs []Attr) Handler
 
 	// WithGroup returns a new Handler with the given group appended to
@@ -78,6 +83,9 @@ type Handler interface {
 	//     logger.LogAttrs(level, msg, slog.Group("s", slog.Int("a", 1), slog.Int("b", 2)))
 	//
 	// If the name is empty, WithGroup returns the receiver.
+	//
+	// WithGroup is intended to be called only from Logger.WithGroup.
+	// It should not be invoked directly.
 	WithGroup(name string) Handler
 }
 
