@@ -61,6 +61,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c2c0c39_aa6a2756",
+        "filename": "slog/slogtest/example_test.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-04-04T10:34:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "324390f9_2b87e0eb",
+      "range": {
+        "startLine": 13,
+        "startChar": 67,
+        "endLine": 13,
+        "endChar": 70
+      },
+      "revId": "606c85da014fdb73dbf3794b3b763fd9bb546f4b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "af4bc732_7d666476",
@@ -74,6 +98,24 @@
       "writtenOn": "2023-04-03T16:36:23Z",
       "side": 1,
       "message": "This assumes that there are no newlines in the JSON output. Is that sound? Surely not if arbitrary json.Marshaler implementations are considered.",
+      "revId": "606c85da014fdb73dbf3794b3b763fd9bb546f4b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9397b06c_f3899920",
+        "filename": "slog/slogtest/example_test.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-04-04T10:34:34Z",
+      "side": 1,
+      "message": "This should work for JSONHandler, which tries to escape newlines in its output. In fact, JSONHandler guarantees one log entry per line, so any unescaped newlines are bugs.",
+      "parentUuid": "af4bc732_7d666476",
       "revId": "606c85da014fdb73dbf3794b3b763fd9bb546f4b",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -103,6 +145,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "72ad698a_f6d656a7",
+        "filename": "slog/slogtest/slogtest.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-04-04T10:34:34Z",
+      "side": 1,
+      "message": "Good point. I\u0027m not sure what to do about it except to document it, which I\u0027ve done.",
+      "parentUuid": "573ec845_bee603f7",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 2
+      },
+      "revId": "606c85da014fdb73dbf3794b3b763fd9bb546f4b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "06972c1e_0b6dcddc",
         "filename": "slog/slogtest/slogtest.go",
         "patchSetId": 4
@@ -120,6 +186,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4352e9d3_63006cd4",
+        "filename": "slog/slogtest/slogtest.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-04-04T10:34:34Z",
+      "side": 1,
+      "message": "Don\u0027t both of those require reading the source of the slogtest package? That seems to go against the dictum to make test output self-explanatory.\n\nI\u0027ve done something like withLine, but have included the full path to the source file to make it easy to find.",
+      "parentUuid": "06972c1e_0b6dcddc",
+      "revId": "606c85da014fdb73dbf3794b3b763fd9bb546f4b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dafd77a2_dd1937c8",
         "filename": "slog/slogtest/slogtest_test.go",
         "patchSetId": 4
@@ -131,6 +215,24 @@
       "writtenOn": "2023-04-03T16:36:23Z",
       "side": 1,
       "message": "This doesn\u0027t look correct if the output includes a quoted space. Parsing the text output format is inherently a left-to-right scan, I think.",
+      "revId": "606c85da014fdb73dbf3794b3b763fd9bb546f4b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1e0e4fc_3f275e2b",
+        "filename": "slog/slogtest/slogtest_test.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-04-04T10:34:34Z",
+      "side": 1,
+      "message": "That\u0027s true, but this doesn\u0027t need to be a general text parser. This package tests handlers, not parsers, so the keys and values it uses are simple. It seems unfair to make a handler writer produce a full-featured parser just to use this test when they may not otherwise need it.\n\nI see I tried to handle quotes, which is misleading. I deleted those lines and added a comment.",
+      "parentUuid": "dafd77a2_dd1937c8",
       "revId": "606c85da014fdb73dbf3794b3b763fd9bb546f4b",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
