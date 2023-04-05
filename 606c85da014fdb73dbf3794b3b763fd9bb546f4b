@@ -235,6 +235,24 @@
       "parentUuid": "dafd77a2_dd1937c8",
       "revId": "606c85da014fdb73dbf3794b3b763fd9bb546f4b",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74d9a624_6d75b61d",
+        "filename": "slog/slogtest/slogtest_test.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-04-05T10:30:16Z",
+      "side": 1,
+      "message": "A reasonable alternative view: any Handler must deal with unusual keys and values, and we are doing Handler writers a service by forcing them to write a full parser.\n\nRebuttal #1: They don\u0027t need to write a full parser if they can prove that they are handling special cases. A call to strconv.Quote is such a proof.\n\nRebuttal #2: Some Handlers may intentionally not bother with general machine-readable output. By keeping its keys and values simple, slogtest allows those Handlers to be tested.",
+      "parentUuid": "e1e0e4fc_3f275e2b",
+      "revId": "606c85da014fdb73dbf3794b3b763fd9bb546f4b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
