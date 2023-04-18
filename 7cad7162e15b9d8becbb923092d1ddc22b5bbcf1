@@ -53,6 +53,24 @@
       "message": "This feels repetitive. Maybe,\n\n\u003e BinarySearchFunc works like BinarySearch, \n\u003e but uses a custom comparison function. \n\u003e The slice must be sorted in increasing order, \n\u003e where \"increasing\" is defined by cmp,\n\u003e such that if cmp(a, target) \u003c 0 and cmp(b, target) \u003e\u003d 0, \n\u003e then a must precede b in the slice.",
       "revId": "7cad7162e15b9d8becbb923092d1ddc22b5bbcf1",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fb00162_645062b4",
+        "filename": "slices/sort.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2023-04-18T21:58:18Z",
+      "side": 1,
+      "message": "Thanks.  I\u0027m worried that that is too short, because it doesn\u0027t really explain the cmp return value.  It\u0027s clear to someone familiar with, say, the C function strcmp, but it\u0027s not necessarily a common idiom in Go.",
+      "parentUuid": "51a6e5f6_1bd07e99",
+      "revId": "7cad7162e15b9d8becbb923092d1ddc22b5bbcf1",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
