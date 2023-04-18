@@ -93,6 +93,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "73752a8b_d49dc3cd",
+        "filename": "slices/sort.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2023-04-18T21:26:58Z",
+      "side": 1,
+      "message": "\u003e he existing doc says a\u003d\u003db, a\u003cb, a\u003eb and that\u0027s wrong because a and b are not necessarily of the same type and thus may not be comparable -- right?\n\nRight.\n\n\u003e If that\u0027s the problem with the existing docs, it still exists when we say \"slice element is equal to the target\", no?\n\nGood point.  Changed to \"matches\".",
+      "parentUuid": "4b77e92e_d4669533",
+      "revId": "c10a37c38dae0a199bf9739c494b292e804273e7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6407036c_9fe96534",
         "filename": "slices/sort.go",
         "patchSetId": 1
