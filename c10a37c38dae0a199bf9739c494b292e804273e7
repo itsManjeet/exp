@@ -57,6 +57,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0d171782_1106c59d",
+        "filename": "slices/sort.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2023-04-18T21:10:35Z",
+      "side": 1,
+      "message": "I don\u0027t think it is clearer, but the current docs are wrong.  We\u0027ve changed target so that it can be a different type than the slice element type.\n\nYou mention \"after sorting\" so note that this is Search, not Sort.  We are searching an already-sorted list.",
+      "parentUuid": "499bd7a4_48ea1917",
+      "revId": "c10a37c38dae0a199bf9739c494b292e804273e7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6407036c_9fe96534",
         "filename": "slices/sort.go",
         "patchSetId": 1
@@ -68,6 +86,24 @@
       "writtenOn": "2023-04-18T21:07:42Z",
       "side": 1,
       "message": "s/elements/element/",
+      "revId": "c10a37c38dae0a199bf9739c494b292e804273e7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd96ed2a_830cf5c3",
+        "filename": "slices/sort.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2023-04-18T21:10:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6407036c_9fe96534",
       "revId": "c10a37c38dae0a199bf9739c494b292e804273e7",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
