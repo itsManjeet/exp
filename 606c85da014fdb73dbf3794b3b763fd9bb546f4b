@@ -167,6 +167,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "57692988_eda3abb7",
+        "filename": "slog/slogtest/slogtest.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2023-04-18T20:09:55Z",
+      "side": 1,
+      "message": "Ok, fine.",
+      "parentUuid": "72ad698a_f6d656a7",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 2
+      },
+      "revId": "606c85da014fdb73dbf3794b3b763fd9bb546f4b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "06972c1e_0b6dcddc",
@@ -198,6 +222,24 @@
       "side": 1,
       "message": "Don\u0027t both of those require reading the source of the slogtest package? That seems to go against the dictum to make test output self-explanatory.\n\nI\u0027ve done something like withLine, but have included the full path to the source file to make it easy to find.",
       "parentUuid": "06972c1e_0b6dcddc",
+      "revId": "606c85da014fdb73dbf3794b3b763fd9bb546f4b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6f42950_f7dae360",
+        "filename": "slog/slogtest/slogtest.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2023-04-18T20:09:55Z",
+      "side": 1,
+      "message": "I see. I suppose you could use an embed directive to get the text of this file as a literal and then extract just the relevant line using withSource (or FuncForPC) applied around the func literal.\n\nBut what you have here looks fine.",
+      "parentUuid": "4352e9d3_63006cd4",
       "revId": "606c85da014fdb73dbf3794b3b763fd9bb546f4b",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -251,6 +293,24 @@
       "side": 1,
       "message": "A reasonable alternative view: any Handler must deal with unusual keys and values, and we are doing Handler writers a service by forcing them to write a full parser.\n\nRebuttal #1: They don\u0027t need to write a full parser if they can prove that they are handling special cases. A call to strconv.Quote is such a proof.\n\nRebuttal #2: Some Handlers may intentionally not bother with general machine-readable output. By keeping its keys and values simple, slogtest allows those Handlers to be tested.",
       "parentUuid": "e1e0e4fc_3f275e2b",
+      "revId": "606c85da014fdb73dbf3794b3b763fd9bb546f4b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec5fa44c_30aa78c7",
+        "filename": "slog/slogtest/slogtest_test.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2023-04-18T20:09:55Z",
+      "side": 1,
+      "message": "OK. It might be worth giving the motivation for the intentionally limited functionality in the comment too.",
+      "parentUuid": "74d9a624_6d75b61d",
       "revId": "606c85da014fdb73dbf3794b3b763fd9bb546f4b",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
