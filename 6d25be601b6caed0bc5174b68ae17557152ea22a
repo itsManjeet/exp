@@ -24,6 +24,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "61ec56b6_018ad5fe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-04-20T15:51:46Z",
+      "side": 1,
+      "message": "And the unsafe value stuff, dealt with separately.",
+      "parentUuid": "2f561c32_dc8b05d3",
+      "range": {
+        "startLine": 10,
+        "startChar": 45,
+        "endLine": 10,
+        "endChar": 65
+      },
+      "revId": "6d25be601b6caed0bc5174b68ae17557152ea22a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "57c6f768_c00adb1f",
