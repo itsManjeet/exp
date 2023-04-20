@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31a62bb4_600944aa",
+        "filename": "slog/value_safe.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2023-04-20T15:26:14Z",
+      "side": 0,
+      "message": "I would suggest keeping this around with the constraint `//go:build !go1.20`, so that users on Go 1.19 can continue to use `x/exp/slog`.",
+      "revId": "4b592b6f01d88bc965d77687ce14b0b92a02900e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
