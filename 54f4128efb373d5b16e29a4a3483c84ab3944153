@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8465c16_e60ca3a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2023-05-02T17:26:08Z",
+      "side": 1,
+      "message": "This is new API which is required to go through the proposal process.  See https://go.dev/s/proposal.  Thanks.\n\nNote that we are unlikely to use a function Map to convert a slice to a map, as that would be confusing with a function Map that applies a function to each element of a slice (as in the Python function map).",
+      "revId": "54f4128efb373d5b16e29a4a3483c84ab3944153",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
