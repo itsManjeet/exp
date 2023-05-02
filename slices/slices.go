@@ -256,3 +256,18 @@ func Grow[S ~[]E, E any](s S, n int) S {
 func Clip[S ~[]E, E any](s S) S {
 	return s[:len(s):len(s)]
 }
+
+// Map returns a map with the keys slice mapped to a common value.
+func Map[K comparable, V any](keys []K, value V) map[K]V {
+	m := make(map[K]V)
+	for _, k := range keys {
+		m[k] = value
+	}
+	return m
+}
+
+// Set returns a map with keys slice mapped to empty structs.
+// The resulting set will be in an indeterminate order.
+func Set[E comparable](keys []E) map[E]struct{} {
+	return Map(keys, struct{}{})
+}

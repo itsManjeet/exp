@@ -10,6 +10,7 @@ import (
 	"testing"
 
 	"golang.org/x/exp/constraints"
+	"golang.org/x/exp/maps"
 )
 
 var raceEnabled bool
@@ -813,4 +814,81 @@ func BenchmarkReplace(b *testing.B) {
 		})
 	}
 
+}
+
+var mapStringToIntTests = []struct {
+	k    []string
+	v    int
+	want map[string]int
+}{
+	{
+		// single keyset
+		[]string{"a"},
+		1,
+		map[string]int{
+			"a": 1,
+		},
+	},
+	{
+		// unique keyset
+		[]string{"a", "c", "b"},
+		2,
+		map[string]int{
+			"a": 2,
+			"b": 2,
+			"c": 2,
+		},
+	},
+	{
+		// non-unique keyset
+		[]string{"a", "a", "b", "a"},
+		3,
+		map[string]int{
+			"a": 3,
+			"b": 3,
+		},
+	},
+}
+
+func TestMap(t *testing.T) {
+	for _, test := range mapStringToIntTests {
+		if got := Map(test.k, test.v); !maps.Equal(test.want, got) {
+			t.Errorf("Map(%v, %v) = %v, want %v", test.k, test.v, got, test.want)
+		}
+	}
+}
+
+var setIntTests = []struct {
+	s    []int
+	want map[int]struct{}
+}{
+	{
+		[]int{1},
+		map[int]struct{}{
+			1: struct{}{},
+		},
+	},
+	{
+		[]int{2, 1, 3},
+		map[int]struct{}{
+			1: struct{}{},
+			2: struct{}{},
+			3: struct{}{},
+		},
+	},
+	{
+		[]int{1, 2, 1, 1},
+		map[int]struct{}{
+			1: struct{}{},
+			2: struct{}{},
+		},
+	},
+}
+
+func TestSet(t *testing.T) {
+	for _, test := range setIntTests {
+		if got := Set(test.s); !maps.Equal(test.want, got) {
+			t.Errorf("Set(%v) = %v, want %v", test.s, got, test.want)
+		}
+	}
 }
