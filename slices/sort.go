@@ -57,6 +57,64 @@ func IsSortedFunc[E any](x []E, less func(a, b E) bool) bool {
 	return true
 }
 
+// Min returns the minimal value in x. It panics if x is empty.
+func Min[E constraints.Ordered](x []E) E {
+	if len(x) < 1 {
+		panic("slices.Min: min of empty list")
+	}
+	m := x[0]
+	for i := 1; i < len(x); i++ {
+		if x[i] < m {
+			m = x[i]
+		}
+	}
+	return m
+}
+
+// MinFunc returns the minimal value in x, using less to compare elements. It
+// panics if x is empty.
+func MinFunc[E any](x []E, less func(a, b E) bool) E {
+	if len(x) < 1 {
+		panic("slices.MinFunc: min of empty list")
+	}
+	m := x[0]
+	for i := 1; i < len(x); i++ {
+		if less(x[i], m) {
+			m = x[i]
+		}
+	}
+	return m
+}
+
+// Max returns the maximal value in x. It panics if x is empty.
+func Max[E constraints.Ordered](x []E) E {
+	if len(x) < 1 {
+		panic("slices.Max: max of empty list")
+	}
+	m := x[0]
+	for i := 1; i < len(x); i++ {
+		if x[i] > m {
+			m = x[i]
+		}
+	}
+	return m
+}
+
+// MaxFunc returns the maximal value in x, using less to compare elements. It
+// panics if x is empty.
+func MaxFunc[E constraints.Ordered](x []E, less func(a, b E) bool) E {
+	if len(x) < 1 {
+		panic("slices.MaxFunc: max of empty list")
+	}
+	m := x[0]
+	for i := 1; i < len(x); i++ {
+		if less(m, x[i]) {
+			m = x[i]
+		}
+	}
+	return m
+}
+
 // BinarySearch searches for target in a sorted slice and returns the position
 // where target is found, or the position where target would appear in the
 // sort order; it also returns a bool saying whether the target is really found
