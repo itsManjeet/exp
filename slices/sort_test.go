@@ -5,6 +5,7 @@
 package slices
 
 import (
+	"fmt"
 	"math"
 	"math/rand"
 	"sort"
@@ -167,6 +168,83 @@ func TestStability(t *testing.T) {
 	}
 	if !data.inOrder() {
 		t.Errorf("Stable wasn't stable on %d ints", n)
+	}
+}
+
+func TestMinMax(t *testing.T) {
+	intLess := func(a, b int) bool { return a < b }
+
+	tests := []struct {
+		data    []int
+		wantMin int
+		wantMax int
+	}{
+		{[]int{7}, 7, 7},
+		{[]int{1, 2}, 1, 2},
+		{[]int{2, 1}, 1, 2},
+		{[]int{1, 2, 3}, 1, 3},
+		{[]int{3, 2, 1}, 1, 3},
+		{[]int{2, 1, 3}, 1, 3},
+		{[]int{2, 2, 3}, 2, 3},
+		{[]int{3, 2, 3}, 2, 3},
+		{[]int{0, 2, -9}, -9, 2},
+	}
+	for _, tt := range tests {
+		t.Run(fmt.Sprintf("%v", tt.data), func(t *testing.T) {
+			gotMin := Min(tt.data)
+			if gotMin != tt.wantMin {
+				t.Errorf("Min got %v, want %v", gotMin, tt.wantMin)
+			}
+
+			gotMinFunc := MinFunc(tt.data, intLess)
+			if gotMinFunc != tt.wantMin {
+				t.Errorf("MinFunc got %v, want %v", gotMinFunc, tt.wantMin)
+			}
+
+			gotMax := Max(tt.data)
+			if gotMax != tt.wantMax {
+				t.Errorf("Max got %v, want %v", gotMax, tt.wantMax)
+			}
+
+			gotMaxFunc := Max(tt.data)
+			if gotMaxFunc != tt.wantMax {
+				t.Errorf("MaxFunc got %v, want %v", gotMaxFunc, tt.wantMax)
+			}
+		})
+	}
+}
+
+func TestMinMaxNaNs(t *testing.T) {
+	fs := []float64{math.NaN(), 999.9, math.Inf(1), -400.4, math.Inf(-1)}
+	fmin := Min(fs)
+	if !math.IsNaN(fmin) {
+		t.Errorf("got min %v, want NaN", fmin)
+	}
+
+	fmax := Max(fs)
+	if !math.IsNaN(fmax) {
+		t.Errorf("got max %v, want NaN", fmax)
+	}
+}
+
+func TestMinMaxPanics(t *testing.T) {
+	intLess := func(a, b int) bool { return a < b }
+	emptySlice := []int{}
+
+	if !panics(func() { Min(emptySlice) }) {
+		t.Errorf("Min([]): got no panic, want panic")
+	}
+
+	if !panics(func() { Max(emptySlice) }) {
+		t.Errorf("Max([]): got no panic, want panic")
+	}
+
+	if !panics(func() { MinFunc(emptySlice, intLess) }) {
+		t.Errorf("MinFunc([]): got no panic, want panic")
+	}
+
+	if !panics(func() { MaxFunc(emptySlice, intLess) }) {
+		t.Errorf("MaxFunc([]): got no panic, want panic")
 	}
 }
 
