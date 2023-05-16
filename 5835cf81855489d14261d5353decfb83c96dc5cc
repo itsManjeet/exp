@@ -55,6 +55,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b0c17ab_247de832",
+        "filename": "slices/sort.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 52648
+      },
+      "writtenOn": "2023-05-16T21:55:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02a2bc64_92af282d",
+      "revId": "5835cf81855489d14261d5353decfb83c96dc5cc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "532f8448_6ecb934d",
@@ -68,6 +86,24 @@
       "writtenOn": "2023-05-16T20:56:18Z",
       "side": 1,
       "message": "We should probably document this behavior.",
+      "revId": "5835cf81855489d14261d5353decfb83c96dc5cc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4b12a38_0e0e4b6a",
+        "filename": "slices/sort_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 52648
+      },
+      "writtenOn": "2023-05-16T21:55:21Z",
+      "side": 1,
+      "message": "This will probably require a decision. Right now, the behavior is the natural consequence of using the `\u003c` operator for comparison. This is similar to how `min` behaves in other languages like Python.\n\nHowever, in https://github.com/golang/go/issues/59488 Russ says:\n\n\"Min and max take the usual arithmetic operator approach of \"NaN in, NaN out\"\n\nDoes this mean Min/Max are expected to return a NaN whenever a NaN is present in the slice? This would be unfortunate for the performance of these functions. Another possibility is using cmp.Less, but then NaNs would always be considered the minimum.\n\nIt seems like there are 3 possible behaviors here. Which should we choose?",
+      "parentUuid": "532f8448_6ecb934d",
       "revId": "5835cf81855489d14261d5353decfb83c96dc5cc",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
