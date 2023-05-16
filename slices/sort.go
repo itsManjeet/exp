@@ -57,6 +57,72 @@ func IsSortedFunc[E any](x []E, less func(a, b E) bool) bool {
 	return true
 }
 
+// Min returns the minimal value in x. It panics if x is empty.
+// For floating-point E, Min propagates NaNs (any NaN value in x
+// forces the output to be NaN).
+func Min[E constraints.Ordered](x []E) E {
+	if len(x) < 1 {
+		panic("slices.Min: min of empty list")
+	}
+	m := x[0]
+	for i := 1; i < len(x); i++ {
+		if x[i] != x[i] || x[i] < m {
+			m = x[i]
+		}
+	}
+	return m
+}
+
+// MinFunc returns the minimal value in x, using cmp to compare elements.
+// cmp should return a negative number if a < b, a positive number if b > a, or
+// 0 if a == b.
+// It panics if x is empty.
+func MinFunc[E any](x []E, cmp func(a, b E) int) E {
+	if len(x) < 1 {
+		panic("slices.MinFunc: min of empty list")
+	}
+	m := x[0]
+	for i := 1; i < len(x); i++ {
+		if cmp(x[i], m) < 0 {
+			m = x[i]
+		}
+	}
+	return m
+}
+
+// Max returns the maximal value in x. It panics if x is empty.
+// For floating-point E, Max propagates NaNs (any NaN value in x
+// forces the output to be NaN).
+func Max[E constraints.Ordered](x []E) E {
+	if len(x) < 1 {
+		panic("slices.Max: max of empty list")
+	}
+	m := x[0]
+	for i := 1; i < len(x); i++ {
+		if x[i] != x[i] || x[i] > m {
+			m = x[i]
+		}
+	}
+	return m
+}
+
+// MaxFunc returns the maximal value in x, using less to compare elements.
+// cmp should return a negative number if a < b, a positive number if b > a, or
+// 0 if a == b.
+// It panics if x is empty.
+func MaxFunc[E any](x []E, cmp func(a, b E) int) E {
+	if len(x) < 1 {
+		panic("slices.MaxFunc: max of empty list")
+	}
+	m := x[0]
+	for i := 1; i < len(x); i++ {
+		if cmp(x[i], m) > 0 {
+			m = x[i]
+		}
+	}
+	return m
+}
+
 // BinarySearch searches for target in a sorted slice and returns the position
 // where target is found, or the position where target would appear in the
 // sort order; it also returns a bool saying whether the target is really found
