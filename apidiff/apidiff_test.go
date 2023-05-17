@@ -16,6 +16,126 @@ import (
 	"golang.org/x/tools/go/packages"
 )
 
+func TestModuleIntersection(t *testing.T) {
+	for _, tst := range []struct {
+		name string
+		a, b *Module
+		want []*types.Package
+	}{
+		{
+			name: "one",
+			a: &Module{
+				Path: "example.com/foo",
+				Packages: []*types.Package{
+					types.NewPackage("example.com/foo/bar", "bar"),
+					types.NewPackage("example.com/foo/baz", "baz"),
+					types.NewPackage("example.com/foo/buz", "buz"),
+				},
+			},
+			b: &Module{
+				Path: "example.com/biz",
+				Packages: []*types.Package{
+					types.NewPackage("example.com/biz/fu", "fu"),
+					types.NewPackage("example.com/biz/baz", "baz"),
+					types.NewPackage("example.com/biz/qux", "qux"),
+				},
+			},
+			want: []*types.Package{
+				types.NewPackage("example.com/foo/baz", "baz"),
+			},
+		},
+		{
+			name: "none",
+			a: &Module{
+				Path: "example.com/foo",
+				Packages: []*types.Package{
+					types.NewPackage("example.com/foo/bar", "bar"),
+					types.NewPackage("example.com/foo/baz", "baz"),
+					types.NewPackage("example.com/foo/buz", "buz"),
+				},
+			},
+			b: &Module{
+				Path: "example.com/biz",
+				Packages: []*types.Package{
+					types.NewPackage("example.com/biz/fu", "fu"),
+					types.NewPackage("example.com/biz/qux", "qux"),
+				},
+			},
+			want: nil,
+		},
+	} {
+		t.Run(tst.name, func(t *testing.T) {
+			got := tst.a.Intersection(tst.b)
+			if diff := cmp.Diff(got, tst.want, cmp.Comparer(comparePath)); diff != "" {
+				t.Errorf("got(-),want(+):\n%s", diff)
+			}
+		})
+	}
+}
+
+func TestModuleDisjointSet(t *testing.T) {
+	for _, tst := range []struct {
+		name string
+		a, b *Module
+		want []*types.Package
+	}{
+		{
+			name: "two",
+			a: &Module{
+				Path: "example.com/foo",
+				Packages: []*types.Package{
+					types.NewPackage("example.com/foo/bar", "bar"),
+					types.NewPackage("example.com/foo/baz", "baz"),
+					types.NewPackage("example.com/foo/buz", "buz"),
+				},
+			},
+			b: &Module{
+				Path: "example.com/biz",
+				Packages: []*types.Package{
+					types.NewPackage("example.com/biz/fu", "fu"),
+					types.NewPackage("example.com/biz/baz", "baz"),
+					types.NewPackage("example.com/biz/qux", "qux"),
+				},
+			},
+			want: []*types.Package{
+				types.NewPackage("example.com/foo/bar", "bar"),
+				types.NewPackage("example.com/foo/buz", "buz"),
+			},
+		},
+		{
+			name: "none",
+			a: &Module{
+				Path: "example.com/foo",
+				Packages: []*types.Package{
+					types.NewPackage("example.com/foo/bar", "bar"),
+					types.NewPackage("example.com/foo/baz", "baz"),
+					types.NewPackage("example.com/foo/buz", "buz"),
+				},
+			},
+			b: &Module{
+				Path: "example.com/biz",
+				Packages: []*types.Package{
+					types.NewPackage("example.com/biz/bar", "bar"),
+					types.NewPackage("example.com/biz/baz", "baz"),
+					types.NewPackage("example.com/biz/buz", "buz"),
+				},
+			},
+			want: nil,
+		},
+	} {
+		t.Run(tst.name, func(t *testing.T) {
+			got := tst.a.DisjointSet(tst.b)
+			if diff := cmp.Diff(got, tst.want, cmp.Comparer(comparePath)); diff != "" {
+				t.Errorf("got(-),want(+):\n%s", diff)
+			}
+		})
+	}
+}
+
+func comparePath(x, y *types.Package) bool {
+	return x.Path() == y.Path()
+}
+
 func TestChanges(t *testing.T) {
 	dir, err := os.MkdirTemp("", "apidiff_test")
 	if err != nil {
