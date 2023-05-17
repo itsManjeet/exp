@@ -124,6 +124,24 @@
       "parentUuid": "d4b12a38_0e0e4b6a",
       "revId": "5835cf81855489d14261d5353decfb83c96dc5cc",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c36d5916_1580d770",
+        "filename": "slices/sort_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 52648
+      },
+      "writtenOn": "2023-05-17T00:31:19Z",
+      "side": 1,
+      "message": "This could be tricky, because `Sort` uses `\u003c` as well and has not special provision for NaN. In fact, our current documentation for `Sort` says:\n\n  // Sort may fail to sort correctly when sorting slices of floating-point\n  // numbers containing Not-a-number (NaN) values.\n  // Use slices.SortFunc(x, func(a, b float64) bool {return a \u003c b || (math.IsNaN(a) \u0026\u0026 !math.IsNaN(b))})\n  // instead if the input may contain NaNs.\n\n\nI suppose we could add a similar comment to `Min` and `Max`, pointing users to the `*Func` variants for a more custom handling of NaN?",
+      "parentUuid": "70b3bc7b_ce763831",
+      "revId": "5835cf81855489d14261d5353decfb83c96dc5cc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
