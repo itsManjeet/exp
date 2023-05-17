@@ -14,8 +14,7 @@ Because `apidiff` ignores package import paths, it may be used to display API
 differences between any two packages, not just different versions of the same
 package.
 
-The current version of `apidiff` compares only packages, not modules.
-
+TODO: Update with Module support.
 
 ## Compatibility Desiderata
 
