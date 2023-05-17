@@ -19,6 +19,7 @@ var (
 	exportDataOutfile = flag.String("w", "", "file for export data")
 	incompatibleOnly  = flag.Bool("incompatible", false, "display only incompatible changes")
 	allowInternal     = flag.Bool("allow-internal", false, "allow apidiff to compare internal packages")
+	moduleMode        = flag.Bool("m", false, "input is interpreted as module path(s)")
 )
 
 func main() {
@@ -45,15 +46,24 @@ func main() {
 			flag.Usage()
 			os.Exit(2)
 		}
-		pkg := mustLoadPackage(flag.Arg(0))
-		if err := writeExportData(pkg, *exportDataOutfile); err != nil {
+		if err := loadAndWrite(flag.Arg(0)); err != nil {
 			die("writing export data: %v", err)
 		}
+		os.Exit(0)
+	}
+
+	if len(flag.Args()) != 2 {
+		flag.Usage()
+		os.Exit(2)
+	}
+
+	var report apidiff.Report
+	if *moduleMode {
+		oldmod := mustLoadOrReadModule(flag.Arg(0))
+		newmod := mustLoadOrReadModule(flag.Arg(1))
+
+		report = apidiff.ModuleChanges(oldmod, newmod)
 	} else {
-		if len(flag.Args()) != 2 {
-			flag.Usage()
-			os.Exit(2)
-		}
 		oldpkg := mustLoadOrRead(flag.Arg(0))
 		newpkg := mustLoadOrRead(flag.Arg(1))
 		if !*allowInternal {
@@ -62,17 +72,34 @@ func main() {
 				os.Exit(0)
 			}
 		}
-		report := apidiff.Changes(oldpkg, newpkg)
-		var err error
-		if *incompatibleOnly {
-			err = report.TextIncompatible(os.Stdout, false)
-		} else {
-			err = report.Text(os.Stdout)
+		report = apidiff.Changes(oldpkg, newpkg)
+	}
+
+	var err error
+	if *incompatibleOnly {
+		err = report.TextIncompatible(os.Stdout, false)
+	} else {
+		err = report.Text(os.Stdout)
+	}
+	if err != nil {
+		die("writing report: %v", err)
+	}
+}
+
+func loadAndWrite(path string) error {
+	if *moduleMode {
+		module := mustLoadModule(path)
+		if err := writeModuleExportData(module, *exportDataOutfile); err != nil {
+			return err
 		}
-		if err != nil {
-			die("writing report: %v", err)
+	} else {
+		pkg := mustLoadPackage(path)
+		if err := writeExportData(pkg, *exportDataOutfile); err != nil {
+			return err
 		}
 	}
+
+	return nil
 }
 
 func mustLoadOrRead(importPathOrFile string) *types.Package {
@@ -113,6 +140,87 @@ func loadPackage(importPath string) (*packages.Package, error) {
 	return pkgs[0], nil
 }
 
+func mustLoadOrReadModule(modulePathOrFile string) *apidiff.Module {
+	var module *apidiff.Module
+	fileInfo, err := os.Stat(modulePathOrFile)
+	if err == nil && fileInfo.Mode().IsRegular() {
+		module, err = readModuleExportData(modulePathOrFile)
+		if err != nil {
+			die("reading export data from %s: %v", modulePathOrFile, err)
+		}
+	} else {
+		module = mustLoadModule(modulePathOrFile)
+	}
+
+	filterInternal(module)
+
+	return module
+}
+
+func mustLoadModule(modulepath string) *apidiff.Module {
+	module, err := loadModule(modulepath)
+	if err != nil {
+		die("loading %s: %v", modulepath, err)
+	}
+	return module
+}
+
+func loadModule(modulepath string) (*apidiff.Module, error) {
+	cfg := &packages.Config{Mode: packages.LoadTypes |
+		packages.NeedName | packages.NeedTypes | packages.NeedImports | packages.NeedDeps | packages.NeedModule,
+	}
+	loaded, err := packages.Load(cfg, fmt.Sprintf("%s/...", modulepath))
+	if err != nil {
+		return nil, err
+	}
+	if len(loaded) == 0 {
+		return nil, fmt.Errorf("found no packages for module %s", modulepath)
+	}
+	typs := []*types.Package{}
+	for _, p := range loaded {
+		if len(p.Errors) > 0 {
+			return nil, p.Errors[0]
+		}
+		typs = append(typs, p.Types)
+	}
+
+	return &apidiff.Module{Path: loaded[0].Module.Path, Packages: typs}, nil
+}
+
+func readModuleExportData(filename string) (*apidiff.Module, error) {
+	f, err := os.Open(filename)
+	if err != nil {
+		return nil, err
+	}
+	defer f.Close()
+	r := bufio.NewReader(f)
+	modPath, err := r.ReadString('\n')
+	if err != nil {
+		return nil, err
+	}
+	modPath = modPath[:len(modPath)-1] // remove delimiter
+	m := map[string]*types.Package{}
+	pkgs, err := gcexportdata.ReadBundle(r, token.NewFileSet(), m)
+	if err != nil {
+		return nil, err
+	}
+
+	return &apidiff.Module{Path: modPath, Packages: pkgs}, nil
+}
+
+func writeModuleExportData(module *apidiff.Module, filename string) error {
+	f, err := os.Create(filename)
+	if err != nil {
+		return err
+	}
+	fmt.Fprintln(f, module.Path)
+	// TODO: Determine if token.NewFileSet is appropriate here.
+	if err := gcexportdata.WriteBundle(f, token.NewFileSet(), module.Packages); err != nil {
+		return err
+	}
+	return f.Close()
+}
+
 func readExportData(filename string) (*types.Package, error) {
 	f, err := os.Open(filename)
 	if err != nil {
@@ -148,6 +256,22 @@ func writeExportData(pkg *packages.Package, filename string) error {
 func die(format string, args ...interface{}) {
 	fmt.Fprintf(os.Stderr, format+"\n", args...)
 	os.Exit(1)
+}
+
+func filterInternal(m *apidiff.Module) {
+	if *allowInternal {
+		return
+	}
+
+	nonInternal := []*types.Package{}
+	for _, p := range m.Packages {
+		if !isInternalPackage(p.Path()) {
+			nonInternal = append(nonInternal, p)
+		} else {
+			fmt.Fprintf(os.Stderr, "Ignoring internal package %s\n", p.Path())
+		}
+	}
+	m.Packages = nonInternal
 }
 
 func isInternalPackage(pkgPath string) bool {
