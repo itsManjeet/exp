@@ -15,6 +15,8 @@ import (
 	"go/constant"
 	"go/token"
 	"go/types"
+	"sort"
+	"strings"
 )
 
 // Changes reports on the differences between the APIs of the old and new packages.
@@ -33,6 +35,107 @@ func Changes(old, new *types.Package) Report {
 	}
 	return r
 }
+
+// ModuleChanges reports on the differences between the APIs of the old and new
+// modules. It classifies each difference as either compatible or incompatible
+// (breaking). This includes the addition and removal of entire packages. For a
+// detailed discussion of what constitutes an incompatible change, see the
+// package documentation.
+func ModuleChanges(old, new *Module) Report {
+	r := Report{}
+
+	// Compare the shared packages.
+	sharedOld := old.Intersection(new)
+	sharedNew := new.Intersection(old)
+	for i := range sharedOld {
+		oldp := sharedOld[i]
+		newp := sharedNew[i]
+
+		rr := Changes(oldp, newp)
+		r.Changes = append(r.Changes, rr.Changes...)
+	}
+
+	oldOnly := old.DisjointSet(new)
+	for _, oldp := range oldOnly {
+		// Compare the old package that is removed against an empty package to
+		// enumerate all of the elements lost.
+		empty := types.NewPackage(oldp.Path(), oldp.Name())
+		rr := Changes(oldp, empty)
+		r.Changes = append(r.Changes, rr.Changes...)
+	}
+
+	newOnly := new.DisjointSet(old)
+	for _, newp := range newOnly {
+		// Compare the new package added against an empty package to enumerate
+		// all of the elements added.
+		empty := types.NewPackage(newp.Path(), newp.Name())
+		rr := Changes(empty, newp)
+		r.Changes = append(r.Changes, rr.Changes...)
+	}
+
+	return r
+}
+
+// Module is a convenience type for representing a Go module with a path and a
+// slice of Packages contained within.
+type Module struct {
+	Path     string
+	Packages []*types.Package
+}
+
+// relativePath computes the module-relative package path of the given Package.
+func (m *Module) relativePath(p *types.Package) string {
+	return strings.TrimPrefix(p.Path(), m.Path)
+}
+
+// Intersection returns the set of packages in the receiving Module that are
+// also present in the given Module. The comparison is made using
+// module-relative package path, so as to be able to compare vN and vN+1
+// versions of the same module. The returned slice is sorted by package path.
+func (m *Module) Intersection(other *Module) []*types.Package {
+	intersection := []*types.Package{}
+	for _, op := range other.Packages {
+		orp := other.relativePath(op)
+		for _, mp := range m.Packages {
+			if m.relativePath(mp) == orp {
+				intersection = append(intersection, mp)
+			}
+		}
+	}
+	sort.Sort(byPath(intersection))
+	return intersection
+}
+
+// DisjointSet returns the set of packages in the receiving Module that are not
+// present in the given Module. The comparison is made using
+// module-relative package path, so as to be able to compare vN and vN+1
+// versions of the same module. The returned slice is sorted by package path.
+func (m *Module) DisjointSet(other *Module) []*types.Package {
+	disjoint := []*types.Package{}
+	for _, mp := range m.Packages {
+		shared := false
+		mrp := m.relativePath(mp)
+
+		for _, op := range other.Packages {
+			if other.relativePath(op) == mrp {
+				shared = true
+				break
+			}
+		}
+		if !shared {
+			disjoint = append(disjoint, mp)
+		}
+	}
+	sort.Sort(byPath(disjoint))
+	return disjoint
+}
+
+// byPath sorts the slice of *types.Package by Path.
+type byPath []*types.Package
+
+func (a byPath) Len() int           { return len(a) }
+func (a byPath) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
+func (a byPath) Less(i, j int) bool { return a[i].Path() < a[j].Path() }
 
 type differ struct {
 	old, new *types.Package
