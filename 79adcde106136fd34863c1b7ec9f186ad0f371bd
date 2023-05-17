@@ -16,6 +16,570 @@
       "message": "I don\u0027t have an \"integration test\" in place, I wasn\u0027t really sure how to approach doing that, was wondering if you could point me in the right direction, even if it is copying the TestChanges process.",
       "revId": "79adcde106136fd34863c1b7ec9f186ad0f371bd",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0aeaceb2_40313fa3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-05-17T12:09:55Z",
+      "side": 1,
+      "message": "https://pkg.go.dev/golang.org/x/tools@v0.9.1/go/packages/packagestest. You can build in-memory modules that way.",
+      "parentUuid": "848520fa_601536a2",
+      "revId": "79adcde106136fd34863c1b7ec9f186ad0f371bd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d1a161e_addd51d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-05-17T12:09:55Z",
+      "side": 1,
+      "message": "This is a big CL. I think you could have split into one with the apidiff changes and one for main. Don\u0027t change anything now; it\u0027s fine. Advice for next time.",
+      "revId": "79adcde106136fd34863c1b7ec9f186ad0f371bd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "124ffe8e_19779e5e",
+        "filename": "apidiff/apidiff.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-05-17T12:09:55Z",
+      "side": 1,
+      "message": "README (see below)",
+      "range": {
+        "startLine": 24,
+        "startChar": 77,
+        "endLine": 25,
+        "endChar": 16
+      },
+      "revId": "79adcde106136fd34863c1b7ec9f186ad0f371bd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5be07c6f_1f5fe5a8",
+        "filename": "apidiff/apidiff.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-05-17T12:09:55Z",
+      "side": 1,
+      "message": "I noticed that this is actually in the README, so please change that here.\n\nAlso, add a section on module compatibility at the bottom of the README.",
+      "range": {
+        "startLine": 42,
+        "startChar": 67,
+        "endLine": 43,
+        "endChar": 25
+      },
+      "revId": "79adcde106136fd34863c1b7ec9f186ad0f371bd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d18533f_c59a81d4",
+        "filename": "apidiff/apidiff.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-05-17T12:09:55Z",
+      "side": 1,
+      "message": "Your algorithm requires four set operations, each of which is quadratic. I think it would clearer (and less importantly, faster) if you paired the packages directly:\n\n1. Create a map from relative path to package for each module.\n2. Build a map from relative path to pairs of packages:\n            map[string]pair\n            type pair struct { old, new *types.Package }\n   a. Loop over the old map, adding to the map by looking for matches in the new one.\n   b. Loop over the new map to find missing packages in the pairs map.",
+      "range": {
+        "startLine": 44,
+        "startChar": 5,
+        "endLine": 44,
+        "endChar": 18
+      },
+      "revId": "79adcde106136fd34863c1b7ec9f186ad0f371bd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d32b106c_6edfe98d",
+        "filename": "apidiff/apidiff.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-05-17T12:09:55Z",
+      "side": 1,
+      "message": "I think this will create a lot of noise. There should be one change, that a package was removed. Does your tooling depend on seeing every removed symbol?",
+      "range": {
+        "startLine": 60,
+        "startChar": 2,
+        "endLine": 61,
+        "endChar": 40
+      },
+      "revId": "79adcde106136fd34863c1b7ec9f186ad0f371bd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cf15cf6_e5cf205c",
+        "filename": "apidiff/apidiff.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-05-17T12:09:55Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 69,
+        "startChar": 2,
+        "endLine": 70,
+        "endChar": 31
+      },
+      "revId": "79adcde106136fd34863c1b7ec9f186ad0f371bd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed107f61_808cefcb",
+        "filename": "apidiff/apidiff.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-05-17T12:09:55Z",
+      "side": 1,
+      "message": "receiver",
+      "range": {
+        "startLine": 91,
+        "startChar": 50,
+        "endLine": 91,
+        "endChar": 67
+      },
+      "revId": "79adcde106136fd34863c1b7ec9f186ad0f371bd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e9ac0c6_165f760c",
+        "filename": "apidiff/apidiff.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-05-17T12:09:55Z",
+      "side": 1,
+      "message": "var intersection []*types.Package",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 35
+      },
+      "revId": "79adcde106136fd34863c1b7ec9f186ad0f371bd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "280239de_d57d3e4b",
+        "filename": "apidiff/apidiff.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-05-17T12:09:55Z",
+      "side": 1,
+      "message": "Use sort.Slice.",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 105,
+        "endChar": 32
+      },
+      "revId": "79adcde106136fd34863c1b7ec9f186ad0f371bd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "526971c3_a96008b6",
+        "filename": "cmd/apidiff/main.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-05-17T12:09:55Z",
+      "side": 1,
+      "message": "compare modules instead of packages",
+      "range": {
+        "startLine": 22,
+        "startChar": 44,
+        "endLine": 22,
+        "endChar": 81
+      },
+      "revId": "79adcde106136fd34863c1b7ec9f186ad0f371bd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4383fd59_28b11a33",
+        "filename": "cmd/apidiff/main.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-05-17T12:09:55Z",
+      "side": 1,
+      "message": "add\n\n    apidiff -m OLD NEW\n         compares OLD and NEW module APIs\n         where OLD and NEW are module paths",
+      "range": {
+        "startLine": 29,
+        "startChar": 2,
+        "endLine": 31,
+        "endChar": 90
+      },
+      "revId": "79adcde106136fd34863c1b7ec9f186ad0f371bd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdbd0436_58971d6c",
+        "filename": "cmd/apidiff/main.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-05-17T12:09:55Z",
+      "side": 1,
+      "message": "return ...",
+      "range": {
+        "startLine": 92,
+        "startChar": 2,
+        "endLine": 92,
+        "endChar": 13
+      },
+      "revId": "79adcde106136fd34863c1b7ec9f186ad0f371bd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6319f741_c3261f0e",
+        "filename": "cmd/apidiff/main.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-05-17T12:09:55Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 95,
+        "startChar": 3,
+        "endLine": 95,
+        "endChar": 7
+      },
+      "revId": "79adcde106136fd34863c1b7ec9f186ad0f371bd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2693944_15fa41d1",
+        "filename": "cmd/apidiff/main.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-05-17T12:09:55Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 97,
+        "startChar": 2,
+        "endLine": 97,
+        "endChar": 12
+      },
+      "revId": "79adcde106136fd34863c1b7ec9f186ad0f371bd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db3ff042_918e66f1",
+        "filename": "cmd/apidiff/main.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-05-17T12:09:55Z",
+      "side": 1,
+      "message": "Rename to writePackageExportData",
+      "range": {
+        "startLine": 97,
+        "startChar": 12,
+        "endLine": 97,
+        "endChar": 27
+      },
+      "revId": "79adcde106136fd34863c1b7ec9f186ad0f371bd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ce577ba_5ba4bfd2",
+        "filename": "cmd/apidiff/main.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-05-17T12:09:55Z",
+      "side": 1,
+      "message": "rename to mustLoadOrReadPackage",
+      "range": {
+        "startLine": 105,
+        "startChar": 5,
+        "endLine": 105,
+        "endChar": 19
+      },
+      "revId": "79adcde106136fd34863c1b7ec9f186ad0f371bd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93d82b17_d3ab1089",
+        "filename": "cmd/apidiff/main.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-05-17T12:09:55Z",
+      "side": 1,
+      "message": "var tpkgs []*types.Package",
+      "range": {
+        "startLine": 179,
+        "startChar": 0,
+        "endLine": 179,
+        "endChar": 27
+      },
+      "revId": "79adcde106136fd34863c1b7ec9f186ad0f371bd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e79c39e3_75339463",
+        "filename": "cmd/apidiff/main.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-05-17T12:09:55Z",
+      "side": 1,
+      "message": "Add a TODO to use errors.Join once 1.21 comes out.",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 182,
+        "endChar": 26
+      },
+      "revId": "79adcde106136fd34863c1b7ec9f186ad0f371bd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "502968a5_bd779ec4",
+        "filename": "cmd/apidiff/main.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-05-17T12:09:55Z",
+      "side": 1,
+      "message": "readPackageExportData",
+      "range": {
+        "startLine": 224,
+        "startChar": 5,
+        "endLine": 224,
+        "endChar": 19
+      },
+      "revId": "79adcde106136fd34863c1b7ec9f186ad0f371bd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2dd41282_07e5624d",
+        "filename": "cmd/apidiff/main.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-05-17T12:09:55Z",
+      "side": 1,
+      "message": "writePackageExportData",
+      "range": {
+        "startLine": 240,
+        "startChar": 5,
+        "endLine": 240,
+        "endChar": 20
+      },
+      "revId": "79adcde106136fd34863c1b7ec9f186ad0f371bd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3a44137_3d19332b",
+        "filename": "cmd/apidiff/main.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-05-17T12:09:55Z",
+      "side": 1,
+      "message": "var nonInternal []*types.Package",
+      "range": {
+        "startLine": 267,
+        "startChar": 10,
+        "endLine": 267,
+        "endChar": 11
+      },
+      "revId": "79adcde106136fd34863c1b7ec9f186ad0f371bd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e850d144_1812319f",
+        "filename": "cmd/apidiff/main.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-05-17T12:09:55Z",
+      "side": 1,
+      "message": "I\u0027m pretty sure that if a module has a top-level vendor directory, then the packages in that directory can\u0027t be imported outside the module. Could you write an informal test to confirm that? (Doesn\u0027t have to be part of a CL, just a throwaway.)\n\nIf so, check for that too here, and rename function to something like filterNonImportable.",
+      "range": {
+        "startLine": 277,
+        "startChar": 5,
+        "endLine": 277,
+        "endChar": 22
+      },
+      "revId": "79adcde106136fd34863c1b7ec9f186ad0f371bd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4e4324b_d6522ef1",
+        "filename": "cmd/apidiff/main.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-05-17T12:09:55Z",
+      "side": 1,
+      "message": "I think you should only look for this after the module path.\nIn other words, if the module path is example.com/internal and the package path is example.com/internal/foo, then the package is not internal.",
+      "range": {
+        "startLine": 281,
+        "startChar": 0,
+        "endLine": 281,
+        "endChar": 46
+      },
+      "revId": "79adcde106136fd34863c1b7ec9f186ad0f371bd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8059645_45d5f00d",
+        "filename": "cmd/apidiff/main.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-05-17T12:09:55Z",
+      "side": 1,
+      "message": "Two separate cases for consistency.",
+      "range": {
+        "startLine": 283,
+        "startChar": 0,
+        "endLine": 283,
+        "endChar": 69
+      },
+      "revId": "79adcde106136fd34863c1b7ec9f186ad0f371bd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
