@@ -70,6 +70,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d079c527_2862d25a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30947
+      },
+      "writtenOn": "2023-05-18T00:04:02Z",
+      "side": 1,
+      "message": "Added a test. That is a really cool package.",
+      "parentUuid": "0aeaceb2_40313fa3",
+      "revId": "79adcde106136fd34863c1b7ec9f186ad0f371bd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "124ffe8e_19779e5e",
@@ -1011,6 +1029,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4291d43b_33f7f2ad",
+        "filename": "cmd/apidiff/main.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 30947
+      },
+      "writtenOn": "2023-05-18T00:04:02Z",
+      "side": 1,
+      "message": "I don\u0027t quite understand, but then again I\u0027m not super familiar with this stuff to begin with. When loading a module directly (i.e. not from export data file), if it has a `vendor` directory, how would those packages end up in the loaded data?\n\nI added a `vendor` to a module and compared it to another (actually a v2 of that same module), and it didn\u0027t change the output or blow up. This test was using local modules, not the module cache though, is that what you are most curious about?",
+      "parentUuid": "e850d144_1812319f",
+      "range": {
+        "startLine": 277,
+        "startChar": 5,
+        "endLine": 277,
+        "endChar": 22
+      },
+      "revId": "79adcde106136fd34863c1b7ec9f186ad0f371bd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e4e4324b_d6522ef1",
         "filename": "cmd/apidiff/main.go",
         "patchSetId": 4
@@ -1022,6 +1064,30 @@
       "writtenOn": "2023-05-17T12:09:55Z",
       "side": 1,
       "message": "I think you should only look for this after the module path.\nIn other words, if the module path is example.com/internal and the package path is example.com/internal/foo, then the package is not internal.",
+      "range": {
+        "startLine": 281,
+        "startChar": 0,
+        "endLine": 281,
+        "endChar": 46
+      },
+      "revId": "79adcde106136fd34863c1b7ec9f186ad0f371bd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e5297d8_c9943b30",
+        "filename": "cmd/apidiff/main.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 30947
+      },
+      "writtenOn": "2023-05-18T00:04:02Z",
+      "side": 1,
+      "message": "Good catch. Just added a `modulePath string` argument and trimmed the prefix. Also added tests.",
+      "parentUuid": "e4e4324b_d6522ef1",
       "range": {
         "startLine": 281,
         "startChar": 0,
@@ -1045,6 +1111,30 @@
       "writtenOn": "2023-05-17T12:09:55Z",
       "side": 1,
       "message": "Two separate cases for consistency.",
+      "range": {
+        "startLine": 283,
+        "startChar": 0,
+        "endLine": 283,
+        "endChar": 69
+      },
+      "revId": "79adcde106136fd34863c1b7ec9f186ad0f371bd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cc82d75_5605cd70",
+        "filename": "cmd/apidiff/main.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 30947
+      },
+      "writtenOn": "2023-05-18T00:04:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8059645_45d5f00d",
       "range": {
         "startLine": 283,
         "startChar": 0,
