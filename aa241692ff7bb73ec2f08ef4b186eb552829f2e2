@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9b05c4b_40995486",
+        "filename": "slices/sort.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 17951
+      },
+      "writtenOn": "2023-05-18T23:20:38Z",
+      "side": 1,
+      "message": "Can this be E any like MinFunc ?",
+      "revId": "aa241692ff7bb73ec2f08ef4b186eb552829f2e2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
