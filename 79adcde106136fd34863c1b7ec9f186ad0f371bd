@@ -229,6 +229,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b65d01e3_ee4e6634",
+        "filename": "apidiff/apidiff.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-05-18T12:59:44Z",
+      "side": 1,
+      "message": "Nice!",
+      "parentUuid": "752f3d65_ab23201d",
+      "range": {
+        "startLine": 44,
+        "startChar": 5,
+        "endLine": 44,
+        "endChar": 18
+      },
+      "revId": "79adcde106136fd34863c1b7ec9f186ad0f371bd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d32b106c_6edfe98d",
@@ -1065,6 +1089,30 @@
       "side": 1,
       "message": "I don\u0027t quite understand, but then again I\u0027m not super familiar with this stuff to begin with. When loading a module directly (i.e. not from export data file), if it has a `vendor` directory, how would those packages end up in the loaded data?\n\nI added a `vendor` to a module and compared it to another (actually a v2 of that same module), and it didn\u0027t change the output or blow up. This test was using local modules, not the module cache though, is that what you are most curious about?",
       "parentUuid": "e850d144_1812319f",
+      "range": {
+        "startLine": 277,
+        "startChar": 5,
+        "endLine": 277,
+        "endChar": 22
+      },
+      "revId": "79adcde106136fd34863c1b7ec9f186ad0f371bd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c56c2d6_6ad17e8f",
+        "filename": "cmd/apidiff/main.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-05-18T12:59:44Z",
+      "side": 1,
+      "message": "I think packages.Load probably skips vendored packages, which is why they don\u0027t show up. So I think you\u0027re good.",
+      "parentUuid": "4291d43b_33f7f2ad",
       "range": {
         "startLine": 277,
         "startChar": 5,

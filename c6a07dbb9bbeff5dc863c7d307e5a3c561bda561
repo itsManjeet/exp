@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "910884b9_2d998e29",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-05-18T12:59:44Z",
+      "side": 1,
+      "message": "Close!",
+      "revId": "c6a07dbb9bbeff5dc863c7d307e5a3c561bda561",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "368cc090_d7433dac",
+        "filename": "apidiff/README.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-05-18T12:59:44Z",
+      "side": 1,
+      "message": "comparing",
+      "range": {
+        "startLine": 237,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 8
+      },
+      "revId": "c6a07dbb9bbeff5dc863c7d307e5a3c561bda561",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41f0ff6a_a61a689e",
+        "filename": "apidiff/README.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-05-18T12:59:44Z",
+      "side": 1,
+      "message": "Give a short example. I think people will find the general concept hard to understand.\n\nIt\u0027s also important to mention that in this case the \"package removed\" message doesn\u0027t result in any code actually breaking, as long as the package hasn\u0027t changed. It still has the same import path, and the Go compiler only cares about import paths. What would have to change is the go.mod file of the client code.",
+      "range": {
+        "startLine": 238,
+        "startChar": 52,
+        "endLine": 238,
+        "endChar": 53
+      },
+      "revId": "c6a07dbb9bbeff5dc863c7d307e5a3c561bda561",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d324369_b68aedcd",
+        "filename": "apidiff/apidiff_test.go",
+        "patchSetId": 13
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-05-18T12:59:44Z",
+      "side": 1,
+      "message": "any",
+      "range": {
+        "startLine": 28,
+        "startChar": 21,
+        "endLine": 28,
+        "endChar": 29
+      },
+      "revId": "c6a07dbb9bbeff5dc863c7d307e5a3c561bda561",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
