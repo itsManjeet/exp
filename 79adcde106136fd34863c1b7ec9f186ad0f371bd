@@ -205,6 +205,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "752f3d65_ab23201d",
+        "filename": "apidiff/apidiff.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 30947
+      },
+      "writtenOn": "2023-05-18T04:15:53Z",
+      "side": 1,
+      "message": "Good call. I tried to get too fancy with it 😊\n\nI ended up not needing a `pair` type and decided to just do everything inside `ModuleChanges` directly. Adding a test *before* changing the algorithm was clutch.\n\nlmk what you think, resolving this for now.",
+      "parentUuid": "6d18533f_c59a81d4",
+      "range": {
+        "startLine": 44,
+        "startChar": 5,
+        "endLine": 44,
+        "endChar": 18
+      },
+      "revId": "79adcde106136fd34863c1b7ec9f186ad0f371bd",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d32b106c_6edfe98d",
