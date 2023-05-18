@@ -126,6 +126,24 @@
       "parentUuid": "458785db_a36bdfe5",
       "revId": "abdca0f2329297ffb7f8c836c4756a15c7ba5588",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ec182d0_c0574d17",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30947
+      },
+      "writtenOn": "2023-05-18T23:45:50Z",
+      "side": 1,
+      "message": "I think it might just be an ordering inconsistency in the findings. I added sort calls each slice before comparing them.",
+      "parentUuid": "8325b8c1_c0127430",
+      "revId": "abdca0f2329297ffb7f8c836c4756a15c7ba5588",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
