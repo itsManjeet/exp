@@ -178,6 +178,24 @@
       "parentUuid": "99408c8c_53aa748e",
       "revId": "5835cf81855489d14261d5353decfb83c96dc5cc",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c286f0f_6847daac",
+        "filename": "slices/sort_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 52648
+      },
+      "writtenOn": "2023-05-18T22:45:24Z",
+      "side": 1,
+      "message": "I\u0027ve uploaded a new version that follows Russ\u0027s recommendation in #60091 and redid the NaN testing",
+      "parentUuid": "0f1a5c36_090b9ba2",
+      "revId": "5835cf81855489d14261d5353decfb83c96dc5cc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
