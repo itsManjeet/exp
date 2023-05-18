@@ -41,6 +41,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ed2e615_f212087c",
+        "filename": "apidiff/README.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 30947
+      },
+      "writtenOn": "2023-05-18T22:23:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "368cc090_d7433dac",
+      "range": {
+        "startLine": 237,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 8
+      },
+      "revId": "c6a07dbb9bbeff5dc863c7d307e5a3c561bda561",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "41f0ff6a_a61a689e",
@@ -64,6 +88,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a04b238_44972d20",
+        "filename": "apidiff/README.md",
+        "patchSetId": 13
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 30947
+      },
+      "writtenOn": "2023-05-18T22:23:16Z",
+      "side": 1,
+      "message": "Good idea, it took me a few tries, but I think I\u0027ve got something decent.",
+      "parentUuid": "41f0ff6a_a61a689e",
+      "range": {
+        "startLine": 238,
+        "startChar": 52,
+        "endLine": 238,
+        "endChar": 53
+      },
+      "revId": "c6a07dbb9bbeff5dc863c7d307e5a3c561bda561",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1d324369_b68aedcd",
@@ -77,6 +125,30 @@
       "writtenOn": "2023-05-18T12:59:44Z",
       "side": 1,
       "message": "any",
+      "range": {
+        "startLine": 28,
+        "startChar": 21,
+        "endLine": 28,
+        "endChar": 29
+      },
+      "revId": "c6a07dbb9bbeff5dc863c7d307e5a3c561bda561",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "acc916a2_0de9ce50",
+        "filename": "apidiff/apidiff_test.go",
+        "patchSetId": 13
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 30947
+      },
+      "writtenOn": "2023-05-18T22:23:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d324369_b68aedcd",
       "range": {
         "startLine": 28,
         "startChar": 21,
