@@ -16,6 +16,24 @@
       "message": "Can this be E any like MinFunc ?",
       "revId": "aa241692ff7bb73ec2f08ef4b186eb552829f2e2",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f40651c_63f80512",
+        "filename": "slices/sort.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 52648
+      },
+      "writtenOn": "2023-05-19T13:20:05Z",
+      "side": 1,
+      "message": "Changed to `E any` to match `MinFunc`",
+      "parentUuid": "e9b05c4b_40995486",
+      "revId": "aa241692ff7bb73ec2f08ef4b186eb552829f2e2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }

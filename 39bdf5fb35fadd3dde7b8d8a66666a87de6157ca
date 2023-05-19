@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "247f8c66_8986006d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 52648
+      },
+      "writtenOn": "2023-05-19T13:20:05Z",
+      "side": 1,
+      "message": "Updated the CL to reflect the latest API proposed in https://github.com/golang/go/issues/60091#issuecomment-1553850782 (cmp functions instead of less for MinFunc and MaxFunc)",
+      "revId": "39bdf5fb35fadd3dde7b8d8a66666a87de6157ca",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
