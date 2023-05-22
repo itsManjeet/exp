@@ -55,6 +55,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "77c53589_a8da417a",
+        "filename": "slog/value_119.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-05-22T17:47:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a578f0cd_5ed320c9",
+      "revId": "a7cf9862e255422ac5dc248ba751d6c301311133",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1820f5ee_6dd68b43",
@@ -68,6 +86,24 @@
       "writtenOn": "2023-05-22T17:23:59Z",
       "side": 1,
       "message": "// GroupValue returns a new Value for a list of Attrs.\n// The caller must not subsequently mutate the argument slice.",
+      "revId": "a7cf9862e255422ac5dc248ba751d6c301311133",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1939285f_cf782ada",
+        "filename": "slog/value_119.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-05-22T17:47:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1820f5ee_6dd68b43",
       "revId": "a7cf9862e255422ac5dc248ba751d6c301311133",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
