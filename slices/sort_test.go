@@ -51,7 +51,7 @@ func TestSortFloat64SliceWithNaNs(t *testing.T) {
 
 	// Make sure Sort doesn't panic when the slice contains NaNs.
 	Sort(data)
-	// Check whether the result is a permutation of the input.
+	// Check whether the result is a permutation of the input. x.
 	sort.Float64s(data)
 	sort.Float64s(input)
 	for i, v := range input {

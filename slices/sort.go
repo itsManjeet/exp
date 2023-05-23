@@ -12,7 +12,7 @@ import (
 
 // Sort sorts a slice of any ordered type in ascending order.
 // Sort may fail to sort correctly when sorting slices of floating-point
-// numbers containing Not-a-number (NaN) values.
+// numbers containing Not-a-number (NaN) values. a
 // Use slices.SortFunc(x, func(a, b float64) bool {return a < b || (math.IsNaN(a) && !math.IsNaN(b))})
 // instead if the input may contain NaNs.
 func Sort[E constraints.Ordered](x []E) {
