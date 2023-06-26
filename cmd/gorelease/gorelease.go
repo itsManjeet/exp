@@ -906,7 +906,7 @@ func copyModuleToTempDir(repoRoot, modPath, modRoot string) (dir string, err err
 		var err error
 		fallbackToDir, err = tryCreateFromVCS(zipFile, m, modRoot, repoRoot)
 		if err != nil {
-			return "", err
+			return "", fmt.Errorf("tryCreateFromVCS: %w", err)
 		}
 	}
 
@@ -917,7 +917,7 @@ func copyModuleToTempDir(repoRoot, modPath, modRoot string) (dir string, err err
 			if errors.As(err, &e) {
 				return "", e
 			}
-			return "", err
+			return "", fmt.Errorf("CreateFromDir: %w", err)
 		}
 	}
 
@@ -951,14 +951,14 @@ func tryCreateFromVCS(zipFile io.Writer, m module.Version, modRoot, repoRoot str
 	if err := zip.CreateFromVCS(zipFile, m, repoRoot, "HEAD", modRel); err != nil {
 		var fel zip.FileErrorList
 		if errors.As(err, &fel) {
-			return false, fel
+			return false, fmt.Errorf("modRoot, repoRoot, modRel = %v, %v, %v, error(fel): %w", modRoot, repoRoot, modRel, fel)
 		}
 		var uve *zip.UnrecognizedVCSError
 		if errors.As(err, &uve) {
 			// Fallback to CreateFromDir.
 			return true, nil
 		}
-		return false, err
+		return false, fmt.Errorf("modRoot, repoRoot, modRel = %v, %v, %v, error: %w", modRoot, repoRoot, modRel, err)
 	}
 	// Success!
 	return false, nil
