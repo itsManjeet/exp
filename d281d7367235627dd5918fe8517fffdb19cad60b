@@ -53,6 +53,46 @@
       "message": "Windows failures are fixed in the next CL.",
       "revId": "d281d7367235627dd5918fe8517fffdb19cad60b",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bf3df78_716aae60",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2023-06-26T20:41:28Z",
+      "side": 1,
+      "message": "Thanks.",
+      "revId": "d281d7367235627dd5918fe8517fffdb19cad60b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5cc5ed0_285c02aa",
+        "filename": "errors/fmt/errors_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2023-06-26T20:41:28Z",
+      "side": 1,
+      "message": "The \"/errors\" part may not be there if the source code of the \"golang.org/x/exp/errors\" module is placed in a directory like \"/tmp/abc\" as part of go.dev/issue/34352.\n\nI guess that\u0027s not a problem as long as we arrange for the path to be like \"/tmp/abc/{module base name}\" instead. That is the case today; I just didn\u0027t think it that was going to be load-bearing. This CL suggests we should commit to that property.\n\nLeaving for you to ack if that seems reasonable to you too.",
+      "range": {
+        "startLine": 144,
+        "startChar": 16,
+        "endLine": 144,
+        "endChar": 27
+      },
+      "revId": "d281d7367235627dd5918fe8517fffdb19cad60b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
