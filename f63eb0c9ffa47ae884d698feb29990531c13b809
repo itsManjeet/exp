@@ -70,6 +70,24 @@
       "message": "Does \u0027go mod tidy\u0027 need to be run? It\u0027s unexpected to see this x/mod version still being used.",
       "revId": "f63eb0c9ffa47ae884d698feb29990531c13b809",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ccb8266_d13c6084",
+        "filename": "go.sum",
+        "patchSetId": 4
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 17090
+      },
+      "writtenOn": "2023-06-26T21:01:32Z",
+      "side": 1,
+      "message": "Yeah, sigh.",
+      "parentUuid": "911b6000_d2d9e2c0",
+      "revId": "f63eb0c9ffa47ae884d698feb29990531c13b809",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
