@@ -141,6 +141,30 @@
       },
       "revId": "d281d7367235627dd5918fe8517fffdb19cad60b",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29f1c9d5_7f93575d",
+        "filename": "errors/fmt/errors_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2023-06-26T21:06:38Z",
+      "side": 1,
+      "message": "Ok, thanks. Then I think there\u0027s more a bit more to do here, so reopening.",
+      "parentUuid": "d401dc22_849995ac",
+      "range": {
+        "startLine": 144,
+        "startChar": 16,
+        "endLine": 144,
+        "endChar": 27
+      },
+      "revId": "d281d7367235627dd5918fe8517fffdb19cad60b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
