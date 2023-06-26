@@ -165,6 +165,30 @@
       },
       "revId": "d281d7367235627dd5918fe8517fffdb19cad60b",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9c6196a_3bec516e",
+        "filename": "errors/fmt/errors_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2023-06-26T21:11:50Z",
+      "side": 1,
+      "message": "For posterity:\n\n```\nexp $ git fetch https://go.googlesource.com/exp refs/changes/97/506297/3 \u0026\u0026 git checkout FETCH_HEAD\nexp $ mv errors errorsx\nexp $ cd errorsx \nerrorsx $ go test ./...    \nok  \tgolang.org/x/exp/errors\t(cached)\n?   \tgolang.org/x/exp/errors/internal\t[no test files]\n--- FAIL: TestErrorFormatter (0.00s)\n    --- FAIL: TestErrorFormatter/6/%+v (0.00s)\n        errors_test.go:319: \n             got: \"something:\\n    golang.org/x/exp/errors/fmt_test.TestErrorFormatter\\n        /Users/dmitshur/go/src/golang.org/x/exp/errorsx/fmt/errors_test.go:98\\n    something more\"\n            want: \"something:\\n    golang.org/x/exp/errors/fmt_test.TestErrorFormatter\\n        .+/errors/fmt/errors_test.go:98\\n    something more\"\nFAIL\nFAIL\tgolang.org/x/exp/errors/fmt\t0.170s\nFAIL\n```\n\nI\u0027ll update our LUCI test strategy to catch this automatically too.",
+      "parentUuid": "29f1c9d5_7f93575d",
+      "range": {
+        "startLine": 144,
+        "startChar": 16,
+        "endLine": 144,
+        "endChar": 27
+      },
+      "revId": "d281d7367235627dd5918fe8517fffdb19cad60b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
