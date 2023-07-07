@@ -55,6 +55,23 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2641f415_91535637",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-07-07T18:31:48Z",
+      "side": 1,
+      "message": "Thanks for thinking about this carefully! Sorry for the delay; I wasn\u0027t able to page this stuff back in before I left for Berlin.\n\nAs I say below, the changes you suggest (flaws you point out) are worth digging into, but not for this CL, which fixes a specific bug. I will address all your comments in a subsequent CL.\n\nWhen I did this work 5 years ago, Gri was the only type expert. He helped me a lot with the definitions but he didn\u0027t have time to review the code in great detail. So I\u0027m excited get into the details with you.",
+      "revId": "6507a2032d6d5eb03babf203573ac4d6712a9ed4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9ffa8085_5692cce5",
@@ -68,6 +85,30 @@
       "writtenOn": "2023-06-23T18:54:32Z",
       "side": 1,
       "message": "FWIW, reading this package for the first time, I\u0027m not sure this docstring makes sense.\n\nIf old and new are structs, we don\u0027t use types.Identical to check if they correspond. (in fact, I\u0027m not sure that types.Identical is even necessary in this package, as it fundamentally doesn\u0027t work for this purpose).\n\nHow about something like:\n\n\"Two types correspond if they have would be identical (as defined by go/types.Identical) under the weaker assumptions that two packages with the same path are equivalent.\n\nWhereas go/types compares Named types by their pointer identity, correspond considers Named types to be equivalent if they have the same Id in an equivalent package.\"",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 25
+      },
+      "revId": "6507a2032d6d5eb03babf203573ac4d6712a9ed4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd97648d_ae409427",
+        "filename": "apidiff/correspondence.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-07-07T18:31:48Z",
+      "side": 1,
+      "message": "That sentence is a shorthand for what is actually happening, which is that we implement identity as defined in the spec, except that we use correspondence for defined types.\n\nhttps://go.googlesource.com/exp/+/refs/heads/master/apidiff/README.md#type-correspondence goes into more detail on all this. It also explains why your definition is too strict: corresponding types can have different names.",
+      "parentUuid": "9ffa8085_5692cce5",
       "range": {
         "startLine": 9,
         "startChar": 0,
@@ -101,6 +142,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "15a135d2_990f9f93",
+        "filename": "apidiff/correspondence.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-07-07T18:31:48Z",
+      "side": 1,
+      "message": "I\u0027d like to confine this CL to the bugfix at hand, but I will make this change in a followup CL.",
+      "parentUuid": "d4f66aa1_f96a3a9d",
+      "range": {
+        "startLine": 33,
+        "startChar": 2,
+        "endLine": 33,
+        "endChar": 33
+      },
+      "revId": "6507a2032d6d5eb03babf203573ac4d6712a9ed4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3779f1d1_25562510",
@@ -114,6 +179,30 @@
       "writtenOn": "2023-06-23T18:54:32Z",
       "side": 1,
       "message": "Should this be called something like \u0027existing\u0027? It is confusing that this name has \u0027old\u0027 in it, yet comes from the \u0027new\u0027 realm.",
+      "range": {
+        "startLine": 161,
+        "startChar": 1,
+        "endLine": 161,
+        "endChar": 5
+      },
+      "revId": "6507a2032d6d5eb03babf203573ac4d6712a9ed4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ffe284c_72a74907",
+        "filename": "apidiff/correspondence.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-07-07T18:31:48Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "3779f1d1_25562510",
       "range": {
         "startLine": 161,
         "startChar": 1,
@@ -147,6 +236,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a1ea11c_d56bdcd6",
+        "filename": "apidiff/correspondence.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-07-07T18:31:48Z",
+      "side": 1,
+      "message": "Probably. See below.",
+      "parentUuid": "4956bb7f_b6a110c5",
+      "range": {
+        "startLine": 163,
+        "startChar": 2,
+        "endLine": 164,
+        "endChar": 36
+      },
+      "revId": "6507a2032d6d5eb03babf203573ac4d6712a9ed4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc54edc6_dc8e4f10",
@@ -160,6 +273,30 @@
       "writtenOn": "2023-06-23T18:54:32Z",
       "side": 1,
       "message": "I\u0027m having trouble wrapping my head around what we want here, but this doesn\u0027t look correct.\n\nFor example, what if Obj() is exported but from a different package? What if newn is a compatible alias with a different name?\n\nFine to leave as-is, but it might be interesting to talk this through.",
+      "range": {
+        "startLine": 186,
+        "startChar": 4,
+        "endLine": 186,
+        "endChar": 44
+      },
+      "revId": "6507a2032d6d5eb03babf203573ac4d6712a9ed4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08ca481a_f7ddcee3",
+        "filename": "apidiff/correspondence.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-07-07T18:31:48Z",
+      "side": 1,
+      "message": "Agreed, let\u0027s talk about it later. I\u0027ll have to page a lot of this back in.",
+      "parentUuid": "fc54edc6_dc8e4f10",
       "range": {
         "startLine": 186,
         "startChar": 4,
@@ -193,6 +330,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e006d6ac_8e918dde",
+        "filename": "apidiff/correspondence.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-07-07T18:31:48Z",
+      "side": 1,
+      "message": "Yes.",
+      "parentUuid": "5b14f81c_49f53329",
+      "range": {
+        "startLine": 223,
+        "startChar": 21,
+        "endLine": 223,
+        "endChar": 24
+      },
+      "revId": "6507a2032d6d5eb03babf203573ac4d6712a9ed4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0b20c03f_aca47386",
@@ -206,6 +367,30 @@
       "writtenOn": "2023-06-23T18:54:32Z",
       "side": 1,
       "message": "FWIW I don\u0027t understand why this handling is necessary. Shouldn\u0027t types.Identical be sufficient when comparing two \u0027new\u0027 types?",
+      "range": {
+        "startLine": 229,
+        "startChar": 0,
+        "endLine": 255,
+        "endChar": 2
+      },
+      "revId": "6507a2032d6d5eb03babf203573ac4d6712a9ed4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a79d13dd_b4d88fa2",
+        "filename": "apidiff/correspondence.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-07-07T18:31:48Z",
+      "side": 1,
+      "message": "It\u0027s possible this whole function is confused, starting with the name `oldc` that you called out above. I\u0027m not sure I realized that oldc is from the new package.",
+      "parentUuid": "0b20c03f_aca47386",
       "range": {
         "startLine": 229,
         "startChar": 0,
