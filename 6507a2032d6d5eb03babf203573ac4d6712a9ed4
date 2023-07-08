@@ -166,6 +166,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fbdd027_e39267ac",
+        "filename": "apidiff/correspondence.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-07-08T18:24:11Z",
+      "side": 1,
+      "message": "Done in https://go.dev/cl/508495.",
+      "parentUuid": "15a135d2_990f9f93",
+      "range": {
+        "startLine": 33,
+        "startChar": 2,
+        "endLine": 33,
+        "endChar": 33
+      },
+      "revId": "6507a2032d6d5eb03babf203573ac4d6712a9ed4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3779f1d1_25562510",
@@ -203,6 +227,30 @@
       "side": 1,
       "message": "ditto",
       "parentUuid": "3779f1d1_25562510",
+      "range": {
+        "startLine": 161,
+        "startChar": 1,
+        "endLine": 161,
+        "endChar": 5
+      },
+      "revId": "6507a2032d6d5eb03babf203573ac4d6712a9ed4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16d7179d_c385d2fc",
+        "filename": "apidiff/correspondence.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-07-08T18:24:11Z",
+      "side": 1,
+      "message": "Done in https://go.dev/cl/508500.",
+      "parentUuid": "4ffe284c_72a74907",
       "range": {
         "startLine": 161,
         "startChar": 1,
@@ -260,6 +308,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad1b5bc7_2dc764b0",
+        "filename": "apidiff/correspondence.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-07-08T18:24:11Z",
+      "side": 1,
+      "message": "Done in https://go.dev/cl/508500.",
+      "parentUuid": "3a1ea11c_d56bdcd6",
+      "range": {
+        "startLine": 163,
+        "startChar": 2,
+        "endLine": 164,
+        "endChar": 36
+      },
+      "revId": "6507a2032d6d5eb03babf203573ac4d6712a9ed4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc54edc6_dc8e4f10",
@@ -297,6 +369,30 @@
       "side": 1,
       "message": "Agreed, let\u0027s talk about it later. I\u0027ll have to page a lot of this back in.",
       "parentUuid": "fc54edc6_dc8e4f10",
+      "range": {
+        "startLine": 186,
+        "startChar": 4,
+        "endLine": 186,
+        "endChar": 44
+      },
+      "revId": "6507a2032d6d5eb03babf203573ac4d6712a9ed4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9aa87535_e9109086",
+        "filename": "apidiff/correspondence.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-07-08T18:24:11Z",
+      "side": 1,
+      "message": "I don\u0027t know what I was thinking when I wrote this. I must have thought the Id() was more unique than it is, probably pkgPath + \".\" + name.\n\nWhat if we used that? I think that would be OK: it would be making the assumption that all packages other than old and new remain the same w.r.t. API. I think that is a reasonable assumption, and probably what I originally intended.",
+      "parentUuid": "08ca481a_f7ddcee3",
       "range": {
         "startLine": 186,
         "startChar": 4,
@@ -354,6 +450,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "df53372d_7803501f",
+        "filename": "apidiff/correspondence.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-07-08T18:24:11Z",
+      "side": 1,
+      "message": "Done in https://go-review.googlesource.com/c/exp/+/508502.",
+      "parentUuid": "e006d6ac_8e918dde",
+      "range": {
+        "startLine": 223,
+        "startChar": 21,
+        "endLine": 223,
+        "endChar": 24
+      },
+      "revId": "6507a2032d6d5eb03babf203573ac4d6712a9ed4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0b20c03f_aca47386",
@@ -391,6 +511,30 @@
       "side": 1,
       "message": "It\u0027s possible this whole function is confused, starting with the name `oldc` that you called out above. I\u0027m not sure I realized that oldc is from the new package.",
       "parentUuid": "0b20c03f_aca47386",
+      "range": {
+        "startLine": 229,
+        "startChar": 0,
+        "endLine": 255,
+        "endChar": 2
+      },
+      "revId": "6507a2032d6d5eb03babf203573ac4d6712a9ed4",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "306a8cb3_26cbed76",
+        "filename": "apidiff/correspondence.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-07-08T18:24:11Z",
+      "side": 1,
+      "message": "The short answer is that the types.Type of a generic type is not the same as the types.Type of its methods.\n\nConsider\n\n    type GT[V any] struct {}\n    func (GT[V]) M(*GT[V]) {}\n    \n(This is from testdata/tests.go.)\nThe types.Type you get from these declarations are both types.Named and have similar, but not identical, TypeParams. The latter\u0027s receiver type has nil constraints.\n\nSay both old and new have those exact definitions: no change.\n\nWhen I see `type GT[V any]` in both old and new for the first time, I establish a correspondence between them:\n\n    d.correspondMap[oldname] \u003d new\n    \nThat is, between the old *name* and the new types.Type.\n\nWhen I then compare the methods, I look up the old name to get the type\n\n    GT[V any]\n    \nbut the method\u0027s type is\n\n    GT[V]\n    \nI need the extra machinery to get these two to match.",
+      "parentUuid": "a79d13dd_b4d88fa2",
       "range": {
         "startLine": 229,
         "startChar": 0,
