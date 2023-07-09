@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e85f1643_373c8dd2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2023-07-09T15:50:39Z",
+      "side": 1,
+      "message": "The slices package has moved to the standard library.\n\nThat said, new API like this requires a proposal.  See https://go.dev/s/proposal.  And this particular idea has been proposed several times, but we are waiting for a general notion of iterators before deciding on this.  So, thanks, but we aren\u0027t going to do this yet.",
+      "revId": "d2835cbd28c2057cf33ab2ff84e8f6cb1df49593",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
