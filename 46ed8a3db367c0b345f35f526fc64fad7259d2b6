@@ -59,6 +59,30 @@
       },
       "revId": "46ed8a3db367c0b345f35f526fc64fad7259d2b6",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11b0245f_540db270",
+        "filename": "apidiff/correspondence.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-07-11T01:02:08Z",
+      "side": 1,
+      "message": "I don\u0027t think it does. If `new` is not a basic type, we end up at the `return false` at the end. This follows the same pattern as the other cases of the switch.",
+      "parentUuid": "06a70625_79783a87",
+      "range": {
+        "startLine": 33,
+        "startChar": 2,
+        "endLine": 35,
+        "endChar": 3
+      },
+      "revId": "46ed8a3db367c0b345f35f526fc64fad7259d2b6",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
