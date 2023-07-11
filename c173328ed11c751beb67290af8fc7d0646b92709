@@ -59,6 +59,30 @@
       },
       "revId": "c173328ed11c751beb67290af8fc7d0646b92709",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3969e5ac_3cce0317",
+        "filename": "apidiff/correspondence.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-07-11T02:29:32Z",
+      "side": 1,
+      "message": "Nicer. Done.",
+      "parentUuid": "f7d0d9e4_aa9f3a9c",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 160,
+        "endChar": 32
+      },
+      "revId": "c173328ed11c751beb67290af8fc7d0646b92709",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
