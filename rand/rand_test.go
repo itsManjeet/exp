@@ -488,11 +488,21 @@ func TestPCGSourceRoundTrip(t *testing.T) {
 
 // Benchmarks
 
+var sink uint64
+
 func BenchmarkSource(b *testing.B) {
-	rng := NewSource(0)
-	for n := b.N; n > 0; n-- {
-		rng.Uint64()
-	}
+	b.Run("PCG", func(b *testing.B) {
+		var rng PCGSource
+		for n := b.N; n > 0; n-- {
+			sink ^= rng.Uint64()
+		}
+	})
+	b.Run("ChaCha8", func(b *testing.B) {
+		var rng ChaCha8Source
+		for n := b.N; n > 0; n-- {
+			sink ^= rng.Uint64()
+		}
+	})
 }
 
 func BenchmarkInt63Threadsafe(b *testing.B) {
