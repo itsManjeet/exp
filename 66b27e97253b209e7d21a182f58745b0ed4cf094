@@ -89,6 +89,24 @@
       "parentUuid": "f1663ec3_b7728b0d",
       "revId": "66b27e97253b209e7d21a182f58745b0ed4cf094",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40781b15_e4016dab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2023-07-21T19:58:42Z",
+      "side": 1,
+      "message": "Fair enough, done with CL 511660.",
+      "parentUuid": "03cdfe0e_5d1291e5",
+      "revId": "66b27e97253b209e7d21a182f58745b0ed4cf094",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
