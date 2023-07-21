@@ -53,6 +53,24 @@
       "message": "Overall LGTM, but should there be a companion CL that updates the code generator in the main repo to generate these new zsort* variants?",
       "revId": "66b27e97253b209e7d21a182f58745b0ed4cf094",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1663ec3_b7728b0d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2023-07-21T18:05:22Z",
+      "side": 1,
+      "message": "My thinking is that we will never update these files again, so why bother?  I got these files by running \"gen_sort_variants.go -generic\" and then hand changing the references to the cmp package.  I can update gen_sort_variants.go if you think that would be useful.",
+      "parentUuid": "c571ef73_65a02cca",
+      "revId": "66b27e97253b209e7d21a182f58745b0ed4cf094",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
