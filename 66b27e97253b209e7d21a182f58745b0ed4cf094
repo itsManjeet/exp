@@ -71,6 +71,24 @@
       "parentUuid": "c571ef73_65a02cca",
       "revId": "66b27e97253b209e7d21a182f58745b0ed4cf094",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03cdfe0e_5d1291e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 30696
+      },
+      "writtenOn": "2023-07-21T18:29:48Z",
+      "side": 1,
+      "message": "Why won\u0027t we ever update them again? What if we discover a bug in the current implementation somewhere and fix it in the stdlib; will we not backport the fix here?\n\nIf we intend to really freeze this repo and not touch it until we remove it (presumably when 1.22 comes out), just keeping it like this is fine.\nOtherwise, it would be safer to add special variants for the zsort* files here in exp/slices and auto-generate this code.",
+      "parentUuid": "f1663ec3_b7728b0d",
+      "revId": "66b27e97253b209e7d21a182f58745b0ed4cf094",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
