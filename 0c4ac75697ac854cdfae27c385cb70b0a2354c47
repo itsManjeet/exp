@@ -52,6 +52,24 @@
       "parentUuid": "61ea19eb_69decdd9",
       "revId": "0c4ac75697ac854cdfae27c385cb70b0a2354c47",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d92f7a2_9b073fd4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 64169
+      },
+      "writtenOn": "2023-07-24T18:52:05Z",
+      "side": 1,
+      "message": "I\u0027m afraid I do not follow the suggestion you are making.\n\nI\u0027m already plumbing objectWithSide as far as messageSet.collect now, so that messageSet.collect can decide which of the two prefixes it should select. Trying to do more in messageSet.collect won\u0027t change the distance that objectWithSide needs to travel.\n\nAlso, objectString is called from one other place besides messageSet.collect, where an object name needs to be calculated to be embedded in the string data of a message.\n\nI\u0027m pretty happy with the change as is, and don\u0027t see any obvious simplifications whilst maintaining the current behaviour.",
+      "parentUuid": "fccbd4fd_ee77d543",
+      "revId": "0c4ac75697ac854cdfae27c385cb70b0a2354c47",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
