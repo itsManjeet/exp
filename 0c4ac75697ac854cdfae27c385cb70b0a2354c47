@@ -34,6 +34,24 @@
       "parentUuid": "b1b4de67_3d4a9411",
       "revId": "0c4ac75697ac854cdfae27c385cb70b0a2354c47",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fccbd4fd_ee77d543",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-07-24T18:21:13Z",
+      "side": 1,
+      "message": "I agree. But what about doing that trimming in messageSet.collect? Give it the common prefix and let it trim the output strings. \nThe advantage is that you won\u0027t have to plumb objectWithSide down through everything.\nDoes that work?",
+      "parentUuid": "61ea19eb_69decdd9",
+      "revId": "0c4ac75697ac854cdfae27c385cb70b0a2354c47",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
