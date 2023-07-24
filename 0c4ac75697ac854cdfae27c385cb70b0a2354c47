@@ -70,6 +70,24 @@
       "parentUuid": "fccbd4fd_ee77d543",
       "revId": "0c4ac75697ac854cdfae27c385cb70b0a2354c47",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ba3b0f8_29b40ae8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-07-24T18:56:11Z",
+      "side": 1,
+      "message": "OK, I see. You need to know the side to know which package path is the prefix; it\u0027s not always the same.",
+      "parentUuid": "2d92f7a2_9b073fd4",
+      "revId": "0c4ac75697ac854cdfae27c385cb70b0a2354c47",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
