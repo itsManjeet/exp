@@ -16,6 +16,24 @@
       "message": "Thanks for working on this! I agree something like it is necessary. \nCould we get by with something simpler, like using\n\n    return fmt.Sprintf(\"%s.%s\", obj.Pkg().Path(), obj.Name())\n    \nin objectString?",
       "revId": "0c4ac75697ac854cdfae27c385cb70b0a2354c47",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61ea19eb_69decdd9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 64169
+      },
+      "writtenOn": "2023-07-24T17:04:53Z",
+      "side": 1,
+      "message": "In my opinion, a simplification of the code like this results in a less desirable user experience. It is helpful for the user reading the output to have the common prefix of package parts elided, to help them focus on the important bits.\n\nI present this example:\n\nSimplified version, always showing full path:\n```\n- github.com/hashicorp/vault/sdk/logical.Externaler: removed\n- github.com/hashicorp/vault/sdk/helper/ldaputil.LDAP.Dial: removed\n- github.com/hashicorp/vault/sdk/helper/ldaputil.LDAP.DialTLS: removed\n- github.com/hashicorp/vault/sdk/helper/ldaputil.LDAP.DialURL: added\n- github.com/hashicorp/vault/sdk/plugin.(*BackendPluginClient).IsExternal: removed\n```\n\nCurrent version, with relative path smarts:\n```\n- ./plugin.(*BackendPluginClient).IsExternal: removed\n- ./logical.Externaler: removed\n- ./helper/ldaputil.LDAP.Dial: removed\n- ./helper/ldaputil.LDAP.DialTLS: removed\n- ./helper/ldaputil.LDAP.DialURL: added\n```\n\nPerhaps the extra repeated text is somewhat tolerable when only looking at 5 lines (though I still find the second example clearer to read), but it really starts to matter if you have a longer fragment of apidiff output. I present this GitHub comment, in which I journalled the API differences in a library over time, using my modified version: https://github.com/hashicorp/vault/pull/21723#discussion_r1263427314 - imagine how much more cluttered, and how much additional line wrapping there would be, if every line included a repeat of the module path - and how it would be harder to skim-read for particular changes, as the important part would no longer be at the start of the line, next to the bullet.",
+      "parentUuid": "b1b4de67_3d4a9411",
+      "revId": "0c4ac75697ac854cdfae27c385cb70b0a2354c47",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
