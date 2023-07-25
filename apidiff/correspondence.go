@@ -124,7 +124,6 @@ func (d *differ) corr(old, new types.Type, p *ifacePair) bool {
 		}
 		if new, ok := new.(*types.Basic); ok {
 			// Basic types are defined types, too, so we have to support them.
-
 			return d.establishCorrespondence(old, new)
 		}
 
@@ -167,8 +166,8 @@ func (d *differ) establishCorrespondence(old *types.Named, new types.Type) bool 
 	oldname := old.Obj()
 	// If there already is a corresponding new type for old, check that they
 	// are the same.
-	if c := d.correspondMap[oldname]; c != nil {
-		return typesEquivalent(c, new)
+	if c := d.correspondMap.At(old); c != nil {
+		return typesEquivalent(c.(types.Type), new)
 	}
 	// Attempt to establish a correspondence.
 	// Assume the types don't correspond unless they have the same
@@ -196,16 +195,47 @@ func (d *differ) establishCorrespondence(old *types.Named, new types.Type) bool 
 		if old.Obj().Pkg() != d.old || newn.Obj().Pkg() != d.new {
 			return old.Obj().Id() == newn.Obj().Id()
 		}
-		// Prior to generics, any two named types could correspond.
-		// Two named types cannot correspond if their type parameter lists don't match.
-		if !d.typeParamListsCorrespond(old.TypeParams(), newn.TypeParams()) {
-			return false
+		// Two generic named types correspond if their type parameter lists correspond.
+		// Since one or the other of those lists will be empty, it doesn't hurt
+		// to check both.
+		oldOrigin := old.Origin()
+		newOrigin := newn.Origin()
+		if oldOrigin != old {
+			// old is an instantiated type.
+			if newOrigin == newn {
+				// new is not; they cannot correspond.
+				return false
+			}
+			// Two instantiated types correspond if their type argument lists
+			// correspond and their origins correspond.
+			if !d.typeListsCorrespond(old.TypeArgs(), newn.TypeArgs()) {
+				return false
+			}
+			if !d.correspond(oldOrigin, newOrigin) {
+				return false
+			}
+		} else {
+			if !d.typeParamListsCorrespond(old.TypeParams(), newn.TypeParams()) {
+				return false
+			}
 		}
 	}
 	// If there is no correspondence, create one.
-	d.correspondMap[oldname] = new
+	d.correspondMap.Set(old, new)
 	// Check that the corresponding types are compatible.
 	d.checkCompatibleDefined(oldname, old, new)
+	return true
+}
+
+func (d *differ) typeListsCorrespond(tl1, tl2 *types.TypeList) bool {
+	if tl1.Len() != tl2.Len() {
+		return false
+	}
+	for i := 0; i < tl1.Len(); i++ {
+		if !d.correspond(tl1.At(i), tl2.At(i)) {
+			return false
+		}
+	}
 	return true
 }
 
