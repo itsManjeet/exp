@@ -53,6 +53,24 @@
       "message": "Maybe filepath.Join(t.TempDir(), name) which would make it possible to run the tests in parallel.",
       "revId": "de2b418fa7d91f93d5595758fbe994c42b08b8c9",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a3f0038_2ea61cbd",
+        "filename": "apidiff/apidiff_test.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-07-25T09:30:27Z",
+      "side": 1,
+      "message": "TempDir already returns a unique directory on each call, and in fact uses the test name already.",
+      "parentUuid": "89a74e08_4b0fa078",
+      "revId": "de2b418fa7d91f93d5595758fbe994c42b08b8c9",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
