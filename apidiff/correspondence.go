@@ -193,7 +193,12 @@ func (d *differ) establishCorrespondence(old *types.Named, new types.Type) bool 
 	// matching an old one.
 	if newn, ok := new.(*types.Named); ok {
 		if old.Obj().Pkg() != d.old || newn.Obj().Pkg() != d.new {
-			return old.Obj().Id() == newn.Obj().Id()
+			// Compare the fully qualified names of the types.
+			//
+			// TODO(jba): when comparing modules, we should only look at the
+			// paths relative to the module path, because the module paths may differ.
+			// See cmd/gorelease/testdata/internalcompat.
+			return types.TypeString(old, nil) == types.TypeString(new, nil)
 		}
 		// Two generic named types correspond if their type parameter lists correspond.
 		// Since one or the other of those lists will be empty, it doesn't hurt
