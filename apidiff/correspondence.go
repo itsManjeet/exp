@@ -225,6 +225,10 @@ func (d *differ) establishCorrespondence(old *types.Named, new types.Type) bool 
 			}
 		}
 	}
+	if _, ok := new.(*types.Basic); ok && old.Obj().Pkg() != d.old {
+		// A named type from a package other than old never corresponds to a basic type.
+		return false
+	}
 	// If there is no correspondence, create one.
 	d.correspondMap.Set(old, new)
 	// Check that the corresponding types are compatible.
