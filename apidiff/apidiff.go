@@ -140,6 +140,28 @@ func addMessage(ms messageSet, obj objectWithSide, part, format string, args []i
 
 func (d *differ) checkPackage(oldRootPackagePath string) {
 	// Old changes.
+
+	// Firest establish correspondences between same-named types, to avoid
+	// confusing messages like "T: changed from T to T".
+	// See testdata/order.go.
+	for _, name := range d.old.Scope().Names() {
+		oldobj := d.old.Scope().Lookup(name)
+		if tn, ok := oldobj.(*types.TypeName); ok {
+			if oldn, ok := tn.Type().(*types.Named); ok {
+				if !oldn.Obj().Exported() {
+					continue
+				}
+				// Does new have a named type of the same name? Look up using
+				// the old named type's name, oldn.Obj().Name(), not the
+				// TypeName tn, which may be an alias.
+				newobj := d.new.Scope().Lookup(oldn.Obj().Name())
+				if newobj != nil {
+					d.checkObjects(oldobj, newobj)
+				}
+			}
+		}
+	}
+
 	for _, name := range d.old.Scope().Names() {
 		oldobj := d.old.Scope().Lookup(name)
 		if !oldobj.Exported() {
