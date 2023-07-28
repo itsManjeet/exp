@@ -59,6 +59,53 @@
       },
       "revId": "f16b7d9abf9d9ef9d2f42c776e418f660ae651cc",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdb885d5_66f0f1dc",
+        "filename": "apidiff/testdata/splitting.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2023-07-28T16:40:07Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "86405d90_7bd6f54a",
+      "range": {
+        "startLine": 15,
+        "startChar": 27,
+        "endLine": 15,
+        "endChar": 44
+      },
+      "revId": "f16b7d9abf9d9ef9d2f42c776e418f660ae651cc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cc41e8b_b358308c",
+        "filename": "apidiff/testdata/splitting.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2023-07-28T16:40:07Z",
+      "side": 1,
+      "message": "Really nice that this is handled correctly.",
+      "range": {
+        "startLine": 58,
+        "startChar": 3,
+        "endLine": 58,
+        "endChar": 22
+      },
+      "revId": "f16b7d9abf9d9ef9d2f42c776e418f660ae651cc",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
