@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c61a72ea_3a44e7f9",
+        "filename": "apidiff/correspondence.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2023-07-28T17:01:10Z",
+      "side": 1,
+      "message": "Nit: don\u0027t compare strings here, but instead compare \u003cnamed\u003e.Obj().Pkg().Path() and \u003cnamed\u003e.Obj().Name(). More efficient and readable, IMO, because it is clear what identity semantics are being implemented.\n\nAlso makes it easier to support module-relative paths in the future.",
+      "range": {
+        "startLine": 201,
+        "startChar": 3,
+        "endLine": 201,
+        "endChar": 66
+      },
+      "revId": "ab011f038dbc90f858bf36076c69290b2e069b2f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
