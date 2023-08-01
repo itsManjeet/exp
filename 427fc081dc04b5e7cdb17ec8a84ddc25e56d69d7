@@ -61,6 +61,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8538f33a_54e7c3c6",
+        "filename": "apidiff/correspondence.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-08-01T11:33:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24edc101_aaeb017c",
+      "range": {
+        "startLine": 214,
+        "startChar": 3,
+        "endLine": 216,
+        "endChar": 4
+      },
+      "revId": "427fc081dc04b5e7cdb17ec8a84ddc25e56d69d7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e1949e55_7333313f",
@@ -74,6 +98,30 @@
       "writtenOn": "2023-07-28T16:53:14Z",
       "side": 1,
       "message": "Add?\n\n```\n// old\ntype t int\n\n// new\ntype t byte\n\n// both\nvar V3 H[t]\n```\n\nJust to be sure we catch it?",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 11
+      },
+      "revId": "427fc081dc04b5e7cdb17ec8a84ddc25e56d69d7",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46b65c96_261b42c1",
+        "filename": "apidiff/testdata/generics.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-08-01T11:33:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e1949e55_7333313f",
       "range": {
         "startLine": 73,
         "startChar": 0,
