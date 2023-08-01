@@ -62,6 +62,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "82565d95_efdd3663",
+        "filename": "apidiff/apidiff.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-08-01T12:00:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29ffb610_75c56978",
+      "range": {
+        "startLine": 144,
+        "startChar": 4,
+        "endLine": 144,
+        "endChar": 10
+      },
+      "revId": "c561a047ff37bf17684660d31fec12fba446f300",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "94edbeb0_acdff4af",
@@ -75,6 +99,30 @@
       "writtenOn": "2023-07-28T18:54:15Z",
       "side": 1,
       "message": "Sorry, confused again.\n\nIs the point of this code to make sure we check the named types _first_, before we get to aliases? If so, it\u0027s worth explaining that. Or more generally, it\u0027s worth explaining _how_ this avoids the confusing error messages.",
+      "range": {
+        "startLine": 147,
+        "startChar": 0,
+        "endLine": 164,
+        "endChar": 0
+      },
+      "revId": "c561a047ff37bf17684660d31fec12fba446f300",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdbe6fc2_e18012d5",
+        "filename": "apidiff/apidiff.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-08-01T12:00:05Z",
+      "side": 1,
+      "message": "Clarified. The text in order.go explains the details. I don\u0027t want to repeat that here.",
+      "parentUuid": "94edbeb0_acdff4af",
       "range": {
         "startLine": 147,
         "startChar": 0,
