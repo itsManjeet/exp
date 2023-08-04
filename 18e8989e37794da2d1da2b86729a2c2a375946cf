@@ -107,6 +107,30 @@
       },
       "revId": "18e8989e37794da2d1da2b86729a2c2a375946cf",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31124762_cd344286",
+        "filename": "apidiff/correspondence.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-08-04T12:39:57Z",
+      "side": 1,
+      "message": "No, it isn\u0027t caught there, because we do allow basic types to correspond in general. I added this check to fix https://go.dev/issue/61385.",
+      "parentUuid": "296d09f8_defc41a4",
+      "range": {
+        "startLine": 228,
+        "startChar": 1,
+        "endLine": 228,
+        "endChar": 31
+      },
+      "revId": "18e8989e37794da2d1da2b86729a2c2a375946cf",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }

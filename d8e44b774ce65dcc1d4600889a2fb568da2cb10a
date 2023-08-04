@@ -86,6 +86,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "170d32e1_e8ac6290",
+        "filename": "apidiff/correspondence.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-08-04T12:39:57Z",
+      "side": 1,
+      "message": "I see what you mean about the split logic. I did the refactoring you suggest.\n\nBut you got me thinking about correspondence with basic types. I may have made a wrong turn there. I wrote in two places in this code that basic types are defined types, but according to the current spec at least (and maybe always), they are not. Correspondence is supposed to be only for defined types.\n\nThe reason it makes sense at all is that, as long as the old defined type had no methods, the change is compatible because operators still work. For example:\n\n    // old\n    type t int\n    var V t\n    \n    // new\n    var V int\n \nI believe that if there were no methods on t, then anything client code could do with the old V it could also do with the new V. Since t is unexported, client code can\u0027t use the type name. So this is a compatible change. If t did have a method M, apidiff would say \"t.M removed\".\n \nSo allowing basic types to correspond is more generous than not, even though it\u0027s not strictly correct. I\u0027d be okay removing it if you think it\u0027s confusing. I doubt these sort of cases come up in practice.",
+      "parentUuid": "2b1a2dfd_f842d254",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 129,
+        "endChar": 0
+      },
+      "revId": "d8e44b774ce65dcc1d4600889a2fb568da2cb10a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "86eade4e_0269afc4",
         "filename": "apidiff/correspondence.go",
         "patchSetId": 3
@@ -97,6 +121,30 @@
       "writtenOn": "2023-08-02T18:08:58Z",
       "side": 1,
       "message": "FWIW, I don\u0027t really understand this.\n\nDon\u0027t you need to also compare the names of embedded fields.\nWhy does this particular case establish a correspondence between named types.",
+      "range": {
+        "startLine": 152,
+        "startChar": 12,
+        "endLine": 152,
+        "endChar": 35
+      },
+      "revId": "d8e44b774ce65dcc1d4600889a2fb568da2cb10a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "969b0c28_548bc775",
+        "filename": "apidiff/correspondence.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-08-04T12:39:57Z",
+      "side": 1,
+      "message": "There are three cases, illustrated here:\n\n    type S struct {\n        F int // normal field\n        T     // embedded exported field\n        u     // embedded unexported field\n    }\n    \nFor the first case, we just compare the names, as the first sentence of the doc says.\n\nFor the second case, we can also just compare names. Since the type is exported, somewhere else we\u0027ll deal whether the old and new types correspond. (The main loop of apidiff.Changes looks at all exported symbols.) Here we just need to make sure that client code like `s.T` compiles in both cases, which means the names have to match.\n\nFor the third case, since `u` is unexported we may never visit it elsewhere. So we check correspondence here. That will recursively check the fields of old and new `u`.\n\nI certainly may have missed something here, so if you still think something\u0027s off, please do holler.",
+      "parentUuid": "86eade4e_0269afc4",
       "range": {
         "startLine": 152,
         "startChar": 12,
