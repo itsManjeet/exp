@@ -110,6 +110,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4a3d1826_022d4a24",
+        "filename": "apidiff/correspondence.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2023-08-07T13:46:29Z",
+      "side": 1,
+      "message": "I agree it\u0027s unlikely.\n\nFrom the spec:\n```\n\"Predeclared types, defined types, and type parameters are called named types. An alias denotes a named type if the type given in the alias declaration is a named type.\"\n```\n\nSo basic types are defined, for the purpose of e.g. assignability checks.\n\nI actually think that it\u0027s probably better to think in terms of _behaviors_ (i.e. operators, selectors, assignments, conversions, etc. that are valid with a particular type). If we expressed this package in those terms, I think it would be easier to follow, though perhaps more verbose.\n\nWhat you\u0027ve done is almost like implementing a looser form of type identity (https://go.dev/issue/57497), with the exception of this flexibility about basic types. If you wanted to remove this flexibility, I do think the code would be easier to read, but it\u0027s fine to leave (perhaps with more commentary).\n\nBTW, I just discovered the extensive README for this package, which I should have read first (I had looked for package doc). I\u0027ll read that.",
+      "parentUuid": "170d32e1_e8ac6290",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 129,
+        "endChar": 0
+      },
+      "revId": "d8e44b774ce65dcc1d4600889a2fb568da2cb10a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "86eade4e_0269afc4",
         "filename": "apidiff/correspondence.go",
         "patchSetId": 3
@@ -145,6 +169,30 @@
       "side": 1,
       "message": "There are three cases, illustrated here:\n\n    type S struct {\n        F int // normal field\n        T     // embedded exported field\n        u     // embedded unexported field\n    }\n    \nFor the first case, we just compare the names, as the first sentence of the doc says.\n\nFor the second case, we can also just compare names. Since the type is exported, somewhere else we\u0027ll deal whether the old and new types correspond. (The main loop of apidiff.Changes looks at all exported symbols.) Here we just need to make sure that client code like `s.T` compiles in both cases, which means the names have to match.\n\nFor the third case, since `u` is unexported we may never visit it elsewhere. So we check correspondence here. That will recursively check the fields of old and new `u`.\n\nI certainly may have missed something here, so if you still think something\u0027s off, please do holler.",
       "parentUuid": "86eade4e_0269afc4",
+      "range": {
+        "startLine": 152,
+        "startChar": 12,
+        "endLine": 152,
+        "endChar": 35
+      },
+      "revId": "d8e44b774ce65dcc1d4600889a2fb568da2cb10a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b57e8f50_537e5459",
+        "filename": "apidiff/correspondence.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2023-08-07T13:46:29Z",
+      "side": 1,
+      "message": "```\n// old\ntype u interface { m(); n() }\n\ntype S struct { u }\n\n// new\ntype u1 interface { m(); }\ntype u2 interface { n(); }\n\ntype S struct { u1; u2 }\n```\n\nIs this a breaking change?",
+      "parentUuid": "969b0c28_548bc775",
       "range": {
         "startLine": 152,
         "startChar": 12,
