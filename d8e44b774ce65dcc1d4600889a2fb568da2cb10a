@@ -132,6 +132,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "91bdc0dd_9eda7587",
+        "filename": "apidiff/correspondence.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-08-07T14:21:00Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "4a3d1826_022d4a24",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 129,
+        "endChar": 0
+      },
+      "revId": "d8e44b774ce65dcc1d4600889a2fb568da2cb10a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "86eade4e_0269afc4",
@@ -193,6 +217,30 @@
       "side": 1,
       "message": "```\n// old\ntype u interface { m(); n() }\n\ntype S struct { u }\n\n// new\ntype u1 interface { m(); }\ntype u2 interface { n(); }\n\ntype S struct { u1; u2 }\n```\n\nIs this a breaking change?",
       "parentUuid": "969b0c28_548bc775",
+      "range": {
+        "startLine": 152,
+        "startChar": 12,
+        "endLine": 152,
+        "endChar": 35
+      },
+      "revId": "d8e44b774ce65dcc1d4600889a2fb568da2cb10a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98dc8dfa_bdb92b0f",
+        "filename": "apidiff/correspondence.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2023-08-07T14:21:00Z",
+      "side": 1,
+      "message": "I say no, it\u0027s not a breaking change.\nSo does apidiff.\n(Which means the code implements my understanding, but not of course that it\u0027s right!)\n\nClient code can\u0027t construct an S (except for untagged literals, which we explicitly exclude). It also can\u0027t call methods on S. So it can\u0027t tell the difference between old and new S.\n\nThe same would be true if the methods were exported. The method sets are identical, so there is no observable difference.\n\nBTW, apidiff also reports compatible changes, like adding a method to a type. Neither of these cases is even a compatible change; they both result in an identical API from the client\u0027s POV.\n\nAm I missing something?",
+      "parentUuid": "b57e8f50_537e5459",
       "range": {
         "startLine": 152,
         "startChar": 12,
