@@ -249,6 +249,30 @@
       },
       "revId": "d8e44b774ce65dcc1d4600889a2fb568da2cb10a",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfd8482a_1977be5f",
+        "filename": "apidiff/correspondence.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2023-08-07T19:52:12Z",
+      "side": 1,
+      "message": "Sorry, I was trying to come up with an example of where corresponding unexported field types would cause apidiff to report mismatches where there were none. But you\u0027re right, it works (and I don\u0027t know why). Tried a few variations, and they all seem to work correctly...",
+      "parentUuid": "98dc8dfa_bdb92b0f",
+      "range": {
+        "startLine": 152,
+        "startChar": 12,
+        "endLine": 152,
+        "endChar": 35
+      },
+      "revId": "d8e44b774ce65dcc1d4600889a2fb568da2cb10a",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
