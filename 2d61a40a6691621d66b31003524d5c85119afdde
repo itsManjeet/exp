@@ -131,6 +131,30 @@
       },
       "revId": "2d61a40a6691621d66b31003524d5c85119afdde",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5a0f99b_d4165653",
+        "filename": "jsonrpc2/conn.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2023-08-08T21:21:52Z",
+      "side": 1,
+      "message": "Let\u0027s just drop the call to `Finished.Record` in this CL, since it already seems to be missing either way.\n\nProbably the right place to put the `Finished.Record` call is next to the `event.End(ctx, …)` call, but that can be done in a separate change. (Maybe the `AsyncCall` struct needs a `sync.Once`?)",
+      "parentUuid": "2ca3af3c_c3f7c798",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 92
+      },
+      "revId": "2d61a40a6691621d66b31003524d5c85119afdde",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
