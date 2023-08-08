@@ -155,6 +155,30 @@
       },
       "revId": "2d61a40a6691621d66b31003524d5c85119afdde",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c38cbd87_d5cec19c",
+        "filename": "jsonrpc2/conn.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 56561
+      },
+      "writtenOn": "2023-08-08T21:26:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5a0f99b_d4165653",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 92
+      },
+      "revId": "2d61a40a6691621d66b31003524d5c85119afdde",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
