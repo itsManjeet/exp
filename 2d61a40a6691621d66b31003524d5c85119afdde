@@ -107,6 +107,30 @@
       },
       "revId": "2d61a40a6691621d66b31003524d5c85119afdde",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ca3af3c_c3f7c798",
+        "filename": "jsonrpc2/conn.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 56561
+      },
+      "writtenOn": "2023-08-08T21:07:00Z",
+      "side": 1,
+      "message": "`(*AsyncCall).Await` can be called several times for a same instance. Should we ignore that and possibly call `Finished.Record` also several times for one RPC call, as we do for `event.End`, or should we add a \"recorded\" (or any other name) bool field into `asyncResult` to avoid that?\n\nOtherwise, we can call `Finished.Record` in `(*Connection).Call` as you suggested AND in `(*AsyncCall).Await` but only for `case response :\u003d \u003c-a.response:`. But in this case, context cancelled case won\u0027t be recorded...\n\nPerhaps have you another idea in mind?",
+      "parentUuid": "8c7cff6a_f32ba30d",
+      "range": {
+        "startLine": 156,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 92
+      },
+      "revId": "2d61a40a6691621d66b31003524d5c85119afdde",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
