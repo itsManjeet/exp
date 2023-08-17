@@ -165,6 +165,24 @@
       "parentUuid": "dfa0df56_7bb9948f",
       "revId": "f29e804ec60629a388a723e11af478a226b9d3ac",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52035dd2_8b9c2b5f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 14665
+      },
+      "writtenOn": "2023-08-17T17:36:31Z",
+      "side": 1,
+      "message": "This dues to `slog/benchmarks/zerolog_benchmarks` needs `go mod tidy`.",
+      "parentUuid": "533a36e4_e4f468ad",
+      "revId": "f29e804ec60629a388a723e11af478a226b9d3ac",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
