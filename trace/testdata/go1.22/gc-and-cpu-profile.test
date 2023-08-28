@@ -1,0 +1,1959 @@
+-- expect --
+SUCCESS
+-- trace --
+Trace Go1.22
+EventBatch gen=1 m=18446744073709551615 ts=31163350634477 size=5
+Frequency freq=15625000
+EventBatch gen=1 m=6 ts=31163335005354 size=300
+ProcStart tsdiff=359 p=3 pseq=4
+ProcStop tsdiff=24
+ProcStart tsdiff=2382 p=3 pseq=5
+GoUnblock tsdiff=25 g=23 gseq=2 stack=0
+GoStart tsdiff=88 g=23 gseq=3
+GoLabel tsdiff=1 label=4
+GoBlock tsdiff=644 reason=15 stack=20
+ProcStop tsdiff=20
+ProcStart tsdiff=1209 p=3 pseq=6
+ProcStop tsdiff=16
+ProcStart tsdiff=924 p=3 pseq=7
+ProcStop tsdiff=11
+ProcStart tsdiff=3255 p=2 pseq=3
+GoStart tsdiff=172 g=21 gseq=7
+GoDestroy tsdiff=20
+ProcStop tsdiff=27
+ProcStart tsdiff=7863206 p=2 pseq=56
+ProcStop tsdiff=44
+ProcStart tsdiff=247217 p=2 pseq=58
+ProcStop tsdiff=17
+ProcStart tsdiff=315419 p=2 pseq=59
+ProcStop tsdiff=21
+ProcStart tsdiff=315090 p=2 pseq=60
+ProcStop tsdiff=21
+ProcStart tsdiff=315075 p=2 pseq=61
+ProcStop tsdiff=17
+ProcStart tsdiff=315362 p=2 pseq=62
+ProcStop tsdiff=20
+ProcStart tsdiff=59316 p=3 pseq=25
+ProcStop tsdiff=27
+ProcStart tsdiff=255956 p=3 pseq=26
+ProcStop tsdiff=25
+ProcStart tsdiff=315172 p=3 pseq=27
+ProcStop tsdiff=35
+ProcStart tsdiff=314337 p=3 pseq=28
+ProcStop tsdiff=23
+ProcStart tsdiff=315024 p=3 pseq=29
+ProcStop tsdiff=21
+ProcStart tsdiff=314896 p=3 pseq=30
+ProcStop tsdiff=15
+ProcStart tsdiff=51170 p=2 pseq=65
+ProcStop tsdiff=18
+ProcStart tsdiff=264004 p=2 pseq=66
+ProcStop tsdiff=23
+ProcStart tsdiff=315152 p=2 pseq=67
+ProcStop tsdiff=20
+ProcStart tsdiff=315033 p=2 pseq=68
+ProcStop tsdiff=23
+ProcStart tsdiff=315300 p=2 pseq=69
+ProcStop tsdiff=20
+ProcStart tsdiff=315457 p=2 pseq=70
+ProcStop tsdiff=26
+ProcStart tsdiff=41733 p=3 pseq=33
+ProcStop tsdiff=25
+ProcStart tsdiff=273663 p=3 pseq=34
+ProcStop tsdiff=23
+ProcStart tsdiff=315619 p=3 pseq=35
+ProcStop tsdiff=25
+ProcStart tsdiff=314943 p=3 pseq=36
+ProcStop tsdiff=24
+ProcStart tsdiff=315267 p=3 pseq=37
+ProcStop tsdiff=20
+ProcStart tsdiff=315324 p=3 pseq=38
+ProcStop tsdiff=19
+ProcStart tsdiff=31896 p=2 pseq=73
+ProcStop tsdiff=17
+ProcStart tsdiff=283448 p=2 pseq=74
+ProcStop tsdiff=20
+ProcStart tsdiff=315650 p=2 pseq=75
+ProcStop tsdiff=26
+ProcStart tsdiff=315313 p=2 pseq=76
+ProcStop tsdiff=27
+ProcStart tsdiff=314938 p=2 pseq=77
+ProcStop tsdiff=25
+ProcStart tsdiff=259373 p=3 pseq=41
+ProcStop tsdiff=18
+EventBatch gen=1 m=5 ts=31163334998674 size=827
+ProcStart tsdiff=306 p=1 pseq=2
+GoStart tsdiff=114 g=22 gseq=1
+GoBlock tsdiff=553 reason=15 stack=20
+GoStart tsdiff=20 g=21 gseq=2
+GoCreate tsdiff=79 newg=23 newstack=13 stack=14
+GoSyscallBegin tsdiff=13 stack=15
+ProcStop tsdiff=1
+ProcStart tsdiff=973 p=3 pseq=2
+GoSyscallEndBlocked tsdiff=3
+GoStart tsdiff=1 g=21 gseq=3
+HeapAlloc tsdiff=40 heap_alloc=2850816
+GoCreate tsdiff=2436 newg=33 newstack=13 stack=14
+GoSyscallBegin tsdiff=147 stack=15
+ProcStop tsdiff=1
+ProcStart tsdiff=13 p=3 pseq=3
+HeapAlloc tsdiff=25 heap_alloc=2891776
+ProcStop tsdiff=565
+GoSyscallEndBlocked tsdiff=913
+ProcStart tsdiff=11 p=1 pseq=5
+GoStart tsdiff=4 g=21 gseq=4
+GoCreate tsdiff=21 newg=24 newstack=13 stack=14
+GoSyscallBegin tsdiff=6 stack=15
+ProcStop tsdiff=1
+ProcStart tsdiff=413 p=1 pseq=7
+GoSyscallEndBlocked tsdiff=2
+GoStart tsdiff=1 g=21 gseq=5
+STWBegin tsdiff=1178 kind=22 stack=38
+GoStatus tsdiff=602 g=4 status=4
+GoUnblock tsdiff=8 g=4 gseq=1 stack=41
+ProcsChange tsdiff=103 procs=4 stack=42
+STWEnd tsdiff=100
+GoBlock tsdiff=125 reason=18 stack=43
+GoUnblock tsdiff=12 g=24 gseq=2 stack=0
+GoStart tsdiff=3 g=24 gseq=3
+GoLabel tsdiff=1 label=2
+GoBlock tsdiff=2377 reason=15 stack=20
+ProcStop tsdiff=21
+ProcStart tsdiff=4918 p=3 pseq=8
+ProcStop tsdiff=14
+ProcStart tsdiff=812 p=3 pseq=9
+GoStart tsdiff=9 g=4 gseq=4
+GoBlock tsdiff=19 reason=15 stack=44
+ProcStop tsdiff=9
+ProcStart tsdiff=228915 p=3 pseq=10
+ProcStop tsdiff=17
+ProcStart tsdiff=315099 p=3 pseq=11
+ProcStop tsdiff=15
+ProcStart tsdiff=315059 p=3 pseq=12
+ProcStop tsdiff=14
+ProcStart tsdiff=315014 p=3 pseq=13
+ProcStop tsdiff=15
+ProcStart tsdiff=315197 p=3 pseq=14
+ProcStop tsdiff=20
+ProcStart tsdiff=62259 p=2 pseq=4
+ProcStop tsdiff=17
+ProcStart tsdiff=16748 p=3 pseq=17
+GoUnblock tsdiff=42 g=17 gseq=2 stack=0
+GoStart tsdiff=185 g=17 gseq=3
+HeapAlloc tsdiff=124 heap_alloc=2444520
+HeapAlloc tsdiff=48 heap_alloc=2452712
+HeapAlloc tsdiff=26 heap_alloc=2460712
+HeapAlloc tsdiff=27 heap_alloc=2468616
+GoBlock tsdiff=31 reason=19 stack=39
+HeapAlloc tsdiff=24 heap_alloc=2476712
+ProcStop tsdiff=25
+ProcStart tsdiff=41187 p=2 pseq=6
+ProcStop tsdiff=15
+ProcStart tsdiff=312524 p=2 pseq=8
+ProcStop tsdiff=25
+ProcStart tsdiff=312772 p=2 pseq=10
+ProcStop tsdiff=25
+ProcStart tsdiff=312550 p=2 pseq=12
+ProcStop tsdiff=24
+ProcStart tsdiff=312473 p=2 pseq=14
+ProcStop tsdiff=26
+ProcStart tsdiff=251633 p=2 pseq=16
+ProcStop tsdiff=21
+ProcStart tsdiff=17192 p=2 pseq=17
+GoUnblock tsdiff=56 g=18 gseq=4 stack=0
+GoStart tsdiff=191 g=18 gseq=5
+GoBlock tsdiff=385 reason=19 stack=17
+ProcStop tsdiff=23
+ProcStart tsdiff=17188 p=3 pseq=19
+GoUnblock tsdiff=29 g=17 gseq=4 stack=0
+GoStart tsdiff=179 g=17 gseq=5
+GoBlock tsdiff=74 reason=19 stack=39
+ProcStop tsdiff=19
+ProcStart tsdiff=25322 p=2 pseq=19
+ProcStop tsdiff=21
+ProcStart tsdiff=312605 p=2 pseq=21
+ProcStop tsdiff=22
+ProcStart tsdiff=312553 p=2 pseq=23
+ProcStop tsdiff=24
+ProcStart tsdiff=312387 p=2 pseq=25
+ProcStop tsdiff=22
+ProcStart tsdiff=312508 p=2 pseq=27
+ProcStop tsdiff=24
+ProcStart tsdiff=267376 p=2 pseq=29
+ProcStop tsdiff=25
+ProcStart tsdiff=17306 p=2 pseq=30
+GoUnblock tsdiff=25 g=18 gseq=6 stack=0
+GoStart tsdiff=209 g=18 gseq=7
+GoBlock tsdiff=53 reason=19 stack=17
+ProcStop tsdiff=25
+ProcStart tsdiff=17176 p=3 pseq=21
+GoUnblock tsdiff=22 g=17 gseq=6 stack=0
+GoStart tsdiff=183 g=17 gseq=7
+GoBlock tsdiff=42 reason=19 stack=39
+ProcStop tsdiff=21
+ProcStart tsdiff=9844 p=2 pseq=32
+ProcStop tsdiff=19
+ProcStart tsdiff=312614 p=2 pseq=34
+ProcStop tsdiff=23
+ProcStart tsdiff=312494 p=2 pseq=36
+ProcStop tsdiff=24
+ProcStart tsdiff=312477 p=2 pseq=38
+ProcStop tsdiff=22
+ProcStart tsdiff=312491 p=2 pseq=40
+ProcStop tsdiff=22
+ProcStart tsdiff=283002 p=2 pseq=42
+ProcStop tsdiff=23
+ProcStart tsdiff=17188 p=2 pseq=43
+GoUnblock tsdiff=22 g=18 gseq=8 stack=0
+GoStart tsdiff=181 g=18 gseq=9
+GoBlock tsdiff=41 reason=19 stack=17
+ProcStop tsdiff=19
+ProcStart tsdiff=11829 p=3 pseq=23
+GoUnblock tsdiff=21 g=17 gseq=8 stack=0
+GoStart tsdiff=185 g=17 gseq=9
+GoBlock tsdiff=38 reason=19 stack=39
+ProcStop tsdiff=20
+ProcStart tsdiff=312375 p=2 pseq=46
+ProcStop tsdiff=24
+ProcStart tsdiff=312676 p=2 pseq=48
+ProcStop tsdiff=24
+ProcStart tsdiff=312317 p=2 pseq=50
+ProcStop tsdiff=24
+ProcStart tsdiff=312456 p=2 pseq=52
+ProcStop tsdiff=24
+ProcStart tsdiff=298618 p=2 pseq=54
+ProcStop tsdiff=23
+ProcStart tsdiff=13625 p=2 pseq=55
+GoUnblock tsdiff=23 g=18 gseq=10 stack=0
+GoStart tsdiff=172 g=18 gseq=11
+GoBlock tsdiff=39 reason=19 stack=17
+ProcStop tsdiff=19
+ProcStart tsdiff=17157 p=2 pseq=57
+ProcStop tsdiff=22
+ProcStart tsdiff=1533820 p=2 pseq=63
+ProcStop tsdiff=25
+ProcStart tsdiff=17166 p=2 pseq=64
+GoUnblock tsdiff=28 g=18 gseq=12 stack=0
+GoStart tsdiff=207 g=18 gseq=13
+GoBlock tsdiff=43 reason=19 stack=17
+GoUnblock tsdiff=29 g=17 gseq=12 stack=0
+GoStart tsdiff=4 g=17 gseq=13
+GoBlock tsdiff=42 reason=19 stack=39
+HeapAlloc tsdiff=49 heap_alloc=2484856
+ProcStop tsdiff=31
+ProcStart tsdiff=1549385 p=3 pseq=31
+ProcStop tsdiff=25
+ProcStart tsdiff=17296 p=3 pseq=32
+GoUnblock tsdiff=45 g=18 gseq=14 stack=0
+GoUnblock tsdiff=7 g=17 gseq=14 stack=0
+GoStart tsdiff=211 g=17 gseq=15
+GoBlock tsdiff=48 reason=19 stack=39
+GoStart tsdiff=18 g=18 gseq=15
+GoBlock tsdiff=34 reason=19 stack=17
+ProcStop tsdiff=15
+ProcStart tsdiff=1549390 p=2 pseq=71
+ProcStop tsdiff=28
+ProcStart tsdiff=17007 p=2 pseq=72
+GoUnblock tsdiff=40 g=17 gseq=16 stack=0
+GoUnblock tsdiff=5 g=18 gseq=16 stack=0
+GoStart tsdiff=184 g=18 gseq=17
+GoBlock tsdiff=40 reason=19 stack=17
+GoStart tsdiff=10 g=17 gseq=17
+GoBlock tsdiff=28 reason=19 stack=39
+ProcStop tsdiff=12
+ProcStart tsdiff=1549400 p=3 pseq=39
+ProcStop tsdiff=23
+ProcStart tsdiff=17189 p=3 pseq=40
+GoUnblock tsdiff=37 g=18 gseq=18 stack=0
+GoUnblock tsdiff=9 g=17 gseq=18 stack=0
+GoStart tsdiff=189 g=17 gseq=19
+GoBlock tsdiff=36 reason=19 stack=39
+GoStart tsdiff=15 g=18 gseq=19
+GoBlock tsdiff=32 reason=19 stack=17
+ProcStop tsdiff=12
+ProcStart tsdiff=1471202 p=2 pseq=78
+ProcStop tsdiff=24
+ProcStart tsdiff=17193 p=2 pseq=79
+GoUnblock tsdiff=57 g=19 gseq=2 stack=0
+GoStart tsdiff=188 g=19 gseq=3
+HeapAlloc tsdiff=1292 heap_alloc=2493048
+HeapAlloc tsdiff=27 heap_alloc=2501240
+EventBatch gen=1 m=4 ts=31163334993615 size=912
+ProcStart tsdiff=319 p=2 pseq=1
+GoStatus tsdiff=220 g=17 status=1
+GoStart tsdiff=2 g=17 gseq=1
+HeapAlloc tsdiff=4848 heap_alloc=2834432
+HeapAlloc tsdiff=3710 heap_alloc=2859008
+HeapAlloc tsdiff=14 heap_alloc=2867200
+HeapAlloc tsdiff=19 heap_alloc=2875392
+HeapAlloc tsdiff=392 heap_alloc=2883584
+GoSyscallBegin tsdiff=18 stack=21
+GoSyscallEnd tsdiff=391
+HeapAlloc tsdiff=169 heap_alloc=2899968
+HeapAlloc tsdiff=11 heap_alloc=2908160
+GoSyscallBegin tsdiff=15 stack=22
+GoSyscallEnd tsdiff=17
+GoSyscallBegin tsdiff=6 stack=23
+GoSyscallEnd tsdiff=9
+GoSyscallBegin tsdiff=36 stack=24
+GoSyscallEnd tsdiff=7
+GoSyscallBegin tsdiff=8 stack=25
+GoSyscallEnd tsdiff=7
+GoSyscallBegin tsdiff=33 stack=26
+GoSyscallEnd tsdiff=90
+HeapAlloc tsdiff=20 heap_alloc=2916352
+GoSyscallBegin tsdiff=13 stack=27
+GoSyscallEnd tsdiff=155
+HeapAlloc tsdiff=12 heap_alloc=2924544
+GoSyscallBegin tsdiff=8 stack=27
+GoSyscallEnd tsdiff=40
+HeapAlloc tsdiff=9 heap_alloc=2940928
+GoSyscallBegin tsdiff=6 stack=27
+GoSyscallEnd tsdiff=45
+HeapAlloc tsdiff=7 heap_alloc=2949120
+GoSyscallBegin tsdiff=4 stack=27
+GoSyscallEnd tsdiff=25
+GoSyscallBegin tsdiff=3 stack=27
+GoSyscallEnd tsdiff=10
+GoSyscallBegin tsdiff=12 stack=28
+GoSyscallEnd tsdiff=50
+HeapAlloc tsdiff=71 heap_alloc=2957312
+HeapAlloc tsdiff=10 heap_alloc=2965504
+GoSyscallBegin tsdiff=8 stack=29
+GoSyscallEnd tsdiff=105
+GoSyscallBegin tsdiff=316 stack=30
+GoSyscallEnd tsdiff=19
+GoSyscallBegin tsdiff=5 stack=31
+GoSyscallEnd tsdiff=8
+GoSyscallBegin tsdiff=19 stack=32
+GoSyscallEnd tsdiff=7
+GoSyscallBegin tsdiff=5 stack=33
+GoSyscallEnd tsdiff=7
+GoSyscallBegin tsdiff=12 stack=34
+GoSyscallEnd tsdiff=35
+GoSyscallBegin tsdiff=40 stack=35
+GoSyscallEnd tsdiff=15
+GoSyscallBegin tsdiff=6 stack=35
+GoSyscallEnd tsdiff=10
+GoSyscallBegin tsdiff=4 stack=35
+GoSyscallEnd tsdiff=9
+GoSyscallBegin tsdiff=3 stack=35
+GoSyscallEnd tsdiff=10
+GoSyscallBegin tsdiff=2 stack=35
+GoSyscallEnd tsdiff=10
+GoSyscallBegin tsdiff=2 stack=35
+GoSyscallEnd tsdiff=9
+GoSyscallBegin tsdiff=3 stack=35
+GoSyscallEnd tsdiff=9
+GoSyscallBegin tsdiff=3 stack=35
+GoSyscallEnd tsdiff=9
+GoSyscallBegin tsdiff=3 stack=35
+GoSyscallEnd tsdiff=9
+GoSyscallBegin tsdiff=3 stack=35
+GoSyscallEnd tsdiff=9
+GoSyscallBegin tsdiff=4 stack=35
+GoSyscallEnd tsdiff=10
+GoSyscallBegin tsdiff=2 stack=35
+GoSyscallEnd tsdiff=10
+GoSyscallBegin tsdiff=2 stack=35
+GoSyscallEnd tsdiff=9
+GoSyscallBegin tsdiff=3 stack=35
+GoSyscallEnd tsdiff=9
+GoSyscallBegin tsdiff=933 stack=36
+GoSyscallEnd tsdiff=23
+GoSyscallBegin tsdiff=13 stack=37
+GoSyscallEnd tsdiff=60
+HeapAlloc tsdiff=33 heap_alloc=2973696
+GoSyscallBegin tsdiff=69 stack=29
+GoSyscallEnd tsdiff=50
+HeapAlloc tsdiff=16 heap_alloc=2981888
+HeapAlloc tsdiff=89 heap_alloc=2990080
+GoBlock tsdiff=414 reason=19 stack=39
+ProcStop tsdiff=18
+ProcStart tsdiff=767 p=2 pseq=2
+GoStart tsdiff=145 g=4 gseq=2
+GoBlock tsdiff=37 reason=15 stack=44
+GoUnblock tsdiff=22 g=33 gseq=2 stack=0
+GoStart tsdiff=3 g=33 gseq=3
+GoLabel tsdiff=1 label=4
+GoUnblock tsdiff=748 g=6 gseq=3 stack=45
+GoBlock tsdiff=15 reason=15 stack=20
+GoStart tsdiff=7 g=6 gseq=4
+GoStop tsdiff=791 reason=16 stack=40
+GoStart tsdiff=233 g=6 gseq=5
+GoStop tsdiff=1037 reason=16 stack=40
+GoStart tsdiff=215 g=6 gseq=6
+GoStop tsdiff=348 reason=16 stack=40
+ProcStop tsdiff=7
+ProcStart tsdiff=2566 p=1 pseq=8
+GoStart tsdiff=225 g=6 gseq=7
+GoStop tsdiff=230007 reason=16 stack=40
+GoStart tsdiff=167 g=6 gseq=8
+GoStop tsdiff=314988 reason=16 stack=40
+GoStart tsdiff=150 g=6 gseq=9
+GoStop tsdiff=314853 reason=16 stack=40
+GoStart tsdiff=149 g=6 gseq=10
+GoStop tsdiff=314819 reason=16 stack=40
+GoStart tsdiff=174 g=6 gseq=11
+GoStop tsdiff=314856 reason=16 stack=40
+GoStart tsdiff=144 g=6 gseq=12
+GoStop tsdiff=315026 reason=16 stack=40
+GoStart tsdiff=145 g=6 gseq=13
+GoStop tsdiff=315002 reason=16 stack=40
+GoStart tsdiff=135 g=6 gseq=14
+GoStop tsdiff=314926 reason=16 stack=40
+GoStart tsdiff=134 g=6 gseq=15
+GoStop tsdiff=314913 reason=16 stack=40
+GoStart tsdiff=136 g=6 gseq=16
+GoStop tsdiff=314976 reason=16 stack=40
+GoStart tsdiff=127 g=6 gseq=17
+GoStop tsdiff=315081 reason=16 stack=40
+GoStart tsdiff=129 g=6 gseq=18
+GoStop tsdiff=315057 reason=16 stack=40
+GoStart tsdiff=133 g=6 gseq=19
+GoStop tsdiff=314973 reason=16 stack=40
+GoStart tsdiff=128 g=6 gseq=20
+GoStop tsdiff=315071 reason=16 stack=40
+GoStart tsdiff=133 g=6 gseq=21
+GoStop tsdiff=314799 reason=16 stack=40
+GoStart tsdiff=129 g=6 gseq=22
+GoStop tsdiff=315275 reason=16 stack=40
+GoStart tsdiff=125 g=6 gseq=23
+GoStop tsdiff=314892 reason=16 stack=40
+GoStart tsdiff=133 g=6 gseq=24
+GoStop tsdiff=314995 reason=16 stack=40
+GoStart tsdiff=122 g=6 gseq=25
+GoStop tsdiff=315107 reason=16 stack=40
+GoStart tsdiff=149 g=6 gseq=26
+GoStop tsdiff=314896 reason=16 stack=40
+GoStart tsdiff=135 g=6 gseq=27
+GoStop tsdiff=317337 reason=16 stack=40
+GoStart tsdiff=121 g=6 gseq=28
+GoStop tsdiff=315680 reason=16 stack=40
+GoStart tsdiff=380 g=6 gseq=29
+GoStop tsdiff=314273 reason=16 stack=40
+GoStart tsdiff=147 g=6 gseq=30
+GoStop tsdiff=315001 reason=16 stack=40
+GoStart tsdiff=235 g=6 gseq=31
+GoStop tsdiff=314867 reason=16 stack=40
+GoStart tsdiff=164 g=6 gseq=32
+GoStop tsdiff=314923 reason=16 stack=40
+GoStart tsdiff=158 g=6 gseq=33
+GoStop tsdiff=314913 reason=16 stack=40
+GoStart tsdiff=150 g=6 gseq=34
+GoStop tsdiff=315313 reason=16 stack=40
+GoStart tsdiff=138 g=6 gseq=35
+GoStop tsdiff=314958 reason=16 stack=40
+GoStart tsdiff=153 g=6 gseq=36
+GoStop tsdiff=314859 reason=16 stack=40
+GoStart tsdiff=138 g=6 gseq=37
+GoStop tsdiff=314988 reason=16 stack=40
+GoStart tsdiff=310 g=6 gseq=38
+GoStop tsdiff=314596 reason=16 stack=40
+GoStart tsdiff=167 g=6 gseq=39
+GoStop tsdiff=314911 reason=16 stack=40
+GoStart tsdiff=207 g=6 gseq=40
+GoStop tsdiff=314859 reason=16 stack=40
+GoStart tsdiff=165 g=6 gseq=41
+GoStop tsdiff=314903 reason=16 stack=40
+GoStart tsdiff=143 g=6 gseq=42
+GoStop tsdiff=315009 reason=16 stack=40
+GoStart tsdiff=139 g=6 gseq=43
+GoStop tsdiff=315022 reason=16 stack=40
+GoStart tsdiff=152 g=6 gseq=44
+GoStop tsdiff=314921 reason=16 stack=40
+GoStart tsdiff=136 g=6 gseq=45
+GoStop tsdiff=315153 reason=16 stack=40
+GoStart tsdiff=146 g=6 gseq=46
+GoStop tsdiff=315312 reason=16 stack=40
+GoStart tsdiff=164 g=6 gseq=47
+GoStop tsdiff=315169 reason=16 stack=40
+GoStart tsdiff=147 g=6 gseq=48
+GoStop tsdiff=315162 reason=16 stack=40
+GoStart tsdiff=139 g=6 gseq=49
+GoStop tsdiff=315288 reason=16 stack=40
+GoStart tsdiff=147 g=6 gseq=50
+GoStop tsdiff=315179 reason=16 stack=40
+GoStart tsdiff=175 g=6 gseq=51
+GoStop tsdiff=315157 reason=16 stack=40
+GoStart tsdiff=145 g=6 gseq=52
+GoStop tsdiff=315246 reason=16 stack=40
+GoStart tsdiff=142 g=6 gseq=53
+GoStop tsdiff=315073 reason=16 stack=40
+GoStart tsdiff=145 g=6 gseq=54
+GoStop tsdiff=315223 reason=16 stack=40
+GoStart tsdiff=139 g=6 gseq=55
+GoStop tsdiff=315140 reason=16 stack=40
+GoStart tsdiff=146 g=6 gseq=56
+EventBatch gen=1 m=3 ts=31163334992715 size=129
+ProcStart tsdiff=115 p=0 pseq=1
+GoStatus tsdiff=168 g=6 status=1
+GoStart tsdiff=1 g=6 gseq=1
+GoStop tsdiff=13951 reason=16 stack=40
+ProcStop tsdiff=11
+ProcStart tsdiff=530 p=0 pseq=2
+GoStart tsdiff=119 g=6 gseq=2
+GoBlock tsdiff=881 reason=16 stack=0
+GoUnblock tsdiff=22 g=22 gseq=2 stack=0
+GoStart tsdiff=6 g=22 gseq=3
+GoLabel tsdiff=2 label=4
+GoBlock tsdiff=358 reason=15 stack=20
+ProcStop tsdiff=32
+ProcStart tsdiff=765 p=0 pseq=3
+GoUnblock tsdiff=8 g=22 gseq=4 stack=0
+GoStart tsdiff=160 g=22 gseq=5
+GoLabel tsdiff=1 label=2
+STWBegin tsdiff=1253 kind=23 stack=46
+HeapAlloc tsdiff=266 heap_alloc=2436328
+GoStatus tsdiff=17 g=3 status=4
+GoUnblock tsdiff=6 g=3 gseq=1 stack=47
+GCEnd tsdiff=4 gcseq=2
+HeapGoal tsdiff=4 heap_goal=5280160
+GoUnblock tsdiff=125 g=21 gseq=6 stack=48
+ProcsChange tsdiff=28 procs=4 stack=49
+STWEnd tsdiff=1484
+GoBlock tsdiff=1111 reason=15 stack=20
+GoStart tsdiff=14 g=3 gseq=2
+GoBlock tsdiff=337 reason=14 stack=50
+ProcStop tsdiff=21
+EventBatch gen=1 m=2 ts=31163334995220 size=119
+ProcStart tsdiff=453 p=3 pseq=1
+GoStart tsdiff=104 g=19 gseq=1
+HeapAlloc tsdiff=63 heap_alloc=2793472
+HeapAlloc tsdiff=562 heap_alloc=2801664
+GoBlock tsdiff=678 reason=12 stack=16
+GoStart tsdiff=11 g=18 gseq=1
+HeapAlloc tsdiff=20 heap_alloc=2809856
+GoBlock tsdiff=593 reason=19 stack=17
+HeapAlloc tsdiff=12 heap_alloc=2818048
+GoStart tsdiff=271 g=20 gseq=1
+HeapAlloc tsdiff=25 heap_alloc=2826240
+GoSyscallBegin tsdiff=357 stack=18
+GoSyscallEnd tsdiff=309
+GoBlock tsdiff=12 reason=15 stack=19
+GoStart tsdiff=1204 g=23 gseq=1
+HeapAlloc tsdiff=30 heap_alloc=2842624
+GoBlock tsdiff=728 reason=15 stack=20
+ProcStop tsdiff=31
+ProcStart tsdiff=2924 p=1 pseq=4
+GoStart tsdiff=1152 g=33 gseq=1
+GoBlock tsdiff=34 reason=15 stack=20
+ProcStop tsdiff=14
+ProcStart tsdiff=307 p=1 pseq=6
+GoStart tsdiff=8 g=24 gseq=1
+GoBlock tsdiff=111 reason=15 stack=20
+ProcStop tsdiff=10
+EventBatch gen=1 m=1 ts=31163335015002 size=6
+GoUnblock tsdiff=238 g=4 gseq=3 stack=0
+EventBatch gen=1 m=0 ts=31163334991616 size=387
+ProcStatus tsdiff=43 p=1 status=1
+GoStatus tsdiff=4 g=1 status=2
+STWBegin tsdiff=2 kind=21 stack=1
+HeapGoal tsdiff=5 heap_goal=4194304
+ProcStatus tsdiff=2 p=0 status=2
+ProcStatus tsdiff=2 p=2 status=2
+ProcStatus tsdiff=1 p=3 status=2
+ProcsChange tsdiff=69 procs=4 stack=2
+STWEnd tsdiff=158
+HeapAlloc tsdiff=173 heap_alloc=2768896
+GoCreate tsdiff=88 newg=18 newstack=3 stack=4
+HeapAlloc tsdiff=18 heap_alloc=2777088
+HeapAlloc tsdiff=19 heap_alloc=2785280
+GoCreate tsdiff=63 newg=19 newstack=5 stack=6
+GoCreate tsdiff=282 newg=20 newstack=7 stack=8
+GoCreate tsdiff=542 newg=21 newstack=9 stack=10
+GoBlock tsdiff=219 reason=19 stack=11
+GoStart tsdiff=42 g=21 gseq=1
+GCBegin tsdiff=591 gcseq=1 stack=12
+GoCreate tsdiff=570 newg=22 newstack=13 stack=14
+GoSyscallBegin tsdiff=12 stack=15
+ProcStop tsdiff=2
+ProcStart tsdiff=9 p=1 pseq=1
+ProcStop tsdiff=28
+GoSyscallEndBlocked tsdiff=5034
+ProcStart tsdiff=650 p=1 pseq=3
+ProcStop tsdiff=32
+ProcStart tsdiff=1549423 p=3 pseq=15
+ProcStop tsdiff=25
+ProcStart tsdiff=16951 p=3 pseq=16
+GoUnblock tsdiff=34 g=18 gseq=2 stack=0
+GoStart tsdiff=185 g=18 gseq=3
+GoBlock tsdiff=500 reason=19 stack=17
+ProcStop tsdiff=22
+ProcStart tsdiff=17534 p=2 pseq=5
+ProcStop tsdiff=20
+ProcStart tsdiff=235423 p=2 pseq=7
+ProcStop tsdiff=25
+ProcStart tsdiff=315126 p=2 pseq=9
+ProcStop tsdiff=24
+ProcStart tsdiff=315016 p=2 pseq=11
+ProcStop tsdiff=25
+ProcStart tsdiff=315044 p=2 pseq=13
+ProcStop tsdiff=25
+ProcStart tsdiff=315063 p=2 pseq=15
+ProcStop tsdiff=26
+ProcStart tsdiff=65364 p=3 pseq=18
+ProcStop tsdiff=24
+ProcStart tsdiff=17699 p=2 pseq=18
+ProcStop tsdiff=21
+ProcStart tsdiff=232083 p=2 pseq=20
+ProcStop tsdiff=23
+ProcStart tsdiff=315176 p=2 pseq=22
+ProcStop tsdiff=22
+ProcStart tsdiff=315069 p=2 pseq=24
+ProcStop tsdiff=23
+ProcStart tsdiff=314902 p=2 pseq=26
+ProcStop tsdiff=18
+ProcStart tsdiff=315000 p=2 pseq=28
+ProcStop tsdiff=23
+ProcStart tsdiff=67761 p=3 pseq=20
+ProcStop tsdiff=16
+ProcStart tsdiff=17373 p=2 pseq=31
+ProcStop tsdiff=13
+ProcStart tsdiff=229970 p=2 pseq=33
+ProcStop tsdiff=15
+ProcStart tsdiff=315465 p=2 pseq=35
+ProcStop tsdiff=23
+ProcStart tsdiff=314625 p=2 pseq=37
+ProcStop tsdiff=20
+ProcStart tsdiff=315259 p=2 pseq=39
+ProcStop tsdiff=18
+ProcStart tsdiff=315286 p=2 pseq=41
+ProcStop tsdiff=27
+ProcStart tsdiff=69905 p=3 pseq=22
+ProcStop tsdiff=20
+ProcStart tsdiff=11932 p=2 pseq=44
+ProcStop tsdiff=13
+ProcStart tsdiff=235291 p=2 pseq=45
+ProcStop tsdiff=16
+ProcStart tsdiff=316140 p=2 pseq=47
+ProcStop tsdiff=25
+ProcStart tsdiff=314873 p=2 pseq=49
+ProcStop tsdiff=23
+ProcStart tsdiff=315019 p=2 pseq=51
+ProcStop tsdiff=24
+ProcStart tsdiff=315059 p=2 pseq=53
+ProcStop tsdiff=22
+ProcStart tsdiff=66477 p=3 pseq=24
+GoUnblock tsdiff=40 g=17 gseq=10 stack=0
+GoStart tsdiff=255 g=17 gseq=11
+GoBlock tsdiff=76 reason=19 stack=39
+ProcStop tsdiff=28
+EventBatch gen=1 m=18446744073709551615 ts=31163350638045 size=9
+GoStatus tsdiff=184 g=2 status=4
+GoStatus tsdiff=3 g=5 status=4
+EventBatch gen=1 m=18446744073709551615 ts=31163336567080 size=1093
+CPUSamples
+CPUSample ts=31163335063074 p=4 g=1 m=6 stack=51
+CPUSample ts=31163335250194 p=4 g=1 m=6 stack=51
+CPUSample ts=31163335375278 p=4 g=1 m=6 stack=51
+CPUSample ts=31163335562807 p=4 g=1 m=6 stack=51
+CPUSample ts=31163335687781 p=4 g=1 m=6 stack=51
+CPUSample ts=31163335875276 p=4 g=1 m=6 stack=51
+CPUSample ts=31163336000614 p=4 g=1 m=6 stack=51
+CPUSample ts=31163336187830 p=4 g=1 m=6 stack=51
+CPUSample ts=31163336312794 p=4 g=1 m=6 stack=51
+CPUSample ts=31163336500284 p=4 g=1 m=6 stack=51
+CPUSample ts=31163336625359 p=4 g=1 m=6 stack=51
+CPUSample ts=31163336812723 p=4 g=1 m=6 stack=51
+CPUSample ts=31163336937825 p=4 g=1 m=6 stack=51
+CPUSample ts=31163337125293 p=4 g=1 m=6 stack=51
+CPUSample ts=31163337250394 p=4 g=1 m=6 stack=51
+CPUSample ts=31163337437679 p=4 g=1 m=6 stack=51
+CPUSample ts=31163337562772 p=4 g=1 m=6 stack=51
+CPUSample ts=31163337750168 p=4 g=1 m=6 stack=51
+CPUSample ts=31163337875320 p=4 g=1 m=6 stack=51
+CPUSample ts=31163338062661 p=4 g=1 m=6 stack=51
+CPUSample ts=31163338187783 p=4 g=1 m=6 stack=51
+CPUSample ts=31163338375148 p=4 g=1 m=6 stack=51
+CPUSample ts=31163338500261 p=4 g=1 m=6 stack=51
+CPUSample ts=31163338687675 p=4 g=1 m=6 stack=51
+CPUSample ts=31163338812826 p=4 g=1 m=6 stack=51
+CPUSample ts=31163339000163 p=4 g=1 m=6 stack=51
+CPUSample ts=31163339125263 p=4 g=1 m=6 stack=51
+CPUSample ts=31163339312674 p=4 g=1 m=6 stack=51
+CPUSample ts=31163339437808 p=4 g=1 m=6 stack=51
+CPUSample ts=31163339625304 p=4 g=1 m=6 stack=51
+CPUSample ts=31163339750277 p=4 g=1 m=6 stack=51
+CPUSample ts=31163339937652 p=4 g=1 m=6 stack=51
+CPUSample ts=31163340062758 p=4 g=1 m=6 stack=51
+CPUSample ts=31163340250178 p=4 g=1 m=6 stack=51
+CPUSample ts=31163340375299 p=4 g=1 m=6 stack=51
+CPUSample ts=31163340562659 p=4 g=1 m=6 stack=51
+CPUSample ts=31163340687774 p=4 g=1 m=6 stack=51
+CPUSample ts=31163340875198 p=4 g=1 m=6 stack=51
+CPUSample ts=31163341000276 p=4 g=1 m=6 stack=51
+CPUSample ts=31163341187659 p=4 g=1 m=6 stack=51
+CPUSample ts=31163341312773 p=4 g=1 m=6 stack=51
+CPUSample ts=31163341500157 p=4 g=1 m=6 stack=51
+CPUSample ts=31163341625252 p=4 g=1 m=6 stack=51
+CPUSample ts=31163341812669 p=4 g=1 m=6 stack=51
+CPUSample ts=31163341938011 p=4 g=1 m=6 stack=51
+CPUSample ts=31163342125176 p=4 g=1 m=6 stack=51
+CPUSample ts=31163342250276 p=4 g=1 m=6 stack=51
+CPUSample ts=31163342437682 p=4 g=1 m=6 stack=51
+CPUSample ts=31163342562782 p=4 g=1 m=6 stack=51
+CPUSample ts=31163342750293 p=4 g=1 m=6 stack=51
+CPUSample ts=31163342875299 p=4 g=1 m=6 stack=51
+CPUSample ts=31163343062657 p=4 g=1 m=6 stack=51
+CPUSample ts=31163343187762 p=4 g=1 m=6 stack=51
+CPUSample ts=31163343375207 p=4 g=1 m=6 stack=51
+CPUSample ts=31163343500166 p=4 g=1 m=6 stack=51
+CPUSample ts=31163343687659 p=4 g=1 m=6 stack=51
+CPUSample ts=31163343812710 p=4 g=1 m=6 stack=51
+CPUSample ts=31163344000200 p=4 g=1 m=6 stack=51
+CPUSample ts=31163344125164 p=4 g=1 m=6 stack=51
+CPUSample ts=31163344312650 p=4 g=1 m=6 stack=51
+CPUSample ts=31163344437660 p=4 g=1 m=6 stack=51
+CPUSample ts=31163344625578 p=4 g=1 m=6 stack=51
+CPUSample ts=31163344750817 p=4 g=1 m=6 stack=51
+CPUSample ts=31163344937704 p=4 g=1 m=6 stack=51
+CPUSample ts=31163345062680 p=4 g=1 m=6 stack=51
+CPUSample ts=31163345250378 p=4 g=1 m=6 stack=51
+CPUSample ts=31163345375184 p=4 g=1 m=6 stack=51
+CPUSample ts=31163345562696 p=4 g=1 m=6 stack=51
+CPUSample ts=31163345687675 p=4 g=1 m=6 stack=51
+CPUSample ts=31163345875165 p=4 g=1 m=6 stack=51
+CPUSample ts=31163346000177 p=4 g=1 m=6 stack=51
+CPUSample ts=31163346187673 p=4 g=1 m=6 stack=51
+CPUSample ts=31163346312818 p=4 g=1 m=6 stack=51
+CPUSample ts=31163346500173 p=4 g=1 m=6 stack=51
+CPUSample ts=31163346625187 p=4 g=1 m=6 stack=51
+CPUSample ts=31163346812668 p=4 g=1 m=6 stack=51
+CPUSample ts=31163346937826 p=4 g=1 m=6 stack=51
+CPUSample ts=31163347125167 p=4 g=1 m=6 stack=51
+CPUSample ts=31163347250173 p=4 g=1 m=6 stack=51
+CPUSample ts=31163347437974 p=4 g=1 m=6 stack=51
+CPUSample ts=31163347562689 p=4 g=1 m=6 stack=51
+CPUSample ts=31163347750172 p=4 g=1 m=6 stack=51
+CPUSample ts=31163347875174 p=4 g=1 m=6 stack=51
+CPUSample ts=31163348062671 p=4 g=1 m=6 stack=51
+CPUSample ts=31163348187667 p=4 g=1 m=6 stack=51
+CPUSample ts=31163348375170 p=4 g=1 m=6 stack=51
+CPUSample ts=31163348500222 p=4 g=1 m=6 stack=51
+CPUSample ts=31163348687734 p=4 g=1 m=6 stack=51
+CPUSample ts=31163348812815 p=4 g=1 m=6 stack=51
+CPUSample ts=31163349000211 p=4 g=1 m=6 stack=51
+CPUSample ts=31163349125170 p=4 g=1 m=6 stack=51
+EventBatch gen=1 m=18446744073709551615 ts=31163350638843 size=2181
+Stacks
+Stack id=45 nframes=2
+	pc=4599463 func=24 file=25 line=474
+	pc=4296081 func=26 file=27 line=1384
+Stack id=27 nframes=10
+	pc=4710359 func=28 file=29 line=721
+	pc=4762413 func=30 file=31 line=181
+	pc=4762389 func=32 file=33 line=736
+	pc=4761764 func=34 file=33 line=160
+	pc=4766065 func=35 file=36 line=29
+	pc=4766057 func=37 file=38 line=118
+	pc=4768324 func=39 file=38 line=728
+	pc=4891826 func=40 file=41 line=18
+	pc=4874108 func=42 file=43 line=270
+	pc=4859364 func=44 file=45 line=806
+Stack id=14 nframes=4
+	pc=4295515 func=46 file=27 line=1248
+	pc=4289929 func=47 file=27 line=672
+	pc=4288701 func=48 file=27 line=469
+	pc=4902478 func=49 file=50 line=45
+Stack id=19 nframes=1
+	pc=4901540 func=51 file=52 line=130
+Stack id=7 nframes=1
+	pc=4901472 func=51 file=52 line=128
+Stack id=4 nframes=4
+	pc=4538426 func=53 file=54 line=40
+	pc=4530929 func=55 file=56 line=232
+	pc=4901226 func=57 file=52 line=125
+	pc=4902214 func=58 file=50 line=41
+Stack id=15 nframes=3
+	pc=4289929 func=47 file=27 line=672
+	pc=4288701 func=48 file=27 line=469
+	pc=4902478 func=49 file=50 line=45
+Stack id=33 nframes=11
+	pc=4710116 func=59 file=29 line=417
+	pc=4708528 func=60 file=61 line=118
+	pc=4769625 func=62 file=63 line=234
+	pc=4770127 func=64 file=63 line=301
+	pc=4767293 func=65 file=38 line=334
+	pc=4854628 func=66 file=38 line=314
+	pc=4854599 func=67 file=68 line=23
+	pc=4891396 func=69 file=43 line=743
+	pc=4891879 func=40 file=41 line=19
+	pc=4874108 func=42 file=43 line=270
+	pc=4859364 func=44 file=45 line=806
+Stack id=5 nframes=1
+	pc=4536096 func=70 file=56 line=746
+Stack id=29 nframes=11
+	pc=4709644 func=71 file=29 line=83
+	pc=4768874 func=72 file=73 line=272
+	pc=4768851 func=74 file=75 line=15
+	pc=4769905 func=64 file=63 line=272
+	pc=4767293 func=65 file=38 line=334
+	pc=4854628 func=66 file=38 line=314
+	pc=4854599 func=67 file=68 line=23
+	pc=4891396 func=69 file=43 line=743
+	pc=4891879 func=40 file=41 line=19
+	pc=4874108 func=42 file=43 line=270
+	pc=4859364 func=44 file=45 line=806
+Stack id=18 nframes=7
+	pc=4710618 func=76 file=29 line=949
+	pc=4764112 func=77 file=31 line=209
+	pc=4764104 func=32 file=33 line=736
+	pc=4763677 func=78 file=33 line=380
+	pc=4766768 func=79 file=36 line=46
+	pc=4766760 func=80 file=38 line=183
+	pc=4901530 func=51 file=52 line=134
+Stack id=41 nframes=4
+	pc=4599463 func=24 file=25 line=474
+	pc=4290116 func=47 file=27 line=691
+	pc=4288701 func=48 file=27 line=469
+	pc=4902478 func=49 file=50 line=45
+Stack id=43 nframes=4
+	pc=4289044 func=81 file=82 line=406
+	pc=4289010 func=83 file=27 line=529
+	pc=4288710 func=48 file=27 line=472
+	pc=4902478 func=49 file=50 line=45
+Stack id=26 nframes=9
+	pc=4711050 func=84 file=29 line=1106
+	pc=4764822 func=85 file=33 line=643
+	pc=4764817 func=86 file=87 line=74
+	pc=4764863 func=88 file=33 line=642
+	pc=4771590 func=89 file=90 line=20
+	pc=4768125 func=39 file=38 line=710
+	pc=4891826 func=40 file=41 line=18
+	pc=4874108 func=42 file=43 line=270
+	pc=4859364 func=44 file=45 line=806
+Stack id=31 nframes=11
+	pc=4710116 func=59 file=29 line=417
+	pc=4708528 func=60 file=61 line=118
+	pc=4769508 func=62 file=63 line=218
+	pc=4770127 func=64 file=63 line=301
+	pc=4767293 func=65 file=38 line=334
+	pc=4854628 func=66 file=38 line=314
+	pc=4854599 func=67 file=68 line=23
+	pc=4891396 func=69 file=43 line=743
+	pc=4891879 func=40 file=41 line=19
+	pc=4874108 func=42 file=43 line=270
+	pc=4859364 func=44 file=45 line=806
+Stack id=9 nframes=1
+	pc=4902464 func=49 file=50 line=44
+Stack id=23 nframes=10
+	pc=4710116 func=59 file=29 line=417
+	pc=4708528 func=60 file=61 line=118
+	pc=4769508 func=62 file=63 line=218
+	pc=4770127 func=64 file=63 line=301
+	pc=4767293 func=65 file=38 line=334
+	pc=4768050 func=66 file=38 line=314
+	pc=4768041 func=39 file=38 line=703
+	pc=4891826 func=40 file=41 line=18
+	pc=4874108 func=42 file=43 line=270
+	pc=4859364 func=44 file=45 line=806
+Stack id=48 nframes=6
+	pc=4549500 func=91 file=92 line=294
+	pc=4549410 func=93 file=94 line=441
+	pc=4438852 func=95 file=82 line=3557
+	pc=4292868 func=96 file=27 line=1076
+	pc=4291593 func=97 file=27 line=947
+	pc=4296420 func=26 file=27 line=1460
+Stack id=1 nframes=3
+	pc=4530724 func=55 file=56 line=213
+	pc=4901226 func=57 file=52 line=125
+	pc=4902214 func=58 file=50 line=41
+Stack id=6 nframes=4
+	pc=4536053 func=98 file=56 line=746
+	pc=4530941 func=55 file=56 line=233
+	pc=4901226 func=57 file=52 line=125
+	pc=4902214 func=58 file=50 line=41
+Stack id=3 nframes=1
+	pc=4538528 func=99 file=54 line=40
+Stack id=46 nframes=1
+	pc=4296420 func=26 file=27 line=1460
+Stack id=20 nframes=2
+	pc=4412813 func=100 file=82 line=400
+	pc=4295812 func=26 file=27 line=1324
+Stack id=28 nframes=11
+	pc=4709924 func=101 file=29 line=320
+	pc=4761424 func=102 file=103 line=24
+	pc=4761394 func=104 file=33 line=81
+	pc=4760018 func=105 file=106 line=213
+	pc=4761572 func=107 file=33 line=104
+	pc=4770391 func=108 file=63 line=315
+	pc=4768780 func=109 file=36 line=23
+	pc=4768595 func=39 file=38 line=734
+	pc=4891826 func=40 file=41 line=18
+	pc=4874108 func=42 file=43 line=270
+	pc=4859364 func=44 file=45 line=806
+Stack id=36 nframes=10
+	pc=4711460 func=110 file=29 line=1235
+	pc=4763021 func=111 file=31 line=224
+	pc=4762941 func=112 file=33 line=190
+	pc=4766510 func=113 file=36 line=38
+	pc=4766493 func=114 file=38 line=136
+	pc=4856434 func=67 file=68 line=88
+	pc=4891396 func=69 file=43 line=743
+	pc=4891879 func=40 file=41 line=19
+	pc=4874108 func=42 file=43 line=270
+	pc=4859364 func=44 file=45 line=806
+Stack id=39 nframes=2
+	pc=4595636 func=115 file=116 line=195
+	pc=4859401 func=44 file=45 line=809
+Stack id=30 nframes=11
+	pc=4710116 func=59 file=29 line=417
+	pc=4708454 func=60 file=61 line=106
+	pc=4769508 func=62 file=63 line=218
+	pc=4770127 func=64 file=63 line=301
+	pc=4767293 func=65 file=38 line=334
+	pc=4854628 func=66 file=38 line=314
+	pc=4854599 func=67 file=68 line=23
+	pc=4891396 func=69 file=43 line=743
+	pc=4891879 func=40 file=41 line=19
+	pc=4874108 func=42 file=43 line=270
+	pc=4859364 func=44 file=45 line=806
+Stack id=40 nframes=1
+	pc=4612730 func=117 file=118 line=53
+Stack id=47 nframes=4
+	pc=4599463 func=24 file=25 line=474
+	pc=4292215 func=96 file=27 line=985
+	pc=4291593 func=97 file=27 line=947
+	pc=4296420 func=26 file=27 line=1460
+Stack id=51 nframes=2
+	pc=4902433 func=119 file=50 line=1
+	pc=4607232 func=120 file=25 line=1650
+Stack id=37 nframes=12
+	pc=4709924 func=101 file=29 line=320
+	pc=4761424 func=102 file=103 line=24
+	pc=4761394 func=104 file=33 line=81
+	pc=4760018 func=105 file=106 line=213
+	pc=4761572 func=107 file=33 line=104
+	pc=4770391 func=108 file=63 line=315
+	pc=4857324 func=109 file=36 line=23
+	pc=4856337 func=67 file=68 line=108
+	pc=4891396 func=69 file=43 line=743
+	pc=4891879 func=40 file=41 line=19
+	pc=4874108 func=42 file=43 line=270
+	pc=4859364 func=44 file=45 line=806
+Stack id=34 nframes=10
+	pc=4711460 func=110 file=29 line=1235
+	pc=4763021 func=111 file=31 line=224
+	pc=4762941 func=112 file=33 line=190
+	pc=4766510 func=113 file=36 line=38
+	pc=4766493 func=114 file=38 line=136
+	pc=4854724 func=67 file=68 line=29
+	pc=4891396 func=69 file=43 line=743
+	pc=4891879 func=40 file=41 line=19
+	pc=4874108 func=42 file=43 line=270
+	pc=4859364 func=44 file=45 line=806
+Stack id=25 nframes=10
+	pc=4710116 func=59 file=29 line=417
+	pc=4708528 func=60 file=61 line=118
+	pc=4769625 func=62 file=63 line=234
+	pc=4770127 func=64 file=63 line=301
+	pc=4767293 func=65 file=38 line=334
+	pc=4768050 func=66 file=38 line=314
+	pc=4768041 func=39 file=38 line=703
+	pc=4891826 func=40 file=41 line=18
+	pc=4874108 func=42 file=43 line=270
+	pc=4859364 func=44 file=45 line=806
+Stack id=10 nframes=1
+	pc=4902244 func=58 file=50 line=44
+Stack id=49 nframes=3
+	pc=4293101 func=96 file=27 line=1112
+	pc=4291593 func=97 file=27 line=947
+	pc=4296420 func=26 file=27 line=1460
+Stack id=13 nframes=1
+	pc=4295584 func=26 file=27 line=1290
+Stack id=44 nframes=2
+	pc=4323757 func=121 file=122 line=425
+	pc=4325240 func=123 file=122 line=658
+Stack id=21 nframes=10
+	pc=4709644 func=71 file=29 line=83
+	pc=4768874 func=72 file=73 line=272
+	pc=4768851 func=74 file=75 line=15
+	pc=4769905 func=64 file=63 line=272
+	pc=4767293 func=65 file=38 line=334
+	pc=4768050 func=66 file=38 line=314
+	pc=4768041 func=39 file=38 line=703
+	pc=4891826 func=40 file=41 line=18
+	pc=4874108 func=42 file=43 line=270
+	pc=4859364 func=44 file=45 line=806
+Stack id=17 nframes=2
+	pc=4595636 func=115 file=116 line=195
+	pc=4538579 func=99 file=54 line=46
+Stack id=2 nframes=4
+	pc=4421412 func=124 file=82 line=1302
+	pc=4530924 func=55 file=56 line=230
+	pc=4901226 func=57 file=52 line=125
+	pc=4902214 func=58 file=50 line=41
+Stack id=11 nframes=2
+	pc=4595636 func=115 file=116 line=195
+	pc=4902254 func=58 file=50 line=47
+Stack id=32 nframes=11
+	pc=4710116 func=59 file=29 line=417
+	pc=4708454 func=60 file=61 line=106
+	pc=4769625 func=62 file=63 line=234
+	pc=4770127 func=64 file=63 line=301
+	pc=4767293 func=65 file=38 line=334
+	pc=4854628 func=66 file=38 line=314
+	pc=4854599 func=67 file=68 line=23
+	pc=4891396 func=69 file=43 line=743
+	pc=4891879 func=40 file=41 line=19
+	pc=4874108 func=42 file=43 line=270
+	pc=4859364 func=44 file=45 line=806
+Stack id=42 nframes=3
+	pc=4290404 func=47 file=27 line=753
+	pc=4288701 func=48 file=27 line=469
+	pc=4902478 func=49 file=50 line=45
+Stack id=38 nframes=2
+	pc=4288701 func=48 file=27 line=469
+	pc=4902478 func=49 file=50 line=45
+Stack id=50 nframes=2
+	pc=4333886 func=81 file=82 line=406
+	pc=4333852 func=125 file=126 line=321
+Stack id=8 nframes=2
+	pc=4901301 func=57 file=52 line=128
+	pc=4902214 func=58 file=50 line=41
+Stack id=35 nframes=10
+	pc=4711460 func=110 file=29 line=1235
+	pc=4763021 func=111 file=31 line=224
+	pc=4762941 func=112 file=33 line=190
+	pc=4766510 func=113 file=36 line=38
+	pc=4766493 func=114 file=38 line=136
+	pc=4855921 func=67 file=68 line=70
+	pc=4891396 func=69 file=43 line=743
+	pc=4891879 func=40 file=41 line=19
+	pc=4874108 func=42 file=43 line=270
+	pc=4859364 func=44 file=45 line=806
+Stack id=24 nframes=10
+	pc=4710116 func=59 file=29 line=417
+	pc=4708454 func=60 file=61 line=106
+	pc=4769625 func=62 file=63 line=234
+	pc=4770127 func=64 file=63 line=301
+	pc=4767293 func=65 file=38 line=334
+	pc=4768050 func=66 file=38 line=314
+	pc=4768041 func=39 file=38 line=703
+	pc=4891826 func=40 file=41 line=18
+	pc=4874108 func=42 file=43 line=270
+	pc=4859364 func=44 file=45 line=806
+Stack id=22 nframes=10
+	pc=4710116 func=59 file=29 line=417
+	pc=4708454 func=60 file=61 line=106
+	pc=4769508 func=62 file=63 line=218
+	pc=4770127 func=64 file=63 line=301
+	pc=4767293 func=65 file=38 line=334
+	pc=4768050 func=66 file=38 line=314
+	pc=4768041 func=39 file=38 line=703
+	pc=4891826 func=40 file=41 line=18
+	pc=4874108 func=42 file=43 line=270
+	pc=4859364 func=44 file=45 line=806
+Stack id=12 nframes=2
+	pc=4288701 func=48 file=27 line=469
+	pc=4902478 func=49 file=50 line=45
+Stack id=16 nframes=2
+	pc=4219025 func=127 file=128 line=442
+	pc=4536215 func=70 file=56 line=750
+EventBatch gen=1 m=18446744073709551615 ts=31163334987063 size=4245
+Strings
+String id=1
+	data="Not worker"
+String id=2
+	data="GC (dedicated)"
+String id=3
+	data="GC (fractional)"
+String id=4
+	data="GC (idle)"
+String id=5
+	data="unspecified"
+String id=6
+	data="forever"
+String id=7
+	data="network"
+String id=8
+	data="select"
+String id=9
+	data="sync.(*Cond).Wait"
+String id=10
+	data="sync"
+String id=11
+	data="chan send"
+String id=12
+	data="chan receive"
+String id=13
+	data="GC mark assist wait for work"
+String id=14
+	data="GC background sweeper wait"
+String id=15
+	data="system goroutine wait"
+String id=16
+	data="preempted"
+String id=17
+	data="wait for debug call"
+String id=18
+	data="wait until GC ends"
+String id=19
+	data="sleep"
+String id=20
+	data="runtime.GoSched"
+String id=21
+	data="start trace"
+String id=22
+	data="GC sweep termination"
+String id=23
+	data="GC mark termination"
+String id=24
+	data="runtime.systemstack_switch"
+String id=25
+	data="/usr/local/google/home/mknyszek/work/go-1/src/runtime/asm_amd64.s"
+String id=26
+	data="runtime.gcBgMarkWorker"
+String id=27
+	data="/usr/local/google/home/mknyszek/work/go-1/src/runtime/mgc.go"
+String id=28
+	data="syscall.read"
+String id=29
+	data="/usr/local/google/home/mknyszek/work/go-1/src/syscall/zsyscall_linux_amd64.go"
+String id=30
+	data="syscall.Read"
+String id=31
+	data="/usr/local/google/home/mknyszek/work/go-1/src/syscall/syscall_unix.go"
+String id=32
+	data="internal/poll.ignoringEINTRIO"
+String id=33
+	data="/usr/local/google/home/mknyszek/work/go-1/src/internal/poll/fd_unix.go"
+String id=34
+	data="internal/poll.(*FD).Read"
+String id=35
+	data="os.(*File).read"
+String id=36
+	data="/usr/local/google/home/mknyszek/work/go-1/src/os/file_posix.go"
+String id=37
+	data="os.(*File).Read"
+String id=38
+	data="/usr/local/google/home/mknyszek/work/go-1/src/os/file.go"
+String id=39
+	data="os.ReadFile"
+String id=40
+	data="runtime/pprof.(*profileBuilder).readMapping"
+String id=41
+	data="/usr/local/google/home/mknyszek/work/go-1/src/runtime/pprof/proto_other.go"
+String id=42
+	data="runtime/pprof.newProfileBuilder"
+String id=43
+	data="/usr/local/google/home/mknyszek/work/go-1/src/runtime/pprof/proto.go"
+String id=44
+	data="runtime/pprof.profileWriter"
+String id=45
+	data="/usr/local/google/home/mknyszek/work/go-1/src/runtime/pprof/pprof.go"
+String id=46
+	data="runtime.gcBgMarkStartWorkers"
+String id=47
+	data="runtime.gcStart"
+String id=48
+	data="runtime.GC"
+String id=49
+	data="main.main.func2"
+String id=50
+	data="/usr/local/google/home/mknyszek/work/x/exp/trace/testdata/generators/gc-and-cpu-profile.go"
+String id=51
+	data="runtime/trace.Start.func1"
+String id=52
+	data="/usr/local/google/home/mknyszek/work/go-1/src/runtime/trace/trace.go"
+String id=53
+	data="runtime.traceStartReadCPU"
+String id=54
+	data="/usr/local/google/home/mknyszek/work/go-1/src/runtime/trace2cpu.go"
+String id=55
+	data="runtime.StartTrace"
+String id=56
+	data="/usr/local/google/home/mknyszek/work/go-1/src/runtime/trace2.go"
+String id=57
+	data="runtime/trace.Start"
+String id=58
+	data="main.main"
+String id=59
+	data="syscall.fcntl"
+String id=60
+	data="syscall.SetNonblock"
+String id=61
+	data="/usr/local/google/home/mknyszek/work/go-1/src/syscall/exec_unix.go"
+String id=62
+	data="os.newFile"
+String id=63
+	data="/usr/local/google/home/mknyszek/work/go-1/src/os/file_unix.go"
+String id=64
+	data="os.openFileNolog"
+String id=65
+	data="os.OpenFile"
+String id=66
+	data="os.Open"
+String id=67
+	data="runtime/pprof.elfBuildID"
+String id=68
+	data="/usr/local/google/home/mknyszek/work/go-1/src/runtime/pprof/elf.go"
+String id=69
+	data="runtime/pprof.parseProcSelfMaps"
+String id=70
+	data="runtime.(*traceAdvancerState).start.func2"
+String id=71
+	data="syscall.openat"
+String id=72
+	data="syscall.Open"
+String id=73
+	data="/usr/local/google/home/mknyszek/work/go-1/src/syscall/syscall_linux.go"
+String id=74
+	data="os.open"
+String id=75
+	data="/usr/local/google/home/mknyszek/work/go-1/src/os/file_open_unix.go"
+String id=76
+	data="syscall.write"
+String id=77
+	data="syscall.Write"
+String id=78
+	data="internal/poll.(*FD).Write"
+String id=79
+	data="os.(*File).write"
+String id=80
+	data="os.(*File).Write"
+String id=81
+	data="runtime.goparkunlock"
+String id=82
+	data="/usr/local/google/home/mknyszek/work/go-1/src/runtime/proc.go"
+String id=83
+	data="runtime.gcWaitOnMark"
+String id=84
+	data="syscall.Fstat"
+String id=85
+	data="internal/poll.(*FD).Fstat.func1"
+String id=86
+	data="internal/poll.ignoringEINTR"
+String id=87
+	data="/usr/local/google/home/mknyszek/work/go-1/src/internal/poll/fd_posix.go"
+String id=88
+	data="internal/poll.(*FD).Fstat"
+String id=89
+	data="os.(*File).Stat"
+String id=90
+	data="/usr/local/google/home/mknyszek/work/go-1/src/os/stat_unix.go"
+String id=91
+	data="runtime.traceLocker.stack"
+String id=92
+	data="/usr/local/google/home/mknyszek/work/go-1/src/runtime/trace2event.go"
+String id=93
+	data="runtime.traceLocker.GoUnpark"
+String id=94
+	data="/usr/local/google/home/mknyszek/work/go-1/src/runtime/trace2runtime.go"
+String id=95
+	data="runtime.injectglist"
+String id=96
+	data="runtime.gcMarkTermination"
+String id=97
+	data="runtime.gcMarkDone"
+String id=98
+	data="runtime.(*traceAdvancerState).start"
+String id=99
+	data="runtime.traceStartReadCPU.func1"
+String id=100
+	data="runtime.gopark"
+String id=101
+	data="syscall.Close"
+String id=102
+	data="internal/poll.(*SysFile).destroy"
+String id=103
+	data="/usr/local/google/home/mknyszek/work/go-1/src/internal/poll/fd_unixjs.go"
+String id=104
+	data="internal/poll.(*FD).destroy"
+String id=105
+	data="internal/poll.(*FD).decref"
+String id=106
+	data="/usr/local/google/home/mknyszek/work/go-1/src/internal/poll/fd_mutex.go"
+String id=107
+	data="internal/poll.(*FD).Close"
+String id=108
+	data="os.(*file).close"
+String id=109
+	data="os.(*File).Close"
+String id=110
+	data="syscall.pread"
+String id=111
+	data="syscall.Pread"
+String id=112
+	data="internal/poll.(*FD).Pread"
+String id=113
+	data="os.(*File).pread"
+String id=114
+	data="os.(*File).ReadAt"
+String id=115
+	data="time.Sleep"
+String id=116
+	data="/usr/local/google/home/mknyszek/work/go-1/src/runtime/time.go"
+String id=117
+	data="runtime.asyncPreempt"
+String id=118
+	data="/usr/local/google/home/mknyszek/work/go-1/src/runtime/preempt_amd64.s"
+String id=119
+	data="main.main.func1"
+String id=120
+	data="runtime.goexit"
+String id=121
+	data="runtime.(*scavengerState).park"
+String id=122
+	data="/usr/local/google/home/mknyszek/work/go-1/src/runtime/mgcscavenge.go"
+String id=123
+	data="runtime.bgscavenge"
+String id=124
+	data="runtime.startTheWorld"
+String id=125
+	data="runtime.bgsweep"
+String id=126
+	data="/usr/local/google/home/mknyszek/work/go-1/src/runtime/mgcsweep.go"
+String id=127
+	data="runtime.chanrecv1"
+String id=128
+	data="/usr/local/google/home/mknyszek/work/go-1/src/runtime/chan.go"
+EventBatch gen=2 m=18446744073709551615 ts=31163366253000 size=5
+Frequency freq=15625000
+EventBatch gen=2 m=6 ts=31163350698274 size=494
+ProcStart tsdiff=1 p=1 pseq=2
+ProcStop tsdiff=17
+ProcStart tsdiff=16806 p=1 pseq=3
+GoStatus tsdiff=58 g=17 status=4
+GoUnblock tsdiff=4 g=17 gseq=1 stack=0
+GoStatus tsdiff=12 g=18 status=4
+GoUnblock tsdiff=1 g=18 gseq=1 stack=0
+GoStart tsdiff=182 g=18 gseq=2
+GoBlock tsdiff=411 reason=19 stack=7
+HeapAlloc tsdiff=92 heap_alloc=2670696
+ProcStop tsdiff=39
+ProcStart tsdiff=1548785 p=2 pseq=8
+ProcStop tsdiff=29
+ProcStart tsdiff=16686 p=2 pseq=9
+GoUnblock tsdiff=37 g=18 gseq=3 stack=0
+GoStart tsdiff=156 g=18 gseq=4
+GoBlock tsdiff=49 reason=19 stack=7
+GoUnblock tsdiff=29 g=17 gseq=3 stack=0
+GoStart tsdiff=3 g=17 gseq=4
+GoBlock tsdiff=57 reason=19 stack=8
+ProcStop tsdiff=12
+ProcStart tsdiff=1549369 p=0 pseq=9
+ProcStop tsdiff=26
+ProcStart tsdiff=17298 p=0 pseq=10
+GoUnblock tsdiff=31 g=18 gseq=5 stack=0
+GoUnblock tsdiff=6 g=17 gseq=5 stack=0
+GoStart tsdiff=187 g=17 gseq=6
+GoBlock tsdiff=37 reason=19 stack=8
+GoStart tsdiff=10 g=18 gseq=6
+GoBlock tsdiff=30 reason=19 stack=7
+HeapAlloc tsdiff=36 heap_alloc=2687040
+ProcStop tsdiff=30
+ProcStart tsdiff=1548892 p=2 pseq=16
+ProcStop tsdiff=27
+ProcStart tsdiff=16766 p=2 pseq=17
+GoUnblock tsdiff=24 g=17 gseq=7 stack=0
+GoUnblock tsdiff=6 g=18 gseq=7 stack=0
+GoStart tsdiff=146 g=18 gseq=8
+GoBlock tsdiff=37 reason=19 stack=7
+GoStart tsdiff=14 g=17 gseq=8
+GoBlock tsdiff=24 reason=19 stack=8
+ProcStop tsdiff=13
+ProcStart tsdiff=1548912 p=0 pseq=17
+ProcStop tsdiff=27
+ProcStart tsdiff=16741 p=0 pseq=18
+GoUnblock tsdiff=26 g=18 gseq=9 stack=0
+GoUnblock tsdiff=6 g=17 gseq=9 stack=0
+GoStart tsdiff=158 g=17 gseq=10
+GoBlock tsdiff=44 reason=19 stack=8
+GoStart tsdiff=19 g=18 gseq=10
+GoBlock tsdiff=29 reason=19 stack=7
+ProcStop tsdiff=11
+ProcStart tsdiff=1549276 p=2 pseq=24
+ProcStop tsdiff=22
+ProcStart tsdiff=17174 p=2 pseq=25
+GoUnblock tsdiff=30 g=17 gseq=11 stack=0
+GoUnblock tsdiff=6 g=18 gseq=11 stack=0
+GoStart tsdiff=169 g=18 gseq=12
+GoBlock tsdiff=38 reason=19 stack=7
+GoStart tsdiff=10 g=17 gseq=12
+GoBlock tsdiff=30 reason=19 stack=8
+ProcStop tsdiff=13
+ProcStart tsdiff=1548746 p=0 pseq=25
+ProcStop tsdiff=22
+ProcStart tsdiff=16731 p=0 pseq=26
+GoUnblock tsdiff=24 g=18 gseq=13 stack=0
+GoUnblock tsdiff=5 g=17 gseq=13 stack=0
+GoStart tsdiff=146 g=17 gseq=14
+GoBlock tsdiff=35 reason=19 stack=8
+GoStart tsdiff=11 g=18 gseq=14
+GoBlock tsdiff=30 reason=19 stack=7
+ProcStop tsdiff=11
+ProcStart tsdiff=1548890 p=2 pseq=32
+ProcStop tsdiff=26
+ProcStart tsdiff=16746 p=2 pseq=33
+GoUnblock tsdiff=27 g=17 gseq=15 stack=0
+GoUnblock tsdiff=5 g=18 gseq=15 stack=0
+GoStart tsdiff=140 g=18 gseq=16
+GoBlock tsdiff=32 reason=19 stack=7
+GoStart tsdiff=15 g=17 gseq=16
+GoBlock tsdiff=19 reason=19 stack=8
+ProcStop tsdiff=9
+ProcStart tsdiff=1548909 p=0 pseq=33
+ProcStop tsdiff=26
+ProcStart tsdiff=16736 p=0 pseq=34
+GoUnblock tsdiff=24 g=18 gseq=17 stack=0
+GoUnblock tsdiff=5 g=17 gseq=17 stack=0
+GoStart tsdiff=191 g=17 gseq=18
+GoBlock tsdiff=35 reason=19 stack=8
+GoStart tsdiff=11 g=18 gseq=18
+GoBlock tsdiff=29 reason=19 stack=7
+ProcStop tsdiff=11
+ProcStart tsdiff=1549212 p=2 pseq=40
+ProcStop tsdiff=24
+ProcStart tsdiff=17166 p=2 pseq=41
+GoUnblock tsdiff=34 g=17 gseq=19 stack=0
+GoUnblock tsdiff=5 g=18 gseq=19 stack=0
+GoStart tsdiff=183 g=18 gseq=20
+GoBlock tsdiff=40 reason=19 stack=7
+GoStart tsdiff=10 g=17 gseq=20
+GoBlock tsdiff=28 reason=19 stack=8
+ProcStop tsdiff=12
+ProcStart tsdiff=1424144 p=0 pseq=40
+ProcStop tsdiff=25
+ProcStart tsdiff=16732 p=0 pseq=41
+GoStatus tsdiff=29 g=1 status=4
+GoUnblock tsdiff=3 g=1 gseq=1 stack=0
+GoStart tsdiff=174 g=1 gseq=2
+HeapAlloc tsdiff=157 heap_alloc=2695232
+HeapAlloc tsdiff=33 heap_alloc=2703424
+HeapAlloc tsdiff=30 heap_alloc=2711488
+HeapAlloc tsdiff=25 heap_alloc=2719680
+EventBatch gen=2 m=5 ts=31163350638305 size=198
+ProcStatus tsdiff=180 p=2 status=1
+GoStatus tsdiff=4 g=19 status=2
+HeapAlloc tsdiff=1 heap_alloc=2508408
+HeapAlloc tsdiff=43 heap_alloc=2516216
+HeapAlloc tsdiff=12 heap_alloc=2524408
+HeapAlloc tsdiff=596 heap_alloc=2532600
+HeapAlloc tsdiff=592 heap_alloc=2540536
+HeapAlloc tsdiff=94 heap_alloc=2548504
+HeapAlloc tsdiff=208 heap_alloc=2556408
+HeapAlloc tsdiff=80 heap_alloc=2564600
+HeapAlloc tsdiff=207 heap_alloc=2572792
+HeapAlloc tsdiff=187 heap_alloc=2580984
+HeapAlloc tsdiff=218 heap_alloc=2589176
+HeapAlloc tsdiff=292 heap_alloc=2597368
+HeapAlloc tsdiff=333 heap_alloc=2605560
+HeapAlloc tsdiff=947 heap_alloc=2613752
+HeapAlloc tsdiff=304 heap_alloc=2621944
+HeapAlloc tsdiff=906 heap_alloc=2630136
+HeapAlloc tsdiff=237 heap_alloc=2638328
+HeapAlloc tsdiff=802 heap_alloc=2646520
+ProcStatus tsdiff=1501 p=3 status=2
+ProcStatus tsdiff=3 p=0 status=2
+GoSyscallBegin tsdiff=1820 stack=3
+ProcStop tsdiff=2
+ProcStart tsdiff=1093 p=1 pseq=1
+GoSyscallEndBlocked tsdiff=4
+GoStart tsdiff=1 g=19 gseq=1
+HeapAlloc tsdiff=26 heap_alloc=2654696
+HeapAlloc tsdiff=36 heap_alloc=2662504
+GoBlock tsdiff=15 reason=12 stack=5
+ProcStop tsdiff=20
+ProcStart tsdiff=66566 p=0 pseq=2
+GoStart tsdiff=181 g=17 gseq=2
+GoBlock tsdiff=326 reason=19 stack=8
+HeapAlloc tsdiff=18 heap_alloc=2678864
+ProcStop tsdiff=22
+EventBatch gen=2 m=4 ts=31163350646781 size=95
+ProcStatus tsdiff=51 p=1 status=1
+GoStatus tsdiff=5 g=6 status=2
+GoStop tsdiff=1 reason=16 stack=1
+GoStatus tsdiff=395 g=20 status=4
+GoUnblock tsdiff=2 g=20 gseq=1 stack=0
+GoStart tsdiff=6 g=20 gseq=2
+GoSyscallBegin tsdiff=106 stack=2
+GoSyscallEnd tsdiff=357
+GoSyscallBegin tsdiff=21 stack=2
+GoSyscallEnd tsdiff=33
+GoSyscallBegin tsdiff=11 stack=2
+GoSyscallEnd tsdiff=111
+GoSyscallBegin tsdiff=8 stack=2
+GoSyscallEnd tsdiff=26
+GoSyscallBegin tsdiff=9 stack=2
+GoSyscallEnd tsdiff=24
+GoSyscallBegin tsdiff=21 stack=2
+GoSyscallEnd tsdiff=23
+GoSyscallBegin tsdiff=9 stack=2
+GoSyscallEnd tsdiff=22
+GoSyscallBegin tsdiff=8 stack=2
+GoSyscallEnd tsdiff=24
+GoSyscallBegin tsdiff=9 stack=2
+GoSyscallEnd tsdiff=23
+GoSyscallBegin tsdiff=9 stack=2
+GoSyscallEnd tsdiff=24
+GoSyscallBegin tsdiff=9 stack=2
+GoSyscallEnd tsdiff=310
+GoSyscallBegin tsdiff=11 stack=2
+GoSyscallEnd tsdiff=83
+GoBlock tsdiff=374 reason=15 stack=4
+ProcStop tsdiff=36
+EventBatch gen=2 m=3 ts=31163350648906 size=6
+ProcStart tsdiff=2 p=2 pseq=1
+ProcStop tsdiff=15
+EventBatch gen=2 m=2 ts=31163350648919 size=478
+ProcStart tsdiff=2 p=0 pseq=1
+ProcStop tsdiff=52
+ProcStart tsdiff=67676 p=2 pseq=2
+ProcStop tsdiff=31
+ProcStart tsdiff=131792 p=2 pseq=3
+ProcStop tsdiff=27
+ProcStart tsdiff=315010 p=2 pseq=4
+ProcStop tsdiff=27
+ProcStart tsdiff=315276 p=2 pseq=5
+ProcStop tsdiff=25
+ProcStart tsdiff=315291 p=2 pseq=6
+ProcStop tsdiff=23
+ProcStart tsdiff=315214 p=2 pseq=7
+ProcStop tsdiff=21
+ProcStart tsdiff=173036 p=0 pseq=3
+ProcStop tsdiff=43
+ProcStart tsdiff=142324 p=0 pseq=4
+ProcStop tsdiff=25
+ProcStart tsdiff=315178 p=0 pseq=5
+ProcStop tsdiff=26
+ProcStart tsdiff=315077 p=0 pseq=6
+ProcStop tsdiff=25
+ProcStart tsdiff=315261 p=0 pseq=7
+ProcStop tsdiff=25
+ProcStart tsdiff=315039 p=0 pseq=8
+ProcStop tsdiff=23
+ProcStart tsdiff=164022 p=2 pseq=10
+ProcStop tsdiff=30
+ProcStart tsdiff=151285 p=2 pseq=11
+ProcStop tsdiff=26
+ProcStart tsdiff=314854 p=2 pseq=12
+ProcStop tsdiff=25
+ProcStart tsdiff=315484 p=2 pseq=13
+ProcStop tsdiff=27
+ProcStart tsdiff=315296 p=2 pseq=14
+ProcStop tsdiff=20
+ProcStart tsdiff=315008 p=2 pseq=15
+ProcStop tsdiff=21
+ProcStart tsdiff=153502 p=0 pseq=11
+ProcStop tsdiff=22
+ProcStart tsdiff=161742 p=0 pseq=12
+ProcStop tsdiff=15
+ProcStart tsdiff=315699 p=0 pseq=13
+ProcStop tsdiff=25
+ProcStart tsdiff=315181 p=0 pseq=14
+ProcStop tsdiff=27
+ProcStart tsdiff=315353 p=0 pseq=15
+ProcStop tsdiff=26
+ProcStart tsdiff=314916 p=0 pseq=16
+ProcStop tsdiff=21
+ProcStart tsdiff=142887 p=2 pseq=18
+ProcStop tsdiff=19
+ProcStart tsdiff=172199 p=2 pseq=19
+ProcStop tsdiff=12
+ProcStart tsdiff=315219 p=2 pseq=20
+ProcStop tsdiff=22
+ProcStart tsdiff=315017 p=2 pseq=21
+ProcStop tsdiff=20
+ProcStart tsdiff=314915 p=2 pseq=22
+ProcStop tsdiff=14
+ProcStart tsdiff=315064 p=2 pseq=23
+ProcStop tsdiff=22
+ProcStart tsdiff=134314 p=0 pseq=19
+ProcStop tsdiff=23
+ProcStart tsdiff=181210 p=0 pseq=20
+ProcStop tsdiff=24
+ProcStart tsdiff=315302 p=0 pseq=21
+ProcStop tsdiff=78
+ProcStart tsdiff=316950 p=0 pseq=22
+ProcStop tsdiff=20
+ProcStart tsdiff=315318 p=0 pseq=23
+ProcStop tsdiff=20
+ProcStart tsdiff=314827 p=0 pseq=24
+ProcStop tsdiff=21
+ProcStart tsdiff=121994 p=2 pseq=26
+ProcStop tsdiff=26
+ProcStart tsdiff=193080 p=2 pseq=27
+ProcStop tsdiff=14
+ProcStart tsdiff=315417 p=2 pseq=28
+ProcStop tsdiff=26
+ProcStart tsdiff=314644 p=2 pseq=29
+ProcStop tsdiff=17
+ProcStart tsdiff=315304 p=2 pseq=30
+ProcStop tsdiff=20
+ProcStart tsdiff=315017 p=2 pseq=31
+ProcStop tsdiff=20
+ProcStart tsdiff=112723 p=0 pseq=27
+ProcStop tsdiff=28
+ProcStart tsdiff=202989 p=0 pseq=28
+ProcStop tsdiff=21
+ProcStart tsdiff=315137 p=0 pseq=29
+ProcStop tsdiff=20
+ProcStart tsdiff=315916 p=0 pseq=30
+ProcStop tsdiff=25
+ProcStart tsdiff=315244 p=0 pseq=31
+ProcStop tsdiff=25
+ProcStart tsdiff=315221 p=0 pseq=32
+ProcStop tsdiff=19
+ProcStart tsdiff=100881 p=2 pseq=34
+ProcStop tsdiff=17
+ProcStart tsdiff=214318 p=2 pseq=35
+ProcStop tsdiff=16
+ProcStart tsdiff=315150 p=2 pseq=36
+ProcStop tsdiff=24
+ProcStart tsdiff=314934 p=2 pseq=37
+ProcStop tsdiff=19
+ProcStart tsdiff=315648 p=2 pseq=38
+ProcStop tsdiff=24
+ProcStart tsdiff=314991 p=2 pseq=39
+ProcStop tsdiff=28
+ProcStart tsdiff=91685 p=0 pseq=35
+ProcStop tsdiff=29
+ProcStart tsdiff=223221 p=0 pseq=36
+ProcStop tsdiff=16
+ProcStart tsdiff=315544 p=0 pseq=37
+ProcStop tsdiff=24
+ProcStart tsdiff=315052 p=0 pseq=38
+ProcStop tsdiff=24
+ProcStart tsdiff=314810 p=0 pseq=39
+ProcStop tsdiff=25
+EventBatch gen=2 m=0 ts=31163350647944 size=531
+ProcStart tsdiff=1 p=3 pseq=1
+GoStart tsdiff=234 g=6 gseq=1
+GoStop tsdiff=199313 reason=16 stack=1
+GoStart tsdiff=150 g=6 gseq=2
+GoStop tsdiff=314887 reason=16 stack=1
+GoStart tsdiff=141 g=6 gseq=3
+GoStop tsdiff=315188 reason=16 stack=1
+GoStart tsdiff=126 g=6 gseq=4
+GoStop tsdiff=315312 reason=16 stack=1
+GoStart tsdiff=133 g=6 gseq=5
+GoStop tsdiff=315115 reason=16 stack=1
+GoStart tsdiff=126 g=6 gseq=6
+GoStop tsdiff=315186 reason=16 stack=1
+GoStart tsdiff=125 g=6 gseq=7
+GoStop tsdiff=315028 reason=16 stack=1
+GoStart tsdiff=135 g=6 gseq=8
+GoStop tsdiff=314990 reason=16 stack=1
+GoStart tsdiff=138 g=6 gseq=9
+GoStop tsdiff=315157 reason=16 stack=1
+GoStart tsdiff=126 g=6 gseq=10
+GoStop tsdiff=315069 reason=16 stack=1
+GoStart tsdiff=125 g=6 gseq=11
+GoStop tsdiff=315098 reason=16 stack=1
+GoStart tsdiff=128 g=6 gseq=12
+GoStop tsdiff=314940 reason=16 stack=1
+GoStart tsdiff=144 g=6 gseq=13
+GoStop tsdiff=315169 reason=16 stack=1
+GoStart tsdiff=121 g=6 gseq=14
+GoStop tsdiff=315440 reason=16 stack=1
+GoStart tsdiff=193 g=6 gseq=15
+GoStop tsdiff=315019 reason=16 stack=1
+GoStart tsdiff=130 g=6 gseq=16
+GoStop tsdiff=315234 reason=16 stack=1
+GoStart tsdiff=117 g=6 gseq=17
+GoStop tsdiff=315060 reason=16 stack=1
+GoStart tsdiff=132 g=6 gseq=18
+GoStop tsdiff=315101 reason=16 stack=1
+GoStart tsdiff=117 g=6 gseq=19
+GoStop tsdiff=315227 reason=16 stack=1
+GoStart tsdiff=123 g=6 gseq=20
+GoStop tsdiff=315368 reason=16 stack=1
+GoStart tsdiff=138 g=6 gseq=21
+GoStop tsdiff=314986 reason=16 stack=1
+GoStart tsdiff=126 g=6 gseq=22
+GoStop tsdiff=314916 reason=16 stack=1
+GoStart tsdiff=142 g=6 gseq=23
+GoStop tsdiff=314975 reason=16 stack=1
+GoStart tsdiff=133 g=6 gseq=24
+GoStop tsdiff=314862 reason=16 stack=1
+GoStart tsdiff=133 g=6 gseq=25
+GoStop tsdiff=314877 reason=16 stack=1
+GoStart tsdiff=130 g=6 gseq=26
+GoStop tsdiff=315319 reason=16 stack=1
+GoStart tsdiff=129 g=6 gseq=27
+GoStop tsdiff=315193 reason=16 stack=1
+GoStart tsdiff=177 g=6 gseq=28
+GoStop tsdiff=317003 reason=16 stack=1
+GoStart tsdiff=139 g=6 gseq=29
+GoStop tsdiff=315214 reason=16 stack=1
+GoStart tsdiff=149 g=6 gseq=30
+GoStop tsdiff=314812 reason=16 stack=1
+GoStart tsdiff=127 g=6 gseq=31
+GoStop tsdiff=314951 reason=16 stack=1
+GoStart tsdiff=136 g=6 gseq=32
+GoStop tsdiff=314934 reason=16 stack=1
+GoStart tsdiff=154 g=6 gseq=33
+GoStop tsdiff=314903 reason=16 stack=1
+GoStart tsdiff=141 g=6 gseq=34
+GoStop tsdiff=314786 reason=16 stack=1
+GoStart tsdiff=129 g=6 gseq=35
+GoStop tsdiff=314896 reason=16 stack=1
+GoStart tsdiff=129 g=6 gseq=36
+GoStop tsdiff=315820 reason=16 stack=1
+GoStart tsdiff=128 g=6 gseq=37
+GoStop tsdiff=314858 reason=16 stack=1
+GoStart tsdiff=130 g=6 gseq=38
+GoStop tsdiff=316028 reason=16 stack=1
+GoStart tsdiff=146 g=6 gseq=39
+GoStop tsdiff=315054 reason=16 stack=1
+GoStart tsdiff=126 g=6 gseq=40
+GoStop tsdiff=315017 reason=16 stack=1
+GoStart tsdiff=124 g=6 gseq=41
+GoStop tsdiff=315406 reason=16 stack=1
+GoStart tsdiff=131 g=6 gseq=42
+GoStop tsdiff=314895 reason=16 stack=1
+GoStart tsdiff=138 g=6 gseq=43
+GoStop tsdiff=314945 reason=16 stack=1
+GoStart tsdiff=125 g=6 gseq=44
+GoStop tsdiff=315030 reason=16 stack=1
+GoStart tsdiff=129 g=6 gseq=45
+GoStop tsdiff=314893 reason=16 stack=1
+GoStart tsdiff=120 g=6 gseq=46
+GoStop tsdiff=315306 reason=16 stack=1
+GoStart tsdiff=152 g=6 gseq=47
+GoStop tsdiff=314961 reason=16 stack=1
+GoStart tsdiff=124 g=6 gseq=48
+GoStop tsdiff=314994 reason=16 stack=1
+GoStart tsdiff=130 g=6 gseq=49
+GoStop tsdiff=314887 reason=16 stack=1
+GoStart tsdiff=124 g=6 gseq=50
+EventBatch gen=2 m=18446744073709551615 ts=31163366253305 size=32
+GoStatus tsdiff=1 g=2 status=4
+GoStatus tsdiff=2 g=3 status=4
+GoStatus tsdiff=1 g=4 status=4
+GoStatus tsdiff=1 g=5 status=4
+GoStatus tsdiff=1 g=22 status=4
+GoStatus tsdiff=1 g=23 status=4
+GoStatus tsdiff=1 g=33 status=4
+GoStatus tsdiff=1 g=24 status=4
+EventBatch gen=2 m=18446744073709551615 ts=31163350715402 size=1189
+CPUSamples
+CPUSample ts=31163349312660 p=4 g=1 m=6 stack=6
+CPUSample ts=31163349437666 p=4 g=1 m=6 stack=6
+CPUSample ts=31163349625194 p=4 g=1 m=6 stack=6
+CPUSample ts=31163349750404 p=4 g=1 m=6 stack=6
+CPUSample ts=31163349937665 p=4 g=1 m=6 stack=6
+CPUSample ts=31163350062675 p=4 g=1 m=6 stack=6
+CPUSample ts=31163350250172 p=4 g=1 m=6 stack=6
+CPUSample ts=31163350375172 p=4 g=1 m=6 stack=6
+CPUSample ts=31163350562679 p=4 g=1 m=6 stack=6
+CPUSample ts=31163350812772 p=0 g=3 m=6 stack=6
+CPUSample ts=31163350937797 p=0 g=3 m=6 stack=6
+CPUSample ts=31163351125203 p=0 g=3 m=6 stack=6
+CPUSample ts=31163351250450 p=0 g=3 m=6 stack=6
+CPUSample ts=31163351437656 p=0 g=3 m=6 stack=6
+CPUSample ts=31163351562791 p=0 g=3 m=6 stack=6
+CPUSample ts=31163351750276 p=0 g=3 m=6 stack=6
+CPUSample ts=31163351875274 p=0 g=3 m=6 stack=6
+CPUSample ts=31163352062653 p=0 g=3 m=6 stack=6
+CPUSample ts=31163352187769 p=0 g=3 m=6 stack=6
+CPUSample ts=31163352375171 p=0 g=3 m=6 stack=6
+CPUSample ts=31163352500277 p=0 g=3 m=6 stack=6
+CPUSample ts=31163352687692 p=0 g=3 m=6 stack=6
+CPUSample ts=31163352812943 p=0 g=3 m=6 stack=6
+CPUSample ts=31163353000162 p=0 g=3 m=6 stack=6
+CPUSample ts=31163353125271 p=0 g=3 m=6 stack=6
+CPUSample ts=31163353312678 p=0 g=3 m=6 stack=6
+CPUSample ts=31163353437775 p=0 g=3 m=6 stack=6
+CPUSample ts=31163353625151 p=0 g=3 m=6 stack=6
+CPUSample ts=31163353750393 p=0 g=3 m=6 stack=6
+CPUSample ts=31163353937659 p=0 g=3 m=6 stack=6
+CPUSample ts=31163354062775 p=0 g=3 m=6 stack=6
+CPUSample ts=31163354250273 p=0 g=3 m=6 stack=6
+CPUSample ts=31163354375290 p=0 g=3 m=6 stack=6
+CPUSample ts=31163354562658 p=0 g=3 m=6 stack=6
+CPUSample ts=31163354687771 p=0 g=3 m=6 stack=6
+CPUSample ts=31163354875184 p=0 g=3 m=6 stack=6
+CPUSample ts=31163355000278 p=0 g=3 m=6 stack=6
+CPUSample ts=31163355187673 p=0 g=3 m=6 stack=6
+CPUSample ts=31163355312818 p=0 g=3 m=6 stack=6
+CPUSample ts=31163355500149 p=0 g=3 m=6 stack=6
+CPUSample ts=31163355625276 p=0 g=3 m=6 stack=6
+CPUSample ts=31163355812685 p=0 g=3 m=6 stack=6
+CPUSample ts=31163355937774 p=0 g=3 m=6 stack=6
+CPUSample ts=31163356125156 p=0 g=3 m=6 stack=6
+CPUSample ts=31163356250273 p=0 g=3 m=6 stack=6
+CPUSample ts=31163356437661 p=0 g=3 m=6 stack=6
+CPUSample ts=31163356562767 p=0 g=3 m=6 stack=6
+CPUSample ts=31163356750161 p=0 g=3 m=6 stack=6
+CPUSample ts=31163356875297 p=0 g=3 m=6 stack=6
+CPUSample ts=31163357062664 p=0 g=3 m=6 stack=6
+CPUSample ts=31163357187775 p=0 g=3 m=6 stack=6
+CPUSample ts=31163357375193 p=0 g=3 m=6 stack=6
+CPUSample ts=31163357500288 p=0 g=3 m=6 stack=6
+CPUSample ts=31163357687665 p=0 g=3 m=6 stack=6
+CPUSample ts=31163357812774 p=0 g=3 m=6 stack=6
+CPUSample ts=31163358000161 p=0 g=3 m=6 stack=6
+CPUSample ts=31163358125276 p=0 g=3 m=6 stack=6
+CPUSample ts=31163358312672 p=0 g=3 m=6 stack=6
+CPUSample ts=31163358437795 p=0 g=3 m=6 stack=6
+CPUSample ts=31163358625292 p=0 g=3 m=6 stack=6
+CPUSample ts=31163358750298 p=0 g=3 m=6 stack=6
+CPUSample ts=31163358937678 p=0 g=3 m=6 stack=6
+CPUSample ts=31163359062876 p=0 g=3 m=6 stack=6
+CPUSample ts=31163359250194 p=0 g=3 m=6 stack=6
+CPUSample ts=31163359375327 p=0 g=3 m=6 stack=6
+CPUSample ts=31163359562804 p=0 g=3 m=6 stack=6
+CPUSample ts=31163359687829 p=0 g=3 m=6 stack=6
+CPUSample ts=31163359875185 p=0 g=3 m=6 stack=6
+CPUSample ts=31163360000327 p=0 g=3 m=6 stack=6
+CPUSample ts=31163360187671 p=0 g=3 m=6 stack=6
+CPUSample ts=31163360312808 p=0 g=3 m=6 stack=6
+CPUSample ts=31163360500249 p=0 g=3 m=6 stack=6
+CPUSample ts=31163360625302 p=0 g=3 m=6 stack=6
+CPUSample ts=31163360812837 p=0 g=3 m=6 stack=6
+CPUSample ts=31163360937879 p=0 g=3 m=6 stack=6
+CPUSample ts=31163361125168 p=0 g=3 m=6 stack=6
+CPUSample ts=31163361250272 p=0 g=3 m=6 stack=6
+CPUSample ts=31163361437659 p=0 g=3 m=6 stack=6
+CPUSample ts=31163361562939 p=0 g=3 m=6 stack=6
+CPUSample ts=31163361750176 p=0 g=3 m=6 stack=6
+CPUSample ts=31163361875278 p=0 g=3 m=6 stack=6
+CPUSample ts=31163362062686 p=0 g=3 m=6 stack=6
+CPUSample ts=31163362187770 p=0 g=3 m=6 stack=6
+CPUSample ts=31163362375266 p=0 g=3 m=6 stack=6
+CPUSample ts=31163362500309 p=0 g=3 m=6 stack=6
+CPUSample ts=31163362687657 p=0 g=3 m=6 stack=6
+CPUSample ts=31163362812769 p=0 g=3 m=6 stack=6
+CPUSample ts=31163363000156 p=0 g=3 m=6 stack=6
+CPUSample ts=31163363125281 p=0 g=3 m=6 stack=6
+CPUSample ts=31163363312667 p=0 g=3 m=6 stack=6
+CPUSample ts=31163363437759 p=0 g=3 m=6 stack=6
+CPUSample ts=31163363625256 p=0 g=3 m=6 stack=6
+CPUSample ts=31163363750323 p=0 g=3 m=6 stack=6
+CPUSample ts=31163363937675 p=0 g=3 m=6 stack=6
+CPUSample ts=31163364062765 p=0 g=3 m=6 stack=6
+CPUSample ts=31163364250175 p=0 g=3 m=6 stack=6
+CPUSample ts=31163364375379 p=0 g=3 m=6 stack=6
+CPUSample ts=31163364562734 p=0 g=3 m=6 stack=6
+CPUSample ts=31163364687762 p=0 g=3 m=6 stack=6
+EventBatch gen=2 m=18446744073709551615 ts=31163366253494 size=165
+Stacks
+Stack id=4 nframes=1
+	pc=4901540 func=21 file=22 line=130
+Stack id=2 nframes=7
+	pc=4710618 func=23 file=24 line=949
+	pc=4764112 func=25 file=26 line=209
+	pc=4764104 func=27 file=28 line=736
+	pc=4763677 func=29 file=28 line=380
+	pc=4766768 func=30 file=31 line=46
+	pc=4766760 func=32 file=33 line=183
+	pc=4901530 func=21 file=22 line=134
+Stack id=8 nframes=2
+	pc=4595636 func=34 file=35 line=195
+	pc=4859401 func=36 file=37 line=809
+Stack id=1 nframes=1
+	pc=4612730 func=38 file=39 line=53
+Stack id=6 nframes=2
+	pc=4902433 func=40 file=41 line=1
+	pc=4607232 func=42 file=43 line=1650
+Stack id=3 nframes=1
+	pc=4536238 func=44 file=45 line=754
+Stack id=7 nframes=2
+	pc=4595636 func=34 file=35 line=195
+	pc=4538579 func=46 file=47 line=46
+Stack id=5 nframes=2
+	pc=4219025 func=48 file=49 line=442
+	pc=4536215 func=44 file=45 line=750
+EventBatch gen=2 m=18446744073709551615 ts=31163350635885 size=1667
+Strings
+String id=1
+	data="Not worker"
+String id=2
+	data="GC (dedicated)"
+String id=3
+	data="GC (fractional)"
+String id=4
+	data="GC (idle)"
+String id=5
+	data="unspecified"
+String id=6
+	data="forever"
+String id=7
+	data="network"
+String id=8
+	data="select"
+String id=9
+	data="sync.(*Cond).Wait"
+String id=10
+	data="sync"
+String id=11
+	data="chan send"
+String id=12
+	data="chan receive"
+String id=13
+	data="GC mark assist wait for work"
+String id=14
+	data="GC background sweeper wait"
+String id=15
+	data="system goroutine wait"
+String id=16
+	data="preempted"
+String id=17
+	data="wait for debug call"
+String id=18
+	data="wait until GC ends"
+String id=19
+	data="sleep"
+String id=20
+	data="runtime.GoSched"
+String id=21
+	data="runtime/trace.Start.func1"
+String id=22
+	data="/usr/local/google/home/mknyszek/work/go-1/src/runtime/trace/trace.go"
+String id=23
+	data="syscall.write"
+String id=24
+	data="/usr/local/google/home/mknyszek/work/go-1/src/syscall/zsyscall_linux_amd64.go"
+String id=25
+	data="syscall.Write"
+String id=26
+	data="/usr/local/google/home/mknyszek/work/go-1/src/syscall/syscall_unix.go"
+String id=27
+	data="internal/poll.ignoringEINTRIO"
+String id=28
+	data="/usr/local/google/home/mknyszek/work/go-1/src/internal/poll/fd_unix.go"
+String id=29
+	data="internal/poll.(*FD).Write"
+String id=30
+	data="os.(*File).write"
+String id=31
+	data="/usr/local/google/home/mknyszek/work/go-1/src/os/file_posix.go"
+String id=32
+	data="os.(*File).Write"
+String id=33
+	data="/usr/local/google/home/mknyszek/work/go-1/src/os/file.go"
+String id=34
+	data="time.Sleep"
+String id=35
+	data="/usr/local/google/home/mknyszek/work/go-1/src/runtime/time.go"
+String id=36
+	data="runtime/pprof.profileWriter"
+String id=37
+	data="/usr/local/google/home/mknyszek/work/go-1/src/runtime/pprof/pprof.go"
+String id=38
+	data="runtime.asyncPreempt"
+String id=39
+	data="/usr/local/google/home/mknyszek/work/go-1/src/runtime/preempt_amd64.s"
+String id=40
+	data="main.main.func1"
+String id=41
+	data="/usr/local/google/home/mknyszek/work/x/exp/trace/testdata/generators/gc-and-cpu-profile.go"
+String id=42
+	data="runtime.goexit"
+String id=43
+	data="/usr/local/google/home/mknyszek/work/go-1/src/runtime/asm_amd64.s"
+String id=44
+	data="runtime.(*traceAdvancerState).start.func2"
+String id=45
+	data="/usr/local/google/home/mknyszek/work/go-1/src/runtime/trace2.go"
+String id=46
+	data="runtime.traceStartReadCPU.func1"
+String id=47
+	data="/usr/local/google/home/mknyszek/work/go-1/src/runtime/trace2cpu.go"
+String id=48
+	data="runtime.chanrecv1"
+String id=49
+	data="/usr/local/google/home/mknyszek/work/go-1/src/runtime/chan.go"
