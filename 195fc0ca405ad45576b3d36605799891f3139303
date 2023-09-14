@@ -37,6 +37,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "11fa14da_97a962be",
+        "filename": "trace/base.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 12120
+      },
+      "writtenOn": "2023-09-14T14:46:54Z",
+      "side": 1,
+      "message": "CL 526617\n\nI just saw someone complaining that we keep having to invent these custom maps. 😊\n\nHow important is this to performance?",
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "0420ea8c_00457813",
         "filename": "trace/event.go",
         "patchSetId": 4
@@ -322,6 +339,23 @@
       "writtenOn": "2023-09-14T11:41:54Z",
       "side": 1,
       "message": "```suggestion\n// Range returns details about an EventRangeBegin or EventRangeEnd event.\n```",
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69edf15c_5b841aa1",
+        "filename": "trace/event.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 12120
+      },
+      "writtenOn": "2023-09-14T14:46:54Z",
+      "side": 1,
+      "message": "Unused.",
       "revId": "195fc0ca405ad45576b3d36605799891f3139303",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
