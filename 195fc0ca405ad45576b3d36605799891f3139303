@@ -16,6 +16,222 @@
       "message": "This is great. I haven\u0027t done a deep dive yet, but I went through the public APIs and they them to be very useful.\n\nQuestion: How soon do you think this package could add support for traces produced by \u003c\u003d go1.21? Once that\u0027s working, I could try to do an experimental integration into our backend to see how well the API will work in a real world application.\n\nAnyway, no pressure, thank you so much for all the work on this!",
       "revId": "195fc0ca405ad45576b3d36605799891f3139303",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ff3ce11_a427609a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5020
+      },
+      "writtenOn": "2023-09-14T11:41:54Z",
+      "side": 1,
+      "message": "I really like the public API so far, and the structure of the internals looks solid. I am mildly concerned about the pointer in Event, but that should only be a problem while go tool trace/Gotraceui still store all events in memory. Once we have random access parsing, that problem probably goes away.\n\nOn the note of random access, do you have concrete plans for this yet? Both in terms of implementation and an ETA.",
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12342b0e_df1e123e",
+        "filename": "trace/event.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 5020
+      },
+      "writtenOn": "2023-09-14T11:41:54Z",
+      "side": 1,
+      "message": "```suggestion\n\t// runtime/metrics package, meaning they include the unit.\n```",
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa8b050c_90055086",
+        "filename": "trace/event.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 5020
+      },
+      "writtenOn": "2023-09-14T11:41:54Z",
+      "side": 1,
+      "message": "```suggestion\n\t// ParentID is a unique identifier for the task\u0027s parent task.\n```",
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e4a885f_9badc9b8",
+        "filename": "trace/event.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 5020
+      },
+      "writtenOn": "2023-09-14T11:41:54Z",
+      "side": 1,
+      "message": "```suggestion\n// equal, however, their Frames may still be equal.\n```",
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "691acd06_a7f8ee0b",
+        "filename": "trace/event.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 5020
+      },
+      "writtenOn": "2023-09-14T11:41:54Z",
+      "side": 1,
+      "message": "Am I understanding correctly that for state transitions, like a goroutine starting to run, one would use Event.StateTransition to find out what G is starting to run? It might be worth pointing to that method.",
+      "range": {
+        "startLine": 305,
+        "startChar": 0,
+        "endLine": 308,
+        "endChar": 2
+      },
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50aee8bf_b32b416d",
+        "filename": "trace/event.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 5020
+      },
+      "writtenOn": "2023-09-14T11:41:54Z",
+      "side": 1,
+      "message": "```suggestion\n// Range returns details about an EventRangeBegin or EventRangeEnd event.\n```",
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "537e9105_e050e6a9",
+        "filename": "trace/generation.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 5020
+      },
+      "writtenOn": "2023-09-14T11:41:54Z",
+      "side": 1,
+      "message": "```suggestion\n// addStrings takes a batch whose first byte is an EvStrings event\n```",
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9f2c7df_26d18c16",
+        "filename": "trace/generation.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 5020
+      },
+      "writtenOn": "2023-09-14T11:41:54Z",
+      "side": 1,
+      "message": "```suggestion\n// addStacks takes a batch whose first byte is an EvStacks event\n```",
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c169a15_e29659dc",
+        "filename": "trace/generation.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 5020
+      },
+      "writtenOn": "2023-09-14T11:41:54Z",
+      "side": 1,
+      "message": "```suggestion\n// addCPUSamples takes a batch whose first byte is an EvCPUSamples event\n```",
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0a56012_3f0eefa9",
+        "filename": "trace/internal/event/event.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 5020
+      },
+      "writtenOn": "2023-09-14T11:41:54Z",
+      "side": 1,
+      "message": "```suggestion\n// Spec is a specification for a trace event. It contains sufficient information\n```",
+      "range": {
+        "startLine": 10,
+        "startChar": 31,
+        "endLine": 10,
+        "endChar": 33
+      },
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1bd08110_68c8fd43",
+        "filename": "trace/internal/event/event.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 5020
+      },
+      "writtenOn": "2023-09-14T11:41:54Z",
+      "side": 1,
+      "message": "```suggestion\n\t// event, if this event is an \"end,\" for a pair of events that\n```",
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1ae771c_a7fb193f",
+        "filename": "trace/internal/event/event.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 5020
+      },
+      "writtenOn": "2023-09-14T11:41:54Z",
+      "side": 1,
+      "message": "```suggestion\n\t// buy a number of bytes of data trailing the event.\n```",
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
