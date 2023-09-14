@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ff31917_c5b95e93",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 50449
+      },
+      "writtenOn": "2023-09-14T08:58:58Z",
+      "side": 1,
+      "message": "This is great. I haven\u0027t done a deep dive yet, but I went through the public APIs and they them to be very useful.\n\nQuestion: How soon do you think this package could add support for traces produced by \u003c\u003d go1.21? Once that\u0027s working, I could try to do an experimental integration into our backend to see how well the API will work in a real world application.\n\nAnyway, no pressure, thank you so much for all the work on this!",
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
