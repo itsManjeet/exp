@@ -35,6 +35,69 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0420ea8c_00457813",
+        "filename": "trace/event.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 12120
+      },
+      "writtenOn": "2023-09-14T14:36:00Z",
+      "side": 1,
+      "message": "Unnecessary, right?",
+      "range": {
+        "startLine": 14,
+        "startChar": 1,
+        "endLine": 14,
+        "endChar": 3
+      },
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eabbcd51_0a1aaebc",
+        "filename": "trace/event.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 12120
+      },
+      "writtenOn": "2023-09-14T14:36:00Z",
+      "side": 1,
+      "message": "EventRangeBegin and EventRangeEnd\n\nAlso in the next paragraph and next event",
+      "range": {
+        "startLine": 49,
+        "startChar": 4,
+        "endLine": 49,
+        "endChar": 16
+      },
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "355b38ca_1ca7acf1",
+        "filename": "trace/event.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 12120
+      },
+      "writtenOn": "2023-09-14T14:36:00Z",
+      "side": 1,
+      "message": "Technically TSC could typically be compared across the machine. 😊",
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "12342b0e_df1e123e",
@@ -48,6 +111,23 @@
       "writtenOn": "2023-09-14T11:41:54Z",
       "side": 1,
       "message": "```suggestion\n\t// runtime/metrics package, meaning they include the unit.\n```",
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b43a9fbe_72563918",
+        "filename": "trace/event.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 12120
+      },
+      "writtenOn": "2023-09-14T14:36:00Z",
+      "side": 1,
+      "message": "What metrics will exist that aren\u0027t in runtime/metrics? Should they be in their own namespace to be clear they are different.",
       "revId": "195fc0ca405ad45576b3d36605799891f3139303",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -71,6 +151,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "92f8bc4d_d5cf6825",
+        "filename": "trace/event.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 12120
+      },
+      "writtenOn": "2023-09-14T14:36:00Z",
+      "side": 1,
+      "message": "I assume this is the Task.ID of the parent? The comment doesn\u0027t quite say that.",
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2e4a885f_9badc9b8",
         "filename": "trace/event.go",
         "patchSetId": 4
@@ -82,6 +179,92 @@
       "writtenOn": "2023-09-14T11:41:54Z",
       "side": 1,
       "message": "```suggestion\n// equal, however, their Frames may still be equal.\n```",
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d0c1400_dbf9d34f",
+        "filename": "trace/event.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 12120
+      },
+      "writtenOn": "2023-09-14T14:36:00Z",
+      "side": 1,
+      "message": "Do we want this API to allow some sort of graceful fallback if the trace is malformed? On the one hand, that risks cluttering the API (e.g., adding `error` to everything). OTOH, it is very annoying when `go tool trace` has a parse error and you don\u0027t get any data and can\u0027t really do anything about it,",
+      "range": {
+        "startLine": 246,
+        "startChar": 23,
+        "endLine": 246,
+        "endChar": 30
+      },
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b66d50d_4de21192",
+        "filename": "trace/event.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 12120
+      },
+      "writtenOn": "2023-09-14T14:36:00Z",
+      "side": 1,
+      "message": "Logical function call for inlined frames, I assume?",
+      "range": {
+        "startLine": 267,
+        "startChar": 37,
+        "endLine": 267,
+        "endChar": 50
+      },
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90f90f7d_741dbfb9",
+        "filename": "trace/event.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 12120
+      },
+      "writtenOn": "2023-09-14T14:36:00Z",
+      "side": 1,
+      "message": "This seems overly detailed. runtime.Frame.File jsut says it is the \"file\" and leaves it at that.\n\nThis isn\u0027t true if the binary was built with -trimpath,",
+      "range": {
+        "startLine": 275,
+        "startChar": 38,
+        "endLine": 276,
+        "endChar": 36
+      },
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d705c208_a21cdfc2",
+        "filename": "trace/event.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 12120
+      },
+      "writtenOn": "2023-09-14T14:36:00Z",
+      "side": 1,
+      "message": "Is this only meaningful if this is a ResourceGoroutine event? Or it could tell you which goroutine happened to be running when some other event occurred?",
       "revId": "195fc0ca405ad45576b3d36605799891f3139303",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -105,6 +288,23 @@
         "endLine": 308,
         "endChar": 2
       },
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e5c4d69_ed913bcc",
+        "filename": "trace/event.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 12120
+      },
+      "writtenOn": "2023-09-14T14:36:00Z",
+      "side": 1,
+      "message": "Hyrum\u0027s law",
       "revId": "195fc0ca405ad45576b3d36605799891f3139303",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -230,6 +430,23 @@
       "writtenOn": "2023-09-14T11:41:54Z",
       "side": 1,
       "message": "```suggestion\n\t// buy a number of bytes of data trailing the event.\n```",
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e69afafb_90163e76",
+        "filename": "trace/value.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 12120
+      },
+      "writtenOn": "2023-09-14T14:36:00Z",
+      "side": 1,
+      "message": "Are you worried about future compatibility headaches if you literally use runtime/metrics.Value?",
       "revId": "195fc0ca405ad45576b3d36605799891f3139303",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
