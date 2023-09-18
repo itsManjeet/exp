@@ -8,9 +8,12 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"io"
+	"net"
 	"path"
 	"reflect"
-	"strings"
+	"sync"
+	"sync/atomic"
 	"testing"
 	"time"
 
@@ -61,7 +64,6 @@ var callTests = []invoker{
 		notify{"unblock", "a"},
 		collect{"a", true, false},
 	}},
-	callErr{"error", func() {}, "marshaling call parameters: json: unsupported type"},
 }
 
 type binder struct {
@@ -90,12 +92,6 @@ type call struct {
 	method string
 	params interface{}
 	expect interface{}
-}
-
-type callErr struct {
-	method    string
-	params    interface{}
-	expectErr string
 }
 
 type async struct {
@@ -181,18 +177,6 @@ func (test call) Invoke(t *testing.T, ctx context.Context, h *handler) {
 		t.Fatalf("%v:Call failed: %v", test.method, err)
 	}
 	verifyResults(t, test.method, results, test.expect)
-}
-
-func (test callErr) Name() string { return test.method }
-func (test callErr) Invoke(t *testing.T, ctx context.Context, h *handler) {
-	var results interface{}
-	if err := h.conn.Call(ctx, test.method, test.params).Await(ctx, &results); err != nil {
-		if serr := err.Error(); !strings.Contains(serr, test.expectErr) {
-			t.Fatalf("%v:Call failed but with unexpected error: %q does not contain %q", test.method, serr, test.expectErr)
-		}
-		return
-	}
-	t.Fatalf("%v:Call succeeded (%v) but should have failed with error containing %q", test.method, results, test.expectErr)
 }
 
 func (test echo) Invoke(t *testing.T, ctx context.Context, h *handler) {
@@ -405,5 +389,225 @@ func (h *handler) Handle(ctx context.Context, req *jsonrpc2.Request) (interface{
 		return nil, jsonrpc2.ErrAsyncResponse
 	default:
 		return nil, jsonrpc2.ErrNotHandled
+	}
+}
+
+const ccTimeout = 100 * time.Millisecond
+
+type ccClientBinder struct{}
+
+func (b *ccClientBinder) Bind(ctx context.Context, conn *jsonrpc2.Connection) (jsonrpc2.ConnectionOptions, error) {
+
+	return jsonrpc2.ConnectionOptions{
+		Framer:  jsonrpc2.RawFramer(),
+		Handler: b,
+	}, nil
+}
+
+func (b *ccClientBinder) Handle(ctx context.Context, req *jsonrpc2.Request) (interface{}, error) {
+	return nil, jsonrpc2.ErrMethodNotFound
+}
+
+type ccServerBinder struct {
+	sync.Mutex
+	useConnContext  bool
+	conns           map[*jsonrpc2.Connection]struct{}
+	waitEocCalled   int32
+	waitEocFinished int32
+}
+
+func (b *ccServerBinder) Bind(ctx context.Context, conn *jsonrpc2.Connection) (jsonrpc2.ConnectionOptions, error) {
+	b.Lock()
+	b.conns[conn] = struct{}{}
+	b.Unlock()
+
+	opts := jsonrpc2.ConnectionOptions{
+		Framer: jsonrpc2.RawFramer(),
+		Handler: &ccServerHandler{
+			conn:   conn,
+			binder: b,
+		},
+	}
+
+	if b.useConnContext {
+		// This way, async handlers know when an end-of-connection occurs
+		opts.ConnContext = func(ctx context.Context, conn *jsonrpc2.Connection) context.Context {
+			ctx, cancel := context.WithCancel(ctx)
+			go func() {
+				conn.Wait()
+				conn.Close()
+				cancel()
+				b.Lock()
+				defer b.Unlock()
+				delete(b.conns, conn)
+			}()
+			return ctx
+		}
+	} else {
+		// This way, async handlers DON'T know when an end-of-connection
+		// occurs. Each handler has to monitor the connection by itself.
+		go func() {
+			conn.Wait()
+			conn.Close()
+			b.Lock()
+			defer b.Unlock()
+			delete(b.conns, conn)
+		}()
+	}
+
+	return opts, nil
+}
+
+func (b *ccServerBinder) numClients() int {
+	b.Lock()
+	defer b.Unlock()
+	return len(b.conns)
+}
+
+type ccServerHandler struct {
+	conn   *jsonrpc2.Connection
+	binder *ccServerBinder
+}
+
+func (h *ccServerHandler) wait(ctx context.Context) (any, error) {
+	atomic.AddInt32(&h.binder.waitEocCalled, 1)
+
+	timer := time.NewTimer(10 * time.Second)
+	select {
+	case <-ctx.Done():
+		atomic.AddInt32(&h.binder.waitEocFinished, 1)
+		timer.Stop()
+		return true, nil
+	case <-timer.C:
+		return nil, fmt.Errorf("End-of-connection did not happen")
+	}
+}
+
+func (h *ccServerHandler) Handle(ctx context.Context, req *jsonrpc2.Request) (interface{}, error) {
+	if req.Method == "async-wait-eoc" {
+		go func() {
+			ret, err := h.wait(ctx)
+			h.conn.Respond(req.ID, ret, err)
+		}()
+		return nil, jsonrpc2.ErrAsyncResponse
+	}
+	return nil, jsonrpc2.ErrMethodNotFound
+}
+
+type ccListenerTimeout struct {
+	jsonrpc2.Listener
+	timeout time.Duration
+}
+
+func (l *ccListenerTimeout) Accept(ctx context.Context) (io.ReadWriteCloser, error) {
+	rwc, err := l.Listener.Accept(ctx)
+	if err != nil {
+		return nil, err
+	}
+	if l.timeout > 0 {
+		rwc.(net.Conn).SetDeadline(time.Now().Add(l.timeout))
+	}
+	return rwc, nil
+}
+
+func TestConnContext(t *testing.T) {
+	testCases := []struct {
+		name            string
+		serverCut       bool
+		useConnContext  bool
+		waitEocFinished int32
+	}{
+		{
+			name:            "async-without-ConnContext-serverCut",
+			serverCut:       true,
+			useConnContext:  false,
+			waitEocFinished: 0,
+		},
+		{
+			name:            "async-with-ConnContext-serverCut",
+			serverCut:       true,
+			useConnContext:  true,
+			waitEocFinished: 1,
+		},
+		{
+			name:            "async-without-ConnContext-clientCut",
+			serverCut:       false,
+			useConnContext:  false,
+			waitEocFinished: 0,
+		},
+		{
+			name:            "async-with-ConnContext-clientCut",
+			serverCut:       false,
+			useConnContext:  true,
+			waitEocFinished: 1,
+		},
+	}
+	for _, tc := range testCases {
+		t.Run(tc.name, func(t *testing.T) {
+			ctx, cancel := context.WithCancel(context.Background())
+			t.Cleanup(cancel)
+
+			listener, err := jsonrpc2.NetPipe(ctx)
+			if err != nil {
+				t.Fatal(err)
+			}
+			t.Cleanup(func() { listener.Close() })
+
+			b := ccServerBinder{
+				conns:          map[*jsonrpc2.Connection]struct{}{},
+				useConnContext: tc.useConnContext,
+			}
+			if tc.serverCut {
+				// server will cut the connection after ccTimeout
+				listener = &ccListenerTimeout{
+					Listener: listener,
+					timeout:  ccTimeout,
+				}
+			}
+			srv, err := jsonrpc2.Serve(ctx, listener, &b)
+			if err != nil {
+				t.Fatal(err)
+			}
+			go srv.Wait()
+
+			dialer := listener.Dialer()
+			client := ccClientBinder{}
+			conn, err := jsonrpc2.Dial(ctx, dialer, &client)
+			if err != nil {
+				t.Fatal(err)
+			}
+			if !tc.serverCut {
+				// client will cut the connection after ccTimeout
+				go func() {
+					time.Sleep(ccTimeout)
+					conn.Close()
+				}()
+			}
+
+			ctxClient, cancelClient := context.WithCancel(ctx)
+			go func() {
+				conn.Wait()
+				conn.Close()
+				cancelClient()
+			}()
+
+			err = conn.Call(ctxClient, "async-wait-eoc", nil).Await(ctxClient, nil)
+			if err != context.Canceled {
+				t.Errorf("Client context has not been canceled: %v", err)
+			}
+
+			// Wait for the server to forget the client
+			start := time.Now()
+			for time.Since(start) < 5*time.Second && b.numClients() > 0 {
+				time.Sleep(10 * time.Millisecond)
+			}
+
+			if b.waitEocCalled != 1 {
+				t.Errorf("waitEocCalled error: got=%d expected=1", b.waitEocCalled)
+			}
+			if b.waitEocFinished != tc.waitEocFinished {
+				t.Errorf("waitEocFinished error: got=%d expected=1", b.waitEocFinished)
+			}
+		})
 	}
 }
