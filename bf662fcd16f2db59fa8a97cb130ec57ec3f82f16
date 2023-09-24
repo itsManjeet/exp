@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ad3fb3a_1f546557",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2023-09-24T05:25:19Z",
+      "side": 1,
+      "message": "This change is not backward compatible.  We can\u0027t do it.\n\nIt\u0027s also easy for the caller to avoid the problem when it is a concern.",
+      "revId": "bf662fcd16f2db59fa8a97cb130ec57ec3f82f16",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
