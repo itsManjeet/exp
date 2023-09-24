@@ -16,6 +16,24 @@
       "message": "This change is not backward compatible.  We can\u0027t do it.\n\nIt\u0027s also easy for the caller to avoid the problem when it is a concern.",
       "revId": "bf662fcd16f2db59fa8a97cb130ec57ec3f82f16",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0a49e35_feb25bb0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 65918
+      },
+      "writtenOn": "2023-09-24T06:14:45Z",
+      "side": 1,
+      "message": "\u003eIt\u0027s also easy for the caller to avoid the problem when it is a concern.\n\nI understand this to show how to use `recover` within `defer`, as the code below. However, I feel it is difficult to do.\n\n```\npackage main\n\nimport (\n\t\"fmt\"\n\t\"slices\"\n)\n\nfunc main() {\n\tdefer func() {\n\t\tif r :\u003d recover(); r !\u003d nil {\n\t\t\tfmt.Printf(\"Recovered: %v\", r)\n\t\t}\n\t}()\n\tfmt.Printf(\"Max value: %d\", slices.Max([]int{}))\n}\n```\n\nTherefore, why not create a separate function that also returns error as a return value, like `slices.MaxFuncWithError`?",
+      "parentUuid": "1ad3fb3a_1f546557",
+      "revId": "bf662fcd16f2db59fa8a97cb130ec57ec3f82f16",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
