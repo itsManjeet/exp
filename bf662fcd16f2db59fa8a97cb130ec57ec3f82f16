@@ -34,6 +34,24 @@
       "parentUuid": "1ad3fb3a_1f546557",
       "revId": "bf662fcd16f2db59fa8a97cb130ec57ec3f82f16",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de7561cd_46d5d0f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 28792
+      },
+      "writtenOn": "2023-09-25T11:29:51Z",
+      "side": 1,
+      "message": "Hi Masaya, couldn’t the caller just first check the length, without resorting to defer and recover?",
+      "parentUuid": "a0a49e35_feb25bb0",
+      "revId": "bf662fcd16f2db59fa8a97cb130ec57ec3f82f16",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
