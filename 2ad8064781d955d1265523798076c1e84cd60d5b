@@ -16,6 +16,24 @@
       "message": "Changes to the public api of packages require a proposal first. Please open a proposal to discuss this change with the community: https://github.com/golang/go/issues/new?assignees\u003d\u0026labels\u003dProposal\u0026projects\u003d\u0026template\u003d10-proposal.md\u0026title\u003dproposal%3A+affected%2Fpackage%3A+",
       "revId": "2ad8064781d955d1265523798076c1e84cd60d5b",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ba54506_705754dc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 65936
+      },
+      "writtenOn": "2023-09-26T14:05:26Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "3be76ded_c9a6da67",
+      "revId": "2ad8064781d955d1265523798076c1e84cd60d5b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
