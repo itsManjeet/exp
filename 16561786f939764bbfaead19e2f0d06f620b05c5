@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c4db29b_fb5874d1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 63983
+      },
+      "writtenOn": "2023-09-27T21:18:42Z",
+      "side": 1,
+      "message": "Changes to public apis require a proposal first.\n\nhttps://github.com/golang/go/issues/new?assignees\u003d\u0026labels\u003dProposal\u0026projects\u003d\u0026template\u003d10-proposal.md\u0026title\u003dproposal%3A+affected%2Fpackage%3A+\n\nWith all the discussion around iterators I\u0027m not sure if this would be accepted before iterators are ready.",
+      "revId": "16561786f939764bbfaead19e2f0d06f620b05c5",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
