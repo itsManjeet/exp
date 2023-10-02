@@ -16,6 +16,23 @@
       "message": "Done",
       "revId": "bcee17a2f4ac24db516a3a6bb9c117d273595b93",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3b623a9_51e2a8bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2023-10-02T16:02:23Z",
+      "side": 1,
+      "message": "Thanks for creating the CL. Since proposal #63235 is now closed (not accepted), adding wait-issue hashtag and moving reviewers to CC.",
+      "revId": "bcee17a2f4ac24db516a3a6bb9c117d273595b93",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
