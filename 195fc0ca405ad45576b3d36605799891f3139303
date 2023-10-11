@@ -100,6 +100,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "47ffe94b_2ae2592c",
+        "filename": "trace/event.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 25391
+      },
+      "writtenOn": "2023-10-11T16:46:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eabbcd51_0a1aaebc",
+      "range": {
+        "startLine": 49,
+        "startChar": 4,
+        "endLine": 49,
+        "endChar": 16
+      },
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "355b38ca_1ca7acf1",
         "filename": "trace/event.go",
         "patchSetId": 4
@@ -132,6 +156,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f1caa37_8b1eb89a",
+        "filename": "trace/event.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 25391
+      },
+      "writtenOn": "2023-10-11T16:46:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12342b0e_df1e123e",
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b43a9fbe_72563918",
@@ -145,6 +187,24 @@
       "writtenOn": "2023-09-14T14:36:00Z",
       "side": 1,
       "message": "What metrics will exist that aren\u0027t in runtime/metrics? Should they be in their own namespace to be clear they are different.",
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "172e7111_17718f9b",
+        "filename": "trace/event.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 25391
+      },
+      "writtenOn": "2023-10-11T16:46:11Z",
+      "side": 1,
+      "message": "I expect we\u0027d only ever export runtime/metrics metrics, but it also seems weird to guarantee in the API.\n\nI guess we could stake a claim on part of the namespace now?",
+      "parentUuid": "b43a9fbe_72563918",
       "revId": "195fc0ca405ad45576b3d36605799891f3139303",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -183,6 +243,42 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "badec134_dc7c67ab",
+        "filename": "trace/event.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 25391
+      },
+      "writtenOn": "2023-10-11T16:46:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa8b050c_90055086",
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73a1b67f_8394cbe2",
+        "filename": "trace/event.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 25391
+      },
+      "writtenOn": "2023-10-11T16:46:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92f8bc4d_d5cf6825",
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2e4a885f_9badc9b8",
@@ -200,6 +296,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bd06184_09b05069",
+        "filename": "trace/event.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 25391
+      },
+      "writtenOn": "2023-10-11T16:46:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2e4a885f_9badc9b8",
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3d0c1400_dbf9d34f",
@@ -213,6 +327,30 @@
       "writtenOn": "2023-09-14T14:36:00Z",
       "side": 1,
       "message": "Do we want this API to allow some sort of graceful fallback if the trace is malformed? On the one hand, that risks cluttering the API (e.g., adding `error` to everything). OTOH, it is very annoying when `go tool trace` has a parse error and you don\u0027t get any data and can\u0027t really do anything about it,",
+      "range": {
+        "startLine": 246,
+        "startChar": 23,
+        "endLine": 246,
+        "endChar": 30
+      },
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0370154_00a10f69",
+        "filename": "trace/event.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 25391
+      },
+      "writtenOn": "2023-10-11T16:46:11Z",
+      "side": 1,
+      "message": "these are all validated by the parser beforehand (see the defer func() in Reader.ReadEvent) and an error should be returned by the parser long before we get here. a panic here is indicates an internal parser bug.\n\nthe lookup is just lazy so that we don\u0027t have to keep more pointers/slices/indirections in the Event struct.",
+      "parentUuid": "3d0c1400_dbf9d34f",
       "range": {
         "startLine": 246,
         "startChar": 23,
@@ -269,6 +407,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "849256c2_94b3d253",
+        "filename": "trace/event.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 25391
+      },
+      "writtenOn": "2023-10-11T16:46:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90f90f7d_741dbfb9",
+      "range": {
+        "startLine": 275,
+        "startChar": 38,
+        "endLine": 276,
+        "endChar": 36
+      },
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d705c208_a21cdfc2",
@@ -286,6 +448,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fba9f6d_3052d506",
+        "filename": "trace/event.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 25391
+      },
+      "writtenOn": "2023-10-11T16:46:11Z",
+      "side": 1,
+      "message": "nope! this is meaningful in all cases. the point is exactly to tell you which goroutine happened to be running when some event occurred.",
+      "parentUuid": "d705c208_a21cdfc2",
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "691acd06_a7f8ee0b",
@@ -299,6 +479,30 @@
       "writtenOn": "2023-09-14T11:41:54Z",
       "side": 1,
       "message": "Am I understanding correctly that for state transitions, like a goroutine starting to run, one would use Event.StateTransition to find out what G is starting to run? It might be worth pointing to that method.",
+      "range": {
+        "startLine": 305,
+        "startChar": 0,
+        "endLine": 308,
+        "endChar": 2
+      },
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67671e72_94b98afc",
+        "filename": "trace/event.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 25391
+      },
+      "writtenOn": "2023-10-11T16:46:11Z",
+      "side": 1,
+      "message": "yup, that\u0027s exactly right. done.",
+      "parentUuid": "691acd06_a7f8ee0b",
       "range": {
         "startLine": 305,
         "startChar": 0,
@@ -343,6 +547,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "669fb836_1b3b5881",
+        "filename": "trace/event.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 25391
+      },
+      "writtenOn": "2023-10-11T16:46:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50aee8bf_b32b416d",
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "69edf15c_5b841aa1",
@@ -356,6 +578,24 @@
       "writtenOn": "2023-09-14T14:46:54Z",
       "side": 1,
       "message": "Unused.",
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3a79644_6c44b960",
+        "filename": "trace/event.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 25391
+      },
+      "writtenOn": "2023-10-11T16:46:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69edf15c_5b841aa1",
       "revId": "195fc0ca405ad45576b3d36605799891f3139303",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -377,6 +617,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "885fe8aa_68a12a15",
+        "filename": "trace/generation.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 25391
+      },
+      "writtenOn": "2023-10-11T16:46:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "537e9105_e050e6a9",
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a9f2c7df_26d18c16",
@@ -394,6 +652,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "409c355b_e20f5380",
+        "filename": "trace/generation.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 25391
+      },
+      "writtenOn": "2023-10-11T16:46:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9f2c7df_26d18c16",
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c169a15_e29659dc",
@@ -407,6 +683,24 @@
       "writtenOn": "2023-09-14T11:41:54Z",
       "side": 1,
       "message": "```suggestion\n// addCPUSamples takes a batch whose first byte is an EvCPUSamples event\n```",
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0958ffb9_72634bb2",
+        "filename": "trace/generation.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 25391
+      },
+      "writtenOn": "2023-10-11T16:46:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c169a15_e29659dc",
       "revId": "195fc0ca405ad45576b3d36605799891f3139303",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -434,6 +728,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8944bf14_e7502ee4",
+        "filename": "trace/internal/event/event.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 25391
+      },
+      "writtenOn": "2023-10-11T16:46:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0a56012_3f0eefa9",
+      "range": {
+        "startLine": 10,
+        "startChar": 31,
+        "endLine": 10,
+        "endChar": 33
+      },
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1bd08110_68c8fd43",
@@ -447,6 +765,24 @@
       "writtenOn": "2023-09-14T11:41:54Z",
       "side": 1,
       "message": "```suggestion\n\t// event, if this event is an \"end,\" for a pair of events that\n```",
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1dd2c6b2_8b5e5400",
+        "filename": "trace/internal/event/event.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 25391
+      },
+      "writtenOn": "2023-10-11T16:46:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1bd08110_68c8fd43",
       "revId": "195fc0ca405ad45576b3d36605799891f3139303",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
@@ -468,6 +804,24 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "be8ac485_071f4ab1",
+        "filename": "trace/internal/event/event.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 25391
+      },
+      "writtenOn": "2023-10-11T16:46:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1ae771c_a7fb193f",
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e69afafb_90163e76",
@@ -481,6 +835,24 @@
       "writtenOn": "2023-09-14T14:36:00Z",
       "side": 1,
       "message": "Are you worried about future compatibility headaches if you literally use runtime/metrics.Value?",
+      "revId": "195fc0ca405ad45576b3d36605799891f3139303",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01a41c8f_d16ff5d1",
+        "filename": "trace/value.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 25391
+      },
+      "writtenOn": "2023-10-11T16:46:11Z",
+      "side": 1,
+      "message": "that\u0027s part of it. the other problem is I can\u0027t safely construct metrics.Value values.",
+      "parentUuid": "e69afafb_90163e76",
       "revId": "195fc0ca405ad45576b3d36605799891f3139303",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
