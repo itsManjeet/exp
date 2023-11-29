@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52013cf8_4d86dd40",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 12120
+      },
+      "writtenOn": "2023-11-29T19:42:27Z",
+      "side": 1,
+      "message": "Could you note somewhere that this is generated from internal/trace/v2?",
+      "revId": "86ce6ca8d7ffbc803e82f0800206eb434b7a6e1d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
