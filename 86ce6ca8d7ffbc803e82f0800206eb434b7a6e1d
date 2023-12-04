@@ -16,6 +16,24 @@
       "message": "Could you note somewhere that this is generated from internal/trace/v2?",
       "revId": "86ce6ca8d7ffbc803e82f0800206eb434b7a6e1d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd790b4b_6d67cf9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 25391
+      },
+      "writtenOn": "2023-12-04T20:27:07Z",
+      "side": 1,
+      "message": "I\u0027m not sure this is necessary in the latest patchset, but happy to still mention it if you think it\u0027s useful.\n\nI moved the regeneration script over to x/exp/trace and used git-generate to generate this commit.",
+      "parentUuid": "52013cf8_4d86dd40",
+      "revId": "86ce6ca8d7ffbc803e82f0800206eb434b7a6e1d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
