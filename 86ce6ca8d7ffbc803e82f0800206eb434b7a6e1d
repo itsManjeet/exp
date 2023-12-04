@@ -34,6 +34,24 @@
       "parentUuid": "52013cf8_4d86dd40",
       "revId": "86ce6ca8d7ffbc803e82f0800206eb434b7a6e1d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10eb99ab_50014ece",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 12120
+      },
+      "writtenOn": "2023-12-04T22:42:57Z",
+      "side": 1,
+      "message": "I still suspect that folks may mistakenly send CLs here rather than upstream. That said, I\u0027m not sure a README would suffice for that either, and a \"generated code\" header in every file seems like overkill.",
+      "parentUuid": "bd790b4b_6d67cf9d",
+      "revId": "86ce6ca8d7ffbc803e82f0800206eb434b7a6e1d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
