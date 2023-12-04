@@ -16,6 +16,29 @@
       "message": "after some thought, your initial suggestion of putting this script in x/exp/trace was the right one. sorry for not just starting that. :(\n\nit makes the next CL super nice with git-generate.",
       "revId": "9a248510b5db54be740a414c2f742c404317b2ef",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ca7588f_100966f2",
+        "filename": "trace/gen.bash",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 12120
+      },
+      "writtenOn": "2023-12-04T22:41:04Z",
+      "side": 1,
+      "message": "micronit: it might be more straightforward to prepare CLs if $1 is the path to an existing checkout. As-is, you can\u0027t prepare an update CL until an upstream CL is submitted.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 28
+      },
+      "revId": "9a248510b5db54be740a414c2f742c404317b2ef",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
