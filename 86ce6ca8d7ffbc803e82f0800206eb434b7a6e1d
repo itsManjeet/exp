@@ -52,6 +52,24 @@
       "parentUuid": "bd790b4b_6d67cf9d",
       "revId": "86ce6ca8d7ffbc803e82f0800206eb434b7a6e1d",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46234d52_07a824ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 25391
+      },
+      "writtenOn": "2023-12-06T15:54:38Z",
+      "side": 1,
+      "message": "ah hah, I hadn\u0027t considered that. I just added a \u0027generated code\u0027 line to every file; turns out I had to modify every file anyway because the code won\u0027t build for Go 1.20 (which IMO is fine).",
+      "parentUuid": "10eb99ab_50014ece",
+      "revId": "86ce6ca8d7ffbc803e82f0800206eb434b7a6e1d",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
