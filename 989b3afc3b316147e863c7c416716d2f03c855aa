@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "126050c0_64b1e826",
+        "filename": "trace/flightrecorder.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 12120
+      },
+      "writtenOn": "2023-12-15T22:07:26Z",
+      "side": 1,
+      "message": "defer r.fromTracer.Close()\n\nEdit: nvm, Close does this. But something needs to close this on trace.Start error.",
+      "revId": "989b3afc3b316147e863c7c416716d2f03c855aa",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea53897e_75abcbca",
+        "filename": "trace/flightrecorder.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 12120
+      },
+      "writtenOn": "2023-12-15T22:07:26Z",
+      "side": 1,
+      "message": "This needs to clean up the goroutine. Closing r.toRecorder might be sufficient?",
+      "revId": "989b3afc3b316147e863c7c416716d2f03c855aa",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7af0f74a_dfa9d56c",
+        "filename": "trace/flightrecorder.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 12120
+      },
+      "writtenOn": "2023-12-15T22:07:26Z",
+      "side": 1,
+      "message": "Can\u0027t use unsynchronized reads to detect concurrent writes, -race will complain.\n\nMy intuition is to just put a lock around this and the loser will have to wait. But perhaps that has too much delay.",
+      "revId": "989b3afc3b316147e863c7c416716d2f03c855aa",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
