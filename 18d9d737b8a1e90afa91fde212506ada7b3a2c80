@@ -16,6 +16,24 @@
       "message": "Is the dependence on r.active.freq going to be a problem before freq is initialized by the frequency batch?",
       "revId": "18d9d737b8a1e90afa91fde212506ada7b3a2c80",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e7ccfab_60d66327",
+        "filename": "trace/flightrecorder.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 25391
+      },
+      "writtenOn": "2024-01-02T23:14:59Z",
+      "side": 1,
+      "message": "in a non-broken trace it shouldn\u0027t be, because we only get here if the active generation ends, and it\u0027s a broken trace if we don\u0027t have a frequency batch in a generation.\n\nI admit, that is subtle though. any suggestions on how to make this more clear and/or robust?",
+      "parentUuid": "adf746b6_5db01ca7",
+      "revId": "18d9d737b8a1e90afa91fde212506ada7b3a2c80",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
