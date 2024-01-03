@@ -52,6 +52,24 @@
       "parentUuid": "1e7ccfab_60d66327",
       "revId": "18d9d737b8a1e90afa91fde212506ada7b3a2c80",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5bdca83_8091864a",
+        "filename": "trace/flightrecorder.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 25391
+      },
+      "writtenOn": "2024-01-03T18:27:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5f3e892_9c31adfc",
+      "revId": "18d9d737b8a1e90afa91fde212506ada7b3a2c80",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
