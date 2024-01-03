@@ -90,6 +90,24 @@
       "parentUuid": "287ad054_c4c32e0d",
       "revId": "81039a000becb2d0f2728e3a9b19fd13230d9d59",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f31db90e_ebfda3e2",
+        "filename": "protoveneer/cmd/protoveneer/protoveneer.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 6365
+      },
+      "writtenOn": "2024-01-03T21:05:41Z",
+      "side": 1,
+      "message": "The copyright date for a file is usually the date that file was created.\n\n(But note that generated files in the Go repo generally omit the copyright date or even the entire copyright header.)",
+      "parentUuid": "d27c0cd4_dd48c245",
+      "revId": "81039a000becb2d0f2728e3a9b19fd13230d9d59",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
