@@ -34,6 +34,24 @@
       "parentUuid": "adf746b6_5db01ca7",
       "revId": "18d9d737b8a1e90afa91fde212506ada7b3a2c80",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5f3e892_9c31adfc",
+        "filename": "trace/flightrecorder.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 12120
+      },
+      "writtenOn": "2024-01-03T16:04:51Z",
+      "side": 1,
+      "message": "A comment, and perhaps error if r.active.freq is uninitialized?",
+      "parentUuid": "1e7ccfab_60d66327",
+      "revId": "18d9d737b8a1e90afa91fde212506ada7b3a2c80",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
