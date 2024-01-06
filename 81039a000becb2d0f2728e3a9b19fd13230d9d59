@@ -108,6 +108,24 @@
       "parentUuid": "d27c0cd4_dd48c245",
       "revId": "81039a000becb2d0f2728e3a9b19fd13230d9d59",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fa0abd3_855b2bed",
+        "filename": "protoveneer/cmd/protoveneer/protoveneer.go",
+        "patchSetId": 4
+      },
+      "lineNbr": 628,
+      "author": {
+        "id": 14570
+      },
+      "writtenOn": "2024-01-06T13:15:08Z",
+      "side": 1,
+      "message": "Some context: Eli and I chose exp as a single place for a tool that is used in two separate repos, one for GCP and one for Google AI. The license is from Cloud. At present the tool isn\u0027t used for anything in the Go repos.\n\nI moved the license text to a separate file and added a flag to make it configurable.",
+      "parentUuid": "f31db90e_ebfda3e2",
+      "revId": "81039a000becb2d0f2728e3a9b19fd13230d9d59",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
