@@ -70,6 +70,24 @@
       "message": "The code in `slices` checks for `i \u003d\u003d j` here; is this not needed ?",
       "revId": "eba1fc5555093a7ad5f41c51f7a47fc3a3621397",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "656c8ce3_ac1a8e3d",
+        "filename": "slices/slices.go",
+        "patchSetId": 1
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 29355
+      },
+      "writtenOn": "2024-01-12T14:20:59Z",
+      "side": 1,
+      "message": "This was a later addition. Yes, we should backport it too.\n\nAlso because the newer bounds check `_ \u003d s[i:j:len(s)]` seems better to me than `_ \u003d s[i:j]`.",
+      "parentUuid": "623b70df_f0ca7c6b",
+      "revId": "eba1fc5555093a7ad5f41c51f7a47fc3a3621397",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
