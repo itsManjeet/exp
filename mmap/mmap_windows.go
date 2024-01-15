@@ -30,6 +30,7 @@ const debug = false
 // not safe to call Close and reading methods concurrently.
 type ReaderAt struct {
 	data []byte
+	pos  int64
 }
 
 // Close closes the reader.
@@ -76,6 +77,35 @@ func (r *ReaderAt) ReadAt(p []byte, off int64) (int, error) {
 		return n, io.EOF
 	}
 	return n, nil
+}
+
+// WriteTo implements the io.WriterTo interface.
+func (r *ReaderAt) WriteTo(w io.Writer) (int64, error) {
+	n, err := w.Write(r.data[r.pos:])
+	r.pos += int64(n)
+	return int64(n), err
+}
+
+// Read implements the io.ReadSeeker interface.
+func (r *ReaderAt) Read(p []byte) (n int, err error) {
+	n, err = r.ReadAt(p, r.pos)
+	r.pos += int64(n)
+	return n, err
+}
+
+// Seek implements the io.ReadSeeker interface.
+func (r *ReaderAt) Seek(offset int64, whence int) (int64, error) {
+	switch whence {
+	case io.SeekStart:
+		r.pos = offset
+	case io.SeekCurrent:
+		r.pos += offset
+	case io.SeekEnd:
+		r.pos = int64(len(r.data)) + offset
+	default:
+		return 0, fmt.Errorf("mmap: invalid seek whence")
+	}
+	return r.pos, nil
 }
 
 // Open memory-maps the named file for reading.
