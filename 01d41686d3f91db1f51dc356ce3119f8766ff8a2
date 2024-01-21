@@ -33,6 +33,23 @@
       "message": "This is adding new API, so it needs to go through the proposal process first.\n\nhttps://github.com/golang/proposal",
       "revId": "01d41686d3f91db1f51dc356ce3119f8766ff8a2",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b5c1335_129028d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5200
+      },
+      "writtenOn": "2024-01-21T18:00:41Z",
+      "side": 1,
+      "message": "FYI, you probably want to look at https://go-review.googlesource.com/c/go/+/513715 and the associated issue.\nParticularly, this function should probably return an iterator and not a slice (when iterators become a thing).",
+      "revId": "01d41686d3f91db1f51dc356ce3119f8766ff8a2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
