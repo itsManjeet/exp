@@ -16,6 +16,23 @@
       "message": "I spotted some possible problems.\n\nThese findings are based on simple heuristics. If a finding appears wrong, briefly reply here saying so. Otherwise, please address any problems and update the GitHub PR. When complete, mark this comment as \u0027Done\u0027 and click the [blue \u0027Reply\u0027 button](https://go.dev/wiki/GerritBot#i-left-a-reply-to-a-comment-in-gerrit-but-no-one-but-me-can-see-it) above.\n\nPossible problems detected:\n  1. The commit title should start with the primary affected package name followed by a colon, like \"net/http: improve [...]\".\n  2. The first word in the commit title after the package should be a lowercase English word (usually a verb).\n  3. Lines in the commit message should be wrapped at ~76 characters unless needed for things like URLs or tables. You have a 109 character line.\n  4. You usually need to reference a bug number for all but trivial or cosmetic fixes. For the exp repo, the format is usually \u0027Fixes golang/go#12345\u0027 or \u0027Updates golang/go#12345\u0027 at the end of the commit message. Should you have a bug reference?\n\nThe commit title and commit message body come from the GitHub PR title and description, and must be edited in the GitHub web interface (not via git). For instructions, see [here](https://go.dev/wiki/GerritBot/#how-does-gerritbot-determine-the-final-commit-message). For guidelines on commit messages for the Go project, see [here](https://go.dev/doc/contribute#commit_messages).\n\n\n(In general for Gerrit code reviews, the change author is expected to [log in to Gerrit](https://go-review.googlesource.com/login/) with a Gmail or other Google account and then close out each piece of feedback by marking it as \u0027Done\u0027 if implemented as suggested or otherwise reply to each review comment. See the [Review](https://go.dev/doc/contribute#review) section of the Contributing Guide for details.)",
       "revId": "01d41686d3f91db1f51dc356ce3119f8766ff8a2",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "edd2f7ea_e0691b76",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5200
+      },
+      "writtenOn": "2024-01-21T15:35:19Z",
+      "side": 1,
+      "message": "This is adding new API, so it needs to go through the proposal process first.\n\nhttps://github.com/golang/proposal",
+      "revId": "01d41686d3f91db1f51dc356ce3119f8766ff8a2",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
