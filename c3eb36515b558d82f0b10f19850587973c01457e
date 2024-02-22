@@ -41,6 +41,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf1c2afd_f4153d7c",
+        "filename": "trace/batch.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 17576
+      },
+      "writtenOn": "2024-02-22T23:01:01Z",
+      "side": 1,
+      "message": "OK, sent https://go-review.git.corp.google.com/c/go/+/566236.",
+      "parentUuid": "bee2676a_a445314f",
+      "range": {
+        "startLine": 49,
+        "startChar": 17,
+        "endLine": 52,
+        "endChar": 1
+      },
+      "revId": "c3eb36515b558d82f0b10f19850587973c01457e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "761ebe2b_68cceee5",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-02-22T21:45:03Z",
       "side": 1,
       "message": "I think we should stop tracing, yeah.",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 41
+      },
+      "revId": "c3eb36515b558d82f0b10f19850587973c01457e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78c7ef66_c2ad2b84",
+        "filename": "trace/flightrecorder.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 17576
+      },
+      "writtenOn": "2024-02-22T23:01:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "761ebe2b_68cceee5",
       "range": {
         "startLine": 112,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "af33d6e4_e1655936",
+        "filename": "trace/flightrecorder.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 17576
+      },
+      "writtenOn": "2024-02-22T23:01:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9acf41d1_f43e8833",
+      "range": {
+        "startLine": 129,
+        "startChar": 30,
+        "endLine": 129,
+        "endChar": 75
+      },
+      "revId": "c3eb36515b558d82f0b10f19850587973c01457e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "11f9c196_26f7ad36",
@@ -100,6 +172,30 @@
       "writtenOn": "2024-02-22T21:41:18Z",
       "side": 1,
       "message": "it shouldn\u0027t be, but I think it still makes sense to handle it.",
+      "range": {
+        "startLine": 132,
+        "startChar": 29,
+        "endLine": 132,
+        "endChar": 74
+      },
+      "revId": "c3eb36515b558d82f0b10f19850587973c01457e",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ce829bb_aeeae44d",
+        "filename": "trace/flightrecorder.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 17576
+      },
+      "writtenOn": "2024-02-22T23:01:01Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "11f9c196_26f7ad36",
       "range": {
         "startLine": 132,
         "startChar": 29,
