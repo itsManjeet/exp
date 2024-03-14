@@ -34,7 +34,7 @@ SRC=$GODIR/src/internal/trace/v2
 DST=$(dirname $0)
 
 # Copy.
-cp -r $SRC/* $DST
+rsync -av --delete $SRC/ $DST
 rm $DST/mkexp.bash
 
 # Remove the trace_test.go file and the testprogs it invokes.
@@ -46,18 +46,27 @@ rm $DST/mkexp.bash
 rm $DST/trace_test.go
 rm -r $DST/testdata/testprog
 
+# Remove the oldtrace testdata to avoid checking in new binary files.
+# Remove oldtrace_test.go and internal/oldtrace/parser_test.go because
+# they fail without this data.
+rm -r $DST/internal/oldtrace/testdata
+rm $DST/oldtrace_test.go
+rm $DST/internal/oldtrace/parser_test.go
+
 # Remove mktests.go because its a //go:build ignore file, so it would
 # complicate the logic below. This codebase isn't the source of truth
 # anyway.
 rm $DST/testdata/mktests.go
 
 # Make some packages internal.
+rm -rf $DST/internal/raw $DST/internal/event $DST/internal/version $DST/internal/testtrace
 mv $DST/raw $DST/internal/raw
 mv $DST/event $DST/internal/event
 mv $DST/version $DST/internal/version
 mv $DST/testtrace $DST/internal/testtrace
 
 # Move the debug commands out of testdata.
+rm -rf $DST/cmd
 mv $DST/testdata/cmd $DST/cmd
 
 # Fix up import paths.
@@ -76,3 +85,6 @@ find $DST -name '*.go' | xargs -- sed -i '/LICENSE file./a \
 
 # Format the files.
 find $DST -name '*.go' | xargs -- gofmt -w -s
+
+# Restore known files.
+git checkout gen.bash flightrecorder.go flightrecorder_test.go
