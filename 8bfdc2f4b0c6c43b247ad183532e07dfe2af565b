@@ -16,6 +16,24 @@
       "message": "Looks like this is failing due to issue #66099 (from CL 564555 most likely). We\u0027ll need to wait until that\u0027s resolved before going ahead with this CL.",
       "revId": "8bfdc2f4b0c6c43b247ad183532e07dfe2af565b",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1faa8da_4d5649f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2024-03-18T12:50:56Z",
+      "side": 1,
+      "message": "That issue is resolved by now, restarting trybots.",
+      "parentUuid": "706d5ef7_2a09dac2",
+      "revId": "8bfdc2f4b0c6c43b247ad183532e07dfe2af565b",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
