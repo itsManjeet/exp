@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "325872e1_42bcb6c6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2024-06-13T21:57:57Z",
+      "side": 1,
+      "message": "Put the package name first, as in\n\nslices: add documentation on incomparable items in SortFunc",
+      "revId": "f12326f0daf902a41988039b4841054567be9286",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cb2d51d_e8730415",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5206
+      },
+      "writtenOn": "2024-06-13T21:57:57Z",
+      "side": 1,
+      "message": "Note that this package is in the standard library now also.",
+      "revId": "f12326f0daf902a41988039b4841054567be9286",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
