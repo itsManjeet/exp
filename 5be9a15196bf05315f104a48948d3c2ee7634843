@@ -16,6 +16,23 @@
       "message": "There\u0027s a pre-existing failure in x/exp that this CL is running into. I expected watchflakes to report it by now (as of #58819), but it\u0027s not, filed #68753 for that.",
       "revId": "5be9a15196bf05315f104a48948d3c2ee7634843",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a32bc22d_ab6512b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 6005
+      },
+      "writtenOn": "2024-08-08T15:25:34Z",
+      "side": 1,
+      "message": "Adding bypass since the only failing test (TestAPIConsistency) is failing in the same way as at tip. We need to fix it, but submitting this in the meantime.",
+      "revId": "5be9a15196bf05315f104a48948d3c2ee7634843",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
