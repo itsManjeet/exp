@@ -22,6 +22,23 @@
       },
       "revId": "9f1fae6ac02f7aba28e731748077c68c8e07717f",
       "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e243b4a_7248a363",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 57259
+      },
+      "writtenOn": "2024-08-22T17:43:01Z",
+      "side": 1,
+      "message": "Thanks for the fix. This test may have outlived its usefulness.",
+      "revId": "9f1fae6ac02f7aba28e731748077c68c8e07717f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
     }
   ]
 }
