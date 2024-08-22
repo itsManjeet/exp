@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17032218_842b1a97",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 31647
+      },
+      "writtenOn": "2024-08-22T17:42:11Z",
+      "side": 1,
+      "message": "Fixes golang/go#69000\n\nFiled yesterday, and I hadn\u0027t gotten to it. Thanks for fixing and sorry for the breakage.",
+      "range": {
+        "startLine": 10,
+        "startChar": 18,
+        "endLine": 10,
+        "endChar": 24
+      },
+      "revId": "9f1fae6ac02f7aba28e731748077c68c8e07717f",
+      "serverId": "62eb7196-b449-3ce5-99f1-c037f21e1705"
+    }
+  ]
+}
